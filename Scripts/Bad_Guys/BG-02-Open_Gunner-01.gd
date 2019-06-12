@@ -18,7 +18,7 @@ var last_pos : = Vector2()
 var speed : = 60.0
 var current_speed_x = 0.0
 var current_speed_y = 0.0
-var started = false
+#var started = false
 var on_floor = false
 var on_ladder = false
 var over_ladder = false
@@ -28,14 +28,17 @@ var is_right = true
 var health = 50
 var player = -1
 var can_move = false
+var time_to_check = .5
+var current_time_to_check = 0
 
 func _ready():
-#	print("changing anim")
-#	anim = anim1.duplicate(bg_anim_num)
-#	anim = anim1
 	last_pos = self.global_position
+	randomize()
+	time_to_check = rand_range(.5, .75)
+#	print(time_to_check)
 
 func _process(delta: float) -> void:
+	current_time_to_check += delta
 	if cast_shoot_right.is_colliding():
 		if can_shoot:
 			shoot()
@@ -48,28 +51,12 @@ func _process(delta: float) -> void:
 				print("nav system found ", nav_system)
 				nav_system.found_me()
 		else:
-			if self.get_tree().get_current_scene().pawns.get_children().size() > 0:
-				nav_system.find_path(self, self.get_tree().get_current_scene().pawns.get_child(0))
-#			var move_distance : = speed * delta
-#			move_along_path(move_distance)
-#		if last_pos == global_position:
-#			_animation("Idle-Mid")
-#		elif int(last_pos.x) != int(global_position.x):
-#			_animation("Run-Mid")
-##		elif int(last_pos.y) != int(global_position.y):
-#		elif int(last_pos.y) > int(global_position.y):
-#			if over_ladder:
-#				_animation("Ladder-Up")
-#			else:
-#				_animation("Jump-Up")
-#		elif int(last_pos.y) < int(global_position.y):
-#			if over_ladder:
-#				_animation("Ladder-Up")
-#			else:
-#				_animation("Jump-Down")
+			if current_time_to_check >= time_to_check:
+				current_time_to_check = 0.0
+				if self.get_tree().get_current_scene().pawns.get_children().size() > 0:
+					nav_system.find_path(self, self.get_tree().get_current_scene().pawns.get_child(0))
 #	_on_floor()
 	_over_ladders()
-#	move_and_slide(Vector2(current_speed_x, current_speed_y))
 
 func _physics_process(delta):
 	var move_distance = speed * delta
@@ -97,6 +84,7 @@ func move_along_path(distance : float) -> void:
 # warning-ignore:unused_variable
 	for i in range (path.size()):
 		var distance_to_next : = start_point.distance_to(path[0])
+		print(distance_to_next)
 		var hor_move = int(self.global_position.x) - int(path[0].x)
 		var vert_move = int(self.global_position.y) - int(path[0].y)
 		if hor_move < 0:
@@ -116,10 +104,10 @@ func move_along_path(distance : float) -> void:
 		else:
 			_go_no_where(distance)
 
-		if distance <= distance_to_next and distance >= 0.5:
+		if distance <= distance_to_next and distance >= 0.0:
 			if (distance * distance_to_next) != 0:
 				can_move = true
-				position = start_point.linear_interpolate(path[0], distance / distance_to_next)
+#				position = start_point.linear_interpolate(path[0], distance / distance_to_next)
 			break
 		elif distance < 0.0:
 			position = path[0]
