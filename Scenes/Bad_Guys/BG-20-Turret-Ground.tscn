@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Bad_Guys/BG-20-Turret-Ground.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Bad_Guys/BG-20-Turret-Ground.png" type="Texture" id=3]
+[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=4]
+
+[node name="BG-20-Turret-Ground" type="Node2D"]
+script = ExtResource( 1 )
+projectile = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -14 )
+texture = ExtResource( 3 )
+vframes = 3
+hframes = 5
+frame = 2
+
+[node name="Casts" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Shoot-Cast-Left" type="RayCast2D" parent="Casts"]
+position = Vector2( 0, -17 )
+cast_to = Vector2( -200, 0 )
+
+[node name="Shoot-Cast-Right" type="RayCast2D" parent="Casts"]
+position = Vector2( 0, -17 )
+cast_to = Vector2( 200, 0 )
+
+[node name="Shoot-Cast-Up" type="RayCast2D" parent="Casts"]
+position = Vector2( 0, -17 )
+cast_to = Vector2( 0, -200 )
+
+[node name="Shoot-Cast-Up-Left" type="RayCast2D" parent="Casts"]
+position = Vector2( -5, -17 )
+cast_to = Vector2( -150, -150 )
+
+[node name="Shoot-Cast-Up-Right" type="RayCast2D" parent="Casts"]
+position = Vector2( 5, -17 )
+cast_to = Vector2( 150, -150 )
+
+[node name="SFX_Lib" parent="." instance=ExtResource( 4 )]
+
+[node name="Shoot_Spots" type="Node2D" parent="."]
+
+[node name="Position2D-Left" type="Position2D" parent="Shoot_Spots"]
+position = Vector2( -25, -17 )
+rotation = 3.14159
+
+[node name="Position2D-Up-Left" type="Position2D" parent="Shoot_Spots"]
+position = Vector2( -19, -31 )
+rotation = 2.35619
+scale = Vector2( -1, 1 )
+
+[node name="Position2D-Up" type="Position2D" parent="Shoot_Spots"]
+position = Vector2( -0.232265, -37.4715 )
+rotation = -1.5708
+
+[node name="Position2D-Up-Right" type="Position2D" parent="Shoot_Spots"]
+position = Vector2( 19, -31 )
+rotation = -0.785398
+
+[node name="Position2D-Right" type="Position2D" parent="Shoot_Spots"]
+position = Vector2( 25, -17 )
+
+[node name="Timer_shoot" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Timer_shoot" to="." method="_on_Timer_shoot_timeout"]

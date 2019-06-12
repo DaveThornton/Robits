@@ -227,7 +227,7 @@ radius = 2.0
 height = 40.0
 
 [sub_resource type="Animation" id=9]
-resource_name = "Idel-Mid"
+resource_name = "Idle-Mid"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -355,7 +355,7 @@ shape = SubResource( 7 )
 position = Vector2( 10, -31 )
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
-anims/Idel-Mid = SubResource( 9 )
+anims/Idle-Mid = SubResource( 9 )
 anims/Jump-Down = SubResource( 10 )
 anims/Jump-Up = SubResource( 11 )
 anims/Ladder-Up = SubResource( 12 )
