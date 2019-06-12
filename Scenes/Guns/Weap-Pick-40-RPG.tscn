@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Guns/Weap-Pick-40-RPG.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Guns/Weap-40-RPG.png" type="Texture" id=3]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.1
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 5.06209
+height = 43.212
+
+[node name="Weap-Pick-40-RPG" type="RigidBody2D" groups=[
+"FX",
+"PickUp",
+]]
+position = Vector2( -0.209351, -0.628044 )
+collision_layer = 524288
+collision_mask = 917534
+mass = 20.4082
+physics_material_override = SubResource( 1 )
+gravity_scale = 6.0
+continuous_cd = 2
+contacts_reported = 9
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 1 )
+smoke = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+hframes = 5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.122086, -1.19209e-007 )
+rotation = 1.5708
+shape = SubResource( 2 )
+disabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 1.15196, 7.25965, 26.3018, -0.309731, 21.5405, -4.09442, -25.8292, -4.21651, -25.8292, 2.98662 )
+[connection signal="body_entered" from="." to="." method="_on_WeapPick40RPG_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Des_Timer_timeout"]

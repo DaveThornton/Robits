@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/FX/FX-01-Bullet_Hit_player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/gen-boom/Generic-boom-02.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/gen-boom/Generic-boom-04.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/gen-boom/Generic-boom-06.png" type="Texture" id=4]
+[ext_resource path="res://SFX/Weapons/sfx_damage_hit6.wav" type="AudioStream" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "default",
+"speed": 9.0
+} ]
+
+[node name="Bullet_Hit" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 1 )
+speed_scale = 3.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -5.0
+autoplay = true
+bus = "Quiet"
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

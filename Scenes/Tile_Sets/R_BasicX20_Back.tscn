@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Tile_Sets/Basic_Red_set_Back.png" type="Texture" id=1]
+
+[node name="R_Basic_Back" type="Node2D"]
+
+[node name="Back_01" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 20
+
+[node name="Back_02" type="Sprite" parent="."]
+position = Vector2( 20, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 1
+
+[node name="Back_03" type="Sprite" parent="."]
+position = Vector2( 40, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 2
+
+[node name="Back_04" type="Sprite" parent="."]
+position = Vector2( 60, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 3
+
+[node name="Back_05" type="Sprite" parent="."]
+position = Vector2( 80, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 4
+
+[node name="Back_06" type="Sprite" parent="."]
+position = Vector2( 100, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 5
+
+[node name="Back_07" type="Sprite" parent="."]
+position = Vector2( 120, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 19
+
+[node name="Back_08" type="Sprite" parent="."]
+position = Vector2( 140, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 8
+
+[node name="Back_09" type="Sprite" parent="."]
+position = Vector2( 160, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 10
+
+[node name="Back_10" type="Sprite" parent="."]
+position = Vector2( 180, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 9
+
+[node name="Back_11" type="Sprite" parent="."]
+position = Vector2( 200, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 6
+
+[node name="Back_12" type="Sprite" parent="."]
+position = Vector2( 220, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 11
+
+[node name="Back_13" type="Sprite" parent="."]
+position = Vector2( 240, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 7
+
+[node name="Back_14" type="Sprite" parent="."]
+position = Vector2( 260, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 12
+
+[node name="Back_15" type="Sprite" parent="."]
+position = Vector2( 280, 0 )
+texture = ExtResource( 1 )
+hframes = 20
+frame = 13

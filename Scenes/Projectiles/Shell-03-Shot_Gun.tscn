@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Projectiles/Shell-01.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Projectiles/Proj-00-Shells-and-Pins.png" type="Texture" id=2]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.5
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 1.31031
+height = 4.4582
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 2.14201, 0.992464 )
+
+[node name="Shell-01" type="RigidBody2D"]
+position = Vector2( 0, 0.0224671 )
+collision_layer = 131072
+collision_mask = 131100
+mass = 0.000204082
+physics_material_override = SubResource( 1 )
+gravity_scale = 8.0
+applied_torque = 0.08
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 4
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.577186, -0.120412 )
+rotation = 1.5708
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0.040554, 0.223042 )
+shape = SubResource( 3 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

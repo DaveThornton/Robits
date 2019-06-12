@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Map_Parts/MP-08-Rigid_Body_Spawner -01.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-20-Grenade.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Map_Parts/Marks-Sheet.png" type="Texture" id=3]
+
+
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 24.0
+
+[node name="R_Mark_02_00" type="Node2D"]
+
+script = ExtResource( 1 )
+respawn_time = 18
+spawn_only_1 = true
+body_1 = ExtResource( 2 )
+body_2 = ExtResource( 2 )
+body_3 = ExtResource( 2 )
+body_4 = ExtResource( 2 )
+body_5 = ExtResource( 2 )
+body_6 = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 0, 20 )
+texture = ExtResource( 3 )
+vframes = 5
+hframes = 10
+frame = 7
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="Position2D" type="Position2D" parent="." index="1"]
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
+position = Vector2( 0, 2 )
+input_pickable = true
+space_override = 3
+gravity_point = true
+gravity_vec = Vector2( 1, 1 )
+gravity = 100.0
+linear_damp = 10.0
+angular_damp = 10.0
+collision_layer = 524288
+collision_mask = 524288
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+position = Vector2( 0, -8 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="3"]
+
+input_pickable = false
+collision_layer = 524296
+collision_mask = 524296
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -10, 10, 10, 10, 10, 30, -10, 30 )
+
+[node name="Timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 18.0
+one_shot = true
+autostart = true
+
+[node name="Timer_start" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="Timer_start" to="." method="_on_Timer_start_timeout"]
+
+

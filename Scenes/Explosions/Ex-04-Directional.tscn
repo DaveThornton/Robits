@@ -1,0 +1,189 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Explosions/Ex-02-Standard-Dir.gd" type="Script" id=1]
+[ext_resource path="res://SFX/Explosions/sfx_exp_medium5.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sprites/gen-boom/Generic-boom-02-sheet.png" type="Texture" id=3]
+[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Explode"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Area2D-outer/CollisionPolygon2D_UP:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Area2D-outer/CollisionPolygon2D_Right:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Area2D-outer/CollisionPolygon2D_Down:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Area2D-outer/CollisionPolygon2D_Left:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade"
+length = 0.26
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.18, 0.22 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 2.5, 2.5 ), Vector2( 2, 2 ), Vector2( 1.75, 1.75 ), Vector2( 1.5, 1.5 ), Vector2( 1.25, 1.25 ), Vector2( 1, 1 ), Vector2( 0.75, 0.75 ), Vector2( 0.5, 0.5 ), Vector2( 0.25, 0.25 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 25.721
+
+[node name="Ex-02-Standard" type="Node2D"]
+z_index = -3
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Explode = SubResource( 1 )
+anims/fade = SubResource( 2 )
+
+[node name="Area2D-outer" type="Area2D" parent="."]
+gravity_distance_scale = 1024.0
+gravity_vec = Vector2( -1, -1 )
+gravity = -1024.0
+linear_damp = 0.0
+angular_damp = 0.0
+collision_layer = 131072
+collision_mask = 395778
+
+[node name="CollisionPolygon2D_UP" type="CollisionPolygon2D" parent="Area2D-outer"]
+polygon = PoolVector2Array( 0.27269, -0.078804, 51.6343, -51.8333, 0.154968, -75.3164, -54.7357, -47.8581 )
+
+[node name="CollisionPolygon2D_Right" type="CollisionPolygon2D" parent="Area2D-outer"]
+polygon = PoolVector2Array( -0.0670319, 0.311394, 54.973, 50.5782, 73.7612, -0.554459, 52.119, -51.2116 )
+
+[node name="CollisionPolygon2D_Down" type="CollisionPolygon2D" parent="Area2D-outer"]
+polygon = PoolVector2Array( -0.0670319, 0.311394, -52.2871, 55.5727, -0.202682, 78.1662, 53.5462, 51.7674 )
+
+[node name="CollisionPolygon2D_Left" type="CollisionPolygon2D" parent="Area2D-outer"]
+polygon = PoolVector2Array( -0.0670319, 0.311394, -55.1407, -46.9308, -75.1182, -0.792362, -54.1894, 54.3835 )
+
+[node name="Area2D2-inner" type="Area2D" parent="."]
+collision_layer = 655872
+collision_mask = 655872
+
+[node name="CollisionShape2D-inner" type="CollisionShape2D" parent="Area2D2-inner"]
+visible = false
+shape = SubResource( 3 )
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 9.0
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 9
+
+[node name="Casts" type="Node2D" parent="."]
+
+[node name="RayCast2D_Up" type="RayCast2D" parent="Casts"]
+position = Vector2( 0, -20 )
+exclude_parent = false
+cast_to = Vector2( 0, -50 )
+collision_mask = 8
+
+[node name="RayCast2D_Down" type="RayCast2D" parent="Casts"]
+position = Vector2( 0, 20 )
+exclude_parent = false
+collision_mask = 8
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="Casts"]
+position = Vector2( -20, 0 )
+exclude_parent = false
+cast_to = Vector2( -50, 0 )
+collision_mask = 8
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="Casts"]
+position = Vector2( 20, 0 )
+exclude_parent = false
+cast_to = Vector2( 50, 0 )
+collision_mask = 8
+
+[node name="SFX_Lib" parent="." instance=ExtResource( 4 )]
+[connection signal="body_entered" from="Area2D-outer" to="." method="_on_Area2Douter_body_entered"]
+[connection signal="body_entered" from="Area2D2-inner" to="." method="_on_Area2D2inner_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

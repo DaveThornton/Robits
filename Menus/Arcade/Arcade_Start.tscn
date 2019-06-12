@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Menus/Arcade/Arcade_Start.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Arcade/Arcade_Map_Select.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Menu/Arcade-Screen.png" type="Texture" id=3]
+[ext_resource path="res://Menus/Arcade/Arcade_Bottom_HUD.tscn" type="PackedScene" id=4]
+
+[node name="Arcade_Start" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+map_screen = ExtResource( 2 )
+
+[node name="Arcade-Screen" type="Sprite" parent="."]
+position = Vector2( 959.998, 539.995 )
+texture = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 1948.0
+margin_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 1948.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer5" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+margin_right = 1948.0
+size_flags_vertical = 2
+
+[node name="MarginContainer6" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 142.0
+margin_right = 1948.0
+margin_bottom = 142.0
+size_flags_vertical = 2
+
+[node name="MarginContainer7" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 284.0
+margin_right = 1948.0
+margin_bottom = 284.0
+size_flags_vertical = 2
+
+[node name="MarginContainer8" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 426.0
+margin_right = 1948.0
+margin_bottom = 426.0
+size_flags_vertical = 2
+
+[node name="MarginContainer9" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 568.0
+margin_right = 1948.0
+margin_bottom = 568.0
+size_flags_vertical = 2
+
+[node name="MarginContainer11" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 710.0
+margin_right = 1948.0
+margin_bottom = 710.0
+size_flags_vertical = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 852.0
+margin_right = 1948.0
+margin_bottom = 852.0
+size_flags_vertical = 2
+
+[node name="Arcade_Bottom_HUD" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 994.0
+margin_right = 1948.0
+margin_bottom = 1076.0
+size_flags_horizontal = 5
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+visible = false
+margin_top = 1066.0
+margin_right = 1912.0
+margin_bottom = 1066.0
+size_flags_stretch_ratio = 0.1
+

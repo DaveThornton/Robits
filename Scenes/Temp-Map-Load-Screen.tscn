@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/BackGroundSpace-01.png" type="Texture" id=1]
+
+[node name="Temp-Map-Load-Screen" type="MarginContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 970, 560 )
+scale = Vector2( 4, 2.5 )
+z_index = 100
+texture = ExtResource( 1 )
+
+[node name="Labels" type="VSplitContainer" parent="Sprite"]
+margin_left = -242.5
+margin_top = -224.0
+margin_right = 156.5
+margin_bottom = -167.0
+
+[node name="1" type="Label" parent="Sprite/Labels"]
+pause_mode = 2
+margin_right = 399.0
+margin_bottom = 31.0
+text = "going to the next level
+"
+
+[node name="2" type="Label" parent="Sprite/Labels"]
+margin_top = 43.0
+margin_right = 399.0
+margin_bottom = 57.0
+text = "this tells you something about the level you are about to go to"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0

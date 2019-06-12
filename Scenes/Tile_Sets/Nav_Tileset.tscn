@@ -1,0 +1,111 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Tile_Sets/nav-tiles.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Open" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 10
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Open"]
+
+[node name="Hor-Left-Right" type="Sprite" parent="."]
+position = Vector2( 20, 0 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 10
+frame = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hor-Left-Right"]
+
+[node name="Hor-Vert" type="Sprite" parent="."]
+position = Vector2( 40, 0 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 10
+frame = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hor-Vert"]
+
+[node name="Vert-Up-Down" type="Sprite" parent="."]
+position = Vector2( 60, 0 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 10
+frame = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Vert-Up-Down"]
+
+[node name="Hor-Vert-Left-Up-Right" type="Sprite" parent="."]
+position = Vector2( 80, 0 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 10
+frame = 4
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hor-Vert-Left-Up-Right"]
+
+[node name="Hor-Vert-Left-Down-Right" type="Sprite" parent="."]
+position = Vector2( 100, 0 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 10
+frame = 5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hor-Vert-Left-Down-Right"]
+
+[node name="Hor-Vert-Left-Up-Down" type="Sprite" parent="."]
+position = Vector2( 120, 0 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 10
+frame = 6
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hor-Vert-Left-Up-Down"]
+
+[node name="Hor-Vert-Up-Right-Down" type="Sprite" parent="."]
+position = Vector2( 140, 0 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 10
+frame = 7
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Hor-Vert-Up-Right-Down"]
+
+[node name="Elbow-Left-Up" type="Sprite" parent="."]
+position = Vector2( 160, 0 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 10
+frame = 8
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Elbow-Left-Up"]
+
+[node name="Elbow-Up-Right" type="Sprite" parent="."]
+position = Vector2( 180, 0 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 10
+frame = 9
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Elbow-Up-Right"]
+
+[node name="Elbow-Right-Down" type="Sprite" parent="."]
+position = Vector2( 0, 20 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 10
+frame = 10
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Elbow-Right-Down"]
+
+[node name="Elbow-Down-Left" type="Sprite" parent="."]
+position = Vector2( 20, 20 )
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 10
+frame = 11
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Elbow-Down-Left"]

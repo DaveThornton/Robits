@@ -1,0 +1,217 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Tile_Sets/Basic_Red_set.png" type="Texture" id=1]
+
+[node name="R_B_Plat_X20" type="Node2D"]
+
+[node name="Plat_01" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 40
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plat_01"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plat_01/StaticBody2D"]
+polygon = PoolVector2Array( -10, 4, 10, 4, 10, 10, -10, 10 )
+one_way_collision = true
+one_way_collision_margin = 128.0
+
+[node name="Plat_02" type="Sprite" parent="."]
+position = Vector2( 20, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 41
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plat_02"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plat_02/StaticBody2D"]
+polygon = PoolVector2Array( -10, 4, 10, 4, 10, 10, -10, 10 )
+one_way_collision = true
+one_way_collision_margin = 128.0
+
+[node name="Plat_03" type="Sprite" parent="."]
+position = Vector2( 40, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 42
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plat_03"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plat_03/StaticBody2D"]
+polygon = PoolVector2Array( -10, 4, 10, 4, 10, 10, -10, 10 )
+one_way_collision = true
+one_way_collision_margin = 128.0
+
+[node name="Plat_04" type="Sprite" parent="."]
+position = Vector2( 60, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 43
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plat_04"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plat_04/StaticBody2D"]
+position = Vector2( 0, -7 )
+polygon = PoolVector2Array( -10, 4, 10, 4, 10, 10, -10, 10 )
+one_way_collision = true
+one_way_collision_margin = 128.0
+
+[node name="Plat_05" type="Sprite" parent="."]
+position = Vector2( 80, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 44
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plat_05"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plat_05/StaticBody2D"]
+position = Vector2( 0, -7 )
+polygon = PoolVector2Array( -10, 4, 10, 4, 10, 10, -10, 10 )
+one_way_collision = true
+one_way_collision_margin = 128.0
+
+[node name="Plat_06" type="Sprite" parent="."]
+position = Vector2( 100, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 45
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plat_06"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plat_06/StaticBody2D"]
+position = Vector2( 0, -7 )
+polygon = PoolVector2Array( -10, 4, 10, 4, 10, 10, -10, 10 )
+one_way_collision = true
+one_way_collision_margin = 128.0
+
+[node name="Plat_07" type="Sprite" parent="."]
+position = Vector2( 120, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 46
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plat_07"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plat_07/StaticBody2D"]
+position = Vector2( 0, -14 )
+polygon = PoolVector2Array( -10, 4, 10, 4, 10, 10, -10, 10 )
+one_way_collision = true
+one_way_collision_margin = 128.0
+
+[node name="Plat_08" type="Sprite" parent="."]
+position = Vector2( 140, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 47
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plat_08"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plat_08/StaticBody2D"]
+position = Vector2( 0, -14 )
+polygon = PoolVector2Array( -10, 4, 10, 4, 10, 10, -10, 10 )
+one_way_collision = true
+one_way_collision_margin = 128.0
+
+[node name="Plat_09" type="Sprite" parent="."]
+position = Vector2( 160, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 48
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Plat_09"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plat_09/StaticBody2D"]
+position = Vector2( 0, -14 )
+polygon = PoolVector2Array( -10, 4, 10, 4, 10, 10, -10, 10 )
+one_way_collision = true
+one_way_collision_margin = 128.0
+
+[node name="Cos_01" type="Sprite" parent="."]
+position = Vector2( 180, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 31
+
+[node name="Cos_02" type="Sprite" parent="."]
+position = Vector2( 200, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 32
+
+[node name="Cos_03" type="Sprite" parent="."]
+position = Vector2( 220, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 34
+
+[node name="Cos_04" type="Sprite" parent="."]
+position = Vector2( 240, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 33
+
+[node name="Cos_05" type="Sprite" parent="."]
+position = Vector2( 260, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 39
+
+[node name="Cos_06" type="Sprite" parent="."]
+position = Vector2( 280, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 38
+
+[node name="Cos_07" type="Sprite" parent="."]
+position = Vector2( 300, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 37
+
+[node name="Cos_08" type="Sprite" parent="."]
+position = Vector2( 320, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 35
+
+[node name="Cos_09" type="Sprite" parent="."]
+position = Vector2( 340, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 36

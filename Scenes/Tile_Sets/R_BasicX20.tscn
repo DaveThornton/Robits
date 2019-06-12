@@ -1,0 +1,437 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Tile_Sets/Basic_Red_set.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="R_Basic01" type="Sprite" parent="."]
+editor/display_folded = true
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic01"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic01/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic02" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 20, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic02"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic02/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic03" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 40, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic03"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic03/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic04" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 60, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic04"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic04/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic05" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 80, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 4
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic05"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic05/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic06" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 100, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 6
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic06"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic06/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic07" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 120, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic07"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic07/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic08" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 140, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 7
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic08"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic08/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic09" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 160, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 8
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic09"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic09/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic11" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 160, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 8
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic11"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic11/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic10" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 180, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 9
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic10"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic10/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic12" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 200, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 10
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic12"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic12/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic13" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 220, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 11
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic13"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic13/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic14" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 240, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 12
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic14"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic14/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic15" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 260, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 13
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic15"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic15/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic16" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 280, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 14
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic16"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic16/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic17" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 300, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 16
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic17"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic17/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic18" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 320, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 17
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic18"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic18/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic19" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 340, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 18
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic19"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic19/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic20" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 360, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 15
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic20"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic20/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )
+
+[node name="R_Basic21" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 380, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 19
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic21"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic21/StaticBody2D"]
+polygon = PoolVector2Array( 10, 10, -10, 10, -10, -10, 10, 0 )
+
+[node name="R_Basic22" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 400, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 20
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic22"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic22/StaticBody2D"]
+polygon = PoolVector2Array( 10, 10, -10, 10, -10, 0 )
+
+[node name="R_Basic23" type="Sprite" parent="." groups=[
+"angle",
+]]
+editor/display_folded = true
+position = Vector2( 420, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 21
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic23"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic23/StaticBody2D"]
+polygon = PoolVector2Array( 10, 10, -10, 10, -10, -10, 10, 10, 10, 10, 10, 10 )
+
+[node name="R_Basic24" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 440, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 22
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic24"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic24/StaticBody2D"]
+polygon = PoolVector2Array( -10, 10, 10, -10, 10, 10 )
+
+[node name="R_Basic25" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 460, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 23
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic25"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic25/StaticBody2D"]
+polygon = PoolVector2Array( -10, 10, 10, 0, 10, 10 )
+
+[node name="R_Basic26" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 480, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 24
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic26"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic26/StaticBody2D"]
+polygon = PoolVector2Array( 10, 10, 10, -10, -10, 0, -10, 10 )
+
+[node name="R_Basic27" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 500, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 25
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic27"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic27/StaticBody2D"]
+polygon = PoolVector2Array( -10, 10, 10, 0, 10, -10, -10, -10 )
+
+[node name="R_Basic28" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 520, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 26
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic28"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic28/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, -10, 0, 10, -10 )
+
+[node name="R_Basic29" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 540, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 27
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic29"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic29/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 0, -10, -10 )
+
+[node name="R_Basic30" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 560, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 28
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic30"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic30/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 0 )
+
+[node name="R_Basic31" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 580, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 29
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic31"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic31/StaticBody2D"]
+polygon = PoolVector2Array( -10, 10, -10, -10, 10, -10 )
+
+[node name="R_Basic32" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 600, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 30
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic32"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic32/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, -10 )
+
+[node name="R_Basic33" type="Sprite" parent="."]
+editor/display_folded = true
+position = Vector2( 620, 0 )
+texture = ExtResource( 1 )
+vframes = 3
+hframes = 20
+frame = 49
+
+[node name="StaticBody2D" type="StaticBody2D" parent="R_Basic33"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="R_Basic33/StaticBody2D"]
+polygon = PoolVector2Array( -10, -10, 10, -10, 10, 10, -10, 10 )

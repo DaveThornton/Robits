@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/Guns/Weap-Pick-21-Nazi-Grenade.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Guns/Weap-21-Nazi-Grenade.png" type="Texture" id=5]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.25
+
+[sub_resource type="Animation" id=2]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 6.03744
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 1.45894
+height = 6.86675
+
+[node name="Weap-Pick-21-Nazi-Grenade" type="RigidBody2D" groups=[
+"PickUp",
+"FX",
+]]
+position = Vector2( 0.00648499, -0.452273 )
+collision_layer = 524288
+collision_mask = 917532
+mass = 0.204082
+physics_material_override = SubResource( 1 )
+gravity_scale = 5.0
+continuous_cd = 2
+contacts_reported = 9
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 1 )
+boom = ExtResource( 2 )
+smoke = ExtResource( 3 )
+
+[node name="Sprite_Pin" type="Sprite" parent="."]
+position = Vector2( -7, 0 )
+texture = ExtResource( 4 )
+
+[node name="Sprite_Body" type="Sprite" parent="."]
+rotation = 3.14159
+texture = ExtResource( 5 )
+hframes = 4
+frame = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Timer_Spin" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Timer_Boom" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Armed = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0.397758, 0.497202 )
+shape = SubResource( 3 )
+
+[node name="handle" type="CollisionShape2D" parent="."]
+position = Vector2( 0.48484, 10.3705 )
+shape = SubResource( 4 )
+
+[node name="handle2" type="CollisionShape2D" parent="."]
+position = Vector2( 0.557937, -9.5852 )
+shape = SubResource( 4 )
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_WeapPick21NaziGrenade_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer_Spin" to="." method="_on_Timer_Spin_timeout"]
+[connection signal="timeout" from="Timer_Boom" to="." method="_on_Timer_Boom_timeout"]

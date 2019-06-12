@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Menus/Grids/menu_4x2_01.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Menu/menu_boxes_450x250.png" type="Texture" id=2]
+
+[node name="Menu_4x2_01" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+player = 1
+pos = 1
+
+[node name="Sprite01" type="Sprite" parent="." index="0"]
+
+position = Vector2( -677.042, -125.37 )
+texture = ExtResource( 2 )
+hframes = 6
+frame = 1
+_sections_unfolded = [ "Animation", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite02" type="Sprite" parent="." index="1"]
+
+position = Vector2( -226.042, -125.37 )
+texture = ExtResource( 2 )
+hframes = 6
+frame = 1
+_sections_unfolded = [ "Animation", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite03" type="Sprite" parent="." index="2"]
+
+position = Vector2( 225.958, -125.37 )
+texture = ExtResource( 2 )
+hframes = 6
+frame = 1
+_sections_unfolded = [ "Animation", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite04" type="Sprite" parent="." index="3"]
+
+position = Vector2( 676.958, -125.37 )
+texture = ExtResource( 2 )
+hframes = 6
+frame = 1
+_sections_unfolded = [ "Animation", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite05" type="Sprite" parent="." index="4"]
+
+position = Vector2( -677.042, 125.63 )
+texture = ExtResource( 2 )
+hframes = 6
+frame = 1
+_sections_unfolded = [ "Animation", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite06" type="Sprite" parent="." index="5"]
+
+position = Vector2( -226.042, 125.63 )
+texture = ExtResource( 2 )
+hframes = 6
+frame = 1
+_sections_unfolded = [ "Animation", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite07" type="Sprite" parent="." index="6"]
+
+position = Vector2( 225.958, 125.63 )
+texture = ExtResource( 2 )
+hframes = 6
+frame = 1
+_sections_unfolded = [ "Animation", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite08" type="Sprite" parent="." index="7"]
+
+position = Vector2( 676.958, 125.63 )
+texture = ExtResource( 2 )
+hframes = 6
+frame = 1
+_sections_unfolded = [ "Animation", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+

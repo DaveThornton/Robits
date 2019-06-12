@@ -1,0 +1,43 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Robit-Controller.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Top_HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menus/Arcade/Arcade_Start.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Menus/Arcade/Arcade_Game_over.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Menus/Console-PC/Console_Start.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Menus/Console-PC/Console_Game_over.tscn" type="PackedScene" id=7]
+[ext_resource path="res://map/Campaign-mode/Map-C-01-Level-01.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/BackGroundSpace-01.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Level_Loader.tscn" type="PackedScene" id=10]
+
+[node name="World" type="Node"]
+pause_mode = 1
+script = ExtResource( 1 )
+player_controller = ExtResource( 2 )
+in_game_hud = ExtResource( 3 )
+arcade_start = ExtResource( 4 )
+arcade_end = ExtResource( 5 )
+console_start = ExtResource( 6 )
+console_end = ExtResource( 7 )
+demo_map = ExtResource( 8 )
+game_mode = 3
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+scale = Vector2( 3.75, 2.10937 )
+z_index = -33
+texture = ExtResource( 9 )
+
+[node name="players" type="Node" parent="."]
+
+[node name="Pawns" type="Node" parent="."]
+
+[node name="Clearing_House" type="Node2D" parent="."]
+
+[node name="Level_Loader" parent="." instance=ExtResource( 10 )]
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = 50
+default_color = Color( 0.945098, 0, 1, 1 )
+texture_mode = -1102592574

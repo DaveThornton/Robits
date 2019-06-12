@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Projectiles/Proj-40-RPG.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Guns/Weap-40-RPG.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Pawns/Liil_Fire_Down.png" type="Texture" id=4]
+[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 4.01671
+height = 15.8788
+
+[sub_resource type="Animation" id=2]
+resource_name = "fire"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 6, 7, 5, 6, 7, 3, 4 ]
+}
+
+[node name="Projectile_04" type="Area2D" groups=[
+"projectile",
+]]
+collision_layer = 512
+collision_mask = 536
+script = ExtResource( 1 )
+boom = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+hframes = 5
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -0.128513 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.01
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -10.472, 7.98591 )
+rotation = 1.5708
+texture = ExtResource( 4 )
+hframes = 15
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fire = SubResource( 2 )
+
+[node name="SFX_Lib" parent="." instance=ExtResource( 5 )]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -15, 0 )
+enabled = true
+cast_to = Vector2( 40, 0 )
+collision_mask = 24
+[connection signal="body_entered" from="." to="." method="_on_Projectile_04_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

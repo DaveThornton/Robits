@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Power_Ups/Ammo_Box.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Power_Ups/Ammo_box.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.31318, 5.93159 )
+
+[node name="Ammo_Box" type="Area2D"]
+collision_layer = 65536
+collision_mask = 458752
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.43449, 0.0394983 )
+shape = SubResource( 1 )
+
+[node name="Respawn_Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_Ammo_Box_body_entered"]
+[connection signal="timeout" from="Respawn_Timer" to="." method="_on_Respawn_Timer_timeout"]

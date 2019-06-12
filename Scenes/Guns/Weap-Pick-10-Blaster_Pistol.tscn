@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Guns/Weap-Pick-10-Blaster_Pistol.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Guns/Weap-10-Blaster_Pistol.png" type="Texture" id=3]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.2
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.5838, 4.94451 )
+
+[node name="Weap-Pick-10-Blaster_Pistol" type="RigidBody2D" groups=[
+"PickUp",
+"FX",
+]]
+collision_layer = 524288
+collision_mask = 917534
+mass = 0.612245
+physics_material_override = SubResource( 1 )
+gravity_scale = 6.0
+continuous_cd = 2
+contacts_reported = 9
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 1 )
+smoke = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
+one_way_collision_margin = 0.0
+
+[node name="Timer_Hit" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -7.7525, 7.7525, 10.1942, -4.94451, -7.7525, -4.94451 )
+
+[connection signal="body_shape_entered" from="." to="." method="_on_WeapPick10Blaster_Pistol_body_shape_entered"]
+[connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

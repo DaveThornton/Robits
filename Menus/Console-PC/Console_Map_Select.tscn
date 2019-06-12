@@ -1,0 +1,114 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Menus/Console-Pc/Console_Map_Select.gd" type="Script" id=1]
+[ext_resource path="res://map/Map-09-Red_Eye.tscn" type="PackedScene" id=2]
+[ext_resource path="res://map/Map-10-Ten.tscn" type="PackedScene" id=3]
+[ext_resource path="res://map/Map-11-Puck_Fan.tscn" type="PackedScene" id=4]
+[ext_resource path="res://map/Map-08-The_New_Red.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Menus/Console-PC/Console_Bottom_HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Menu/Menu-4x4-Map.png" type="Texture" id=7]
+[ext_resource path="res://Menus/Grids/menu_4x4_01.tscn" type="PackedScene" id=8]
+
+[node name="Map_Select_Screen" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+map_01 = ExtResource( 2 )
+map_02 = ExtResource( 3 )
+map_03 = ExtResource( 2 )
+map_04 = ExtResource( 3 )
+map_05 = ExtResource( 2 )
+map_06 = ExtResource( 3 )
+map_07 = ExtResource( 2 )
+map_08 = ExtResource( 3 )
+map_09 = ExtResource( 2 )
+map_10 = ExtResource( 3 )
+map_11 = ExtResource( 4 )
+map_12 = ExtResource( 5 )
+map_13 = ExtResource( 2 )
+map_14 = ExtResource( 3 )
+map_15 = ExtResource( 2 )
+map_16 = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+editor/display_folded = true
+margin_right = 1948.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+margin_right = 1948.0
+margin_bottom = 140.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 144.0
+margin_right = 1948.0
+margin_bottom = 844.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 972.0
+margin_bottom = 700.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 976.0
+margin_right = 1948.0
+margin_bottom = 700.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 848.0
+margin_right = 1948.0
+margin_bottom = 953.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="Console_Bottom_HUD" parent="VBoxContainer" instance=ExtResource( 6 )]
+margin_top = 957.0
+margin_right = 1948.0
+margin_bottom = 1080.0
+size_flags_vertical = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 965, 505 )
+texture = ExtResource( 7 )
+
+[node name="Menu_4x4_01" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 965, 505 )
+
+[node name="Menu_4x4_02" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 965, 505 )
+player = 2
+
+[node name="Menu_4x4_03" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 965, 505 )
+player = 3
+
+[node name="Menu_4x4_04" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 965, 505 )
+player = 4
+
+[node name="Menu_4x4_05" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 965, 505 )
+player = 5
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

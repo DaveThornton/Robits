@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Guns/Parts/Weap-Part-22-DetParticles.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Guns/Weap-22-Plasma-Grenade.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/FX/22-plasma-cloud.png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 1
+emission_sphere_radius = 6.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, -80, 0 )
+initial_velocity = 1.0
+angular_velocity = -3831.67
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 16.0
+linear_accel_random = 0.18
+scale = 1.5
+color = Color( 0.34902, 0.368627, 0.992157, 1 )
+
+[node name="22-plasma-det" type="Node2D"]
+material = SubResource( 1 )
+script = ExtResource( 1 )
+boom = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+hframes = 4
+frame = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+amount = 100
+local_coords = false
+process_material = SubResource( 2 )
+texture = ExtResource( 4 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

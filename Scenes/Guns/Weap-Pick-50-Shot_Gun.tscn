@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Guns/Weap-Pick-50-Shot_Gun.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Guns/Weap-50-Shot_Gun.png" type="Texture" id=3]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.1
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 7.72491
+height = 41.0784
+
+[node name="Weap-Pick-50-Shot_Gun" type="RigidBody2D" groups=[
+"PickUp",
+"FX",
+]]
+position = Vector2( -1.16385, 0.630419 )
+collision_layer = 524288
+collision_mask = 917534
+physics_material_override = SubResource( 1 )
+gravity_scale = 6.0
+continuous_cd = 1
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 1 )
+smoke = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.16385, 0.369581 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+vframes = 2
+hframes = 4
+frame = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_shape_entered" from="." to="." method="_on_WeapPick50Shot_Gun_body_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

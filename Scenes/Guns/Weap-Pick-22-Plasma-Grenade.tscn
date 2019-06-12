@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/Guns/Weap-Pick-22-Plasma-Grenade.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Guns/Weap-22-Plasma-Grenade.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Guns/Parts/Weap-Part-22-DetParticles.tscn" type="PackedScene" id=6]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.25
+
+[sub_resource type="Animation" id=2]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 7.87625
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 10.6018
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+
+[node name="Weap-Pick-22-Plasma-Grenade" type="RigidBody2D" groups=[
+"PickUp",
+"FX",
+]]
+collision_layer = 524288
+collision_mask = 917532
+mass = 0.204082
+physics_material_override = SubResource( 1 )
+gravity_scale = 5.0
+continuous_cd = 2
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 1 )
+boom = ExtResource( 2 )
+smoke = ExtResource( 3 )
+
+[node name="Sprite_Pin" type="Sprite" parent="."]
+position = Vector2( -11, 0 )
+texture = ExtResource( 4 )
+
+[node name="Sprite_Body" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+hframes = 4
+frame = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Timer_Spin" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Timer_Boom" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Armed = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 4 )
+
+[node name="22-plasma-det" parent="." instance=ExtResource( 6 )]
+visible = false
+material = SubResource( 5 )
+[connection signal="body_entered" from="." to="." method="_on_WeapPick22PlasmaGrenade_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer_Spin" to="." method="_on_Timer_Spin_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

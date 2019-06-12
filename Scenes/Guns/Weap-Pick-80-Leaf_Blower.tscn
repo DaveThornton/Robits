@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Guns/Weap-Pick-80-Leaf_Blower.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Guns/Weap-80-Leaf_Blower.png" type="Texture" id=3]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.25
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 8.0
+height = 28.0
+
+[node name="Weap-Pick-80-Leaf_Blower" type="RigidBody2D" groups=[
+"PickUp",
+"FX",
+]]
+collision_layer = 524288
+collision_mask = 786462
+mass = 0.204082
+physics_material_override = SubResource( 1 )
+gravity_scale = 5.0
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 1 )
+smoke = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2, 1 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Sprite_Body" type="Sprite" parent="."]
+position = Vector2( 0, 2 )
+texture = ExtResource( 3 )
+hframes = 5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="body_shape_entered" from="." to="." method="_on_WeapPick80Leaf_Blower_body_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
