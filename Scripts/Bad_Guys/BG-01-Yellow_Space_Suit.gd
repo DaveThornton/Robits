@@ -1,5 +1,5 @@
 extends KinematicBody2D
-#testing testing 1.. 2.. 3... getkraken moo cow  moo cow
+
 const FLOOR = Vector2(0, -1)
 const speed = 6000
 
