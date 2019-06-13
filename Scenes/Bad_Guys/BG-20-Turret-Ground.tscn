@@ -1,68 +1,210 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Bad_Guys/BG-20-Turret-Ground.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Bad_Guys/BG-20-Turret-Ground.png" type="Texture" id=3]
-[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Explosions/Ex-03-Pawn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Bad_Guys/BG-20-Turret-Ground.png" type="Texture" id=4]
+[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=5]
 
-[node name="BG-20-Turret-Ground" type="Node2D"]
+[sub_resource type="Animation" id=1]
+resource_name = "Shoot_0"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 5, 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Shoot_1"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 11, 6, 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Shoot_2"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 12, 7, 2 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Shoot_3"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 8, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Shoot_4"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 14, 9, 4 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 14.9743
+height = 8.00916
+
+[node name="BG-20-Turret-Ground" type="StaticBody2D" groups=[
+"hittable",
+"badguy",
+]]
+collision_layer = 2048
+collision_mask = 655874
 script = ExtResource( 1 )
 projectile = ExtResource( 2 )
+explode = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -14 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 vframes = 3
 hframes = 5
-frame = 2
 
 [node name="Casts" type="Node2D" parent="."]
 editor/display_folded = true
+visible = false
 
 [node name="Shoot-Cast-Left" type="RayCast2D" parent="Casts"]
 position = Vector2( 0, -17 )
+enabled = true
 cast_to = Vector2( -200, 0 )
+collision_mask = 2
+
+[node name="Look-Cast-Left" type="RayCast2D" parent="Casts"]
+position = Vector2( 0, -17 )
+enabled = true
+cast_to = Vector2( -400, 0 )
+collision_mask = 2
 
 [node name="Shoot-Cast-Right" type="RayCast2D" parent="Casts"]
 position = Vector2( 0, -17 )
+enabled = true
 cast_to = Vector2( 200, 0 )
+collision_mask = 2
+
+[node name="Look-Cast-Right" type="RayCast2D" parent="Casts"]
+position = Vector2( 0, -17 )
+enabled = true
+cast_to = Vector2( 400, 0 )
+collision_mask = 2
 
 [node name="Shoot-Cast-Up" type="RayCast2D" parent="Casts"]
 position = Vector2( 0, -17 )
+enabled = true
 cast_to = Vector2( 0, -200 )
+collision_mask = 2
+
+[node name="Look-Cast-Up" type="RayCast2D" parent="Casts"]
+position = Vector2( 0, -17 )
+enabled = true
+cast_to = Vector2( 0, -400 )
+collision_mask = 2
 
 [node name="Shoot-Cast-Up-Left" type="RayCast2D" parent="Casts"]
 position = Vector2( -5, -17 )
+enabled = true
 cast_to = Vector2( -150, -150 )
+collision_mask = 2
+
+[node name="Look-Cast-Up-Left" type="RayCast2D" parent="Casts"]
+position = Vector2( -5, -17 )
+enabled = true
+cast_to = Vector2( -300, -300 )
+collision_mask = 2
 
 [node name="Shoot-Cast-Up-Right" type="RayCast2D" parent="Casts"]
 position = Vector2( 5, -17 )
+enabled = true
 cast_to = Vector2( 150, -150 )
+collision_mask = 2
 
-[node name="SFX_Lib" parent="." instance=ExtResource( 4 )]
+[node name="Look-Cast-Up-Right" type="RayCast2D" parent="Casts"]
+position = Vector2( 5, -17 )
+enabled = true
+cast_to = Vector2( 300, -300 )
+collision_mask = 2
+
+[node name="SFX_Lib" parent="." instance=ExtResource( 5 )]
 
 [node name="Shoot_Spots" type="Node2D" parent="."]
 
 [node name="Position2D-Left" type="Position2D" parent="Shoot_Spots"]
-position = Vector2( -25, -17 )
+position = Vector2( 0, -17 )
 rotation = 3.14159
 
 [node name="Position2D-Up-Left" type="Position2D" parent="Shoot_Spots"]
-position = Vector2( -19, -31 )
+position = Vector2( 0, -12 )
 rotation = 2.35619
 scale = Vector2( -1, 1 )
 
 [node name="Position2D-Up" type="Position2D" parent="Shoot_Spots"]
-position = Vector2( -0.232265, -37.4715 )
 rotation = -1.5708
 
 [node name="Position2D-Up-Right" type="Position2D" parent="Shoot_Spots"]
-position = Vector2( 19, -31 )
+position = Vector2( 0, -12 )
 rotation = -0.785398
 
 [node name="Position2D-Right" type="Position2D" parent="Shoot_Spots"]
-position = Vector2( 25, -17 )
+position = Vector2( 0, -17 )
 
 [node name="Timer_shoot" type="Timer" parent="."]
-autostart = true
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Shoot_0 = SubResource( 1 )
+anims/Shoot_1 = SubResource( 2 )
+anims/Shoot_2 = SubResource( 3 )
+anims/Shoot_3 = SubResource( 4 )
+anims/Shoot_4 = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -14 )
+rotation = 1.5708
+shape = SubResource( 6 )
 [connection signal="timeout" from="Timer_shoot" to="." method="_on_Timer_shoot_timeout"]

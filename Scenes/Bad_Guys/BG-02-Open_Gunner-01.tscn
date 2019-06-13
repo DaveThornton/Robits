@@ -3,7 +3,7 @@
 [ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Bad_Guys/Open-Gunner-01.png" type="Texture" id=2]
 
-[sub_resource type="GDScript" id=8]
+[sub_resource type="GDScript" id=1]
 script/source = "extends KinematicBody2D
 
 export(PackedScene) var projectile
@@ -218,15 +218,15 @@ func _on_Area2DOn_Ladder_body_exited(body):
 	ladder_count -= 1
 "
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 8.0
 height = 29.0
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 2.0
 height = 40.0
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=4]
 resource_name = "Idle-Mid"
 length = 0.1
 tracks/0/type = "value"
@@ -242,7 +242,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=5]
 resource_name = "Jump-Down"
 length = 0.1
 tracks/0/type = "value"
@@ -258,7 +258,7 @@ tracks/0/keys = {
 "values": [ 38 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=6]
 resource_name = "Jump-Up"
 length = 0.4
 loop = true
@@ -275,7 +275,7 @@ tracks/0/keys = {
 "values": [ 53, 54, 55, 56 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=7]
 resource_name = "Ladder-Up"
 length = 0.6
 loop = true
@@ -292,7 +292,7 @@ tracks/0/keys = {
 "values": [ 48, 49, 50, 51, 50, 49 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=8]
 resource_name = "Run-Mid"
 length = 0.8
 loop = true
@@ -315,11 +315,11 @@ tracks/0/keys = {
 ]]
 collision_layer = 2048
 collision_mask = 264734
-script = SubResource( 8 )
+script = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -23 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="SFX_Lib" parent="." instance=ExtResource( 1 )]
 
@@ -349,17 +349,17 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-On_Ladder"]
 position = Vector2( 0, -23 )
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 10, -31 )
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
-anims/Idle-Mid = SubResource( 9 )
-anims/Jump-Down = SubResource( 10 )
-anims/Jump-Up = SubResource( 11 )
-anims/Ladder-Up = SubResource( 12 )
-anims/Run-Mid = SubResource( 13 )
+anims/Idle-Mid = SubResource( 4 )
+anims/Jump-Down = SubResource( 5 )
+anims/Jump-Up = SubResource( 6 )
+anims/Ladder-Up = SubResource( 7 )
+anims/Run-Mid = SubResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -30 )
