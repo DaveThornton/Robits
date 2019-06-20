@@ -118,6 +118,7 @@ signal game_over
 signal coin_up
 signal input_to_screen #movement up:1 left:2 right:3 down:4 start:5 back:6
 signal reset
+signal second
 
 func draw_line(value):
 #	print("trying to draw line")
@@ -780,3 +781,6 @@ func arcade_reset():
 	
 	is_game_over = false 
 	init()
+
+func _on_Timer_timeout():
+	emit_signal("second")

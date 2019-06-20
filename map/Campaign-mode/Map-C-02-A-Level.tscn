@@ -118,7 +118,6 @@ position = Vector2( 320, 190 )
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
-editor/display_folded = true
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 8 )]
 
@@ -132,16 +131,16 @@ position = Vector2( 730, 390 )
 position = Vector2( 720, 650 )
 
 [node name="BG-23-Turret-Ground" parent="Map_parts/MP-33-Belt-9-07" instance=ExtResource( 11 )]
-position = Vector2( 90, -190 )
+position = Vector2( 90, -150 )
 
 [node name="BG-23-Turret-Ground2" parent="Map_parts/MP-33-Belt-9-07" instance=ExtResource( 11 )]
-position = Vector2( 90, -330 )
+position = Vector2( 90, -298 )
 
 [node name="BG-24-Turret-Wall-Left" parent="Map_parts/MP-33-Belt-9-07" instance=ExtResource( 12 )]
-position = Vector2( -630, -250 )
+position = Vector2( -630, -285 )
 
 [node name="BG-24-Turret-Wall-Left2" parent="Map_parts/MP-33-Belt-9-07" instance=ExtResource( 12 )]
-position = Vector2( -630, -52.4753 )
+position = Vector2( -630, -43.4753 )
 
 [node name="MP-33-Belt-9-01" parent="Map_parts" instance=ExtResource( 13 )]
 position = Vector2( 230, 230 )

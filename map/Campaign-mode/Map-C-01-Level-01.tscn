@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -19,20 +19,21 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-33-Belt-9.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Map_Parts/MP-33-Belt-3.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-11-Mega-Cannon.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-11-Mega-Cannon.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-04-M_16.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-03-Sniper.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-02-Ak-47.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_01.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-22-Plasma-Grenade.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-10-Blaster_Pistol.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-10-Blaster_Pistol.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_01.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-22-Plasma-Grenade.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Map_Parts/MP-40-Distruct-Brick-Red-Brick.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Scenes/Bad_Guys/BG-22-Turret-Ceiling.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Scenes/Bad_Guys/BG-01-Yellow_Space_Suit.tscn" type="PackedScene" id=31]
-[ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=32]
-[ext_resource path="res://Scenes/Bad_Guys/BG-23-Turret-Ground.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Scenes/Map_Parts/MP-50-Thwomp.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/Bad_Guys/BG-22-Turret-Ceiling.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Scenes/Bad_Guys/BG-01-Yellow_Space_Suit.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Scenes/Bad_Guys/BG-23-Turret-Ground.tscn" type="PackedScene" id=34]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -214,6 +215,7 @@ position = Vector2( 430, 870 )
 position = Vector2( 400, 870 )
 
 [node name="Doors" type="Node2D" parent="Map_parts"]
+editor/display_folded = true
 
 [node name="Door-80_Tall2" parent="Map_parts/Doors" instance=ExtResource( 13 )]
 position = Vector2( 670, 820 )
@@ -254,9 +256,49 @@ right = true
 position = Vector2( 130, 430 )
 respawn_time = 3
 spawn_only_1 = false
-body_1 = ExtResource( 8 )
-body_2 = ExtResource( 20 )
-body_3 = ExtResource( 21 )
+body_1 = ExtResource( 20 )
+body_2 = ExtResource( 21 )
+body_3 = ExtResource( 20 )
+body_4 = ExtResource( 22 )
+body_5 = ExtResource( 23 )
+body_6 = ExtResource( 24 )
+
+[node name="RigidBody_Spawner4" parent="Map_parts" instance=ExtResource( 19 )]
+position = Vector2( 630, 650 )
+respawn_time = 3
+body_1 = ExtResource( 25 )
+body_2 = ExtResource( 21 )
+body_3 = ExtResource( 20 )
+body_4 = ExtResource( 22 )
+body_5 = ExtResource( 23 )
+body_6 = ExtResource( 24 )
+
+[node name="RigidBody_Spawner5" parent="Map_parts" instance=ExtResource( 19 )]
+position = Vector2( 570, 650 )
+respawn_time = 3
+body_1 = ExtResource( 25 )
+body_2 = ExtResource( 21 )
+body_3 = ExtResource( 20 )
+body_4 = ExtResource( 22 )
+body_5 = ExtResource( 23 )
+body_6 = ExtResource( 24 )
+
+[node name="RigidBody_Spawner6" parent="Map_parts" instance=ExtResource( 19 )]
+position = Vector2( 510, 650 )
+respawn_time = 3
+body_1 = ExtResource( 25 )
+body_2 = ExtResource( 21 )
+body_3 = ExtResource( 20 )
+body_4 = ExtResource( 22 )
+body_5 = ExtResource( 23 )
+body_6 = ExtResource( 24 )
+
+[node name="RigidBody_Spawner7" parent="Map_parts" instance=ExtResource( 19 )]
+position = Vector2( 450, 650 )
+respawn_time = 3
+body_1 = ExtResource( 25 )
+body_2 = ExtResource( 21 )
+body_3 = ExtResource( 20 )
 body_4 = ExtResource( 22 )
 body_5 = ExtResource( 23 )
 body_6 = ExtResource( 24 )
@@ -265,8 +307,8 @@ body_6 = ExtResource( 24 )
 position = Vector2( 1080, 1070 )
 respawn_time = 3
 body_1 = ExtResource( 24 )
-body_2 = ExtResource( 20 )
-body_3 = ExtResource( 21 )
+body_2 = ExtResource( 21 )
+body_3 = ExtResource( 20 )
 body_4 = ExtResource( 22 )
 body_5 = ExtResource( 23 )
 body_6 = ExtResource( 24 )
@@ -275,45 +317,43 @@ body_6 = ExtResource( 24 )
 position = Vector2( 1580, 870 )
 respawn_time = 3
 body_1 = ExtResource( 24 )
-body_2 = ExtResource( 20 )
-body_3 = ExtResource( 21 )
+body_2 = ExtResource( 21 )
+body_3 = ExtResource( 20 )
 body_4 = ExtResource( 22 )
 body_5 = ExtResource( 23 )
 body_6 = ExtResource( 24 )
 
 [node name="R_Marks" type="Node2D" parent="Map_parts"]
-editor/display_folded = true
 
-[node name="R_Mark_01_00" parent="Map_parts/R_Marks" instance=ExtResource( 25 )]
+[node name="R_Mark_01_00" parent="Map_parts/R_Marks" instance=ExtResource( 26 )]
 position = Vector2( 90, 530 )
-spawn_01 = ExtResource( 26 )
+spawn_01 = ExtResource( 27 )
 
-[node name="R_Mark_01_01" parent="Map_parts/R_Marks" instance=ExtResource( 25 )]
+[node name="R_Mark_01_01" parent="Map_parts/R_Marks" instance=ExtResource( 26 )]
 position = Vector2( 130, 530 )
-spawn_01 = ExtResource( 20 )
+spawn_01 = ExtResource( 21 )
 mark = 2
 
-[node name="R_Mark_01_02" parent="Map_parts/R_Marks" instance=ExtResource( 25 )]
+[node name="R_Mark_01_02" parent="Map_parts/R_Marks" instance=ExtResource( 26 )]
 position = Vector2( 170, 530 )
-spawn_01 = ExtResource( 27 )
+spawn_01 = ExtResource( 28 )
 mark = 3
 
-[node name="R_Mark_01_03" parent="Map_parts/R_Marks" instance=ExtResource( 25 )]
+[node name="R_Mark_01_03" parent="Map_parts/R_Marks" instance=ExtResource( 26 )]
 position = Vector2( 210, 530 )
 mark = 4
 
-[node name="R_Mark_01_04" parent="Map_parts/R_Marks" instance=ExtResource( 25 )]
+[node name="R_Mark_01_04" parent="Map_parts/R_Marks" instance=ExtResource( 26 )]
 position = Vector2( 250, 530 )
-spawn_01 = ExtResource( 27 )
+spawn_01 = ExtResource( 28 )
 mark = 5
 
-[node name="R_Mark_01_05" parent="Map_parts/R_Marks" instance=ExtResource( 25 )]
+[node name="R_Mark_01_05" parent="Map_parts/R_Marks" instance=ExtResource( 26 )]
 position = Vector2( 290, 530 )
-spawn_01 = ExtResource( 28 )
+spawn_01 = ExtResource( 25 )
 mark = 6
 
 [node name="Distruct_Bricks" type="Node2D" parent="Map_parts"]
-editor/display_folded = true
 
 [node name="MP-40-Distruct-Brick-Red-Brick" parent="Map_parts/Distruct_Bricks" instance=ExtResource( 29 )]
 position = Vector2( 110, 530 )
@@ -335,22 +375,45 @@ head_hit = true
 position = Vector2( 270, 530 )
 head_hit = true
 
+[node name="RigidBody_Spawner8" parent="Map_parts" instance=ExtResource( 19 )]
+position = Vector2( 1390, 230 )
+respawn_time = 5
+body_1 = ExtResource( 28 )
+
 [node name="BadGuys" type="Node2D" parent="."]
 
-[node name="BG-22-Turret-Ceiling" parent="BadGuys" instance=ExtResource( 30 )]
+[node name="MP-50-Thwomp" parent="BadGuys" instance=ExtResource( 30 )]
+position = Vector2( 1060, 700 )
+
+[node name="MP-50-Thwomp2" parent="BadGuys" instance=ExtResource( 30 )]
+position = Vector2( 1430, 700 )
+hit_on_second = 2
+
+[node name="MP-50-Thwomp3" parent="BadGuys" instance=ExtResource( 30 )]
+position = Vector2( 820, 700 )
+hit_on_second = 3
+
+[node name="MP-50-Thwomp4" parent="BadGuys" instance=ExtResource( 30 )]
+position = Vector2( 940, 700 )
+hit_on_second = 4
+
+[node name="BG-22-Turret-Ceiling" parent="BadGuys" instance=ExtResource( 31 )]
 position = Vector2( 223.777, 693.923 )
 
-[node name="BG-22-Turret-Ceiling2" parent="BadGuys" instance=ExtResource( 30 )]
+[node name="BG-22-Turret-Ceiling2" parent="BadGuys" instance=ExtResource( 31 )]
 position = Vector2( 450, 693.923 )
 area_4_disabled = true
 
-[node name="BG-01-Yellow_Space_Suit-00" parent="BadGuys" instance=ExtResource( 31 )]
+[node name="BG-01-Yellow_Space_Suit-00" parent="BadGuys" instance=ExtResource( 32 )]
 position = Vector2( 530, 1030 )
 
-[node name="BG-02-Open_Gunner-01" parent="BadGuys" instance=ExtResource( 32 )]
+[node name="BG-02-Open_Gunner-01" parent="BadGuys" instance=ExtResource( 33 )]
 position = Vector2( 1210, 320 )
 
-[node name="BG-23-Turret-Ground" parent="BadGuys" instance=ExtResource( 33 )]
+[node name="BG-23-Turret-Ground" parent="BadGuys" instance=ExtResource( 34 )]
 position = Vector2( 120, 1050 )
 rotation = -3.14159
 far_disabled = true
+
+[node name="BG-01-Yellow_Space_Suit-01" parent="BadGuys" instance=ExtResource( 32 )]
+position = Vector2( 1170, 1030 )

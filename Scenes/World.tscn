@@ -44,3 +44,7 @@ visible = false
 z_index = 50
 default_color = Color( 0.945098, 0, 1, 1 )
 texture_mode = -1102592574
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

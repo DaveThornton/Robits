@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Map_Parts/MP-50-Thwomp.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Map_Parts/MP-50-Thwomp.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Tye-set/Open_Gunner_Tile-Set.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20, 40 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 20, 10 )
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 70.0
+height = 200.0
+
+[node name="MP-50-Thwomp" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+texture = ExtResource( 2 )
+
+[node name="Area2D-Thuwmp" type="Area2D" parent="KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Area2D-Thuwmp"]
+position = Vector2( 0, 40 )
+shape = SubResource( 2 )
+
+[node name="Area2D-Bottom" type="Area2D" parent="."]
+position = Vector2( 0, 100 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Bottom"]
+shape = SubResource( 3 )
+
+[node name="Area2D-Trigger" type="Area2D" parent="Area2D-Bottom"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Bottom/Area2D-Trigger"]
+position = Vector2( 0, -60 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Area2D-Bottom"]
+position = Vector2( 0, 10 )
+texture = ExtResource( 3 )
+vframes = 2
+hframes = 40
+frame = 32
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 0, 50 )
+cast_to = Vector2( 0, 200 )
+collision_mask = 12
