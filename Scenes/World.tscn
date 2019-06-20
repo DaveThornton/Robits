@@ -40,6 +40,7 @@ texture = ExtResource( 10 )
 [node name="Level_Loader" parent="." instance=ExtResource( 11 )]
 
 [node name="Line2D" type="Line2D" parent="."]
+visible = false
 z_index = 50
 default_color = Color( 0.945098, 0, 1, 1 )
 texture_mode = -1102592574
