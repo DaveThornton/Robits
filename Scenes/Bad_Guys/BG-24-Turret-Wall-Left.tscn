@@ -1,0 +1,142 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/Bad_Guys/BG-22-Turret-Ceiling.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Bad_Guys/BG-20-Turret-Ground.png" type="Texture" id=4]
+[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 14.3565
+height = 7.9411
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 700.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "Shoot"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Gun_Arm/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 20, 10, 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite-Base:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 36, 19, 9 ]
+}
+
+[node name="BG-24-Turret-Wall-Left" type="StaticBody2D" groups=[
+"hittable",
+"badguy",
+]]
+rotation = -1.5708
+collision_mask = 131594
+script = ExtResource( 1 )
+projectile = ExtResource( 2 )
+explode = ExtResource( 3 )
+
+[node name="Sprite-Base" type="Sprite" parent="."]
+position = Vector2( 0, 4 )
+rotation = 3.14159
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 10
+frame = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 4 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Gun_Arm" type="Position2D" parent="."]
+position = Vector2( 0, 4 )
+rotation = 1.5708
+
+[node name="Sprite" type="Sprite" parent="Gun_Arm"]
+position = Vector2( 0, -3.5 )
+rotation = 3.14159
+texture = ExtResource( 4 )
+vframes = 4
+hframes = 10
+
+[node name="RayCast2D" type="RayCast2D" parent="Gun_Arm"]
+enabled = true
+cast_to = Vector2( 350, 0 )
+collision_mask = 10
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Area_1" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -347.179, 54.6176, -333.747, 110.68, -313.599, 161.778, -284.108, 206.744, -246.15, 248.791, -0.497864, -0.311234, -350.057, 0.0309792 )
+disabled = true
+
+[node name="Area_2" type="CollisionPolygon2D" parent="Area2D"]
+rotation = -0.785398
+polygon = PoolVector2Array( -347.179, 54.6176, -333.747, 110.68, -313.599, 161.778, -284.108, 206.744, -246.15, 248.791, -0.497864, -0.311234, -350.057, 0.0309792 )
+disabled = true
+
+[node name="Area_3" type="CollisionPolygon2D" parent="Area2D"]
+rotation = -1.56207
+polygon = PoolVector2Array( -347.179, 54.6176, -333.747, 110.68, -313.599, 161.778, -284.108, 206.744, -246.15, 248.791, -0.497864, -0.311234, -350.057, 0.0309792 )
+disabled = true
+
+[node name="Area_4" type="CollisionPolygon2D" parent="Area2D"]
+rotation = -2.34747
+polygon = PoolVector2Array( -347.179, 54.6176, -333.747, 110.68, -313.599, 161.778, -284.108, 206.744, -246.15, 248.791, -0.497864, -0.311234, -350.057, 0.0309792 )
+disabled = true
+
+[node name="Area_5" type="CollisionPolygon2D" parent="Area2D"]
+rotation = -0.0174533
+polygon = PoolVector2Array( -698.128, 119.609, -665.479, 248.845, -620.587, 345.431, -558.009, 439.297, -498.153, 495.073, -0.497864, -0.311234, -698.128, 1.25627 )
+
+[node name="Area_6" type="CollisionPolygon2D" parent="Area2D"]
+rotation = -0.785398
+polygon = PoolVector2Array( -698.128, 119.609, -665.479, 248.845, -620.587, 345.431, -558.009, 439.297, -498.153, 495.073, -0.497864, -0.311234, -698.128, 1.25627 )
+
+[node name="Area_7" type="CollisionPolygon2D" parent="Area2D"]
+rotation = -1.56207
+polygon = PoolVector2Array( -698.128, 119.609, -665.479, 248.845, -620.587, 345.431, -558.009, 439.297, -498.153, 495.073, -0.497864, -0.311234, -698.128, 1.25627 )
+
+[node name="Area_8" type="CollisionPolygon2D" parent="Area2D"]
+rotation = -2.33001
+polygon = PoolVector2Array( -698.128, 119.609, -665.479, 248.845, -620.587, 345.431, -558.009, 439.297, -498.153, 495.073, -0.497864, -0.311234, -698.128, 1.25627 )
+
+[node name="SFX_Lib" parent="." instance=ExtResource( 5 )]
+
+[node name="Timer_Shoot" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Shoot = SubResource( 3 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/Hit = SubResource( 4 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="Timer_Shoot" to="." method="_on_Timer_Shoot_timeout"]

@@ -105,7 +105,7 @@ radius = 79.4828
 radius = 39.2242
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 160.0
+radius = 120.0
 
 [node name="Ex-02-Standard" type="Node2D"]
 script = ExtResource( 1 )
@@ -127,7 +127,7 @@ gravity = -1024.0
 linear_damp = 0.0
 angular_damp = 0.0
 collision_layer = 131072
-collision_mask = 393728
+collision_mask = 395776
 
 [node name="CollisionShape2D-outer" type="CollisionShape2D" parent="Area2D-outer"]
 visible = false
@@ -135,7 +135,7 @@ shape = SubResource( 3 )
 
 [node name="Area2D2-inner" type="Area2D" parent="."]
 collision_layer = 655872
-collision_mask = 655872
+collision_mask = 657920
 
 [node name="CollisionShape2D-inner" type="CollisionShape2D" parent="Area2D2-inner"]
 visible = false
@@ -155,7 +155,7 @@ autostart = true
 space_override = 2
 gravity_point = true
 gravity_vec = Vector2( -1, -1 )
-gravity = -1024.0
+gravity = -750.0
 linear_damp = 0.0
 angular_damp = 0.0
 monitoring = false

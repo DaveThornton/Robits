@@ -1,17 +1,26 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=39 format=2]
 
-[ext_resource path="res://Scripts/Robit-Controller.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Pawns/Robit-02.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Pawns/Robit-01.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/Pawns/Robit-02.gd" type="Script" id=4]
-[ext_resource path="res://Sprites/Pawns/Robit_Pawn-02-01.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Pawns/Robit_Pawn-01-Shield.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/Explosions/Ex-03-Pawn.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/Pawns/Robit-02.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-02-Ak-47.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-03-Sniper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-04-M_16.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-10-Blaster_Pistol.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-11-Mega-Cannon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-20-Grenade.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-21-Nazi-Grenade.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-40-RPG.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-50-Shot_Gun.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-60-Axe.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-61-Sword.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sprites/Pawns/Robit_Pawn-02-01.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Pawns/Robit_Pawn-02-Shield.png" type="Texture" id=14]
 
 [sub_resource type="Animation" id=1]
+
 resource_name = "Left-Idle"
 length = 0.5
 loop = true
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -98,9 +107,11 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=2]
+
 resource_name = "Left-Jump"
 length = 0.5
 loop = true
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -187,8 +198,11 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=3]
+
 resource_name = "Left-Knock_Back"
 length = 0.4
+loop = false
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -275,9 +289,11 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "Left-Prone-Crawl1"
+
+resource_name = "Left-Prone-Crawl"
 length = 0.4
 loop = true
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -364,9 +380,11 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=5]
+
 resource_name = "Left-Prone-Idle"
 length = 0.1
 loop = true
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -453,8 +471,11 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=6]
+
 resource_name = "Left-Prone-Start"
 length = 0.2
+loop = false
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -541,9 +562,11 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=7]
+
 resource_name = "Left-Run"
 length = 0.9
 loop = true
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -630,8 +653,11 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=8]
+
 resource_name = "Left-Run-End"
 length = 0.3
+loop = false
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -718,8 +744,11 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=9]
+
 resource_name = "Left-Run-Start"
 length = 0.3
+loop = false
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -806,8 +835,11 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=10]
+
 resource_name = "Left-Stun"
 length = 0.8
+loop = false
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -894,9 +926,10 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=11]
-resource_name = "Right-Idle"
+
 length = 0.5
 loop = true
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -983,9 +1016,10 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=12]
-resource_name = "Right-Jump"
+
 length = 0.5
 loop = true
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1072,8 +1106,10 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=13]
-resource_name = "Right-Knock_Back"
+
 length = 0.4
+loop = false
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1160,9 +1196,10 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=14]
-resource_name = "Right-Prone-Crawl"
+
 length = 0.5
 loop = true
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1249,9 +1286,10 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=15]
-resource_name = "Right-Prone-Idle"
+
 length = 0.1
 loop = true
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1338,8 +1376,10 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=16]
-resource_name = "Right-Prone-Start"
+
 length = 0.2
+loop = false
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1426,9 +1466,10 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=17]
-resource_name = "Right-Run"
+
 length = 0.9
 loop = true
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1515,8 +1556,10 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=18]
-resource_name = "Right-Run-End1"
+
 length = 0.3
+loop = false
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1603,8 +1646,10 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=19]
-resource_name = "Right-Run-Start1"
+
 length = 0.3
+loop = false
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1691,8 +1736,11 @@ tracks/6/keys = {
 }
 
 [sub_resource type="Animation" id=20]
+
 resource_name = "Right-Stun"
 length = 0.8
+loop = false
+step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -1778,50 +1826,295 @@ tracks/6/keys = {
 "values": [ 60, 61, 62, 63, 64, 65, 66, 67, 60 ]
 }
 
-[sub_resource type="RectangleShape2D" id=26]
+[sub_resource type="RectangleShape2D" id=21]
+
+custom_solver_bias = 0.0
 extents = Vector2( 8, 22 )
 
 [sub_resource type="RectangleShape2D" id=22]
+
+custom_solver_bias = 0.0
 extents = Vector2( 10, 22 )
 
 [sub_resource type="RectangleShape2D" id=23]
+
+custom_solver_bias = 0.0
 extents = Vector2( 19, 8 )
 
 [sub_resource type="CapsuleShape2D" id=24]
+
+custom_solver_bias = 0.0
 radius = 21.9999
 height = 34.0001
 
-[sub_resource type="CapsuleShape2D" id=25]
-radius = 5.04766
-height = 41.3699
+[node name="Robit-02" type="KinematicBody2D" groups=[
+"player",
+"hittable",
+]]
 
-[sub_resource type="PackedScene" id=27]
-_bundled = {
-"conn_count": 12,
-"conns": PoolIntArray( 5, 0, 79, 78, 2, 0, 6, 0, 79, 80, 2, 0, 7, 0, 79, 81, 2, 0, 8, 0, 79, 82, 2, 0, 9, 0, 79, 83, 2, 0, 10, 0, 79, 84, 2, 0, 11, 0, 79, 85, 2, 0, 12, 0, 79, 86, 2, 0, 30, 0, 88, 87, 2, 0, 30, 0, 90, 89, 2, 0, 33, 0, 88, 91, 2, 0, 33, 0, 90, 92, 2, 0 ),
-"editable_instances": [  ],
-"names": PoolStringArray( "Robit-01", "collision_layer", "collision_mask", "script", "player", "ladder", "hittable", "KinematicBody2D", "Sprite", "position", "texture", "vframes", "hframes", "frame", "Sprite_Shield", "visible", "AnimationPlayer", "anims/Ladder-Left", "anims/Ladder-Move", "anims/Ladder-Right", "anims/Left-Idle", "anims/Left-Jump", "anims/Left-Knock_Back", "anims/Left-Prone-Crawl", "anims/Left-Prone-Idle", "anims/Left-Prone-Start", "anims/Left-Run", "anims/Left-Run-End", "anims/Left-Run-Start", "anims/Left-Stun", "anims/Right-Idle", "anims/Right-Jump", "anims/Right-Knock_Back", "anims/Right-Prone-Crawl", "anims/Right-Prone-Idle", "anims/Right-Prone-Start", "anims/Right-Run", "Position2D-Arm-Gun", "Position2D", "Shield_Timer", "Timer", "Shield_Hit_Timer", "wait_time", "Speed_Timer", "Jump_Timer", "NRG_Up_Timer", "Stun_Timer", "one_shot", "KnockBack_Timer", "Bounce_Timer", "CollisionShape2D-Stand", "shape", "CollisionShape2D", "CollisionShape2D-Run", "disabled", "CollisionShape2D-Prone", "RayCast2D_Up", "rotation", "enabled", "cast_to", "RayCast2D", "RayCast2D_Down", "RayCast2D_Down2", "RayCast2D_Left", "RayCast2D_Left_Melee", "RayCast2D_Left_Down", "RayCast2D_Right", "RayCast2D_Right_Melee", "RayCast2D_Right_Down", "RayCast2D_Plat_Test", "RayCast2D_Plat_Up", "RayCast2D_Plat_Up2", "RayCast2D_Plat_Up3", "Grab_Area2D", "Area2D", "Platform-Raycasts", "Node2D", "Ladder_Area2D", "_on_Shield_Timer_timeout", "timeout", "_on_Shield_Hit_Timer_timeout", "_on_Speed_Timer_timeout", "_on_Jump_Timer_timeout", "_on_NRG_Up_Timer_timeout", "_on_Stun_Timer_timeout", "_on_KnockBack_Timer_timeout", "_on_Bounce_Timer_timeout", "_on_Grab_Area2D_body_entered", "body_entered", "_on_Grab_Area2D_body_exited", "body_exited", "_on_Ladder_Area2D_body_entered", "_on_Ladder_Area2D_body_exited" ),
-"node_count": 35,
-"node_paths": [  ],
-"nodes": PoolIntArray( -1, -1, 7, 0, -1, 3, 1, 0, 2, 1, 3, 2, 3, 4, 5, 6, 0, 0, 8, 8, -1, 5, 9, 3, 10, 4, 11, 5, 12, 6, 13, 7, 0, 0, 0, 8, 14, -1, 5, 15, 8, 9, 3, 10, 9, 11, 5, 12, 6, 0, 0, 0, 16, 16, -1, 20, 17, 10, 18, 11, 19, 12, 20, 13, 21, 14, 22, 15, 23, 16, 24, 17, 25, 18, 26, 19, 27, 20, 28, 21, 29, 22, 30, 23, 31, 24, 32, 25, 33, 26, 34, 27, 35, 28, 36, 29, 0, 0, 0, 38, 37, -1, 1, 9, 30, 0, 0, 0, 40, 39, -1, 0, 0, 0, 0, 40, 41, -1, 1, 42, 31, 0, 0, 0, 40, 43, -1, 0, 0, 0, 0, 40, 44, -1, 0, 0, 0, 0, 40, 45, -1, 0, 0, 0, 0, 40, 46, -1, 2, 42, 32, 47, 33, 0, 0, 0, 40, 48, -1, 2, 42, 34, 47, 33, 0, 0, 0, 40, 49, -1, 2, 42, 35, 47, 33, 0, 0, 0, 52, 50, -1, 1, 51, 36, 0, 0, 0, 52, 53, -1, 3, 15, 8, 51, 37, 54, 33, 0, 0, 0, 52, 55, -1, 4, 15, 8, 9, 38, 51, 39, 54, 33, 0, 0, 0, 60, 56, -1, 6, 15, 8, 9, 40, 57, 41, 58, 33, 59, 42, 2, 43, 0, 0, 0, 60, 61, -1, 5, 15, 8, 9, 44, 58, 33, 59, 45, 2, 46, 0, 0, 0, 60, 62, -1, 5, 15, 8, 9, 47, 58, 33, 59, 45, 2, 48, 0, 0, 0, 60, 63, -1, 5, 15, 8, 9, 49, 58, 33, 59, 50, 2, 48, 0, 0, 0, 60, 64, -1, 5, 15, 8, 9, 51, 58, 33, 59, 52, 2, 0, 0, 0, 0, 60, 65, -1, 5, 15, 8, 9, 53, 58, 33, 59, 54, 2, 48, 0, 0, 0, 60, 66, -1, 5, 15, 8, 9, 55, 58, 33, 59, 56, 2, 48, 0, 0, 0, 60, 67, -1, 5, 15, 8, 9, 57, 58, 33, 59, 58, 2, 0, 0, 0, 0, 60, 68, -1, 5, 15, 8, 9, 59, 58, 33, 59, 60, 2, 48, 0, 0, 0, 60, 60, -1, 4, 15, 8, 9, 38, 59, 45, 2, 6, 0, 0, 0, 60, 69, -1, 5, 15, 8, 9, 61, 58, 33, 59, 45, 2, 6, 0, 0, 0, 60, 70, -1, 5, 15, 8, 9, 62, 58, 33, 59, 63, 2, 64, 0, 0, 0, 60, 71, -1, 5, 15, 8, 9, 62, 58, 33, 59, 65, 2, 64, 0, 0, 0, 60, 72, -1, 5, 15, 8, 9, 62, 58, 33, 59, 66, 2, 64, 0, 0, 0, 74, 73, -1, 3, 15, 8, 1, 67, 2, 68, 0, 30, 0, 52, 52, -1, 2, 57, 69, 51, 70, 0, 0, 0, 76, 75, -1, 1, 15, 8, 0, 0, 0, 74, 77, -1, 3, 15, 8, 1, 71, 2, 71, 0, 33, 0, 52, 52, -1, 1, 51, 72, 0 ),
-"variants": [ 2, 66078, ExtResource( 4 ), Vector2( 1, -10 ), ExtResource( 5 ), 5, 16, 76, false, ExtResource( 6 ), SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), Vector2( 0, -7 ), 0.1, 0.8, true, 0.05, 0.2, SubResource( 26 ), SubResource( 22 ), Vector2( 0, 14 ), SubResource( 23 ), Vector2( 0, -22 ), 3.14159, Vector2( 0, 2 ), 8, Vector2( -6, 20 ), Vector2( 0, 8 ), 14, Vector2( 6, 20 ), 12, Vector2( -8, 3 ), Vector2( -20, 0 ), Vector2( -10, -7 ), Vector2( -14, 0 ), Vector2( -9, -5 ), Vector2( -11, 11 ), Vector2( 8, 3 ), Vector2( 20, 0 ), Vector2( 10, -7 ), Vector2( 14, 0 ), Vector2( 9, -5 ), Vector2( 11, 11 ), Vector2( 0, 20 ), Vector2( 0, 15 ), Vector2( 0, -38 ), 4, Vector2( 7, -35 ), Vector2( -7, -35 ), 262144, 851968, 1.5708, SubResource( 24 ), 32, SubResource( 25 ) ],
-"version": 2
-}
-
-[node name="Robit-Controller" type="Node2D"]
+input_pickable = false
+collision_layer = 514
+collision_mask = 328194
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
-pawn = ExtResource( 2 )
-pawn_01 = ExtResource( 2 )
-pawn_02 = ExtResource( 3 )
-pawn_03 = ExtResource( 3 )
-pawn_04 = ExtResource( 3 )
-pawn_05 = SubResource( 27 )
-pawn_06 = SubResource( 27 )
-pawn_07 = SubResource( 27 )
-pawn_08 = SubResource( 27 )
-boom = ExtResource( 7 )
+_sections_unfolded = [ "Collision", "Visibility", "collision" ]
+gun_02 = ExtResource( 2 )
+gun_03 = ExtResource( 3 )
+gun_04 = ExtResource( 4 )
+gun_05 = null
+gun_06 = null
+gun_07 = null
+gun_08 = null
+gun_09 = null
+gun_10 = ExtResource( 5 )
+gun_11 = ExtResource( 6 )
+gun_20 = ExtResource( 7 )
+gun_21 = ExtResource( 8 )
+gun_22 = null
+gun_40 = ExtResource( 9 )
+gun_50 = ExtResource( 10 )
+gun_60 = ExtResource( 11 )
+gun_61 = ExtResource( 12 )
+move_speed_time_needed = 0.15
+deceleration_time_needed = 0.25
 
-[node name="Respawn-Timer" type="Timer" parent="."]
-wait_time = 2.0
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 1, -10 )
+texture = ExtResource( 13 )
+vframes = 5
+hframes = 16
+frame = 4
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="Sprite_Shield" type="Sprite" parent="." index="1"]
+
+visible = false
+position = Vector2( 1, -10 )
+texture = ExtResource( 14 )
+vframes = 5
+hframes = 16
+frame = 4
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Left-Idle = SubResource( 1 )
+anims/Left-Jump = SubResource( 2 )
+anims/Left-Knock_Back = SubResource( 3 )
+anims/Left-Prone-Crawl = SubResource( 4 )
+anims/Left-Prone-Idle = SubResource( 5 )
+anims/Left-Prone-Start = SubResource( 6 )
+anims/Left-Run = SubResource( 7 )
+anims/Left-Run-End = SubResource( 8 )
+anims/Left-Run-Start = SubResource( 9 )
+anims/Left-Stun = SubResource( 10 )
+anims/Right-Idle = SubResource( 11 )
+anims/Right-Jump = SubResource( 12 )
+anims/Right-Knock_Back = SubResource( 13 )
+anims/Right-Prone-Crawl = SubResource( 14 )
+anims/Right-Prone-Idle = SubResource( 15 )
+anims/Right-Prone-Start = SubResource( 16 )
+anims/Right-Run = SubResource( 17 )
+anims/Right-Run-End = SubResource( 18 )
+anims/Right-Run-Start = SubResource( 19 )
+anims/Right-Stun = SubResource( 20 )
+blend_times = [  ]
+
+[node name="Position2D-Arm-Gun" type="Position2D" parent="." index="3"]
+
+position = Vector2( 0, -7 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Shield_Timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="Speed_Timer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="Jump_Timer" type="Timer" parent="." index="6"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="NRG_Up_Timer" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="Stun_Timer" type="Timer" parent="." index="8"]
+
+process_mode = 1
+wait_time = 0.8
 one_shot = true
-[connection signal="timeout" from="Respawn-Timer" to="." method="_on_RespawnTimer_timeout"]
+autostart = false
+
+[node name="KnockBack_Timer" type="Timer" parent="." index="9"]
+
+process_mode = 1
+wait_time = 0.05
+one_shot = true
+autostart = false
+
+[node name="CollisionShape2D-Stand" type="CollisionShape2D" parent="." index="10"]
+
+shape = SubResource( 21 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D-Run" type="CollisionShape2D" parent="." index="11"]
+
+shape = SubResource( 22 )
+disabled = true
+
+[node name="CollisionShape2D-Prone" type="CollisionShape2D" parent="." index="12"]
+
+position = Vector2( 0, 14 )
+shape = SubResource( 23 )
+disabled = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D_Up" type="RayCast2D" parent="." index="13"]
+
+position = Vector2( 0, -22 )
+rotation = 3.14159
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 8
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D_Down" type="RayCast2D" parent="." index="14"]
+
+position = Vector2( -6, 22 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 6 )
+collision_mask = 12
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D_Down2" type="RayCast2D" parent="." index="15"]
+
+position = Vector2( 6, 22 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 0, 6 )
+collision_mask = 12
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="." index="16"]
+
+position = Vector2( -8, 3 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( -20, 0 )
+collision_mask = 12
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D_Left_Melee" type="RayCast2D" parent="." index="17"]
+
+position = Vector2( -10, -7 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( -14, 0 )
+collision_mask = 2
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D_Left_Down" type="RayCast2D" parent="." index="18"]
+
+position = Vector2( -9, -5 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( -11, 11 )
+collision_mask = 12
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D_Right" type="RayCast2D" parent="." index="19"]
+
+position = Vector2( 8, 3 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 12
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D_Right_Melee" type="RayCast2D" parent="." index="20"]
+
+position = Vector2( 10, -7 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 14, 0 )
+collision_mask = 2
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D_Right_Down" type="RayCast2D" parent="." index="21"]
+
+position = Vector2( 9, -5 )
+enabled = true
+exclude_parent = true
+cast_to = Vector2( 11, 11 )
+collision_mask = 12
+_sections_unfolded = [ "Transform" ]
+
+[node name="Grab_Area2D" type="Area2D" parent="." index="22"]
+
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 851968
+collision_mask = 590336
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grab_Area2D" index="0"]
+
+rotation = 1.5708
+shape = SubResource( 24 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="23"]
+
+position = Vector2( 0, 14 )
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, 6 )
+collision_mask = 16
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="timeout" from="Shield_Timer" to="." method="_on_Shield_Timer_timeout"]
+
+[connection signal="timeout" from="Speed_Timer" to="." method="_on_Speed_Timer_timeout"]
+
+[connection signal="timeout" from="Jump_Timer" to="." method="_on_Jump_Timer_timeout"]
+
+[connection signal="timeout" from="NRG_Up_Timer" to="." method="_on_NRG_Up_Timer_timeout"]
+
+[connection signal="timeout" from="Stun_Timer" to="." method="_on_Stun_Timer_timeout"]
+
+[connection signal="timeout" from="KnockBack_Timer" to="." method="_on_KnockBack_Timer_timeout"]
+
+[connection signal="body_entered" from="Grab_Area2D" to="." method="_on_Grab_Area2D_body_entered"]
+
+[connection signal="body_exited" from="Grab_Area2D" to="." method="_on_Grab_Area2D_body_exited"]
+
+

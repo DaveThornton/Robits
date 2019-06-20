@@ -14,8 +14,8 @@ radius = 6.0
 height = 8.0
 
 [node name="Weap-Pick-20-Grenade" type="RigidBody2D" groups=[
-"PickUp",
 "FX",
+"PickUp",
 ]]
 collision_layer = 524288
 collision_mask = 786462
@@ -33,7 +33,6 @@ smoke = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
 shape = SubResource( 2 )
-disabled = true
 
 [node name="Sprite_Pin" type="Sprite" parent="."]
 position = Vector2( -6, -6 )
@@ -54,9 +53,6 @@ wait_time = 0.1
 
 [node name="Timer_Boom" type="Timer" parent="."]
 wait_time = 5.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -3, 8, 2, 8, 4, 5, 4, -1, 2, -7, -2, -7, -5, -1, -5, 5 )
 [connection signal="body_exited" from="." to="." method="_on_WeapPick20Grenade_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]

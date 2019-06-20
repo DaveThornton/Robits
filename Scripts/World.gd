@@ -8,6 +8,7 @@ export(PackedScene) var arcade_end
 export(PackedScene) var console_start
 export(PackedScene) var console_end
 export(PackedScene) var demo_map
+export(PackedScene) var campaign_map
 #game_mode (1 arcade mode) (2 console and pc mode) (3 demo mode)
 export var game_mode = 1
 onready var players = $players
@@ -105,7 +106,7 @@ var p8_credits = 0
 var is_game_over = false 
 var end_game_score = 8
 
-var how_many_players = 1
+var how_many_players = 3
 #var spawn_spot
 var map
 var hud
@@ -150,6 +151,36 @@ func init():
 		elif how_many_players == 2:
 			p1_started = true
 			p2_started = true
+		elif how_many_players == 3:
+			p1_started = true
+			p2_started = true
+			p3_started = true
+		elif how_many_players == 4:
+			p1_started = true
+			p2_started = true
+			p3_started = true
+			p4_started = true
+		elif how_many_players == 5:
+			p1_started = true
+			p2_started = true
+			p3_started = true
+			p4_started = true
+			p5_started = true
+		elif how_many_players == 6:
+			p1_started = true
+			p2_started = true
+			p3_started = true
+			p4_started = true
+			p5_started = true
+			p6_started = true
+		elif how_many_players == 7:
+			p1_started = true
+			p2_started = true
+			p3_started = true
+			p4_started = true
+			p5_started = true
+			p6_started = true
+			p7_started = true
 		else:
 			p1_started = true
 			p2_started = true
@@ -161,8 +192,56 @@ func init():
 			p8_started = true
 		_start(how_many_players)
 		load_map(demo_map)
+	
+	elif game_mode == 4:
+		if how_many_players == 1:
+			p1_started = true
+		elif how_many_players == 2:
+			p1_started = true
+			p2_started = true
+		elif how_many_players == 3:
+			p1_started = true
+			p2_started = true
+			p3_started = true
+		elif how_many_players == 4:
+			p1_started = true
+			p2_started = true
+			p3_started = true
+			p4_started = true
+		elif how_many_players == 5:
+			p1_started = true
+			p2_started = true
+			p3_started = true
+			p4_started = true
+			p5_started = true
+		elif how_many_players == 6:
+			p1_started = true
+			p2_started = true
+			p3_started = true
+			p4_started = true
+			p5_started = true
+			p6_started = true
+		elif how_many_players == 7:
+			p1_started = true
+			p2_started = true
+			p3_started = true
+			p4_started = true
+			p5_started = true
+			p6_started = true
+			p7_started = true
+		else:
+			p1_started = true
+			p2_started = true
+			p3_started = true
+			p4_started = true
+			p5_started = true
+			p6_started = true
+			p7_started = true
+			p8_started = true
+		_start(how_many_players)
+		load_map(campaign_map)
 	else:
-		print("error in game mode type may not exceed 3 (world.gd) _check_game_over")
+		print("error in game mode type may not exceed 4 (world.gd) _check_game_over")
 
 func _start(_players):
 	for j in range(_players):

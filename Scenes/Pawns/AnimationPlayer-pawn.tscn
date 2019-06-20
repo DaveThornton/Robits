@@ -1,15 +1,55 @@
-[gd_scene load_steps=34 format=2]
-
-[ext_resource path="res://Scripts/Robit-Controller.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Pawns/Robit-02.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Pawns/Robit-01.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/Pawns/Robit-02.gd" type="Script" id=4]
-[ext_resource path="res://Sprites/Pawns/Robit_Pawn-02-01.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Pawns/Robit_Pawn-01-Shield.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/Explosions/Ex-03-Pawn.tscn" type="PackedScene" id=7]
+[gd_scene load_steps=24 format=2]
 
 [sub_resource type="Animation" id=1]
-resource_name = "Left-Idle"
+resource_name = "Ladder-Left"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 76 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Ladder-Move"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 78, 79 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Ladder-Right"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 77 ]
+}
+
+[sub_resource type="Animation" id=4]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -97,8 +137,7 @@ tracks/6/keys = {
 "values": [ 30, 31, 32, 33, 34 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Left-Jump"
+[sub_resource type="Animation" id=5]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -186,8 +225,7 @@ tracks/6/keys = {
 "values": [ 35, 36, 37, 38, 39 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Left-Knock_Back"
+[sub_resource type="Animation" id=6]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -274,8 +312,7 @@ tracks/6/keys = {
 "values": [ 51, 52, 53, 52 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Left-Prone-Crawl1"
+[sub_resource type="Animation" id=7]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -363,8 +400,7 @@ tracks/6/keys = {
 "values": [ 56, 57, 58, 59 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Left-Prone-Idle"
+[sub_resource type="Animation" id=8]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -452,8 +488,7 @@ tracks/6/keys = {
 "values": [ 55 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Left-Prone-Start"
+[sub_resource type="Animation" id=9]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -540,8 +575,7 @@ tracks/6/keys = {
 "values": [ 54, 55 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Left-Run"
+[sub_resource type="Animation" id=10]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -629,8 +663,7 @@ tracks/6/keys = {
 "values": [ 40, 41, 42, 43, 44, 45, 46, 47, 48 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Left-Run-End"
+[sub_resource type="Animation" id=11]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -717,8 +750,7 @@ tracks/6/keys = {
 "values": [ 49, 50, 51 ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "Left-Run-Start"
+[sub_resource type="Animation" id=12]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -799,14 +831,13 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 51, 50, 49 ]
+"values": [ 51, 50, 49, 49 ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "Left-Stun"
+[sub_resource type="Animation" id=13]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -893,8 +924,7 @@ tracks/6/keys = {
 "values": [ 68, 69, 70, 71, 72, 73, 74, 75, 68 ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "Right-Idle"
+[sub_resource type="Animation" id=14]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -982,8 +1012,7 @@ tracks/6/keys = {
 "values": [ 0, 1, 2, 3, 4 ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "Right-Jump"
+[sub_resource type="Animation" id=15]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -1071,8 +1100,7 @@ tracks/6/keys = {
 "values": [ 5, 6, 7, 8, 9 ]
 }
 
-[sub_resource type="Animation" id=13]
-resource_name = "Right-Knock_Back"
+[sub_resource type="Animation" id=16]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1153,14 +1181,13 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 21, 22, 23, 22 ]
+"values": [ 21, 22, 23, 22, 22 ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "Right-Prone-Crawl"
+[sub_resource type="Animation" id=17]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -1248,8 +1275,7 @@ tracks/6/keys = {
 "values": [ 25, 26, 27, 28, 29 ]
 }
 
-[sub_resource type="Animation" id=15]
-resource_name = "Right-Prone-Idle"
+[sub_resource type="Animation" id=18]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -1337,8 +1363,7 @@ tracks/6/keys = {
 "values": [ 25 ]
 }
 
-[sub_resource type="Animation" id=16]
-resource_name = "Right-Prone-Start"
+[sub_resource type="Animation" id=19]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1425,8 +1450,7 @@ tracks/6/keys = {
 "values": [ 24, 25 ]
 }
 
-[sub_resource type="Animation" id=17]
-resource_name = "Right-Run"
+[sub_resource type="Animation" id=20]
 length = 0.9
 loop = true
 tracks/0/type = "value"
@@ -1514,8 +1538,7 @@ tracks/6/keys = {
 "values": [ 10, 11, 12, 13, 14, 15, 16, 17, 18 ]
 }
 
-[sub_resource type="Animation" id=18]
-resource_name = "Right-Run-End1"
+[sub_resource type="Animation" id=21]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1602,8 +1625,7 @@ tracks/6/keys = {
 "values": [ 19, 20, 21 ]
 }
 
-[sub_resource type="Animation" id=19]
-resource_name = "Right-Run-Start1"
+[sub_resource type="Animation" id=22]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1690,8 +1712,7 @@ tracks/6/keys = {
 "values": [ 21, 20, 19 ]
 }
 
-[sub_resource type="Animation" id=20]
-resource_name = "Right-Stun"
+[sub_resource type="Animation" id=23]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -1778,50 +1799,27 @@ tracks/6/keys = {
 "values": [ 60, 61, 62, 63, 64, 65, 66, 67, 60 ]
 }
 
-[sub_resource type="RectangleShape2D" id=26]
-extents = Vector2( 8, 22 )
-
-[sub_resource type="RectangleShape2D" id=22]
-extents = Vector2( 10, 22 )
-
-[sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 19, 8 )
-
-[sub_resource type="CapsuleShape2D" id=24]
-radius = 21.9999
-height = 34.0001
-
-[sub_resource type="CapsuleShape2D" id=25]
-radius = 5.04766
-height = 41.3699
-
-[sub_resource type="PackedScene" id=27]
-_bundled = {
-"conn_count": 12,
-"conns": PoolIntArray( 5, 0, 79, 78, 2, 0, 6, 0, 79, 80, 2, 0, 7, 0, 79, 81, 2, 0, 8, 0, 79, 82, 2, 0, 9, 0, 79, 83, 2, 0, 10, 0, 79, 84, 2, 0, 11, 0, 79, 85, 2, 0, 12, 0, 79, 86, 2, 0, 30, 0, 88, 87, 2, 0, 30, 0, 90, 89, 2, 0, 33, 0, 88, 91, 2, 0, 33, 0, 90, 92, 2, 0 ),
-"editable_instances": [  ],
-"names": PoolStringArray( "Robit-01", "collision_layer", "collision_mask", "script", "player", "ladder", "hittable", "KinematicBody2D", "Sprite", "position", "texture", "vframes", "hframes", "frame", "Sprite_Shield", "visible", "AnimationPlayer", "anims/Ladder-Left", "anims/Ladder-Move", "anims/Ladder-Right", "anims/Left-Idle", "anims/Left-Jump", "anims/Left-Knock_Back", "anims/Left-Prone-Crawl", "anims/Left-Prone-Idle", "anims/Left-Prone-Start", "anims/Left-Run", "anims/Left-Run-End", "anims/Left-Run-Start", "anims/Left-Stun", "anims/Right-Idle", "anims/Right-Jump", "anims/Right-Knock_Back", "anims/Right-Prone-Crawl", "anims/Right-Prone-Idle", "anims/Right-Prone-Start", "anims/Right-Run", "Position2D-Arm-Gun", "Position2D", "Shield_Timer", "Timer", "Shield_Hit_Timer", "wait_time", "Speed_Timer", "Jump_Timer", "NRG_Up_Timer", "Stun_Timer", "one_shot", "KnockBack_Timer", "Bounce_Timer", "CollisionShape2D-Stand", "shape", "CollisionShape2D", "CollisionShape2D-Run", "disabled", "CollisionShape2D-Prone", "RayCast2D_Up", "rotation", "enabled", "cast_to", "RayCast2D", "RayCast2D_Down", "RayCast2D_Down2", "RayCast2D_Left", "RayCast2D_Left_Melee", "RayCast2D_Left_Down", "RayCast2D_Right", "RayCast2D_Right_Melee", "RayCast2D_Right_Down", "RayCast2D_Plat_Test", "RayCast2D_Plat_Up", "RayCast2D_Plat_Up2", "RayCast2D_Plat_Up3", "Grab_Area2D", "Area2D", "Platform-Raycasts", "Node2D", "Ladder_Area2D", "_on_Shield_Timer_timeout", "timeout", "_on_Shield_Hit_Timer_timeout", "_on_Speed_Timer_timeout", "_on_Jump_Timer_timeout", "_on_NRG_Up_Timer_timeout", "_on_Stun_Timer_timeout", "_on_KnockBack_Timer_timeout", "_on_Bounce_Timer_timeout", "_on_Grab_Area2D_body_entered", "body_entered", "_on_Grab_Area2D_body_exited", "body_exited", "_on_Ladder_Area2D_body_entered", "_on_Ladder_Area2D_body_exited" ),
-"node_count": 35,
-"node_paths": [  ],
-"nodes": PoolIntArray( -1, -1, 7, 0, -1, 3, 1, 0, 2, 1, 3, 2, 3, 4, 5, 6, 0, 0, 8, 8, -1, 5, 9, 3, 10, 4, 11, 5, 12, 6, 13, 7, 0, 0, 0, 8, 14, -1, 5, 15, 8, 9, 3, 10, 9, 11, 5, 12, 6, 0, 0, 0, 16, 16, -1, 20, 17, 10, 18, 11, 19, 12, 20, 13, 21, 14, 22, 15, 23, 16, 24, 17, 25, 18, 26, 19, 27, 20, 28, 21, 29, 22, 30, 23, 31, 24, 32, 25, 33, 26, 34, 27, 35, 28, 36, 29, 0, 0, 0, 38, 37, -1, 1, 9, 30, 0, 0, 0, 40, 39, -1, 0, 0, 0, 0, 40, 41, -1, 1, 42, 31, 0, 0, 0, 40, 43, -1, 0, 0, 0, 0, 40, 44, -1, 0, 0, 0, 0, 40, 45, -1, 0, 0, 0, 0, 40, 46, -1, 2, 42, 32, 47, 33, 0, 0, 0, 40, 48, -1, 2, 42, 34, 47, 33, 0, 0, 0, 40, 49, -1, 2, 42, 35, 47, 33, 0, 0, 0, 52, 50, -1, 1, 51, 36, 0, 0, 0, 52, 53, -1, 3, 15, 8, 51, 37, 54, 33, 0, 0, 0, 52, 55, -1, 4, 15, 8, 9, 38, 51, 39, 54, 33, 0, 0, 0, 60, 56, -1, 6, 15, 8, 9, 40, 57, 41, 58, 33, 59, 42, 2, 43, 0, 0, 0, 60, 61, -1, 5, 15, 8, 9, 44, 58, 33, 59, 45, 2, 46, 0, 0, 0, 60, 62, -1, 5, 15, 8, 9, 47, 58, 33, 59, 45, 2, 48, 0, 0, 0, 60, 63, -1, 5, 15, 8, 9, 49, 58, 33, 59, 50, 2, 48, 0, 0, 0, 60, 64, -1, 5, 15, 8, 9, 51, 58, 33, 59, 52, 2, 0, 0, 0, 0, 60, 65, -1, 5, 15, 8, 9, 53, 58, 33, 59, 54, 2, 48, 0, 0, 0, 60, 66, -1, 5, 15, 8, 9, 55, 58, 33, 59, 56, 2, 48, 0, 0, 0, 60, 67, -1, 5, 15, 8, 9, 57, 58, 33, 59, 58, 2, 0, 0, 0, 0, 60, 68, -1, 5, 15, 8, 9, 59, 58, 33, 59, 60, 2, 48, 0, 0, 0, 60, 60, -1, 4, 15, 8, 9, 38, 59, 45, 2, 6, 0, 0, 0, 60, 69, -1, 5, 15, 8, 9, 61, 58, 33, 59, 45, 2, 6, 0, 0, 0, 60, 70, -1, 5, 15, 8, 9, 62, 58, 33, 59, 63, 2, 64, 0, 0, 0, 60, 71, -1, 5, 15, 8, 9, 62, 58, 33, 59, 65, 2, 64, 0, 0, 0, 60, 72, -1, 5, 15, 8, 9, 62, 58, 33, 59, 66, 2, 64, 0, 0, 0, 74, 73, -1, 3, 15, 8, 1, 67, 2, 68, 0, 30, 0, 52, 52, -1, 2, 57, 69, 51, 70, 0, 0, 0, 76, 75, -1, 1, 15, 8, 0, 0, 0, 74, 77, -1, 3, 15, 8, 1, 71, 2, 71, 0, 33, 0, 52, 52, -1, 1, 51, 72, 0 ),
-"variants": [ 2, 66078, ExtResource( 4 ), Vector2( 1, -10 ), ExtResource( 5 ), 5, 16, 76, false, ExtResource( 6 ), SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), Vector2( 0, -7 ), 0.1, 0.8, true, 0.05, 0.2, SubResource( 26 ), SubResource( 22 ), Vector2( 0, 14 ), SubResource( 23 ), Vector2( 0, -22 ), 3.14159, Vector2( 0, 2 ), 8, Vector2( -6, 20 ), Vector2( 0, 8 ), 14, Vector2( 6, 20 ), 12, Vector2( -8, 3 ), Vector2( -20, 0 ), Vector2( -10, -7 ), Vector2( -14, 0 ), Vector2( -9, -5 ), Vector2( -11, 11 ), Vector2( 8, 3 ), Vector2( 20, 0 ), Vector2( 10, -7 ), Vector2( 14, 0 ), Vector2( 9, -5 ), Vector2( 11, 11 ), Vector2( 0, 20 ), Vector2( 0, 15 ), Vector2( 0, -38 ), 4, Vector2( 7, -35 ), Vector2( -7, -35 ), 262144, 851968, 1.5708, SubResource( 24 ), 32, SubResource( 25 ) ],
-"version": 2
-}
-
-[node name="Robit-Controller" type="Node2D"]
-script = ExtResource( 1 )
-pawn = ExtResource( 2 )
-pawn_01 = ExtResource( 2 )
-pawn_02 = ExtResource( 3 )
-pawn_03 = ExtResource( 3 )
-pawn_04 = ExtResource( 3 )
-pawn_05 = SubResource( 27 )
-pawn_06 = SubResource( 27 )
-pawn_07 = SubResource( 27 )
-pawn_08 = SubResource( 27 )
-boom = ExtResource( 7 )
-
-[node name="Respawn-Timer" type="Timer" parent="."]
-wait_time = 2.0
-one_shot = true
-[connection signal="timeout" from="Respawn-Timer" to="." method="_on_RespawnTimer_timeout"]
+[node name="AnimationPlayer" type="AnimationPlayer"]
+anims/Ladder-Left = SubResource( 1 )
+anims/Ladder-Move = SubResource( 2 )
+anims/Ladder-Right = SubResource( 3 )
+anims/Left-Idle = SubResource( 4 )
+anims/Left-Jump = SubResource( 5 )
+anims/Left-Knock_Back = SubResource( 6 )
+anims/Left-Prone-Crawl = SubResource( 7 )
+anims/Left-Prone-Idle = SubResource( 8 )
+anims/Left-Prone-Start = SubResource( 9 )
+anims/Left-Run = SubResource( 10 )
+anims/Left-Run-End = SubResource( 11 )
+anims/Left-Run-Start = SubResource( 12 )
+anims/Left-Stun = SubResource( 13 )
+anims/Right-Idle = SubResource( 14 )
+anims/Right-Jump = SubResource( 15 )
+anims/Right-Knock_Back = SubResource( 16 )
+anims/Right-Prone-Crawl = SubResource( 17 )
+anims/Right-Prone-Idle = SubResource( 18 )
+anims/Right-Prone-Start = SubResource( 19 )
+anims/Right-Run = SubResource( 20 )
+anims/Right-Run-End = SubResource( 21 )
+anims/Right-Run-Start = SubResource( 22 )
+anims/Right-Stun = SubResource( 23 )

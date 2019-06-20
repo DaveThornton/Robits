@@ -4,7 +4,7 @@
 [ext_resource path="res://Tilesets/R_BasicX20.tres" type="TileSet" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.0229, 37.522 )
+extents = Vector2( 15, 40 )
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 11.9712
@@ -30,15 +30,16 @@ format = 1
 tile_data = PoolIntArray( 65534, 15, 0, 65535, 16, 0, 0, 16, 0, 1, 17, 0 )
 
 [node name="Area2D_Player" type="Area2D" parent="Plat"]
-collision_layer = 2
+collision_layer = 262146
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plat/Area2D_Player"]
-position = Vector2( 0, -4.12948 )
+position = Vector2( 0, 10 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Area2D-Kill-plat" type="Area2D" parent="Plat"]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -48,6 +49,7 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="Area2D-Kill-Up" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -58,6 +60,7 @@ shape = SubResource( 3 )
 disabled = true
 
 [node name="Area2D-Kill-Down" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -68,6 +71,7 @@ shape = SubResource( 3 )
 disabled = true
 
 [node name="Area2D-Kill-Left" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -78,6 +82,7 @@ shape = SubResource( 4 )
 disabled = true
 
 [node name="Area2D-Kill-Right" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 

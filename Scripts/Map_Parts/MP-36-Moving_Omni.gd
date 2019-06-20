@@ -193,16 +193,20 @@ func _move_player(array_num, delta):
 	
 	if going_left && !going_right:
 		p.position.x -= delta * speed
+#		p.map_movement.x = delta * -speed
 	elif !going_left && going_right:
 		p.position.x += delta * speed
-
+#		p.map_movement.x = delta * speed
+		
 func _on_Area2D_Player_body_entered(body):
 	if body.get_groups().has("player"):
+		print("player entered platform")
 		occ_array.append(body)
 		body.vel.y = 0
 
 func _on_Area2D_Player_body_exited(body):
 	if body.get_groups().has("player"):
+		print("player exited platform")
 		occ_array.erase(body)
 
 #func _on_Area2Dkill01_body_entered(body):

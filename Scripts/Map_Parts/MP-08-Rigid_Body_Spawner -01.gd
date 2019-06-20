@@ -57,8 +57,8 @@ func _spawn():
 		self.get_tree().get_current_scene().add_kid_to_map(s)
 		s.global_position = pos.global_position
 		
-	s.set_collision_layer_bit( 1, false)
-	s.set_collision_mask_bit( 1, false)
+#	s.set_collision_layer_bit( 1, false)
+#	s.set_collision_mask_bit( 1, false)
 
 
 

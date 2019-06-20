@@ -113,7 +113,6 @@ position = Vector2( 430, 190 )
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
-editor/display_folded = true
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 9 )]
 

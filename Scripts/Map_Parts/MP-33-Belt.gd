@@ -15,7 +15,8 @@ func _ready():
 #func start():
 	if right:
 		move_area.set_gravity_vector(right_pos.position)
-		anim.play("Right")
+#		anim.play("Right")
+		anim.play_backwards("Left")
 	else:
 		move_area.set_gravity_vector(left_pos.position)
 		anim.play("Left")

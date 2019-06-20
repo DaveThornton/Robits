@@ -5,26 +5,40 @@ export(PackedScene) var explode
 
 onready var sfx = $SFX_Lib
 onready var sprite = $Sprite
+onready var sprite2 = $Sprite2
 onready var shoot_timer = $Timer_shoot
 onready var anim = $AnimationPlayer
+onready var anim2 = $AnimationPlayer2
 
-onready var look_cast_left = $"Casts/Look-Cast-Left"
-onready var look_cast_right = $"Casts/Look-Cast-Right"
-onready var look_cast_up = $"Casts/Look-Cast-Up"
-onready var look_cast_up_left = $"Casts/Look-Cast-Up-Left"
-onready var look_cast_up_right = $"Casts/Look-Cast-Up-Right"
+onready var look_cast_0 = $"Casts/Look-Cast-0"
+onready var look_cast_1 = $"Casts/Look-Cast-1"
+onready var look_cast_2 = $"Casts/Look-Cast-2"
+onready var look_cast_3 = $"Casts/Look-Cast-3"
+onready var look_cast_4 = $"Casts/Look-Cast-4"
+onready var look_cast_5 = $"Casts/Look-Cast-5"
+onready var look_cast_6 = $"Casts/Look-Cast-6"
+onready var look_cast_7 = $"Casts/Look-Cast-7"
+onready var look_cast_8 = $"Casts/Look-Cast-8"
 
-onready var shoot_cast_left = $"Casts/Shoot-Cast-Left"
-onready var shoot_cast_right = $"Casts/Shoot-Cast-Right"
-onready var shoot_cast_up = $"Casts/Shoot-Cast-Up"
-onready var shoot_cast_up_left = $"Casts/Shoot-Cast-Up-Left"
-onready var shoot_cast_up_right = $"Casts/Shoot-Cast-Up-Right"
+onready var shoot_cast_0 = $"Casts/Shoot-Cast-0"
+onready var shoot_cast_1 = $"Casts/Shoot-Cast-1"
+onready var shoot_cast_2 = $"Casts/Shoot-Cast-2"
+onready var shoot_cast_3 = $"Casts/Shoot-Cast-3"
+onready var shoot_cast_4 = $"Casts/Shoot-Cast-4"
+onready var shoot_cast_5 = $"Casts/Shoot-Cast-5"
+onready var shoot_cast_6 = $"Casts/Shoot-Cast-6"
+onready var shoot_cast_7 = $"Casts/Shoot-Cast-7"
+onready var shoot_cast_8 = $"Casts/Shoot-Cast-8"
 
-onready var shoot_pos_left = $"Shoot_Spots/Position2D-Left"
-onready var shoot_pos_right = $"Shoot_Spots/Position2D-Right"
-onready var shoot_pos_up = $"Shoot_Spots/Position2D-Up"
-onready var shoot_pos_up_left = $"Shoot_Spots/Position2D-Up-Left"
-onready var shoot_pos_up_right = $"Shoot_Spots/Position2D-Up-Right"
+onready var shoot_pos_0 = $"Shoot_Spots/Position2D-0"
+onready var shoot_pos_1 = $"Shoot_Spots/Position2D-1"
+onready var shoot_pos_2 = $"Shoot_Spots/Position2D-2"
+onready var shoot_pos_3 = $"Shoot_Spots/Position2D-3"
+onready var shoot_pos_4 = $"Shoot_Spots/Position2D-4"
+onready var shoot_pos_5 = $"Shoot_Spots/Position2D-5"
+onready var shoot_pos_6 = $"Shoot_Spots/Position2D-6"
+onready var shoot_pos_7 = $"Shoot_Spots/Position2D-7"
+onready var shoot_pos_8 = $"Shoot_Spots/Position2D-8"
 
 var shoot_poss = []
 #var current_shoot_pos
@@ -34,11 +48,16 @@ var damage = 3
 var health = 100
 
 func _ready():
-	shoot_poss.append(shoot_pos_left)
-	shoot_poss.append(shoot_pos_up_left)
-	shoot_poss.append(shoot_pos_up)
-	shoot_poss.append(shoot_pos_up_right)
-	shoot_poss.append(shoot_pos_right)
+	shoot_poss.append(shoot_pos_0)
+	shoot_poss.append(shoot_pos_1)
+	shoot_poss.append(shoot_pos_2)
+	shoot_poss.append(shoot_pos_3)
+	shoot_poss.append(shoot_pos_4)
+	shoot_poss.append(shoot_pos_5)
+	shoot_poss.append(shoot_pos_6)
+	shoot_poss.append(shoot_pos_7)
+	shoot_poss.append(shoot_pos_8)
+#	sprite.look_at(Vector2(5000,0))
 
 # warning-ignore:unused_argument
 func _process(delta):
@@ -72,6 +91,7 @@ func _shoot(_pos):
 
 func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= _damage
+	anim2.play("Hit-Orange")
 	if health <= 0:
 		print("BG-20-Turrent-Ground dead")
 		call_deferred("_explode")
@@ -83,40 +103,56 @@ func _explode():
 	x.init(9, self.position, str("player ", x, "'s destruct system"))
 
 func _is_look_col():
-	if look_cast_left.is_colliding() || look_cast_right.is_colliding()  || look_cast_up.is_colliding()  || look_cast_up_left.is_colliding()  || look_cast_up_right.is_colliding() :
+	if look_cast_0.is_colliding() || look_cast_1.is_colliding()  || look_cast_2.is_colliding()  || look_cast_3.is_colliding()  || look_cast_4.is_colliding() || look_cast_5.is_colliding()  || look_cast_6.is_colliding()  || look_cast_7.is_colliding()  || look_cast_8.is_colliding():
 		return true
 	else:
 		return false
 
 func _is_shoot_col():
-	if shoot_cast_left.is_colliding() || shoot_cast_right.is_colliding()  || shoot_cast_up.is_colliding()  || shoot_cast_up_left.is_colliding()  || shoot_cast_up_right.is_colliding() :
+	if shoot_cast_0.is_colliding() || shoot_cast_1.is_colliding()  || shoot_cast_2.is_colliding()  || shoot_cast_3.is_colliding()  || shoot_cast_4.is_colliding()  || shoot_cast_5.is_colliding()  || shoot_cast_6.is_colliding()  || shoot_cast_7.is_colliding()  || shoot_cast_8.is_colliding():
 		return true
 	else:
 		return false
 
 func _look_where():
-	if look_cast_left.is_colliding():
+	if look_cast_0.is_colliding():
 		return 0
-	elif look_cast_right.is_colliding():
+	elif look_cast_8.is_colliding():
+		return 8
+	elif look_cast_4.is_colliding():
 		return 4
-	elif look_cast_up.is_colliding():
+	elif look_cast_6.is_colliding():
+		return 6
+	elif look_cast_2.is_colliding():
 		return 2
-	elif look_cast_up_right.is_colliding():
-		return 3
-	elif look_cast_up_left.is_colliding():
+	elif look_cast_1.is_colliding():
 		return 1
+	elif look_cast_7.is_colliding():
+		return 7
+	elif look_cast_5.is_colliding():
+		return 5
+	elif look_cast_3.is_colliding():
+		return 3
 
 func _shoot_where():
-	if shoot_cast_left.is_colliding():
+	if shoot_cast_0.is_colliding():
 		return 0
-	elif shoot_cast_right.is_colliding():
+	elif shoot_cast_8.is_colliding():
+		return 8
+	elif shoot_cast_4.is_colliding():
 		return 4
-	elif shoot_cast_up.is_colliding():
+	elif shoot_cast_6.is_colliding():
+		return 6
+	elif shoot_cast_2.is_colliding():
 		return 2
-	elif shoot_cast_up_right.is_colliding():
-		return 3
-	elif shoot_cast_up_left.is_colliding():
+	elif shoot_cast_1.is_colliding():
 		return 1
+	elif shoot_cast_7.is_colliding():
+		return 7
+	elif shoot_cast_5.is_colliding():
+		return 5
+	elif shoot_cast_3.is_colliding():
+		return 3
 
 func _animation(_spot):
 	if _spot == 0 :
@@ -129,6 +165,14 @@ func _animation(_spot):
 		anim.play("Shoot_3")
 	elif _spot == 4:
 		anim.play("Shoot_4")
+	elif _spot == 5:
+		anim.play("Shoot_5")
+	elif _spot == 6:
+		anim.play("Shoot_6")
+	elif _spot == 7:
+		anim.play("Shoot_7")
+	elif _spot == 8:
+		anim.play("Shoot_8")
 	else:
 		print("error in BG-20 animation shoot spot not valid")
 

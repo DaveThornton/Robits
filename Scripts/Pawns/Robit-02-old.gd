@@ -1,3 +1,17 @@
+#func init(_player_num, _pos):
+#	player = _player_num
+#	if player == 1:
+#		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-01.png")
+#	if player == 2:
+#		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-02.png")
+#	if player == 3:
+#		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-03.png")
+#	if player == 4:
+#		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-04.png")
+#	if player == 5:
+#		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-05.png")
+#	self.position = _pos
+#	nrg_update()
 extends KinematicBody2D
 
 export(PackedScene) var gun_02
@@ -12,13 +26,11 @@ export(PackedScene) var gun_10
 export(PackedScene) var gun_11
 export(PackedScene) var gun_20
 export(PackedScene) var gun_21
-export(PackedScene) var gun_22
-export(PackedScene) var gun_23
+#export(PackedScene) var gun_22
 export(PackedScene) var gun_40
 export(PackedScene) var gun_50
 export(PackedScene) var gun_60
 export(PackedScene) var gun_61
-export(PackedScene) var gun_80
 
 export var move_speed_time_needed = .15
 export var deceleration_time_needed = .25
@@ -27,27 +39,12 @@ onready var sprite = $Sprite
 onready var sprite_shield = $Sprite_Shield
 onready var anim = $AnimationPlayer
 onready var gun_pos = $"Position2D-Arm-Gun"
-#onready var shape_prone = $"CollisionShape2D-Prone"
-
-onready var col_stand = $"CollisionShape2D-Stand"
-onready var col_run = $"CollisionShape2D-Run"
-onready var col_prone = $"CollisionShape2D-Prone"
-
 onready var knockback_timer = $KnockBack_Timer
 onready var shield_timer = $Shield_Timer
-onready var shield_hit_timer = $Shield_Hit_Timer
 onready var speed_timer = $Speed_Timer
 onready var jump_timer = $Jump_Timer
 onready var nrg_up_timer = $NRG_Up_Timer
 onready var stun_timer = $Stun_Timer
-onready var bounce_timer = $Bounce_Timer
-
-#onready var ladder_area = $Ladder_Area2D
-onready var ladder_count = []
-var on_ladder = false
-var over_ladder = false
-var ladder_speed = 5
-
 onready var ray_up = $RayCast2D_Up
 onready var ray_down_r = $RayCast2D_Down2
 onready var ray_down_l = $RayCast2D_Down
@@ -56,13 +53,9 @@ onready var ray_right_down = $RayCast2D_Right_Down
 onready var ray_left_down = $RayCast2D_Left_Down
 onready var ray_left = $RayCast2D_Left
 onready var ray_down_plat = $RayCast2D
-#onready var ray_up_plat = $RayCast2D_Plat_Up
-#onready var ray_up_plat2 = $RayCast2D_Plat_Up2
-#onready var ray_up_plat3 = $RayCast2D_Plat_Up3
-onready var ray_plat_test = $RayCast2D_Plat_Test
+
 onready var ray_left_melee = $RayCast2D_Left_Melee
 onready var ray_right_melee = $RayCast2D_Right_Melee
-
 
 var take_ammo = false
 var shoot_spot = 3
@@ -97,7 +90,6 @@ var is_jump_pressed = false
 var is_down = false
 var on_floor = false 
 var on_wall = false
-var on_m_plat = false
 var not_on_angle = false
 #var next_to_player = false
 var is_shield_up = false 
@@ -108,11 +100,6 @@ var last_anim = "Right-Run"
 var is_holding = false
 var poss_pick_obj
 var knocked_back = Vector2(0, 0)
-var map_movement = Vector2(0, 0)
-var current_shape
-var bouncing = false
-var bounce_much = Vector2(0,0)
-var bounce_way = true
 
 var wep_array = []
 
@@ -125,8 +112,6 @@ func _ready():
 	starting_walk_speed = walk_speed
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
-	current_shape = col_stand
-#warning-ignore:return_value_discarded
 	var test = self.connect("nrg_update", get_tree().get_current_scene(), "nrg_update")
 	if test != 0:
 		print("error Robit 01 connecting nrg update")
@@ -135,44 +120,25 @@ func init(_player_num, _pos):
 	player = _player_num
 	if player == 1:
 		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-01.png")
-	elif player == 2:
+	if player == 2:
 		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-02.png")
-	elif player == 3:
+	if player == 3:
 		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-03.png")
-	elif player == 4:
+	if player == 4:
 		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-04.png")
-	elif player == 5:
+	if player == 5:
 		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-05.png")
-	elif player == 6:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-06.png")
-	elif player == 7:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-07.png")
-	elif player == 8:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-09.png")
 	self.position = _pos
-	change_pos(_pos)
 	nrg_update()
 
-func change_pos(_pos):
-	self.position = _pos
-	
 func _process(delta):
-#	print(ladder_area.get_index())
-	if ladder_count.size() > 0:
-		over_ladder = true
-	else:
-		over_ladder = false
-		on_ladder = false
-#	print(on_ladder, " ", player)
 	_is_on_floor()
-	_test_wall()  ##-----------------------------------enable this for guns moving on walls
-	_test_headroom()
+	_test_wall()
 	if on_floor:
 		air_jump_count = 0
 	if new_anim != last_anim:
 		anim.play(new_anim)
 		last_anim = new_anim
-#warning-ignore:return_value_discarded
 #	move_and_slide(Vector2(vel.x + knocked_back.x, 0 + knocked_back.y))
 	if nrg < nrg_regen_max:
 		nrg = clamp(nrg + (nrg_regen_rate * delta), 0, 100)
@@ -182,10 +148,14 @@ func _process(delta):
 	if my_gun:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
+#warning-ignore:return_value_discarded
 	move_and_slide(Vector2(vel.x + knocked_back.x, 0 + knocked_back.y))
+#	if ptest1 != 0:
+#		print("error in robit 02  _process move and slide")
+
 
 func _physics_process(delta):
-	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder)) + (map_movement * delta)
+	var movement = Vector2(0 , (vel.y + (grav * int(!on_floor)) * delta) + head_room)
 	vel = movement
 	if on_floor:
 		vel.y = vel.y / 1.1
@@ -193,6 +163,8 @@ func _physics_process(delta):
 		vel.y = terminal_vel
 #warning-ignore:return_value_discarded
 	move_and_collide(vel)
+#	if pptest1 != 0:
+#		print("error in move and collide robit 02 physics process")
 
 func move_x(_moving, _right, delta):
 	if _moving:
@@ -211,72 +183,56 @@ func move_x(_moving, _right, delta):
 	else:
 		vel.x = 0
 
-
 func jump(down_input):
 	if down_input && on_floor:
 		vel.y += 1.5
-		self.position.y += 1.5
+		set_collision_mask_bit(2, false)
 	elif !is_jump_pressed && on_floor && !down_input:
 		vel.y = -max_jump_power * jump_power_up
 	elif !is_jump_pressed && !down_input && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
 		vel.y = -max_air_jump_power * jump_power_up
 		air_jump_count += 1
 	is_jump_pressed = true 
-	on_ladder = false
 	
 func jump_rel():
+	set_collision_mask_bit(2, true)
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
 		vel.y = -min_air_jump_power
 	elif vel.y < -min_jump_power:
 		vel.y = min_jump_power
 	is_jump_pressed = false
 
-func bounce(_how_much, _how_long, _way):
-	if !bouncing:
-		bounce_act(_how_much, _how_long, _way)
-		bouncing = true
-	else:
-		if bounce_way:
-			map_movement.y -= bounce_much
-		else:
-			map_movement.x -= bounce_much
-		bounce_act(_how_much, _how_long, _way)
-
-func bounce_act(_how_much, _how_long, _way):
-		bounce_timer.wait_time = _how_long
-		bounce_much = _how_much
-		bounce_way = _way
-		if _way:
-			map_movement.y = bounce_much
-		else:
-			map_movement.x = bounce_much
-		bounce_timer.start()
-
-func _on_Bounce_Timer_timeout():
-	if bounce_way:
-		map_movement.y -= bounce_much
-	else:
-		map_movement.x -= bounce_much
-	bouncing = false
-
 func shoot_j():
 	if my_gun:
-		if ray_right_melee.is_colliding() && is_right || ray_left_melee.is_colliding() && !is_right:
-			my_gun.melee()
+		var _melee = false
+		if is_right:
+			if ray_right_melee.is_colliding():
+				my_gun.melee()
+				_melee = true
 		else:
+			if ray_left_melee.is_colliding():
+				my_gun.melee()
+				_melee = true
+		if !_melee:
 			my_gun.shoot_j()
 
 func shoot():
 	if my_gun:
-		if ray_right_melee.is_colliding() && is_right || ray_left_melee.is_colliding() && !is_right:
-			my_gun.melee()
+		var _melee = false
+		if is_right:
+			if ray_right_melee.is_colliding():
+				my_gun.melee()
+				_melee = true
 		else:
+			if ray_left_melee.is_colliding():
+				my_gun.melee()
+				_melee = true
+		if !_melee:
 			my_gun.shoot()
 
 func shoot_r():
 	if my_gun:
 		my_gun.shoot_r()
-
 
 func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 	if is_holding == true:
@@ -325,12 +281,6 @@ func pick_up():
 	elif _wep_num == 21:
 		g = gun_21.instance()
 		take_ammo = false
-	elif _wep_num == 22:
-		g = gun_22.instance()
-		take_ammo = false
-	elif _wep_num == 23:
-		g = gun_23.instance()
-		take_ammo = false
 	elif _wep_num == 40:
 		g = gun_40.instance()
 		take_ammo = true
@@ -344,15 +294,11 @@ func pick_up():
 	elif _wep_num == 61:
 		g = gun_61.instance()
 		take_ammo = false
-	elif _wep_num == 80:
-		g = gun_80.instance()
-		take_ammo = false
 	gun_pos.add_child(g)
 	g.init(_ammo_pick_up, player, _time_left)
 	my_gun = g
 	is_holding = true 
 	poss_pick_obj.queue_free()
-
 
 #warning-ignore:unused_argument
 func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input):
@@ -362,62 +308,90 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 		if !hold_input:
 			if !is_down:
 				ray_down_plat.enabled = true
-				if right_input || left_input:
-					_anim_run()
-					if up_input:
+				if right_input && !left_input:
+					new_anim = "Right-Run"
+					if !up_input && !down_input:
+						shoot_spot = 3
+					elif up_input:
 						shoot_spot = 2
 					elif down_input:
 						shoot_spot = 4
 					else:
+						print("error anim 01")
+				elif !right_input && left_input:
+					new_anim = "Left-Run"
+					if !up_input && !down_input:
 						shoot_spot = 3
+					elif up_input:
+						shoot_spot = 2
+					elif down_input:
+						shoot_spot = 4
+					else:
+						print("error anim 02")
 				elif up_input:
 					shoot_spot = 1
-					if over_ladder || on_ladder:
-						air_jump_count = 0
-#						print("on ladder player ", player, " is attempting to climb ladder")
-						on_ladder = true
-						self.position.y -= ladder_speed
-						_anim_ladder_move()
-#						map_movement = Vector2(0,-10)
-					elif on_floor:
-						_anim_idle()
+					if is_right:
+						if on_floor:
+							new_anim = "Right-Idle"
+						else:
+							new_anim = "Right-Jump"
 					else:
-						_anim_jump()
+						if on_floor:
+							new_anim = "Left-Idle"
+						else:
+							new_anim = "Left-Jump"
 				elif down_input:
-					if over_ladder || on_ladder:
-#						print("on ladder player ", player, " is attempting to climb ladder")
-						on_ladder = true
-						self.position.y += ladder_speed
-					elif on_floor:
+					if on_floor:
 						is_down = true 
 						shoot_spot = 6
-						_anim_prone_idle()
+						if is_right:
+							new_anim = "Right-Prone-Crawl"
+						else:
+							new_anim = "Left-Prone-Crawl"
 					else:
 						shoot_spot = 5
-						_anim_jump()
+						if is_right:
+							new_anim = "Right-Jump"
+						else:
+							new_anim = "Left-Jump"
 				elif !left_input && !right_input:
 					shoot_spot = 3
 					if on_floor:
-						_anim_idle()
+						if is_right:
+							new_anim = "Right-Idle"
+						else:
+							new_anim = "Left-Idle"
 					if !on_floor:
-						_anim_jump()
+						if is_right:
+							new_anim = "Right-Jump"
+						else:
+							new_anim = "Left-Jump"
 					elif down_input:
 						if on_floor:
 							is_down = true 
 							shoot_spot = 6
-							_anim_prone_idle()
+							if is_right:
+								new_anim = "Right-Prone-Crawl"
+							else:
+								new_anim = "Left-Prone-Crawl"
 						else:
 							shoot_spot = 5
-							_anim_prone_crawl()
-			
+							if is_right:
+								new_anim = "Right-Jump"
+							else:
+								new_anim = "Left-Jump"
 			else:
 				ray_down_plat.enabled = false
-				if left_input || right_input:
-					_anim_prone_crawl()
+				if is_right:
+					new_anim = "Right-Prone-Crawl"
 				else:
-					_anim_prone_idle()
+					new_anim = "Left-Prone-Crawl"
 		else:
-			_anim_idle()
+			if is_right:
+				new_anim = "Right-Idle"
+			else:
+				new_anim = "Left-Idle"
+		
 			if right_input || left_input:
 				if !up_input && !down_input:
 					shoot_spot = 3
@@ -429,80 +403,13 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 				shoot_spot = 1
 			elif down_input && !left_input && !right_input:
 				shoot_spot = 5
-	
-	if on_ladder && !up_input && !down_input:
-		if is_right:
-			_anim_ladder_right()
-		else:
-			_anim_ladder_left()
-	
+
 	if on_wall:
 		if !not_on_angle:
 			if shoot_spot == 3:
 				shoot_spot = 2
 		else:
 			shoot_spot = 1
-
-func _anim_idle():
-	current_shape = col_stand
-	if is_right:
-		new_anim = "Right-Idle"
-	else:
-		new_anim = "Left-Idle"
-
-func _anim_run():
-	current_shape = col_run
-	if is_right:
-		new_anim = "Right-Run"
-	else:
-		new_anim = "Left-Run"
-	
-func _anim_jump():
-	current_shape = col_stand
-	if is_right:
-		new_anim = "Right-Jump"
-	else:
-		new_anim = "Left-Jump"
-
-func _anim_prone_idle():
-	current_shape = col_prone
-	if is_right:
-		new_anim = "Right-Prone-Idle"
-	else:
-		new_anim = "Left-Prone-Idle"
-
-func _anim_prone_crawl():
-	current_shape = col_prone
-	if is_right:
-		new_anim = "Right-Prone-Crawl"
-	else:
-		new_anim = "Left-Prone-Crawl"
-
-func _anim_stun():
-	current_shape = col_run
-	if is_right:
-		new_anim = "Right-Stun"
-	else:
-		new_anim = "Left-Stun"
-
-func _anim_Knock():
-	current_shape = col_run
-	if is_right:
-		new_anim = "Right-Knock_Back"
-	else:
-		new_anim = "Left-Knock_Back"
-
-func _anim_ladder_move():
-	current_shape = col_stand
-	new_anim = "Ladder-Move"
-
-func _anim_ladder_right():
-	current_shape = col_stand
-	new_anim = "Ladder-Right"
-
-func _anim_ladder_left():
-	current_shape = col_stand
-	new_anim = "Ladder-Left"
 
 func _test_wall():
 	var _obj
@@ -521,7 +428,6 @@ func _test_wall():
 				on_wall = !_obj.get_groups().has("player")
 			not_on_angle = ray_left_down.is_colliding()
 	
-func _test_headroom():
 	if ray_up.is_colliding():
 		head_room = 1
 	else:
@@ -539,16 +445,17 @@ func add_ammo(_ammo):
 			my_gun.add_ammo(_ammo)
 
 func stun(_gun_num):
+	print("stunned")
 	stun_timer.start()
 	can_move = false
-	_anim_stun()
+	if is_right:
+		new_anim = "Right-Stun"
+	else:
+		new_anim = "Left-Stun"
 	let_go()
 
-#func hit(_by_who, _by_what, _damage_type, _damage):
-#	call_deferred("_hit", _by_who, _by_what, _damage_type, _damage)
-
 func hit(_by_who, _by_what, _damage_type, _damage):
-	var _play_type = 2
+	var _play_type = 1
 	if _play_type == 1:
 		if is_shield_up:
 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
@@ -557,13 +464,11 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			print("ive been hit. I'm player ",player)
 			let_go()
 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
-			call_deferred("free")#queue_free()
-	elif _play_type > 1:
-		sprite_shield.visible = true
-		shield_hit_timer.start()
+			queue_free()
+	else:
 		nrg = nrg - _damage
 		nrg_update()
-#		print(nrg)
+		print(nrg)
 		if nrg <= 0:
 			if is_shield_up:
 				print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
@@ -572,12 +477,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 				print("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
-				call_deferred("free")#queue_free()
-
-func killed_by_map(_by_who, _by_what, _damage_type, _damage):
-	hit(_by_who, _by_what, _damage_type, (nrg* 2))
-#	emit_signal("explode_p", player, self.position, _by_who, _by_what)
-#	call_deferred("free")#queue_free()
+				queue_free()
 
 func knock_back(_amount, _time):
 #	print("knock back ", _amount, " for ", _time, " seconds")
@@ -604,6 +504,10 @@ func knock_back(_amount, _time):
 			knocked_back = Vector2((_amount * .5), -(_amount * .5))
 		if shoot_spot == 5:
 			knocked_back = Vector2((_amount * .1), -(_amount * .9))
+
+func killed_by_map(_by_who, _by_what, _damage_type, _damage):
+	emit_signal("explode_p", player, self.position, _by_who, _by_what)
+	queue_free()
 
 func game_over(_winner):
 	print("game_over in player. won by ",_winner)
@@ -679,22 +583,7 @@ func _on_Grab_Area2D_body_exited(body):
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
 		on_floor = true
-		bouncing = false
 	else :
 		on_floor = false
-#	if ray_down_plat.is_colliding():
-##		position.y += -14
-#		pass
-	if ray_plat_test.is_colliding():
-		on_m_plat = true
-	else:
-		on_m_plat = false
-
-func _on_Shield_Hit_Timer_timeout():
-	sprite_shield.visible = false
-
-func _on_Ladder_Area2D_body_entered(body):
-	ladder_count.append(body)
-
-func _on_Ladder_Area2D_body_exited(body):
-	ladder_count.erase(body)
+	if ray_down_plat.is_colliding():
+		position.y += -14

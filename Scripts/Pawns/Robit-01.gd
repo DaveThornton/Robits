@@ -148,7 +148,7 @@ func init(_player_num, _pos):
 	elif player == 7:
 		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-07.png")
 	elif player == 8:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-08.png")
+		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-09.png")
 	else:
 		print("error in robit init player number invald")
 #	self.position = _pos
@@ -167,7 +167,7 @@ func _process(delta):
 		on_ladder = false
 #	print(on_ladder, " ", player)
 	_is_on_floor()
-#	_test_wall()  ##-----------------------------------enable this for guns moving on walls
+	_test_wall()  ##-----------------------------------enable this for guns moving on walls
 	_test_headroom()
 	if on_floor:
 		air_jump_count = 0
