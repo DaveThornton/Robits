@@ -384,18 +384,22 @@ body_1 = ExtResource( 28 )
 
 [node name="MP-50-Thwomp" parent="BadGuys" instance=ExtResource( 30 )]
 position = Vector2( 1060, 700 )
+trigger_on_prox = true
 
 [node name="MP-50-Thwomp2" parent="BadGuys" instance=ExtResource( 30 )]
 position = Vector2( 1430, 700 )
 hit_on_second = 2
+trigger_on_prox = true
 
 [node name="MP-50-Thwomp3" parent="BadGuys" instance=ExtResource( 30 )]
 position = Vector2( 820, 700 )
 hit_on_second = 3
+trigger_on_prox = true
 
 [node name="MP-50-Thwomp4" parent="BadGuys" instance=ExtResource( 30 )]
 position = Vector2( 940, 700 )
 hit_on_second = 4
+trigger_on_prox = true
 
 [node name="BG-22-Turret-Ceiling" parent="BadGuys" instance=ExtResource( 31 )]
 position = Vector2( 223.777, 693.923 )
