@@ -38,7 +38,7 @@ func second():
 	current_count += 1
 	if current_count == hit_on_second:
 		slam()
-		print("second called in thwomp second ", current_count)
+#		print("second called in thwomp second ", current_count)
 	else:
 		slamming = false
 	if current_count >= count_to_second:
@@ -51,7 +51,7 @@ func _on_Timer_timeout():
 func _on_Area2DThuwmp_body_entered(body):
 	if slamming:
 		if body.get_groups().has("hittable") || body.get_groups().has("player"):
-			print("hit")
+#			print("hit")
 			body.hit(-1, "Thowmp", "Impact", 1000)
 #			pass
 

@@ -10,10 +10,10 @@
 radius = 14.3565
 height = 7.9411
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=2]
 radius = 700.0
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "Shoot"
 length = 0.2
 tracks/0/type = "value"
@@ -56,6 +56,7 @@ projectile = ExtResource( 2 )
 explode = ExtResource( 3 )
 
 [node name="Sprite-Base" type="Sprite" parent="."]
+position = Vector2( 0, 4 )
 rotation = 3.14159
 texture = ExtResource( 4 )
 vframes = 4
@@ -63,10 +64,12 @@ hframes = 10
 frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 4 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Gun_Arm" type="Position2D" parent="."]
+position = Vector2( 0, 4 )
 rotation = 1.5708
 
 [node name="Sprite" type="Sprite" parent="Gun_Arm"]
@@ -88,7 +91,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="Area_1" type="CollisionPolygon2D" parent="Area2D"]
@@ -130,7 +133,7 @@ polygon = PoolVector2Array( -698.128, 119.609, -665.479, 248.845, -620.587, 345.
 [node name="Timer_Shoot" type="Timer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Shoot = SubResource( 6 )
+anims/Shoot = SubResource( 3 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 anims/Hit = SubResource( 4 )

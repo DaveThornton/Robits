@@ -36,8 +36,8 @@ __meta__ = {
 }
 
 [node name="TileMap-Main" type="TileMap" parent="." groups=[
-"map_part",
 "map",
+"map_part",
 ]]
 z_index = -2
 tile_set = ExtResource( 3 )
