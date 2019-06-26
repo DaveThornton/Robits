@@ -14,7 +14,7 @@ extents = Vector2( 20, 10 )
 extents = Vector2( 20, 10 )
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 70.0
+radius = 50.0
 
 [node name="MP-50-Thwomp" type="Node2D"]
 script = ExtResource( 1 )
@@ -36,6 +36,30 @@ collision_mask = 3074
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Area2D-Thuwmp"]
 position = Vector2( 0, 40 )
 shape = SubResource( 2 )
+
+[node name="RayCast2D_Up" type="RayCast2D" parent="KinematicBody2D"]
+position = Vector2( -18, -39 )
+enabled = true
+cast_to = Vector2( 0, -20 )
+collision_mask = 2
+
+[node name="RayCast2D_Up2" type="RayCast2D" parent="KinematicBody2D"]
+position = Vector2( 18, -39 )
+enabled = true
+cast_to = Vector2( 0, -20 )
+collision_mask = 2
+
+[node name="RayCast2D_Up3" type="RayCast2D" parent="KinematicBody2D"]
+position = Vector2( 7, -39 )
+enabled = true
+cast_to = Vector2( 0, -20 )
+collision_mask = 2
+
+[node name="RayCast2D_Up4" type="RayCast2D" parent="KinematicBody2D"]
+position = Vector2( -7, -39 )
+enabled = true
+cast_to = Vector2( 0, -20 )
+collision_mask = 2
 
 [node name="Area2D-Bottom" type="Area2D" parent="."]
 visible = false
@@ -65,5 +89,7 @@ cast_to = Vector2( 0, 500 )
 collision_mask = 8
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 [connection signal="body_entered" from="KinematicBody2D/Area2D-Thuwmp" to="." method="_on_Area2DThuwmp_body_entered"]
 [connection signal="body_entered" from="Area2D-Bottom/Area2D-Trigger" to="." method="_on_Area2DTrigger_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
