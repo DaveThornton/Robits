@@ -8,7 +8,6 @@ onready var cast_up1 = $KinematicBody2D/RayCast2D_Up
 onready var cast_up2 = $KinematicBody2D/RayCast2D_Up2
 onready var cast_up3 = $KinematicBody2D/RayCast2D_Up3
 onready var cast_up4 = $KinematicBody2D/RayCast2D_Up4
-#onready var trigger = $"Area2D-Bottom/Area2D-Trigger" 
 onready var hammer = $KinematicBody2D
 onready var bottom = $"Area2D-Bottom"
 onready var trigger_shape = $"Area2D-Bottom/Area2D-Trigger/CollisionShape2D"
@@ -16,9 +15,8 @@ onready var timer = $Timer
 
 var current_count = 0
 var slamming = false
-#var area_slam = false
-var speed_down = 20.0
-var speed_up = -20.0
+var speed_down = 2000.0
+var speed_up = -2000.0
 var start_x = 0.0
 
 func _ready():
@@ -35,33 +33,21 @@ func _ready():
 func _process(delta):
 	var cposx = hammer.global_position.x - start_x
 	if slamming:
-		hammer.move_and_collide(Vector2(-cposx, speed_down))
+		hammer.move_and_collide(Vector2(-cposx, speed_down * delta))
 	else:
-		hammer.move_and_collide(Vector2(-cposx, speed_up))
+		hammer.move_and_collide(Vector2(-cposx, speed_up * delta))
 		if cast_up1.is_colliding():
 			print("up-colliding")
 			hit_it(cast_up1.get_collider())
-#			var body = cast_up1.get_collider()
-#			if body.get_groups().has("hittable") || body.get_groups().has("player"):
-#				body.hit(-1, "Thowmp", "Impact", 1000)
 		elif cast_up2.is_colliding():
 			print("up-colliding")
 			hit_it(cast_up2.get_collider())
-#			var body = cast_up2.get_collider()
-#			if body.get_groups().has("hittable") || body.get_groups().has("player"):
-#				body.hit(-1, "Thowmp", "Impact", 1000)
 		elif cast_up3.is_colliding():
 			print("up-colliding")
 			hit_it(cast_up3.get_collider())
-#			var body = cast_up3.get_collider()
-#			if body.get_groups().has("hittable") || body.get_groups().has("player"):
-#				body.hit(-1, "Thowmp", "Impact", 1000)
 		elif cast_up4.is_colliding():
 			print("up-colliding")
 			hit_it(cast_up4.get_collider())
-#			var body = cast_up4.get_collider()
-#			if body.get_groups().has("hittable") || body.get_groups().has("player"):
-#				body.hit(-1, "Thowmp", "Impact", 1000)
 
 func slam():
 	slamming = true
@@ -85,9 +71,8 @@ func _on_Timer_timeout():
 func _on_Area2DThuwmp_body_entered(body):
 	if slamming:
 		hit_it(body)
-#		if body.get_groups().has("hittable") || body.get_groups().has("player"):
-#			body.hit(-1, "Thowmp", "Impact", 1000)
 
 func _on_Area2DTrigger_body_entered(body):
-	slam()
-	timer.start()
+	if body.get_groups().has("player"):
+		slam()
+		timer.start()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -14,8 +14,6 @@
 [ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=13]
 [ext_resource path="res://SFX/Music/No Monkey.wav" type="AudioStream" id=14]
-[ext_resource path="res://Scenes/Bad_Guys/BG-01-Yellow_Space_Suit.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Map_Parts/MP-12-warp-spot.tscn" type="PackedScene" id=16]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -249,9 +247,3 @@ position = Vector2( 1016.51, 1127.47 )
 stream = ExtResource( 14 )
 autoplay = true
 bus = "Music"
-
-[node name="BG-01-Yellow_Space_Suit-00" parent="." instance=ExtResource( 15 )]
-position = Vector2( 1810, 830 )
-
-[node name="MP-12-Warp-Spot" parent="." instance=ExtResource( 16 )]
-position = Vector2( 510, 1030 )

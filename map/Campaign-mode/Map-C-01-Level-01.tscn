@@ -29,11 +29,11 @@
 [ext_resource path="res://Scenes/Guns/Weap-Pick-22-Plasma-Grenade.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Map_Parts/MP-40-Distruct-Brick-Red-Brick.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Scenes/Map_Parts/MP-50-Thwomp.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Scenes/Bad_Guys/BG-22-Turret-Ceiling.tscn" type="PackedScene" id=31]
-[ext_resource path="res://Scenes/Bad_Guys/BG-01-Yellow_Space_Suit.tscn" type="PackedScene" id=32]
-[ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=33]
-[ext_resource path="res://Scenes/Bad_Guys/BG-23-Turret-Ground.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Scenes/Bad_Guys/BG-22-Turret-Ceiling.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/Bad_Guys/BG-01-Yellow_Space_Suit.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Scenes/Bad_Guys/BG-23-Turret-Ground.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Tilesets/R_B_Plat_X20-test.tres" type="TileSet" id=34]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -129,6 +129,7 @@ position = Vector2( 110.063, 180 )
 position = Vector2( 450, 180 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Weap-Pick-40-RPG" parent="Power_Ups" instance=ExtResource( 8 )]
 position = Vector2( 340, 1040 )
@@ -136,6 +137,7 @@ position = Vector2( 340, 1040 )
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
+editor/display_folded = true
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 9 )]
 
@@ -324,6 +326,7 @@ body_5 = ExtResource( 23 )
 body_6 = ExtResource( 24 )
 
 [node name="R_Marks" type="Node2D" parent="Map_parts"]
+editor/display_folded = true
 
 [node name="R_Mark_01_00" parent="Map_parts/R_Marks" instance=ExtResource( 26 )]
 position = Vector2( 90, 530 )
@@ -354,6 +357,7 @@ spawn_01 = ExtResource( 25 )
 mark = 6
 
 [node name="Distruct_Bricks" type="Node2D" parent="Map_parts"]
+editor/display_folded = true
 
 [node name="MP-40-Distruct-Brick-Red-Brick" parent="Map_parts/Distruct_Bricks" instance=ExtResource( 29 )]
 position = Vector2( 110, 530 )
@@ -381,43 +385,32 @@ respawn_time = 5
 body_1 = ExtResource( 28 )
 
 [node name="BadGuys" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="MP-50-Thwomp" parent="BadGuys" instance=ExtResource( 30 )]
-position = Vector2( 1060, 700 )
-trigger_on_prox = true
+[node name="BG-22-Turret-Ceiling" parent="BadGuys" instance=ExtResource( 30 )]
+position = Vector2( 223.777, 690 )
 
-[node name="MP-50-Thwomp2" parent="BadGuys" instance=ExtResource( 30 )]
-position = Vector2( 1430, 700 )
-hit_on_second = 2
-trigger_on_prox = true
-
-[node name="MP-50-Thwomp3" parent="BadGuys" instance=ExtResource( 30 )]
-position = Vector2( 820, 700 )
-hit_on_second = 3
-trigger_on_prox = true
-
-[node name="MP-50-Thwomp4" parent="BadGuys" instance=ExtResource( 30 )]
-position = Vector2( 940, 700 )
-hit_on_second = 4
-trigger_on_prox = true
-
-[node name="BG-22-Turret-Ceiling" parent="BadGuys" instance=ExtResource( 31 )]
-position = Vector2( 223.777, 693.923 )
-
-[node name="BG-22-Turret-Ceiling2" parent="BadGuys" instance=ExtResource( 31 )]
-position = Vector2( 450, 693.923 )
+[node name="BG-22-Turret-Ceiling2" parent="BadGuys" instance=ExtResource( 30 )]
+position = Vector2( 450, 690 )
 area_4_disabled = true
 
-[node name="BG-01-Yellow_Space_Suit-00" parent="BadGuys" instance=ExtResource( 32 )]
+[node name="BG-01-Yellow_Space_Suit-00" parent="BadGuys" instance=ExtResource( 31 )]
 position = Vector2( 530, 1030 )
 
-[node name="BG-02-Open_Gunner-01" parent="BadGuys" instance=ExtResource( 33 )]
+[node name="BG-02-Open_Gunner-01" parent="BadGuys" instance=ExtResource( 32 )]
 position = Vector2( 1210, 320 )
 
-[node name="BG-23-Turret-Ground" parent="BadGuys" instance=ExtResource( 34 )]
+[node name="BG-23-Turret-Ground" parent="BadGuys" instance=ExtResource( 33 )]
 position = Vector2( 120, 1050 )
 rotation = -3.14159
 far_disabled = true
 
-[node name="BG-01-Yellow_Space_Suit-01" parent="BadGuys" instance=ExtResource( 32 )]
+[node name="BG-01-Yellow_Space_Suit-01" parent="BadGuys" instance=ExtResource( 31 )]
 position = Vector2( 1170, 1030 )
+
+[node name="TileMap-Bars" type="TileMap" parent="."]
+tile_set = ExtResource( 34 )
+cell_size = Vector2( 20, 20 )
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 327683, 18, 0, 327684, 19, 0, 327685, 19, 0, 327686, 19, 0, 327687, 19, 0, 327688, 19, 0, 327689, 19, 0, 327690, 19, 0, 327691, 19, 0, 327692, 19, 0, 327693, 19, 0, 327694, 19, 0, 327695, 19, 0, 327696, 19, 0, 327697, 19, 0, 327698, 19, 0, 327699, 19, 0, 327700, 19, 0, 327701, 19, 0, 327702, 19, 0, 327703, 20, 0, 393219, 21, 0, 393220, 22, 0, 393221, 22, 0, 393222, 22, 0, 393223, 22, 0, 393224, 22, 0, 393225, 22, 0, 393226, 22, 0, 393227, 22, 0, 393228, 22, 0, 393229, 22, 0, 393230, 22, 0, 393231, 22, 0, 393232, 22, 0, 393233, 22, 0, 393234, 22, 0, 393235, 22, 0, 393236, 22, 0, 393237, 22, 0, 393238, 22, 0, 393239, 23, 0, 458755, 21, 0, 458756, 22, 0, 458757, 22, 0, 458758, 22, 0, 458759, 22, 0, 458760, 22, 0, 458761, 22, 0, 458762, 22, 0, 458763, 22, 0, 458764, 22, 0, 458765, 22, 0, 458766, 22, 0, 458767, 22, 0, 458768, 22, 0, 458769, 22, 0, 458770, 22, 0, 458771, 22, 0, 458772, 22, 0, 458773, 22, 0, 458774, 22, 0, 458775, 23, 0, 524291, 21, 0, 524292, 22, 0, 524293, 22, 0, 524294, 22, 0, 524295, 22, 0, 524296, 22, 0, 524297, 22, 0, 524298, 22, 0, 524299, 22, 0, 524300, 22, 0, 524301, 22, 0, 524302, 22, 0, 524303, 22, 0, 524304, 22, 0, 524305, 22, 0, 524306, 22, 0, 524307, 22, 0, 524308, 22, 0, 524309, 22, 0, 524310, 22, 0, 524311, 23, 0, 589827, 21, 0, 589828, 22, 0, 589829, 22, 0, 589830, 22, 0, 589831, 22, 0, 589832, 22, 0, 589833, 22, 0, 589834, 22, 0, 589835, 22, 0, 589836, 22, 0, 589837, 22, 0, 589838, 22, 0, 589839, 22, 0, 589840, 22, 0, 589841, 22, 0, 589842, 22, 0, 589843, 22, 0, 589844, 22, 0, 589845, 22, 0, 589846, 22, 0, 589847, 23, 0, 655363, 24, 0, 655364, 25, 0, 655365, 25, 0, 655366, 25, 0, 655367, 25, 0, 655368, 25, 0, 655369, 25, 0, 655370, 25, 0, 655371, 25, 0, 655372, 25, 0, 655373, 25, 0, 655374, 25, 0, 655375, 25, 0, 655376, 25, 0, 655377, 25, 0, 655378, 25, 0, 655379, 25, 0, 655380, 25, 0, 655381, 25, 0, 655382, 25, 0, 655383, 26, 0 )
