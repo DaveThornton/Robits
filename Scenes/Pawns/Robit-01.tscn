@@ -64,7 +64,6 @@ position = Vector2( 1, -10 )
 texture = ExtResource( 16 )
 vframes = 5
 hframes = 16
-frame = 76
 
 [node name="Sprite_Shield" type="Sprite" parent="."]
 visible = false

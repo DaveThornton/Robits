@@ -331,7 +331,6 @@ shape = SubResource( 2 )
 autostart = true
 
 [node name="Casts" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="RayCast2D_Down" type="RayCast2D" parent="Casts"]
 position = Vector2( 0, -1 )
@@ -346,6 +345,17 @@ position = Vector2( 0, -31 )
 cast_to = Vector2( 200, 0 )
 collision_mask = 2
 
+[node name="Shoot-Left-RayCast2D" type="RayCast2D" parent="Casts/Shoot_Casts"]
+cast_to = Vector2( -200, 0 )
+collision_mask = 2
+
+[node name="Shoot-Right-Pos" type="Position2D" parent="Casts/Shoot_Casts"]
+position = Vector2( 10, 0 )
+
+[node name="Shoot-Left-Pos" type="Position2D" parent="Casts/Shoot_Casts"]
+position = Vector2( -10, 0 )
+scale = Vector2( -1, 1 )
+
 [node name="Area2D-On_Ladder" type="Area2D" parent="."]
 editor/display_folded = true
 collision_layer = 32768
@@ -354,9 +364,6 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-On_Ladder"]
 position = Vector2( 0, -23 )
 shape = SubResource( 3 )
-
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 10, -31 )
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
 anims/Idle-Mid = SubResource( 4 )
@@ -370,7 +377,6 @@ position = Vector2( 0, -30 )
 texture = ExtResource( 4 )
 vframes = 4
 hframes = 20
-frame = 38
 [connection signal="timeout" from="Timer_Shoot" to="." method="_on_Timer_Shoot_timeout"]
 [connection signal="body_entered" from="Area2D-On_Ladder" to="." method="_on_Area2DOn_Ladder_body_entered"]
 [connection signal="body_exited" from="Area2D-On_Ladder" to="." method="_on_Area2DOn_Ladder_body_exited"]

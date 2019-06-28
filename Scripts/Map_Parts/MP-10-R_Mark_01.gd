@@ -27,6 +27,8 @@ func _ready():
 			anim.play("Start_S")
 		elif mark == 7:
 			anim.play("Start_A")
+		elif mark == 8:
+			anim.play("Start_Bang")
 	else:
 		anim.play("Used")
 
@@ -64,6 +66,8 @@ func hit(owned, my_name, damage_type, damage1):
 			anim.play("Hit_S")
 		elif mark == 7:
 			anim.play("Hit_A")
+		elif mark == 8:
+			anim.play("Hit_Bang")
 #			anim.play("Hit")
 func _on_Timer_Hit_timeout():
 	call_deferred("_spawn_thing")
