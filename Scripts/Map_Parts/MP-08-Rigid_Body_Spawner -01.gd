@@ -53,9 +53,9 @@ func _spawn():
 		if spawn_next == 7:
 			spawn_next = 1
 	else:
-		s = body_1.instance()
 		self.get_tree().get_current_scene().add_kid_to_map(s)
 		s.global_position = pos.global_position
+	s.dont_hit_player()
 		
 #	s.set_collision_layer_bit( 1, false)
 #	s.set_collision_mask_bit( 1, false)

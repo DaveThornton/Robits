@@ -107,6 +107,8 @@ func _on_Area2D_body_entered(body):
 			body.add_child(det)
 			print("hit person")
 			call_deferred("free")#queue_free()
-	
+
+func dont_hit_player():
+	self.set_collision_mask_bit( 1, false)
 #func free():
 #	call_deferred("free")#queue_free()

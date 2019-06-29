@@ -75,3 +75,5 @@ func set_dir(_is_right, _dir):
 		elif _dir == 5:
 			self.rotation_degrees = -265
 			sprite.scale.y = -1
+func dont_hit_player():
+	self.set_collision_mask_bit( 1, false)

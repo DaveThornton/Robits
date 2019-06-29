@@ -25,6 +25,11 @@ func _physics_process(delta):
 	move_local_x(speed * delta)
 
 func _on_Projectile_body_entered(body):
+	var _hit = true
+	if body.get_groups().has("player"):
+		if body.player == owned:
+			print("hit your self")
+			_hit = false
 #	if body.get_groups().has("map"):
 #		call_deferred("free")
 #	elif body.get_groups().has("player"):
@@ -35,17 +40,18 @@ func _on_Projectile_body_entered(body):
 #		_hit()
 #		body.hit(owned, my_name, damage_type, damage)
 #		queue_free()
-	if body.get_groups().has("hittable"):
-		_hit_move()
-		body.hit(owned, my_name, damage_type, damage)
-		call_deferred("free")
-#		queue_free()
-	elif body.get_groups().has("projectile"):
-		_hit_move()
-		call_deferred("free")
-	elif body.get_groups().has("map"):
-		_hit_move()
-		call_deferred("free")
+	if _hit:
+		if body.get_groups().has("hittable"):
+			_hit_move()
+			body.hit(owned, my_name, damage_type, damage)
+			call_deferred("free")
+	#		queue_free()
+		elif body.get_groups().has("projectile"):
+			_hit_move()
+			call_deferred("free")
+		elif body.get_groups().has("map"):
+			_hit_move()
+			call_deferred("free")
 
 #func _hit():
 #	var x = hit.instance()

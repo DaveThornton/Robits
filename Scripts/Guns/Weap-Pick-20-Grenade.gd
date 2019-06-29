@@ -60,6 +60,10 @@ func _on_WeapPick20Grenade_body_exited(body):
 
 func _on_Timer_Hit_timeout():
 #	pass # Replace with function body.
+#	self.set_collision_mask_bit( 1, false)
+	dont_hit_player()
+
+func dont_hit_player():
 	self.set_collision_mask_bit( 1, false)
 
 func spin(_how_much):

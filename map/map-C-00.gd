@@ -1,18 +1,23 @@
 extends Node2D
 
-#export var show_splash = false
-#export var title_text = "Title"
-#export var text_body = "Body"
-#export var splash_time = 5.0
-#onready var map = $TileMap
-#onready var platforms = $TileMap2
+export var show_splash = false
+export var title_text = "Title"
+export var body_text = "Body"
+export var splash_time = 3
+
 onready var player_spawns = $Player_spawns
 onready var parts = $Map_parts
-#onready var splash_screen = $"Splash/Level_Load_Screen"
+onready var splash_screen = $"Splash/Level_Load_Screen"
+
 var next_spawn_spot = 0
 var nav_system
 
 func _ready():
+	if show_splash:
+		splash_screen.change_text(title_text, body_text)
+		splash_screen.visible = true
+		splash_screen.start_timer(splash_time)
+	
 	if $"MP-04-Nav2D":
 		nav_system = $"MP-04-Nav2D"
 		print("map nav system found")

@@ -14,8 +14,8 @@ radius = 6.0
 height = 8.0
 
 [node name="Weap-Pick-20-Grenade" type="RigidBody2D" groups=[
-"FX",
 "PickUp",
+"FX",
 ]]
 collision_layer = 524288
 collision_mask = 786462

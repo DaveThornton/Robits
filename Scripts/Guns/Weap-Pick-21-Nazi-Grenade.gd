@@ -6,6 +6,7 @@ export var armed = false
 
 onready var timer = $Timer
 onready var spin_timer = $Timer_Spin
+#onready var hit_timer =  $Timer_Hit
 onready var timer_boom = $Timer_Boom
 onready var sprite = $Sprite_Body
 onready var pin = $Sprite_Pin
@@ -104,3 +105,9 @@ func _on_Timer_timeout():
 	get_tree().get_current_scene().add_child(s)
 	s.start( 0 , self.global_position, 0, 0)
 	queue_free()
+
+func _on_Timer_Hit_timeout():
+	dont_hit_player()
+
+func dont_hit_player():
+	self.set_collision_mask_bit( 1, false)

@@ -70,3 +70,6 @@ func _on_Timer_timeout():
 
 func _on_Timer_start_timeout():
 	ready = true
+
+func dont_hit_player():
+	self.set_collision_mask_bit( 1, false)

@@ -3,9 +3,10 @@ extends Node2D
 onready var splash = $Level_Load_Screen
 onready var timer = $Timer
 
-func load_level(_level, _label_1, _label_2, _time):
-	splash.change_text(_label_1, _label_2)
-	splash.visible = true
+func load_level(_level, _label_1, _label_2, _time, _show):
+	if _show:
+		splash.change_text(_label_1, _label_2)
+		splash.visible = true
 
 	var m = _level.instance()
 	get_parent().add_child(m)

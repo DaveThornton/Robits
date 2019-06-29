@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Projectiles/Shell-01.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Projectiles/Proj-00-Shells-and-Pins.png" type="Texture" id=2]
-[ext_resource path="res://SFX/FX/sfx_coin_single3.wav" type="AudioStream" id=3]
-[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.5
@@ -40,11 +39,6 @@ autostart = true
 position = Vector2( 0.040554, 0.223042 )
 shape = SubResource( 2 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 3 )
-bus = "Quieter"
-area_mask = 0
-
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 131072
 collision_mask = 8
@@ -54,6 +48,6 @@ position = Vector2( -0.0709476, 0.260145 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
-[node name="SFX_Lib" parent="." instance=ExtResource( 4 )]
+[node name="SFX_Lib" parent="." instance=ExtResource( 3 )]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

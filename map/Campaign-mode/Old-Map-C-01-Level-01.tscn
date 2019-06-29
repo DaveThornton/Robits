@@ -33,7 +33,8 @@
 [ext_resource path="res://Scenes/Bad_Guys/BG-01-Yellow_Space_Suit.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Bad_Guys/BG-23-Turret-Ground.tscn" type="PackedScene" id=33]
-[ext_resource path="res://Tilesets/R_B_Plat_X20-test.tres" type="TileSet" id=34]
+[ext_resource path="res://Tilesets/TS-05-Grey_Bars.tres" type="TileSet" id=34]
+
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )

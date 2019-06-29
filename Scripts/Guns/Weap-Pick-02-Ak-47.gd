@@ -86,3 +86,6 @@ func _on_Timer_timeout():
 	get_tree().get_current_scene().add_child(s)
 	s.start( 0 , self.global_position, 0, 0)
 	queue_free()
+	
+func dont_hit_player():
+	self.set_collision_mask_bit( 1, false)
