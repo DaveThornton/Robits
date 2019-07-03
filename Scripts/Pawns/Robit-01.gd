@@ -46,7 +46,8 @@ onready var bounce_timer = $Bounce_Timer
 onready var ladder_count = []
 var on_ladder = false
 var over_ladder = false
-var ladder_speed = 5
+var ladder_speed = 225
+#var current_ladder_speed = 0.0
 
 onready var ray_up = $RayCast2D_Up
 onready var ray_down_r = $RayCast2D_Down2
@@ -68,9 +69,10 @@ var take_ammo = false
 var shoot_spot = 3
 var my_gun 
 var vel = Vector2()
-var grav = 10
-var terminal_vel = 9
-var walk_speed = 17500
+var grav = 9
+var terminal_vel = 6
+#var walk_speed = 17500
+var walk_speed = 32000
 var speed_power_up = 1
 var starting_walk_speed
 var max_air_jump_count = 3
@@ -184,10 +186,11 @@ func _process(delta):
 	if my_gun:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
-	move_and_slide(Vector2(vel.x + knocked_back.x, 0 + knocked_back.y))
+	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 
 func _physics_process(delta):
 	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder)) + (map_movement * delta)
+#	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room + current_ladder_speed) * int(!on_ladder)) + (map_movement * delta)
 	vel = movement
 	if on_floor:
 		vel.y = vel.y / 1.1
@@ -357,7 +360,7 @@ func pick_up():
 
 
 #warning-ignore:unused_argument
-func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input):
+func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
 	if !down_input:
 		is_down = false
 	if can_move:
@@ -378,7 +381,8 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 						air_jump_count = 0
 #						print("on ladder player ", player, " is attempting to climb ladder")
 						on_ladder = true
-						self.position.y -= ladder_speed
+#						current_ladder_speed = -ladder_speed
+						self.position.y -= ladder_speed * delta
 						_anim_ladder_move()
 #						map_movement = Vector2(0,-10)
 					elif on_floor:
@@ -389,7 +393,8 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 					if over_ladder || on_ladder:
 #						print("on ladder player ", player, " is attempting to climb ladder")
 						on_ladder = true
-						self.position.y += ladder_speed
+						self.position.y += ladder_speed * delta
+#						current_ladder_speed = -ladder_speed
 					elif on_floor:
 						is_down = true 
 						shoot_spot = 6

@@ -10,6 +10,8 @@ script/source = "extends KinematicBody2D
 
 export(PackedScene) var projectile
 export(PackedScene) var explode
+export var active = true
+export var active_number = 1
 
 onready var anim = $AnimationPlayer3
 onready var sprite = $Sprite
@@ -31,7 +33,7 @@ onready var s_pos_right_d= $\"Casts/Shoot_Casts/Shoot-Right-Down-Pos\"
 onready var cast_shoot_right = $\"Casts/Shoot_Casts/Shoot-Right-RayCast2D\"
 onready var cast_shoot_left = $\"Casts/Shoot_Casts/Shoot-Left-RayCast2D\"
 onready var cast_shoot_up = $\"Casts/Shoot_Casts/Shoot-Up-RayCast2D\"
-onready var cast_shoot_Down = $\"Casts/Shoot_Casts/Shoot-Down-RayCast2D\"
+onready var cast_shoot_down = $\"Casts/Shoot_Casts/Shoot-Down-RayCast2D\"
 onready var cast_shoot_left_up = $\"Casts/Shoot_Casts/Shoot-LeftUp-RayCast2D\"
 onready var cast_shoot_right_up = $\"Casts/Shoot_Casts/Shoot-RightUp-RayCast2D\"
 onready var cast_shoot_left_down = $\"Casts/Shoot_Casts/Shoot-LeftDown-RayCast2D\"
@@ -39,7 +41,7 @@ onready var cast_shoot_right_down = $\"Casts/Shoot_Casts/Shoot-RightDown-RayCast
 
 var path : = PoolVector2Array() setget set_path
 var nav_system
-var damage = 2
+var damage = 20
 var last_anim = \"Idle-Mid\"
 var last_pos : = Vector2()
 var speed : = 60.0
@@ -57,6 +59,7 @@ var player = -1
 var can_move = false
 var time_to_check = .5
 var current_time_to_check = 0
+var hunted = []
 
 func _ready():
 	last_pos = self.global_position
@@ -78,21 +81,39 @@ func _process(delta: float) -> void:
 		if !nav_system:
 			if self.get_tree().get_current_scene().map.nav_system:
 				nav_system = self.get_tree().get_current_scene().map.nav_system
+				var map = self.get_tree().get_current_scene().map
+				map.connect(\"activate\",self,\"activate\")
 				print(\"nav system found \", nav_system)
 				nav_system.found_me()
 		else:
 			if current_time_to_check >= time_to_check:
 				current_time_to_check = 0.0
-				if self.get_tree().get_current_scene().pawns.get_children().size() > 0:
-					nav_system.find_path(self, self.get_tree().get_current_scene().pawns.get_child(0))
+				remove_dead()
+				if hunted.size() > 0:
+					nav_system.find_path(self, hunted[0])
+#				if hunted.size() > 0:
+#					if is_instance_valid(hunted[0]):
+#						print(\"valid in bg 02\")
+#						nav_system.find_path(self, hunted[0])
+#					else:
+#						print(\"not valid bg 02\")
+#						hunted.pop_front()
+				else:
+					active = false
+#				for h in hunted.size():
+#					if !is_instance_valid(hunted[h]):
+#						hunted.remove(h)
+#				if self.get_tree().get_current_scene().pawns.get_children().size() > 0:
+#					nav_system.find_path(self, self.get_tree().get_current_scene().pawns.get_child(0))
 	_on_floor()
 	_over_ladders()
 
 func _physics_process(delta):
 	if can_move:
 		var move_distance = speed * delta
-		move_along_path(move_distance)
-		move_and_slide(Vector2(current_speed_x, current_speed_y))
+		if active:
+			move_along_path(move_distance)
+			move_and_slide(Vector2(current_speed_x, current_speed_y))
 		
 		if last_pos == global_position:
 			_animation(\"Idle-Mid\")
@@ -282,23 +303,47 @@ func _change_shoot_pos(_pos_num):
 		return s_pos_left_u
 
 func _get_shot():
-	if !cast_shoot_up.is_colliding() && !cast_shoot_left_up.is_colliding() && !cast_shoot_right_up.is_colliding() && !cast_shoot_Down.is_colliding() && !cast_shoot_left_down.is_colliding() && !cast_shoot_right_down.is_colliding() && !cast_shoot_left.is_colliding() && !cast_shoot_right.is_colliding():
+	if !cast_shoot_up.is_colliding() && !cast_shoot_left_up.is_colliding() && !cast_shoot_right_up.is_colliding() && !cast_shoot_down.is_colliding() && !cast_shoot_left_down.is_colliding() && !cast_shoot_right_down.is_colliding() && !cast_shoot_left.is_colliding() && !cast_shoot_right.is_colliding():
 		return 0
 	elif cast_shoot_left.is_colliding():
+		var body = cast_shoot_left.get_collider()
+		if body.get_groups().has(\"player\"):
+			activate(0, body)
 		return 7
 	elif cast_shoot_right.is_colliding():
+		var body = cast_shoot_right.get_collider()
+		if body.get_groups().has(\"player\"):
+			activate(0, body)
 		return 3
 	elif cast_shoot_left_up.is_colliding():
+		var body = cast_shoot_left_up.get_collider()
+		if body.get_groups().has(\"player\"):
+			activate(0, body)
 		return 8
 	elif cast_shoot_right_up.is_colliding():
+		var body = cast_shoot_right_up.get_collider()
+		if body.get_groups().has(\"player\"):
+			activate(0, body)
 		return 2
 	elif cast_shoot_left_down.is_colliding():
+		var body = cast_shoot_left_down.get_collider()
+		if body.get_groups().has(\"player\"):
+			activate(0, body)
 		return 6
 	elif cast_shoot_right_down.is_colliding():
+		var body = cast_shoot_right_down.get_collider()
+		if body.get_groups().has(\"player\"):
+			activate(0, body)
 		return 4
 	elif cast_shoot_up.is_colliding():
+		var body = cast_shoot_up.get_collider()
+		if body.get_groups().has(\"player\"):
+			activate(0, body)
 		return 1
-	elif cast_shoot_Down.is_colliding():
+	elif cast_shoot_down.is_colliding():
+		var body = cast_shoot_down.get_collider()
+		if body.get_groups().has(\"player\"):
+			activate(0, body)
 		return 5
 
 func _on_Timer_Shoot_timeout():
@@ -306,11 +351,29 @@ func _on_Timer_Shoot_timeout():
 
 # warning-ignore:unused_argument
 func _on_Area2DOn_Ladder_body_entered(body):
+	print(body.position)
 	ladder_count += 1
 
 # warning-ignore:unused_argument
 func _on_Area2DOn_Ladder_body_exited(body):
+	print(body.position)
 	ladder_count -= 1
+	
+func activate(_num, _player):
+	if _num == active_number || _num == 0:
+		active = true
+		if !hunted.has(_player):
+			hunted.append(_player)
+#		else:
+#			print(\"same player bg 02\")
+
+func remove_dead():
+	var h_size = (hunted.size() - 1)
+	for h in hunted.size():
+#		print(h, h_size, hunted.size())
+		if !is_instance_valid(hunted[h_size - h]):
+			hunted.remove(h_size - h)
+#	print(hunted.size())
 "
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -616,7 +679,6 @@ position = Vector2( 0, -30 )
 texture = ExtResource( 4 )
 vframes = 4
 hframes = 20
-frame = 34
 [connection signal="timeout" from="Timer_Shoot" to="." method="_on_Timer_Shoot_timeout"]
 [connection signal="body_entered" from="Area2D-On_Ladder" to="." method="_on_Area2DOn_Ladder_body_entered"]
 [connection signal="body_exited" from="Area2D-On_Ladder" to="." method="_on_Area2DOn_Ladder_body_exited"]

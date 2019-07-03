@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Map_Parts/MP-25-Activate_Area.gd" type="Script" id=1]
+
+[node name="MP-25-Activate_Area" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_MP25Activate_Area_body_entered"]

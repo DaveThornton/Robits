@@ -12,12 +12,14 @@ onready var splash_screen = $"Splash/Level_Load_Screen"
 var next_spawn_spot = 0
 var nav_system
 
+signal activate(_num, _player)
+
 func _ready():
 	if show_splash:
 		splash_screen.change_text(title_text, body_text)
 		splash_screen.visible = true
 		splash_screen.start_timer(splash_time)
-	
+	get_next_pos()
 	if $"MP-04-Nav2D":
 		nav_system = $"MP-04-Nav2D"
 		print("map nav system found")
@@ -48,6 +50,9 @@ func remove_map():
 func reset():
 	propagate_call("queue_free",[],false)
 
+func activate_BG(_num, _player):
+	emit_signal("activate",_num, _player)
+	print("map calling BGs go kill")
 #
 #func delete_square(_pos):
 #	var _spot = map.world_to_map(_pos)

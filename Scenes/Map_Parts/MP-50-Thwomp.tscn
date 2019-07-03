@@ -14,7 +14,7 @@ extents = Vector2( 20, 10 )
 extents = Vector2( 20, 10 )
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 50.0
+radius = 35.4749
 
 [node name="MP-50-Thwomp" type="Node2D"]
 script = ExtResource( 1 )

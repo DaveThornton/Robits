@@ -248,7 +248,7 @@ func _process(delta):
 				if pick_input:
 					my_pawn.pick_throw(left_input, right_input, up_input, down_input,hold_input)
 #				nrg = my_pawn.nrg
-				my_pawn.anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input)
+				my_pawn.anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta)
 		else:
 			if start_input:
 				if can_start:
