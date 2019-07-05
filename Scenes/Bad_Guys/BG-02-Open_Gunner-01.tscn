@@ -89,6 +89,7 @@ func _process(delta: float) -> void:
 			if current_time_to_check >= time_to_check:
 				current_time_to_check = 0.0
 				remove_dead()
+				hunted.sort_custom(self, \"sort_distance\")
 				if hunted.size() > 0:
 					nav_system.find_path(self, hunted[0])
 #				if hunted.size() > 0:
@@ -303,48 +304,57 @@ func _change_shoot_pos(_pos_num):
 		return s_pos_left_u
 
 func _get_shot():
-	if !cast_shoot_up.is_colliding() && !cast_shoot_left_up.is_colliding() && !cast_shoot_right_up.is_colliding() && !cast_shoot_down.is_colliding() && !cast_shoot_left_down.is_colliding() && !cast_shoot_right_down.is_colliding() && !cast_shoot_left.is_colliding() && !cast_shoot_right.is_colliding():
-		return 0
-	elif cast_shoot_left.is_colliding():
+#	if !cast_shoot_up.is_colliding() && !cast_shoot_left_up.is_colliding() && !cast_shoot_right_up.is_colliding() && !cast_shoot_down.is_colliding() && !cast_shoot_left_down.is_colliding() && !cast_shoot_right_down.is_colliding() && !cast_shoot_left.is_colliding() && !cast_shoot_right.is_colliding():
+#		return 0
+	if cast_shoot_left.is_colliding():
 		var body = cast_shoot_left.get_collider()
-		if body.get_groups().has(\"player\"):
-			activate(0, body)
-		return 7
-	elif cast_shoot_right.is_colliding():
+		if is_instance_valid(body):
+			if body.get_groups().has(\"player\"):
+				activate_add_to_front(0, body)
+				return 7
+	if cast_shoot_right.is_colliding():
 		var body = cast_shoot_right.get_collider()
-		if body.get_groups().has(\"player\"):
-			activate(0, body)
-		return 3
-	elif cast_shoot_left_up.is_colliding():
+		if is_instance_valid(body):
+			if body.get_groups().has(\"player\"):
+				activate_add_to_front(0, body)
+				return 3
+	if cast_shoot_left_up.is_colliding():
 		var body = cast_shoot_left_up.get_collider()
-		if body.get_groups().has(\"player\"):
-			activate(0, body)
-		return 8
-	elif cast_shoot_right_up.is_colliding():
+		if is_instance_valid(body):
+			if body.get_groups().has(\"player\"):
+				activate_add_to_front(0, body)
+				return 8
+	if cast_shoot_right_up.is_colliding():
 		var body = cast_shoot_right_up.get_collider()
-		if body.get_groups().has(\"player\"):
-			activate(0, body)
-		return 2
-	elif cast_shoot_left_down.is_colliding():
+		if is_instance_valid(body):
+			if body.get_groups().has(\"player\"):
+				activate_add_to_front(0, body)
+				return 2
+	if cast_shoot_left_down.is_colliding():
 		var body = cast_shoot_left_down.get_collider()
-		if body.get_groups().has(\"player\"):
-			activate(0, body)
-		return 6
-	elif cast_shoot_right_down.is_colliding():
+		if is_instance_valid(body):
+			if body.get_groups().has(\"player\"):
+				activate_add_to_front(0, body)
+				return 6
+	if cast_shoot_right_down.is_colliding():
 		var body = cast_shoot_right_down.get_collider()
-		if body.get_groups().has(\"player\"):
-			activate(0, body)
-		return 4
-	elif cast_shoot_up.is_colliding():
+		if is_instance_valid(body):
+			if body.get_groups().has(\"player\"):
+				activate_add_to_front(0, body)
+				return 4
+	if cast_shoot_up.is_colliding():
 		var body = cast_shoot_up.get_collider()
-		if body.get_groups().has(\"player\"):
-			activate(0, body)
-		return 1
-	elif cast_shoot_down.is_colliding():
+		if is_instance_valid(body):
+			if body.get_groups().has(\"player\"):
+				activate_add_to_front(0, body)
+				return 1
+	if cast_shoot_down.is_colliding():
 		var body = cast_shoot_down.get_collider()
-		if body.get_groups().has(\"player\"):
-			activate(0, body)
-		return 5
+		if is_instance_valid(body):
+			if body.get_groups().has(\"player\"):
+				activate_add_to_front(0, body)
+				return 5
+	return 0
 
 func _on_Timer_Shoot_timeout():
 	can_shoot = true
@@ -364,8 +374,18 @@ func activate(_num, _player):
 		active = true
 		if !hunted.has(_player):
 			hunted.append(_player)
-#		else:
-#			print(\"same player bg 02\")
+
+func activate_add_to_front(_num, _player):
+	if _num == active_number || _num == 0:
+		active = true
+		if !hunted.has(_player):
+			hunted.push_front(_player)
+		else:
+			hunted.push_front(_player)
+		
+
+func sort_distance(_a, _b):
+	return (abs(self.position.x) - abs(_a.position.x) + abs(self.position.y) - abs(_a.position.y)) > (abs(self.position.x) - abs(_b.position.x) + abs(self.position.y) - abs(_b.position.y))
 
 func remove_dead():
 	var h_size = (hunted.size() - 1)
@@ -575,44 +595,44 @@ position = Vector2( 0, -31 )
 [node name="Shoot-Right-RayCast2D" type="RayCast2D" parent="Casts/Shoot_Casts"]
 enabled = true
 cast_to = Vector2( 200, 0 )
-collision_mask = 2
+collision_mask = 10
 
 [node name="Shoot-RightUp-RayCast2D" type="RayCast2D" parent="Casts/Shoot_Casts"]
 position = Vector2( 0, -5 )
 enabled = true
 cast_to = Vector2( 135, -135 )
-collision_mask = 2
+collision_mask = 10
 
 [node name="Shoot-RightDown-RayCast2D" type="RayCast2D" parent="Casts/Shoot_Casts"]
 enabled = true
 cast_to = Vector2( 135, 135 )
-collision_mask = 2
+collision_mask = 10
 
 [node name="Shoot-Up-RayCast2D" type="RayCast2D" parent="Casts/Shoot_Casts"]
 enabled = true
 cast_to = Vector2( 0, -200 )
-collision_mask = 2
+collision_mask = 10
 
 [node name="Shoot-Down-RayCast2D" type="RayCast2D" parent="Casts/Shoot_Casts"]
 enabled = true
 cast_to = Vector2( 0, 200 )
-collision_mask = 2
+collision_mask = 10
 
 [node name="Shoot-Left-RayCast2D" type="RayCast2D" parent="Casts/Shoot_Casts"]
 enabled = true
 cast_to = Vector2( -200, 0 )
-collision_mask = 2
+collision_mask = 10
 
 [node name="Shoot-LeftUp-RayCast2D" type="RayCast2D" parent="Casts/Shoot_Casts"]
 position = Vector2( 0, -5 )
 enabled = true
 cast_to = Vector2( -135, -135 )
-collision_mask = 2
+collision_mask = 10
 
 [node name="Shoot-LeftDown-RayCast2D" type="RayCast2D" parent="Casts/Shoot_Casts"]
 enabled = true
 cast_to = Vector2( -135, 135 )
-collision_mask = 2
+collision_mask = 10
 
 [node name="Shoot-Up-Right-Pos" type="Position2D" parent="Casts/Shoot_Casts"]
 position = Vector2( -5, -20 )

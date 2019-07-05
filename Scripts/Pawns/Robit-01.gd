@@ -67,7 +67,7 @@ onready var ray_right_melee = $RayCast2D_Right_Melee
 
 var take_ammo = false
 var shoot_spot = 3
-var my_gun 
+var my_gun
 var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
@@ -97,12 +97,12 @@ var can_move = true
 var is_right = true
 var is_jump_pressed = false
 var is_down = false
-var on_floor = false 
+var on_floor = false
 var on_wall = false
 var on_m_plat = false
 var not_on_angle = false
 #var next_to_player = false
-var is_shield_up = false 
+var is_shield_up = false
 var is_speed_up = false
 var is_jump_up = false
 var new_anim = "Right-Run"
@@ -132,6 +132,7 @@ func _ready():
 	var test = self.connect("nrg_update", get_tree().get_current_scene(), "nrg_update")
 	if test != 0:
 		print("error Robit 01 connecting nrg update")
+	print("atom works as editor")
 
 func init(_player_num, _pos):
 	player = _player_num
@@ -159,7 +160,7 @@ func init(_player_num, _pos):
 
 func change_pos(_pos):
 	self.position = _pos
-	
+
 func _process(delta):
 #	print(ladder_area.get_index())
 	if ladder_count.size() > 0:
@@ -226,9 +227,9 @@ func jump(down_input):
 	elif !is_jump_pressed && !down_input && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
 		vel.y = -max_air_jump_power * jump_power_up
 		air_jump_count += 1
-	is_jump_pressed = true 
+	is_jump_pressed = true
 	on_ladder = false
-	
+
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
 		vel.y = -min_air_jump_power
@@ -286,19 +287,19 @@ func shoot_r():
 func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 	if is_holding == true:
 		take_ammo = false
-		is_holding = false 
+		is_holding = false
 		if !left_input && !right_input && !up_input && !down_input && !hold_input:
 			my_gun.drop()
 		else:
 			my_gun.throw()
 		my_gun = null
-	elif wep_array.size() > 0: 
+	elif wep_array.size() > 0:
 		pick_up()
 
 func let_go():
 	if is_holding == true:
 		take_ammo = false
-		is_holding = false 
+		is_holding = false
 		my_gun.drop()
 		my_gun = null
 
@@ -355,7 +356,7 @@ func pick_up():
 	gun_pos.add_child(g)
 	g.init(_ammo_pick_up, player, _time_left)
 	my_gun = g
-	is_holding = true 
+	is_holding = true
 	poss_pick_obj.queue_free()
 
 
@@ -396,7 +397,7 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 						self.position.y += ladder_speed * delta
 #						current_ladder_speed = -ladder_speed
 					elif on_floor:
-						is_down = true 
+						is_down = true
 						shoot_spot = 6
 						_anim_prone_idle()
 					else:
@@ -410,13 +411,13 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 						_anim_jump()
 					elif down_input:
 						if on_floor:
-							is_down = true 
+							is_down = true
 							shoot_spot = 6
 							_anim_prone_idle()
 						else:
 							shoot_spot = 5
 							_anim_prone_crawl()
-			
+
 			else:
 				ray_down_plat.enabled = false
 				if left_input || right_input:
@@ -436,13 +437,13 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 				shoot_spot = 1
 			elif down_input && !left_input && !right_input:
 				shoot_spot = 5
-	
+
 	if on_ladder && !up_input && !down_input:
 		if is_right:
 			_anim_ladder_right()
 		else:
 			_anim_ladder_left()
-	
+
 	if on_wall:
 		if !not_on_angle:
 			if shoot_spot == 3:
@@ -463,7 +464,7 @@ func _anim_run():
 		new_anim = "Right-Run"
 	else:
 		new_anim = "Left-Run"
-	
+
 func _anim_jump():
 	current_shape = col_stand
 	if is_right:
@@ -527,7 +528,7 @@ func _test_wall():
 			if _obj:
 				on_wall = !_obj.get_groups().has("player")
 			not_on_angle = ray_left_down.is_colliding()
-	
+
 func _test_headroom():
 	if ray_up.is_colliding():
 		head_room = 1
@@ -536,7 +537,7 @@ func _test_headroom():
 
 func nrg_update():
 	emit_signal("nrg_update", player, nrg)
-	
+
 func add_nrg(_nrg):
 	nrg = clamp(nrg + _nrg, 0, 100)
 
@@ -616,7 +617,7 @@ func game_over(_winner):
 	print("game_over in player. won by ",_winner)
 
 func put_shield_up(_how_long):
-	is_shield_up = true 
+	is_shield_up = true
 	sprite_shield.visible = true
 	if _how_long <= 0:
 		shield_timer.wait_time = 10
@@ -626,7 +627,7 @@ func put_shield_up(_how_long):
 
 func _on_Shield_Timer_timeout():
 	sprite_shield.visible = false
-	is_shield_up = false 
+	is_shield_up = false
 
 func put_speed_up(_how_long):
 #	if !is_speed_up:
@@ -640,14 +641,14 @@ func put_speed_up(_how_long):
 	speed_timer.start()
 
 func _on_Speed_Timer_timeout():
-	is_speed_up = false 
+	is_speed_up = false
 	speed_power_up = 1
 #	walk_speed = starting_walk_speed
 #	move_step = walk_speed / move_speed_time_needed
 #	dec_step = walk_speed / deceleration_time_needed
 
 func put_jump_up(_how_long):
-	is_jump_up = true 
+	is_jump_up = true
 	jump_power_up = 2
 	if _how_long <= 0:
 		jump_timer.wait_time = 10
@@ -664,7 +665,7 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_regen_max = _how_much
 	nrg_up_timer.wait_time = _how_long
 	nrg_up_timer.start()
-	
+
 func _on_NRG_Up_Timer_timeout():
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
@@ -682,7 +683,7 @@ func _on_Grab_Area2D_body_entered(body):
 func _on_Grab_Area2D_body_exited(body):
 	if body.get_groups().has("PickUp"):
 		wep_array.erase(body)
-		
+
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
 		on_floor = true

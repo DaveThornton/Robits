@@ -50,7 +50,9 @@ func _ready():
 func _process(delta):
 	if bodies_in_range.size() > 0:
 		if bodies_in_range.size() > 1:
-			bodies_in_range.sort()
+			print(bodies_in_range)
+			bodies_in_range.sort_custom(self, "sort_distance")
+			print(bodies_in_range)
 		gun_arm.look_at(bodies_in_range[0].global_position)
 		if can_shoot:
 			if shoot_cast.is_colliding():
@@ -87,9 +89,15 @@ func _explode():
 	get_tree().get_current_scene().map.add_child(x)
 	x.init(player, self.position, str("player ", x, "'s destruct system"))
 
+func sort_distance(_a, _b):
+	return (abs(self.position.x) - abs(_a.position.x) + abs(self.position.y) - abs(_a.position.y)) > (abs(self.position.x) - abs(_b.position.x) + abs(self.position.y) - abs(_b.position.y))
+
 
 func _on_Area2D_body_entered(body):
 	bodies_in_range.append(body)
+#	print(bodies_in_range)
+#	bodies_in_range.sort_custom(self, "sort_distance")
+#	print(bodies_in_range)
 
 func _on_Area2D_body_exited(body):
 	bodies_in_range.erase(body)

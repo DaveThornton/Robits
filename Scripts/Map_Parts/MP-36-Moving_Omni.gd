@@ -139,7 +139,7 @@ func _physics_process(delta):
 				print("error in moving plat. cant be both up and down choose one damnit")
 			
 			if left && !right:
-				if plat.position.x < (-1 * how_far):
+				if plat.position.x < (-how_far):
 					going_left = false
 					going_right = true
 					last_move = false
