@@ -107,6 +107,7 @@ position = Vector2( 1107.29, 778.691 )
 shape = SubResource( 1 )
 
 [node name="Player_spawns" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Position2D20" type="Position2D" parent="Player_spawns"]
 position = Vector2( 120, 147 )
@@ -213,13 +214,30 @@ position = Vector2( 750, 880 )
 open_for_player = false
 
 [node name="BadGuys" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="BG-02-Open_Gunner-01" parent="BadGuys" instance=ExtResource( 15 )]
 position = Vector2( 1580, 920 )
+active = false
 
 [node name="BG-02-Open_Gunner-02" parent="BadGuys" instance=ExtResource( 15 )]
-position = Vector2( 1640, 919 )
+position = Vector2( 1631.7, 920.755 )
+active = false
+
+[node name="BG-02-Open_Gunner-03" parent="BadGuys" instance=ExtResource( 15 )]
+position = Vector2( 1649.43, 1060.75 )
+active = false
+
+[node name="BG-02-Open_Gunner-04" parent="BadGuys" instance=ExtResource( 15 )]
+position = Vector2( 1476.98, 1060.75 )
+active = false
+
+[node name="BG-02-Open_Gunner-05" parent="BadGuys" instance=ExtResource( 15 )]
+position = Vector2( 1404.53, 1060.75 )
+active = false
+
+[node name="BG-02-Open_Gunner-06" parent="BadGuys" instance=ExtResource( 15 )]
+position = Vector2( 1446.04, 920 )
+active = false
 
 [node name="Splash" type="Node2D" parent="."]
 editor/display_folded = true

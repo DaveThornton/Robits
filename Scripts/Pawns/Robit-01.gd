@@ -115,6 +115,7 @@ var current_shape
 var bouncing = false
 var bounce_much = Vector2(0,0)
 var bounce_way = true
+var start_equiped = false
 
 var wep_array = []
 
@@ -134,7 +135,7 @@ func _ready():
 		print("error Robit 01 connecting nrg update")
 	print("atom works as editor")
 
-func init(_player_num, _pos):
+func init(_player_num, _pos, _start_equiped):
 	player = _player_num
 	if player == 1:
 		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-01.png")
@@ -154,7 +155,9 @@ func init(_player_num, _pos):
 		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-09.png")
 	else:
 		print("error in robit init player number invald")
-#	self.position = _pos
+	start_equiped = _start_equiped
+	if start_equiped:
+		equip_weap(10, 200, 0.0)
 	change_pos(_pos)
 	nrg_update()
 
@@ -293,6 +296,8 @@ func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 		else:
 			my_gun.throw()
 		my_gun = null
+		if start_equiped:
+			equip_weap(10, 200, 0.0)
 	elif wep_array.size() > 0:
 		pick_up()
 
@@ -302,63 +307,68 @@ func let_go():
 		is_holding = false
 		my_gun.drop()
 		my_gun = null
+		if start_equiped:
+			equip_weap(10, 200, 0.0)
+			
 
 func pick_up():
 	poss_pick_obj = wep_array.front()
 	var _time_left = poss_pick_obj.time
 	var _ammo_pick_up = poss_pick_obj.ammo
-	var _wep_num = poss_pick_obj.gun_num
+	var _weap_num = poss_pick_obj.gun_num
 	var _just_shot = false
+	equip_weap(_weap_num,_ammo_pick_up, _time_left)
+	poss_pick_obj.queue_free()
+
+func equip_weap(_weap_num, _ammo_pick_up, _time_left):
 	var g
-	if _wep_num == 2:
+	if _weap_num == 2:
 		g = gun_02.instance()
 		take_ammo = true
-	elif _wep_num == 3:
+	elif _weap_num == 3:
 		g = gun_03.instance()
 		take_ammo = true
-	elif _wep_num == 4:
+	elif _weap_num == 4:
 		g = gun_04.instance()
 		take_ammo = true
-	elif _wep_num == 10:
+	elif _weap_num == 10:
 		g = gun_10.instance()
 		take_ammo = true
-	elif _wep_num == 11:
+	elif _weap_num == 11:
 		g = gun_11.instance()
 		take_ammo = true
-	elif _wep_num == 20:
+	elif _weap_num == 20:
 		g = gun_20.instance()
 		take_ammo = false
-	elif _wep_num == 21:
+	elif _weap_num == 21:
 		g = gun_21.instance()
 		take_ammo = false
-	elif _wep_num == 22:
+	elif _weap_num == 22:
 		g = gun_22.instance()
 		take_ammo = false
-	elif _wep_num == 23:
+	elif _weap_num == 23:
 		g = gun_23.instance()
 		take_ammo = false
-	elif _wep_num == 40:
+	elif _weap_num == 40:
 		g = gun_40.instance()
 		take_ammo = true
-	elif _wep_num == 50:
+	elif _weap_num == 50:
 		g = gun_50.instance()
 		take_ammo = true
 		g.just_shot = poss_pick_obj.just_shot
-	elif _wep_num == 60:
+	elif _weap_num == 60:
 		g = gun_60.instance()
 		take_ammo = false
-	elif _wep_num == 61:
+	elif _weap_num == 61:
 		g = gun_61.instance()
 		take_ammo = false
-	elif _wep_num == 80:
+	elif _weap_num == 80:
 		g = gun_80.instance()
 		take_ammo = false
 	gun_pos.add_child(g)
 	g.init(_ammo_pick_up, player, _time_left)
 	my_gun = g
 	is_holding = true
-	poss_pick_obj.queue_free()
-
 
 #warning-ignore:unused_argument
 func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):

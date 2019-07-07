@@ -33,6 +33,7 @@ var in_menu = true
 var alive = false
 #var can_move = true 
 var can_start = false
+var start_equiped = false
 var is_game_over = false
 
 signal player_score
@@ -173,7 +174,7 @@ func spawn_pawn():
 #		self.add_child(z)
 		z.connect("explode_p", self, "explode_pawn")
 		my_pawn = z
-		my_pawn.init(player, spawn_spot)
+		my_pawn.init(player, spawn_spot, start_equiped)
 		in_game = true
 		alive = true
 		emit_signal("change_spawn_pos")

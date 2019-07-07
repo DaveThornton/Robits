@@ -39,6 +39,13 @@ onready var cast_shoot_right_up = $\"Casts/Shoot_Casts/Shoot-RightUp-RayCast2D\"
 onready var cast_shoot_left_down = $\"Casts/Shoot_Casts/Shoot-LeftDown-RayCast2D\"
 onready var cast_shoot_right_down = $\"Casts/Shoot_Casts/Shoot-RightDown-RayCast2D\"
 
+#onready var cast_bg_right_top = $\"Casts/BG_Casts/RayCast2D-Right_Top\"
+#onready var cast_bg_right_bot = $\"Casts/BG_Casts/RayCast2D-Right_Bot\"
+#onready var cast_bg_left_top = $\"Casts/BG_Casts/RayCast2D-Left_Top\"
+#onready var cast_bg_left_bot = $\"Casts/BG_Casts/RayCast2D-Left_Bot\"
+#onready var cast_bg_up = $\"Casts/BG_Casts/RayCast2D-Up\"
+#onready var cast_bg_down = $\"Casts/BG_Casts/RayCast2D-Down\"
+
 var path : = PoolVector2Array() setget set_path
 var nav_system
 var damage = 20
@@ -50,6 +57,7 @@ var current_speed_y = 0.0
 #var started = false
 var on_floor = false
 var on_ladder = false
+var up_ladder  = false
 var over_ladder = false
 var ladder_count = 0
 var can_shoot = true
@@ -67,6 +75,34 @@ func _ready():
 	time_to_check = rand_range(.5, .75)
 
 func _process(delta: float) -> void:
+#	if on_ladder:
+#		if up_ladder == true && cast_bg_up.is_colliding():
+#			can_move = false
+#			print(can_move)
+#		elif up_ladder == true && !cast_bg_up.is_colliding():
+#			can_move = true
+#			print(can_move)
+#		if up_ladder == false && cast_bg_down.is_colliding():
+#			can_move = false
+#			print(can_move)
+#		elif up_ladder == false && !cast_bg_down.is_colliding():
+#			can_move = true
+#			print(can_move)
+#	else:
+#		if is_right:
+#			if cast_bg_right_top.is_colliding() || cast_bg_right_bot.is_colliding():
+#				can_move = false
+#				print(can_move)
+#			else:
+#				can_move = true
+#				print(can_move)
+#		else:
+#			if cast_bg_left_top.is_colliding() || cast_bg_left_bot.is_colliding():
+#				can_move = false
+#				print(can_move)
+#			else:
+#				can_move = true
+#				print(can_move)
 	current_time_to_check += delta
 	var shot = _get_shot()
 	if shot != 0 && !on_ladder && on_floor:
@@ -92,20 +128,8 @@ func _process(delta: float) -> void:
 				hunted.sort_custom(self, \"sort_distance\")
 				if hunted.size() > 0:
 					nav_system.find_path(self, hunted[0])
-#				if hunted.size() > 0:
-#					if is_instance_valid(hunted[0]):
-#						print(\"valid in bg 02\")
-#						nav_system.find_path(self, hunted[0])
-#					else:
-#						print(\"not valid bg 02\")
-#						hunted.pop_front()
 				else:
 					active = false
-#				for h in hunted.size():
-#					if !is_instance_valid(hunted[h]):
-#						hunted.remove(h)
-#				if self.get_tree().get_current_scene().pawns.get_children().size() > 0:
-#					nav_system.find_path(self, self.get_tree().get_current_scene().pawns.get_child(0))
 	_on_floor()
 	_over_ladders()
 
@@ -140,16 +164,16 @@ func move_along_path(distance : float) -> void:
 #		print(distance_to_next)
 		var hor_move = int(self.global_position.x) - int(path[0].x)
 		var vert_move = int(self.global_position.y) - int(path[0].y)
-		if hor_move < 0:
+		if hor_move < 0:# && !cast_bg_right_top.is_colliding() && !cast_bg_right_bot.is_colliding():
 			_go_right(distance)
-		elif hor_move > 0:
+		elif hor_move > 0:# && !cast_bg_left_top.is_colliding() && !cast_bg_left_bot.is_colliding():
 			_go_left(distance)
-		elif vert_move > 0:
+		elif vert_move > 0:# && !cast_bg_up.is_colliding():
 			if over_ladder:
 				_go_up_ladder(distance)
 			else:
 				_go_jump_up(distance)
-		elif vert_move < 0:#
+		elif vert_move < 0:# && !cast_bg_down.is_colliding():#
 			if over_ladder:
 				_go_down_ladder(distance)
 			else:
@@ -244,10 +268,14 @@ func _go_jump_down(_s):
 	position.y += 2
 
 func _go_up_ladder(_s):
+#	on_ladder = true
+	up_ladder = true
 	current_speed_y = -_s 
 	current_speed_x = 0
 	
 func _go_down_ladder(_s):
+#	on_ladder = true
+	up_ladder = false
 	current_speed_y = _s *.5
 	current_speed_x = 0
 	position.y += .5
@@ -396,9 +424,8 @@ func remove_dead():
 #	print(hunted.size())
 "
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 8.0
-height = 29.0
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 9.5, 22 )
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 2.0
@@ -574,7 +601,7 @@ explode = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -23 )
-shape = SubResource( 2 )
+shape = SubResource( 14 )
 
 [node name="SFX_Lib" parent="." instance=ExtResource( 3 )]
 
@@ -590,6 +617,7 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 28
 
 [node name="Shoot_Casts" type="Node2D" parent="Casts"]
+editor/display_folded = true
 position = Vector2( 0, -31 )
 
 [node name="Shoot-Right-RayCast2D" type="RayCast2D" parent="Casts/Shoot_Casts"]
@@ -672,6 +700,38 @@ position = Vector2( 10, 0 )
 [node name="Shoot-Left-Pos" type="Position2D" parent="Casts/Shoot_Casts"]
 position = Vector2( -10, 0 )
 rotation = -3.14159
+
+[node name="BG_Casts" type="Node2D" parent="Casts"]
+visible = false
+
+[node name="RayCast2D-Down" type="RayCast2D" parent="Casts/BG_Casts"]
+cast_to = Vector2( 0, 20 )
+collision_mask = 2048
+
+[node name="RayCast2D-Up" type="RayCast2D" parent="Casts/BG_Casts"]
+position = Vector2( 0, -46 )
+cast_to = Vector2( 0, -20 )
+collision_mask = 2048
+
+[node name="RayCast2D-Right_Top" type="RayCast2D" parent="Casts/BG_Casts"]
+position = Vector2( 10, -40 )
+cast_to = Vector2( 30, 0 )
+collision_mask = 2048
+
+[node name="RayCast2D-Right_Bot" type="RayCast2D" parent="Casts/BG_Casts"]
+position = Vector2( 10, -5 )
+cast_to = Vector2( 30, 0 )
+collision_mask = 2048
+
+[node name="RayCast2D-Left_Top" type="RayCast2D" parent="Casts/BG_Casts"]
+position = Vector2( -10, -40 )
+cast_to = Vector2( -30, 0 )
+collision_mask = 2048
+
+[node name="RayCast2D-Left_Bot" type="RayCast2D" parent="Casts/BG_Casts"]
+position = Vector2( -10, -5 )
+cast_to = Vector2( -30, 0 )
+collision_mask = 2048
 
 [node name="Area2D-On_Ladder" type="Area2D" parent="."]
 editor/display_folded = true
