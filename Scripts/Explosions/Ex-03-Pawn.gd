@@ -1,6 +1,11 @@
 extends Node2D
+export(PackedScene) var pawn_part
 
 onready var anim = $AnimationPlayer
+#onready var part1 = $"FX-05-Robit-Wreckage"
+#onready var part2 = $"FX-05-Robit-Wreckage2"
+#onready var part3 = $"FX-05-Robit-Wreckage3"
+#onready var part4 = $"FX-05-Robit-Wreckage4"
 onready var sfx = $SFX_Lib
 var owned = 0
 var my_name = "Explosion"
@@ -10,11 +15,23 @@ var damage2 = 0
 var damage_type = "Explosion"
 
 func _ready():
-#	my_name = weap_name
 	pass
 
-func init(_owner, _pos, _weap_name):
+func init(_owner, _pos, _weap_name, _pawn_num):
 	self.global_position = _pos
+	
+	var part1 = pawn_part.instance()
+	get_tree().get_current_scene().map.add_child(part1)
+	part1.init(_owner, _pawn_num, 0, true, (_pos + Vector2(-7, -7)), Vector2(-200, -200))
+	var part2 = pawn_part.instance()
+	get_tree().get_current_scene().map.add_child(part2)
+	part2.init(_owner, _pawn_num, 1, true, (_pos + Vector2(7, -7)), Vector2(200, -200))
+	var part3 = pawn_part.instance()
+	get_tree().get_current_scene().map.add_child(part3)
+	part3.init(_owner, _pawn_num, 2, true, (_pos + Vector2(-7, 7)), Vector2(-200, -150))
+	var part4 = pawn_part.instance()
+	get_tree().get_current_scene().map.add_child(part4)
+	part4.init(_owner, _pawn_num, 3, true, (_pos + Vector2(7, 7)), Vector2(100, -200))
 	owned = _owner
 	anim.play("Explode")
 	weap_name = _weap_name
@@ -28,142 +45,142 @@ func start( _sr , _ss, _sss, _player):
 func _on_Area2Douter_body_entered(body):
 	if body.get_groups().has("hittable"):
 		body.hit(owned, weap_name, damage_type, damage1)
-	elif body.get_groups().has("FX"):
-#		print("hit Pick Up")
-#		var a = Vector2( 0, 0)
-#		var b = self.position
-		var f = body.global_position - self.global_position
-		f.y =abs(f.y)
-#		var e = self.global_position - body.global_position
-		var ex = 0
-		var ey = 0
-
-		if f.x <= 0:
-			if f.x < -90:
-#				print("less than -90")
-				ex = -10
-			elif f.x < -80:
-#				print("less than -80")
-				ex = -20
-			elif f.x < -70:
-#				print("less than -70")
-				ex = -30
-			elif f.x < -60:
-#				print("less than -60")
-				ex = -40
-			elif f.x < -50:
-#				print("less than -50")
-				ex = -50
-			elif f.x < -40:
-#				print("less than -40")
-				ex = -60
-			elif f.x < -30:
-#				print("less than -30")
-				ex = -70
-			elif f.x < -20:
-#				print("less than -20")
-				ex = -80
-			elif f.x < -10:
-#				print("less than -10")
-				ex = -90
-			else:
-				print("error pushing it to 100")
-				ex = -100
-		else:
-			if f.x > 90:
-#				print("more than 90")
-				ex = 10
-			elif f.x > 80:
-#				print("more than 80")
-				ex = 20
-			elif f.x > 70:
-#				print("more than 70")
-				ex = 30
-			elif f.x > 60:
-#				print("more than 60")
-				ex = 40
-			elif f.x > 50:
-#				print("more than 50")
-				ex = 50
-			elif f.x > 40:
-#				print("more than 40")
-				ex = 60
-			elif f.x > 30:
-#				print("more than 30")
-				ex = 70
-			elif f.x > 20:
-#				print("more than 20")
-				ex = 80
-			elif f.x > 10:
-#				print("more than 10")
-				ex = 90
-			else:
-				print("error pushing it to 100")
-				ex = 100
-		
-		if f.y <= 0:
-			if f.y < -90:
-#				print("less than -90")
-				ey = -10
-			elif f.y < -80:
-#				print("less than -80")
-				ey = -20
-			elif f.y < -70:
-#				print("less than -70")
-				ey = -30
-			elif f.y < -60:
-#				print("less than -60")
-				ey = -40
-			elif f.y < -50:
-#				print("less than -50")
-				ey = -50
-			elif f.y < -40:
-#				print("less than -40")
-				ey = -60
-			elif f.y < -30:
-#				print("less than -30")
-				ey = -70
-			elif f.y < -20:
-#				print("less than -20")
-				ey = -80
-			elif f.y < -10:
-#				print("less than -10")
-				ey = -90
-			else:
-				print("error pushing it to 100")
-				ey = -100
-		else:
-			if f.y > 90:
-#				print("more than 90")
-				ey = 10
-			elif f.y > 80:
-#				print("more than 80")
-				ey = 20
-			elif f.y > 70:
-#				print("more than 70")
-				ey = 30
-			elif f.y > 60:
-#				print("more than 60")
-				ey = 40
-			elif f.y > 50:
-#				print("more than 50")
-				ey = 50
-			elif f.y > 40:
-#				print("more than 40")
-				ey = 60
-			elif f.y > 30:
-#				print("more than 30")
-				ey = 70
-			elif f.y > 20:
-#				print("more than 20")
-				ey = 80
-			elif f.y > 10:
-#				print("more than 10")
-				ey = 90
-			else:
-				print("error pushing it to 100")
-				ey = 100
-		body.apply_impulse(Vector2(), Vector2(ex * 2, ey * 2))
+#	elif body.get_groups().has("FX"):
+##		print("hit Pick Up")
+##		var a = Vector2( 0, 0)
+##		var b = self.position
+#		var f = body.global_position - self.global_position
+#		f.y =abs(f.y)
+##		var e = self.global_position - body.global_position
+#		var ex = 0
+#		var ey = 0
+#
+#		if f.x <= 0:
+#			if f.x < -90:
+##				print("less than -90")
+#				ex = -10
+#			elif f.x < -80:
+##				print("less than -80")
+#				ex = -20
+#			elif f.x < -70:
+##				print("less than -70")
+#				ex = -30
+#			elif f.x < -60:
+##				print("less than -60")
+#				ex = -40
+#			elif f.x < -50:
+##				print("less than -50")
+#				ex = -50
+#			elif f.x < -40:
+##				print("less than -40")
+#				ex = -60
+#			elif f.x < -30:
+##				print("less than -30")
+#				ex = -70
+#			elif f.x < -20:
+##				print("less than -20")
+#				ex = -80
+#			elif f.x < -10:
+##				print("less than -10")
+#				ex = -90
+#			else:
+#				print("error pushing it to 100")
+#				ex = -100
+#		else:
+#			if f.x > 90:
+##				print("more than 90")
+#				ex = 10
+#			elif f.x > 80:
+##				print("more than 80")
+#				ex = 20
+#			elif f.x > 70:
+##				print("more than 70")
+#				ex = 30
+#			elif f.x > 60:
+##				print("more than 60")
+#				ex = 40
+#			elif f.x > 50:
+##				print("more than 50")
+#				ex = 50
+#			elif f.x > 40:
+##				print("more than 40")
+#				ex = 60
+#			elif f.x > 30:
+##				print("more than 30")
+#				ex = 70
+#			elif f.x > 20:
+##				print("more than 20")
+#				ex = 80
+#			elif f.x > 10:
+##				print("more than 10")
+#				ex = 90
+#			else:
+#				print("error pushing it to 100")
+#				ex = 100
+#
+#		if f.y <= 0:
+#			if f.y < -90:
+##				print("less than -90")
+#				ey = -10
+#			elif f.y < -80:
+##				print("less than -80")
+#				ey = -20
+#			elif f.y < -70:
+##				print("less than -70")
+#				ey = -30
+#			elif f.y < -60:
+##				print("less than -60")
+#				ey = -40
+#			elif f.y < -50:
+##				print("less than -50")
+#				ey = -50
+#			elif f.y < -40:
+##				print("less than -40")
+#				ey = -60
+#			elif f.y < -30:
+##				print("less than -30")
+#				ey = -70
+#			elif f.y < -20:
+##				print("less than -20")
+#				ey = -80
+#			elif f.y < -10:
+##				print("less than -10")
+#				ey = -90
+#			else:
+#				print("error pushing it to 100")
+#				ey = -100
+#		else:
+#			if f.y > 90:
+##				print("more than 90")
+#				ey = 10
+#			elif f.y > 80:
+##				print("more than 80")
+#				ey = 20
+#			elif f.y > 70:
+##				print("more than 70")
+#				ey = 30
+#			elif f.y > 60:
+##				print("more than 60")
+#				ey = 40
+#			elif f.y > 50:
+##				print("more than 50")
+#				ey = 50
+#			elif f.y > 40:
+##				print("more than 40")
+#				ey = 60
+#			elif f.y > 30:
+##				print("more than 30")
+#				ey = 70
+#			elif f.y > 20:
+##				print("more than 20")
+#				ey = 80
+#			elif f.y > 10:
+##				print("more than 10")
+#				ey = 90
+#			else:
+#				print("error pushing it to 100")
+#				ey = 100
+#		body.apply_impulse(Vector2(), Vector2(ex * 2, ey * 2))
 
 func _on_Area2D2inner_body_entered(body):
 	if body.get_groups().has("player"):
