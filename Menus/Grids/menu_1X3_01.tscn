@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Menus/Grids/menu_1X3_01.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Menu/menu-box-1200x128.png" type="Texture" id=2]
+
+[node name="menu_1X3_01" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Box_01" type="Sprite" parent="."]
+position = Vector2( 0, -255 )
+texture = ExtResource( 2 )
+
+[node name="Box_02" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Box_03" type="Sprite" parent="."]
+position = Vector2( 0, 255 )
+texture = ExtResource( 2 )

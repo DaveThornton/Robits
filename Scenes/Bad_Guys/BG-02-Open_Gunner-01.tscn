@@ -424,7 +424,7 @@ func remove_dead():
 #	print(hunted.size())
 "
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 9.5, 22 )
 
 [sub_resource type="CapsuleShape2D" id=3]
@@ -601,7 +601,7 @@ explode = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -23 )
-shape = SubResource( 14 )
+shape = SubResource( 2 )
 
 [node name="SFX_Lib" parent="." instance=ExtResource( 3 )]
 

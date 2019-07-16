@@ -11,9 +11,9 @@ var damage1 = 50
 var damage2 = 100
 var damage_type = "Explosion"
 
-func _ready():
-#	my_name = weap_name
-	pass
+#func _ready():
+##	my_name = weap_name
+#	pass
 
 func init(_owner, _pos, _weap_name):
 	print("init called on standard EX")

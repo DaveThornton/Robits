@@ -67,6 +67,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="."]
+editor/display_folded = true
 margin_left = 239.0
 margin_right = 474.0
 margin_bottom = 263.0
@@ -469,4 +470,3 @@ margin_right = 239.0
 margin_bottom = 263.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-

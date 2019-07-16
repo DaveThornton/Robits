@@ -124,6 +124,9 @@ position = Vector2( 280, 700 )
 [node name="Position2D27" type="Position2D" parent="Player_spawns"]
 position = Vector2( 310, 700 )
 
+[node name="Position2D28" type="Position2D" parent="Player_spawns"]
+position = Vector2( 330, 700 )
+
 [node name="Power_Ups" type="Node2D" parent="."]
 
 [node name="Map_parts" type="Node2D" parent="." groups=[

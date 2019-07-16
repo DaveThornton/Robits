@@ -27,12 +27,9 @@ onready var sprite = $Sprite
 onready var sprite_shield = $Sprite_Shield
 onready var anim = $AnimationPlayer
 onready var gun_pos = $"Position2D-Arm-Gun"
-#onready var shape_prone = $"CollisionShape2D-Prone"
-
 onready var col_stand = $"CollisionShape2D-Stand"
 onready var col_run = $"CollisionShape2D-Run"
 onready var col_prone = $"CollisionShape2D-Prone"
-
 onready var knockback_timer = $KnockBack_Timer
 onready var shield_timer = $Shield_Timer
 onready var shield_hit_timer = $Shield_Hit_Timer
@@ -40,14 +37,10 @@ onready var speed_timer = $Speed_Timer
 onready var jump_timer = $Jump_Timer
 onready var nrg_up_timer = $NRG_Up_Timer
 onready var stun_timer = $Stun_Timer
-onready var bounce_timer = $Bounce_Timer
-
-#onready var ladder_area = $Ladder_Area2D
 onready var ladder_count = []
 var on_ladder = false
 var over_ladder = false
 var ladder_speed = 225
-#var current_ladder_speed = 0.0
 
 onready var ray_up = $RayCast2D_Up
 onready var ray_down_r = $RayCast2D_Down2
@@ -57,9 +50,6 @@ onready var ray_right_down = $RayCast2D_Right_Down
 onready var ray_left_down = $RayCast2D_Left_Down
 onready var ray_left = $RayCast2D_Left
 onready var ray_down_plat = $RayCast2D
-#onready var ray_up_plat = $RayCast2D_Plat_Up
-#onready var ray_up_plat2 = $RayCast2D_Plat_Up2
-#onready var ray_up_plat3 = $RayCast2D_Plat_Up3
 onready var ray_plat_test = $RayCast2D_Plat_Test
 onready var ray_left_melee = $RayCast2D_Left_Melee
 onready var ray_right_melee = $RayCast2D_Right_Melee
@@ -71,7 +61,6 @@ var my_gun
 var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
-#var walk_speed = 17500
 var walk_speed = 32000
 var speed_power_up = 1
 var starting_walk_speed
@@ -93,7 +82,6 @@ var nrg_default_regen_max = 20
 var head_room = 0
 var player = 1
 var can_move = true
-#var can_shoot = true
 var is_right = true
 var is_jump_pressed = false
 var is_down = false
@@ -101,7 +89,6 @@ var on_floor = false
 var on_wall = false
 var on_m_plat = false
 var not_on_angle = false
-#var next_to_player = false
 var is_shield_up = false
 var is_speed_up = false
 var is_jump_up = false
@@ -112,9 +99,6 @@ var poss_pick_obj
 var knocked_back = Vector2(0, 0)
 var map_movement = Vector2(0, 0)
 var current_shape
-var bouncing = false
-var bounce_much = Vector2(0,0)
-var bounce_way = true
 var start_equiped = false
 
 var wep_array = []
@@ -129,7 +113,6 @@ func _ready():
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
 	current_shape = col_stand
-#warning-ignore:return_value_discarded
 	var test = self.connect("nrg_update", get_tree().get_current_scene(), "nrg_update")
 	if test != 0:
 		print("error Robit 01 connecting nrg update")
@@ -165,23 +148,19 @@ func change_pos(_pos):
 	self.position = _pos
 
 func _process(delta):
-#	print(ladder_area.get_index())
 	if ladder_count.size() > 0:
 		over_ladder = true
 	else:
 		over_ladder = false
 		on_ladder = false
-#	print(on_ladder, " ", player)
 	_is_on_floor()
-	_test_wall()  ##-----------------------------------enable this for guns moving on walls
+	_test_wall()
 	_test_headroom()
 	if on_floor:
 		air_jump_count = 0
 	if new_anim != last_anim:
 		anim.play(new_anim)
 		last_anim = new_anim
-#warning-ignore:return_value_discarded
-#	move_and_slide(Vector2(vel.x + knocked_back.x, 0 + knocked_back.y))
 	if nrg < nrg_regen_max:
 		nrg = clamp(nrg + (nrg_regen_rate * delta), 0, 100)
 	if nrg != last_nrg:
@@ -194,13 +173,11 @@ func _process(delta):
 
 func _physics_process(delta):
 	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder)) + (map_movement * delta)
-#	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room + current_ladder_speed) * int(!on_ladder)) + (map_movement * delta)
 	vel = movement
 	if on_floor:
 		vel.y = vel.y / 1.1
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
-#warning-ignore:return_value_discarded
 	move_and_collide(vel)
 
 func move_x(_moving, _right, delta):
@@ -240,33 +217,33 @@ func jump_rel():
 		vel.y = min_jump_power
 	is_jump_pressed = false
 
-func bounce(_how_much, _how_long, _way):
-	if !bouncing:
-		bounce_act(_how_much, _how_long, _way)
-		bouncing = true
-	else:
-		if bounce_way:
-			map_movement.y -= bounce_much
-		else:
-			map_movement.x -= bounce_much
-		bounce_act(_how_much, _how_long, _way)
-
-func bounce_act(_how_much, _how_long, _way):
-		bounce_timer.wait_time = _how_long
-		bounce_much = _how_much
-		bounce_way = _way
-		if _way:
-			map_movement.y = bounce_much
-		else:
-			map_movement.x = bounce_much
-		bounce_timer.start()
-
-func _on_Bounce_Timer_timeout():
-	if bounce_way:
-		map_movement.y -= bounce_much
-	else:
-		map_movement.x -= bounce_much
-	bouncing = false
+#func bounce(_how_much, _how_long, _way):
+#	if !bouncing:
+#		bounce_act(_how_much, _how_long, _way)
+#		bouncing = true
+#	else:
+#		if bounce_way:
+#			map_movement.y -= bounce_much
+#		else:
+#			map_movement.x -= bounce_much
+#		bounce_act(_how_much, _how_long, _way)
+#
+#func bounce_act(_how_much, _how_long, _way):
+#		bounce_timer.wait_time = _how_long
+#		bounce_much = _how_much
+#		bounce_way = _way
+#		if _way:
+#			map_movement.y = bounce_much
+#		else:
+#			map_movement.x = bounce_much
+#		bounce_timer.start()
+#
+#func _on_Bounce_Timer_timeout():
+#	if bounce_way:
+#		map_movement.y -= bounce_much
+#	else:
+#		map_movement.x -= bounce_much
+#	bouncing = false
 
 func shoot_j():
 	if my_gun:
@@ -370,7 +347,6 @@ func equip_weap(_weap_num, _ammo_pick_up, _time_left):
 	my_gun = g
 	is_holding = true
 
-#warning-ignore:unused_argument
 func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
 	if !down_input:
 		is_down = false
@@ -390,22 +366,17 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 					shoot_spot = 1
 					if over_ladder || on_ladder:
 						air_jump_count = 0
-#						print("on ladder player ", player, " is attempting to climb ladder")
 						on_ladder = true
-#						current_ladder_speed = -ladder_speed
 						self.position.y -= ladder_speed * delta
 						_anim_ladder_move()
-#						map_movement = Vector2(0,-10)
 					elif on_floor:
 						_anim_idle()
 					else:
 						_anim_jump()
 				elif down_input:
 					if over_ladder || on_ladder:
-#						print("on ladder player ", player, " is attempting to climb ladder")
 						on_ladder = true
 						self.position.y += ladder_speed * delta
-#						current_ladder_speed = -ladder_speed
 					elif on_floor:
 						is_down = true
 						shoot_spot = 6
@@ -562,9 +533,6 @@ func stun(_gun_num):
 	_anim_stun()
 	let_go()
 
-#func hit(_by_who, _by_what, _damage_type, _damage):
-#	call_deferred("_hit", _by_who, _by_what, _damage_type, _damage)
-
 func hit(_by_who, _by_what, _damage_type, _damage):
 	var _play_type = 2
 	if _play_type == 1:
@@ -581,7 +549,6 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		shield_hit_timer.start()
 		nrg = nrg - _damage
 		nrg_update()
-#		print(nrg)
 		if nrg <= 0:
 			if is_shield_up:
 				print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
@@ -590,15 +557,12 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 				print("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
-				call_deferred("free")#queue_free()
+				call_deferred("free")
 
 func killed_by_map(_by_who, _by_what, _damage_type, _damage):
 	hit(_by_who, _by_what, _damage_type, (nrg* 2))
-#	emit_signal("explode_p", player, self.position, _by_who, _by_what)
-#	call_deferred("free")#queue_free()
 
 func knock_back(_amount, _time):
-#	print("knock back ", _amount, " for ", _time, " seconds")
 	knockback_timer.start()
 	if is_right:
 		if shoot_spot == 1:
@@ -640,22 +604,14 @@ func _on_Shield_Timer_timeout():
 	is_shield_up = false
 
 func put_speed_up(_how_long):
-#	if !is_speed_up:
 	is_speed_up = true
 	speed_power_up = 2
-#		walk_speed += 20
-#		move_step = walk_speed / move_speed_time_needed
-#		dec_step = walk_speed / deceleration_time_needed
-#		is_speed_up = true
 	speed_timer.wait_time = _how_long
 	speed_timer.start()
 
 func _on_Speed_Timer_timeout():
 	is_speed_up = false
 	speed_power_up = 1
-#	walk_speed = starting_walk_speed
-#	move_step = walk_speed / move_speed_time_needed
-#	dec_step = walk_speed / deceleration_time_needed
 
 func put_jump_up(_how_long):
 	is_jump_up = true
@@ -697,7 +653,7 @@ func _on_Grab_Area2D_body_exited(body):
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
 		on_floor = true
-		bouncing = false
+#		bouncing = false
 	else :
 		on_floor = false
 	if ray_down_plat.is_colliding():

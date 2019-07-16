@@ -36,6 +36,15 @@ func _ready():
 	elif player_num == 5:
 		player_con = get_tree().get_current_scene().p5_controller
 		player5()
+	elif player_num == 6:
+		player_con = get_tree().get_current_scene().p3_controller
+		player6()
+	elif player_num == 7:
+		player_con = get_tree().get_current_scene().p4_controller
+		player7()
+	elif player_num == 8:
+		player_con = get_tree().get_current_scene().p5_controller
+		player8()
 	print("arcade vbox says im pawn ", pawn_num)
 	place_label.text = "unused so far need to sort player ranking"
 
@@ -189,6 +198,99 @@ func player5():
 	var shots = float(get_tree().get_current_scene().p5_shots)
 	Shot_label.text = str(shots)
 	var hits = float(get_tree().get_current_scene().p5_hits)
+	hit_label.text = str(hits)
+	var miss = shots - hits
+	miss_label.text = str(miss)
+	if hits == 0 || shots == 0:
+		hitper_label.text = "0 %"
+	else:
+		hitper_label.text = str(stepify(hits / shots,0.01)* 100, "%")
+#	place_label.text = "fifth"
+
+func player6():
+	pawn_num = player_con.pawn_num
+	if pawn_num == 1 || pawn_num == 2 || pawn_num == 3 || pawn_num == 4:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-06.png")
+#	elif pawn_num == 2:
+	else:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-06.png")
+	player_label.text = str(player_num)
+	score_label.text = str(get_tree().get_current_scene().p6_score)
+	var kills = float(get_tree().get_current_scene().p6_hits)
+	kill_label.text = str(kills)
+	var deaths = float(get_tree().get_current_scene().p6_deaths)
+	death_label.text = str(deaths)
+	var kdr = 0.0
+	if deaths <= 0:
+		kdr = kills
+	else:
+		kdr = kills / deaths
+	kdr_label.text = str(stepify(kdr, 0.01))# * 100), "%")
+	var shots = float(get_tree().get_current_scene().p6_shots)
+	Shot_label.text = str(shots)
+	var hits = float(get_tree().get_current_scene().p6_hits)
+	hit_label.text = str(hits)
+	var miss = shots - hits
+	miss_label.text = str(miss)
+	if hits == 0 || shots == 0:
+		hitper_label.text = "0 %"
+	else:
+		hitper_label.text = str(stepify(hits / shots,0.01)* 100, "%")
+#	place_label.text = "fifth"
+
+func player7():
+	pawn_num = player_con.pawn_num
+	if pawn_num == 1 || pawn_num == 2 || pawn_num == 3 || pawn_num == 4:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-07.png")
+#	elif pawn_num == 2:
+	else:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-07.png")
+	player_label.text = str(player_num)
+	score_label.text = str(get_tree().get_current_scene().p7_score)
+	var kills = float(get_tree().get_current_scene().p7_hits)
+	kill_label.text = str(kills)
+	var deaths = float(get_tree().get_current_scene().p7_deaths)
+	death_label.text = str(deaths)
+	var kdr = 0.0
+	if deaths <= 0:
+		kdr = kills
+	else:
+		kdr = kills / deaths
+	kdr_label.text = str(stepify(kdr, 0.01))# * 100), "%")
+	var shots = float(get_tree().get_current_scene().p7_shots)
+	Shot_label.text = str(shots)
+	var hits = float(get_tree().get_current_scene().p7_hits)
+	hit_label.text = str(hits)
+	var miss = shots - hits
+	miss_label.text = str(miss)
+	if hits == 0 || shots == 0:
+		hitper_label.text = "0 %"
+	else:
+		hitper_label.text = str(stepify(hits / shots,0.01)* 100, "%")
+#	place_label.text = "fifth"
+
+func player8():
+	pawn_num = player_con.pawn_num
+	if pawn_num == 1 || pawn_num == 2 || pawn_num == 3 || pawn_num == 4:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-08.png")
+#	elif pawn_num == 2:
+	else:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-08.png")
+	player_label.text = str(player_num)
+	score_label.text = str(get_tree().get_current_scene().p8_score)
+	var kills = float(get_tree().get_current_scene().p8_hits)
+	kill_label.text = str(kills)
+	var deaths = float(get_tree().get_current_scene().p8_deaths)
+	death_label.text = str(deaths)
+	var kdr = 0.0
+	if deaths <= 0:
+		kdr = kills
+	else:
+		kdr = kills / deaths
+	kdr_label.text = str(stepify(kdr, 0.01))# * 100), "%")
+	var shots = float(get_tree().get_current_scene().p8_shots)
+	Shot_label.text = str(shots)
+	var hits = float(get_tree().get_current_scene().p8_hits)
 	hit_label.text = str(hits)
 	var miss = shots - hits
 	miss_label.text = str(miss)

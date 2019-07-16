@@ -23,13 +23,11 @@ onready var p2_menu = $Menu_4x4_02
 onready var p3_menu = $Menu_4x4_03
 onready var p4_menu = $Menu_4x4_04
 onready var p5_menu = $Menu_4x4_05
+onready var p6_menu = $Menu_4x4_06
+onready var p7_menu = $Menu_4x4_07
+onready var p8_menu = $Menu_4x4_08
 
 var map_to_load
-#var map_load_01
-#var map_load_02
-#var map_load_03
-#var map_load_04
-#var map_load_05
 
 var can_start = false
 var started_num = 0
@@ -39,13 +37,18 @@ var p2_has_credits
 var p3_has_credits
 var p4_has_credits
 var p5_has_credits
+var p6_has_credits
+var p7_has_credits
+var p8_has_credits
 
 var p1_started
 var p2_started
 var p3_started
 var p4_started
 var p5_started
-
+var p6_started
+var p7_started
+var p8_started
 #var p1_ready
 #var p2_ready
 #var p3_ready
@@ -57,6 +60,9 @@ var p2_pos = 0
 var p3_pos = 0
 var p4_pos = 0
 var p5_pos = 0
+var p6_pos = 0
+var p7_pos = 0
+var p8_pos = 0
 
 signal load_map(load_to_map)
 signal use_credit(_player)
@@ -74,7 +80,6 @@ func _ready():
 		print("error in arcade map select connect input to screen")
 	if test4 != 0:
 		print("error in arcade map select connect use credit")
-	
 	check()
 
 func check():
@@ -95,6 +100,16 @@ func check():
 	if get_tree().get_current_scene().p5_credits >= 1:
 		p5_has_credits = true
 		num_with_c += 1
+	if get_tree().get_current_scene().p6_credits >= 1:
+		p6_has_credits = true
+		num_with_c += 1
+	if get_tree().get_current_scene().p7_credits >= 1:
+		p7_has_credits = true
+		num_with_c += 1
+	if get_tree().get_current_scene().p8_credits >= 1:
+		p8_has_credits = true
+		num_with_c += 1
+
 	if num_with_c == 0:
 		print("arcade map select no one has credits?")
 	p1_started = get_tree().get_current_scene().p1_started
@@ -102,6 +117,10 @@ func check():
 	p3_started = get_tree().get_current_scene().p3_started
 	p4_started = get_tree().get_current_scene().p4_started
 	p5_started = get_tree().get_current_scene().p5_started
+	p6_started = get_tree().get_current_scene().p6_started
+	p7_started = get_tree().get_current_scene().p7_started
+	p8_started = get_tree().get_current_scene().p8_started
+	
 	if p1_started:
 		bottom_hud.change_label( 1, 3)
 		p1_menu.visible = true
@@ -142,6 +161,31 @@ func check():
 		bottom_hud.change_label( 5, 2)
 	else:
 		bottom_hud.change_label( 5, 1)
+	if p6_started:
+		bottom_hud.change_label( 6, 3)
+		p6_menu.visible = true
+		num_with_s += 1
+	elif p6_has_credits:
+		bottom_hud.change_label( 6, 2)
+	else:
+		bottom_hud.change_label( 6, 1)
+	if p7_started:
+		bottom_hud.change_label( 7, 3)
+		p7_menu.visible = true
+		num_with_s += 1
+	elif p7_has_credits:
+		bottom_hud.change_label( 7, 2)
+	else:
+		bottom_hud.change_label( 7, 1)
+	if p8_started:
+		bottom_hud.change_label( 8, 3)
+		p8_menu.visible = true
+		num_with_s += 1
+	elif p8_has_credits:
+		bottom_hud.change_label( 8, 2)
+	else:
+		bottom_hud.change_label( 8, 1)
+
 	if num_with_s > 1:
 		if num_with_s == started_num:
 			choose_map()
@@ -240,6 +284,60 @@ func movement(_player, _dir):
 			if _dir == 5:
 				get_tree().get_current_scene().p5_started = true
 				emit_signal("use_credit",_player)
+	elif _player == 6:
+		if p6_started:
+			if _dir ==1:
+				p6_menu.move_up()
+			elif _dir ==2:
+				p6_menu.move_left()
+			elif _dir ==3:
+				p6_menu.move_right()
+			elif _dir ==4:
+				p6_menu.move_down()
+			elif _dir ==5:
+				if can_start:
+					p6_pos = p6_menu.pos
+					started_num += 1
+		elif p6_has_credits:
+			if _dir == 5:
+				get_tree().get_current_scene().p6_started = true
+				emit_signal("use_credit",_player)
+	elif _player == 7:
+		if p7_started:
+			if _dir ==1:
+				p7_menu.move_up()
+			elif _dir ==2:
+				p7_menu.move_left()
+			elif _dir ==3:
+				p7_menu.move_right()
+			elif _dir ==4:
+				p7_menu.move_down()
+			elif _dir ==5:
+				if can_start:
+					p7_pos = p7_menu.pos
+					started_num += 1
+		elif p7_has_credits:
+			if _dir == 5:
+				get_tree().get_current_scene().p7_started = true
+				emit_signal("use_credit",_player)
+	elif _player == 8:
+		if p8_started:
+			if _dir ==1:
+				p8_menu.move_up()
+			elif _dir ==2:
+				p8_menu.move_left()
+			elif _dir ==3:
+				p8_menu.move_right()
+			elif _dir ==4:
+				p8_menu.move_down()
+			elif _dir ==5:
+				if can_start:
+					p8_pos = p8_menu.pos
+					started_num += 1
+		elif p8_has_credits:
+			if _dir == 5:
+				get_tree().get_current_scene().p8_started = true
+				emit_signal("use_credit",_player)
 	else:
 		print("error invald player in arcade start")
 	check()
@@ -280,6 +378,24 @@ func choose_map():
 			return
 		else:
 			m = p5_pos
+	elif r == 6:
+		if p6_pos == 0:
+			choose_map()
+			return
+		else:
+			m = p6_pos
+	elif r == 7:
+		if p7_pos == 0:
+			choose_map()
+			return
+		else:
+			m = p7_pos
+	elif r == 8:
+		if p8_pos == 0:
+			choose_map()
+			return
+		else:
+			m = p8_pos
 	choose_map_from_list(m)
 
 func choose_map_from_list(_num):

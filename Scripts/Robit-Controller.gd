@@ -170,6 +170,22 @@ func spawn_pawn():
 			z = pawn_07.instance()
 		elif pawn_num == 8:
 			z = pawn_08.instance()
+		elif pawn_num == 9:
+			z = pawn_01.instance()
+		elif pawn_num == 10:
+			z = pawn_02.instance()
+		elif pawn_num == 11:
+			z = pawn_03.instance()
+		elif pawn_num == 12:
+			z = pawn_04.instance()
+		elif pawn_num == 13:
+			z = pawn_05.instance()
+		elif pawn_num == 14:
+			z = pawn_06.instance()
+		elif pawn_num == 15:
+			z = pawn_07.instance()
+		elif pawn_num == 16:
+			z = pawn_08.instance()
 		get_tree().get_current_scene().pawns.add_child(z)
 #		self.add_child(z)
 		z.connect("explode_p", self, "explode_pawn")
@@ -188,8 +204,6 @@ func _explode_pawn(_player, _pos, _by_who, _by_what):
 	var x = boom.instance()
 	add_child(x)
 	x.init(_player, _pos, str("player ", player, "'s destruct system"), pawn_num)
-#	x.position = _pos
-#	x.play()
 	emit_signal("player_score", player, _by_who, 1, _by_what)
 	if auto_respawn:
 		if in_game:

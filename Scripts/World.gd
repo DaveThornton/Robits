@@ -106,7 +106,7 @@ var p8_credits = 0
 var is_game_over = false 
 var end_game_score = 10
 
-var how_many_players = 2
+var how_many_players = 8
 #var spawn_spot
 var map
 var hud

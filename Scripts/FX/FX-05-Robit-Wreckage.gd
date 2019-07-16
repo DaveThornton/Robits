@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export var part_num = 0
+#export var part_num = 0
 export var expire = true
 onready var shape1 = $CollisionShape2D_1
 onready var shape2 = $CollisionShape2D_2
@@ -10,6 +10,8 @@ onready var sprite = $Sprite
 
 func _ready():
 	if expire:
+		var time = rand_range(25.0,35.0)
+		$Timer.wait_time = time
 		$Timer.start()
 #	init(1, 1, part_num, false, Vector2(0,0), Vector2(0,0))
 

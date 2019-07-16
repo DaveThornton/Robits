@@ -97,6 +97,7 @@ anims/Explode = SubResource( 1 )
 anims/fade = SubResource( 2 )
 
 [node name="Area2D-outer" type="Area2D" parent="."]
+editor/display_folded = true
 gravity_distance_scale = 1024.0
 gravity_vec = Vector2( -1, -1 )
 gravity = -1024.0
@@ -110,6 +111,7 @@ shape = SubResource( 3 )
 disabled = true
 
 [node name="Area2D2-inner" type="Area2D" parent="."]
+editor/display_folded = true
 gravity_point = true
 gravity_distance_scale = 1024.0
 gravity_vec = Vector2( -1, -1 )
