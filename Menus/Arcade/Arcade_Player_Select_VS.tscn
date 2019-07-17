@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Menus/Arcade/Arcade_Player_Select.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/Arcade_Map_Select.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Menus/Console-PC/Console_Bottom_HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menus/Arcade/Arcade_Bottom_HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Menu/Menu-4x4-Player.png" type="Texture" id=4]
 [ext_resource path="res://Menus/Grids/menu_4x4_01.tscn" type="PackedScene" id=5]
 
@@ -13,53 +13,53 @@ script = ExtResource( 1 )
 map_screen = ExtResource( 2 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_right = 1948.0
+margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
-margin_right = 1948.0
-margin_bottom = 140.0
+margin_right = 1920.0
+margin_bottom = 146.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 editor/display_folded = true
-margin_top = 144.0
-margin_right = 1948.0
-margin_bottom = 844.0
+margin_top = 150.0
+margin_right = 1920.0
+margin_bottom = 880.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/HBoxContainer2"]
-margin_right = 972.0
-margin_bottom = 700.0
+margin_right = 958.0
+margin_bottom = 730.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 976.0
-margin_right = 1948.0
-margin_bottom = 700.0
+margin_left = 962.0
+margin_right = 1920.0
+margin_bottom = 730.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 848.0
-margin_right = 1948.0
-margin_bottom = 953.0
+margin_top = 884.0
+margin_right = 1920.0
+margin_bottom = 993.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
 
-[node name="Console_Bottom_HUD" parent="VBoxContainer" instance=ExtResource( 3 )]
-margin_top = 957.0
-margin_right = 1948.0
-margin_bottom = 1080.0
+[node name="Arcade_Bottom_HUD" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 997.0
+margin_right = 1920.0
+margin_bottom = 1079.0
 
 [node name="Sprite" type="Sprite" parent="VBoxContainer"]
 position = Vector2( 965, 502 )

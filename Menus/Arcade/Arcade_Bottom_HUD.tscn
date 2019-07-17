@@ -182,7 +182,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer1" type="VBoxContainer" parent="."]
-editor/display_folded = true
 margin_left = 717.0
 margin_right = 952.0
 margin_bottom = 263.0
@@ -206,7 +205,7 @@ align = 1
 [node name="Label_ready1" type="Label" parent="VBoxContainer1"]
 visible = false
 margin_top = 41.0
-margin_right = 240.0
+margin_right = 235.0
 margin_bottom = 78.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -216,8 +215,9 @@ align = 1
 
 [node name="Label_press_start" type="Label" parent="VBoxContainer1"]
 visible = false
-margin_right = 220.0
-margin_bottom = 37.0
+margin_top = 41.0
+margin_right = 235.0
+margin_bottom = 78.0
 custom_fonts/font = ExtResource( 2 )
 text = "Press Start"
 align = 1

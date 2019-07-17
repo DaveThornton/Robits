@@ -69,18 +69,22 @@ func change_label( _player, state):
 			p1_insert_Label.visible = true
 			p1_start_label.visible = false
 			p1_player_label.visible = false
+#			p1_ready_label.visible = false
 		elif state == 2:
 			p1_insert_Label.visible = false
 			p1_start_label.visible = true
 			p1_player_label.visible = false
+#			p1_ready_label.visible = false
 		elif state == 3:
 			p1_insert_Label.visible = false
 			p1_start_label.visible = false
 			p1_player_label.visible = true
+#			p1_ready_label.visible = false
 		elif state == 4:
 			p1_insert_Label.visible = false
 			p1_start_label.visible = false
 			p1_player_label.visible = false
+#			p1_ready_label.visible = true
 	elif _player == 2:
 		if state == 1:
 			p2_insert_Label.visible = true

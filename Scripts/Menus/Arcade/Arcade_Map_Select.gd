@@ -32,14 +32,14 @@ var map_to_load
 var can_start = false
 var started_num = 0
 
-var p1_has_credits
-var p2_has_credits
-var p3_has_credits
-var p4_has_credits
-var p5_has_credits
-var p6_has_credits
-var p7_has_credits
-var p8_has_credits
+var p1_has_credits = false
+var p2_has_credits = false
+var p3_has_credits = false
+var p4_has_credits = false
+var p5_has_credits = false
+var p6_has_credits = false
+var p7_has_credits = false
+var p8_has_credits = false
 
 var p1_started
 var p2_started
@@ -49,11 +49,6 @@ var p5_started
 var p6_started
 var p7_started
 var p8_started
-#var p1_ready
-#var p2_ready
-#var p3_ready
-#var p4_ready
-#var p5_ready
 
 var p1_pos = 0
 var p2_pos = 0

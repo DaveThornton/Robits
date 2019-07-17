@@ -4,14 +4,14 @@ export(PackedScene) var map_screen
 
 onready var bottom_hud = $HBoxContainer/VBoxContainer/Arcade_Bottom_HUD
 
-var p1_has_credits
-var p2_has_credits
-var p3_has_credits
-var p4_has_credits
-var p5_has_credits
-var p6_has_credits
-var p7_has_credits
-var p8_has_credits
+var p1_has_credits = false
+var p2_has_credits = false
+var p3_has_credits = false
+var p4_has_credits = false
+var p5_has_credits = false
+var p6_has_credits = false
+var p7_has_credits = false
+var p8_has_credits = false
 
 var p1_started
 var p2_started
@@ -96,6 +96,7 @@ func movement(_player, _dir):
 				queue_free()
 	else:
 		print("error invald player in arcade start")
+	init()
 
 
 func init(): # _player1, _player2, _player3, _player4, _player5):

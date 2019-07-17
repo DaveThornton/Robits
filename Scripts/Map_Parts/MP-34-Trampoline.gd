@@ -10,7 +10,10 @@ var timers = []
 func _process(delta):
 	if players.size() > 0:
 		for p in players.size():
-			players[p].move_and_slide(Vector2(0, -bounce * timers[0].time_left * delta))
+			if is_instance_valid(players[p]):
+				players[p].move_and_slide(Vector2(0, -bounce * timers[0].time_left * delta))
+			else:
+				time_out()
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
