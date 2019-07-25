@@ -1,9 +1,11 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/Map_Parts/MP-10-R_Mark_01.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-20-Grenade.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/Map_Parts/StaticBody2D-pass-func-up.gd" type="Script" id=3]
-[ext_resource path="res://Sprites/Map_Parts/Marks-Sheet.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Map_Parts/Marks-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Map_Parts/StaticBody2D-pass-func-up.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9, 2 )
@@ -465,19 +467,30 @@ tracks/0/keys = {
 "values": [ 42 ]
 }
 
-[node name="R_Mark_01_00" type="Node2D"]
+[node name="R_Mark_01_00" type="Node2D" groups=[
+"hittable",
+]]
 script = ExtResource( 1 )
 spawn_01 = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+vframes = 5
+hframes = 10
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
 "hittable",
 ]]
-collision_layer = 12
+collision_layer = 8
 collision_mask = 655884
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PoolVector2Array( -10, 10, 10, 10, 10, -10, -10, -10 )
+disabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 19 )
 
 [node name="Area2D_Hit" type="Area2D" parent="."]
 collision_mask = 2
@@ -515,11 +528,6 @@ one_shot = true
 [node name="Timer_Hit" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
-
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 4 )
-vframes = 5
-hframes = 10
 [connection signal="body_entered" from="Area2D_Hit" to="." method="_on_Area2D_Hit_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]

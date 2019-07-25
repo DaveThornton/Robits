@@ -7,6 +7,7 @@
 [ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
+radius = 11.9395
 
 [sub_resource type="Animation" id=2]
 tracks/0/type = "value"
@@ -334,16 +335,28 @@ hframes = 4
 frame = 1
 
 [node name="Pos2D_Shoot" type="Position2D" parent="Pos2D_Walk"]
-position = Vector2( 26, -3.90299 )
+position = Vector2( 30, -3.5 )
 
 [node name="Area2D_Melee" type="Area2D" parent="Pos2D_Walk"]
-position = Vector2( 26, 0 )
 collision_layer = 512
 collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pos2D_Walk/Area2D_Melee"]
+position = Vector2( 26, 0 )
 shape = SubResource( 1 )
 disabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="Pos2D_Walk"]
+position = Vector2( 37, -3.5 )
+enabled = true
+cast_to = Vector2( 30, 0 )
+collision_mask = 2570
+
+[node name="RayCast2D_Melee" type="RayCast2D" parent="Pos2D_Walk"]
+position = Vector2( 16, 0 )
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 2570
 
 [node name="Anim_Player_Pos" type="AnimationPlayer" parent="."]
 anims/Down-Left = SubResource( 2 )
@@ -362,13 +375,7 @@ anims/Fire = SubResource( 12 )
 anims/Melee = SubResource( 13 )
 
 [node name="Pos2D_Throw" type="Position2D" parent="."]
-position = Vector2( 36.6261, 0.135277 )
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 16, 0 )
-enabled = true
-cast_to = Vector2( 40, 0 )
-collision_mask = 2570
+position = Vector2( 37, 0 )
 
 [node name="SFX_Lib" parent="." instance=ExtResource( 5 )]
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]

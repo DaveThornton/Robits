@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Menus/Arcade/VBox_Arcade_Player_End.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Pawns/Robit_Pawn-01-01.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Pawns/Robit_Pawn-01-01-Flat.png" type="Texture" id=2]
 [ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=3]
+
 
 [node name="VBox_Arcade_Player_End" type="VBoxContainer"]
 margin_left = 839.0

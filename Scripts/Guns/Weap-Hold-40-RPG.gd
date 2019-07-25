@@ -9,8 +9,8 @@ onready var anim_pos = $Anim_Pos
 onready var anim_fire = $Anim_Shoot
 onready var shoot_timer = $Shoot_Timer
 onready var melee_timer = $Melee_Timer
-#onready var shoot_cast = $Pos2D_Walk/RayCast2D
-#onready var melee_cast = $Pos2D_Walk/Melee_Cast
+onready var shoot_cast = $Pos2D_Walk/RayCast2D
+onready var melee_cast = $Pos2D_Walk/Melee_Cast
 onready var pos_walk = $Pos2D_Walk
 onready var pos_throw = $Pos2D_Throw
 onready var pos_shoot = $Pos2D_Walk/Pos2D_Shoot
@@ -71,21 +71,43 @@ func _process(delta):
 
 func shoot_j():
 	if can_shoot:
-		if ammo > 0:
-			can_shoot = false 
-#			shoot_timer.start()
-			var new_projectile = projectile.instance()
-			get_tree().get_current_scene().add_child(new_projectile)
-			var _ss = pos_shoot.global_position
-			var _sr = pos_shoot.global_rotation
-			
-			if is_right:
-				_sr = pos_shoot.global_rotation
+		if melee_cast.is_colliding() && shoot_pos == 3:
+			melee()
+		elif ammo > 0:
+			if !shoot_cast.is_colliding():
+				var new_projectile = projectile.instance()
+				get_tree().get_current_scene().add_child(new_projectile)
+				var _ss = pos_shoot.global_position
+				var _sr = pos_shoot.global_rotation
+				if is_right:
+					_sr = pos_shoot.global_rotation
+				else:
+					_sr = pos_shoot.global_rotation * -1
+				var _sss = pos_shoot.scale
+				new_projectile.start( _sr , _ss, _sss, player, damage)
 			else:
-				_sr = pos_shoot.global_rotation * -1
+				var _thing = shoot_cast.get_collider()
+#				if _thing.get_groups().has("player")
+				if _thing.get_groups().has("hittable"):
+					_thing.hit(player, my_name, dmg_type, damage)
+					print("gun 40 shot happened but no projectile spawned hit anyways")
+				elif _thing.get_groups().has("map"):
+					print("gun 40 hitting wall not fireing projectile", _thing)
+				else:
+					print("gun 40 dont know what im hitting but no projectile spawned")
+#
+#			can_shoot = false 
+#			var new_projectile = projectile.instance()
+#			get_tree().get_current_scene().add_child(new_projectile)
+#			var _ss = pos_shoot.global_position
+#			var _sr = pos_shoot.global_rotation
+#			if is_right:
+#				_sr = pos_shoot.global_rotation
+#			else:
+#				_sr = pos_shoot.global_rotation * -1
+#			var _sss = pos_shoot.scale
+#			new_projectile.start( _sr , _ss, _sss, player)
 			
-			var _sss = pos_shoot.scale
-			new_projectile.start( _sr , _ss, _sss, player)
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			pos_walk.rotation_degrees -= walk
 			sprite_gun.frame = 3

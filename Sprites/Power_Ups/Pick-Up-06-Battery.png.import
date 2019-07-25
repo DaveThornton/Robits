@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Robit_Pawn-01-02-Old.png-614dfe6cbd36a8c880c12d113d78ba87.stex"
+path="res://.import/Pick-Up-06-Battery.png-1f995d7308da5d98aa12469902781bb8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Pawns/Robit_Pawn-01-02-Old.png"
-dest_files=[ "res://.import/Robit_Pawn-01-02-Old.png-614dfe6cbd36a8c880c12d113d78ba87.stex" ]
+source_file="res://Sprites/Power_Ups/Pick-Up-06-Battery.png"
+dest_files=[ "res://.import/Pick-Up-06-Battery.png-1f995d7308da5d98aa12469902781bb8.stex" ]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Scenes/Bad_Guys/BG-01-Yellow_Space_Suit.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-50-Shot_Gun.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-23-Bomb-Man.tscn" type="PackedScene" id=29]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -49,8 +50,8 @@ __meta__ = {
 
 [node name="TileMap-Main" type="TileMap" parent="." groups=[
 "map",
-"map_part",
 "unkillable",
+"map_part",
 ]]
 z_index = -5
 tile_set = ExtResource( 3 )
@@ -293,3 +294,33 @@ position = Vector2( 860, 780 )
 
 [node name="BG-02-Open_Gunner-01" parent="." instance=ExtResource( 27 )]
 position = Vector2( 900, 300 )
+
+[node name="Weap-Pick-23-Bomb-Man" parent="." instance=ExtResource( 29 )]
+position = Vector2( 540, 605 )
+
+[node name="Weap-Pick-22-Plasma-Grenade" parent="." instance=ExtResource( 14 )]
+position = Vector2( 490, 600 )
+
+[node name="Weap-Pick-22-Plasma-Grenade2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 660, 180 )
+
+[node name="Weap-Pick-21-Nazi-Grenade" parent="." instance=ExtResource( 13 )]
+position = Vector2( 680, 180 )
+
+[node name="Weap-Pick-22-Plasma-Grenade3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 700, 180 )
+
+[node name="Weap-Pick-20-Grenade" parent="." instance=ExtResource( 15 )]
+position = Vector2( 730, 180 )
+
+[node name="Weap-Pick-23-Bomb-Man2" parent="." instance=ExtResource( 29 )]
+position = Vector2( 1050, 190 )
+
+[node name="Weap-Pick-23-Bomb-Man3" parent="." instance=ExtResource( 29 )]
+position = Vector2( 1070, 190 )
+
+[node name="Weap-Pick-23-Bomb-Man4" parent="." instance=ExtResource( 29 )]
+position = Vector2( 1090, 190 )
+
+[node name="Weap-Pick-23-Bomb-Man5" parent="." instance=ExtResource( 29 )]
+position = Vector2( 1110, 190 )

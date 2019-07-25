@@ -214,7 +214,7 @@ func check():
 	
 
 func movement(_player, _dir):
-	print(_player, _dir)
+#	print(_player, _dir)
 	if _player == 1:
 		if p1_started && !p1_ready:
 			if _dir ==1:
@@ -336,7 +336,7 @@ func movement(_player, _dir):
 				p5_ready = false
 				ready_num -= 1
 	elif _player == 6:
-		if p6_started:
+		if p6_started && !p6_ready:
 			if _dir ==1:
 				p6_menu.move_up()
 			elif _dir ==2:
@@ -353,8 +353,12 @@ func movement(_player, _dir):
 			if _dir == 5:
 				get_tree().get_current_scene().p6_started = true
 				emit_signal("use_credit",_player)
+		elif p6_ready:
+			if _dir == 6:
+				p6_ready = false
+				ready_num -= 1
 	elif _player == 7:
-		if p7_started:
+		if p7_started && !p7_ready:
 			if _dir ==1:
 				p7_menu.move_up()
 			elif _dir ==2:
@@ -371,8 +375,12 @@ func movement(_player, _dir):
 			if _dir == 5:
 				get_tree().get_current_scene().p7_started = true
 				emit_signal("use_credit",_player)
+		elif p7_ready:
+			if _dir == 6:
+				p7_ready = false
+				ready_num -= 1
 	elif _player == 8:
-		if p8_started:
+		if p8_started && !p8_ready:
 			if _dir ==1:
 				p8_menu.move_up()
 			elif _dir ==2:
@@ -389,6 +397,10 @@ func movement(_player, _dir):
 			if _dir == 5:
 				get_tree().get_current_scene().p8_started = true
 				emit_signal("use_credit",_player)
+		elif p8_ready:
+			if _dir == 6:
+				p8_ready = false
+				ready_num -= 1
 	else:
 		print("error invald player in console start")
 	check()

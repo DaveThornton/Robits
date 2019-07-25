@@ -13,10 +13,12 @@ func _ready():
 #	my_name = weap_name
 	pass
 
-func init(_owner, _pos, _weap_name):
+func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	owned = _owner
 	anim.play("Explode")
 	weap_name = _weap_name
+	damage1 = (_dmg * .5)
+	damage2 = _dmg
 
 func start( _sr , _ss, _sss, _player):
 	owned = _player
@@ -107,7 +109,7 @@ func _on_Area2Douter_body_entered(body):
 			else:
 				print("error pushing it to 100")
 				ex = 100
-		
+
 		if f.y <= 0:
 			if f.y < -90:
 #				print("less than -90")

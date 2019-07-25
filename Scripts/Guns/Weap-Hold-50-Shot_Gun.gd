@@ -11,6 +11,7 @@ onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
 onready var pump_timer = $Pump_Timer
 onready var shoot_cast = $Pos2D_Walk/RayCast2D
+onready var melee_cast = $Pos2D_Walk/RayCast2D_Melee
 onready var pos_shoot = $Pos2D_Walk/Pos2D_Shoot
 onready var pos_shell = $Pos2D_Walk/Pos2D_Shell
 onready var pos_walk = $Pos2D_Walk
@@ -68,7 +69,9 @@ func _process(delta):
 
 func shoot_j():
 	if can_shoot:
-		if !just_shot:
+		if melee_cast.is_colliding() && shoot_pos == 3:
+			melee()
+		elif !just_shot:
 			if ammo > 0:
 				if !shoot_cast.is_colliding():
 					var new_projectile = projectile.instance()

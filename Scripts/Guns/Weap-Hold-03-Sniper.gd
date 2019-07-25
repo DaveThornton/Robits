@@ -9,6 +9,7 @@ onready var anim_fire = $Anim_Player_Shoot
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
 onready var shoot_cast = $Pos2D_Walk/RayCast2D
+onready var melee_cast = $Pos2D_Walk/RayCast2D_Melee
 onready var pos_shoot = $Pos2D_Walk/Pos2D_Shoot
 onready var pos_shell = $Pos2D_Walk/Pos2D_Shell
 onready var pos_walk = $Pos2D_Walk
@@ -69,21 +70,20 @@ func _process(delta):
 
 func shoot_j():
 	if can_shoot:
-		if ammo > 0:
+		if melee_cast.is_colliding() && shoot_pos == 3:
+			melee()
+		elif ammo > 0:
 			if !shoot_cast.is_colliding():
 				var new_projectile = projectile.instance()
 				get_tree().get_current_scene().add_child(new_projectile)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
-				
 				if is_right:
 					_sr = pos_shoot.global_rotation
 				else:
 					_sr = pos_shoot.global_rotation * -1
-				
 				var _sss = pos_shoot.scale
 				new_projectile.start( _sr , _ss, _sss, player, damage)
-				
 			else:
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
@@ -93,7 +93,6 @@ func shoot_j():
 					print("gun 03 hitting wall not fireing projectile", _thing)
 				else:
 					print("gun 03 dont know what im hitting but no projectile spawned")
-			
 			self.position = Vector2(0,0)
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
@@ -119,12 +118,12 @@ func shoot_r():
 
 func melee():
 	if can_shoot:
-		print("melee attack")
+#		print("melee attack")
 		can_shoot = false
 		anim_fire.play("Melee")
 		melee_timer.start()
 		emit_signal("shot", player)
-		print("melee called on gun 03")
+#		print("melee called on gun 03")
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):

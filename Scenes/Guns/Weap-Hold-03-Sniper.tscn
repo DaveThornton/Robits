@@ -327,7 +327,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pos2D_Walk/Area2D/CollisionShape2D:disabled")
+tracks/2/path = NodePath("Pos2D_Walk/Area2D_Melee/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -354,35 +354,43 @@ wait_time = 0.3
 [node name="Pos2D_Walk" type="Position2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Pos2D_Walk"]
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 hframes = 5
 frame = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="Pos2D_Walk"]
-position = Vector2( 16, 0 )
+position = Vector2( 37, 0 )
 enabled = true
-cast_to = Vector2( 40, 0 )
+cast_to = Vector2( 35, 0 )
 collision_mask = 657946
 
 [node name="Pos2D_Shell" type="Position2D" parent="Pos2D_Walk"]
-position = Vector2( 9.59651, -0.758672 )
+position = Vector2( 20, -1 )
+
+[node name="Pos2D_Shoot" type="Position2D" parent="Pos2D_Walk"]
+position = Vector2( 30, 0.414629 )
 
 [node name="Sprite2" type="Sprite" parent="Pos2D_Walk"]
 position = Vector2( 56, 1 )
 texture = ExtResource( 6 )
 hframes = 5
 
-[node name="Area2D" type="Area2D" parent="Pos2D_Walk"]
+[node name="Area2D_Melee" type="Area2D" parent="Pos2D_Walk"]
+editor/display_folded = true
 collision_layer = 512
 collision_mask = 512
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pos2D_Walk/Area2D"]
-position = Vector2( 22.2223, 0 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pos2D_Walk/Area2D_Melee"]
+position = Vector2( 28, 0 )
 shape = SubResource( 1 )
 disabled = true
 
-[node name="Pos2D_Shoot" type="Position2D" parent="Pos2D_Walk"]
-position = Vector2( 26.0164, 0.414629 )
+[node name="RayCast2D_Melee" type="RayCast2D" parent="Pos2D_Walk"]
+position = Vector2( 18, 0 )
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 2
 
 [node name="Anim_Player_Pos" type="AnimationPlayer" parent="."]
 anims/Down-Left = SubResource( 2 )
@@ -406,4 +414,4 @@ position = Vector2( 30, 0 )
 [node name="SFX_Lib" parent="." instance=ExtResource( 7 )]
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Shoot_Timer_timeout"]
-[connection signal="body_entered" from="Pos2D_Walk/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Pos2D_Walk/Area2D_Melee" to="." method="_on_Area2D_body_entered"]

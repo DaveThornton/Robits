@@ -16,7 +16,7 @@ extents = Vector2( 3.30016, 4.93719 )
 "FX",
 ]]
 collision_layer = 131072
-collision_mask = 131080
+collision_mask = 131100
 mass = 0.1
 gravity_scale = 9.0
 script = ExtResource( 1 )
@@ -27,24 +27,20 @@ vframes = 9
 hframes = 4
 
 [node name="CollisionShape2D_1" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
 disabled = true
 
 [node name="CollisionShape2D_2" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 2 )
 disabled = true
 
 [node name="CollisionShape2D_3" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -2.68668, 1.93441 )
 rotation = -0.459324
 shape = SubResource( 1 )
 disabled = true
 
 [node name="CollisionShape2D_4" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 3.81508, -3.54641 )
 shape = SubResource( 3 )
 disabled = true

@@ -11,6 +11,7 @@ export(PackedScene) var demo_map
 export(PackedScene) var campaign_map
 #game_mode (1 arcade mode) (2 console and pc mode) (3 demo mode)
 export var game_mode = 1
+
 onready var players = $players
 #warning-ignore:unused_class_variable
 onready var pawns = $Pawns
@@ -20,6 +21,7 @@ onready var level_loader =$Level_Loader
 onready var line = $Line2D
 
 var auto_respawn = true
+var play_type = 2
 
 var p1_exists = false
 var p2_exists = false
@@ -295,7 +297,7 @@ func spawn_player_contoller(player_num, _auto_respawn):
 	elif player_num == 8:
 		p8_controller = z
 		
-	z.init(player_num, _auto_respawn, game_mode)
+	z.init(player_num, _auto_respawn, game_mode, play_type)
 	
 func player_scores( _dead_player, _player, _points, _with):
 	print(_player," scores ", _points, " with a ", _with," on player ", _dead_player)

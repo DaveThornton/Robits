@@ -13,6 +13,7 @@ onready var det = $"22-plasma-det"
 
 var player = 0
 var my_name = "Plasma Grenade"
+var damage = 100
 var time = 5.5
 var gun_num = 22
 var ammo = 1
@@ -51,7 +52,7 @@ func booming():
 	var b = boom.instance()
 	self.get_tree().get_current_scene().add_child(b)
 #	b.position = self.global_position
-	b.init(player, self.global_position, my_name)
+	b.init(player, self.global_position, my_name, 0, damage)
 	call_deferred("free")#queue_free()
 
 func spin(_how_much):

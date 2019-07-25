@@ -2,7 +2,7 @@ extends Area2D
 
 export var respawn = true
 export var respawn_time = 10
-export var how_much_nrg = 30
+export var how_much_nrg = 50
 
 onready var r_timer = $Respawn_Timer
 onready var shape = $CollisionShape2D

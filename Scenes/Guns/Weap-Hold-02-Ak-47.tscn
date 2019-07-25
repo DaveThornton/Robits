@@ -341,8 +341,6 @@ tracks/2/keys = {
 }
 
 [node name="Weap-Hold-02-Ak-47" type="Node2D"]
-rotation = -1.48353
-scale = Vector2( -1, 1 )
 script = ExtResource( 1 )
 ak47_Pickup = ExtResource( 2 )
 projectile = ExtResource( 3 )
@@ -364,7 +362,7 @@ hframes = 5
 frame = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="Pos2D_Walk"]
-position = Vector2( 40, 0 )
+position = Vector2( 37, 0 )
 enabled = true
 cast_to = Vector2( 35, 0 )
 collision_mask = 2570
@@ -372,18 +370,8 @@ collision_mask = 2570
 [node name="Pos2D_Shell" type="Position2D" parent="Pos2D_Walk"]
 position = Vector2( 19.5685, -1.54254 )
 
-[node name="Pos2D_No_Hit" type="Position2D" parent="Pos2D_Walk"]
-position = Vector2( 635, 0 )
-
 [node name="Pos2D_Shoot" type="Position2D" parent="Pos2D_Walk"]
 position = Vector2( 50, 0 )
-
-[node name="RayCast2D_Melee_OLD" type="RayCast2D" parent="Pos2D_Walk"]
-visible = false
-position = Vector2( 18, 0 )
-enabled = true
-cast_to = Vector2( 18, 0 )
-collision_mask = 2
 
 [node name="Sprite2" type="Sprite" parent="Pos2D_Walk"]
 position = Vector2( 48, 0 )
@@ -398,6 +386,12 @@ collision_mask = 512
 position = Vector2( 26, 0 )
 shape = SubResource( 1 )
 disabled = true
+
+[node name="RayCast2D_Melee" type="RayCast2D" parent="Pos2D_Walk"]
+position = Vector2( 18, 0 )
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 2
 
 [node name="Anim_Player_Pos" type="AnimationPlayer" parent="."]
 anims/Down-Left = SubResource( 2 )

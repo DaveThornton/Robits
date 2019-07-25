@@ -15,6 +15,7 @@ export(PackedScene) var boom
 var spawn_spot
 var my_pawn
 var player = 1
+var play_type = 2
 var pawn_color = 1
 var player_input_l = "P1_Left"
 var player_input_r = "P1_Right"
@@ -33,7 +34,7 @@ var in_menu = true
 var alive = false
 #var can_move = true 
 var can_start = false
-var start_equiped = false
+var start_equiped = 0
 var is_game_over = false
 
 signal player_score
@@ -46,11 +47,12 @@ signal menu_signal( _player, _dir)
 func _ready():
 	emit_signal("change_spawn_pos")
 	
-func init(_player_num, _auto_respawn, _game_mode):
+func init(_player_num, _auto_respawn, _game_mode, _play_type):
 	is_game_over = false
 	player = _player_num
 	auto_respawn = _auto_respawn
 	game_mode = _game_mode
+	play_type =  _play_type
 	if player == 1:
 		pawn_color = 1
 		player_input_l = "P1_Left"
@@ -190,7 +192,7 @@ func spawn_pawn():
 #		self.add_child(z)
 		z.connect("explode_p", self, "explode_pawn")
 		my_pawn = z
-		my_pawn.init(player, spawn_spot, start_equiped)
+		my_pawn.init(player, spawn_spot, start_equiped, play_type)
 		in_game = true
 		alive = true
 		emit_signal("change_spawn_pos")
@@ -203,7 +205,7 @@ func _explode_pawn(_player, _pos, _by_who, _by_what):
 	alive = false 
 	var x = boom.instance()
 	add_child(x)
-	x.init(_player, _pos, str("player ", player, "'s destruct system"), pawn_num)
+	x.init(_player, _pos, str("player ", player, "'s destruct system"), 1, 2)
 	emit_signal("player_score", player, _by_who, 1, _by_what)
 	if auto_respawn:
 		if in_game:

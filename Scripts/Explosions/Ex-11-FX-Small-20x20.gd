@@ -12,13 +12,14 @@ var blast_dis = 1.5
 
 func _ready():
 	print(b_radius)
-	
+
 	pass
 
-func init(_owner, _pos):
+func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	owned = _owner
 	anim.play("Explode")
 	self.global_position = _pos
+	damage1 = _dmg
 
 func start( _sr , _ss, _sss, _player):
 	owned = _player
@@ -37,7 +38,7 @@ func _body_entered(body):
 #		var b = self.position
 		var f = body.global_position - self.global_position
 		f.y = -(abs(f.y))
-		
+
 #		var e = self.global_position - body.global_position
 		var ex = 0
 		var ey = 0
@@ -104,7 +105,7 @@ func _body_entered(body):
 			else:
 				print("error pushing it to 100 in f.x")
 				ex = blast_dis
-		
+
 		if f.y <= 0:
 			if f.y < -(b_radius / 10):
 #				print("less than -90")

@@ -15,6 +15,7 @@ onready var hand_left = $handle2
 
 var player = 0
 var my_name = "Nazi Grenade"
+var damage = 100
 var time = 3.5
 var gun_num = 21
 var ammo = 1
@@ -46,7 +47,7 @@ func _on_Timer_Boom_timeout():
 	var b = boom.instance()
 	self.get_tree().get_current_scene().add_child(b)
 #	b.position = self.global_position
-	b.init(player, self.global_position, my_name)
+	b.init(player, self.global_position, my_name, 0, damage)
 	queue_free()
 
 #func _on_WeapPick20Grenade_body_exited(body):

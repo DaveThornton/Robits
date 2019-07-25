@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Robit-Controller.tscn" type="PackedScene" id=2]
@@ -7,10 +7,11 @@
 [ext_resource path="res://Menus/Arcade/Arcade_Game_over.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Menus/Console-PC/Console_Start.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Menus/Console-PC/Console_Game_over.tscn" type="PackedScene" id=7]
-[ext_resource path="res://map/Map-09-Red_Eye.tscn" type="PackedScene" id=8]
+[ext_resource path="res://map/Map-01-big_open.tscn" type="PackedScene" id=8]
 [ext_resource path="res://map/Campaign-mode/Map-C-01-Level-01.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/BackGroundSpace-01.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Level_Loader.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites/Misc/Black_Side_Pannel.png" type="Texture" id=12]
 
 [node name="World" type="Node"]
 pause_mode = 1
@@ -23,7 +24,7 @@ console_start = ExtResource( 6 )
 console_end = ExtResource( 7 )
 demo_map = ExtResource( 8 )
 campaign_map = ExtResource( 9 )
-game_mode = 3
+game_mode = 4
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
@@ -47,4 +48,10 @@ texture_mode = -1102592574
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Black_Side_Pannel" type="Sprite" parent="."]
+visible = false
+position = Vector2( -170, 543.761 )
+z_index = 100
+texture = ExtResource( 12 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -147,7 +147,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 func _explode():
 	var x = explode.instance()
 	get_tree().get_current_scene().add_child(x)
-	x.init(9, self.position, str("player ", x, "'s destruct system"), 0, 0)
+	x.init(9, self.position, str("player ", x, "'s destruct system"), 0)
 
 func _on_floor():
 	on_floor = cast_down.is_colliding()

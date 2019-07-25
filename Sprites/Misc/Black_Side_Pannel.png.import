@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Robit_Pawn-01-01-Old.png-e72f7cff61354f1e0e1fce3bf985eef6.stex"
+path="res://.import/Black_Side_Pannel.png-2893c598502db0e4e48141ca09be704d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Pawns/Robit_Pawn-01-01-Old.png"
-dest_files=[ "res://.import/Robit_Pawn-01-01-Old.png-e72f7cff61354f1e0e1fce3bf985eef6.stex" ]
+source_file="res://Sprites/Misc/Black_Side_Pannel.png"
+dest_files=[ "res://.import/Black_Side_Pannel.png-2893c598502db0e4e48141ca09be704d.stex" ]
 
 [params]
 

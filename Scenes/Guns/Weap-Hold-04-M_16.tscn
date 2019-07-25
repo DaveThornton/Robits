@@ -9,7 +9,7 @@
 [ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 10.2315
+radius = 11.1121
 
 [sub_resource type="Animation" id=2]
 tracks/0/type = "value"
@@ -362,16 +362,13 @@ hframes = 5
 frame = 1
 
 [node name="RayCast2D" type="RayCast2D" parent="Pos2D_Walk"]
-position = Vector2( 16, 0 )
+position = Vector2( 37, 0 )
 enabled = true
 cast_to = Vector2( 40, 0 )
 collision_mask = 133642
 
 [node name="Pos2D_Shell" type="Position2D" parent="Pos2D_Walk"]
 position = Vector2( 18.1139, -3.06022 )
-
-[node name="Pos2D_No_Hit" type="Position2D" parent="Pos2D_Walk"]
-position = Vector2( 635, 0 )
 
 [node name="Pos2D_Shoot" type="Position2D" parent="Pos2D_Walk"]
 position = Vector2( 40, -1 )
@@ -389,6 +386,12 @@ collision_mask = 512
 position = Vector2( 26, 0 )
 shape = SubResource( 1 )
 disabled = true
+
+[node name="RayCast2D_Melee" type="RayCast2D" parent="Pos2D_Walk"]
+position = Vector2( 18, 0 )
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 2
 
 [node name="Anim_Player_Pos" type="AnimationPlayer" parent="."]
 anims/Down-Left = SubResource( 2 )

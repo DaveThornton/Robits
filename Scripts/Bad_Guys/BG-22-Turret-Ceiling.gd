@@ -47,6 +47,7 @@ func _ready():
 		area_8.disabled = true
 	
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if bodies_in_range.size() > 0:
 		if bodies_in_range.size() > 1:

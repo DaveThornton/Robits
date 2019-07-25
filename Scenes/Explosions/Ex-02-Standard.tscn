@@ -127,20 +127,18 @@ gravity_vec = Vector2( -1, -1 )
 gravity = -1024.0
 linear_damp = 0.0
 angular_damp = 0.0
-collision_layer = 131072
-collision_mask = 395776
+collision_layer = 512
+collision_mask = 395784
 
 [node name="CollisionShape2D-outer" type="CollisionShape2D" parent="Area2D-outer"]
-visible = false
 shape = SubResource( 3 )
 disabled = true
 
 [node name="Area2D2-inner" type="Area2D" parent="."]
-collision_layer = 655872
-collision_mask = 657920
+collision_layer = 512
+collision_mask = 921098
 
 [node name="CollisionShape2D-inner" type="CollisionShape2D" parent="Area2D2-inner"]
-visible = false
 shape = SubResource( 4 )
 disabled = true
 
@@ -155,6 +153,7 @@ autostart = true
 [node name="SFX_Lib" parent="." instance=ExtResource( 3 )]
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 space_override = 2
 gravity_point = true
 gravity_vec = Vector2( -1, -1 )

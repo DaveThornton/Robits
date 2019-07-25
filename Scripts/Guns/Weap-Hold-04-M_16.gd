@@ -9,15 +9,12 @@ onready var anim_fire = $Anim_Player_Shoot
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
 onready var shoot_cast = $Pos2D_Walk/RayCast2D
+onready var melee_cast = $Pos2D_Walk/RayCast2D_Melee
 onready var pos_shoot = $Pos2D_Walk/Pos2D_Shoot
-#onready var pos_no_hit = $Pos2D_Walk/Pos2D_No_Hit
 onready var pos_shell = $Pos2D_Walk/Pos2D_Shell
 onready var pos_walk = $Pos2D_Walk
 onready var pos_throw = $Pos2D_Throw
-#onready var melee_cast = $Pos2D_Walk/RayCast2D_Melee
-#onready var melee_area_shape = $Pos2D_Walk/Area2D_Melee/CollisionShape2D
 onready var sfx = $SFX_Lib
-
 
 var player = 1
 #warning-ignore:unused_class_variable
@@ -81,7 +78,9 @@ func shoot_j():
 
 func shoot():
 	if can_shoot:
-		if ammo > 0 && burst <= (how_many_burst - 1):
+		if melee_cast.is_colliding() && shoot_pos == 3:
+			melee()
+		elif ammo > 0 && burst <= (how_many_burst - 1):
 			if !shoot_cast.is_colliding():
 				var new_projectile = projectile.instance()
 				get_tree().get_current_scene().add_child(new_projectile)
@@ -157,6 +156,7 @@ func throw():
 
 func drop():
 	call_deferred("_drop")
+
 func _drop():
 	var t = m16_Pickup.instance()
 	self.get_tree().get_current_scene().add_kid_to_map(t)

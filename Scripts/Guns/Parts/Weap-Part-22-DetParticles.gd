@@ -6,6 +6,7 @@ onready var timer = $Timer
 
 var player = 0
 var my_name = "Plasma Grenade"
+var damage = 100
 
 signal explode
 
@@ -27,6 +28,6 @@ func _on_Timer_timeout():
 		var b = boom.instance()
 		self.get_tree().get_current_scene().add_child(b)
 	#	b.position = self.global_position
-		b.init(player, self.global_position, my_name)
+		b.init(player, self.global_position, my_name, 0, damage)
 	else:
 		emit_signal("explode")

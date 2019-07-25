@@ -10,7 +10,8 @@ onready var melee_timer = $Melee_Timer
 onready var pos_shoot = $Pos2D_Walk/Pos2D_Shoot
 onready var pos_walk = $Pos2D_Walk
 onready var pos_throw = $Pos2D_Throw
-onready var shoot_cast = $RayCast2D
+onready var shoot_cast = $Pos2D_Walk/RayCast2D
+onready var melee_cast = $Pos2D_Walk/RayCast2D_Melee
 onready var sfx = $SFX_Lib
 
 var player = 1
@@ -66,23 +67,13 @@ func _process(delta):
 
 func shoot_j():
 	if can_shoot:
+		if melee_cast.is_colliding() && shoot_pos == 3:
+			melee()
 		if ammo > 0:
 			can_shoot = false 
 			shoot_timer.start()
 			if !shoot_cast.is_colliding():
 				_fire_projectile()
-#				var new_projectile = projectile.instance()
-#				get_tree().get_current_scene().add_child(new_projectile)
-#				var _ss = pos_shoot.global_position
-#				var _sr = pos_shoot.global_rotation
-#
-#				if is_right:
-#					_sr = pos_shoot.global_rotation
-#				else:
-#					_sr = pos_shoot.global_rotation * -1
-#
-#				var _sss = pos_shoot.scale
-#				new_projectile.start( _sr , _ss, _sss, player, damage)
 			else:
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
@@ -115,12 +106,10 @@ func _fire_projectile():
 	get_tree().get_current_scene().add_child(new_projectile)
 	var _ss = pos_shoot.global_position
 	var _sr = pos_shoot.global_rotation
-	
 	if is_right:
 		_sr = pos_shoot.global_rotation
 	else:
 		_sr = pos_shoot.global_rotation * -1
-	
 	var _sss = pos_shoot.scale
 	new_projectile.start( _sr , _ss, _sss, player, damage)
 

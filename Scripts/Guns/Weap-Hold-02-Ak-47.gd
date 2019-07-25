@@ -9,6 +9,7 @@ onready var anim_fire = $Anim_Player_Shoot
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
 onready var shoot_cast = $Pos2D_Walk/RayCast2D
+onready var melee_cast = $Pos2D_Walk/RayCast2D_Melee
 onready var pos_shoot = $Pos2D_Walk/Pos2D_Shoot
 onready var pos_shell = $Pos2D_Walk/Pos2D_Shell
 onready var pos_walk = $Pos2D_Walk
@@ -73,7 +74,9 @@ func shoot_j():
 
 func shoot():
 	if can_shoot:
-		if ammo > 0:
+		if melee_cast.is_colliding() && shoot_pos == 3:
+			melee()
+		elif ammo > 0:
 			if !shoot_cast.is_colliding():
 				var new_projectile = projectile.instance()
 				get_tree().get_current_scene().add_child(new_projectile)
@@ -123,7 +126,7 @@ func melee():
 		anim_fire.play("Melee")
 		melee_timer.start()
 		emit_signal("shot", player)
-		print("melee called on gun 02")
+#		print("melee called on gun 02")
 
 func _on_Area2D_Melee_body_entered(body):
 	if body.get_groups().has("player"):

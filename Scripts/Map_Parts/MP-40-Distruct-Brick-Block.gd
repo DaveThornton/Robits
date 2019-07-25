@@ -81,7 +81,7 @@ func _hit(_owned, my_name, damage_type, damage):
 	get_tree().get_current_scene().add_child(h)
 	get_tree().get_current_scene().add_child(e)
 	e.init(_owned, pos)
-	h.init(_owned, pos)
+	h.init(_owned, pos, my_name, 0, damage)
 #	var h = head_explode.instance()
 #	get_tree().get_current_scene().add_child(h)
 #	h.init(_owned, pos)

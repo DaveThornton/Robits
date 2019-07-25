@@ -23,8 +23,8 @@ func _ready():
 	start_x = global_position.x
 	if !trigger_on_prox:
 		var con = self.get_tree().get_current_scene().connect("second", self, "second")
-#		if !con:
-#			print("error on connecting second to second in Thwomp")
+		if !con:
+			print("error on connecting second to second in Thwomp")
 		trigger_shape.disabled = !trigger_on_prox
 	cast_down.force_raycast_update()
 	if cast_down.is_colliding():
