@@ -399,7 +399,7 @@ func activate_add_to_front(_num, _player):
 	if _num == active_number || _num == 0:
 		active = true
 		if !hunted.has(_player):
-			hunted.push_front(_player)
+			hunted.append(_player)
 		else:
 			hunted.push_front(_player)
 		

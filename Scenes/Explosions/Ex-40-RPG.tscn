@@ -78,7 +78,7 @@ tracks/0/keys = {
 radius = 92.0054
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 47.3814
+radius = 80.0
 
 [node name="Ex-02-Standard" type="Node2D"]
 z_index = -3
@@ -100,14 +100,14 @@ gravity = -1024.0
 linear_damp = 0.0
 angular_damp = 0.0
 collision_layer = 655872
-collision_mask = 655872
+collision_mask = 1016606
 
 [node name="CollisionShape2D-outer" type="CollisionShape2D" parent="Area2D-outer"]
 shape = SubResource( 3 )
 
 [node name="Area2D2-inner" type="Area2D" parent="."]
 collision_layer = 655872
-collision_mask = 655872
+collision_mask = 656136
 
 [node name="CollisionShape2D-inner" type="CollisionShape2D" parent="Area2D2-inner"]
 shape = SubResource( 4 )
@@ -124,7 +124,6 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
-
 [connection signal="body_entered" from="Area2D-outer" to="." method="_on_Area2Douter_body_entered"]
 [connection signal="body_entered" from="Area2D2-inner" to="." method="_on_Area2D2inner_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -66,9 +66,10 @@ func _ready():
 	if respawn:
 		respawn_timer.wait_time = respawn_time
 #warning-ignore:unused_argument
-#warning-ignore:unused_argument
+#warning-ignore:unused_argument                                                                                        
 #warning-ignore:unused_argument
 func hit(_owned, my_name, damage_type, damage):
+#	print("brick hit mp-40")
 	call_deferred("_hit",_owned, my_name, damage_type, damage)
 func _hit(_owned, my_name, damage_type, damage):
 	sfx.play("EX_Brick")

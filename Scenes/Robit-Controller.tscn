@@ -1,21 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Robit-Controller.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Pawns/Robit-02.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Explosions/Ex-03-Pawn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Pawns/Robit-01.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Pawns/Robit-02.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Explosions/Ex-03-Pawn.tscn" type="PackedScene" id=4]
 
 [node name="Robit-Controller" type="Node2D"]
 script = ExtResource( 1 )
 pawn = ExtResource( 2 )
 pawn_01 = ExtResource( 2 )
-pawn_02 = ExtResource( 2 )
+pawn_02 = ExtResource( 3 )
 pawn_03 = ExtResource( 2 )
-pawn_04 = ExtResource( 2 )
+pawn_04 = ExtResource( 3 )
 pawn_05 = ExtResource( 2 )
-pawn_06 = ExtResource( 2 )
+pawn_06 = ExtResource( 3 )
 pawn_07 = ExtResource( 2 )
-pawn_08 = ExtResource( 2 )
-boom = ExtResource( 3 )
+pawn_08 = ExtResource( 3 )
+boom = ExtResource( 4 )
 
 [node name="Respawn-Timer" type="Timer" parent="."]
 wait_time = 2.0

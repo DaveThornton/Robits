@@ -35,7 +35,9 @@ func _hit(body,_dmg):
 
 func _on_Area2Douter_body_entered(body):
 	if body.get_groups().has("hittable"):
-		call_deferred("_hit", body, damage1)
+		print("calling a hit ex-40-rpg")
+		body.hit(owned, weap_name, damage_type, damage1)
+#		call_deferred("_hit", body, damage1)
 #		call_deferred("body.hit", owned, str(weap_name, " ", my_name), damage_type, damage1)
 	elif body.get_groups().has("FX"):
 #		print("hit Pick Up")

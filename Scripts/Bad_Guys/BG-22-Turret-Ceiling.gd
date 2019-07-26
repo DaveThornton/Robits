@@ -50,16 +50,17 @@ func _ready():
 # warning-ignore:unused_argument
 func _process(delta):
 	if bodies_in_range.size() > 0:
-		if bodies_in_range.size() > 1:
-			print(bodies_in_range)
-			bodies_in_range.sort_custom(self, "sort_distance")
-			print(bodies_in_range)
-		gun_arm.look_at(bodies_in_range[0].global_position)
-		if can_shoot:
-			if shoot_cast.is_colliding():
-				if shoot_cast.get_collider().get_groups().has("player"):
-					_shoot(gun_arm)
-#					print("shoot")
+		remove_dead()
+		if bodies_in_range.size() > 0:
+			if bodies_in_range.size() > 1:
+				print(bodies_in_range)
+				bodies_in_range.sort_custom(self, "sort_distance")
+				print(bodies_in_range)
+			gun_arm.look_at(bodies_in_range[0].global_position)
+			if can_shoot:
+				if shoot_cast.is_colliding():
+					if shoot_cast.get_collider().get_groups().has("player"):
+						_shoot(gun_arm)
 
 func _shoot(_pos):
 	can_shoot = false 
@@ -67,10 +68,7 @@ func _shoot(_pos):
 	get_tree().get_current_scene().add_child(new_projectile)
 	var _ss = _pos.global_position
 	var _sr = _pos.global_rotation
-#	if is_right:
 	_sr = _pos.global_rotation
-#	else:
-#		_sr = _pos.global_rotation * -1
 	var _sss = _pos.scale
 	new_projectile.start(_sr , _ss, _sss, player, damage)
 	anim.play("Shoot")
@@ -96,12 +94,17 @@ func sort_distance(_a, _b):
 
 func _on_Area2D_body_entered(body):
 	bodies_in_range.append(body)
-#	print(bodies_in_range)
-#	bodies_in_range.sort_custom(self, "sort_distance")
-#	print(bodies_in_range)
 
 func _on_Area2D_body_exited(body):
 	bodies_in_range.erase(body)
 
 func _on_Timer_Shoot_timeout():
 	can_shoot = true
+
+func remove_dead():
+	var h_size = (bodies_in_range.size() - 1)
+	for h in  bodies_in_range.size():
+#		print(h, h_size, hunted.size())
+		if !is_instance_valid( bodies_in_range[h_size - h]):
+			 bodies_in_range.remove(h_size - h)
+#	print(hunted.size())

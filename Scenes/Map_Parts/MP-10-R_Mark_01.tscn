@@ -5,13 +5,12 @@
 [ext_resource path="res://Sprites/Map_Parts/Marks-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Map_Parts/StaticBody2D-pass-func-up.gd" type="Script" id=4]
 
-[sub_resource type="RectangleShape2D" id=19]
-
 [sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 9, 2 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "Hit_A"
+[sub_resource type="Animation" id=3]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -51,8 +50,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Hit_B"
+[sub_resource type="Animation" id=4]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -92,8 +90,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Hit_Bang"
+[sub_resource type="Animation" id=5]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -133,7 +130,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -173,7 +170,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -213,7 +210,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -253,7 +250,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -293,7 +290,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -333,7 +330,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -348,7 +345,7 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -363,8 +360,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "Start_Bang"
+[sub_resource type="Animation" id=13]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -376,21 +372,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 9 ]
-}
-
-[sub_resource type="Animation" id=13]
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 3 ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -405,7 +386,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 3 ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -420,7 +401,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 1 ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -435,7 +416,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 5 ]
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=17]
@@ -450,10 +431,25 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 4 ]
+"values": [ 5 ]
 }
 
 [sub_resource type="Animation" id=18]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -490,33 +486,33 @@ polygon = PoolVector2Array( -10, 10, 10, 10, 10, -10, -10, -10 )
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 19 )
+shape = SubResource( 1 )
 
 [node name="Area2D_Hit" type="Area2D" parent="."]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Hit"]
 position = Vector2( 0, 12 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Hit_A = SubResource( 2 )
-anims/Hit_B = SubResource( 3 )
-anims/Hit_Bang = SubResource( 4 )
-anims/Hit_I = SubResource( 5 )
-anims/Hit_O = SubResource( 6 )
-anims/Hit_R = SubResource( 7 )
-anims/Hit_S = SubResource( 8 )
-anims/Hit_T = SubResource( 9 )
-anims/Start_A = SubResource( 10 )
-anims/Start_B = SubResource( 11 )
-anims/Start_Bang = SubResource( 12 )
-anims/Start_I = SubResource( 13 )
-anims/Start_O = SubResource( 14 )
-anims/Start_R = SubResource( 15 )
-anims/Start_S = SubResource( 16 )
-anims/Start_T = SubResource( 17 )
-anims/Used = SubResource( 18 )
+anims/Hit_A = SubResource( 3 )
+anims/Hit_B = SubResource( 4 )
+anims/Hit_Bang = SubResource( 5 )
+anims/Hit_I = SubResource( 6 )
+anims/Hit_O = SubResource( 7 )
+anims/Hit_R = SubResource( 8 )
+anims/Hit_S = SubResource( 9 )
+anims/Hit_T = SubResource( 10 )
+anims/Start_A = SubResource( 11 )
+anims/Start_B = SubResource( 12 )
+anims/Start_Bang = SubResource( 13 )
+anims/Start_I = SubResource( 14 )
+anims/Start_O = SubResource( 15 )
+anims/Start_R = SubResource( 16 )
+anims/Start_S = SubResource( 17 )
+anims/Start_T = SubResource( 18 )
+anims/Used = SubResource( 19 )
 
 [node name="Pos2D_Spawn" type="Position2D" parent="."]
 position = Vector2( 0, -21 )

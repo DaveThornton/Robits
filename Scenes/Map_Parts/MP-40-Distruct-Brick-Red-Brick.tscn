@@ -16,8 +16,8 @@ height = 13.8053
 "map",
 "hittable",
 ]]
-collision_layer = 131084
-collision_mask = 131596
+collision_layer = 393228
+collision_mask = 393740
 script = ExtResource( 1 )
 brick_explode = ExtResource( 2 )
 head_explode = ExtResource( 3 )
