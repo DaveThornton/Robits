@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
 [ext_resource path="res://Tilesets/R_BasicX20.tres" type="TileSet" id=3]
 [ext_resource path="res://Tilesets/R_B_Plat_X20.tres" type="TileSet" id=4]
-[ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Tilesets/TS-04-Ladder.tres" type="TileSet" id=5]
+[ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=7]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,8 +27,8 @@ __meta__ = {
 }
 
 [node name="TileMap-Main" type="TileMap" parent="." groups=[
-"map_part",
 "map",
+"map_part",
 ]]
 z_index = -2
 tile_set = ExtResource( 3 )
@@ -53,6 +54,15 @@ tile_data = PoolIntArray( 3473446, 13, 0, 3473466, -1610612723, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="TileMap-Ladders" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 32
+collision_mask = 32
+format = 1
+tile_data = PoolIntArray( 3014726, 1, 0, 3080262, 0, 0, 3145798, 0, 0, 3211334, 0, 0, 3276870, 0, 0, 3342406, 0, 0, 3407942, 2, 0 )
 
 [node name="Player_spawns" type="Node2D" parent="."]
 editor/display_folded = true
@@ -124,8 +134,7 @@ position = Vector2( 210, 180 )
 ]]
 editor/display_folded = true
 
-[node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 5 )]
+[node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 6 )]
 
-[node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 6 )]
+[node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 7 )]
 position = Vector2( 1016.51, 1127.47 )
-

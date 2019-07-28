@@ -15,8 +15,9 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Mini-Platformer"
+config/name="ROBITS"
 run/main_scene="res://Scenes/World.tscn"
+boot_splash/image="res://Sprites/Misc/ROBITS_Alt_Logo.png"
 boot_splash/bg_color=Color( 0.721569, 0.0627451, 0.0627451, 1 )
 
 [debug]

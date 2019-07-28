@@ -38,8 +38,8 @@ height = 41.3699
 
 [node name="Robit-01" type="KinematicBody2D" groups=[
 "player",
-"ladder",
 "hittable",
+"ladder",
 ]]
 collision_layer = 2
 collision_mask = 66078

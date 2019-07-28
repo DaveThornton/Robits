@@ -49,9 +49,9 @@ __meta__ = {
 }
 
 [node name="TileMap-Main" type="TileMap" parent="." groups=[
-"map_part",
-"unkillable",
 "map",
+"unkillable",
+"map_part",
 ]]
 editor/display_folded = true
 z_index = -4
@@ -85,7 +85,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap-Ladders" type="TileMap" parent="."]
 z_index = -1
 tile_set = ExtResource( 7 )
 cell_size = Vector2( 20, 20 )

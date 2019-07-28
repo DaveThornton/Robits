@@ -7,7 +7,7 @@
 [ext_resource path="res://Menus/Arcade/Arcade_Game_over.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Menus/Console-PC/Console_Start.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Menus/Console-PC/Console_Game_over.tscn" type="PackedScene" id=7]
-[ext_resource path="res://map/Map-05-Fun_I_Guess.tscn" type="PackedScene" id=8]
+[ext_resource path="res://map/Map-11-Puck_Fan.tscn" type="PackedScene" id=8]
 [ext_resource path="res://map/Campaign-mode/Map-C-00-Trash_Compactor.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/BackGroundSpace-01.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Level_Loader.tscn" type="PackedScene" id=11]
@@ -24,7 +24,7 @@ console_start = ExtResource( 6 )
 console_end = ExtResource( 7 )
 demo_map = ExtResource( 8 )
 campaign_map = ExtResource( 9 )
-game_mode = 4
+game_mode = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
