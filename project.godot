@@ -22,7 +22,7 @@ boot_splash/bg_color=Color( 0.721569, 0.0627451, 0.0627451, 1 )
 
 [debug]
 
-settings/fps/force_fps=120
+settings/fps/force_fps=60
 settings/stdout/print_fps=true
 
 [display]
@@ -615,7 +615,6 @@ Exit={
 
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
-quality/2d/use_pixel_snap=true
 threads/thread_model=2
 quality/reflections/high_quality_ggx=false
 quality/depth/hdr=false

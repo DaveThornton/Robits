@@ -96,11 +96,11 @@ var shoot_spot = 3
 var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
-var walk_speed = 32000
+var walk_speed = 15000
 var starting_walk_speed
 
 var is_jump_pressed = false
-var max_air_jump_count = 3
+var max_air_jump_count = 4
 var max_air_jump_power = 4
 var min_air_jump_power = 1.5
 var air_jump_count = 0
