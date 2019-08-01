@@ -99,8 +99,9 @@ var terminal_vel = 6
 var walk_speed = 15000
 var starting_walk_speed
 
+#--------------------------------------------------------        JUMP
 var is_jump_pressed = false
-var max_air_jump_count = 4
+var max_air_jump_count = 8
 var max_air_jump_power = 4
 var min_air_jump_power = 1.5
 var air_jump_count = 0
@@ -110,7 +111,7 @@ var head_room = 0
 
 var move_step = 0
 var dec_step = 0
-
+#--------------------------------------------------------        NRG
 var nrg = 100
 var last_nrg = 100
 var nrg_regen_rate = 5
