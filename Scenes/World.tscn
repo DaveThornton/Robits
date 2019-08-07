@@ -24,6 +24,7 @@ console_start = ExtResource( 6 )
 console_end = ExtResource( 7 )
 demo_map = ExtResource( 8 )
 campaign_map = ExtResource( 9 )
+game_mode = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 960, 540 )

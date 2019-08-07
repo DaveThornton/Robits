@@ -8,6 +8,7 @@ onready var sfx = $SFX_Lib
 var speed = 800
 var owned = 0
 onready var anim = $AnimationPlayer
+# warning-ignore:unused_class_variable
 var my_name = "RPG"
 var damage
 

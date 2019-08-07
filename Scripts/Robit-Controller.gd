@@ -48,6 +48,8 @@ func _ready():
 	emit_signal("change_spawn_pos")
 	
 func init(_player_num, _auto_respawn, _game_mode, _play_type):
+#	var _test = Weap.test()
+#	print(_test)
 	is_game_over = false
 	player = _player_num
 	auto_respawn = _auto_respawn
@@ -192,10 +194,11 @@ func spawn_pawn():
 #		self.add_child(z)
 		z.connect("explode_p", self, "explode_pawn")
 		my_pawn = z
-		my_pawn.init(player, spawn_spot, start_equiped, play_type)
+#		var _spawn_pos = Map_Hand.spawn_pos()
+		my_pawn.init(player, Map_Hand.spawn_pos(), start_equiped, play_type)
 		in_game = true
 		alive = true
-		emit_signal("change_spawn_pos")
+#		emit_signal("change_spawn_pos")
 		emit_signal("in_play", player)
 
 func explode_pawn(_player, _pos, _by_who, _by_what):
@@ -292,6 +295,9 @@ func _process(delta):
 
 func set_spawn_spot(_pos):
 	spawn_spot = _pos
+
+func _spawn_spot():# set up for map handler singleton
+	pass
 
 func _on_RespawnTimer_timeout():
 	spawn_pawn()

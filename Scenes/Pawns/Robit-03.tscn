@@ -1,19 +1,18 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scripts/Pawns/Robit-02.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Pawns/Robit_Pawn-02-01.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Pawns/Robit-03.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Pawns/Robit_Pawn-03-01.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Pawns/Robit_Pawn-01-Shield.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Pawns/AnimationPlayer-pawn.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 22 )
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 5.04766
-height = 41.3699
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 22 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 8, 22 )
+extents = Vector2( 31.5336, 8 )
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 21.9999
@@ -23,7 +22,7 @@ height = 34.0001
 radius = 5.04766
 height = 41.3699
 
-[node name="Robit-02" type="KinematicBody2D" groups=[
+[node name="Robit-03" type="KinematicBody2D" groups=[
 "ladder",
 "player",
 "hittable",
@@ -37,7 +36,7 @@ position = Vector2( 1, -10 )
 texture = ExtResource( 2 )
 vframes = 5
 hframes = 16
-frame = 30
+frame = 78
 
 [node name="Sprite_Shield" type="Sprite" parent="."]
 visible = false
@@ -45,12 +44,12 @@ position = Vector2( 1, -10 )
 texture = ExtResource( 3 )
 vframes = 5
 hframes = 16
-frame = 30
+frame = 56
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 4 )]
 
 [node name="Position2D-Arm-Gun" type="Position2D" parent="."]
-position = Vector2( 2, -7 )
+position = Vector2( -13, 14.4323 )
 
 [node name="Shield_Timer" type="Timer" parent="."]
 
@@ -76,22 +75,19 @@ wait_time = 0.2
 one_shot = true
 
 [node name="CollisionShape2D-Stand" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D-Run" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 2 )
 disabled = true
 
 [node name="CollisionShape2D-Prone" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 14 )
-rotation = 1.5708
 shape = SubResource( 3 )
 disabled = true
 
 [node name="RayCast2D_Up" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( 0, -22 )
 rotation = 3.14159
 enabled = true
@@ -99,51 +95,80 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 8
 
 [node name="RayCast2D_Down" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( -6, 20 )
 enabled = true
 cast_to = Vector2( 0, 8 )
 collision_mask = 14
 
 [node name="RayCast2D_Down2" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( 6, 20 )
 enabled = true
 cast_to = Vector2( 0, 8 )
 collision_mask = 12
 
 [node name="RayCast2D_Left" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( -8, 3 )
 enabled = true
 cast_to = Vector2( -20, 0 )
 collision_mask = 12
 
 [node name="RayCast2D_Left_Down" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( -9, -5 )
 enabled = true
 cast_to = Vector2( -11, 11 )
 collision_mask = 12
 
 [node name="RayCast2D_Right" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( 8, 3 )
 enabled = true
 cast_to = Vector2( 20, 0 )
 collision_mask = 12
 
 [node name="RayCast2D_Right_Down" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( 9, -5 )
 enabled = true
 cast_to = Vector2( 11, 11 )
 collision_mask = 12
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( 0, 14 )
 cast_to = Vector2( 0, 8 )
 collision_mask = 16
 
 [node name="RayCast2D_Plat_Test" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( 0, 20 )
 enabled = true
 cast_to = Vector2( 0, 8 )
 collision_mask = 16
+
+[node name="RayCast2D_Plat_Up" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( 0, 15 )
+enabled = true
+cast_to = Vector2( 0, -38 )
+collision_mask = 4
+
+[node name="RayCast2D_Plat_Up2" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( 0, 15 )
+enabled = true
+cast_to = Vector2( 7, -35 )
+collision_mask = 4
+
+[node name="RayCast2D_Plat_Up3" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( 0, 15 )
+enabled = true
+cast_to = Vector2( -7, -35 )
+collision_mask = 4
 
 [node name="Grab_Area2D" type="Area2D" parent="."]
 visible = false

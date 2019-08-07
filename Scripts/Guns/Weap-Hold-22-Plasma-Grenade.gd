@@ -14,6 +14,8 @@ onready var det = $"22-plasma-det"
 var player = 1
 var gun_num = 22
 var ammo = 1
+# warning-ignore:unused_class_variable
+var take_ammo = false
 var armed = false
 var my_name = "Plasma Grenade"
 var new_anim = "Un_pos"

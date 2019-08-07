@@ -1,23 +1,9 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Pawns/Robit-01.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-02-Ak-47.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-03-Sniper.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-04-M_16.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-10-Blaster_Pistol.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-11-Mega-Cannon.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-20-Grenade.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-21-Nazi-Grenade.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-22-Plasma-Grenade.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-23-Bomb-man.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-40-RPG.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-50-Shot_Gun.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-60-Axe.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-61-Sword.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-80-Leaf_Blower.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Sprites/Pawns/Robit_Pawn-01-01.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Pawns/Robit_Pawn-01-Shield.png" type="Texture" id=17]
-[ext_resource path="res://Scenes/Pawns/AnimationPlayer-pawn.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Sprites/Pawns/Robit_Pawn-01-01.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Pawns/Robit_Pawn-01-Shield.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Pawns/AnimationPlayer-pawn.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 22 )
@@ -37,43 +23,29 @@ radius = 5.04766
 height = 41.3699
 
 [node name="Robit-01" type="KinematicBody2D" groups=[
-"player",
 "ladder",
+"player",
 "hittable",
 ]]
 collision_layer = 2
 collision_mask = 66078
 script = ExtResource( 1 )
-gun_02 = ExtResource( 2 )
-gun_03 = ExtResource( 3 )
-gun_04 = ExtResource( 4 )
-gun_10 = ExtResource( 5 )
-gun_11 = ExtResource( 6 )
-gun_20 = ExtResource( 7 )
-gun_21 = ExtResource( 8 )
-gun_22 = ExtResource( 9 )
-gun_23 = ExtResource( 10 )
-gun_40 = ExtResource( 11 )
-gun_50 = ExtResource( 12 )
-gun_60 = ExtResource( 13 )
-gun_61 = ExtResource( 14 )
-gun_80 = ExtResource( 15 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1, -10 )
-texture = ExtResource( 16 )
+texture = ExtResource( 2 )
 vframes = 5
 hframes = 16
 
 [node name="Sprite_Shield" type="Sprite" parent="."]
 visible = false
 position = Vector2( 1, -10 )
-texture = ExtResource( 17 )
+texture = ExtResource( 3 )
 vframes = 5
 hframes = 16
 frame = 15
 
-[node name="AnimationPlayer" parent="." instance=ExtResource( 18 )]
+[node name="AnimationPlayer" parent="." instance=ExtResource( 4 )]
 
 [node name="Position2D-Arm-Gun" type="Position2D" parent="."]
 position = Vector2( 6, -4 )

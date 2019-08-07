@@ -11,6 +11,8 @@ onready var hit_area = $Pos_Arm/Area2D/CollisionPolygon2D
 var player = 1
 var gun_num = 60
 var ammo = 1
+# warning-ignore:unused_class_variable
+var take_ammo = false
 #var armed = false
 var my_name = "Axe"
 var new_anim = "Un_pos"

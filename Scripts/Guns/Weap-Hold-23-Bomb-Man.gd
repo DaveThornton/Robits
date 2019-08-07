@@ -14,6 +14,8 @@ onready var pos_throw = $Pos2D_Throw
 var player = 1
 var gun_num = 20
 var ammo = 1
+# warning-ignore:unused_class_variable
+var take_ammo = false
 var armed = false
 var my_name = "Bomb-Man"
 var new_anim = "Un_pos"

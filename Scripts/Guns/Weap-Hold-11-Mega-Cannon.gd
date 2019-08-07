@@ -18,6 +18,8 @@ var player = 1
 var gun_num = 11
 var ammo = 90
 var ammo_max = 150
+# warning-ignore:unused_class_variable
+var take_ammo = true
 var my_name = "Mega Cannon"
 var new_anim = "Un_pos"
 var old_anim = "Un_pos"

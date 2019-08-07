@@ -1,11 +1,8 @@
 extends Node2D
+
 export(PackedScene) var pawn_part
 
 onready var anim = $AnimationPlayer
-#onready var part1 = $"FX-05-Robit-Wreckage"
-#onready var part2 = $"FX-05-Robit-Wreckage2"
-#onready var part3 = $"FX-05-Robit-Wreckage3"
-#onready var part4 = $"FX-05-Robit-Wreckage4"
 onready var sfx = $SFX_Lib
 var owned = 0
 var my_name = "Explosion"
@@ -23,16 +20,16 @@ func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	damage1 = (_dmg * .5)
 	damage2 = _dmg
 	var part1 = pawn_part.instance()
-	get_tree().get_current_scene().map.add_child(part1)
+	get_tree().get_current_scene().add_kid_to_map(part1)
 	part1.init(_owner, _pawn_num, 0, true, (_pos + Vector2(-7, -7)), Vector2(-200, -200))
 	var part2 = pawn_part.instance()
-	get_tree().get_current_scene().map.add_child(part2)
+	get_tree().get_current_scene().add_kid_to_map(part2)
 	part2.init(_owner, _pawn_num, 1, true, (_pos + Vector2(7, -7)), Vector2(200, -200))
 	var part3 = pawn_part.instance()
-	get_tree().get_current_scene().map.add_child(part3)
+	get_tree().get_current_scene().add_kid_to_map(part3)
 	part3.init(_owner, _pawn_num, 2, true, (_pos + Vector2(-7, 7)), Vector2(-200, -150))
 	var part4 = pawn_part.instance()
-	get_tree().get_current_scene().map.add_child(part4)
+	get_tree().get_current_scene().add_kid_to_map(part4)
 	part4.init(_owner, _pawn_num, 3, true, (_pos + Vector2(7, 7)), Vector2(100, -200))
 	owned = _owner
 	anim.play("Explode")

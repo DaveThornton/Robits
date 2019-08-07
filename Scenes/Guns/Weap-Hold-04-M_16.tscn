@@ -364,14 +364,14 @@ frame = 1
 [node name="RayCast2D" type="RayCast2D" parent="Pos2D_Walk"]
 position = Vector2( 37, 0 )
 enabled = true
-cast_to = Vector2( 40, 0 )
-collision_mask = 133642
+cast_to = Vector2( 10, 0 )
+collision_mask = 2570
 
 [node name="Pos2D_Shell" type="Position2D" parent="Pos2D_Walk"]
 position = Vector2( 18.1139, -3.06022 )
 
 [node name="Pos2D_Shoot" type="Position2D" parent="Pos2D_Walk"]
-position = Vector2( 40, -1 )
+position = Vector2( 34, -1 )
 
 [node name="Sprite2" type="Sprite" parent="Pos2D_Walk"]
 position = Vector2( 48, 0 )
@@ -391,7 +391,7 @@ disabled = true
 position = Vector2( 18, 0 )
 enabled = true
 cast_to = Vector2( 20, 0 )
-collision_mask = 2
+collision_mask = 2570
 
 [node name="Anim_Player_Pos" type="AnimationPlayer" parent="."]
 anims/Down-Left = SubResource( 2 )

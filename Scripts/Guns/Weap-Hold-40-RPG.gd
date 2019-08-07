@@ -20,6 +20,8 @@ var player = 1
 var gun_num = 2
 var ammo = 3
 var ammo_max = 9
+# warning-ignore:unused_class_variable
+var take_ammo = true
 var my_name = "RPG"
 var new_anim = "Un_pos"
 var old_anim = "Un_pos"

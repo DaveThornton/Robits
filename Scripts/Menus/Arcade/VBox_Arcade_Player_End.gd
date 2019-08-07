@@ -50,11 +50,16 @@ func _ready():
 
 func player1():
 	pawn_num = player_con.pawn_num
-	if pawn_num == 1 || pawn_num == 2 || pawn_num == 3 || pawn_num == 4:
+	
+	if pawn_num == 1:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-01.png")
-#	elif pawn_num == 2:
-	else:
+	elif pawn_num == 2:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-01.png")
+	elif pawn_num == 3:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-01.png")
+	else:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-01.png")
+	
 	player_label.text = str(player_num)
 	score_label.text = str(get_tree().get_current_scene().p1_score)
 	var kills = float(get_tree().get_current_scene().p1_hits)
@@ -81,12 +86,14 @@ func player1():
 
 func player2():
 	pawn_num = player_con.pawn_num
-	if pawn_num == 1 || pawn_num == 2 || pawn_num == 3 || pawn_num == 4:
+	if pawn_num == 1:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-02.png")
-#	elif pawn_num == 2:
-	else:
+	elif pawn_num == 2:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-02.png")
-#	my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn--01-02.png")
+	elif pawn_num == 3:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-02.png")
+	else:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-02.png")
 	player_label.text = str(player_num)
 	score_label.text = str(get_tree().get_current_scene().p2_score)
 	var kills = float(get_tree().get_current_scene().p2_hits)
@@ -113,12 +120,14 @@ func player2():
 
 func player3():
 	pawn_num = player_con.pawn_num
-	if pawn_num == 1 || pawn_num == 2 || pawn_num == 3 || pawn_num == 4:
+	if pawn_num == 1:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-03.png")
-#	elif pawn_num == 2:
-	else:
+	elif pawn_num == 2:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-03.png")
-#	my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-03.png")
+	elif pawn_num == 3:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-03.png")
+	else:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-03.png")
 	player_label.text = str(player_num)
 	score_label.text = str(get_tree().get_current_scene().p3_score)
 	var kills = float(get_tree().get_current_scene().p3_hits)
@@ -145,12 +154,14 @@ func player3():
 
 func player4():
 	pawn_num = player_con.pawn_num
-	if pawn_num == 1 || pawn_num == 2 || pawn_num == 3 || pawn_num == 4:
+	if pawn_num == 1:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-04.png")
-#	elif pawn_num == 2:
-	else:
+	elif pawn_num == 2:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-04.png")
-#	my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-04.png")
+	elif pawn_num == 3:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-04.png")
+	else:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-04.png")
 	player_label.text = str(player_num)
 	score_label.text = str(get_tree().get_current_scene().p4_score)
 	var kills = float(get_tree().get_current_scene().p4_hits)
@@ -177,12 +188,14 @@ func player4():
 
 func player5():
 	pawn_num = player_con.pawn_num
-	if pawn_num == 1 || pawn_num == 2 || pawn_num == 3 || pawn_num == 4:
+	if pawn_num == 1:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-05.png")
-#	elif pawn_num == 2:
-	else:
+	elif pawn_num == 2:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-05.png")
-#	my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-05.png")
+	elif pawn_num == 3:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-05.png")
+	else:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-05.png")
 	player_label.text = str(player_num)
 	score_label.text = str(get_tree().get_current_scene().p5_score)
 	var kills = float(get_tree().get_current_scene().p5_hits)
@@ -209,11 +222,14 @@ func player5():
 
 func player6():
 	pawn_num = player_con.pawn_num
-	if pawn_num == 1 || pawn_num == 2 || pawn_num == 3 || pawn_num == 4:
+	if pawn_num == 1:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-06.png")
-#	elif pawn_num == 2:
+	elif pawn_num == 2:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-01.png")
+	elif pawn_num == 3:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-01.png")
 	else:
-		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-06.png")
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-01.png")
 	player_label.text = str(player_num)
 	score_label.text = str(get_tree().get_current_scene().p6_score)
 	var kills = float(get_tree().get_current_scene().p6_hits)
@@ -240,11 +256,14 @@ func player6():
 
 func player7():
 	pawn_num = player_con.pawn_num
-	if pawn_num == 1 || pawn_num == 2 || pawn_num == 3 || pawn_num == 4:
+	if pawn_num == 1:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-07.png")
-#	elif pawn_num == 2:
-	else:
+	elif pawn_num == 2:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-07.png")
+	elif pawn_num == 3:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-07.png")
+	else:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-07.png")
 	player_label.text = str(player_num)
 	score_label.text = str(get_tree().get_current_scene().p7_score)
 	var kills = float(get_tree().get_current_scene().p7_hits)
@@ -271,11 +290,14 @@ func player7():
 
 func player8():
 	pawn_num = player_con.pawn_num
-	if pawn_num == 1 || pawn_num == 2 || pawn_num == 3 || pawn_num == 4:
+	if pawn_num == 1:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-08.png")
-#	elif pawn_num == 2:
-	else:
+	elif pawn_num == 2:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-08.png")
+	elif pawn_num == 3:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-08.png")
+	else:
+		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-08.png")
 	player_label.text = str(player_num)
 	score_label.text = str(get_tree().get_current_scene().p8_score)
 	var kills = float(get_tree().get_current_scene().p8_hits)

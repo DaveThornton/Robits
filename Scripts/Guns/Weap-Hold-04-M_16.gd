@@ -21,6 +21,7 @@ var player = 1
 var gun_num = 4
 var ammo = 30
 var ammo_max = 90
+var take_ammo = true
 var how_many_burst = 3
 var burst = 0
 var color_change = 0

@@ -20,6 +20,13 @@ run/main_scene="res://Scenes/World.tscn"
 boot_splash/image="res://Sprites/Misc/ROBITS-Logo-01.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 
+[autoload]
+
+Player_Stats="*res://Scripts/Misc/Singleton_Player_Stats.gd"
+Settings="*res://Scripts/Misc/Singleton_Settings.gd"
+Equipment="*res://Scenes/Misc/Singleton_Equipment.tscn"
+Map_Hand="*res://Scripts/Misc/Singleton_Map_Handler.gd"
+
 [debug]
 
 settings/fps/force_fps=60

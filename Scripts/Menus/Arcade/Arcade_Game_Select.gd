@@ -4,7 +4,7 @@ export(PackedScene) var vs_mode
 
 onready var menu = $menu_1X3_01
 onready var bottom_hud = $VBoxContainer/Arcade_Bottom_HUD
-onready var sfx = $SFX_Lib
+#onready var sfx = $SFX_Lib
 
 #var can_start = false
 var started_num = 0

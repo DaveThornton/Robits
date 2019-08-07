@@ -269,7 +269,7 @@ func _game_over(_winner):
 func spawn_player_contoller(player_num, _auto_respawn):
 	var z = player_controller.instance()
 	players.add_child(z)
-	z.connect("change_spawn_pos",self,"get_spawn_spot")
+#	z.connect("change_spawn_pos",self,"get_spawn_spot")
 	z.connect("in_play",self,"set_in_play")
 	z.connect("player_score", self, "player_scores") 
 	z.connect("coin_insert", self, "coin_insert")
@@ -405,9 +405,9 @@ func _check_game_over():
 	else:
 		print("error in game mode type (world.gd) _check_game_over")
 
-func get_spawn_spot():
-	if map:
-		map.get_next_pos()
+#func get_spawn_spot():
+#	if map:
+#		map.get_next_pos()
 
 func set_spawn_spot(_pos):
 	if p1_controller:
@@ -433,7 +433,7 @@ func load_map( _map_to_load):
 #warning-ignore:return_value_discarded
 	self.connect("reset",m,"reset")
 	map = m
-	get_spawn_spot()
+#	get_spawn_spot()
 	load_hud(in_game_hud)
 	out_of_menu()
 	if p1_started:

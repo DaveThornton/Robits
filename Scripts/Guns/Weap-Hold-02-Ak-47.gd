@@ -21,6 +21,7 @@ var player = 1
 var gun_num = 2
 var ammo = 30
 var ammo_max = 90
+var take_ammo = true
 var my_name = "AK-47"
 var new_anim = "Un_pos"
 var old_anim = "Un_pos"

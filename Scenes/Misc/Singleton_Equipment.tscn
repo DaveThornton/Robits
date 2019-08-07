@@ -1,0 +1,46 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scripts/Misc/Singleton_Equipment.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-02-Ak-47.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-03-Sniper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-04-M_16.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-10-Blaster_Pistol.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-11-Mega-Cannon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-20-Grenade.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-21-Nazi-Grenade.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-22-Plasma-Grenade.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-23-Bomb-man.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-40-RPG.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-50-Shot_Gun.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-60-Axe.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-61-Sword.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Guns/Weap-Hold-80-Leaf_Blower.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-02-Shield_Power_Up.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-03-Speed_Power_Up.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-04-Jump_Power_Up.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-05-NRG_Power_Up.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=21]
+
+[node name="Equipment" type="Node2D"]
+script = ExtResource( 1 )
+gun_hold_02 = ExtResource( 2 )
+gun_hold_03 = ExtResource( 3 )
+gun_hold_04 = ExtResource( 4 )
+gun_hold_10 = ExtResource( 5 )
+gun_hold_11 = ExtResource( 6 )
+gun_hold_20 = ExtResource( 7 )
+gun_hold_21 = ExtResource( 8 )
+gun_hold_22 = ExtResource( 9 )
+gun_hold_23 = ExtResource( 10 )
+gun_hold_40 = ExtResource( 11 )
+gun_hold_50 = ExtResource( 12 )
+gun_hold_60 = ExtResource( 13 )
+gun_hold_61 = ExtResource( 14 )
+gun_hold_80 = ExtResource( 15 )
+item_pick_01 = ExtResource( 16 )
+item_pick_02 = ExtResource( 17 )
+item_pick_03 = ExtResource( 18 )
+item_pick_04 = ExtResource( 19 )
+item_pick_05 = ExtResource( 20 )
+item_pick_06 = ExtResource( 21 )
