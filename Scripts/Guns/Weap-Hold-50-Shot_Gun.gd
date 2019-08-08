@@ -38,7 +38,7 @@ var walk = 22
 var pawn
 
 signal ammo_change(player, ammo)
-signal shot(player)
+#signal shot(player)
 
 func _ready():
 	my_name = my_name
@@ -48,9 +48,9 @@ func _ready():
 	var test1 = self.connect("ammo_change", get_tree().get_current_scene(), "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 50 Shot Gun")
-	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
-	if test2 != 0:
-		print("failed to connect shot in weap hold 50 Shot Gun")
+#	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
+#	if test2 != 0:
+#		print("failed to connect shot in weap hold 50 Shot Gun")
 
 func init(_ammo, _player, _timer):
 	ammo = _ammo
@@ -103,7 +103,8 @@ func shoot_j():
 #					self.position = Vector2(0,0)
 				ammo = clamp(ammo - 1, 0, ammo_max)
 				emit_signal("ammo_change",player,ammo)
-				emit_signal("shot", player)
+				Player_Stats.add_shot(player, 1)
+#				emit_signal("shot", player)
 				pawn.knock_back(500, .2)
 				pos_walk.rotation_degrees -= walk
 		else:
@@ -128,7 +129,8 @@ func melee():
 		can_shoot = false
 		anim_fire.play("Melee")
 		melee_timer.start()
-		emit_signal("shot", player)
+#		emit_signal("shot", player)
+		Player_Stats.add_shot(player, 1)
 		print("melee called on gun 50")
 
 func _on_Area2D_body_entered(body):

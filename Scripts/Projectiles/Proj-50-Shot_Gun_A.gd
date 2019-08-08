@@ -17,6 +17,7 @@ func _physics_process(delta):
 
 func _on_Projectile_body_entered(body):
 	if body.get_groups().has("hittable"):
+		Player_Stats.add_hit(owned, 1)
 		_hit_move()
 		body.hit(owned, my_name, damage_type, damage)
 		call_deferred("free")

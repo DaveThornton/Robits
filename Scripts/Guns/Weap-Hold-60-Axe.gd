@@ -29,7 +29,7 @@ var up_swing = 1000
 var down_swing = 35
 
 signal ammo_change(player, ammo)
-signal shot(player)
+#signal shot(player)
 
 func _ready():
 	my_name = my_name
@@ -38,9 +38,9 @@ func _ready():
 	var test1 = self.connect("ammo_change", get_tree().get_current_scene(), "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 60 Axe")
-	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
-	if test2 != 0:
-		print("failed to connect shot in weap hold 60 Axe")
+#	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
+#	if test2 != 0:
+#		print("failed to connect shot in weap hold 60 Axe")
 
 func init(_ammo, _player, _time):
 	player = _player
@@ -72,7 +72,8 @@ func shoot():
 		var arm_pos = pos_arm.rotation_degrees 
 		if arm_pos >= 60 :
 			if arm_pos <= 80:
-				emit_signal("shot", player)
+				Player_Stats.add_shot(player, 1)
+#				emit_signal("shot", player)
 
 func shoot_r():
 	hit_area.disabled = true

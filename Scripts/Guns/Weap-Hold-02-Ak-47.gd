@@ -35,7 +35,7 @@ var walk = 8
 var time = 4.0
 
 signal ammo_change(player, ammo)
-signal shot(player)
+#signal shot(player)
 
 func _ready():
 	my_name = my_name
@@ -45,9 +45,10 @@ func _ready():
 	var test1 = self.connect("ammo_change", get_tree().get_current_scene(), "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 02 AK-47")
-	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
-	if test2 != 0:
-		print("failed to connect shot in weap hold 02 AK-47")
+#	var test3 = self.connect("shot", Player_Stats, "shot")
+#	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
+#	if test2 != 0:
+#		print("failed to connect shot in weap hold 02 AK-47")
 
 func init(_ammo, _player, _timer):
 	ammo = _ammo
@@ -108,7 +109,10 @@ func shoot():
 			anim_fire.play("Fire")
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
-			emit_signal("shot", player)
+			
+			Player_Stats.add_shot(player, 1)
+			
+#			emit_signal("shot", player)
 			pos_walk.rotation_degrees -= 8
 #			sfx_shoot.play()
 			sfx.play("AK_Shoot")
@@ -126,7 +130,8 @@ func melee():
 		can_shoot = false
 		anim_fire.play("Melee")
 		melee_timer.start()
-		emit_signal("shot", player)
+		Player_Stats.add_shot(player, 1)
+#		emit_signal("shot", player)
 #		print("melee called on gun 02")
 
 func _on_Area2D_Melee_body_entered(body):

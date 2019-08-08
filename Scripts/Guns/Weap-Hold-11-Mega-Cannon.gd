@@ -33,7 +33,7 @@ var walk = 10
 var time = 4.0
 
 signal ammo_change(player, ammo)
-signal shot(player)
+#signal shot(player)
 
 func _ready():
 	my_name = my_name
@@ -43,9 +43,9 @@ func _ready():
 	var test1 = self.connect("ammo_change", get_tree().get_current_scene(), "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 11 mega cannon")
-	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
-	if test2 != 0:
-		print("failed to connect shot in weap hold 11 mega cannon")
+#	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
+#	if test2 != 0:
+#		print("failed to connect shot in weap hold 11 mega cannon")
 #	print(test1, test2)
 
 func init(_ammo, _player, _timer):
@@ -92,7 +92,8 @@ func shoot_j():
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			pos_walk.rotation_degrees -= walk
 			emit_signal("ammo_change",player,ammo)
-			emit_signal("shot", player)
+			Player_Stats.add_shot(player, 1)
+#			emit_signal("shot", player)
 			sfx.play("Mega_Shoot")
 		else:
 			sfx.play("Gun_Click")
@@ -121,7 +122,8 @@ func melee():
 		can_shoot = false
 		anim_fire.play("Melee")
 		melee_timer.start()
-		emit_signal("shot", player)
+#		emit_signal("shot", player)
+		Player_Stats.add_shot(player, 1)
 		print("melee called on gun 11")
 
 func throw():

@@ -194,7 +194,8 @@ func init():
 			p7_started = true
 			p8_started = true
 		_start(how_many_players)
-		load_map(demo_map)
+		Map_Hand.load_map(demo_map)
+#		load_map(demo_map)
 	
 	elif game_mode == 4:
 		if how_many_players == 1:
@@ -409,23 +410,23 @@ func _check_game_over():
 #	if map:
 #		map.get_next_pos()
 
-func set_spawn_spot(_pos):
-	if p1_controller:
-		p1_controller.set_spawn_spot(_pos)
-	if p2_controller:
-		p2_controller.set_spawn_spot(_pos)
-	if p3_controller:
-		p3_controller.set_spawn_spot(_pos)
-	if p4_controller:
-		p4_controller.set_spawn_spot(_pos)
-	if p5_controller:
-		p5_controller.set_spawn_spot(_pos)
-	if p6_controller:
-		p6_controller.set_spawn_spot(_pos)
-	if p7_controller:
-		p7_controller.set_spawn_spot(_pos)
-	if p8_controller:
-		p8_controller.set_spawn_spot(_pos)
+#func set_spawn_spot(_pos):
+#	if p1_controller:
+#		p1_controller.set_spawn_spot(_pos)
+#	if p2_controller:
+#		p2_controller.set_spawn_spot(_pos)
+#	if p3_controller:
+#		p3_controller.set_spawn_spot(_pos)
+#	if p4_controller:
+#		p4_controller.set_spawn_spot(_pos)
+#	if p5_controller:
+#		p5_controller.set_spawn_spot(_pos)
+#	if p6_controller:
+#		p6_controller.set_spawn_spot(_pos)
+#	if p7_controller:
+#		p7_controller.set_spawn_spot(_pos)
+#	if p8_controller:
+#		p8_controller.set_spawn_spot(_pos)
 
 func load_map( _map_to_load):
 	var m = _map_to_load.instance()

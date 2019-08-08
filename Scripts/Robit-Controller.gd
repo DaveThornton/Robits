@@ -38,14 +38,15 @@ var start_equiped = 0
 var is_game_over = false
 
 signal player_score
-signal change_spawn_pos
+#signal change_spawn_pos
 signal in_play
 signal use_credit( _player)
 signal coin_insert( _player)
 signal menu_signal( _player, _dir)
 
 func _ready():
-	emit_signal("change_spawn_pos")
+#	emit_signal("change_spawn_pos")
+	pass
 	
 func init(_player_num, _auto_respawn, _game_mode, _play_type):
 #	var _test = Weap.test()
