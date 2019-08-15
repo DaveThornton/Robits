@@ -33,7 +33,7 @@ func _ready():
 	gun_num = gun_num
 	time = time
 	damage = damage
-	var test1 = self.connect("ammo_change", get_tree().get_current_scene(), "ammo_update")
+	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 61 Sword")
 #	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
@@ -79,7 +79,8 @@ func melee():
 
 func throw():
 	var t = sword_pickup.instance()
-	self.get_tree().get_current_scene().add_kid_to_map(t)
+	Map_Hand.add_kid_to_map(t)
+#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, .5, is_right, shoot_pos, true)
 	_throw_where(t)
@@ -92,7 +93,8 @@ func drop():
 	call_deferred("_drop")
 func _drop():
 	var t = sword_pickup.instance()
-	self.get_tree().get_current_scene().add_kid_to_map(t)
+	Map_Hand.add_kid_to_map(t)
+#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	_drop_where(t)

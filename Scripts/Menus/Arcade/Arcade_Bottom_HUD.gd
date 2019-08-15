@@ -57,11 +57,10 @@ onready var p8_insert_Label = $VBoxContainer8/Label_insert_coin
 var num_of_players = 8
 
 func _ready():
-	num_of_players = get_tree().get_current_scene().how_many_players
-	print(get_tree().get_current_scene().how_many_players, " in arcade bottom")
-	print(num_of_players, " in arcade bottom")
+	num_of_players = Settings.max_num_of_player
+#	print(Settings.max_num_of_player, " in arcade bottom")
+#	print(num_of_players, " in arcade bottom")
 	set_players()
-
 #TODO fix label system its all fucked up needs lots of work?
 func change_label( _player, state):
 	if _player == 1:

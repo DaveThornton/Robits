@@ -61,10 +61,11 @@ func player1():
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-01.png")
 	
 	player_label.text = str(player_num)
-	score_label.text = str(get_tree().get_current_scene().p1_score)
-	var kills = float(get_tree().get_current_scene().p1_hits)
+	score_label.text = str(Player_Stats.p1["score"])
+#	score_label.text = str(get_tree().get_current_scene().p1_score)
+	var kills = float(Player_Stats.p1["kill"])
 	kill_label.text = str(kills)
-	var deaths = float(get_tree().get_current_scene().p1_deaths)
+	var deaths = float(Player_Stats.p1["death"])
 	death_label.text = str(deaths)
 	var kdr = 0.0
 	if deaths <= 0:
@@ -72,9 +73,9 @@ func player1():
 	else:
 		kdr = kills / deaths
 	kdr_label.text = str(stepify(kdr, 0.01))# * 100), "%")
-	var shots = float(get_tree().get_current_scene().p1_shots)
+	var shots = float(Player_Stats.p1["shot"])
 	Shot_label.text = str(shots)
-	var hits = float(get_tree().get_current_scene().p1_hits)
+	var hits = float(Player_Stats.p1["hit"])
 	hit_label.text = str(hits)
 	var miss = shots - hits
 	miss_label.text = str(miss)
@@ -94,11 +95,13 @@ func player2():
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-02.png")
 	else:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-02.png")
+	
 	player_label.text = str(player_num)
-	score_label.text = str(get_tree().get_current_scene().p2_score)
-	var kills = float(get_tree().get_current_scene().p2_hits)
+	score_label.text = str(Player_Stats.p2["score"])
+#	score_label.text = str(get_tree().get_current_scene().p1_score)
+	var kills = float(Player_Stats.p2["kill"])
 	kill_label.text = str(kills)
-	var deaths = float(get_tree().get_current_scene().p2_deaths)
+	var deaths = float(Player_Stats.p2["death"])
 	death_label.text = str(deaths)
 	var kdr = 0.0
 	if deaths <= 0:
@@ -106,9 +109,9 @@ func player2():
 	else:
 		kdr = kills / deaths
 	kdr_label.text = str(stepify(kdr, 0.01))# * 100), "%")
-	var shots = float(get_tree().get_current_scene().p2_shots)
+	var shots = float(Player_Stats.p2["shot"])
 	Shot_label.text = str(shots)
-	var hits = float(get_tree().get_current_scene().p2_hits)
+	var hits = float(Player_Stats.p2["hit"])
 	hit_label.text = str(hits)
 	var miss = shots - hits
 	miss_label.text = str(miss)
@@ -116,7 +119,7 @@ func player2():
 		hitper_label.text =  "0 %"
 	else:
 		hitper_label.text = str(stepify(hits / shots,0.01)* 100, "%")
-#	place_label.text = "second"
+#	place_label.text = "first"
 
 func player3():
 	pawn_num = player_con.pawn_num
@@ -128,11 +131,13 @@ func player3():
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-03.png")
 	else:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-03.png")
+	
 	player_label.text = str(player_num)
-	score_label.text = str(get_tree().get_current_scene().p3_score)
-	var kills = float(get_tree().get_current_scene().p3_hits)
+	score_label.text = str(Player_Stats.p3["score"])
+#	score_label.text = str(get_tree().get_current_scene().p1_score)
+	var kills = float(Player_Stats.p3["kill"])
 	kill_label.text = str(kills)
-	var deaths = float(get_tree().get_current_scene().p3_deaths)
+	var deaths = float(Player_Stats.p3["death"])
 	death_label.text = str(deaths)
 	var kdr = 0.0
 	if deaths <= 0:
@@ -140,9 +145,9 @@ func player3():
 	else:
 		kdr = kills / deaths
 	kdr_label.text = str(stepify(kdr, 0.01))# * 100), "%")
-	var shots = float(get_tree().get_current_scene().p3_shots)
+	var shots = float(Player_Stats.p3["shot"])
 	Shot_label.text = str(shots)
-	var hits = float(get_tree().get_current_scene().p3_hits)
+	var hits = float(Player_Stats.p3["hit"])
 	hit_label.text = str(hits)
 	var miss = shots - hits
 	miss_label.text = str(miss)
@@ -150,7 +155,7 @@ func player3():
 		hitper_label.text =  "0 %"
 	else:
 		hitper_label.text = str(stepify(hits / shots,0.01)* 100, "%")
-#	place_label.text = "third"
+#	place_label.text = "first"
 
 func player4():
 	pawn_num = player_con.pawn_num
@@ -162,11 +167,13 @@ func player4():
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-04.png")
 	else:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-04.png")
+	
 	player_label.text = str(player_num)
-	score_label.text = str(get_tree().get_current_scene().p4_score)
-	var kills = float(get_tree().get_current_scene().p4_hits)
+	score_label.text = str(Player_Stats.p4["score"])
+#	score_label.text = str(get_tree().get_current_scene().p1_score)
+	var kills = float(Player_Stats.p4["kill"])
 	kill_label.text = str(kills)
-	var deaths = float(get_tree().get_current_scene().p4_deaths)
+	var deaths = float(Player_Stats.p4["death"])
 	death_label.text = str(deaths)
 	var kdr = 0.0
 	if deaths <= 0:
@@ -174,17 +181,17 @@ func player4():
 	else:
 		kdr = kills / deaths
 	kdr_label.text = str(stepify(kdr, 0.01))# * 100), "%")
-	var shots = float(get_tree().get_current_scene().p4_shots)
+	var shots = float(Player_Stats.p4["shot"])
 	Shot_label.text = str(shots)
-	var hits = float(get_tree().get_current_scene().p4_hits)
+	var hits = float(Player_Stats.p4["hit"])
 	hit_label.text = str(hits)
 	var miss = shots - hits
 	miss_label.text = str(miss)
 	if hits == 0 || shots == 0:
-		hitper_label.text = "0 %"
+		hitper_label.text =  "0 %"
 	else:
 		hitper_label.text = str(stepify(hits / shots,0.01)* 100, "%")
-#	place_label.text = "forth"
+#	place_label.text = "first"
 
 func player5():
 	pawn_num = player_con.pawn_num
@@ -196,11 +203,13 @@ func player5():
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-05.png")
 	else:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-05.png")
+	
 	player_label.text = str(player_num)
-	score_label.text = str(get_tree().get_current_scene().p5_score)
-	var kills = float(get_tree().get_current_scene().p5_hits)
+	score_label.text = str(Player_Stats.p5["score"])
+#	score_label.text = str(get_tree().get_current_scene().p1_score)
+	var kills = float(Player_Stats.p5["kill"])
 	kill_label.text = str(kills)
-	var deaths = float(get_tree().get_current_scene().p5_deaths)
+	var deaths = float(Player_Stats.p5["death"])
 	death_label.text = str(deaths)
 	var kdr = 0.0
 	if deaths <= 0:
@@ -208,17 +217,17 @@ func player5():
 	else:
 		kdr = kills / deaths
 	kdr_label.text = str(stepify(kdr, 0.01))# * 100), "%")
-	var shots = float(get_tree().get_current_scene().p5_shots)
+	var shots = float(Player_Stats.p5["shot"])
 	Shot_label.text = str(shots)
-	var hits = float(get_tree().get_current_scene().p5_hits)
+	var hits = float(Player_Stats.p5["hit"])
 	hit_label.text = str(hits)
 	var miss = shots - hits
 	miss_label.text = str(miss)
 	if hits == 0 || shots == 0:
-		hitper_label.text = "0 %"
+		hitper_label.text =  "0 %"
 	else:
 		hitper_label.text = str(stepify(hits / shots,0.01)* 100, "%")
-#	place_label.text = "fifth"
+#	place_label.text = "first"
 
 func player6():
 	pawn_num = player_con.pawn_num
@@ -230,11 +239,13 @@ func player6():
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-01.png")
 	else:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-01.png")
+	
 	player_label.text = str(player_num)
-	score_label.text = str(get_tree().get_current_scene().p6_score)
-	var kills = float(get_tree().get_current_scene().p6_hits)
+	score_label.text = str(Player_Stats.p6["score"])
+#	score_label.text = str(get_tree().get_current_scene().p1_score)
+	var kills = float(Player_Stats.p6["kill"])
 	kill_label.text = str(kills)
-	var deaths = float(get_tree().get_current_scene().p6_deaths)
+	var deaths = float(Player_Stats.p6["death"])
 	death_label.text = str(deaths)
 	var kdr = 0.0
 	if deaths <= 0:
@@ -242,17 +253,17 @@ func player6():
 	else:
 		kdr = kills / deaths
 	kdr_label.text = str(stepify(kdr, 0.01))# * 100), "%")
-	var shots = float(get_tree().get_current_scene().p6_shots)
+	var shots = float(Player_Stats.p6["shot"])
 	Shot_label.text = str(shots)
-	var hits = float(get_tree().get_current_scene().p6_hits)
+	var hits = float(Player_Stats.p6["hit"])
 	hit_label.text = str(hits)
 	var miss = shots - hits
 	miss_label.text = str(miss)
 	if hits == 0 || shots == 0:
-		hitper_label.text = "0 %"
+		hitper_label.text =  "0 %"
 	else:
 		hitper_label.text = str(stepify(hits / shots,0.01)* 100, "%")
-#	place_label.text = "fifth"
+#	place_label.text = "first"
 
 func player7():
 	pawn_num = player_con.pawn_num
@@ -264,11 +275,13 @@ func player7():
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-07.png")
 	else:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-07.png")
+	
 	player_label.text = str(player_num)
-	score_label.text = str(get_tree().get_current_scene().p7_score)
-	var kills = float(get_tree().get_current_scene().p7_hits)
+	score_label.text = str(Player_Stats.p7["score"])
+#	score_label.text = str(get_tree().get_current_scene().p1_score)
+	var kills = float(Player_Stats.p7["kill"])
 	kill_label.text = str(kills)
-	var deaths = float(get_tree().get_current_scene().p7_deaths)
+	var deaths = float(Player_Stats.p7["death"])
 	death_label.text = str(deaths)
 	var kdr = 0.0
 	if deaths <= 0:
@@ -276,17 +289,17 @@ func player7():
 	else:
 		kdr = kills / deaths
 	kdr_label.text = str(stepify(kdr, 0.01))# * 100), "%")
-	var shots = float(get_tree().get_current_scene().p7_shots)
+	var shots = float(Player_Stats.p7["shot"])
 	Shot_label.text = str(shots)
-	var hits = float(get_tree().get_current_scene().p7_hits)
+	var hits = float(Player_Stats.p7["hit"])
 	hit_label.text = str(hits)
 	var miss = shots - hits
 	miss_label.text = str(miss)
 	if hits == 0 || shots == 0:
-		hitper_label.text = "0 %"
+		hitper_label.text =  "0 %"
 	else:
 		hitper_label.text = str(stepify(hits / shots,0.01)* 100, "%")
-#	place_label.text = "fifth"
+#	place_label.text = "first"
 
 func player8():
 	pawn_num = player_con.pawn_num
@@ -298,11 +311,13 @@ func player8():
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-03-08.png")
 	else:
 		my_sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-08.png")
+	
 	player_label.text = str(player_num)
-	score_label.text = str(get_tree().get_current_scene().p8_score)
-	var kills = float(get_tree().get_current_scene().p8_hits)
+	score_label.text = str(Player_Stats.p8["score"])
+#	score_label.text = str(get_tree().get_current_scene().p1_score)
+	var kills = float(Player_Stats.p8["kill"])
 	kill_label.text = str(kills)
-	var deaths = float(get_tree().get_current_scene().p8_deaths)
+	var deaths = float(Player_Stats.p8["death"])
 	death_label.text = str(deaths)
 	var kdr = 0.0
 	if deaths <= 0:
@@ -310,14 +325,14 @@ func player8():
 	else:
 		kdr = kills / deaths
 	kdr_label.text = str(stepify(kdr, 0.01))# * 100), "%")
-	var shots = float(get_tree().get_current_scene().p8_shots)
+	var shots = float(Player_Stats.p8["shot"])
 	Shot_label.text = str(shots)
-	var hits = float(get_tree().get_current_scene().p8_hits)
+	var hits = float(Player_Stats.p8["hit"])
 	hit_label.text = str(hits)
 	var miss = shots - hits
 	miss_label.text = str(miss)
 	if hits == 0 || shots == 0:
-		hitper_label.text = "0 %"
+		hitper_label.text =  "0 %"
 	else:
 		hitper_label.text = str(stepify(hits / shots,0.01)* 100, "%")
-#	place_label.text = "fifth"
+#	place_label.text = "first"

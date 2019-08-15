@@ -157,7 +157,7 @@ func _ready():
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
 	current_shape = col_stand
-	var test = self.connect("nrg_update", get_tree().get_current_scene(), "nrg_update")
+	var test = self.connect("nrg_update", Player_Stats, "nrg_update")
 	if test != 0:
 		print("error Robit 01 connecting nrg update")
 	
@@ -214,6 +214,7 @@ func _process(delta):
 	if my_gun:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
+# warning-ignore:return_value_discarded
 	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 
 func _physics_process(delta):
@@ -223,6 +224,7 @@ func _physics_process(delta):
 		vel.y = vel.y / 1.1
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
+# warning-ignore:return_value_discarded
 	move_and_collide(vel)
 
 func move_x(_moving, _right, delta):

@@ -130,6 +130,7 @@ func _physics_process(delta):
 		var move_distance = speed * delta
 		if active:
 			move_along_path(move_distance)
+# warning-ignore:return_value_discarded
 			move_and_slide(Vector2(current_speed_x, current_speed_y))
 		
 		if last_pos == global_position:

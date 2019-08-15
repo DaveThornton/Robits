@@ -43,7 +43,7 @@ func _ready():
 	gun_num = gun_num
 	time = time
 	damage = damage
-	var test1 = self.connect("ammo_change", get_tree().get_current_scene(), "ammo_update")
+	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 03 Sniper")
 #	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
@@ -76,7 +76,8 @@ func shoot_j():
 		elif ammo > 0:
 			if !shoot_cast.is_colliding():
 				var new_projectile = projectile.instance()
-				get_tree().get_current_scene().add_child(new_projectile)
+				Map_Hand.add_kid_to_map(new_projectile)
+#				get_tree().get_current_scene().add_child(new_projectile)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				if is_right:
@@ -111,7 +112,8 @@ func shoot():
 func shoot_r():
 	if just_shot:
 		var s = shell.instance()
-		self.get_tree().get_current_scene().add_child(s)
+		Map_Hand.add_kid_to_map(s)
+#		self.get_tree().get_current_scene().add_child(s)
 		s.position = pos_shell.global_position
 		s.rotation = pos_shell.global_rotation
 		just_shot = false
@@ -135,7 +137,8 @@ func _on_Area2D_body_entered(body):
 
 func throw():
 	var t = sniper_Pickup.instance()
-	self.get_tree().get_current_scene().add_kid_to_map(t)
+	Map_Hand.add_kid_to_map(t)
+#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	_throw_where(t)
@@ -146,7 +149,8 @@ func drop():
 	call_deferred("_drop")
 func _drop():
 	var t = sniper_Pickup.instance()
-	self.get_tree().get_current_scene().add_kid_to_map(t)
+	Map_Hand.add_kid_to_map(t)
+#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	_drop_where(t)

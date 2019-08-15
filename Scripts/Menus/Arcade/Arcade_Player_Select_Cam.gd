@@ -43,16 +43,16 @@ var p6_ready = false
 var p7_ready = false
 var p8_ready = false
 
-signal load_map(load_to_map)
+#signal load_map(load_to_map)
 signal use_credit(_player)
 
 func _ready():
-	var test1 = connect("load_map", get_tree().get_current_scene(), "load_map")
+#	var test1 = connect("load_map", get_tree().get_current_scene(), "load_map")
 	var test2 = get_tree().get_current_scene().connect("coin_up", self, "check")
-	var test3 = get_tree().get_current_scene().connect("input_to_screen", self, "movement")
+	var test3 = Menu_Hand.connect("input_to_screen", self, "movement")
 	var test4 = connect("use_credit",get_tree().get_current_scene(),"use_credit")
-	if test1 != 0:
-		print("error in arcade game select connect load_screen")
+#	if test1 != 0:
+#		print("error in arcade game select connect load_screen")
 	if test2 != 0:
 		print("error in arcade game select connect coin up")
 	if test3 != 0:
@@ -121,95 +121,10 @@ func check():
 		bottom_hud.change_label( 8, 2)
 	else:
 		bottom_hud.change_label( 8, 1)
-#	if p1_started && !p1_ready:
-#		bottom_hud.change_label( 1, 2)
-#		p1_menu.visible = true
-#	elif p1_ready:
-#		p1_menu.visible = true
-#		bottom_hud.change_label( 1, 1)
-#	elif p1_has_credits:
-#		bottom_hud.change_label( 1, 3)
-#	else:
-#		print(" error in player select in func check() p1 section")
-#
-#	if p2_started && !p2_ready:
-#		bottom_hud.change_label( 2, 2)
-#		p2_menu.visible = true
-#	elif p2_ready:
-#		p2_menu.visible = true
-#		bottom_hud.change_label( 2, 1)
-#	elif p2_has_credits:
-#		bottom_hud.change_label( 2, 3)
-#	else:
-#		print(" error in player select in func check() p2 section")
-#
-#	if p3_started && !p3_ready:
-#		bottom_hud.change_label( 3, 2)
-#		p3_menu.visible = true
-#	elif p3_ready:
-#		p3_menu.visible = true
-#		bottom_hud.change_label( 3, 1)
-#	elif p3_has_credits:
-#		bottom_hud.change_label( 3, 3)
-#	else:
-#		print(" error in player select in func check() p3 section")
-#
-#	if p4_started && !p4_ready:
-#		bottom_hud.change_label( 4, 2)
-#		p4_menu.visible = true
-#	elif p4_ready:
-#		p4_menu.visible = true
-#		bottom_hud.change_label( 4, 1)
-#	elif p4_has_credits:
-#		bottom_hud.change_label( 4, 3)
-#	else:
-#		print(" error in player select in func check() p4 section")
-#
-#	if p5_started && !p5_ready:
-#		bottom_hud.change_label( 5, 2)
-#		p5_menu.visible = true
-#	elif p5_ready:
-#		p5_menu.visible = true
-#		bottom_hud.change_label( 5, 1)
-#	elif p5_has_credits:
-#		bottom_hud.change_label( 5, 3)
-#	else:
-#		print(" error in player select in func check() p5 section")
-#	if p6_started && !p6_ready:
-#		bottom_hud.change_label( 6, 2)
-#		p6_menu.visible = true
-#	elif p6_ready:
-#		p3_menu.visible = true
-#		bottom_hud.change_label( 6, 1)
-#	elif p6_has_credits:
-#		bottom_hud.change_label( 6, 3)
-#	else:
-#		print(" error in player select in func check() p3 section")
-#
-#	if p7_started && !p7_ready:
-#		bottom_hud.change_label( 7, 2)
-#		p7_menu.visible = true
-#	elif p7_ready:
-#		p7_menu.visible = true
-#		bottom_hud.change_label( 7, 1)
-#	elif p7_has_credits:
-#		bottom_hud.change_label( 7, 3)
-#	else:
-#		print(" error in player select in func check() p4 section")
-#
-#	if p8_started && !p8_ready:
-#		bottom_hud.change_label( 8, 2)
-#		p8_menu.visible = true
-#	elif p8_ready:
-#		p8_menu.visible = true
-#		bottom_hud.change_label( 8, 1)
-#	elif p8_has_credits:
-#		bottom_hud.change_label( 8, 3)
-#	else:
-#		print(" error in player select in func check() p5 section")
 	if started_num == ready_num:
 		print("ready????")
-		emit_signal("load_map", map_to_load)
+		Map_Hand.load_map(map_to_load)
+#		emit_signal("load_map", map_to_load)
 		queue_free()
 	
 

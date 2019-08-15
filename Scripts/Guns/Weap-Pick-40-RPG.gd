@@ -41,7 +41,8 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 
 func _on_Des_Timer_timeout():
 	var s = smoke.instance()
-	get_tree().get_current_scene().add_child(s)
+	Map_Hand.add_kid_to_map(s)
+#	get_tree().get_current_scene().add_child(s)
 	s.start( 0 , self.global_position, 0, 0)
 	queue_free()
 

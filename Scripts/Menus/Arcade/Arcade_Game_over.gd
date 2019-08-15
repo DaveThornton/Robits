@@ -33,11 +33,11 @@ var in_play_num = 0
 
 
 func _ready():
-	var test = get_tree().get_current_scene().connect("input_to_screen", self, "movement")
+	var test = Menu_Hand.connect("input_to_screen", self, "movement")
 	if test != 0:
 		print("error in arcade game over ready connect input to screen")
 	get_tree().get_current_scene().in_to_menu()
-	if get_tree().get_current_scene().p1_started:
+	if Player_Stats.p1["in_play"]:
 		p1_results.visible = true
 		p1_dash.visible = true
 		bottom_hud.change_label( 1, 2)
@@ -46,7 +46,7 @@ func _ready():
 		p1_results.visible = false
 		p1_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 1, 4)
-	if get_tree().get_current_scene().p2_started:
+	if Player_Stats.p2["in_play"]:
 		p2_results.visible = true
 		p2_dash.visible = true
 		bottom_hud.change_label( 2, 2)
@@ -55,7 +55,7 @@ func _ready():
 		p2_results.visible = false
 		p2_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 2, 4)
-	if get_tree().get_current_scene().p3_started:
+	if Player_Stats.p3["in_play"]:
 		p3_results.visible = true
 		p3_dash.visible = true
 		bottom_hud.change_label( 3, 2)
@@ -64,7 +64,7 @@ func _ready():
 		p3_results.visible = false
 		p3_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 3, 4)
-	if get_tree().get_current_scene().p4_started:
+	if Player_Stats.p4["in_play"]:
 		p4_results.visible = true
 		p4_dash.visible = true
 		bottom_hud.change_label( 4, 2)
@@ -73,7 +73,7 @@ func _ready():
 		p4_results.visible = false
 		p4_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 4, 4)
-	if get_tree().get_current_scene().p5_started:
+	if Player_Stats.p5["in_play"]:
 		p5_results.visible = true
 		p5_dash.visible = true
 		bottom_hud.change_label( 5, 2)
@@ -82,7 +82,7 @@ func _ready():
 		p5_results.visible = false
 		p5_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 5, 4)
-	if get_tree().get_current_scene().p6_started:
+	if Player_Stats.p6["in_play"]:
 		p6_results.visible = true
 		p6_dash.visible = true
 		bottom_hud.change_label( 6, 2)
@@ -91,7 +91,7 @@ func _ready():
 		p6_results.visible = false
 		p6_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 6, 4)
-	if get_tree().get_current_scene().p7_started:
+	if Player_Stats.p7["in_play"]:
 		p7_results.visible = true
 		p7_dash.visible = true
 		bottom_hud.change_label( 7, 2)
@@ -100,7 +100,7 @@ func _ready():
 		p7_results.visible = false
 		p7_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 7, 4)
-	if get_tree().get_current_scene().p8_started:
+	if Player_Stats.p8["in_play"]:
 		p8_results.visible = true
 		p8_dash.visible = true
 		bottom_hud.change_label( 8, 2)
@@ -112,42 +112,43 @@ func _ready():
 
 func movement(_player, _dir):
 	if _player == 1:
-		if get_tree().get_current_scene().p1_started:
+		if Player_Stats.p1["in_play"]:
+#		if get_tree().get_current_scene().p1_started:
 			if _dir ==5:
 				p1_done = true
 				bottom_hud.change_label( 1, 4)
 	elif _player == 2:
-		if get_tree().get_current_scene().p2_started:
+		if Player_Stats.p2["in_play"]:
 			if _dir ==5:
 				p2_done = true
 				bottom_hud.change_label( 2, 4)
 	elif _player == 3:
-		if get_tree().get_current_scene().p3_started:
+		if Player_Stats.p3["in_play"]:
 			if _dir ==5:
 				p3_done = true
 				bottom_hud.change_label( 3, 4)
 	elif _player == 4:
-		if get_tree().get_current_scene().p4_started:
+		if Player_Stats.p4["in_play"]:
 			if _dir ==5:
 				p4_done = true
 				bottom_hud.change_label( 4, 4)
 	elif _player == 5:
-		if get_tree().get_current_scene().p5_started:
+		if Player_Stats.p5["in_play"]:
 			if _dir ==5:
 				p5_done = true
 				bottom_hud.change_label( 5, 4)
 	elif _player == 6:
-		if get_tree().get_current_scene().p6_started:
+		if Player_Stats.p6["in_play"]:
 			if _dir ==5:
 				p6_done = true
 				bottom_hud.change_label( 6, 4)
 	elif _player == 7:
-		if get_tree().get_current_scene().p7_started:
+		if Player_Stats.p7["in_play"]:
 			if _dir ==5:
 				p7_done = true
 				bottom_hud.change_label( 7, 4)
 	elif _player == 8:
-		if get_tree().get_current_scene().p8_started:
+		if Player_Stats.p8["in_play"]:
 			if _dir ==5:
 				p8_done = true
 				bottom_hud.change_label( 8, 4)

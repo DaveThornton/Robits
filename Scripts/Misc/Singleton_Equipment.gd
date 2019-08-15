@@ -60,7 +60,22 @@ export(PackedScene) var item_pick_04
 export(PackedScene) var item_pick_05
 export(PackedScene) var item_pick_06
 
-var test_text ="hello world"
+export(PackedScene) var pawn_01
+export(PackedScene) var pawn_02
+export(PackedScene) var pawn_03
+export(PackedScene) var pawn_04
+export(PackedScene) var pawn_05
+export(PackedScene) var pawn_06
+export(PackedScene) var pawn_07
+export(PackedScene) var pawn_08
+export(PackedScene) var pawn_09
+export(PackedScene) var pawn_10
+export(PackedScene) var pawn_11
+export(PackedScene) var pawn_12
+export(PackedScene) var pawn_13
+export(PackedScene) var pawn_14
+export(PackedScene) var pawn_15
+export(PackedScene) var pawn_16
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -119,6 +134,36 @@ func get_item(_item):
 	else:
 		print("Error in Singleton Equipment wrong item number ----> ", _item)
 
-func test():
-	print(test_text)
-	return test_text
+func get_pawn(_pawn_num):
+	if _pawn_num == 1:
+		return pawn_01
+	elif _pawn_num == 2:
+		return pawn_02
+	elif _pawn_num == 3:
+		return pawn_03
+	elif _pawn_num == 4:
+		return pawn_04
+	elif _pawn_num == 5:
+		return pawn_05
+	elif _pawn_num == 6:
+		return pawn_06
+	elif _pawn_num == 7:
+		return pawn_07
+	elif _pawn_num == 8:
+		return pawn_08
+	elif _pawn_num == 9:
+		return pawn_09
+	elif _pawn_num == 10:
+		return pawn_10
+	elif _pawn_num == 11:
+		return pawn_11
+	elif _pawn_num == 12:
+		return pawn_12
+	elif _pawn_num == 13:
+		return pawn_13
+	elif _pawn_num == 14:
+		return pawn_14
+	elif _pawn_num == 15:
+		return pawn_15
+	elif _pawn_num == 16:
+		return pawn_16

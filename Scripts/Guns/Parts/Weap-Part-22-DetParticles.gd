@@ -26,7 +26,8 @@ func _on_Timer_timeout():
 	var dad = get_parent()
 	if dad.get_groups().has("player"):
 		var b = boom.instance()
-		self.get_tree().get_current_scene().add_child(b)
+		Map_Hand.add_kid_to_map(b)
+#		self.get_tree().get_current_scene().add_child(b)
 	#	b.position = self.global_position
 		b.init(player, self.global_position, my_name, 0, damage)
 	else:

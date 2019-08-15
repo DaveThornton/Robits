@@ -40,7 +40,7 @@ func _ready():
 	gun_num = gun_num
 	time = time
 	damage = damage
-	var test1 = self.connect("ammo_change", get_tree().get_current_scene(), "ammo_update")
+	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 11 mega cannon")
 #	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
@@ -106,7 +106,8 @@ func shoot_r():
 
 func _fire_projectile():
 	var new_projectile = projectile.instance()
-	get_tree().get_current_scene().add_child(new_projectile)
+	Map_Hand.add_kid_to_map(new_projectile)
+#	get_tree().get_current_scene().add_child(new_projectile)
 	var _ss = pos_shoot.global_position
 	var _sr = pos_shoot.global_rotation
 	if is_right:
@@ -128,7 +129,8 @@ func melee():
 
 func throw():
 	var t = mega_cannon.instance()
-	self.get_tree().get_current_scene().add_kid_to_map(t)
+	Map_Hand.add_kid_to_map(t)
+#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	_throw_where(t)
@@ -139,7 +141,8 @@ func drop():
 	call_deferred("_drop")
 func _drop():
 	var t = mega_cannon.instance()
-	self.get_tree().get_current_scene().add_kid_to_map(t)
+	Map_Hand.add_kid_to_map(t)
+#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	_drop_where(t)

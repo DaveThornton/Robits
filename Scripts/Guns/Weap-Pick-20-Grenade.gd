@@ -45,7 +45,8 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 
 func _on_Timer_Boom_timeout():
 	var b = boom.instance()
-	self.get_tree().get_current_scene().add_child(b)
+	Map_Hand.add_kid_to_map(b)
+#	self.get_tree().get_current_scene().add_child(b)
 #	b.position = self.global_position
 	b.init(player, self.global_position, my_name, 0, damage)
 	queue_free()
@@ -113,7 +114,8 @@ func set_dir(_is_right, _dir):
 
 func _on_Timer_timeout():
 	var s = smoke.instance()
-	get_tree().get_current_scene().add_child(s)
+	Map_Hand.add_kid_to_map(s)
+#	get_tree().get_current_scene().add_child(s)
 	s.start( 0 , self.global_position, 0, 0)
 	queue_free()
 

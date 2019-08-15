@@ -59,13 +59,15 @@ var p6_pos = 0
 var p7_pos = 0
 var p8_pos = 0
 
-signal load_map(load_to_map)
+#signal load_map(load_to_map)
 signal use_credit(_player)
 
 func _ready():
 	var test1 = connect("load_map", get_tree().get_current_scene(), "load_map")
+	
 	var test2 = get_tree().get_current_scene().connect("coin_up", self, "check")
-	var test3 = get_tree().get_current_scene().connect("input_to_screen", self, "movement")
+#	var test3 = get_tree().get_current_scene().connect("input_to_screen", self, "movement")
+	var test3 = Menu_Hand.connect("input_to_screen", self, "movement")
 	var test4 = self.connect("use_credit",get_tree().get_current_scene(),"use_credit")
 	if test1 != 0:
 		print("error in arcade map select connect load map")
@@ -80,41 +82,8 @@ func _ready():
 func check():
 	var num_with_c = 0
 	var num_with_s = 0
-	if get_tree().get_current_scene().p1_credits >= 1:
-		p1_has_credits = true
-		num_with_c += 1
-	if get_tree().get_current_scene().p2_credits >= 1:
-		p2_has_credits = true
-		num_with_c += 1
-	if get_tree().get_current_scene().p3_credits >= 1:
-		p3_has_credits = true
-		num_with_c += 1
-	if get_tree().get_current_scene().p4_credits >= 1:
-		p4_has_credits = true
-		num_with_c += 1
-	if get_tree().get_current_scene().p5_credits >= 1:
-		p5_has_credits = true
-		num_with_c += 1
-	if get_tree().get_current_scene().p6_credits >= 1:
-		p6_has_credits = true
-		num_with_c += 1
-	if get_tree().get_current_scene().p7_credits >= 1:
-		p7_has_credits = true
-		num_with_c += 1
-	if get_tree().get_current_scene().p8_credits >= 1:
-		p8_has_credits = true
-		num_with_c += 1
-
-	if num_with_c == 0:
-		print("arcade map select no one has credits?")
-	p1_started = get_tree().get_current_scene().p1_started
-	p2_started = get_tree().get_current_scene().p2_started
-	p3_started = get_tree().get_current_scene().p3_started
-	p4_started = get_tree().get_current_scene().p4_started
-	p5_started = get_tree().get_current_scene().p5_started
-	p6_started = get_tree().get_current_scene().p6_started
-	p7_started = get_tree().get_current_scene().p7_started
-	p8_started = get_tree().get_current_scene().p8_started
+	_credit_check()
+	_get_started_num()
 	
 	if p1_started:
 		bottom_hud.change_label( 1, 3)
@@ -184,7 +153,8 @@ func check():
 	if num_with_s > 1:
 		if num_with_s == started_num:
 			choose_map()
-			emit_signal("load_map",map_to_load)
+			Map_Hand.load_map(map_to_load)
+#			emit_signal("load_map",map_to_load)
 			queue_free()
 	
 
@@ -338,10 +308,7 @@ func movement(_player, _dir):
 	check()
 
 func choose_map():
-#	randomize()
-#	var r = randi()%5+1
 	var r = rand_num(5)
-#	print(r)
 	var m = 0
 	if r == 1:
 		if p1_pos == 0:
@@ -437,6 +404,52 @@ func rand_num( _num):
 	randomize()
 	var rand = randi()%_num+1
 	return rand
+
+func _credit_check():
+	if Player_Stats.p1["credit"] >= 1:
+		 p1_has_credits = true
+	if Player_Stats.p2["credit"] >= 1:
+		 p2_has_credits = true
+	if Player_Stats.p3["credit"] >= 1:
+		 p3_has_credits = true
+	if Player_Stats.p4["credit"] >= 1:
+		 p4_has_credits = true
+	if Player_Stats.p5["credit"] >= 1:
+		 p5_has_credits = true
+	if Player_Stats.p6["credit"] >= 1:
+		 p6_has_credits = true
+	if Player_Stats.p7["credit"] >= 1:
+		 p7_has_credits = true
+	if Player_Stats.p8["credit"] >= 1:
+		 p8_has_credits = true
+
+func _get_started_num():
+	p1_started = Player_Stats.p1["in_play"]
+	p2_started = Player_Stats.p2["in_play"]
+	p3_started = Player_Stats.p3["in_play"]
+	p4_started = Player_Stats.p4["in_play"]
+	p5_started = Player_Stats.p5["in_play"]
+	p6_started = Player_Stats.p6["in_play"]
+	p7_started = Player_Stats.p7["in_play"]
+	p8_started = Player_Stats.p8["in_play"]
+	var _started = 0
+	if p1_started:
+		_started += 1
+	if p2_started:
+		_started += 1
+	if p3_started:
+		_started += 1
+	if p4_started:
+		_started += 1
+	if p5_started:
+		_started += 1
+	if p6_started:
+		_started += 1
+	if p7_started:
+		_started += 1
+	if p8_started:
+		_started += 1
+	started_num = _started
 
 func _on_Timer_timeout():
 	can_start = true

@@ -35,7 +35,7 @@ signal load_screen(_screen_to_load)
 func _ready():
 	var test1 = connect("load_screen", get_tree().get_current_scene(), "load_screen")
 	var test2 = get_tree().get_current_scene().connect("coin_up", self, "check")
-	var test3 = get_tree().get_current_scene().connect("input_to_screen", self, "movement")
+	var test3 = Menu_Hand.connect("input_to_screen", self, "movement")
 	var test4 = connect("use_credit",get_tree().get_current_scene(),"use_credit")
 	if test1 != 0:
 		print("error in arcade game select connect load_screen")
@@ -78,7 +78,7 @@ func movement(_player, _dir):
 				_start()
 		elif p1_has_credits:
 			if _dir == 5:
-				get_tree().get_current_scene().p1_started = true
+				Player_Stats.p1["in_play"] = true
 				emit_signal("use_credit",_player)
 		else:
 			print("player got nothin")
@@ -99,7 +99,7 @@ func movement(_player, _dir):
 				_start()
 		elif p2_has_credits:
 			if _dir == 5:
-				get_tree().get_current_scene().p2_started = true
+				Player_Stats.p2["in_play"] = true
 				emit_signal("use_credit",_player)
 	elif _player == 3:
 		if p3_started:
@@ -118,7 +118,7 @@ func movement(_player, _dir):
 				_start()
 		elif p3_has_credits:
 			if _dir == 5:
-				get_tree().get_current_scene().p3_started = true
+				Player_Stats.p3["in_play"] = true
 				emit_signal("use_credit",_player)
 	elif _player == 4:
 		if p4_started:
@@ -137,7 +137,7 @@ func movement(_player, _dir):
 				_start()
 		elif p4_has_credits:
 			if _dir == 5:
-				get_tree().get_current_scene().p4_started = true
+				Player_Stats.p4["in_play"] = true
 				emit_signal("use_credit",_player)
 	elif _player == 5:
 		if p5_started:
@@ -156,7 +156,7 @@ func movement(_player, _dir):
 				_start()
 		elif p5_has_credits:
 			if _dir == 5:
-				get_tree().get_current_scene().p5_started = true
+				Player_Stats.p5["in_play"] = true
 				emit_signal("use_credit",_player)
 	elif _player == 6:
 		if p6_started:
@@ -175,7 +175,7 @@ func movement(_player, _dir):
 				_start()
 		elif p6_has_credits:
 			if _dir == 5:
-				get_tree().get_current_scene().p6_started = true
+				Player_Stats.p6["in_play"] = true
 				emit_signal("use_credit",_player)
 	elif _player == 7:
 		if p7_started:
@@ -194,7 +194,7 @@ func movement(_player, _dir):
 				_start()
 		elif p7_has_credits:
 			if _dir == 5:
-				get_tree().get_current_scene().p7_started = true
+				Player_Stats.p7["in_play"] = true
 				emit_signal("use_credit",_player)
 	elif _player == 8:
 		if p8_started:
@@ -213,37 +213,37 @@ func movement(_player, _dir):
 				_start()
 		elif p8_has_credits:
 			if _dir == 5:
-				get_tree().get_current_scene().p8_started = true
+				Player_Stats.p8["in_play"] = true
 				emit_signal("use_credit",_player)
 	else:
 		print("error invald player in arcade start")
 	check()
 
 func check():
-	if get_tree().get_current_scene().p1_credits >= 1:
+	if Player_Stats.p1["credit"] >= 1:
 		 p1_has_credits = true
-	if get_tree().get_current_scene().p2_credits >= 1:
+	if Player_Stats.p2["credit"] >= 1:
 		 p2_has_credits = true
-	if get_tree().get_current_scene().p3_credits >= 1:
+	if Player_Stats.p3["credit"] >= 1:
 		 p3_has_credits = true
-	if get_tree().get_current_scene().p4_credits >= 1:
+	if Player_Stats.p4["credit"] >= 1:
 		 p4_has_credits = true
-	if get_tree().get_current_scene().p5_credits >= 1:
+	if Player_Stats.p5["credit"] >= 1:
 		 p5_has_credits = true
-	if get_tree().get_current_scene().p6_credits >= 1:
+	if Player_Stats.p6["credit"] >= 1:
 		 p6_has_credits = true
-	if get_tree().get_current_scene().p7_credits >= 1:
+	if Player_Stats.p7["credit"] >= 1:
 		 p7_has_credits = true
-	if get_tree().get_current_scene().p8_credits >= 1:
+	if Player_Stats.p8["credit"] >= 1:
 		 p8_has_credits = true
-	p1_started = get_tree().get_current_scene().p1_started
-	p2_started = get_tree().get_current_scene().p2_started
-	p3_started = get_tree().get_current_scene().p3_started
-	p4_started = get_tree().get_current_scene().p4_started
-	p5_started = get_tree().get_current_scene().p5_started
-	p6_started = get_tree().get_current_scene().p6_started
-	p7_started = get_tree().get_current_scene().p7_started
-	p8_started = get_tree().get_current_scene().p8_started
+	p1_started = Player_Stats.p1["in_play"]
+	p2_started = Player_Stats.p2["in_play"]
+	p3_started = Player_Stats.p3["in_play"]
+	p4_started = Player_Stats.p4["in_play"]
+	p5_started = Player_Stats.p5["in_play"]
+	p6_started = Player_Stats.p6["in_play"]
+	p7_started = Player_Stats.p7["in_play"]
+	p8_started = Player_Stats.p8["in_play"]
 	if p1_started:
 		bottom_hud.change_label( 1, 3)
 	elif p1_has_credits:

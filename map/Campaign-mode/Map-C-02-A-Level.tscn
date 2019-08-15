@@ -18,8 +18,8 @@
 [ext_resource path="res://Scenes/Guns/Weap-Pick-11-Mega-Cannon.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-10-Blaster_Pistol.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Menus/Campaign/Level_Load_Screen.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Menus/Campaign/Level_Load_Screen.tscn" type="PackedScene" id=20]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 168.0
@@ -132,7 +132,6 @@ position = Vector2( 330, 700 )
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
-editor/display_folded = true
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 9 )]
 
@@ -142,10 +141,11 @@ position = Vector2( 1016.51, 1127.47 )
 [node name="MP-15-Level_Change-01-Door" parent="Map_parts" instance=ExtResource( 11 )]
 position = Vector2( 1800, 740 )
 level_to_load_1 = ExtResource( 12 )
+show_splash_1 = true
 text_title_1 = "To Robits!!!!!"
 text_body_1 = "Play Ball!!!!!"
-load_random = true
 level_to_load_2 = ExtResource( 13 )
+show_splash_2 = true
 
 [node name="R_Marks" type="Node2D" parent="Map_parts"]
 editor/display_folded = true
@@ -205,14 +205,14 @@ position = Vector2( 790, 590 )
 respawn_time = 5
 body_1 = ExtResource( 18 )
 
-[node name="Splash" type="Node2D" parent="."]
-editor/display_folded = true
-
-[node name="Level_Load_Screen" parent="Splash" instance=ExtResource( 19 )]
-visible = false
-
 [node name="BadGuys" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="BG-02-Open_Gunner-01" parent="BadGuys" instance=ExtResource( 20 )]
+[node name="BG-02-Open_Gunner-01" parent="BadGuys" instance=ExtResource( 19 )]
 position = Vector2( 1190, 660 )
+
+[node name="Splash" type="Node2D" parent="."]
+z_index = 25
+
+[node name="Level_Load_Screen" parent="Splash" instance=ExtResource( 20 )]
+visible = false

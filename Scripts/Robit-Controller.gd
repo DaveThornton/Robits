@@ -2,15 +2,6 @@ extends Node2D
 
 onready var r_timer = $"Respawn-Timer"
 export var pawn_num = 1
-export(PackedScene) var pawn
-export(PackedScene) var pawn_01
-export(PackedScene) var pawn_02
-export(PackedScene) var pawn_03
-export(PackedScene) var pawn_04
-export(PackedScene) var pawn_05
-export(PackedScene) var pawn_06
-export(PackedScene) var pawn_07
-export(PackedScene) var pawn_08
 export(PackedScene) var boom
 var spawn_spot
 var my_pawn
@@ -32,20 +23,15 @@ var game_mode = 0
 var in_game = false 
 var in_menu = true
 var alive = false
-#var can_move = true 
 var can_start = false
 var start_equiped = 0
 var is_game_over = false
 
-signal player_score
-#signal change_spawn_pos
 signal in_play
 signal use_credit( _player)
 signal coin_insert( _player)
-signal menu_signal( _player, _dir)
 
 func _ready():
-#	emit_signal("change_spawn_pos")
 	pass
 	
 func init(_player_num, _auto_respawn, _game_mode, _play_type):
@@ -156,41 +142,8 @@ func init(_player_num, _auto_respawn, _game_mode, _play_type):
 		print("Error in Robit controller init player number invald")
 
 func spawn_pawn():
-#	if!my_pawn:
 	if !is_game_over:
-		var z = pawn.instance()
-		if pawn_num == 1:
-			z = pawn_01.instance()
-		elif pawn_num == 2:
-			z = pawn_02.instance()
-		elif pawn_num == 3:
-			z = pawn_03.instance()
-		elif pawn_num == 4:
-			z = pawn_04.instance()
-		elif pawn_num == 5:
-			z = pawn_05.instance()
-		elif pawn_num == 6:
-			z = pawn_06.instance()
-		elif pawn_num == 7:
-			z = pawn_07.instance()
-		elif pawn_num == 8:
-			z = pawn_08.instance()
-		elif pawn_num == 9:
-			z = pawn_01.instance()
-		elif pawn_num == 10:
-			z = pawn_02.instance()
-		elif pawn_num == 11:
-			z = pawn_03.instance()
-		elif pawn_num == 12:
-			z = pawn_04.instance()
-		elif pawn_num == 13:
-			z = pawn_05.instance()
-		elif pawn_num == 14:
-			z = pawn_06.instance()
-		elif pawn_num == 15:
-			z = pawn_07.instance()
-		elif pawn_num == 16:
-			z = pawn_08.instance()
+		var z = Equipment.get_pawn(pawn_num).instance()
 		get_tree().get_current_scene().pawns.add_child(z)
 #		self.add_child(z)
 		z.connect("explode_p", self, "explode_pawn")
@@ -204,13 +157,18 @@ func spawn_pawn():
 
 func explode_pawn(_player, _pos, _by_who, _by_what):
 	call_deferred("_explode_pawn",_player, _pos, _by_who, _by_what)
+#	get_tree().get_current_scene().check_game_over()
 
 func _explode_pawn(_player, _pos, _by_who, _by_what):
 	alive = false 
 	var x = boom.instance()
 	add_child(x)
 	x.init(_player, _pos, str("player ", player, "'s destruct system"), 1, 2)
-	emit_signal("player_score", player, _by_who, 1, _by_what)
+	Player_Stats.add_kill(player, _by_who , 1, _by_what)
+#	Player_Stats.add_death(player)
+#	Player_Stats.add_score(_by_who, 1)
+#	emit_signal("player_score", player, _by_who, 1, _by_what)
+	get_tree().get_current_scene().check_game_over()
 	if auto_respawn:
 		if in_game:
 			r_timer.start()
@@ -277,17 +235,23 @@ func _process(delta):
 					spawn_pawn()
 	else:
 		if up_input_j:
-			emit_signal("menu_signal", player, 1)
+			Menu_Hand.input(player, 1)
+#			emit_signal("menu_signal", player, 1)
 		elif left_input_j:
-			emit_signal("menu_signal", player, 2)
+			Menu_Hand.input(player, 2)
+#			emit_signal("menu_signal", player, 2)
 		elif right_input_j:
-			emit_signal("menu_signal", player, 3)
+			Menu_Hand.input(player, 3)
+#			emit_signal("menu_signal", player, 3)
 		elif down_input_j:
-			emit_signal("menu_signal", player, 4)
+			Menu_Hand.input(player, 4)
+#			emit_signal("menu_signal", player, 4)
 		elif jump_input_j || shoot_input_j ||start_input:
-			emit_signal("menu_signal", player, 5)
+			Menu_Hand.input(player, 5)
+#			emit_signal("menu_signal", player, 5)
 		elif hold_input_j || pick_input:
-			emit_signal("menu_signal", player, 6)
+			Menu_Hand.input(player, 6)
+#			emit_signal("menu_signal", player, 6)
 	
 	
 	if coin_input:

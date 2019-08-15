@@ -35,7 +35,7 @@ func _ready():
 	my_name = my_name
 	gun_num = gun_num
 	damage = damage
-	var test1 = self.connect("ammo_change", get_tree().get_current_scene(), "ammo_update")
+	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 23 Bomb Man")
 #	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
@@ -89,7 +89,8 @@ func melee():
 
 func throw():
 	var t = bomb_man_pickup.instance()
-	self.get_tree().get_current_scene().add_kid_to_map(t)
+	Map_Hand.add_kid_to_map(t)
+#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, timer.time_left, is_right, shoot_pos, false)
 	_throw_where(t)
@@ -100,7 +101,8 @@ func drop():
 	call_deferred("_drop")
 func _drop():
 	var t = bomb_man_pickup.instance()
-	self.get_tree().get_current_scene().add_kid_to_map(t)
+	Map_Hand.add_kid_to_map(t)
+#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, timer.time_left, is_right, shoot_pos, false)
 	_drop_where(t)
@@ -171,7 +173,8 @@ func _on_Timer_timeout():
 	get_parent().get_parent().my_gun = null
 	get_parent().get_parent().is_holding = false
 	var b = boom.instance()
-	self.get_tree().get_current_scene().add_child(b)
+	Map_Hand.add_kid_to_map(b)
+#	self.get_tree().get_current_scene().add_child(b)
 #	b.position = self.global_position
 	b.init(player, self.global_position, my_name)
 	queue_free()

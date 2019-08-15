@@ -25,7 +25,8 @@ boot_splash/bg_color=Color( 0, 0, 0, 1 )
 Player_Stats="*res://Scripts/Misc/Singleton_Player_Stats.gd"
 Settings="*res://Scripts/Misc/Singleton_Settings.gd"
 Equipment="*res://Scenes/Misc/Singleton_Equipment.tscn"
-Map_Hand="*res://Scripts/Misc/Singleton_Map_Handler.gd"
+Map_Hand="*res://Scenes/Misc/Singleton_Map_Handler.tscn"
+Menu_Hand="*res://Scenes/Misc/Singleton_Menu_Handler.tscn"
 
 [debug]
 
