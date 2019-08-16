@@ -63,7 +63,7 @@ func _ready():
 	check()
 
 func load_next():
-	print("ready????")
+#	print("ready????")
 	self.get_tree().get_current_scene().p1_controller.pawn_num = p1_menu.pos
 	self.get_tree().get_current_scene().p2_controller.pawn_num = p2_menu.pos
 	self.get_tree().get_current_scene().p3_controller.pawn_num = p3_menu.pos

@@ -18,24 +18,6 @@ onready var ammo_count_p6 = $VBoxContainer/HBoxContainer/VBoxContainer6/HBoxAmmo
 onready var ammo_count_p7 = $VBoxContainer/HBoxContainer/VBoxContainer7/HBoxAmmo/Ammo_counter
 onready var ammo_count_p8 = $VBoxContainer/HBoxContainer/VBoxContainer8/HBoxAmmo/Ammo_counter
 
-#onready var kills_box_1 = $VBoxContainer/HBoxContainer/VBoxContainer1/HBoxContainer
-#onready var kills_box_2 = $VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer
-#onready var kills_box_3 = $VBoxContainer/HBoxContainer/VBoxContainer3/HBoxContainer 
-#onready var kills_box_4 = $VBoxContainer/HBoxContainer/VBoxContainer4/HBoxContainer 
-#onready var kills_box_5 = $VBoxContainer/HBoxContainer/VBoxContainer5/HBoxContainer 
-#onready var kills_box_6 = $VBoxContainer/HBoxContainer/VBoxContainer6/HBoxContainer 
-#onready var kills_box_7 = $VBoxContainer/HBoxContainer/VBoxContainer7/HBoxContainer 
-#onready var kills_box_8 = $VBoxContainer/HBoxContainer/VBoxContainer8/HBoxContainer 
-
-#onready var ammo_box_1 = $VBoxContainer/HBoxContainer/VBoxContainer1/HBoxAmmo
-#onready var ammo_box_2 = $VBoxContainer/HBoxContainer/VBoxContainer2/HBoxAmmo
-#onready var ammo_box_3 = $VBoxContainer/HBoxContainer/VBoxContainer3/HBoxAmmo
-#onready var ammo_box_4 = $VBoxContainer/HBoxContainer/VBoxContainer4/HBoxAmmo
-#onready var ammo_box_5 = $VBoxContainer/HBoxContainer/VBoxContainer5/HBoxAmmo
-#onready var ammo_box_6 = $VBoxContainer/HBoxContainer/VBoxContainer6/HBoxAmmo
-#onready var ammo_box_7 = $VBoxContainer/HBoxContainer/VBoxContainer7/HBoxAmmo
-#onready var ammo_box_8 = $VBoxContainer/HBoxContainer/VBoxContainer8/HBoxAmmo
-
 onready var nrg_1 = $VBoxContainer/HBoxContainer/VBoxContainer1/NRG_bar_p1
 onready var nrg_2 = $VBoxContainer/HBoxContainer/VBoxContainer2/NRG_bar_p2
 onready var nrg_3 = $VBoxContainer/HBoxContainer/VBoxContainer3/NRG_bar_p3 
@@ -54,33 +36,15 @@ onready var hud_p6 = $VBoxContainer/HBoxContainer/VBoxContainer6
 onready var hud_p7 = $VBoxContainer/HBoxContainer/VBoxContainer7 
 onready var hud_p8 = $VBoxContainer/HBoxContainer/VBoxContainer8 
 
-#onready var start_label_1 = $VBoxContainer/HBoxContainer/VBoxContainer1/Press_Start_label1
-#onready var start_label_2 = $VBoxContainer/HBoxContainer/VBoxContainer2/Press_Start_label2
-#onready var start_label_3 = $VBoxContainer/HBoxContainer/VBoxContainer3/Press_Start_label3 
-#onready var start_label_4 = $VBoxContainer/HBoxContainer/VBoxContainer4/Press_Start_label4 
-#onready var start_label_5 = $VBoxContainer/HBoxContainer/VBoxContainer5/Press_Start_label5
-#onready var start_label_6 = $VBoxContainer/HBoxContainer/VBoxContainer6/Press_Start_label6 
-#onready var start_label_7 = $VBoxContainer/HBoxContainer/VBoxContainer7/Press_Start_label7 
-#onready var start_label_8 = $VBoxContainer/HBoxContainer/VBoxContainer8/Press_Start_label8
-
 onready var winners_label = $VBoxContainer/Winners_Label
-
-#var p1_int_kills = 0
-#var p2_int_kills = 0
-#var p3_int_kills = 0
-#var p4_int_kills = 0
-#var p5_int_kills = 0
-#var p6_int_kills = 0
-#var p7_int_kills = 0
-#var p8_int_kills = 0
 
 func _ready():
 #	var h = get_parent()
 	var test1 = get_tree().get_current_scene().connect("game_over", self , "game_over")
 	var test2 = Player_Stats.connect("hud_update", self, "update_hud")
-	if test1 == 0:
+	if test1 != 0:
 		print("ERROR: top hud connecting game over")
-	if test2 == 0:
+	if test2 != 0:
 		print("ERROR: top hud connecting hud update")
 	Player_Stats.set_hud(self)
 
@@ -126,40 +90,11 @@ func update_hud(_p1,_p2,_p3,_p4,_p5,_p6,_p7,_p8):
 	hud_p8.visible = _p8["exist"]
 	if _p8["in_play"]:
 		kills_p8.text = str(_p8["score"])
-	
-#	_p1["in_play"]
-#	_p1["exist"]
-#	_p1["credit"]
-#	_p1["kill"]
-#	_p1["death"]
-#	_p1["score"]
-#	_p1["shot"]
-#	_p1["hit"]
-#	pass
 
-	
 func game_over(_winner):
 	winners_label.visible = true
 	winners_label.text = str("player ",_winner, " has won the game sucka!!")
 	print("HUD knows player ",_winner, " has won the game")
-
-#func change_player_score(_player, _score):
-#	if _player == 1:
-#		kills_p1.text = str(_score)
-#	elif _player == 2:
-#		kills_p2.text = str(_score)
-#	elif _player == 3:
-#		kills_p3.text = str(_score)
-#	elif _player == 4:
-#		kills_p4.text = str(_score)
-#	elif _player == 5:
-#		kills_p5.text = str(_score)
-#	elif _player == 6:
-#		kills_p6.text = str(_score)
-#	elif _player == 7:
-#		kills_p7.text = str(_score)
-#	elif _player == 8:
-#		kills_p8.text = str(_score)
 
 func update_player_hud_vis(_p1, _p2, _p3, _p4, _p5, _p6, _p7, _p8):
 	hud_p1.visible = _p1

@@ -60,6 +60,7 @@ var p6_ready = false
 var p7_ready = false
 var p8_ready = false
 
+var loaded = false
 #signal load_map(load_to_map)
 signal use_credit(_player)
 
@@ -80,11 +81,15 @@ func _ready():
 	check()
 
 func load_next():
-	print("ready????")
-	var map_num = choose_map_num()
-	_get_map(map_num)
-	Map_Hand.load_map(map_to_load)
-	queue_free()
+	if !loaded:
+		loaded = true
+		print("ready????")
+		var map_num = choose_map_num()
+		_get_map(map_num)
+		Map_Hand.load_map(map_to_load)
+		queue_free()
+	else:
+		print("already a map")
 
 func movement(_player, _dir):
 	if _player == 1:
@@ -225,7 +230,7 @@ func movement(_player, _dir):
 				emit_signal("use_credit",_player)
 	else:
 		print("ERROR: invald player in arcade S03 player select vs ")
-	check()
+	call_deferred("check")
 
 func check():
 	_credit_check()
