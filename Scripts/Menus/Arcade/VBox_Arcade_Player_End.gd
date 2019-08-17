@@ -46,7 +46,7 @@ func _ready():
 		player_con = get_tree().get_current_scene().p5_controller
 		player8()
 	print("arcade vbox says im pawn ", pawn_num)
-	place_label.text = "unused so far need to sort player ranking"
+	place_label.text = "first place"
 
 func player1():
 	pawn_num = player_con.pawn_num

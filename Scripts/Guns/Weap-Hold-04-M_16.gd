@@ -165,7 +165,7 @@ func drop():
 
 func _drop():
 	var t = m16_Pickup.instance()
-	self.get_tree().get_current_scene().add_kid_to_map(t)
+	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	_drop_where(t)

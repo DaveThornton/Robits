@@ -82,7 +82,7 @@ func melee():
 
 func throw():
 	var t = blower_pickup.instance()
-	self.get_tree().get_current_scene().add_kid_to_map(t)
+	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 #	t.rotation = pos_throw.global_rotation
 #	t.scale.x = pos_throw.global_scale.x
@@ -96,7 +96,7 @@ func drop():
 	call_deferred("_drop")
 func _drop():
 	var t = blower_pickup.instance()
-	self.get_tree().get_current_scene().add_kid_to_map(t)
+	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 #	t.rotation = pos_throw.global_rotation
 #	t.scale = pos_throw.global_scale

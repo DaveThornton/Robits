@@ -28,7 +28,6 @@ var p5_done = false
 var p6_done = false
 var p7_done = false
 var p8_done = false
-#var started_num = 0
 var in_play_num = 0
 
 
@@ -46,6 +45,8 @@ func _ready():
 		p1_results.visible = false
 		p1_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 1, 4)
+		
+		
 	if Player_Stats.p2["in_play"]:
 		p2_results.visible = true
 		p2_dash.visible = true
@@ -55,6 +56,8 @@ func _ready():
 		p2_results.visible = false
 		p2_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 2, 4)
+		
+		
 	if Player_Stats.p3["in_play"]:
 		p3_results.visible = true
 		p3_dash.visible = true
@@ -64,6 +67,8 @@ func _ready():
 		p3_results.visible = false
 		p3_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 3, 4)
+		
+		
 	if Player_Stats.p4["in_play"]:
 		p4_results.visible = true
 		p4_dash.visible = true
@@ -73,6 +78,8 @@ func _ready():
 		p4_results.visible = false
 		p4_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 4, 4)
+		
+		
 	if Player_Stats.p5["in_play"]:
 		p5_results.visible = true
 		p5_dash.visible = true
@@ -82,6 +89,8 @@ func _ready():
 		p5_results.visible = false
 		p5_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 5, 4)
+		
+		
 	if Player_Stats.p6["in_play"]:
 		p6_results.visible = true
 		p6_dash.visible = true
@@ -91,6 +100,8 @@ func _ready():
 		p6_results.visible = false
 		p6_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 6, 4)
+		
+		
 	if Player_Stats.p7["in_play"]:
 		p7_results.visible = true
 		p7_dash.visible = true
@@ -100,6 +111,8 @@ func _ready():
 		p7_results.visible = false
 		p7_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 7, 4)
+		
+		
 	if Player_Stats.p8["in_play"]:
 		p8_results.visible = true
 		p8_dash.visible = true

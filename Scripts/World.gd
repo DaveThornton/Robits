@@ -21,15 +21,6 @@ onready var line = $Line2D
 var auto_respawn = true
 var play_type = 2
 
-#var p1_exists = false
-#var p2_exists = false
-#var p3_exists = false
-#var p4_exists = false
-#var p5_exists = false
-#var p6_exists = false
-#var p7_exists = false
-#var p8_exists = false
-
 var p1_controller
 var p2_controller
 var p3_controller
@@ -305,12 +296,6 @@ func update_hud():
 		Player_Stats.p6["exist"], Player_Stats.p7["exist"],
 		Player_Stats.p8["exist"])
 
-#func add_kid_to_map(_obj):
-#	if map:
-#		map.add_child(_obj)
-#	else:
-#		clearing_house.add_child(_obj)
-
 func _clean_house():
 	for child in clearing_house.get_children():
 		child.call_deferred("free")
@@ -465,44 +450,6 @@ func can_player_start_arcade( _player):
 			p8_controller.can_start = false
 	else:
 		print("error in world can player start arcade")
-#
-#func nrg_update(_player, _nrg):
-#	if _player == 1:
-#		hud.update_p1_nrg(_nrg)
-#	elif _player == 2:
-#		hud.update_p2_nrg(_nrg)
-#	elif _player == 3:
-#		hud.update_p3_nrg(_nrg)
-#	elif _player == 4:
-#		hud.update_p4_nrg(_nrg)
-#	elif _player == 5:
-#		hud.update_p5_nrg(_nrg)
-#	elif _player == 6:
-#		hud.update_p6_nrg(_nrg)
-#	elif _player == 7:
-#		hud.update_p7_nrg(_nrg)
-#	elif _player == 8:
-#		hud.update_p8_nrg(_nrg)
-#	else:
-#		print("error on nrg update")
-#func ammo_update(_player, _ammo):
-#	if !is_game_over:
-#		if _player == 1:
-#			hud.update_p1_ammo(_ammo)
-#		elif _player == 2:
-#			hud.update_p2_ammo(_ammo)
-#		elif _player == 3:
-#			hud.update_p3_ammo(_ammo)
-#		elif _player == 4:
-#			hud.update_p4_ammo(_ammo)
-#		elif _player == 5:
-#			hud.update_p5_ammo(_ammo)
-#		elif _player == 6:
-#			hud.update_p6_ammo(_ammo)
-#		elif _player == 7:
-#			hud.update_p7_ammo(_ammo)
-#		elif _player == 8:
-#			hud.update_p8_ammo(_ammo)
 
 func arcade_reset():
 	emit_signal("reset")

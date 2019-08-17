@@ -35,8 +35,6 @@ func _ready():
 	pass
 	
 func init(_player_num, _auto_respawn, _game_mode, _play_type):
-#	var _test = Weap.test()
-#	print(_test)
 	is_game_over = false
 	player = _player_num
 	auto_respawn = _auto_respawn
