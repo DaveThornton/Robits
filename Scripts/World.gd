@@ -21,14 +21,14 @@ onready var line = $Line2D
 var auto_respawn = true
 var play_type = 2
 
-var p1_exists = false
-var p2_exists = false
-var p3_exists = false
-var p4_exists = false
-var p5_exists = false
-var p6_exists = false
-var p7_exists = false
-var p8_exists = false
+#var p1_exists = false
+#var p2_exists = false
+#var p3_exists = false
+#var p4_exists = false
+#var p5_exists = false
+#var p6_exists = false
+#var p7_exists = false
+#var p8_exists = false
 
 var p1_controller
 var p2_controller
@@ -305,11 +305,11 @@ func update_hud():
 		Player_Stats.p6["exist"], Player_Stats.p7["exist"],
 		Player_Stats.p8["exist"])
 
-func add_kid_to_map(_obj):
-	if map:
-		map.add_child(_obj)
-	else:
-		clearing_house.add_child(_obj)
+#func add_kid_to_map(_obj):
+#	if map:
+#		map.add_child(_obj)
+#	else:
+#		clearing_house.add_child(_obj)
 
 func _clean_house():
 	for child in clearing_house.get_children():

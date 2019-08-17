@@ -184,5 +184,5 @@ func _on_Timer_timeout():
 	Map_Hand.add_kid_to_map(b)
 #	self.get_tree().get_current_scene().add_child(b)
 #	b.position = self.global_position
-	b.init(player, self.global_position, my_name)
+	b.init(player, self.global_position, my_name, 0, damage)
 	queue_free()

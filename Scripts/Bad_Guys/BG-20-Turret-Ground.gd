@@ -3,7 +3,7 @@ extends StaticBody2D
 export(PackedScene) var projectile
 export(PackedScene) var explode
 
-onready var sfx = $SFX_Lib
+#onready var sfx = $SFX_Lib
 onready var sprite = $Sprite
 onready var sprite2 = $Sprite2
 onready var shoot_timer = $Timer_shoot
@@ -86,7 +86,7 @@ func _shoot(_pos):
 #		_sr = _pos.global_rotation * -1
 	var _sss = _pos.scale
 	new_projectile.start(_sr , _ss, _sss, player, damage)
-	sfx.play("Laser_Shoot")
+	SFX.play("Laser_Shoot")
 	shoot_timer.start()
 
 func hit(_by_who, _by_what, _damage_type, _damage):

@@ -3,7 +3,7 @@ extends Node2D
 export(PackedScene) var pawn_part
 
 onready var anim = $AnimationPlayer
-onready var sfx = $SFX_Lib
+#onready var sfx = $SFX_Lib
 var owned = 0
 var my_name = "Explosion"
 var weap_name = "Explosion"
@@ -36,7 +36,7 @@ func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	anim.play("Explode")
 	weap_name = _weap_name
 	anim.play()
-	sfx.play("EX_Pawn")
+	SFX.play("EX_Pawn")
 
 func start( _sr , _ss, _sss, _player):
 	owned = _player

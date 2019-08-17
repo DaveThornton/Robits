@@ -23,7 +23,7 @@ onready var anim = $AnimationPlayer
 onready var sprite = $Sprite
 onready var shoot_timer = $Timer_Shoot
 onready var pos_shoot = $Sprite/Pos_Shoot
-onready var sfx = $SFX_Lib
+#onready var sfx = $SFX_Lib
 
 var grav = 10
 var terminal_vel = 9
@@ -124,7 +124,7 @@ func shoot():
 			_sr = pos_shoot.global_rotation * -1
 		var _sss = pos_shoot.scale
 		new_projectile.start(_sr , _ss, _sss, player, damage)
-		sfx.play("Laser_Shoot")
+		SFX.play("Laser_Shoot")
 		shoot_timer.start()
 	else:
 		var _body = melee_cast.get_collider()

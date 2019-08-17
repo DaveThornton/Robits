@@ -13,7 +13,7 @@ onready var head_area = $Area2D/CollisionShape2D
 onready var kill_timer= $Timer
 onready var respawn_timer = $Timer_respawn
 onready var box_shape = $CollisionShape2D
-onready var sfx = $SFX_Lib
+#onready var sfx = $SFX_Lib
 
 var pos
 # warning-ignore:unused_class_variable
@@ -72,7 +72,7 @@ func hit(_owned, my_name, damage_type, damage):
 #	print("brick hit mp-40")
 	call_deferred("_hit",_owned, my_name, damage_type, damage)
 func _hit(_owned, my_name, damage_type, damage):
-	sfx.play("EX_Brick")
+	SFX.play("EX_Brick")
 #	print("hit bricks")
 	var e = brick_explode.instance()
 	var h = head_explode.instance()

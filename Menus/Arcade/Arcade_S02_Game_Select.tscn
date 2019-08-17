@@ -1,11 +1,12 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scripts/Menus/Arcade/Arcade_Game_Select.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Menus/Arcade/Arcade_S02_Game_Select.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/Arcade_S05_Player_Select_Cam.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menus/Arcade/Arcade_S03_Player_Select_VS.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menus/Arcade/Arcade_Bottom_HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Menus/Grids/menu_1X3_01.tscn" type="PackedScene" id=5]
 [ext_resource path="res://misc/line-text-big.tres" type="DynamicFont" id=6]
+
 
 [node name="Arcade_Game_Select_Screen" type="MarginContainer"]
 anchor_right = 1.0

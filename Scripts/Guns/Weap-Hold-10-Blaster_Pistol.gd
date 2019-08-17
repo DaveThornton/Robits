@@ -12,7 +12,7 @@ onready var pos_walk = $Pos2D_Walk
 onready var pos_throw = $Pos2D_Throw
 onready var shoot_cast = $Pos2D_Walk/RayCast2D
 onready var melee_cast = $Pos2D_Walk/RayCast2D_Melee
-onready var sfx = $SFX_Lib
+#onready var sfx = $SFX_Lib
 
 var player = 1
 var gun_num = 10
@@ -99,9 +99,9 @@ func shoot_j():
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
 #			emit_signal("shot", player)
-			sfx.play("Laser_Shoot")
+			SFX.play("Laser_Shoot")
 		else:
-			sfx.play("Laser_Empty")
+			SFX.play("Laser_Empty")
 
 func shoot():
 	pass

@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Explosions/Ex-03-Pawn.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/FX/FX-05-Robit-Wreckage.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/gen-boom/Generic-boom-02-sheet.png" type="Texture" id=3]
-[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Explode"
@@ -90,7 +89,6 @@ pawn_part = ExtResource( 2 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 3 )
 hframes = 9
-frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Explode = SubResource( 1 )
@@ -107,7 +105,6 @@ collision_mask = 655872
 
 [node name="CollisionShape2D-outer" type="CollisionShape2D" parent="Area2D-outer"]
 shape = SubResource( 3 )
-disabled = true
 
 [node name="Area2D2-inner" type="Area2D" parent="."]
 gravity_point = true
@@ -130,8 +127,6 @@ autostart = true
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 9.0
 autostart = true
-
-[node name="SFX_Lib" parent="." instance=ExtResource( 4 )]
 [connection signal="body_entered" from="Area2D-outer" to="." method="_on_Area2Douter_body_entered"]
 [connection signal="body_entered" from="Area2D2-inner" to="." method="_on_Area2D2inner_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var anim = $AnimationPlayer
-onready var sfx = $SFX_Lib
+#onready var sfx = $SFX_Lib
 
 #var hit_already = []
 var owned = 0
@@ -23,7 +23,7 @@ func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	owned = _owner
 	anim.play("Explode")
 	weap_name = _weap_name
-	sfx.play("EX_Standard")
+	SFX.play("EX_Standard")
 
 func start( _sr , _ss, _sss, _player):
 #	_check_dir()

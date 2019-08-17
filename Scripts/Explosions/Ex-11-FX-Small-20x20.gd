@@ -20,6 +20,7 @@ func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	anim.play("Explode")
 	self.global_position = _pos
 	damage1 = _dmg
+	SFX.play("EX_Standard")
 
 func start( _sr , _ss, _sss, _player):
 	owned = _player

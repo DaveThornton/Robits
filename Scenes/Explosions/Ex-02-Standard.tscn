@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Explosions/Ex-02-Standard.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/gen-boom/Generic-boom-02-sheet.png" type="Texture" id=2]
-[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Explode"
@@ -146,8 +145,6 @@ autostart = true
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 9.0
 autostart = true
-
-[node name="SFX_Lib" parent="." instance=ExtResource( 3 )]
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false

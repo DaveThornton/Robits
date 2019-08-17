@@ -19,6 +19,7 @@ func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	weap_name = _weap_name
 	damage1 = (_dmg * .5)
 	damage2 = _dmg
+	SFX.play("EX_Standard")
 
 func start( _sr , _ss, _sss, _player):
 	owned = _player

@@ -1,19 +1,18 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Bad_Guys/BG-02-Open_Gunner-01.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Explosions/Ex-03-Pawn.tscn" type="PackedScene" id=3]
-[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Sprites/Bad_Guys/Open-Gunner-01.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Bad_Guys/Open-Gunner-01.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.5, 22 )
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 2.0
 height = 40.0
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Idle-Mid"
 length = 0.1
 tracks/0/type = "value"
@@ -29,7 +28,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "Jump-Down"
 length = 0.1
 tracks/0/type = "value"
@@ -45,7 +44,7 @@ tracks/0/keys = {
 "values": [ 38 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "Jump-Up"
 length = 0.4
 loop = true
@@ -62,7 +61,7 @@ tracks/0/keys = {
 "values": [ 53, 54, 55, 56 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "Ladder-Up"
 length = 0.6
 loop = true
@@ -79,7 +78,7 @@ tracks/0/keys = {
 "values": [ 48, 49, 50, 51, 50, 49 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "Run-Mid"
 length = 0.8
 loop = true
@@ -96,7 +95,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12, 13, 14, 15 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "Shoot-Down"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -111,7 +110,7 @@ tracks/0/keys = {
 "values": [ 37 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "Shoot-Right"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -126,7 +125,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 resource_name = "Shoot-Right-Down"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -141,7 +140,7 @@ tracks/0/keys = {
 "values": [ 36 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 resource_name = "Shoot-Right-Up"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -156,7 +155,7 @@ tracks/0/keys = {
 "values": [ 33 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 resource_name = "Shoot-Up"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -183,9 +182,7 @@ explode = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -23 )
-shape = SubResource( 2 )
-
-[node name="SFX_Lib" parent="." instance=ExtResource( 4 )]
+shape = SubResource( 1 )
 
 [node name="Timer_Shoot" type="Timer" parent="."]
 autostart = true
@@ -322,23 +319,23 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-On_Ladder"]
 position = Vector2( 0, -23 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer3" type="AnimationPlayer" parent="."]
-anims/Idle-Mid = SubResource( 4 )
-anims/Jump-Down = SubResource( 5 )
-anims/Jump-Up = SubResource( 6 )
-anims/Ladder-Up = SubResource( 7 )
-anims/Run-Mid = SubResource( 8 )
-anims/Shoot-Down = SubResource( 9 )
-anims/Shoot-Right = SubResource( 10 )
-anims/Shoot-Right-Down = SubResource( 11 )
-anims/Shoot-Right-Up = SubResource( 12 )
-anims/Shoot-Up = SubResource( 13 )
+anims/Idle-Mid = SubResource( 3 )
+anims/Jump-Down = SubResource( 4 )
+anims/Jump-Up = SubResource( 5 )
+anims/Ladder-Up = SubResource( 6 )
+anims/Run-Mid = SubResource( 7 )
+anims/Shoot-Down = SubResource( 8 )
+anims/Shoot-Right = SubResource( 9 )
+anims/Shoot-Right-Down = SubResource( 10 )
+anims/Shoot-Right-Up = SubResource( 11 )
+anims/Shoot-Up = SubResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -30 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 vframes = 4
 hframes = 20
 [connection signal="timeout" from="Timer_Shoot" to="." method="_on_Timer_Shoot_timeout"]

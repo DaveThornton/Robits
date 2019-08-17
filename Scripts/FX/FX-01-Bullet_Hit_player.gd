@@ -5,7 +5,7 @@ onready var sprite = $AnimatedSprite
 
 func _ready():
 	sprite.play("default")
-
+	SFX.play("Gun_Click")
 #func _on_Timer_timeout():
 #	queue_free()
 

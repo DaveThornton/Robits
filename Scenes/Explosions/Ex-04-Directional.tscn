@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Explosions/Ex-02-Standard-Dir.gd" type="Script" id=1]
 [ext_resource path="res://SFX/Explosions/sfx_exp_medium5.wav" type="AudioStream" id=2]
 [ext_resource path="res://Sprites/gen-boom/Generic-boom-02-sheet.png" type="Texture" id=3]
-[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Explode"
@@ -181,8 +180,6 @@ position = Vector2( 20, 0 )
 exclude_parent = false
 cast_to = Vector2( 50, 0 )
 collision_mask = 8
-
-[node name="SFX_Lib" parent="." instance=ExtResource( 4 )]
 [connection signal="body_entered" from="Area2D-outer" to="." method="_on_Area2Douter_body_entered"]
 [connection signal="body_entered" from="Area2D2-inner" to="." method="_on_Area2D2inner_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

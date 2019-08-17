@@ -23,7 +23,7 @@ onready var anim2 = $AnimationPlayer2
 onready var gun_arm = $Gun_Arm
 onready var shoot_cast = $Gun_Arm/RayCast2D
 onready var shoot_timer = $Timer_Shoot
-onready var sfx = $SFX_Lib
+#onready var sfx = $SFX_Lib
 
 var can_shoot = true
 var damage = 2
@@ -72,7 +72,7 @@ func _shoot(_pos):
 	var _sss = _pos.scale
 	new_projectile.start(_sr , _ss, _sss, player, damage)
 	anim.play("Shoot")
-	sfx.play("Laser_Shoot")
+	SFX.play("Laser_Shoot")
 	shoot_timer.start()
 
 func hit(_by_who, _by_what, _damage_type, _damage):

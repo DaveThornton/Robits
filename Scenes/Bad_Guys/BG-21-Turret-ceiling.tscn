@@ -1,12 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Bad_Guys/BG-20-Turret-Ground.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Explosions/Ex-03-Pawn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Bad_Guys/BG-20-Turret-Ground.png" type="Texture" id=4]
-[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=1]
 resource_name = "Shoot_0"
 length = 0.2
 tracks/0/type = "value"
@@ -22,7 +21,7 @@ tracks/0/keys = {
 "values": [ 20, 10, 0 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=2]
 resource_name = "Shoot_1"
 length = 0.2
 tracks/0/type = "value"
@@ -38,7 +37,7 @@ tracks/0/keys = {
 "values": [ 21, 11, 1 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=3]
 resource_name = "Shoot_2"
 length = 0.2
 tracks/0/type = "value"
@@ -54,7 +53,7 @@ tracks/0/keys = {
 "values": [ 22, 12, 2 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=4]
 resource_name = "Shoot_3"
 length = 0.2
 tracks/0/type = "value"
@@ -70,7 +69,7 @@ tracks/0/keys = {
 "values": [ 23, 13, 3 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=5]
 resource_name = "Shoot_4"
 length = 0.2
 tracks/0/type = "value"
@@ -86,7 +85,7 @@ tracks/0/keys = {
 "values": [ 24, 14, 4 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=6]
 resource_name = "Shoot_5"
 length = 0.2
 tracks/0/type = "value"
@@ -102,7 +101,7 @@ tracks/0/keys = {
 "values": [ 25, 15, 5 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=7]
 resource_name = "Shoot_6"
 length = 0.2
 tracks/0/type = "value"
@@ -118,7 +117,7 @@ tracks/0/keys = {
 "values": [ 26, 16, 6 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=8]
 resource_name = "Shoot_7"
 length = 0.2
 tracks/0/type = "value"
@@ -134,7 +133,7 @@ tracks/0/keys = {
 "values": [ 27, 17, 7 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=9]
 resource_name = "Shoot_8"
 length = 0.2
 tracks/0/type = "value"
@@ -154,7 +153,7 @@ tracks/0/keys = {
 radius = 14.9743
 height = 8.00916
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=11]
 resource_name = "Hit-Orange"
 length = 0.2
 tracks/0/type = "value"
@@ -304,8 +303,6 @@ enabled = true
 cast_to = Vector2( 400, 0 )
 collision_mask = 2
 
-[node name="SFX_Lib" parent="." instance=ExtResource( 5 )]
-
 [node name="Shoot_Spots" type="Node2D" parent="."]
 editor/display_folded = true
 visible = false
@@ -349,15 +346,15 @@ position = Vector2( 0, -17 )
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Shoot_0 = SubResource( 11 )
-anims/Shoot_1 = SubResource( 12 )
-anims/Shoot_2 = SubResource( 13 )
-anims/Shoot_3 = SubResource( 14 )
-anims/Shoot_4 = SubResource( 15 )
-anims/Shoot_5 = SubResource( 16 )
-anims/Shoot_6 = SubResource( 17 )
-anims/Shoot_7 = SubResource( 18 )
-anims/Shoot_8 = SubResource( 19 )
+anims/Shoot_0 = SubResource( 1 )
+anims/Shoot_1 = SubResource( 2 )
+anims/Shoot_2 = SubResource( 3 )
+anims/Shoot_3 = SubResource( 4 )
+anims/Shoot_4 = SubResource( 5 )
+anims/Shoot_5 = SubResource( 6 )
+anims/Shoot_6 = SubResource( 7 )
+anims/Shoot_7 = SubResource( 8 )
+anims/Shoot_8 = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -366,5 +363,5 @@ rotation = 1.5708
 shape = SubResource( 10 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
-anims/Hit-Orange = SubResource( 20 )
+anims/Hit-Orange = SubResource( 11 )
 [connection signal="timeout" from="Timer_shoot" to="." method="_on_Timer_shoot_timeout"]

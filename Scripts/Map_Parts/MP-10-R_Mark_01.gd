@@ -92,7 +92,7 @@ func _on_Timer_timeout():
 	
 func _spawn_thing():
 	var t = spawn_01.instance()
-	self.get_tree().get_current_scene().add_kid_to_map(t) 
+	Map_Hand.add_kid_to_map(t)
 	t.global_position = spawn_pos.global_position
 	t.set_collision_layer_bit( 1, false)
 	t.set_collision_mask_bit( 1, false)

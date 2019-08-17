@@ -8,7 +8,7 @@ export var active_number = 1
 onready var anim = $AnimationPlayer3
 onready var sprite = $Sprite
 onready var cast_down = $Casts/RayCast2D_Down 
-onready var sfx = $SFX_Lib
+#onready var sfx = $SFX_Lib
 onready var shoot_timer = $Timer_Shoot
 
 onready var s_pos_up_l = $"Casts/Shoot_Casts/Shoot-Up-Left-Pos"
@@ -235,7 +235,7 @@ func shoot(_pos_shoot):
 	var _sr = _pos_shoot.global_rotation
 	var _sss = _pos_shoot.scale
 	new_projectile.start(_sr , _ss, _sss, player, damage)
-	sfx.play("Laser_Shoot")
+	SFX.play("Laser_Shoot")
 	shoot_timer.start()
 
 func _go_right(_s):

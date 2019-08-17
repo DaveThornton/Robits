@@ -3,7 +3,7 @@ extends Area2D
 export(PackedScene) var boom
 onready var timer = $Timer
 onready var cast_forward = $RayCast2D
-onready var sfx = $SFX_Lib
+#onready var sfx = $SFX_Lib
 #onready var timer2 = $Timer2
 var speed = 800
 var owned = 0
@@ -20,7 +20,7 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	scale = _scale
 	owned = _owner
 	anim.play("fire")
-	sfx.play("RPG_Shoot")
+	SFX.play("RPG_Shoot")
 
 func _physics_process(delta):
 	move_local_x(speed * delta)

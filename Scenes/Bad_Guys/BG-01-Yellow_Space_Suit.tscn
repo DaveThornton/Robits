@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Bad_Guys/BG-01-Yellow_Space_Suit.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Explosions/Ex-03-Pawn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Bad_Guys/P_Yellow-sheet-export.png" type="Texture" id=4]
-[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 25.4635
@@ -210,7 +209,5 @@ position = Vector2( 0, -10 )
 enabled = true
 cast_to = Vector2( -31, 0 )
 collision_mask = 2072
-
-[node name="SFX_Lib" parent="." instance=ExtResource( 5 )]
 [connection signal="timeout" from="Timer_Shoot" to="." method="_on_Timer_Shoot_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,10 +1,9 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Guns/Weap-Hold-11-Mega-Cannon.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-11-Mega-Cannon.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Projectiles/Proj-11-Mega-Cannon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/Weap-11-Mega-Cannon-sheet.png" type="Texture" id=4]
-[ext_resource path="res://SFX/SFX_Lib.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.1374
@@ -416,8 +415,6 @@ anims/Shoot = SubResource( 14 )
 
 [node name="Pos2D_Throw" type="Position2D" parent="."]
 position = Vector2( 37, 0 )
-
-[node name="SFX_Lib" parent="." instance=ExtResource( 5 )]
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]
 [connection signal="body_entered" from="Pos2D_Walk/Area2D_Melee" to="." method="_on_Area2D_Melee_body_entered"]

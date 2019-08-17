@@ -10,7 +10,7 @@ onready var poly_up = $"Area2D-outer/CollisionPolygon2D_UP"
 onready var poly_right = $"Area2D-outer/CollisionPolygon2D_Right"
 onready var poly_down = $"Area2D-outer/CollisionPolygon2D_Down"
 onready var poly_left = $"Area2D-outer/CollisionPolygon2D_Left"
-onready var sfx = $SFX_Lib
+#onready var sfx = $SFX_Lib
 
 var hit_already = []
 var owned = 0
@@ -42,7 +42,7 @@ func init(_owner, _pos, _weap_name):
 	print("2 poly left ", poly_left.disabled)
 	
 	weap_name = _weap_name
-	sfx.play("EX_Standard")
+	SFX.play("EX_Standard")
 	print(area_out.get_overlapping_bodies())
 
 func _check_dir():

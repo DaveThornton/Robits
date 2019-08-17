@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scripts/FX/SFX_Lib.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
 [ext_resource path="res://SFX/Weapons/Laser_Shot_Rnd_Pitch.tres" type="AudioStream" id=3]
 [ext_resource path="res://SFX/FX/Laser_Empty_Rnd_Pitch.tres" type="AudioStream" id=4]

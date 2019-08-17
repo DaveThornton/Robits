@@ -26,34 +26,36 @@ func _spawn():
 	if !spawn_only_1:
 		if spawn_next == 1:
 			s = body_1.instance()
-			self.get_tree().get_current_scene().add_kid_to_map(s)
+			Map_Hand.add_kid_to_map(s)
+#			self.get_tree().get_current_scene().add_kid_to_map(s)
 #			self.get_tree().get_current_scene().add_child(s)
 			s.global_position = pos.global_position
 		elif spawn_next == 2:
 			s = body_2.instance()
-			self.get_tree().get_current_scene().add_kid_to_map(s)
+			Map_Hand.add_kid_to_map(s)
 			s.global_position = pos.global_position
 		elif spawn_next == 3:
 			s = body_3.instance()
-			self.get_tree().get_current_scene().add_kid_to_map(s)
+			Map_Hand.add_kid_to_map(s)
 			s.global_position = pos.global_position
 		elif spawn_next == 4:
 			s = body_4.instance()
-			self.get_tree().get_current_scene().add_kid_to_map(s)
+			Map_Hand.add_kid_to_map(s)
 			s.global_position = pos.global_position
 		elif spawn_next == 5:
 			s = body_5.instance()
-			self.get_tree().get_current_scene().add_kid_to_map(s)
+			Map_Hand.add_kid_to_map(s)
 			s.global_position = pos.global_position
 		elif spawn_next == 6:
 			s = body_6.instance()
-			self.get_tree().get_current_scene().add_kid_to_map(s)
+			Map_Hand.add_kid_to_map(s)
 			s.global_position = pos.global_position
 		spawn_next += 1
 		if spawn_next == 7:
 			spawn_next = 1
 	else:
-		self.get_tree().get_current_scene().add_kid_to_map(s)
+		Map_Hand.add_kid_to_map(s)
+#		self.get_tree().get_current_scene().add_kid_to_map(s)
 		s.global_position = pos.global_position
 	s.dont_hit_player()
 		

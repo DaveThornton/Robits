@@ -14,7 +14,7 @@ onready var pos_shoot = $Pos2D_Walk/Pos2D_Shoot
 onready var pos_shell = $Pos2D_Walk/Pos2D_Shell
 onready var pos_walk = $Pos2D_Walk
 onready var pos_throw = $Pos2D_Throw
-onready var sfx = $SFX_Lib
+#onready var sfx = $SFX_Lib
 
 var player = 1
 #warning-ignore:unused_class_variable
@@ -102,9 +102,9 @@ func shoot_j():
 #			emit_signal("shot", player)
 			pos_walk.rotation_degrees -= walk
 			just_shot = true
-			sfx.play("Sniper_Shoot")
+			SFX.play("Sniper_Shoot")
 		else:
-			sfx.play("Gun_Click")
+			SFX.play("Gun_Click")
 
 func shoot():
 	pass
