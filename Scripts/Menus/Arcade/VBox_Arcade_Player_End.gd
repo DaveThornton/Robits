@@ -48,6 +48,24 @@ func _ready():
 	print("arcade vbox says im pawn ", pawn_num)
 	place_label.text = "first place"
 
+func set_place(_place):
+	if _place == 1:
+		place_label.text = "first place"
+	elif _place == 2:
+		place_label.text = "second place"
+	elif _place == 3:
+		place_label.text = "turd place"
+	elif _place == 4:
+		place_label.text = "4th place"
+	elif _place == 5:
+		place_label.text = "fiveth place"
+	elif _place == 6:
+		place_label.text = "sexth place"
+	elif _place == 7:
+		place_label.text = "sleventh place"
+	elif _place == 8:
+		place_label.text = "loser big time"
+
 func player1():
 	pawn_num = player_con.pawn_num
 	

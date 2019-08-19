@@ -243,6 +243,38 @@ func ammo_update(_player, _ammo):
 	elif _player == 8:
 		hud.update_p8_ammo(_ammo)
 
+func get_places():
+	var _places =[]
+	if p1["in_play"]:
+		var _p1score = Vector2(1, p1["score"])
+		_places.append(_p1score)
+	if p2["in_play"]:
+		var _p2score = Vector2(2, p2["score"])
+		_places.append(_p2score)
+	if p3["in_play"]:
+		var _p3score = Vector2(3, p3["score"])
+		_places.append(_p3score)
+	if p4["in_play"]:
+		var _p4score = Vector2(4, p4["score"])
+		_places.append(_p4score)
+	if p5["in_play"]:
+		var _p5score = Vector2(5, p5["score"])
+		_places.append(_p5score)
+	if p6["in_play"]:
+		var _p6score = Vector2(6, p6["score"])
+		_places.append(_p6score)
+	if p7["in_play"]:
+		var _p7score = Vector2(7, p7["score"])
+		_places.append(_p7score)
+	if p8["in_play"]:
+		var _p8score = Vector2(8, p8["score"])
+		_places.append(_p8score)
+	_places.sort_custom(self,"sort_place")
+	return _places
+
+func sort_place(a, b):
+	if a.y > b.y:
+		return a.y
 
 func reset():
 	# might now work ? looks like it should work

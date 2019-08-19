@@ -32,6 +32,7 @@ var in_play_num = 0
 
 
 func _ready():
+	set_places()
 	var test = Menu_Hand.connect("input_to_screen", self, "movement")
 	if test != 0:
 		print("error in arcade game over ready connect input to screen")
@@ -123,6 +124,31 @@ func _ready():
 		p8_dash.size_flags_stretch_ratio = 1
 		bottom_hud.change_label( 8, 4)
 
+func set_places():
+	var _places = Player_Stats.get_places()
+	print(_places)
+	for _p in _places.size():
+		if _places[_p].x == 1:
+			p1_results.set_place(_p + 1)
+		elif _places[_p].x == 2:
+			p2_results.set_place(_p + 1)
+		elif _places[_p].x == 3:
+			p3_results.set_place(_p + 1)
+		elif _places[_p].x == 4:
+			p4_results.set_place(_p + 1)
+		elif _places[_p].x == 5:
+			p5_results.set_place(_p + 1)
+		elif _places[_p].x == 6:
+			p6_results.set_place(_p + 1)
+		elif _places[_p].x == 7:
+			p7_results.set_place(_p + 1)
+		elif _places[_p].x == 8:
+			p8_results.set_place(_p + 1)
+#	for j in range(_players):
+#		spawn_player_contoller(j+1, auto_respawn)
+
+func place_results():
+	pass
 func movement(_player, _dir):
 	if _player == 1:
 		if Player_Stats.p1["in_play"]:

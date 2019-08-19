@@ -31,7 +31,7 @@ var p7_controller
 var p8_controller
 
 var is_game_over = false 
-var end_game_score = 2
+var end_game_score = 1
 
 var map
 var hud

@@ -26,6 +26,7 @@ bus = "SFX"
 
 [node name="Laser_Empty" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+bus = "SFX"
 
 [node name="RPG_Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
@@ -33,15 +34,19 @@ bus = "SFX"
 
 [node name="AK_Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
+bus = "SFX"
 
 [node name="Sniper_Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
+bus = "SFX"
 
 [node name="Mega_Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 8 )
+bus = "SFX"
 
 [node name="Gun_Click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
+bus = "SFX"
 
 [node name="EX_Brick" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
@@ -53,3 +58,4 @@ bus = "SFX"
 
 [node name="EX_Standard" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
+bus = "SFX"
