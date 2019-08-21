@@ -33,6 +33,7 @@ func _process(delta):
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
 	print("time left: ",_time," in ", my_name)
+	player = _player
 	if _ammo == 0:
 		ammo = 0
 		pin.visible = false

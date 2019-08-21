@@ -127,25 +127,49 @@ func _ready():
 func set_places():
 	var _places = Player_Stats.get_places()
 	print(_places)
+	var first_num = 1 
+	var mid_num = 0
+	var last_num = 0
 	for _p in _places.size():
-		if _places[_p].x == 1:
-			p1_results.set_place(_p + 1)
-		elif _places[_p].x == 2:
-			p2_results.set_place(_p + 1)
-		elif _places[_p].x == 3:
-			p3_results.set_place(_p + 1)
-		elif _places[_p].x == 4:
-			p4_results.set_place(_p + 1)
-		elif _places[_p].x == 5:
-			p5_results.set_place(_p + 1)
-		elif _places[_p].x == 6:
-			p6_results.set_place(_p + 1)
-		elif _places[_p].x == 7:
-			p7_results.set_place(_p + 1)
-		elif _places[_p].x == 8:
-			p8_results.set_place(_p + 1)
-#	for j in range(_players):
-#		spawn_player_contoller(j+1, auto_respawn)
+		first_num = _places[_p].y
+		if first_num != last_num:
+			if _places[_p].x == 1:
+				p1_results.set_place(_p + 1)
+			elif _places[_p].x == 2:
+				p2_results.set_place(_p + 1)
+			elif _places[_p].x == 3:
+				p3_results.set_place(_p + 1)
+			elif _places[_p].x == 4:
+				p4_results.set_place(_p + 1)
+			elif _places[_p].x == 5:
+				p5_results.set_place(_p + 1)
+			elif _places[_p].x == 6:
+				p6_results.set_place(_p + 1)
+			elif _places[_p].x == 7:
+				p7_results.set_place(_p + 1)
+			elif _places[_p].x == 8:
+				p8_results.set_place(_p + 1)
+			mid_num = 0
+		elif first_num == last_num:
+			mid_num += 1
+			if _places[_p].x == 1:
+				p1_results.set_place((_p - mid_num) + 1)
+			elif _places[_p].x == 2:
+				p2_results.set_place((_p - mid_num) + 1)
+			elif _places[_p].x == 3:
+				p3_results.set_place((_p - mid_num) + 1)
+			elif _places[_p].x == 4:
+				p4_results.set_place((_p - mid_num) + 1)
+			elif _places[_p].x == 5:
+				p5_results.set_place((_p - mid_num) + 1)
+			elif _places[_p].x == 6:
+				p6_results.set_place((_p - mid_num) + 1)
+			elif _places[_p].x == 7:
+				p7_results.set_place((_p - mid_num) + 1)
+			elif _places[_p].x == 8:
+				p8_results.set_place((_p - mid_num) + 1)
+		last_num = first_num
+
 
 func place_results():
 	pass
