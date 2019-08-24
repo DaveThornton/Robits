@@ -96,7 +96,7 @@ var shoot_spot = 3
 var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
-var walk_speed = 180
+var walk_speed = 200
 var starting_walk_speed
 
 #--------------------------------------------------------        JUMP
