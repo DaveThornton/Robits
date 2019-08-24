@@ -96,7 +96,7 @@ var shoot_spot = 3
 var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
-var walk_speed = 18000
+var walk_speed = 180
 var starting_walk_speed
 
 #--------------------------------------------------------        JUMP
@@ -215,9 +215,10 @@ func _process(delta):
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
 # warning-ignore:return_value_discarded
-	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
+#	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 
 func _physics_process(delta):
+	move_and_slide(Vector2(vel.x + knocked_back.x , 0 + knocked_back.y ))#* delta))
 	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
 	if on_floor:
@@ -225,22 +226,23 @@ func _physics_process(delta):
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
 # warning-ignore:return_value_discarded
+#	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 	move_and_collide(vel)
 
-func move_x(_moving, _right, delta):
+func move_x(_moving, _right):
 	if _moving:
 		if is_down:
 			if can_move:
 				if _right:
-					vel.x = walk_speed * speed_power_up / 3 * delta
+					vel.x = walk_speed * speed_power_up / 3 #* delta
 				else:
-					vel.x = -walk_speed * speed_power_up / 3 * delta
+					vel.x = -walk_speed * speed_power_up / 3 #* delta
 		else:
 			if can_move:
 				if _right:
-					vel.x = walk_speed * speed_power_up * delta
+					vel.x = walk_speed * speed_power_up #* delta
 				else:
-					vel.x = -walk_speed * speed_power_up * delta
+					vel.x = -walk_speed * speed_power_up #* delta
 	else:
 		vel.x = 0
 

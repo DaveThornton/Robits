@@ -1,57 +1,4 @@
 extends KinematicBody2D
-#export(PackedScene) var gun_01
-#export(PackedScene) var gun_02
-#export(PackedScene) var gun_03
-#export(PackedScene) var gun_04
-##export(PackedScene) var gun_05
-##export(PackedScene) var gun_06
-##export(PackedScene) var gun_07
-##export(PackedScene) var gun_08
-##export(PackedScene) var gun_09
-#export(PackedScene) var gun_10
-#export(PackedScene) var gun_11
-##export(PackedScene) var gun_12
-##export(PackedScene) var gun_13
-##export(PackedScene) var gun_14
-##export(PackedScene) var gun_15
-##export(PackedScene) var gun_16
-##export(PackedScene) var gun_17
-##export(PackedScene) var gun_18
-##export(PackedScene) var gun_19
-#export(PackedScene) var gun_20
-#export(PackedScene) var gun_21
-#export(PackedScene) var gun_22
-#export(PackedScene) var gun_23
-##export(PackedScene) var gun_24
-##export(PackedScene) var gun_25
-##export(PackedScene) var gun_26
-##export(PackedScene) var gun_27
-##export(PackedScene) var gun_28
-##export(PackedScene) var gun_29
-##export(PackedScene) var gun_30
-##export(PackedScene) var gun_31
-##export(PackedScene) var gun_32
-##export(PackedScene) var gun_33
-##export(PackedScene) var gun_34
-##export(PackedScene) var gun_35
-##export(PackedScene) var gun_36
-##export(PackedScene) var gun_37
-##export(PackedScene) var gun_38
-##export(PackedScene) var gun_39
-#export(PackedScene) var gun_40
-##export(PackedScene) var gun_41
-##export(PackedScene) var gun_42
-##export(PackedScene) var gun_43
-##export(PackedScene) var gun_44
-##export(PackedScene) var gun_45
-##export(PackedScene) var gun_46
-##export(PackedScene) var gun_47
-##export(PackedScene) var gun_48
-##export(PackedScene) var gun_49
-#export(PackedScene) var gun_50
-#export(PackedScene) var gun_60
-#export(PackedScene) var gun_61
-#export(PackedScene) var gun_80
 
 export var move_speed_time_needed = .15
 export var deceleration_time_needed = .25
@@ -83,6 +30,8 @@ onready var ray_left_down = $RayCast2D_Left_Down
 onready var ray_left = $RayCast2D_Left
 onready var ray_down_plat = $RayCast2D
 onready var ray_plat_test = $RayCast2D_Plat_Test
+onready var ray_wall_r = $RayCast2D_On_Wall_R
+onready var ray_wall_l = $RayCast2D_On_Wall_L
 
 var player = 1
 var play_type = 2
@@ -96,7 +45,7 @@ var shoot_spot = 3
 var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
-var walk_speed = 10000
+var walk_speed = 100
 var starting_walk_speed
 
 #--------------------------------------------------------        JUMP
@@ -215,9 +164,10 @@ func _process(delta):
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
 # warning-ignore:return_value_discarded
-	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
+#	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 
 func _physics_process(delta):
+	move_and_slide(Vector2(vel.x + knocked_back.x , 0 + knocked_back.y ))#* delta))
 	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
 	if on_floor:
@@ -225,22 +175,23 @@ func _physics_process(delta):
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
 # warning-ignore:return_value_discarded
+#	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 	move_and_collide(vel)
 
-func move_x(_moving, _right, delta):
+func move_x(_moving, _right):
 	if _moving:
 		if is_down:
 			if can_move:
 				if _right:
-					vel.x = walk_speed * speed_power_up / 3 * delta
+					vel.x = walk_speed * speed_power_up / 3 #* delta
 				else:
-					vel.x = -walk_speed * speed_power_up / 3 * delta
+					vel.x = -walk_speed * speed_power_up / 3 #* delta
 		else:
 			if can_move:
 				if _right:
-					vel.x = walk_speed * speed_power_up * delta
+					vel.x = walk_speed * speed_power_up #* delta
 				else:
-					vel.x = -walk_speed * speed_power_up * delta
+					vel.x = -walk_speed * speed_power_up #* delta
 	else:
 		vel.x = 0
 
@@ -316,52 +267,6 @@ func start_next_level():
 
 func equip_weap(_weap_num, _ammo_pick_up, _time_left):
 	var g = Equipment.get_weap_hold(_weap_num).instance()
-#	if _weap_num == 1:
-#		g = gun_01.instance()
-#		take_ammo = false
-#	if _weap_num == 2:
-#		g = gun_02.instance()
-#		take_ammo = true
-#	elif _weap_num == 3:
-#		g = gun_03.instance()
-#		take_ammo = true
-#	elif _weap_num == 4:
-#		g = gun_04.instance()
-#		take_ammo = true
-#	elif _weap_num == 10:
-#		g = gun_10.instance()
-#		take_ammo = true
-#	elif _weap_num == 11:
-#		g = gun_11.instance()
-#		take_ammo = true
-#	elif _weap_num == 20:
-#		g = gun_20.instance()
-#		take_ammo = false
-#	elif _weap_num == 21:
-#		g = gun_21.instance()
-#		take_ammo = false
-#	elif _weap_num == 22:
-#		g = gun_22.instance()
-#		take_ammo = false
-#	elif _weap_num == 23:
-#		g = gun_23.instance()
-#		take_ammo = false
-#	elif _weap_num == 40:
-#		g = gun_40.instance()
-#		take_ammo = true
-#	elif _weap_num == 50:
-#		g = gun_50.instance()
-#		take_ammo = true
-#		g.just_shot = poss_pick_obj.just_shot
-#	elif _weap_num == 60:
-#		g = gun_60.instance()
-#		take_ammo = false
-#	elif _weap_num == 61:
-#		g = gun_61.instance()
-#		take_ammo = false
-#	elif _weap_num == 80:
-#		g = gun_80.instance()
-#		take_ammo = false
 	gun_pos.add_child(g)
 	g.init(_ammo_pick_up, player, _time_left)
 	my_gun = g
@@ -379,7 +284,13 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			if !is_down:
 				ray_down_plat.enabled = true
 				if right_input || left_input:
-					_anim_run()
+					if ray_wall_l.is_colliding() && !is_right || ray_wall_r.is_colliding() && is_right:
+						if !on_floor && jump_input:
+							_wall_kick(is_right)
+						else:
+							_anim_run()
+					else:
+						_anim_run()
 					if up_input:
 						shoot_spot = 2
 					elif down_input:
@@ -692,3 +603,12 @@ func _on_Ladder_Area2D_body_entered(body):
 
 func _on_Ladder_Area2D_body_exited(body):
 	ladder_count.erase(body)
+
+func _wall_kick(_right):
+	print("kickin walls fucker")
+	self.position.y += .5
+	vel.y += -.5
+	if _right:
+		vel.x += -200
+	else:
+		vel.x += 200

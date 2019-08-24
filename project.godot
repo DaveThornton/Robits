@@ -31,7 +31,6 @@ SFX="*res://Scenes/Misc/Singleton_SFX_Lib.tscn"
 
 [debug]
 
-settings/fps/force_fps=60
 settings/stdout/print_fps=true
 
 [display]

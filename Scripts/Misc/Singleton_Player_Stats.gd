@@ -105,6 +105,7 @@ var p8 = {
 }
 
 var hud
+var p_in_p = 0
 
 signal hud_update(_p1,_p2,_p3,_p4,_p5,_p6,_p7,_p8)
 
@@ -244,31 +245,40 @@ func ammo_update(_player, _ammo):
 		hud.update_p8_ammo(_ammo)
 
 func get_places():
+	p_in_p = 0
 	var _places =[]
 	if p1["in_play"]:
 		var _p1score = Vector2(1, p1["score"])
 		_places.append(_p1score)
+		p_in_p += 1
 	if p2["in_play"]:
 		var _p2score = Vector2(2, p2["score"])
 		_places.append(_p2score)
+		p_in_p += 1
 	if p3["in_play"]:
 		var _p3score = Vector2(3, p3["score"])
 		_places.append(_p3score)
+		p_in_p += 1
 	if p4["in_play"]:
 		var _p4score = Vector2(4, p4["score"])
 		_places.append(_p4score)
+		p_in_p += 1
 	if p5["in_play"]:
 		var _p5score = Vector2(5, p5["score"])
 		_places.append(_p5score)
+		p_in_p += 1
 	if p6["in_play"]:
 		var _p6score = Vector2(6, p6["score"])
 		_places.append(_p6score)
+		p_in_p += 1
 	if p7["in_play"]:
 		var _p7score = Vector2(7, p7["score"])
 		_places.append(_p7score)
+		p_in_p += 1
 	if p8["in_play"]:
 		var _p8score = Vector2(8, p8["score"])
 		_places.append(_p8score)
+		p_in_p += 1
 	_places.sort_custom(self,"sort_place")
 	return _places
 

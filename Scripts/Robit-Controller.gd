@@ -204,14 +204,14 @@ func _process(delta):
 			if alive:
 				if right_input && !left_input:
 					if !hold_input:
-						my_pawn.move_x(true, true, delta)
+						my_pawn.move_x(true, true)
 					my_pawn.is_right = true
 				if left_input && !right_input:
 					if!hold_input:
-						my_pawn.move_x(true, false, delta)
+						my_pawn.move_x(true, false)
 					my_pawn.is_right = false
 				if !left_input && !right_input:
-					my_pawn.move_x(false, false, delta)
+					my_pawn.move_x(false, false)
 				if jump_input:
 					my_pawn.jump(down_input)
 				if jump_rel:

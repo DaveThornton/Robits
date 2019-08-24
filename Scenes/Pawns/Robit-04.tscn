@@ -9,10 +9,10 @@
 extents = Vector2( 8, 22 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10, 22 )
+extents = Vector2( 7.79235, 22 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 31.5336, 8 )
+extents = Vector2( 20.9118, 8 )
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 21.9999
@@ -36,7 +36,7 @@ position = Vector2( 1, -10 )
 texture = ExtResource( 2 )
 vframes = 5
 hframes = 16
-frame = 3
+frame = 32
 
 [node name="Sprite_Shield" type="Sprite" parent="."]
 visible = false
@@ -44,12 +44,12 @@ position = Vector2( 1, -10 )
 texture = ExtResource( 3 )
 vframes = 5
 hframes = 16
-frame = 3
+frame = 32
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 4 )]
 
 [node name="Position2D-Arm-Gun" type="Position2D" parent="."]
-position = Vector2( 0, -7 )
+position = Vector2( 2, -7 )
 
 [node name="Shield_Timer" type="Timer" parent="."]
 
@@ -87,7 +87,6 @@ shape = SubResource( 3 )
 disabled = true
 
 [node name="RayCast2D_Up" type="RayCast2D" parent="."]
-visible = false
 position = Vector2( 0, -22 )
 rotation = 3.14159
 enabled = true
@@ -95,82 +94,66 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 8
 
 [node name="RayCast2D_Down" type="RayCast2D" parent="."]
-visible = false
 position = Vector2( -6, 20 )
 enabled = true
 cast_to = Vector2( 0, 8 )
 collision_mask = 14
 
 [node name="RayCast2D_Down2" type="RayCast2D" parent="."]
-visible = false
 position = Vector2( 6, 20 )
 enabled = true
 cast_to = Vector2( 0, 8 )
 collision_mask = 12
 
 [node name="RayCast2D_Left" type="RayCast2D" parent="."]
-visible = false
 position = Vector2( -8, 3 )
 enabled = true
 cast_to = Vector2( -20, 0 )
 collision_mask = 12
 
 [node name="RayCast2D_Left_Down" type="RayCast2D" parent="."]
-visible = false
 position = Vector2( -9, -5 )
 enabled = true
 cast_to = Vector2( -11, 11 )
 collision_mask = 12
 
 [node name="RayCast2D_Right" type="RayCast2D" parent="."]
-visible = false
 position = Vector2( 8, 3 )
 enabled = true
 cast_to = Vector2( 20, 0 )
 collision_mask = 12
 
 [node name="RayCast2D_Right_Down" type="RayCast2D" parent="."]
-visible = false
 position = Vector2( 9, -5 )
 enabled = true
 cast_to = Vector2( 11, 11 )
 collision_mask = 12
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-visible = false
 position = Vector2( 0, 14 )
 cast_to = Vector2( 0, 8 )
 collision_mask = 16
 
 [node name="RayCast2D_Plat_Test" type="RayCast2D" parent="."]
-visible = false
 position = Vector2( 0, 20 )
 enabled = true
 cast_to = Vector2( 0, 8 )
 collision_mask = 16
 
-[node name="RayCast2D_Plat_Up" type="RayCast2D" parent="."]
-visible = false
-position = Vector2( 0, 15 )
+[node name="RayCast2D_On_Wall_L" type="RayCast2D" parent="."]
+position = Vector2( -8, 0 )
 enabled = true
-cast_to = Vector2( 0, -38 )
-collision_mask = 4
+cast_to = Vector2( -2, 0 )
+collision_mask = 8
 
-[node name="RayCast2D_Plat_Up2" type="RayCast2D" parent="."]
-visible = false
-position = Vector2( 0, 15 )
+[node name="RayCast2D_On_Wall_R" type="RayCast2D" parent="."]
+position = Vector2( 8, 0 )
 enabled = true
-cast_to = Vector2( 7, -35 )
-collision_mask = 4
-
-[node name="RayCast2D_Plat_Up3" type="RayCast2D" parent="."]
-visible = false
-position = Vector2( 0, 15 )
-enabled = true
-cast_to = Vector2( -7, -35 )
-collision_mask = 4
+cast_to = Vector2( 2, 0 )
+collision_mask = 8
 
 [node name="Grab_Area2D" type="Area2D" parent="."]
+editor/display_folded = true
 visible = false
 collision_layer = 262144
 collision_mask = 851968

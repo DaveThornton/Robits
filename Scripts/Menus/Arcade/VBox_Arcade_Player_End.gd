@@ -50,9 +50,11 @@ func _ready():
 
 func set_place(_place):
 	if _place == 1:
-		place_label.text = "  first place"
+		place_label.text = "first place"
+	elif _place == Player_Stats.p_in_p:
+		place_label.text = "Last!?!"
 	elif _place == 2:
-		place_label.text = "first looser"
+		place_label.text = "first loser"
 	elif _place == 3:
 		place_label.text = "turd place"
 	elif _place == 4:
@@ -63,8 +65,8 @@ func set_place(_place):
 		place_label.text = "sixth place"
 	elif _place == 7:
 		place_label.text = "7th"
-	elif _place == 8:
-		place_label.text = "Last!?!"
+#	elif _place == 8:
+#		place_label.text = "Last!?!"
 
 func player1():
 	pawn_num = player_con.pawn_num
