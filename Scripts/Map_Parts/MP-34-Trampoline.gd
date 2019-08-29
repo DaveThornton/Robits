@@ -1,7 +1,7 @@
 extends Node2D
 onready var anim = $AnimationPlayer
 onready var node_timers = $Node2D_Timers
-export var bounce = 100000
+export var bounce = 1000
 export var duration = 1
 
 var players = []
@@ -11,7 +11,7 @@ func _process(delta):
 	if players.size() > 0:
 		for p in players.size():
 			if is_instance_valid(players[p]):
-				players[p].move_and_slide(Vector2(0, -bounce * timers[0].time_left * delta))
+				players[p].move_and_slide(Vector2(0, -bounce * timers[0].time_left))
 			else:
 				time_out()
 

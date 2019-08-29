@@ -197,6 +197,7 @@ func spawn_player_contoller(player_num, _auto_respawn):
 #	z.connect("player_score", self, "player_scores") 
 	z.connect("coin_insert", self, "coin_insert")
 	z.connect("use_credit", self, "use_credit")
+	z.pawn_num = player_num
 #warning-ignore:return_value_discarded
 	self.connect("game_over", z, "game_over")
 #warning-ignore:return_value_discarded

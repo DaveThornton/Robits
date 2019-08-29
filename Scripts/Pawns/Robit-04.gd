@@ -268,6 +268,7 @@ func start_next_level():
 func equip_weap(_weap_num, _ammo_pick_up, _time_left):
 	var g = Equipment.get_weap_hold(_weap_num).instance()
 	gun_pos.add_child(g)
+	take_ammo = g.take_ammo
 	g.init(_ammo_pick_up, player, _time_left)
 	my_gun = g
 	is_holding = true

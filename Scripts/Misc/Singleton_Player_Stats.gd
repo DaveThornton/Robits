@@ -162,6 +162,8 @@ func add_score(_player, _score_amount):
 		p7["score"] += _score_amount
 	elif _player == 8:
 		p8["score"] += _score_amount
+	elif _player == -1:
+		print("singleton_player_stats map kill")
 	else:
 		print("Error in Singleton_Player_Stats add_score function invalid player number. ", _player, " <---player number.. score amount--->", _score_amount)
 

@@ -1,0 +1,209 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Scripts/FX/FX-06-Trash.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Map_Parts/MP-80-Junk.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 4.42154
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2.85125, 5.06325 )
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 5.0494
+height = 5.88943
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 5.0555
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 4.00266, 5.37727 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8.2943, 2.23705 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 3.06059, 5.79597 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 2.6419, 7.78477 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 3.58397, 5.48194 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 5.04941, 5.79597 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+
+[sub_resource type="CapsuleShape2D" id=12]
+radius = 2.33971
+height = 7.3307
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 7.8756, 7.78477 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 6.93353, 4.4352 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 2.74658, 6.94738 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 2.85126, 7.36608 )
+
+[sub_resource type="CapsuleShape2D" id=18]
+radius = 2.85126
+height = 8.82029
+
+[sub_resource type="CircleShape2D" id=19]
+radius = 6.82898
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 7.35223, 6.52868 )
+
+[node name="FX-06-Trash" type="RigidBody2D" groups=[
+"FX",
+]]
+collision_layer = 131072
+collision_mask = 131100
+gravity_scale = 9.0
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 8
+
+[node name="col_2d_00" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+disabled = true
+
+[node name="col_2d_01" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 2.61685 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="col_2d_02" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 1.57011, 2.8262 )
+shape = SubResource( 3 )
+disabled = true
+
+[node name="col_2d_03" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.314018, -0.209349 )
+shape = SubResource( 4 )
+disabled = true
+
+[node name="col_2d_04" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 3.03554 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="col_2d_05" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.314018, 6.07109 )
+shape = SubResource( 6 )
+disabled = true
+
+[node name="col_2d_06" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.209343, 2.09348 )
+shape = SubResource( 7 )
+disabled = true
+
+[node name="col_2d_07" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 7.62939e-006, 0.314022 )
+shape = SubResource( 8 )
+disabled = true
+
+[node name="col_2d_08" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.104675, 2.09348 )
+shape = SubResource( 9 )
+disabled = true
+
+[node name="col_2d_09" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 1.88412, 0.418699 )
+shape = SubResource( 10 )
+disabled = true
+
+[node name="col_2d_10" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.628044, -2.51217 )
+rotation = 0.93026
+shape = SubResource( 11 )
+disabled = true
+
+[node name="col_2d_11" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.104675, 3.97762 )
+rotation = 1.5708
+shape = SubResource( 12 )
+disabled = true
+
+[node name="col_2d_12" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.94207, 1.98881 )
+rotation = -0.785398
+shape = SubResource( 12 )
+disabled = true
+
+[node name="col_2d_13" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 13 )
+disabled = true
+
+[node name="col_2d_14" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.94207, 3.66359 )
+shape = SubResource( 14 )
+disabled = true
+
+[node name="col_2d_15" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.104675, 0.418697 )
+shape = SubResource( 15 )
+disabled = true
+
+[node name="col_2d_16" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.104675, 0.418697 )
+shape = SubResource( 16 )
+disabled = true
+
+[node name="col_2d_17" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.104675, 0.418697 )
+shape = SubResource( 17 )
+disabled = true
+
+[node name="col_2d_18" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.314018, 0.942068 )
+shape = SubResource( 18 )
+disabled = true
+
+[node name="col_2d_19" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.104675, 0.628046 )
+shape = SubResource( 19 )
+disabled = true
+
+[node name="col_2d_20" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -0.104675, 0.628046 )
+shape = SubResource( 20 )
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
