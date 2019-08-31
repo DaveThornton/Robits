@@ -146,6 +146,8 @@ func _on_Area2D_Melee_body_entered(body):
 func throw():
 	var t = ak47_Pickup.instance()
 	Map_Hand.add_kid_to_map(t)
+	if shoot_pos == 6:
+		pos_throw.position.x = 40
 #	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
@@ -178,24 +180,26 @@ func _throw_where(_obj):
 	if is_right:
 		if shoot_pos == 1:
 			_obj.apply_impulse(pos_throw.position, Vector2(100, -700))
-		if shoot_pos == 2:
+		elif shoot_pos == 2:
 			_obj.apply_impulse(pos_throw.position, Vector2(600, -400))
-		if shoot_pos == 3 ||shoot_pos == 6:
+		elif shoot_pos == 3 || shoot_pos == 6:
 			_obj.apply_impulse(pos_throw.position, Vector2(600, -200))
-		if shoot_pos == 4:
+		elif shoot_pos == 4:
 			_obj.apply_impulse(pos_throw.position, Vector2(600, 200))
-		if shoot_pos == 5:
+		elif shoot_pos == 5:
 			_obj.apply_impulse(pos_throw.position, Vector2(100, 700))
+#		elif shoot_pos == 6:
+#			_obj.apply_impulse(pos_throw.position, Vector2(600, -200))
 	else:
 		if shoot_pos == 1:
 			_obj.apply_impulse(pos_throw.position, Vector2(-100, -700))
-		if shoot_pos == 2:
+		elif shoot_pos == 2:
 			_obj.apply_impulse(pos_throw.position, Vector2(-600, -400))
-		if shoot_pos == 3 ||shoot_pos == 6:
+		elif shoot_pos == 3 ||shoot_pos == 6:
 			_obj.apply_impulse(pos_throw.position, Vector2(-600, -200))
-		if shoot_pos == 4:
+		elif shoot_pos == 4:
 			_obj.apply_impulse(pos_throw.position, Vector2(-600, 200))
-		if shoot_pos == 5:
+		elif shoot_pos == 5:
 			_obj.apply_impulse(pos_throw.position, Vector2(-100, 700))
 
 func _drop_where(_obj):

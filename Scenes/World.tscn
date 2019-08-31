@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Robit-Controller.tscn" type="PackedScene" id=2]
@@ -6,10 +6,11 @@
 [ext_resource path="res://Menus/Arcade/Arcade_Game_over.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Menus/Console-PC/Console_Start.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Menus/Console-PC/Console_Game_over.tscn" type="PackedScene" id=6]
-[ext_resource path="res://map/Campaign-mode/Map-C-00-Trash_Compactor.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sprites/BackGroundSpace-01.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/Level_Loader.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Misc/Black_Side_Pannel.png" type="Texture" id=10]
+[ext_resource path="res://map/Map-09-Red_Eye.tscn" type="PackedScene" id=7]
+[ext_resource path="res://map/Campaign-mode/Map-C-00-Trash_Compactor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/BackGroundSpace-01.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Level_Loader.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sprites/Misc/Black_Side_Pannel.png" type="Texture" id=11]
 
 [node name="World" type="Node"]
 pause_mode = 1
@@ -20,14 +21,14 @@ arcade_end = ExtResource( 4 )
 console_start = ExtResource( 5 )
 console_end = ExtResource( 6 )
 demo_map = ExtResource( 7 )
-campaign_map = ExtResource( 7 )
+campaign_map = ExtResource( 8 )
 game_mode = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
 scale = Vector2( 3.75, 2.10937 )
 z_index = -40
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="players" type="Node" parent="."]
 
@@ -35,7 +36,7 @@ texture = ExtResource( 8 )
 
 [node name="Clearing_House" type="Node2D" parent="."]
 
-[node name="Level_Loader" parent="." instance=ExtResource( 9 )]
+[node name="Level_Loader" parent="." instance=ExtResource( 10 )]
 
 [node name="Line2D" type="Line2D" parent="."]
 visible = false
@@ -50,5 +51,5 @@ autostart = true
 visible = false
 position = Vector2( -170, 543.761 )
 z_index = 100
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
