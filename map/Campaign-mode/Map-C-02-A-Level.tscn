@@ -25,6 +25,7 @@
 height = 168.0
 
 [node name="Map-C-02-Armory" type="Node2D"]
+pause_mode = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_vertical_guides_": [ 38.1926 ]
@@ -83,6 +84,7 @@ collision_mask = 32
 format = 1
 
 [node name="MP-04-Nav2D" parent="." instance=ExtResource( 6 )]
+editor/display_folded = true
 visible = false
 
 [node name="TileMap" type="TileMap" parent="MP-04-Nav2D"]
@@ -99,6 +101,7 @@ position = Vector2( 420, 654 )
 shape = SubResource( 1 )
 
 [node name="Player_spawns" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Position2D20" type="Position2D" parent="Player_spawns"]
 position = Vector2( 100, 700 )
@@ -132,6 +135,7 @@ position = Vector2( 330, 700 )
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
+editor/display_folded = true
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 9 )]
 
@@ -141,11 +145,9 @@ position = Vector2( 1016.51, 1127.47 )
 [node name="MP-15-Level_Change-01-Door" parent="Map_parts" instance=ExtResource( 11 )]
 position = Vector2( 1800, 740 )
 level_to_load_1 = ExtResource( 12 )
-show_splash_1 = true
 text_title_1 = "To Robits!!!!!"
 text_body_1 = "Play Ball!!!!!"
 level_to_load_2 = ExtResource( 13 )
-show_splash_2 = true
 
 [node name="R_Marks" type="Node2D" parent="Map_parts"]
 editor/display_folded = true
@@ -215,4 +217,5 @@ position = Vector2( 1190, 660 )
 z_index = 25
 
 [node name="Level_Load_Screen" parent="Splash" instance=ExtResource( 20 )]
+pause_mode = 2
 visible = false

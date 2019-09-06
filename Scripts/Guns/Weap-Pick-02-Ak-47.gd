@@ -43,42 +43,35 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 func _on_WeapPick02Ak47_body_shape_entered(body_id, body, body_shape, local_shape):
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
-	else:#
+	else:
+#		print("weap 02 hit non player")
 		self.set_collision_mask_bit( 1, false)
 
 func set_dir(_is_right, _dir):
 	if _is_right:
+		sprite.frame = 0
 		if _dir == 1:
 			self.rotation_degrees = -85
-			sprite.scale.y = my_scale
 		elif _dir == 2:
 			self.rotation_degrees = -45
-			sprite.scale.y = my_scale
 		elif _dir == 3 || _dir == 6:
 			self.rotation_degrees = 9
-			sprite.scale.y = my_scale
 		elif _dir == 4:
 			self.rotation_degrees = 45
-			sprite.scale.y = my_scale
 		elif _dir == 5:
 			self.rotation_degrees = 85
-			sprite.scale.y = my_scale
 	else:
+		sprite.frame = 1
 		if _dir == 1:
 			self.rotation_degrees = -95
-			sprite.scale.y = -my_scale
 		elif _dir == 2:
 			self.rotation_degrees = -135
-			sprite.scale.y = -my_scale
 		elif _dir == 3 || _dir == 6:
 			self.rotation_degrees = -171
-			sprite.scale.y = -my_scale
 		elif _dir == 4:
 			self.rotation_degrees = -220
-			sprite.scale.y = -my_scale
 		elif _dir == 5:
 			self.rotation_degrees = -265
-			sprite.scale.y = -my_scale
 
 func _on_Timer_timeout():
 	print("gun number: ", gun_num, " *poof*")

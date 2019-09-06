@@ -147,8 +147,7 @@ func throw():
 	var t = ak47_Pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 	if shoot_pos == 6:
-		pos_throw.position.x = 40
-#	self.get_tree().get_current_scene().add_kid_to_map(t)
+		pos_throw.position.x = 30
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	_throw_where(t)

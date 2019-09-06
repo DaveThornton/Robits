@@ -10,17 +10,17 @@
 bounce = 0.25
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 6.03744
+radius = 6.0
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 1.45894
-height = 6.86675
+radius = 1.5
+height = 7.0
 
 [sub_resource type="Animation" id=4]
 
 [node name="Weap-Pick-21-Nazi-Grenade" type="RigidBody2D" groups=[
-"PickUp",
 "FX",
+"PickUp",
 ]]
 position = Vector2( 0.00648499, -0.452273 )
 collision_layer = 524288

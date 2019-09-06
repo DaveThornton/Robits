@@ -148,6 +148,7 @@ position = Vector2( 120, 747 )
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
+editor/display_folded = true
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 10 )]
 
@@ -157,7 +158,6 @@ position = Vector2( 1016.51, 1127.47 )
 [node name="MP-15-Level_Change-01-Door" parent="Map_parts" instance=ExtResource( 12 )]
 position = Vector2( 1560, 700 )
 level_to_load_1 = ExtResource( 13 )
-show_splash_1 = true
 text_title_1 = "you survived the jail break "
 text_body_1 = "now on to the next level"
 
@@ -214,6 +214,7 @@ position = Vector2( 750, 880 )
 open_for_player = false
 
 [node name="BadGuys" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="BG-02-Open_Gunner-01" parent="BadGuys" instance=ExtResource( 15 )]
 position = Vector2( 1580, 920 )
@@ -232,8 +233,8 @@ position = Vector2( 1476.98, 1060.75 )
 active = false
 
 [node name="Splash" type="Node2D" parent="."]
-editor/display_folded = true
 z_index = 500
 
 [node name="Level_Load_Screen" parent="Splash" instance=ExtResource( 16 )]
+pause_mode = 2
 visible = false

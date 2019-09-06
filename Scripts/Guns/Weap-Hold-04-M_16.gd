@@ -153,6 +153,8 @@ func _on_Area2D_Melee_body_entered(body):
 func throw():
 	var t = m16_Pickup.instance()
 	Map_Hand.add_kid_to_map(t)
+	if shoot_pos == 6:
+		pos_throw.position.x = 30
 #	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

@@ -2,20 +2,19 @@
 
 [ext_resource path="res://Scripts/Guns/Weap-Pick-02-Ak-47.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Guns/Weap-02-AK-47.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/Weap-02-Pick-Ak-47.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 7.07653
-height = 30.8838
+radius = 5.0
+height = 15.0
 
 [node name="Weap-Pick-02-Ak-47" type="RigidBody2D" groups=[
-"PickUp",
 "FX",
+"PickUp",
 ]]
-position = Vector2( -1.16385, 0.630419 )
 collision_layer = 524288
 collision_mask = 917534
 physics_material_override = SubResource( 1 )
@@ -26,19 +25,12 @@ contact_monitor = true
 script = ExtResource( 1 )
 smoke = ExtResource( 2 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2( 0.1, 0.1 )
-polygon = PoolVector2Array( -5.60818, -2.76778, 3.99362, -2.5738, 12.5286, -1.31296, 12.771, 0.869264, 5.30295, 7.36745, -9.63317, 3.09999, -16.0344, 3.82739, -14.4826, -2.23435, -7.15998, -0.682542 )
-disabled = true
-
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.0969925, -0.0969887 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
-hframes = 5
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.01838, 1.89127 )
 rotation = 1.5708
 shape = SubResource( 2 )
 

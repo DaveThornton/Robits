@@ -8,7 +8,12 @@ pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_Camp_Load" type="Timer" parent="."]
+one_shot = true
 
 [node name="Level_Load_Screen" parent="." instance=ExtResource( 2 )]
 visible = false
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer_Camp_Load" to="." method="_on_Timer_Camp_Load_timeout"]

@@ -76,6 +76,7 @@ one_shot = true
 
 [node name="CollisionShape2D-Stand" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+disabled = true
 
 [node name="CollisionShape2D-Run" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )

@@ -23,9 +23,9 @@ radius = 5.04766
 height = 41.3699
 
 [node name="Robit-03" type="KinematicBody2D" groups=[
-"ladder",
 "player",
 "hittable",
+"ladder",
 ]]
 collision_layer = 2
 collision_mask = 66078
@@ -76,6 +76,7 @@ one_shot = true
 
 [node name="CollisionShape2D-Stand" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+disabled = true
 
 [node name="CollisionShape2D-Run" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )

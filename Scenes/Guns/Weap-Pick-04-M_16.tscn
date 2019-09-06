@@ -8,12 +8,12 @@
 bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 7.07653
-height = 30.8838
+radius = 5.0
+height = 15.0
 
 [node name="Weap-Pick-04-M_16" type="RigidBody2D" groups=[
-"PickUp",
 "FX",
+"PickUp",
 ]]
 position = Vector2( -1.16385, 0.630419 )
 collision_layer = 524288
@@ -25,11 +25,6 @@ contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
 smoke = ExtResource( 2 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-scale = Vector2( 0.1, 0.1 )
-polygon = PoolVector2Array( -5.60818, -2.76778, 3.99362, -2.5738, 12.5286, -1.31296, 12.771, 0.869264, 5.30295, 7.36745, -9.63317, 3.09999, -16.0344, 3.82739, -14.4826, -2.23435, -7.15998, -0.682542 )
-disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.0969925, -0.0969887 )
@@ -44,6 +39,5 @@ shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-
 [connection signal="body_shape_entered" from="." to="." method="_on_WeapPick04M_16_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

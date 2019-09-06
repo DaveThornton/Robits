@@ -33,6 +33,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pos2D_Throw:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Down-Right"
@@ -59,6 +71,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pos2D_Throw:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -87,6 +111,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pos2D_Throw:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 15, 1 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "Left-Down"
@@ -113,6 +149,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pos2D_Throw:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 25, 1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -141,6 +189,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pos2D_Throw:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 22, 1 ) ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Right"
@@ -167,6 +227,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pos2D_Throw:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 15, 1 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -195,6 +267,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pos2D_Throw:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 25, 1 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "Right-Up"
@@ -221,6 +305,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pos2D_Throw:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 22, 1 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -249,6 +345,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pos2D_Throw:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 30, 1 ) ]
+}
 
 [sub_resource type="Animation" id=10]
 resource_name = "Up-Right"
@@ -276,8 +384,22 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pos2D_Throw:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 30, 1 ) ]
+}
 
 [node name="Weap-Hold-20-Grenade" type="Node2D"]
+rotation = -1.39626
+scale = Vector2( -1, 1 )
 script = ExtResource( 1 )
 grenade_pickup = ExtResource( 2 )
 pin = ExtResource( 3 )
@@ -297,9 +419,6 @@ texture = ExtResource( 6 )
 hframes = 11
 frame = 10
 
-[node name="Pos2D_Throw" type="Position2D" parent="."]
-position = Vector2( 26, 1 )
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 
@@ -314,4 +433,7 @@ anims/Right-Down = SubResource( 7 )
 anims/Right-Up = SubResource( 8 )
 anims/Up-Left = SubResource( 9 )
 anims/Up-Right = SubResource( 10 )
+
+[node name="Pos2D_Throw" type="Position2D" parent="."]
+position = Vector2( 40, 1 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

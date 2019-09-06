@@ -7,8 +7,9 @@
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.2
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 9.5838, 4.94451 )
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 6.0
+height = 5.0
 
 [node name="Weap-Pick-10-Blaster_Pistol" type="RigidBody2D" groups=[
 "FX",
@@ -31,7 +32,7 @@ texture = ExtResource( 3 )
 hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+rotation = 1.5708
 shape = SubResource( 2 )
 one_way_collision_margin = 0.0
 
@@ -39,9 +40,6 @@ one_way_collision_margin = 0.0
 wait_time = 0.25
 
 [node name="Timer" type="Timer" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -7.7525, 7.7525, 10.1942, -4.94451, -7.7525, -4.94451 )
 [connection signal="body_shape_entered" from="." to="." method="_on_WeapPick10Blaster_Pistol_body_shape_entered"]
 [connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

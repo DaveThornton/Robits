@@ -8,8 +8,8 @@
 bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 5.06209
-height = 43.212
+radius = 5.0
+height = 15.0
 
 [node name="Weap-Pick-40-RPG" type="RigidBody2D" groups=[
 "FX",

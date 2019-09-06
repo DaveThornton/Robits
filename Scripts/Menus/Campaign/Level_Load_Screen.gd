@@ -9,7 +9,9 @@ func change_text(_top_text, _bottom_text):
 	bottom_label.text = _bottom_text
 
 func start_timer(_time):
+	get_tree().paused = true
 	timer.start(_time)
 
 func _on_Timer_timeout():
 	visible = false
+	get_tree().paused = false

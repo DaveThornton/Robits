@@ -8,9 +8,9 @@ onready var sprite_shield = $Sprite_Shield
 onready var anim = $AnimationPlayer
 onready var gun_pos = $"Position2D-Arm-Gun"
 
-onready var col_stand = $"CollisionShape2D-Stand"
-onready var col_run = $"CollisionShape2D-Run"
-onready var col_prone = $"CollisionShape2D-Prone"
+#onready var col_stand = $"CollisionShape2D-Stand"
+#onready var col_run = $"CollisionShape2D-Run"
+#onready var col_prone = $"CollisionShape2D-Prone"
 
 onready var knockback_timer = $KnockBack_Timer
 onready var shield_timer = $Shield_Timer
@@ -88,7 +88,7 @@ var is_holding = false
 var wep_array = []
 var poss_pick_obj
 var knocked_back = Vector2(0, 0)
-var current_shape
+#var current_shape
 
 var on_ladder = false
 var over_ladder = false
@@ -103,7 +103,7 @@ func _ready():
 	starting_walk_speed = walk_speed
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
-	current_shape = col_stand
+#	current_shape = col_stand
 	var test = self.connect("nrg_update", Player_Stats, "nrg_update")
 	if test != 0:
 		print("error Robit 01 connecting nrg update")
@@ -360,64 +360,64 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			shoot_spot = 1
 
 func _anim_idle():
-	current_shape = col_stand
+#	current_shape = col_stand
 	if is_right:
 		new_anim = "Right-Idle"
 	else:
 		new_anim = "Left-Idle"
 
 func _anim_run():
-	current_shape = col_run
+#	current_shape = col_run
 	if is_right:
 		new_anim = "Right-Run"
 	else:
 		new_anim = "Left-Run"
 
 func _anim_jump():
-	current_shape = col_stand
+#	current_shape = col_stand
 	if is_right:
 		new_anim = "Right-Jump"
 	else:
 		new_anim = "Left-Jump"
 
 func _anim_prone_idle():
-	current_shape = col_prone
+#	current_shape = col_prone
 	if is_right:
 		new_anim = "Right-Prone-Idle"
 	else:
 		new_anim = "Left-Prone-Idle"
 
 func _anim_prone_crawl():
-	current_shape = col_prone
+#	current_shape = col_prone
 	if is_right:
 		new_anim = "Right-Prone-Crawl"
 	else:
 		new_anim = "Left-Prone-Crawl"
 
 func _anim_stun():
-	current_shape = col_run
+#	current_shape = col_run
 	if is_right:
 		new_anim = "Right-Stun"
 	else:
 		new_anim = "Left-Stun"
 
 func _anim_Knock():
-	current_shape = col_run
+#	current_shape = col_run
 	if is_right:
 		new_anim = "Right-Knock_Back"
 	else:
 		new_anim = "Left-Knock_Back"
 
 func _anim_ladder_move():
-	current_shape = col_stand
+#	current_shape = col_stand
 	new_anim = "Ladder-Move"
 
 func _anim_ladder_right():
-	current_shape = col_stand
+#	current_shape = col_stand
 	new_anim = "Ladder-Right"
 
 func _anim_ladder_left():
-	current_shape = col_stand
+#	current_shape = col_stand
 	new_anim = "Ladder-Left"
 
 func _test_wall():
