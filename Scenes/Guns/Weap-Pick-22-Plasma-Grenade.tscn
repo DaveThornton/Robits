@@ -13,20 +13,20 @@ bounce = 0.25
 [sub_resource type="Animation" id=2]
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 7.87625
+radius = 7.0
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 10.6018
+radius = 9.0
 
 [sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
 
 [node name="Weap-Pick-22-Plasma-Grenade" type="RigidBody2D" groups=[
-"PickUp",
 "FX",
+"PickUp",
 ]]
 collision_layer = 524288
-collision_mask = 917532
+collision_mask = 919582
 mass = 0.204082
 physics_material_override = SubResource( 1 )
 gravity_scale = 5.0

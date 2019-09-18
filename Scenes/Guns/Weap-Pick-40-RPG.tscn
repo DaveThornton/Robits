@@ -36,7 +36,6 @@ hframes = 5
 wait_time = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.122086, -1.19209e-007 )
 rotation = 1.5708
 shape = SubResource( 2 )
 [connection signal="body_entered" from="." to="." method="_on_WeapPick40RPG_body_entered"]

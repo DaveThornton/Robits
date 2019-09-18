@@ -133,7 +133,7 @@ func _throw_where(_obj):
 			_obj.apply_impulse(pos_throw.position, Vector2(-600, 200))
 		if shoot_pos == 5:
 			_obj.apply_impulse(pos_throw.position, Vector2(-100, 700))
-		_obj.spin(-20000)
+		_obj.spin(20000)
 
 func _drop_where(_obj):
 	_obj.set_collision_layer_bit( 1, false)

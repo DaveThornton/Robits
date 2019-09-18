@@ -460,6 +460,7 @@ tracks/2/keys = {
 }
 
 [node name="Weap-Hold-02-Ak-47" type="Node2D"]
+rotation = 1.48353
 script = ExtResource( 1 )
 ak47_Pickup = ExtResource( 2 )
 projectile = ExtResource( 3 )
@@ -530,7 +531,7 @@ anims/Fire = SubResource( 12 )
 anims/Melee = SubResource( 13 )
 
 [node name="Pos2D_Throw" type="Position2D" parent="."]
-position = Vector2( 20, 0 )
+position = Vector2( 55, 0 )
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]
 [connection signal="body_entered" from="Pos2D_Walk/Area2D_Melee" to="." method="_on_Area2D_Melee_body_entered"]

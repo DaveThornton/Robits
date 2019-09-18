@@ -109,7 +109,6 @@ shape = SubResource( 6 )
 [node name="Timer_start" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
-
 [connection signal="body_exited" from="." to="." method="_on_WeapPick20Grenade_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Boom" to="." method="_on_Timer_Boom_timeout"]

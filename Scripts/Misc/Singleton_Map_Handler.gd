@@ -2,7 +2,7 @@ extends Node
 var map
 onready var splash = $Level_Load_Screen
 #var splash = "res://Menus/Campaign/Level_Load_Screen.tscn"
-onready var timer = $Timer
+#onready var timer = $Timer
 onready var timer_camp = $Timer_Camp_Load
 #func _ready():
 #	pass # Replace with function body.

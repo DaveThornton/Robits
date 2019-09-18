@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 2.43155, 9.91939 )
+extents = Vector2( 2.5, 20 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "Falling"
@@ -103,7 +103,6 @@ shape = SubResource( 2 )
 anims/Falling = SubResource( 3 )
 anims/Start = SubResource( 4 )
 anims/Warning = SubResource( 5 )
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]
 [connection signal="body_entered" from="KinematicBody2D/Area2D_Player" to="." method="_on_Area2D_Player_body_entered"]

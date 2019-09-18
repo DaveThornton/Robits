@@ -56,6 +56,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pos2D_Throw:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Down-Right"
@@ -94,6 +106,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pos2D_Throw:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 40, 1 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -146,6 +170,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pos2D_Throw:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 26, 1 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "Left-Down"
@@ -196,6 +232,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pos2D_Throw:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 25, 1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -248,6 +296,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pos2D_Throw:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 25, 1 ) ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Right"
@@ -286,6 +346,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pos2D_Throw:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 26, 1 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -326,6 +398,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pos2D_Throw:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 25, 1 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "Right-Up"
@@ -364,6 +448,18 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pos2D_Throw:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 25, 1 ) ]
 }
 
 [sub_resource type="Animation" id=9]

@@ -12,7 +12,7 @@ var ammo = 30
 var time = .1
 var is_right = true
 var dir = 3
-var my_scale = 1.5
+#var my_scale = 1.5
 
 func _ready():
 	ready = true

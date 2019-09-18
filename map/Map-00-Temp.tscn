@@ -65,74 +65,42 @@ format = 1
 tile_data = PoolIntArray( 3014726, 1, 0, 3080262, 0, 0, 3145798, 0, 0, 3211334, 0, 0, 3276870, 0, 0, 3342406, 0, 0, 3407942, 2, 0 )
 
 [node name="Player_spawns" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Position2D" type="Position2D" parent="Player_spawns"]
-position = Vector2( 750, 540 )
+position = Vector2( 740, 195 )
 
 [node name="Position2D2" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1150, 300 )
+position = Vector2( 910, 199.9 )
 
 [node name="Position2D3" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1829.11, 199.9 )
+position = Vector2( 1760, 210 )
 
 [node name="Position2D7" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1345, 195 )
+position = Vector2( 1100, 210 )
 
 [node name="Position2D6" type="Position2D" parent="Player_spawns"]
-position = Vector2( 270, 455 )
+position = Vector2( 390, 199.9 )
 
 [node name="Position2D5" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1650, 465 )
+position = Vector2( 1460, 210 )
 
 [node name="Position2D4" type="Position2D" parent="Player_spawns"]
-position = Vector2( 550, 190 )
+position = Vector2( 550, 195 )
 
 [node name="Position2D8" type="Position2D" parent="Player_spawns"]
-position = Vector2( 135, 375 )
+position = Vector2( 220, 200 )
 
 [node name="Position2D9" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1800, 375 )
+position = Vector2( 1620, 210 )
 
 [node name="Position2D10" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1550, 300 )
-
-[node name="Position2D11" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1250, 375 )
-
-[node name="Position2D12" type="Position2D" parent="Player_spawns"]
-position = Vector2( 175, 475 )
-
-[node name="Position2D13" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1350, 475 )
-
-[node name="Position2D14" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1410, 330 )
-
-[node name="Position2D15" type="Position2D" parent="Player_spawns"]
-position = Vector2( 510, 335 )
-
-[node name="Position2D16" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1000, 350 )
-
-[node name="Position2D17" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1225, 455 )
-
-[node name="Position2D18" type="Position2D" parent="Player_spawns"]
-position = Vector2( 260, 605 )
-
-[node name="Position2D19" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1695, 605 )
-
-[node name="Position2D20" type="Position2D" parent="Player_spawns"]
-position = Vector2( 210, 180 )
+position = Vector2( 1290, 210 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
-editor/display_folded = true
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 6 )]
 
