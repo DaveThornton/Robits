@@ -10,3 +10,6 @@ func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
 		body.add_nrg(how_much_nrg)
 		call_deferred("free")
+
+func dont_hit_player():
+	pass

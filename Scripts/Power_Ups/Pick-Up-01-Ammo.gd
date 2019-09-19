@@ -23,3 +23,6 @@ func _on_Area2D_body_entered(body):
 				body.add_ammo(how_much)
 				call_deferred("free")
 #				queue_free()
+
+func dont_hit_player():
+	pass

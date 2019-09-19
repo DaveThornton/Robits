@@ -463,7 +463,7 @@ tracks/0/keys = {
 "values": [ 42 ]
 }
 
-[node name="R_Mark_01_00" type="Node2D" groups=[
+[node name="MP-10-R_Mark_01_00" type="Node2D" groups=[
 "hittable",
 ]]
 script = ExtResource( 1 )
@@ -489,10 +489,11 @@ disabled = true
 shape = SubResource( 1 )
 
 [node name="Area2D_Hit" type="Area2D" parent="."]
+collision_layer = 262144
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Hit"]
-position = Vector2( 0, 12 )
+position = Vector2( 0, 12.3958 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

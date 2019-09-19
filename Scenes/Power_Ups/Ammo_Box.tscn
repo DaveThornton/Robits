@@ -19,6 +19,5 @@ position = Vector2( -0.43449, 0.0394983 )
 shape = SubResource( 1 )
 
 [node name="Respawn_Timer" type="Timer" parent="."]
-
 [connection signal="body_entered" from="." to="." method="_on_Ammo_Box_body_entered"]
 [connection signal="timeout" from="Respawn_Timer" to="." method="_on_Respawn_Timer_timeout"]
