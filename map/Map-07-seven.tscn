@@ -141,4 +141,3 @@ position = Vector2( 1016.51, 1127.47 )
 [node name="Weap-Pick-03-Sniper" parent="." instance=ExtResource( 14 )]
 position = Vector2( 57, 793 )
 physics_material_override = SubResource( 2 )
-

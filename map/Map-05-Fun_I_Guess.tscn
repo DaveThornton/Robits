@@ -50,8 +50,8 @@ __meta__ = {
 
 [node name="TileMap-Main" type="TileMap" parent="." groups=[
 "map",
-"unkillable",
 "map_part",
+"unkillable",
 ]]
 editor/display_folded = true
 z_index = -4

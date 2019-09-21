@@ -333,4 +333,3 @@ position = Vector2( 441.459, 837.421 )
 
 [node name="Kill_Zone" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1016.51, 1127.47 )
-
