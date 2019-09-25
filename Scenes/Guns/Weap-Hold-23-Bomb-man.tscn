@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Guns/Weap-Hold-23-Bomb-Man.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-23-Bomb-Man.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Explosions/Ex-05-Bomb_Man.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/Weap-23-Bomb-fuse.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Guns/Weap-23-Bomb.png" type="Texture" id=5]
 
