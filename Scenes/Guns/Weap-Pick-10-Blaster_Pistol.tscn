@@ -12,8 +12,8 @@ radius = 6.0
 height = 5.0
 
 [node name="Weap-Pick-10-Blaster_Pistol" type="RigidBody2D" groups=[
-"FX",
 "PickUp",
+"FX",
 ]]
 collision_layer = 524288
 collision_mask = 917534

@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Map_Parts/MP-28-Weap_Spawner.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-10-Blaster_Pistol.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-11-Mega-Cannon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-20-Grenade.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/FX/22-plasma-cloud.png" type="Texture" id=6]
+
+[node name="MP-29-Weap_Spawner" type="Node2D"]
+script = ExtResource( 1 )
+weap_num_01 = ExtResource( 2 )
+weap_num_02 = ExtResource( 3 )
+weap_num_03 = ExtResource( 4 )
+weap_num_04 = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 25.0
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

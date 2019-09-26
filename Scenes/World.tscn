@@ -8,7 +8,7 @@
 [ext_resource path="res://Menus/Console-PC/Console_Game_over.tscn" type="PackedScene" id=6]
 [ext_resource path="res://map/Map-04-Temp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://map/Campaign-mode/Map-C-01-Level-01.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/BackGroundSpace-01.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Misc/Back-Space.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Level_Loader.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Sprites/Misc/Black_Side_Pannel.png" type="Texture" id=11]
 
@@ -26,7 +26,6 @@ game_mode = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
-scale = Vector2( 3.75, 2.10937 )
 z_index = -40
 texture = ExtResource( 9 )
 

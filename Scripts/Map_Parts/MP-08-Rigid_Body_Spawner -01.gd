@@ -22,7 +22,8 @@ func _ready():
 	timer.wait_time = respawn_time
 
 func _spawn():
-	var s = body_1.instance()
+#	var s = body_1.instance()
+	var s
 	if !spawn_only_1:
 		if spawn_next == 1:
 			s = body_1.instance()

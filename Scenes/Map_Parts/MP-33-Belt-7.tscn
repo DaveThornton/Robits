@@ -8,7 +8,7 @@ resource_name = "Left"
 length = 0.4
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("../MP-33-Belt-7-00/MP-33-Belt-9-01:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -20,7 +20,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite2:frame")
+tracks/1/path = NodePath("../MP-33-Belt-7-00/MP-33-Belt-5-02:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -32,7 +32,7 @@ tracks/1/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite3:frame")
+tracks/2/path = NodePath("../MP-33-Belt-7-00/Sprite3:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -44,7 +44,7 @@ tracks/2/keys = {
 "values": [ 12, 13, 14, 15 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite4:frame")
+tracks/3/path = NodePath("../MP-33-Belt-7-00/MP-33-Belt-15-05:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -56,7 +56,7 @@ tracks/3/keys = {
 "values": [ 4, 5, 6, 7 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite5:frame")
+tracks/4/path = NodePath("../MP-33-Belt-7-00/MP-33-Belt-7-03:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -68,7 +68,7 @@ tracks/4/keys = {
 "values": [ 4, 5, 6, 7 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Sprite6:frame")
+tracks/5/path = NodePath("../MP-33-Belt-7-00/Sprite6:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -80,7 +80,7 @@ tracks/5/keys = {
 "values": [ 4, 5, 6, 7 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Sprite7:frame")
+tracks/6/path = NodePath("../MP-33-Belt-7-00/Sprite7:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -97,7 +97,7 @@ resource_name = "Right"
 length = 0.4
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("../MP-33-Belt-7-00/MP-33-Belt-9-01:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -109,7 +109,7 @@ tracks/0/keys = {
 "values": [ 0, 3, 2, 1 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite2:frame")
+tracks/1/path = NodePath("../MP-33-Belt-7-00/MP-33-Belt-5-02:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -121,7 +121,7 @@ tracks/1/keys = {
 "values": [ 8, 11, 10, 9 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite3:frame")
+tracks/2/path = NodePath("../MP-33-Belt-7-00/Sprite3:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -133,7 +133,7 @@ tracks/2/keys = {
 "values": [ 12, 15, 14, 13 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite4:frame")
+tracks/3/path = NodePath("../MP-33-Belt-7-00/MP-33-Belt-15-05:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -145,7 +145,7 @@ tracks/3/keys = {
 "values": [ 4, 7, 6, 5 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Sprite5:frame")
+tracks/4/path = NodePath("../MP-33-Belt-7-00/MP-33-Belt-7-03:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -157,7 +157,7 @@ tracks/4/keys = {
 "values": [ 4, 7, 6, 5 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Sprite6:frame")
+tracks/5/path = NodePath("../MP-33-Belt-7-00/Sprite6:frame")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -169,7 +169,7 @@ tracks/5/keys = {
 "values": [ 4, 7, 6, 5 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Sprite7:frame")
+tracks/6/path = NodePath("../MP-33-Belt-7-00/Sprite7:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -179,6 +179,18 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 8, 11, 10, 9 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 3, 2, 1 ]
 }
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -195,6 +207,7 @@ position = Vector2( -60, 0 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 8
+frame = 3
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 20, 0 )
@@ -221,21 +234,21 @@ frame = 4
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 8
-frame = 4
+frame = 7
 
 [node name="Sprite7" type="Sprite" parent="."]
 position = Vector2( -20, 0 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 8
-frame = 8
+frame = 11
 
 [node name="Sprite3" type="Sprite" parent="."]
 position = Vector2( 60, 0 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 8
-frame = 12
+frame = 15
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 pause_mode = 2
@@ -243,6 +256,7 @@ anims/Left = SubResource( 1 )
 anims/Right = SubResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+editor/display_folded = true
 visible = false
 collision_layer = 24
 collision_mask = 24
@@ -251,6 +265,7 @@ collision_mask = 24
 shape = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
 visible = false
 position = Vector2( 0, -15 )
 space_override = 3
