@@ -4,6 +4,7 @@ export(PackedScene) var projectile
 export(PackedScene) var explode
 export var active = true
 export var active_number = 1
+export var find_all = false
 
 onready var anim = $AnimationPlayer3
 onready var sprite = $Sprite
@@ -60,6 +61,7 @@ var can_move = false
 var time_to_check = .5
 var current_time_to_check = 0
 var hunted = []
+var hunted_all = []
 
 func _ready():
 	last_pos = self.global_position
@@ -115,13 +117,32 @@ func _process(delta: float) -> void:
 				nav_system.found_me()
 		else:
 			if current_time_to_check >= time_to_check:
+				print(path)
+#				print(hunted[0].global_position)
 				current_time_to_check = 0.0
-				remove_dead()
-				hunted.sort_custom(self, "sort_distance")
-				if hunted.size() > 0:
-					nav_system.find_path(self, hunted[0])
+				if !find_all:
+					remove_dead(hunted)
+					hunted.sort_custom(self, "sort_distance")
+					if hunted.size() > 0:
+						print(hunted[0].global_position)
+						nav_system.find_path(self, hunted[0])
+					else:
+						active = false
 				else:
-					active = false
+					var g = self.get_tree().get_current_scene().pawns.get_child_count()
+#					print(g)
+					if g > 0:
+						remove_dead(hunted_all)
+						hunted_all = null
+						hunted_all = []
+						for h in g:
+							hunted_all.append(self.get_tree().get_current_scene().pawns.get_child(h))
+#							print("adding to hunted_all (open gunner - 01)")
+						hunted_all.sort_custom(self, "sort_distance")
+						nav_system.find_path(self, hunted_all[0])
+						print(hunted_all[0],hunted_all[0].global_position)
+					else:
+						active = false
 	_on_floor()
 	_over_ladders()
 
@@ -408,10 +429,10 @@ func activate_add_to_front(_num, _player):
 func sort_distance(_a, _b):
 	return (abs(self.position.x) - abs(_a.position.x) + abs(self.position.y) - abs(_a.position.y)) > (abs(self.position.x) - abs(_b.position.x) + abs(self.position.y) - abs(_b.position.y))
 
-func remove_dead():
-	var h_size = (hunted.size() - 1)
-	for h in hunted.size():
+func remove_dead(_array):
+	var h_size = (_array.size() - 1)
+	for h in _array.size():
 #		print(h, h_size, hunted.size())
-		if !is_instance_valid(hunted[h_size - h]):
-			hunted.remove(h_size - h)
+		if !is_instance_valid(_array[h_size - h]):
+			_array.remove(h_size - h)
 #	print(hunted.size())

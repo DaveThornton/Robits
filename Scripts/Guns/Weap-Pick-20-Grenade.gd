@@ -79,39 +79,40 @@ func _on_Timer_Spin_timeout():
 func set_dir(_is_right, _dir):
 	if _is_right:
 		pin.position = Vector2(-6, -6)
+		sprite.scale.y = 1
 		if _dir == 1:
 			self.rotation_degrees = -85
-			sprite.scale.y = 1
+#			sprite.scale.y = 1
 		elif _dir == 2:
 			self.rotation_degrees = -45
-			sprite.scale.y = 1
+#			sprite.scale.y = 1
 		elif _dir == 3 || _dir == 6:
 			self.rotation_degrees = 9
-			sprite.scale.y = 1
+#			sprite.scale.y = 1
 		elif _dir == 4:
 			self.rotation_degrees = 45
-			sprite.scale.y = 1
+#			sprite.scale.y = 1
 		elif _dir == 5:
 			self.rotation_degrees = 85
-			sprite.scale.y = 1
+#			sprite.scale.y = 1
 	else:
-#		self.scale.x = -1
-		pin.position = Vector2(-6, 6)
+		self.scale.y = -1
+		pin.position   = Vector2(-6, 6)
 		if _dir == 1:
 			self.rotation_degrees = -95
-			sprite.scale.y = -1
+#			sprite.scale.y = -1
 		elif _dir == 2:
 			self.rotation_degrees = -135
-			sprite.scale.y = -1
+#			sprite.scale.y = -1
 		elif _dir == 3 || _dir == 6:
 			self.rotation_degrees = -171
-			sprite.scale.y = -1
+#			sprite.scale.y = -1
 		elif _dir == 4:
 			self.rotation_degrees = -220
-			sprite.scale.y = -1
+#			sprite.scale.y = -1
 		elif _dir == 5:
 			self.rotation_degrees = -265
-			sprite.scale.y = -1
+#			sprite.scale.y = -1
 
 func _on_Timer_timeout():
 	var s = smoke.instance()

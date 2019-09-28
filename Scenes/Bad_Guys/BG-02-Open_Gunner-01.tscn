@@ -179,6 +179,7 @@ collision_mask = 264734
 script = ExtResource( 1 )
 projectile = ExtResource( 2 )
 explode = ExtResource( 3 )
+find_all = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -23 )
@@ -188,6 +189,7 @@ shape = SubResource( 1 )
 autostart = true
 
 [node name="Casts" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="RayCast2D_Down" type="RayCast2D" parent="Casts"]
 position = Vector2( 0, -1 )
@@ -281,6 +283,7 @@ position = Vector2( -10, 0 )
 rotation = -3.14159
 
 [node name="BG_Casts" type="Node2D" parent="Casts"]
+editor/display_folded = true
 visible = false
 
 [node name="RayCast2D-Down" type="RayCast2D" parent="Casts/BG_Casts"]
