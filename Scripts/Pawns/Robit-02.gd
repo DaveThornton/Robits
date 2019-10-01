@@ -5,6 +5,7 @@ export var deceleration_time_needed = .25
 
 onready var sprite = $Sprite
 onready var sprite_shield = $Sprite_Shield
+onready var sprite_shield_hit = $Sprite_Shield_Hit
 onready var anim = $AnimationPlayer
 onready var gun_pos = $"Position2D-Arm-Gun"
 
@@ -468,7 +469,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
 			call_deferred("free")
 	elif play_type > 1:
-		sprite_shield.visible = true
+		sprite_shield_hit.visible = true
 		shield_hit_timer.start()
 		nrg = nrg - (_damage - armor)
 		nrg_update()
@@ -586,7 +587,7 @@ func _is_on_floor():
 		on_m_plat = false
 
 func _on_Shield_Hit_Timer_timeout():
-	sprite_shield.visible = false
+	sprite_shield_hit.visible = false
 
 func _on_Ladder_Area2D_body_entered(body):
 	ladder_count.append(body)

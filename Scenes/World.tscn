@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Robit-Controller.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Sprites/Misc/Back-Space.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Level_Loader.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Sprites/Misc/Black_Side_Pannel.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Misc/Dead_Weight_Dave_inc.png" type="Texture" id=12]
 
 [node name="World" type="Node"]
 pause_mode = 1
@@ -50,4 +51,10 @@ visible = false
 position = Vector2( -170, 543.761 )
 z_index = 100
 texture = ExtResource( 11 )
+
+[node name="Dead_Weight_Dave_inc" type="Sprite" parent="."]
+position = Vector2( 1837.89, 983.754 )
+scale = Vector2( 0.329578, 0.321402 )
+z_index = 25
+texture = ExtResource( 12 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
