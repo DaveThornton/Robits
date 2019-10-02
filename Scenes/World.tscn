@@ -6,7 +6,7 @@
 [ext_resource path="res://Menus/Arcade/Arcade_Game_over.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Menus/Console-PC/Console_Start.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Menus/Console-PC/Console_Game_over.tscn" type="PackedScene" id=6]
-[ext_resource path="res://map/Campaign-mode/Map-C-00-Template.tscn" type="PackedScene" id=7]
+[ext_resource path="res://map/Map-11-Puck_Fan.tscn" type="PackedScene" id=7]
 [ext_resource path="res://map/Campaign-mode/Map-C-01-Level-01.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Sprites/Misc/Back-Space.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Level_Loader.tscn" type="PackedScene" id=10]
@@ -53,6 +53,7 @@ z_index = 100
 texture = ExtResource( 11 )
 
 [node name="Dead_Weight_Dave_inc" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1837.89, 983.754 )
 scale = Vector2( 0.329578, 0.321402 )
 z_index = 25

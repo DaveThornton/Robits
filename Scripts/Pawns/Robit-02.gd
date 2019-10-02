@@ -471,12 +471,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	elif play_type > 1:
 		sprite_shield_hit.visible = true
 		shield_hit_timer.start()
-		nrg = nrg - (_damage - armor)
-		nrg_update()
-		if nrg <= 0:
-			if is_shield_up:
-				print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
-			else:
+		if !is_shield_up:
+			nrg = nrg - (_damage - armor)
+			nrg_update()
+			if nrg <= 0:
 				is_shield_up = true
 				print("ive been hit. I'm player ",player)
 				let_go()
