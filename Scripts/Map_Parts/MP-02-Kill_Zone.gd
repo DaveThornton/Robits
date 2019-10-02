@@ -1,6 +1,6 @@
 extends Area2D
 
-export var my_name = "map"
+#export var my_name = "map"
 
 func _ready():
 	pass

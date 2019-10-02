@@ -7,7 +7,7 @@ onready var move_area = $Area2D
 onready var left_pos = $"Position2D-Left"
 onready var right_pos = $"Position2D-Right"
 
-var speed = 50
+var speed = 60
 var occ_player_array = []
 
 func _ready():

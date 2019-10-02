@@ -29,7 +29,7 @@ var up_swing = 1000
 var down_swing = 35
 
 signal ammo_change(player, ammo)
-#signal shot(player)
+signal shot(player)
 
 func _ready():
 	my_name = my_name
