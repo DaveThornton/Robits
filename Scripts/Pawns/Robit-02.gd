@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var move_speed_time_needed = .15
 export var deceleration_time_needed = .25
 
-onready var sprite = $Sprite
+onready var sprite = $Sprite_Body
 onready var sprite_shield = $Sprite_Shield
 onready var sprite_shield_hit = $Sprite_Shield_Hit
 onready var anim = $AnimationPlayer

@@ -3,9 +3,12 @@ extends KinematicBody2D
 export var move_speed_time_needed = .15
 export var deceleration_time_needed = .25
 
-onready var sprite = $Sprite
+onready var sprite_face = $Sprite_Face
+onready var sprite_body = $Sprite_Body
+onready var sprite_wheel = $Sprite_Wheel
 onready var sprite_shield = $Sprite_Shield
 onready var sprite_shield_hit = $Sprite_Shield_Hit
+#onready var anim = $Pawn_Anim
 onready var anim = $AnimationPlayer
 onready var gun_pos = $"Position2D-Arm-Gun"
 
@@ -99,6 +102,7 @@ signal explode_p
 signal nrg_update(_player, _nrg)
 
 func _ready():
+	anim.play("Left-Idle")
 	move_step = walk_speed / move_speed_time_needed
 	dec_step = walk_speed / deceleration_time_needed
 	starting_walk_speed = walk_speed
@@ -115,21 +119,30 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
 	play_type = _play_type
 	if player == 1:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-01.png")
+#		sprite_body.texture = load("res://Sprites/Pawns/Robit_Pawn-01-01.png")
+#		sprite_body.self_modulate = Color8(145, 145, 145, 255)
+		pass
 	elif player == 2:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-02.png")
+		sprite_body.self_modulate = Color8(255, 0, 255, 255)
+#		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-02.png")
 	elif player == 3:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-03.png")
+		sprite_body.self_modulate = Color8(255, 0, 0, 255)
+#		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-03.png")
 	elif player == 4:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-04.png")
+		sprite_body.self_modulate = Color8(0, 0, 255, 255)
+#		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-04.png")
 	elif player == 5:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-05.png")
+		sprite_body.self_modulate = Color8(255, 255, 0, 255)
+#		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-05.png")
 	elif player == 6:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-06.png")
+		sprite_body.self_modulate = Color8(123, 0, 255, 255)
+#		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-06.png")
 	elif player == 7:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-07.png")
+		sprite_body.self_modulate = Color8(0, 255, 255, 255)
+#		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-07.png")
 	elif player == 8:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-08.png")
+		sprite_body.self_modulate = Color8(0, 255, 0, 255)
+#		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-01-08.png")
 	else:
 		print("error in robit init player number invald")
 	start_equiped = _start_equiped
@@ -153,6 +166,7 @@ func _process(delta):
 	if on_floor:
 		air_jump_count = 0
 	if new_anim != last_anim:
+		print("trying to play ", new_anim)
 		anim.play(new_anim)
 		last_anim = new_anim
 	if nrg < nrg_regen_max:
@@ -357,12 +371,14 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 
 func _anim_idle():
 #	current_shape = col_stand
+#	print("idle anim")
 	if is_right:
 		new_anim = "Right-Idle"
 	else:
 		new_anim = "Left-Idle"
 
 func _anim_run():
+#	print("run anim")
 #	current_shape = col_run
 	if is_right:
 		new_anim = "Right-Run"
