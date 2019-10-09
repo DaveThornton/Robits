@@ -3,7 +3,9 @@ extends KinematicBody2D
 export var move_speed_time_needed = .15
 export var deceleration_time_needed = .25
 
-onready var sprite = $Sprite_Body
+onready var sprite_face = $Sprite_Face
+onready var sprite_body = $Sprite_Body
+onready var sprite_loco = $Sprite_Loco
 onready var sprite_shield = $Sprite_Shield
 onready var sprite_shield_hit = $Sprite_Shield_Hit
 onready var anim = $AnimationPlayer
@@ -111,22 +113,38 @@ func _ready():
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
 	play_type = _play_type
-	if player == 1:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-01.png")
-	elif player == 2:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-02.png")
-	elif player == 3:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-03.png")
-	elif player == 4:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-04.png")
-	elif player == 5:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-05.png")
-	elif player == 6:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-06.png")
-	elif player == 7:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-07.png")
-	elif player == 8:
-		sprite.texture = load("res://Sprites/Pawns/Robit_Pawn-02-09.png")
+	if player == 1:#Grey
+		sprite_face.self_modulate = Player_Stats.p1.color_face
+		sprite_body.self_modulate = Player_Stats.p1.color_body
+		sprite_loco.self_modulate = Player_Stats.p1.color_loco
+	elif player == 2:#Pink
+		sprite_face.self_modulate = Player_Stats.p2.color_face
+		sprite_body.self_modulate = Player_Stats.p2.color_body
+		sprite_loco.self_modulate = Player_Stats.p2.color_loco
+	elif player == 3:#Red
+		sprite_face.self_modulate = Player_Stats.p3.color_face
+		sprite_body.self_modulate = Player_Stats.p3.color_body
+		sprite_loco.self_modulate = Player_Stats.p3.color_loco
+	elif player == 4:#Blue
+		sprite_face.self_modulate = Player_Stats.p4.color_face
+		sprite_body.self_modulate = Player_Stats.p4.color_body
+		sprite_loco.self_modulate = Player_Stats.p4.color_loco
+	elif player == 5:#Yellow
+		sprite_face.self_modulate = Player_Stats.p5.color_face
+		sprite_body.self_modulate = Player_Stats.p5.color_body
+		sprite_loco.self_modulate = Player_Stats.p5.color_loco
+	elif player == 6:#Purple
+		sprite_face.self_modulate = Player_Stats.p6.color_face
+		sprite_body.self_modulate = Player_Stats.p6.color_body
+		sprite_loco.self_modulate = Player_Stats.p6.color_loco
+	elif player == 7:#Teal
+		sprite_face.self_modulate = Player_Stats.p7.color_face
+		sprite_body.self_modulate = Player_Stats.p7.color_body
+		sprite_loco.self_modulate = Player_Stats.p7.color_loco
+	elif player == 8:#Green
+		sprite_face.self_modulate = Player_Stats.p8.color_face
+		sprite_body.self_modulate = Player_Stats.p8.color_body
+		sprite_loco.self_modulate = Player_Stats.p8.color_loco
 	else:
 		print("error in robit init player number invald")
 	start_equiped = _start_equiped

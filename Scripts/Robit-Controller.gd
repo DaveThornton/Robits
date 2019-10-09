@@ -141,6 +141,7 @@ func init(_player_num, _auto_respawn, _game_mode, _play_type):
 
 func spawn_pawn():
 	if !is_game_over:
+#		print(player, " in controller on spawn")
 		var z = Equipment.get_pawn(pawn_num).instance()
 		get_tree().get_current_scene().pawns.add_child(z)
 #		self.add_child(z)

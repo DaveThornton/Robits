@@ -10,7 +10,10 @@ var p1 = {
 	shot = 0,
 	hit = 0,
 	ammo = 0,
-	nrg = 100
+	nrg = 100,
+	color_face = Color8(255, 0, 0, 255),
+	color_body = Color8(145, 145, 145, 255),
+	color_loco = Color8(255, 225, 225, 222)
 }
 
 var p2 = {
@@ -23,7 +26,10 @@ var p2 = {
 	shot = 0,
 	hit = 0,
 	ammo = 0,
-	nrg = 100
+	nrg = 100,
+	color_face = Color8(0, 255, 255, 255),
+	color_body = Color8(255, 0, 255, 255),
+	color_loco = Color8(255, 225, 225, 222)
 }
 
 var p3 = {
@@ -36,7 +42,10 @@ var p3 = {
 	shot = 0,
 	hit = 0,
 	ammo = 0,
-	nrg = 100
+	nrg = 100,
+	color_face = Color8(255, 255, 0, 255),
+	color_body = Color8(255, 0, 0, 255),
+	color_loco = Color8(255, 225, 225, 222)
 }
 
 var p4 = {
@@ -49,7 +58,10 @@ var p4 = {
 	shot = 0,
 	hit = 0,
 	ammo = 0,
-	nrg = 100
+	nrg = 100,
+	color_face = Color8(255, 255, 0, 255),
+	color_body = Color8(0, 0, 255, 255),
+	color_loco = Color8(255, 225, 225, 222)
 }
 
 var p5 = {
@@ -62,7 +74,10 @@ var p5 = {
 	shot = 0,
 	hit = 0,
 	ammo = 0,
-	nrg = 100
+	nrg = 100,
+	color_face = Color8(255, 0, 0, 255),
+	color_body = Color8(255, 255, 0, 255),
+	color_loco = Color8(255, 225, 225, 222)
 }
 
 var p6 = {
@@ -75,7 +90,10 @@ var p6 = {
 	shot = 0,
 	hit = 0,
 	ammo = 0,
-	nrg = 100
+	nrg = 100,
+	color_face = Color8(255, 0, 0, 255),
+	color_body = Color8(123, 0, 255, 255),
+	color_loco = Color8(255, 225, 225, 222)
 }
 
 var p7 = {
@@ -88,7 +106,10 @@ var p7 = {
 	shot = 0,
 	hit = 0,
 	ammo = 0,
-	nrg = 100
+	nrg = 100,
+	color_face = Color8(255, 0, 0, 255),
+	color_body = Color8(0, 255, 255, 255),
+	color_loco = Color8(255, 225, 225, 222)
 }
 
 var p8 = {
@@ -101,7 +122,10 @@ var p8 = {
 	shot = 0,
 	hit = 0,
 	ammo = 0,
-	nrg = 100
+	nrg = 100,
+	color_face = Color8(255, 0, 0, 255),
+	color_body = Color8(0, 255, 0, 255),
+	color_loco = Color8(255, 225, 225, 222)
 }
 
 var hud
