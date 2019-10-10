@@ -16,6 +16,37 @@ func _ready():
 #	init(1, 1, part_num, false, Vector2(0,0), Vector2(0,0))
 
 func init(_player, _pawn, _part_num, _move, _pos, _impulse):
+	if _pawn == 1:
+		pass
+	elif _pawn == 2:
+		pass
+		sprite.texture = load("res://Sprites/Pawns/Parts/Robit_Pawn-02-00-Parts.png")
+	elif _pawn == 3:
+		pass
+		sprite.texture = load("res://Sprites/Pawns/Parts/Robit_Pawn-03-00-Parts.png")
+	elif _pawn == 4:
+		pass
+		sprite.texture = load("res://Sprites/Pawns/Parts/Robit_Pawn-04-00-Parts.png")
+	elif _pawn > 4:
+		print("wreckage doesnt go past pawn 4 so you should fix that or the pawn FX-05 ")
+	if _player == 1:#Grey
+		sprite.self_modulate = Player_Stats.p1.color_body
+	elif _player == 2:#Pink
+		sprite.self_modulate = Player_Stats.p2.color_body
+	elif _player == 3:#Red
+		sprite.self_modulate = Player_Stats.p3.color_body
+	elif _player == 4:#Blue
+		sprite.self_modulate = Player_Stats.p4.color_body
+	elif _player == 5:#Yellow
+		sprite.self_modulate = Player_Stats.p5.color_body
+	elif _player == 6:#Purple
+		sprite.self_modulate = Player_Stats.p6.color_body
+	elif _player == 7:#Teal
+		sprite.self_modulate = Player_Stats.p7.color_body
+	elif _player == 8:#Green
+		sprite.self_modulate = Player_Stats.p8.color_body
+
+
 #	print("init called on fx-05-robit wreckage")
 	if _player == 1:
 		if _pawn:# == 1:
