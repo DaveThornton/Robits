@@ -84,8 +84,6 @@ cast_to = Vector2( 350, 0 )
 collision_mask = 10
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
-visible = false
 collision_layer = 0
 collision_mask = 2
 

@@ -47,7 +47,7 @@ func _ready():
 #	if test2 != 0:
 #		print(test2, "error in blaster pistol connect shot didnt connect")
 
-func init(_ammo, _player, _timer):
+func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
 	emit_signal("ammo_change",player,ammo)

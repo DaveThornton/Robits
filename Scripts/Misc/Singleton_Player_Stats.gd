@@ -11,6 +11,7 @@ var p1 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
+	pawn_num = 0,
 	color_face = Color8(255, 0, 0, 255),
 	color_body = Color8(145, 145, 145, 255),
 	color_loco = Color8(255, 225, 225, 222)

@@ -2,7 +2,7 @@ extends StaticBody2D
 
 export(PackedScene) var projectile
 export(PackedScene) var explode
-
+export var armor = 0
 export var far_disabled = false
 export var area_1_disabled = false
 export var area_2_disabled = false
@@ -76,7 +76,7 @@ func _shoot(_pos):
 	shoot_timer.start()
 
 func hit(_by_who, _by_what, _damage_type, _damage):
-	health -= _damage
+	health -= (_damage - armor)
 	anim2.play("Hit")
 	if health <= 0:
 		print("BG-20-Turrent-Ground dead")

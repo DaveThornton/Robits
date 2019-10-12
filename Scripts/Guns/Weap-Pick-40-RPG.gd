@@ -13,6 +13,8 @@ var gun_num = 40
 var ammo = 4
 var time = 4.0
 var frame = 0
+# warning-ignore:unused_class_variable
+var just_shot = false
 
 func _ready():
 	sprite.frame = frame
@@ -34,7 +36,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	timer.wait_time = expire_time
 	timer.start()
 	time = _time
-	is_right = _is_right
 	dir = _dir
 	if ready:
 		set_dir(is_right, dir)
@@ -53,6 +54,8 @@ func _on_WeapPick40RPG_body_entered(body):
 		self.set_collision_mask_bit( 1, false)
 
 func set_dir(_is_right, _dir):
+	is_right = _is_right
+	dir = _dir
 	if _is_right:
 		if _dir == 1:
 			self.rotation_degrees = -85

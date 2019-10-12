@@ -12,8 +12,8 @@ radius = 5.0
 height = 15.0
 
 [node name="Weap-Pick-50-Shot_Gun" type="RigidBody2D" groups=[
-"FX",
 "PickUp",
+"FX",
 ]]
 position = Vector2( -1.16385, 0.630419 )
 collision_layer = 524288

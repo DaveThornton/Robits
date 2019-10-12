@@ -162,7 +162,7 @@ func _explode_pawn(_player, _pos, _by_who, _by_what):
 	alive = false 
 	var x = boom.instance()
 	add_child(x)
-	x.init(_player, _pos, str("player ", player, "'s destruct system"), 1, 2)
+	x.init(_player, _pos, str("player ", player, "'s destruct system"), pawn_num, 2)
 	Player_Stats.add_kill(player, _by_who , 1, _by_what)
 #	Player_Stats.add_death(player)
 #	Player_Stats.add_score(_by_who, 1)

@@ -25,8 +25,8 @@ radius = 5.04766
 height = 41.3699
 
 [node name="Robit-01" type="KinematicBody2D" groups=[
-"player",
 "hittable",
+"player",
 "ladder",
 ]]
 collision_layer = 2

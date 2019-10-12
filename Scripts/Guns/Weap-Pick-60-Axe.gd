@@ -11,6 +11,8 @@ var damage = 99
 var gun_num = 60
 var ammo = 0
 var time = .1
+var is_right = true
+var just_shot = false
 
 func _ready():
 	gun_num = gun_num
@@ -30,7 +32,10 @@ func _on_Timer_timeout():
 	self.set_collision_mask_bit( 11, false)
 
 func spin(_how_much):
-	self.applied_torque = _how_much
+	if is_right:
+		self.applied_torque = _how_much
+	else:
+		self.applied_torque = -_how_much
 	spin_timer.start()
 
 func _on_Timer_Spin_timeout():
@@ -43,6 +48,7 @@ func _on_WeapPick60Axe_body_entered(body):
 		timer.start()
 
 func set_dir(_is_right, _dir):
+	is_right = _is_right
 	if _is_right:
 		if _dir == 1:
 			self.rotation_degrees = -85

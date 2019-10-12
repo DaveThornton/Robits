@@ -194,6 +194,7 @@ vframes = 4
 hframes = 10
 
 [node name="Casts" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Shoot-Cast-0" type="RayCast2D" parent="Casts"]
 position = Vector2( 0, -17 )

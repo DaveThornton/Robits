@@ -17,6 +17,9 @@ var damage = 100
 var time = 5.5
 var gun_num = 22
 var ammo = 1
+var is_right = false
+# warning-ignore:unused_class_variable
+var just_shot = false
 
 func _ready():
 	if armed:
@@ -58,7 +61,10 @@ func booming():
 	call_deferred("free")#queue_free()
 
 func spin(_how_much):
-	self.applied_torque = _how_much
+	if is_right:
+		self.applied_torque = _how_much
+	else:
+		self.applied_torque = -_how_much
 	spin_timer.start()
 
 func _on_Timer_Spin_timeout():
@@ -72,6 +78,7 @@ func _on_WeapPick22PlasmaGrenade_body_entered(body):
 		self.set_collision_mask_bit( 1, false)
 
 func set_dir(_is_right, _dir):
+	is_right = _is_right
 	if _is_right:
 		sprite.rotation_degrees = 180
 		if _dir == 1:

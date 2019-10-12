@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export(PackedScene) var projectile
 export(PackedScene) var explode
+export var armor = 0
 export var active = true
 export var active_number = 1
 export var find_all = false
@@ -299,7 +300,7 @@ func _go_no_where(_s):
 	current_speed_x = 0
 
 func hit(_by_who, _by_what, _damage_type, _damage):
-	health -= _damage
+	health -= (_damage - armor)
 	if health <= 0:
 		print("Open Gunner dead")
 		call_deferred("_explode")

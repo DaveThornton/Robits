@@ -52,10 +52,11 @@ func _ready():
 #	if test2 != 0:
 #		print("failed to connect shot in weap hold 50 Shot Gun")
 
-func init(_ammo, _player, _timer):
+func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
 	emit_signal("ammo_change",player,ammo)
+	just_shot = _just_shot
 
 func _process(delta):
 	_set_anim()
@@ -144,7 +145,6 @@ func _on_Area2D_body_entered(body):
 func throw():
 	var t = shot_gun_Pickup.instance()
 	Map_Hand.add_kid_to_map(t)
-#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, just_shot)
 	_throw_where(t)
@@ -156,7 +156,6 @@ func drop():
 func _drop():
 	var t = shot_gun_Pickup.instance()
 	Map_Hand.add_kid_to_map(t)
-#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, just_shot)
 	_drop_where(t)
