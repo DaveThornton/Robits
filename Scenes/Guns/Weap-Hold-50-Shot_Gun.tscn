@@ -476,8 +476,6 @@ tracks/0/keys = {
 }
 
 [node name="Weap-Hold-50-Shot_Gun" type="Node2D"]
-rotation = 1.48353
-scale = Vector2( -1, 1 )
 script = ExtResource( 1 )
 shot_gun_Pickup = ExtResource( 2 )
 projectile = ExtResource( 3 )
@@ -553,7 +551,7 @@ anims/Melee = SubResource( 13 )
 anims/Pump = SubResource( 14 )
 
 [node name="Pos2D_Throw" type="Position2D" parent="."]
-position = Vector2( 40, 0 )
+position = Vector2( 20, 0 )
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Pump_Timer" to="." method="_on_Pump_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Shoot_Timer_timeout"]

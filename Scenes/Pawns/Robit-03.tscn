@@ -25,8 +25,8 @@ radius = 5.04766
 height = 41.3699
 
 [node name="Robit-03" type="KinematicBody2D" groups=[
-"player",
 "hittable",
+"player",
 "ladder",
 ]]
 collision_layer = 2
@@ -57,7 +57,7 @@ hframes = 16
 visible = false
 self_modulate = Color( 0, 0, 1, 0.392157 )
 position = Vector2( 1, -10 )
-z_index = 5
+z_index = 4
 texture = ExtResource( 5 )
 vframes = 5
 hframes = 16
@@ -66,7 +66,7 @@ hframes = 16
 visible = false
 self_modulate = Color( 1, 0, 0, 0.392157 )
 position = Vector2( 1, -10 )
-z_index = 5
+z_index = 4
 texture = ExtResource( 5 )
 vframes = 5
 hframes = 16

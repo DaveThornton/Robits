@@ -1,7 +1,7 @@
 extends Control
 
-onready var top_label = $VBoxContainer/HBoxContainer/Label
-onready var bottom_label = $VBoxContainer/HBoxContainer2/Label2
+onready var top_label = $Sprite/VBoxContainer/HBoxContainer/Label
+onready var bottom_label = $Sprite/VBoxContainer/HBoxContainer2/Label2
 onready var timer = $Timer
 
 func change_text(_top_text, _bottom_text):

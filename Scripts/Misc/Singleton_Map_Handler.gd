@@ -51,14 +51,18 @@ func _load_map_cam(_level):
 	get_tree().get_current_scene().add_child(m)
 	get_tree().get_current_scene().map.call_deferred("free")
 	get_tree().get_current_scene().map = m
-	var e = get_tree().get_current_scene().connect("reset",m,"reset")
-	if !e:
-		print("error in level loader: error connecting reset")
+#	var e = get_tree().get_current_scene().connect("reset",m,"reset")
+#	if !e:
+#		print("error in map handler _load_map_cam: error connecting reset")
 #	timer.wait_time = _time
 #	timer.start()
 	for p in get_tree().get_current_scene().pawns.get_children():
 		p.position = m.player_spawns.get_child(m.next_spawn_spot).position
 		m.next_spawn_spot += 1
+	
+#	var e = get_tree().get_current_scene().connect("reset",m,"reset")
+#	if !e:
+#		print("error in map handler _load_map_cam: error connecting reset")
 
 func _on_Timer_timeout():
 	get_tree().paused = false

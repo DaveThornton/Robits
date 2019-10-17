@@ -2,7 +2,7 @@ extends StaticBody2D
 
 export(PackedScene) var projectile
 export(PackedScene) var explode
-
+export var armor = 0
 export var far_disabled = false
 export var area_1_disabled = false
 export var area_2_disabled = false
@@ -13,6 +13,7 @@ onready var area_1 = $Area2D/Area_1
 onready var area_2 = $Area2D/Area_2
 onready var area_3 = $Area2D/Area_3
 onready var area_4 = $Area2D/Area_4
+
 onready var area_5 = $Area2D/Area_5
 onready var area_6 = $Area2D/Area_6
 onready var area_7 = $Area2D/Area_7
@@ -27,9 +28,12 @@ onready var shoot_timer = $Timer_Shoot
 
 var can_shoot = true
 var damage = 2
+var ex_dmg = 25
 var health = 75
 var player = -1
 var bodies_in_range = []
+var current_look_time = 0
+var look_time = .25
 
 func _ready():
 	area_1.disabled = area_1_disabled
@@ -45,22 +49,31 @@ func _ready():
 		area_6.disabled = true
 		area_7.disabled = true
 		area_8.disabled = true
-	
+	else:
+		area_1.disabled = true
+		area_2.disabled = true
+		area_3.disabled = true
+		area_4.disabled = true
 
 # warning-ignore:unused_argument
 func _process(delta):
-	if bodies_in_range.size() > 0:
-		remove_dead()
+	current_look_time += delta
+	if current_look_time > look_time:
+		current_look_time = 0
 		if bodies_in_range.size() > 0:
-			if bodies_in_range.size() > 1:
-				print(bodies_in_range)
-				bodies_in_range.sort_custom(self, "sort_distance")
-				print(bodies_in_range)
-			gun_arm.look_at(bodies_in_range[0].global_position)
-			if can_shoot:
-				if shoot_cast.is_colliding():
-					if shoot_cast.get_collider().get_groups().has("player"):
-						_shoot(gun_arm)
+			remove_dead()
+			if bodies_in_range.size() > 0:
+				if bodies_in_range.size() > 1:
+					print(bodies_in_range)
+	#					bodies_in_range.sort_custom(self, "sort_distance")
+					bodies_in_range.sort_custom(self, "sort_distance")
+					print(bodies_in_range)
+				gun_arm.look_at(bodies_in_range[0].global_position)
+	#				gun_arm.look_at(bodies_in_range[0].position)
+				if can_shoot:
+					if shoot_cast.is_colliding():
+						if shoot_cast.get_collider().get_groups().has("player"):
+							_shoot(gun_arm)
 
 func _shoot(_pos):
 	can_shoot = false 
@@ -76,7 +89,7 @@ func _shoot(_pos):
 	shoot_timer.start()
 
 func hit(_by_who, _by_what, _damage_type, _damage):
-	health -= _damage
+	health -= (_damage - armor)
 	anim2.play("Hit")
 	if health <= 0:
 		print("BG-20-Turrent-Ground dead")
@@ -86,11 +99,13 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 func _explode():
 	var x = explode.instance()
 	get_tree().get_current_scene().map.add_child(x)
-	x.init(player, self.position, str("player ", x, "'s destruct system"))
+	x.init(player, self.position, str("player ", x, "'s destruct system"), player, ex_dmg)
 
 func sort_distance(_a, _b):
-	return (abs(self.position.x) - abs(_a.position.x) + abs(self.position.y) - abs(_a.position.y)) > (abs(self.position.x) - abs(_b.position.x) + abs(self.position.y) - abs(_b.position.y))
-
+	if (abs(_a.global_position.x - self.global_position.x) + abs(_a.global_position.y - self.global_position.y)) < (abs(_b.global_position.x - self.global_position.x) + abs(_b.global_position.y - self.global_position.y)):
+		return true
+	else:
+		return false
 
 func _on_Area2D_body_entered(body):
 	bodies_in_range.append(body)

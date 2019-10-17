@@ -18,6 +18,8 @@ var time = 4.25
 var gun_num = 23
 var ammo = 1
 var ready = false
+# warning-ignore:unused_class_variable
+var just_shot = false
 
 #warning-ignore:unused_argument
 func _process(delta):

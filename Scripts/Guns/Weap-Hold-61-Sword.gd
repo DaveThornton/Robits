@@ -40,7 +40,7 @@ func _ready():
 #	if test2 != 0:
 #		print("failed to connect shot in weap hold 61 Sword")
 
-func init(_ammo, _player, _time):
+func init(_ammo, _player, _time, _just_shot):
 	player = _player
 	ammo = 1
 	emit_signal("ammo_change",player,ammo)

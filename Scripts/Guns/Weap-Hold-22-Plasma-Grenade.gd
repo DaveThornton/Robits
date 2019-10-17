@@ -42,7 +42,7 @@ func _ready():
 #	if test2 != 0:
 #		print("failed to connect shot in weap hold 22 Plasma Grenade")
 
-func init(_ammo, _player, _time):
+func init(_ammo, _player, _time, _just_shot):
 	player = _player
 	ammo = _ammo
 	if _ammo <= 0:

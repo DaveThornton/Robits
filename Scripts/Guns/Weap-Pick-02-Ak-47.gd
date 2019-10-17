@@ -12,7 +12,8 @@ var ammo = 30
 var time = .1
 var is_right = true
 var dir = 3
-#var my_scale = 1.5
+# warning-ignore:unused_class_variable
+var just_shot = false
 
 func _ready():
 	ready = true
@@ -26,14 +27,11 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 			expire_time = expire_time * .75
 		elif _ammo == 0:
 			expire_time = expire_time * .1
-		
 		if _ammo != -1: 
 			ammo = _ammo
 	timer.wait_time = expire_time
 	timer.start()
 	time = _time
-	is_right = _is_right
-	dir = _dir
 	if ready:
 		set_dir(is_right, dir)
 
@@ -48,6 +46,8 @@ func _on_WeapPick02Ak47_body_shape_entered(body_id, body, body_shape, local_shap
 		self.set_collision_mask_bit( 1, false)
 
 func set_dir(_is_right, _dir):
+	is_right = _is_right
+	dir = _dir
 	if _is_right:
 		sprite.frame = 0
 		if _dir == 1:

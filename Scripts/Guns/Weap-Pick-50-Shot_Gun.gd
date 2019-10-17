@@ -26,17 +26,16 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 			expire_time = expire_time * .75
 		elif _ammo == 0:
 			expire_time = expire_time * .1
-		
 		if _ammo != -1: 
 			ammo = _ammo
 	timer.wait_time = expire_time
 	timer.start()
 	time = _time
-	is_right = _is_right
 	dir = _dir
 	if ready:
 		set_dir(is_right, dir)
 	just_shot = _just_shot
+#	print(just_shot)
 
 #warning-ignore:unused_argument
 #warning-ignore:unused_argument
@@ -48,6 +47,8 @@ func _on_WeapPick50Shot_Gun_body_shape_entered(body_id, body, body_shape, local_
 		self.set_collision_mask_bit( 1, false)
 
 func set_dir(_is_right, _dir):
+	is_right = _is_right
+	dir = _dir
 	if _is_right:
 		if _dir == 1:
 			self.rotation_degrees = -85

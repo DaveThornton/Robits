@@ -13,6 +13,8 @@ var time = .1
 var my_scale = 1.5
 var is_right = true
 var dir = 3
+# warning-ignore:unused_class_variable
+var just_shot = false
 
 func _ready():
 	ready = true
@@ -32,8 +34,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	timer.wait_time = expire_time
 	timer.start()
 	time = _time
-	is_right = _is_right
-	dir = _dir
 	if ready:
 		set_dir(is_right, dir)
 
@@ -47,6 +47,8 @@ func _on_WeapPick04M_16_body_shape_entered(body_id, body, body_shape, local_shap
 		self.set_collision_mask_bit( 1, false)
 
 func set_dir(_is_right, _dir):
+	is_right = _is_right
+	dir = _dir
 	if _is_right:
 		if _dir == 1:
 			self.rotation_degrees = -85

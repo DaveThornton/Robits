@@ -48,7 +48,7 @@ func _ready():
 #		print("failed to connect shot in weap hold 11 mega cannon")
 #	print(test1, test2)
 
-func init(_ammo, _player, _timer):
+func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
 	anim_fire.play("Idle")

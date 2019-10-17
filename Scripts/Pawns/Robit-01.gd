@@ -199,22 +199,27 @@ func _physics_process(delta):
 	move_and_collide(vel)
 
 func move_x(_moving, _right):
-	if _moving:
-		if is_down:
-			if can_move:
-				if _right:
-					vel.x = walk_speed * speed_power_up / 3 #* delta
+	if can_move:
+		if on_floor:
+			if _moving:
+				if is_down:
+					if _right:
+						vel.x = walk_speed * speed_power_up / 3 #* delta
+					else:
+						vel.x = -walk_speed * speed_power_up / 3 #* delta
 				else:
-					vel.x = -walk_speed * speed_power_up / 3 #* delta
+					if _right:
+						vel.x = walk_speed * speed_power_up #* delta
+					else:
+						vel.x = -walk_speed * speed_power_up #* delta
+			else:
+				vel.x = 0
 		else:
-			if can_move:
+			if _moving:
 				if _right:
-					vel.x = walk_speed * speed_power_up #* delta
+					vel.x = walk_speed * speed_power_up / 4 #* delta
 				else:
-					vel.x = -walk_speed * speed_power_up #* delta
-	else:
-		vel.x = 0
-
+					vel.x = -walk_speed * speed_power_up / 4#* delta
 
 func jump(down_input):
 	if down_input && on_floor:
@@ -271,24 +276,24 @@ func pick_up():
 	var _time_left = poss_pick_obj.time
 	var _ammo_pick_up = poss_pick_obj.ammo
 	var _weap_num = poss_pick_obj.gun_num
-	var _just_shot = false
-	equip_weap(_weap_num,_ammo_pick_up, _time_left)
+	var _just_shot = poss_pick_obj.just_shot
+	equip_weap(_weap_num,_ammo_pick_up, _time_left, _just_shot)
 	poss_pick_obj.queue_free()
 
 func start_next_level():
 	if !my_gun && start_equiped > 0:
 		equip_start_weap()
 
-func equip_weap(_weap_num, _ammo_pick_up, _time_left):
+func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
 	var g = Equipment.get_weap_hold(_weap_num).instance()
 	gun_pos.add_child(g)
-	g.init(_ammo_pick_up, player, _time_left)
+	g.init(_ammo_pick_up, player, _time_left, _just_shot)
 	take_ammo = g.take_ammo
 	my_gun = g
 	is_holding = true
 
 func equip_start_weap():
-	equip_weap(start_equiped, 200, 5.0)
+	equip_weap(start_equiped, 200, 5.0, false)
 
 # warning-ignore:unused_argument
 func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):

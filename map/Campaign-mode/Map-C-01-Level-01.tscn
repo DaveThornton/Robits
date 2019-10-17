@@ -21,6 +21,7 @@
 extents = Vector2( 7.4407, 294.705 )
 
 [node name="Map-C-01-Jail_Break" type="Node2D"]
+pause_mode = 1
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_vertical_guides_": [ 38.1926 ]

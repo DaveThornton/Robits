@@ -6,7 +6,7 @@
 [ext_resource path="res://Menus/Arcade/Arcade_Game_over.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Menus/Console-PC/Console_Start.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Menus/Console-PC/Console_Game_over.tscn" type="PackedScene" id=6]
-[ext_resource path="res://map/Map-04-Temp.tscn" type="PackedScene" id=7]
+[ext_resource path="res://map/Map-0-1-weap-test-area.tscn" type="PackedScene" id=7]
 [ext_resource path="res://map/Campaign-mode/Map-C-01-Level-01.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Sprites/Misc/Back-Space.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Level_Loader.tscn" type="PackedScene" id=10]
@@ -26,6 +26,7 @@ campaign_map = ExtResource( 8 )
 game_mode = 3
 
 [node name="Sprite" type="Sprite" parent="."]
+pause_mode = 1
 position = Vector2( 960, 540 )
 z_index = -40
 texture = ExtResource( 9 )
@@ -33,12 +34,15 @@ texture = ExtResource( 9 )
 [node name="players" type="Node" parent="."]
 
 [node name="Pawns" type="Node" parent="."]
+pause_mode = 1
 
 [node name="Clearing_House" type="Node2D" parent="."]
+pause_mode = 1
 
 [node name="Level_Loader" parent="." instance=ExtResource( 10 )]
 
 [node name="Line2D" type="Line2D" parent="."]
+pause_mode = 1
 z_index = 50
 default_color = Color( 0.945098, 0, 1, 1 )
 texture_mode = -1102592574
@@ -53,7 +57,6 @@ z_index = 100
 texture = ExtResource( 11 )
 
 [node name="Dead_Weight_Dave_inc" type="Sprite" parent="."]
-visible = false
 position = Vector2( 1837.89, 983.754 )
 scale = Vector2( 0.329578, 0.321402 )
 z_index = 25

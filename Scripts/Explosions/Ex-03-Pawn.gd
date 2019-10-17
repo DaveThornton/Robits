@@ -15,7 +15,7 @@ func _ready():
 	pass
 
 func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
-	print("init called on ex-03-pawn")
+	print("init called on ex-07-BG-OG")
 	self.global_position = _pos
 	damage1 = (_dmg * .5)
 	damage2 = _dmg

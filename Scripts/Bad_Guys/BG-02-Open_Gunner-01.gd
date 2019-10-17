@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export(PackedScene) var projectile
 export(PackedScene) var explode
+export var armor = 0
 export var active = true
 export var active_number = 1
 export var find_all = false
@@ -117,14 +118,14 @@ func _process(delta: float) -> void:
 				nav_system.found_me()
 		else:
 			if current_time_to_check >= time_to_check:
-				print(path)
+#				print(path)
 #				print(hunted[0].global_position)
 				current_time_to_check = 0.0
 				if !find_all:
 					remove_dead(hunted)
 					hunted.sort_custom(self, "sort_distance")
 					if hunted.size() > 0:
-						print(hunted[0].global_position)
+#						print(hunted[0].global_position)
 						nav_system.find_path(self, hunted[0])
 					else:
 						active = false
@@ -140,7 +141,7 @@ func _process(delta: float) -> void:
 #							print("adding to hunted_all (open gunner - 01)")
 						hunted_all.sort_custom(self, "sort_distance")
 						nav_system.find_path(self, hunted_all[0])
-						print(hunted_all[0],hunted_all[0].global_position)
+#						print(hunted_all[0],hunted_all[0].global_position)
 					else:
 						active = false
 	_on_floor()
@@ -299,7 +300,7 @@ func _go_no_where(_s):
 	current_speed_x = 0
 
 func hit(_by_who, _by_what, _damage_type, _damage):
-	health -= _damage
+	health -= (_damage - armor)
 	if health <= 0:
 		print("Open Gunner dead")
 		call_deferred("_explode")
@@ -403,12 +404,12 @@ func _on_Timer_Shoot_timeout():
 
 # warning-ignore:unused_argument
 func _on_Area2DOn_Ladder_body_entered(body):
-	print(body.position)
+#	print(body.position)
 	ladder_count += 1
 
 # warning-ignore:unused_argument
 func _on_Area2DOn_Ladder_body_exited(body):
-	print(body.position)
+#	print(body.position)
 	ladder_count -= 1
 	
 func activate(_num, _player):
@@ -425,9 +426,11 @@ func activate_add_to_front(_num, _player):
 		else:
 			hunted.push_front(_player)
 		
-
 func sort_distance(_a, _b):
-	return (abs(self.position.x) - abs(_a.position.x) + abs(self.position.y) - abs(_a.position.y)) > (abs(self.position.x) - abs(_b.position.x) + abs(self.position.y) - abs(_b.position.y))
+	if (abs(_a.global_position.x - self.global_position.x) + abs(_a.global_position.y - self.global_position.y)) < (abs(_b.global_position.x - self.global_position.x) + abs(_b.global_position.y - self.global_position.y)):
+		return true
+	else:
+		return false
 
 func remove_dead(_array):
 	var h_size = (_array.size() - 1)

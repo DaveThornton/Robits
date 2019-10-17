@@ -2,6 +2,7 @@ extends StaticBody2D
 #test upload from laptop  now change on desktop trying to figure out merge
 export(PackedScene) var projectile
 export(PackedScene) var explode
+export var armor = 0
 
 #onready var sfx = $SFX_Lib
 onready var sprite = $Sprite
@@ -90,7 +91,7 @@ func _shoot(_pos):
 	shoot_timer.start()
 
 func hit(_by_who, _by_what, _damage_type, _damage):
-	health -= _damage
+	health -= (_damage - armor)
 	anim2.play("Hit-Orange")
 	if health <= 0:
 		print("BG-20-Turrent-Ground dead")

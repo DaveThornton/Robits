@@ -18,6 +18,9 @@ var damage = 100
 var time = 3.0
 var gun_num = 20
 var ammo = 1
+var is_right = false
+# warning-ignore:unused_class_variable
+var just_shot = false
 
 func _ready():
 	if armed:
@@ -37,7 +40,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if _ammo == 0:
 		ammo = 0
 		pin.visible = false
-#		timer.wait_time  = time
 		timer_boom.wait_time = _time
 		timer_boom.start()
 	else:
@@ -51,8 +53,7 @@ func _on_Timer_Boom_timeout():
 #	b.position = self.global_position
 	b.init(player, self.global_position, my_name, 0, damage)
 	queue_free()
-#func _on_WeapPick20Grenade_body_entered(body):
-#	pass # Replace with function body.
+
 func _on_WeapPick20Grenade_body_exited(body):
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
@@ -70,13 +71,17 @@ func dont_hit_player():
 	self.set_collision_mask_bit( 1, false)
 
 func spin(_how_much):
-	self.applied_torque = _how_much
+	if is_right:
+		self.applied_torque = _how_much
+	else:
+		self.applied_torque = -_how_much
 	spin_timer.start()
 
 func _on_Timer_Spin_timeout():
 	self.applied_torque = 0
 
 func set_dir(_is_right, _dir):
+	is_right = _is_right
 	if _is_right:
 		pin.position = Vector2(-6, -6)
 		sprite.scale.y = 1

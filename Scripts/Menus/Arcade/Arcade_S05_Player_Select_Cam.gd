@@ -64,14 +64,22 @@ func _ready():
 
 func load_next():
 	print("ready????")
-	self.get_tree().get_current_scene().p1_controller.pawn_num = p1_menu.pos
-	self.get_tree().get_current_scene().p2_controller.pawn_num = p2_menu.pos
-	self.get_tree().get_current_scene().p3_controller.pawn_num = p3_menu.pos
-	self.get_tree().get_current_scene().p4_controller.pawn_num = p4_menu.pos
-	self.get_tree().get_current_scene().p5_controller.pawn_num = p5_menu.pos
-	self.get_tree().get_current_scene().p6_controller.pawn_num = p6_menu.pos
-	self.get_tree().get_current_scene().p7_controller.pawn_num = p7_menu.pos
-	self.get_tree().get_current_scene().p8_controller.pawn_num = p8_menu.pos
+	if self.get_tree().get_current_scene().p1_controller:
+		self.get_tree().get_current_scene().p1_controller.pawn_num = p1_menu.pos
+	if self.get_tree().get_current_scene().p2_controller:
+		self.get_tree().get_current_scene().p2_controller.pawn_num = p2_menu.pos
+	if self.get_tree().get_current_scene().p3_controller:
+		self.get_tree().get_current_scene().p3_controller.pawn_num = p3_menu.pos
+	if self.get_tree().get_current_scene().p4_controller:
+		self.get_tree().get_current_scene().p4_controller.pawn_num = p4_menu.pos
+	if self.get_tree().get_current_scene().p5_controller:
+		self.get_tree().get_current_scene().p5_controller.pawn_num = p5_menu.pos
+	if self.get_tree().get_current_scene().p6_controller:
+		self.get_tree().get_current_scene().p6_controller.pawn_num = p6_menu.pos
+	if self.get_tree().get_current_scene().p7_controller:
+		self.get_tree().get_current_scene().p7_controller.pawn_num = p7_menu.pos
+	if self.get_tree().get_current_scene().p8_controller:
+		self.get_tree().get_current_scene().p8_controller.pawn_num = p8_menu.pos
 	Map_Hand.load_map(map_to_load_cam)
 	queue_free()
 

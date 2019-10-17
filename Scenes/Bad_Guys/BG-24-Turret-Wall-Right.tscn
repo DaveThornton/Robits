@@ -20,7 +20,7 @@ length = 0.2
 resource_name = "Hit"
 length = 0.2
 
-[node name="BG-23-Turret-Ground" type="StaticBody2D" groups=[
+[node name="BG-23-Turret-Wall-Right" type="StaticBody2D" groups=[
 "hittable",
 "badguy",
 ]]
