@@ -45,6 +45,7 @@ var take_ammo = false
 var shoot_spot = 3
 
 var vel = Vector2()
+var current_vel_x
 var grav = 9
 var terminal_vel = 6
 var walk_speed = 250
@@ -213,13 +214,14 @@ func move_x(_moving, _right):
 					else:
 						vel.x = -walk_speed * speed_power_up #* delta
 			else:
-				vel.x = 0
+				pass
+#				vel.x = 0
 		else:
 			if _moving:
 				if _right:
-					vel.x = walk_speed * speed_power_up / 4 #* delta
+					vel.x = walk_speed * speed_power_up# / 4 #* delta
 				else:
-					vel.x = -walk_speed * speed_power_up / 4#* delta
+					vel.x = -walk_speed * speed_power_up# / 4#* delta
 
 func jump(down_input):
 	if down_input && on_floor:

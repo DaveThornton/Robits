@@ -149,14 +149,14 @@ points = PoolVector2Array( -10, 4, 10, 4, 10, 10, -10, 10 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 140, 40, 20, 20 )
 7/tile_mode = 0
-7/occluder_offset = Vector2( 10, 10 )
-7/navigation_offset = Vector2( 10, 10 )
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": true,
 "one_way_margin": 1.0,
 "shape": SubResource( 8 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 10, -4 )
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0
 8/name = "Plat_09"

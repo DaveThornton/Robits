@@ -196,21 +196,28 @@ func _physics_process(delta):
 	move_and_collide(vel)
 
 func move_x(_moving, _right):
-	if _moving:
-		if is_down:
-			if can_move:
-				if _right:
-					vel.x = walk_speed * speed_power_up / 3 #* delta
+	if can_move:
+		if on_floor:
+			if _moving:
+				if is_down:
+					if _right:
+						vel.x = walk_speed * speed_power_up / 3 #* delta
+					else:
+						vel.x = -walk_speed * speed_power_up / 3 #* delta
 				else:
-					vel.x = -walk_speed * speed_power_up / 3 #* delta
+					if _right:
+						vel.x = walk_speed * speed_power_up #* delta
+					else:
+						vel.x = -walk_speed * speed_power_up #* delta
+			else:
+				pass
+#				vel.x = 0
 		else:
-			if can_move:
+			if _moving:
 				if _right:
-					vel.x = walk_speed * speed_power_up #* delta
+					vel.x = walk_speed * speed_power_up# / 4 #* delta
 				else:
-					vel.x = -walk_speed * speed_power_up #* delta
-	else:
-		vel.x = 0
+					vel.x = -walk_speed * speed_power_up# / 4#* delta
 
 
 func jump(down_input):

@@ -215,9 +215,9 @@ func move_x(_moving, _right):
 		else:
 			if _moving:
 				if _right:
-					vel.x = walk_speed * speed_power_up / 4 #* delta
+					vel.x = walk_speed * speed_power_up# / 4 #* delta
 				else:
-					vel.x = -walk_speed * speed_power_up / 4#* delta
+					vel.x = -walk_speed * speed_power_up# / 4#* delta
 
 
 func jump(down_input):
