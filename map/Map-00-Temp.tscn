@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -9,7 +9,9 @@
 [ext_resource path="res://Tilesets/R_B_Plat_X20.tres" type="TileSet" id=7]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Map_Parts/MP-14-Barrel.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Map_Parts/MP-14-Barrel.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-02-Ak-47.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Map_Parts/MP-12-warp-spot.tscn" type="PackedScene" id=12]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -139,6 +141,15 @@ position = Vector2( 1290, 210 )
 [node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 9 )]
 position = Vector2( 1016.51, 1127.47 )
 
-[node name="MP-14-Barrel" type="Sprite" parent="Map_parts"]
-position = Vector2( 870, 420 )
-texture = ExtResource( 10 )
+[node name="MP-14-Barrel" parent="Map_parts" instance=ExtResource( 10 )]
+position = Vector2( 950, 410 )
+
+[node name="Weap-Pick-02-Ak-47" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1030, 270 )
+
+[node name="MP-12-Warp-Spot" parent="." instance=ExtResource( 12 )]
+position = Vector2( 730, 400 )
+color = Color( 0.427451, 0.396078, 1, 1 )
+
+[node name="Position2D" type="Position2D" parent="MP-12-Warp-Spot"]
+position = Vector2( 960, -310 )

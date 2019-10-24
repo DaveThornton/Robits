@@ -57,8 +57,8 @@ z_index = 100
 texture = ExtResource( 11 )
 
 [node name="Dead_Weight_Dave_inc" type="Sprite" parent="."]
-position = Vector2( 1837.89, 983.754 )
-scale = Vector2( 0.329578, 0.321402 )
+position = Vector2( 38.3509, 1030.02 )
+scale = Vector2( 0.160694, 0.167184 )
 z_index = 25
 texture = ExtResource( 12 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

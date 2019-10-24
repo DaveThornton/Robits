@@ -1,21 +1,47 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Map_Parts/MP-14-Barrel.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Map_Parts/MP-14-Barrel.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Map_Parts/MP-14-Barrel.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 18 )
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 11.0183, 17.0233 )
 
-[node name="MP-14-Barrel" type="Node2D"]
+[sub_resource type="Animation" id=2]
+resource_name = "Default"
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[node name="MP-14-Barrel" type="RigidBody2D" groups=[
+"hittable",
+]]
+collision_layer = 131072
+collision_mask = 524
+mass = 3.5
+gravity_scale = 3.0
 script = ExtResource( 1 )
+boom = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
+hframes = 5
+frame = 4
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-collision_layer = 393216
-collision_mask = 393758
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 0.157776, 2.36669 )
-shape = SubResource( 1 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Default = SubResource( 2 )

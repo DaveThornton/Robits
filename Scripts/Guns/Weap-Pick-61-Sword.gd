@@ -12,6 +12,7 @@ var gun_num = 61
 var ammo = 0
 var time = .1
 var is_right = true
+# warning-ignore:unused_class_variable
 var just_shot = false
 
 func _ready():
