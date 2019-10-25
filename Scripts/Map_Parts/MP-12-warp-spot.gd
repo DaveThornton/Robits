@@ -8,10 +8,6 @@ onready var anim = $AnimationPlayer
 func _ready():
 	sprite_warp.modulate = color
 	anim.play("Default")
-#	pass # Replace with function body.
-
-#func _process(delta):
-#	pass
 
 func _on_Area2D_body_entered(body):
 	if warp_spot:

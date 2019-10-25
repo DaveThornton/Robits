@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Pawns/Robit-04.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Pawns/Robit_Pawn-04-00-Face.png" type="Texture" id=2]
@@ -6,6 +6,110 @@
 [ext_resource path="res://Sprites/Pawns/Robit_Pawn-04-00-Loco.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Pawns/Robit_Pawn-04-Shield.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Pawns/AnimationPlayer-pawn.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Animation" id=6]
+resource_name = "Kick-Wall-Left"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite_Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 40, 41, 42 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite_Face:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 40, 41, 42 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite_Shield:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 40, 41, 42 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite_Shield_Hit:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 40, 41, 42 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Kick-Wall-Right"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite_Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite_Face:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite_Shield:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite_Shield_Hit:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12 ]
+}
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 22 )
@@ -39,7 +143,7 @@ z_index = 2
 texture = ExtResource( 2 )
 vframes = 5
 hframes = 16
-frame = 41
+frame = 10
 
 [node name="Sprite_Body" type="Sprite" parent="."]
 position = Vector2( 1, -10 )
@@ -47,7 +151,7 @@ z_index = 1
 texture = ExtResource( 3 )
 vframes = 5
 hframes = 16
-frame = 41
+frame = 10
 
 [node name="Sprite_Loco" type="Sprite" parent="."]
 position = Vector2( 1, -10 )
@@ -64,7 +168,7 @@ z_index = 4
 texture = ExtResource( 5 )
 vframes = 5
 hframes = 16
-frame = 41
+frame = 10
 
 [node name="Sprite_Shield_Hit" type="Sprite" parent="."]
 visible = false
@@ -74,9 +178,11 @@ z_index = 4
 texture = ExtResource( 5 )
 vframes = 5
 hframes = 16
-frame = 41
+frame = 10
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 6 )]
+anims/Kick-Wall-Left = SubResource( 6 )
+anims/Kick-Wall-Right = SubResource( 7 )
 
 [node name="Position2D-Arm-Gun" type="Position2D" parent="."]
 position = Vector2( -4, -4 )
@@ -103,6 +209,9 @@ one_shot = true
 [node name="Bounce_Timer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Wall_Kick_Timer" type="Timer" parent="."]
+wait_time = 0.3
 
 [node name="CollisionShape2D-Stand" type="CollisionShape2D" parent="."]
 visible = false
@@ -224,6 +333,7 @@ shape = SubResource( 5 )
 [connection signal="timeout" from="Stun_Timer" to="." method="_on_Stun_Timer_timeout"]
 [connection signal="timeout" from="KnockBack_Timer" to="." method="_on_KnockBack_Timer_timeout"]
 [connection signal="timeout" from="Bounce_Timer" to="." method="_on_Bounce_Timer_timeout"]
+[connection signal="timeout" from="Wall_Kick_Timer" to="." method="_on_Wall_Kick_Timer_timeout"]
 [connection signal="body_entered" from="Grab_Area2D" to="." method="_on_Grab_Area2D_body_entered"]
 [connection signal="body_exited" from="Grab_Area2D" to="." method="_on_Grab_Area2D_body_exited"]
 [connection signal="body_entered" from="Ladder_Area2D" to="." method="_on_Ladder_Area2D_body_entered"]

@@ -20,6 +20,7 @@ onready var speed_timer = $Speed_Timer
 onready var jump_timer = $Jump_Timer
 onready var nrg_up_timer = $NRG_Up_Timer
 onready var stun_timer = $Stun_Timer
+onready var wall_kick_timer = $Wall_Kick_Timer
 onready var ladder_count = []
 
 onready var ray_up = $RayCast2D_Up
@@ -47,7 +48,9 @@ var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
 var walk_speed = 220
-var starting_walk_speed
+#var starting_walk_speed
+var max_x_speed = 260
+var current_x_speed = 0
 
 #--------------------------------------------------------        JUMP
 var is_jump_pressed = false
@@ -71,6 +74,7 @@ var nrg_default_regen_rate = 5
 var nrg_default_regen_max = 30
 
 var can_move = true
+var can_kick_wall = true
 var is_right = true
 var is_down = false
 var on_floor = false
@@ -103,7 +107,7 @@ signal nrg_update(_player, _nrg)
 func _ready():
 	move_step = walk_speed / move_speed_time_needed
 	dec_step = walk_speed / deceleration_time_needed
-	starting_walk_speed = walk_speed
+#	starting_walk_speed = walk_speed
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
 #	current_shape = col_stand
@@ -184,7 +188,10 @@ func _process(delta):
 #	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 
 func _physics_process(delta):
-	move_and_slide(Vector2(vel.x + knocked_back.x , 0 + knocked_back.y ))#* delta))
+	move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))#* delta))
+#	current_x_speed -= current_x_speed / 4
+#	print(current_x_speed)
+#	move_and_slide(Vector2(vel.x + knocked_back.x , 0 + knocked_back.y ))#* delta))
 	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
 	if on_floor:
@@ -201,32 +208,76 @@ func move_x(_moving, _right):
 			if _moving:
 				if is_down:
 					if _right:
-						vel.x = walk_speed * speed_power_up / 3 #* delta
+						current_x_speed += max_x_speed /10 * speed_power_up / 3 #* delta
 					else:
-						vel.x = -walk_speed * speed_power_up / 3 #* delta
+						current_x_speed += -max_x_speed /10 * speed_power_up / 3 #* delta
+					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
 					if _right:
-						vel.x = walk_speed * speed_power_up #* delta
+						current_x_speed += max_x_speed / 5 * speed_power_up #* delta
 					else:
-						vel.x = -walk_speed * speed_power_up #* delta
+						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
 			else:
-				pass
-#				vel.x = 0
+				if current_x_speed < 2 && current_x_speed > -2:
+					current_x_speed = 0
+				else:
+					current_x_speed -= current_x_speed / 2
 		else:
 			if _moving:
-				if _right:
-					vel.x = walk_speed * speed_power_up# / 4 #* delta
+				if is_down:
+					if _right:
+						current_x_speed += max_x_speed /50 * speed_power_up / 3 #* delta
+					else:
+						current_x_speed += -max_x_speed /50 * speed_power_up / 3 #* delta
+					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
-					vel.x = -walk_speed * speed_power_up# / 4#* delta
+					if _right:
+						current_x_speed += max_x_speed / 35 * speed_power_up #* delta
+					else:
+						current_x_speed += -max_x_speed / 35 * speed_power_up #* delta
+			else:
+				if current_x_speed < 2 && current_x_speed > -2:
+					current_x_speed = 0
+				else:
+					current_x_speed -= current_x_speed / 20
+	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
+
+#func move_x(_moving, _right):
+#	if can_move:
+#		if on_floor:
+#			if _moving:
+#				if is_down:
+#					if _right:
+#						current_x_speed += max_x_speed /10 * speed_power_up / 3 #* delta
+#					else:
+#						current_x_speed += -max_x_speed /10 * speed_power_up / 3 #* delta
+#					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
+#				else:
+#					if _right:
+#						current_x_speed += max_x_speed / 5 * speed_power_up #* delta
+#					else:
+#						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
+#			else:
+#				if current_x_speed < 2 && current_x_speed > -2:
+#					current_x_speed = 0
+#				else:
+#					current_x_speed -= current_x_speed / 2
+#		else:
+#			if _moving:
+#				if is_right:
+#					current_x_speed += max_x_speed / 35 * speed_power_up #* delta
+#				else:
+#					current_x_speed += -max_x_speed / 35 * speed_power_up #* delta
+#	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
 
-func jump(down_input):
-	if down_input && on_floor:
+func jump(down_input, left_input, right_input):
+	if down_input && on_floor && !left_input && !right_input:
 		vel.y += 1.5
 		self.position.y += 1.5
-	elif !is_jump_pressed && on_floor && !down_input:
+	elif !is_jump_pressed && on_floor:# && !down_input:
 		vel.y = -max_jump_power * jump_power_up
-	elif !is_jump_pressed && !down_input && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
+	elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
 		vel.y = -max_air_jump_power * jump_power_up
 		air_jump_count += 1
 	is_jump_pressed = true
@@ -384,6 +435,9 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 		else:
 			_anim_ladder_left()
 
+	if !can_kick_wall:
+		pass
+
 	if on_wall:
 		if !not_on_angle:
 			if shoot_spot == 3:
@@ -451,6 +505,12 @@ func _anim_ladder_right():
 func _anim_ladder_left():
 #	current_shape = col_stand
 	new_anim = "Ladder-Left"
+
+func _anim_kick_wall():
+	if is_right:
+		new_anim = "Kick-Wall-Right"
+	else:
+		new_anim = "Kick_wall-Left"
 
 func _test_wall():
 	var _obj
@@ -642,11 +702,20 @@ func _on_Ladder_Area2D_body_entered(body):
 func _on_Ladder_Area2D_body_exited(body):
 	ladder_count.erase(body)
 
+func _on_Wall_Kick_Timer_timeout():
+	can_kick_wall = true
+
 func _wall_kick(_right):
-	print("kickin walls fucker")
-	self.position.y += 10
-	vel.y += -10
-	if _right:
-		vel.x += -1000
-	else:
-		vel.x += 1000
+	if can_kick_wall && !on_floor:
+		can_kick_wall = false
+		wall_kick_timer.start()
+		print("kickin walls fucker")
+		vel.y = -max_jump_power * jump_power_up
+	#	self.position.y += 10
+#		vel.y += -10
+		if _right:
+			current_x_speed = -max_x_speed
+	#		vel.x += -1000
+		else:
+			current_x_speed = max_x_speed
+	#		vel.x += 1000

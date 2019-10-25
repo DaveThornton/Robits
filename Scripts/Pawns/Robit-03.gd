@@ -220,13 +220,13 @@ func move_x(_moving, _right):
 					vel.x = -walk_speed * speed_power_up# / 4#* delta
 
 
-func jump(down_input):
-	if down_input && on_floor:
+func jump(down_input, left_input, right_input):
+	if down_input && on_floor && !left_input && !right_input:
 		vel.y += 1.5
 		self.position.y += 1.5
-	elif !is_jump_pressed && on_floor && !down_input:
+	elif !is_jump_pressed && on_floor:# && !down_input:
 		vel.y = -max_jump_power * jump_power_up
-	elif !is_jump_pressed && !down_input && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
+	elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
 		vel.y = -max_air_jump_power * jump_power_up
 		air_jump_count += 1
 	is_jump_pressed = true
