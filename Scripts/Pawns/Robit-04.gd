@@ -60,6 +60,7 @@ var min_air_jump_power = 1.5
 var air_jump_count = 0
 var max_jump_power = 7.25
 var min_jump_power = 1.5
+var last_kicked = "down"
 var head_room = 0
 
 var move_step = 0
@@ -684,6 +685,7 @@ func _on_Grab_Area2D_body_exited(body):
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
 		on_floor = true
+		last_kicked = "down"
 	else :
 		on_floor = false
 	if ray_down_plat.is_colliding():
@@ -710,12 +712,14 @@ func _wall_kick(_right):
 		can_kick_wall = false
 		wall_kick_timer.start()
 		print("kickin walls fucker")
-		vel.y = -max_jump_power * jump_power_up
-	#	self.position.y += 10
-#		vel.y += -10
+#		vel.y = -max_jump_power * jump_power_up
 		if _right:
-			current_x_speed = -max_x_speed
-	#		vel.x += -1000
+			if last_kicked != "right":
+				last_kicked = "right"
+				vel.y = -max_jump_power * jump_power_up
+				current_x_speed = -max_x_speed
 		else:
-			current_x_speed = max_x_speed
-	#		vel.x += 1000
+			if last_kicked != "left":
+				last_kicked = "left"
+				vel.y = -max_jump_power * jump_power_up
+				current_x_speed = max_x_speed

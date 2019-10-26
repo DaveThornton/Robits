@@ -158,7 +158,7 @@ position = Vector2( 1, -10 )
 texture = ExtResource( 4 )
 vframes = 5
 hframes = 16
-frame = 41
+frame = 10
 
 [node name="Sprite_Shield" type="Sprite" parent="."]
 visible = false
@@ -185,7 +185,7 @@ anims/Kick-Wall-Left = SubResource( 6 )
 anims/Kick-Wall-Right = SubResource( 7 )
 
 [node name="Position2D-Arm-Gun" type="Position2D" parent="."]
-position = Vector2( -4, -4 )
+position = Vector2( 5, -4 )
 
 [node name="Shield_Timer" type="Timer" parent="."]
 
