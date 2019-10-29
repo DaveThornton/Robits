@@ -31,7 +31,7 @@ onready var ray_right_down = $RayCast2D_Right_Down
 onready var ray_left_down = $RayCast2D_Left_Down
 onready var ray_left = $RayCast2D_Left
 onready var ray_down_plat = $RayCast2D
-onready var ray_plat_test = $RayCast2D_Plat_Test
+#onready var ray_plat_test = $RayCast2D_Plat_Test
 onready var ray_wall_r = $RayCast2D_On_Wall_R
 onready var ray_wall_l = $RayCast2D_On_Wall_L
 
@@ -80,7 +80,7 @@ var is_right = true
 var is_down = false
 var on_floor = false
 var on_wall = false
-var on_m_plat = false
+#var on_m_plat = false
 var not_on_angle = false
 
 var is_shield_up = false
@@ -688,12 +688,12 @@ func _is_on_floor():
 		last_kicked = "down"
 	else :
 		on_floor = false
-	if ray_down_plat.is_colliding():
-		pass
-	if ray_plat_test.is_colliding():
-		on_m_plat = true
-	else:
-		on_m_plat = false
+#	if ray_down_plat.is_colliding():
+#		pass
+#	if ray_plat_test.is_colliding():
+#		on_m_plat = true
+#	else:
+#		on_m_plat = false
 
 func _on_Shield_Hit_Timer_timeout():
 	sprite_shield_hit.visible = false
@@ -716,10 +716,12 @@ func _wall_kick(_right):
 		if _right:
 			if last_kicked != "right":
 				last_kicked = "right"
+				is_right = false
 				vel.y = -max_jump_power * jump_power_up
 				current_x_speed = -max_x_speed
 		else:
 			if last_kicked != "left":
 				last_kicked = "left"
+				is_right = true
 				vel.y = -max_jump_power * jump_power_up
 				current_x_speed = max_x_speed

@@ -32,7 +32,7 @@ onready var ray_right_down = $RayCast2D_Right_Down
 onready var ray_left_down = $RayCast2D_Left_Down
 onready var ray_left = $RayCast2D_Left
 onready var ray_down_plat = $RayCast2D
-onready var ray_plat_test = $RayCast2D_Plat_Test
+#onready var ray_plat_test = $RayCast2D_Plat_Test
 
 var player = 1
 var play_type = 2
@@ -47,7 +47,9 @@ var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
 var walk_speed = 220
-var starting_walk_speed
+#var starting_walk_speed
+var max_x_speed = 260
+var current_x_speed = 0
 
 #--------------------------------------------------------        JUMP
 var is_jump_pressed = false
@@ -75,7 +77,7 @@ var is_right = true
 var is_down = false
 var on_floor = false
 var on_wall = false
-var on_m_plat = false
+#var on_m_plat = false
 var not_on_angle = false
 
 var is_shield_up = false
@@ -103,7 +105,7 @@ signal nrg_update(_player, _nrg)
 func _ready():
 	move_step = walk_speed / move_speed_time_needed
 	dec_step = walk_speed / deceleration_time_needed
-	starting_walk_speed = walk_speed
+#	starting_walk_speed = walk_speed
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
 #	current_shape = col_stand
@@ -184,7 +186,8 @@ func _process(delta):
 #	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 
 func _physics_process(delta):
-	move_and_slide(Vector2(vel.x + knocked_back.x , 0 + knocked_back.y ))#* delta))
+	move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
+#	move_and_slide(Vector2(vel.x + knocked_back.x , 0 + knocked_back.y ))#* delta))
 	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
 	if on_floor:
@@ -201,23 +204,63 @@ func move_x(_moving, _right):
 			if _moving:
 				if is_down:
 					if _right:
-						vel.x = walk_speed * speed_power_up / 3 #* delta
+						current_x_speed += max_x_speed /10 * speed_power_up / 3 #* delta
 					else:
-						vel.x = -walk_speed * speed_power_up / 3 #* delta
+						current_x_speed += -max_x_speed /10 * speed_power_up / 3 #* delta
+					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
 					if _right:
-						vel.x = walk_speed * speed_power_up #* delta
+						current_x_speed += max_x_speed / 5 * speed_power_up #* delta
 					else:
-						vel.x = -walk_speed * speed_power_up #* delta
+						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
 			else:
-				pass
-#				vel.x = 0
+				if current_x_speed < 2 && current_x_speed > -2:
+					current_x_speed = 0
+				else:
+					current_x_speed -= current_x_speed / 2
 		else:
 			if _moving:
-				if _right:
-					vel.x = walk_speed * speed_power_up# / 4 #* delta
+				if is_down:
+					if _right:
+						current_x_speed += max_x_speed /50 * speed_power_up / 3 #* delta
+					else:
+						current_x_speed += -max_x_speed /50 * speed_power_up / 3 #* delta
+					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
-					vel.x = -walk_speed * speed_power_up# / 4#* delta
+					if _right:
+						current_x_speed += max_x_speed / 35 * speed_power_up #* delta
+					else:
+						current_x_speed += -max_x_speed / 35 * speed_power_up #* delta
+			else:
+				if current_x_speed < 2 && current_x_speed > -2:
+					current_x_speed = 0
+				else:
+					current_x_speed -= current_x_speed / 20
+	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
+	
+#func move_x(_moving, _right):
+#	if can_move:
+#		if on_floor:
+#			if _moving:
+#				if is_down:
+#					if _right:
+#						vel.x = walk_speed * speed_power_up / 3 #* delta
+#					else:
+#						vel.x = -walk_speed * speed_power_up / 3 #* delta
+#				else:
+#					if _right:
+#						vel.x = walk_speed * speed_power_up #* delta
+#					else:
+#						vel.x = -walk_speed * speed_power_up #* delta
+#			else:
+#				pass
+##				vel.x = 0
+#		else:
+#			if _moving:
+#				if _right:
+#					vel.x = walk_speed * speed_power_up# / 4 #* delta
+#				else:
+#					vel.x = -walk_speed * speed_power_up# / 4#* delta
 
 
 func jump(down_input, left_input, right_input):
@@ -605,12 +648,12 @@ func _is_on_floor():
 		on_floor = true
 	else :
 		on_floor = false
-	if ray_down_plat.is_colliding():
-		pass
-	if ray_plat_test.is_colliding():
-		on_m_plat = true
-	else:
-		on_m_plat = false
+#	if ray_down_plat.is_colliding():
+#		pass
+#	if ray_plat_test.is_colliding():
+#		on_m_plat = true
+#	else:
+#		on_m_plat = false
 
 func _on_Shield_Hit_Timer_timeout():
 	sprite_shield_hit.visible = false

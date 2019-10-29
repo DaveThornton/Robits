@@ -32,7 +32,7 @@ onready var ray_right_down = $RayCast2D_Right_Down
 onready var ray_left_down = $RayCast2D_Left_Down
 onready var ray_left = $RayCast2D_Left
 onready var ray_down_plat = $RayCast2D
-onready var ray_plat_test = $RayCast2D_Plat_Test
+#onready var ray_plat_test = $RayCast2D_Plat_Test
 
 var player = 1
 var play_type = 2
@@ -74,7 +74,7 @@ var is_right = true
 var is_down = false
 var on_floor = false
 var on_wall = false
-var on_m_plat = false
+#var on_m_plat = false
 var not_on_angle = false
 
 var is_shield_up = false
@@ -147,6 +147,8 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 		sprite_loco.self_modulate = Player_Stats.p8.color_loco
 	else:
 		print("error in robit init player number invald")
+	sprite_loco.self_modulate = sprite_face.self_modulate
+	sprite_loco.self_modulate.a8 = 160
 	start_equiped = _start_equiped
 	if start_equiped > 0:
 		equip_start_weap()
@@ -602,12 +604,12 @@ func _is_on_floor():
 		on_floor = true
 	else :
 		on_floor = false
-	if ray_down_plat.is_colliding():
-		pass
-	if ray_plat_test.is_colliding():
-		on_m_plat = true
-	else:
-		on_m_plat = false
+#	if ray_down_plat.is_colliding():
+#		pass
+#	if ray_plat_test.is_colliding():
+#		on_m_plat = true
+#	else:
+#		on_m_plat = false
 
 func _on_Shield_Hit_Timer_timeout():
 	sprite_shield_hit.visible = false

@@ -33,7 +33,7 @@ onready var ray_right_down = $RayCast2D_Right_Down
 onready var ray_left_down = $RayCast2D_Left_Down
 onready var ray_left = $RayCast2D_Left
 onready var ray_down_plat = $RayCast2D
-onready var ray_plat_test = $RayCast2D_Plat_Test
+#onready var ray_plat_test = $RayCast2D_Plat_Test
 
 var player = 1
 var play_type = 2
@@ -45,7 +45,7 @@ var take_ammo = false
 var shoot_spot = 3
 
 var vel = Vector2()
-var current_vel_x
+#var current_vel_x
 var grav = 9
 var terminal_vel = 6
 var walk_speed = 250
@@ -77,7 +77,7 @@ var is_right = true
 var is_down = false
 var on_floor = false
 var on_wall = false
-var on_m_plat = false
+#var on_m_plat = false
 var not_on_angle = false
 
 var is_shield_up = false
@@ -604,12 +604,12 @@ func _is_on_floor():
 		on_floor = true
 	else :
 		on_floor = false
-	if ray_down_plat.is_colliding():
-		pass
-	if ray_plat_test.is_colliding():
-		on_m_plat = true
-	else:
-		on_m_plat = false
+#	if ray_down_plat.is_colliding():
+#		pass
+#	if ray_plat_test.is_colliding():
+#		on_m_plat = true
+#	else:
+#		on_m_plat = false
 
 func _on_Shield_Hit_Timer_timeout():
 	sprite_shield_hit.visible = false
