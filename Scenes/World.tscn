@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Robit-Controller.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Scenes/Level_Loader.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Sprites/Misc/Black_Side_Pannel.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Misc/Dead_Weight_Dave_inc.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Misc/ROBITS-Logo-03.png" type="Texture" id=13]
 
 [node name="World" type="Node"]
 pause_mode = 1
@@ -27,7 +28,7 @@ game_mode = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 pause_mode = 1
-position = Vector2( 960, 540 )
+position = Vector2( 957.074, 540 )
 z_index = -40
 texture = ExtResource( 9 )
 
@@ -57,8 +58,14 @@ z_index = 100
 texture = ExtResource( 11 )
 
 [node name="Dead_Weight_Dave_inc" type="Sprite" parent="."]
-position = Vector2( 38.3509, 1030.02 )
-scale = Vector2( 0.160694, 0.167184 )
+visible = false
+position = Vector2( 99.0355, 903.54 )
+scale = Vector2( 0.376896, 0.380914 )
 z_index = 25
 texture = ExtResource( 12 )
+
+[node name="ROBITS-Logo-03" type="Sprite" parent="."]
+position = Vector2( 80.8884, 1062.25 )
+scale = Vector2( 0.112891, 0.122107 )
+texture = ExtResource( 13 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -233,25 +233,28 @@ func add_hit(_player, _hit_amount):
 		print("Error in Singleton_Player_Stats add_hit function invalid player number. ", _player, " <---player number.. hit amount--->", _hit_amount)
 #	print(p1["shot"],"<--shot, hit--->", p1["hit"])
 
-func nrg_update(_player, _nrg):
+func nrg_update(_player, _nrg, _nrg_max):
+	var _current_nrg = int((float(_nrg) / _nrg_max)* 100)
 	if _player == 1:
-		hud.update_p1_nrg(_nrg)
+		hud.update_p1_nrg(_current_nrg)
 	elif _player == 2:
-		hud.update_p2_nrg(_nrg)
+		hud.update_p2_nrg(_current_nrg)
 	elif _player == 3:
-		hud.update_p3_nrg(_nrg)
+		hud.update_p3_nrg(_current_nrg)
 	elif _player == 4:
-		hud.update_p4_nrg(_nrg)
+		hud.update_p4_nrg(_current_nrg)
 	elif _player == 5:
-		hud.update_p5_nrg(_nrg)
+		hud.update_p5_nrg(_current_nrg)
 	elif _player == 6:
-		hud.update_p6_nrg(_nrg)
+		hud.update_p6_nrg(_current_nrg)
 	elif _player == 7:
-		hud.update_p7_nrg(_nrg)
+		hud.update_p7_nrg(_current_nrg)
 	elif _player == 8:
-		hud.update_p8_nrg(_nrg)
+		hud.update_p8_nrg(_current_nrg)
 	else:
-		print("error on nrg update")
+		print("error on nrg update not a valid player number")
+
+
 
 func ammo_update(_player, _ammo):
 	if _player == 1:

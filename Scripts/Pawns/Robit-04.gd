@@ -67,6 +67,7 @@ var move_step = 0
 var dec_step = 0
 
 #--------------------------------------------------------        NRG
+var nrg_max = 100
 var nrg = 100
 var last_nrg = 100
 var nrg_regen_rate = 5
@@ -219,7 +220,7 @@ func move_x(_moving, _right):
 					else:
 						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
 			else:
-				if current_x_speed < 2 && current_x_speed > -2:
+				if current_x_speed < 2 && current_x_speed > -2 || on_ladder:
 					current_x_speed = 0
 				else:
 					current_x_speed -= current_x_speed / 2
@@ -237,40 +238,11 @@ func move_x(_moving, _right):
 					else:
 						current_x_speed += -max_x_speed / 35 * speed_power_up #* delta
 			else:
-				if current_x_speed < 2 && current_x_speed > -2:
+				if current_x_speed < 2 && current_x_speed > -2 || on_ladder:
 					current_x_speed = 0
 				else:
 					current_x_speed -= current_x_speed / 20
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
-
-#func move_x(_moving, _right):
-#	if can_move:
-#		if on_floor:
-#			if _moving:
-#				if is_down:
-#					if _right:
-#						current_x_speed += max_x_speed /10 * speed_power_up / 3 #* delta
-#					else:
-#						current_x_speed += -max_x_speed /10 * speed_power_up / 3 #* delta
-#					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
-#				else:
-#					if _right:
-#						current_x_speed += max_x_speed / 5 * speed_power_up #* delta
-#					else:
-#						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
-#			else:
-#				if current_x_speed < 2 && current_x_speed > -2:
-#					current_x_speed = 0
-#				else:
-#					current_x_speed -= current_x_speed / 2
-#		else:
-#			if _moving:
-#				if is_right:
-#					current_x_speed += max_x_speed / 35 * speed_power_up #* delta
-#				else:
-#					current_x_speed += -max_x_speed / 35 * speed_power_up #* delta
-#	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
-
 
 func jump(down_input, left_input, right_input):
 	if down_input && on_floor && !left_input && !right_input:
@@ -537,10 +509,11 @@ func _test_headroom():
 		head_room = 0
 
 func nrg_update():
-	emit_signal("nrg_update", player, nrg)
+	Player_Stats.nrg_update(player, nrg, nrg_max)
+#	print(nrg,"  ", nrg_max)
 
 func add_nrg(_nrg):
-	nrg = clamp(nrg + _nrg, 0, 100)
+	nrg = clamp(nrg + _nrg, 0, nrg_max)
 
 func add_ammo(_ammo):
 	if take_ammo:

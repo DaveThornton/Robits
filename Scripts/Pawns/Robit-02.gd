@@ -44,15 +44,15 @@ var take_ammo = false
 var shoot_spot = 3
 
 var vel = Vector2()
-var grav = 9
+var grav = 8
 var terminal_vel = 6
-var walk_speed = 200
-var starting_walk_speed
+var walk_speed = 180
+#var starting_walk_speed
 
 #--------------------------------------------------------        JUMP
 var is_jump_pressed = false
 var max_air_jump_count = 8
-var max_air_jump_power = 4
+var max_air_jump_power = 2.5
 var min_air_jump_power = 1.5
 var air_jump_count = 0
 var max_jump_power = 8
@@ -62,6 +62,7 @@ var head_room = 0
 var move_step = 0
 var dec_step = 0
 #--------------------------------------------------------        NRG
+var nrg_max = 100
 var nrg = 100
 var last_nrg = 100
 var nrg_regen_rate = 5
@@ -102,7 +103,7 @@ signal nrg_update(_player, _nrg)
 func _ready():
 	move_step = walk_speed / move_speed_time_needed
 	dec_step = walk_speed / deceleration_time_needed
-	starting_walk_speed = walk_speed
+#	starting_walk_speed = walk_speed
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
 #	current_shape = col_stand
@@ -469,10 +470,11 @@ func _test_headroom():
 		head_room = 0
 
 func nrg_update():
-	emit_signal("nrg_update", player, nrg)
+	Player_Stats.nrg_update(player, nrg, nrg_max)
+#	emit_signal("nrg_update", player, nrg)
 
 func add_nrg(_nrg):
-	nrg = clamp(nrg + _nrg, 0, 100)
+	nrg = clamp(nrg + _nrg, 0, nrg_max)
 
 func add_ammo(_ammo):
 	if take_ammo:

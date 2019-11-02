@@ -38,7 +38,7 @@ onready var ray_down_plat = $RayCast2D
 var player = 1
 var play_type = 2
 var start_equiped = 0
-var armor = 0
+var armor = 1
 
 var my_gun
 var take_ammo = false
@@ -48,8 +48,10 @@ var vel = Vector2()
 #var current_vel_x
 var grav = 9
 var terminal_vel = 6
-var walk_speed = 250
-var starting_walk_speed
+var walk_speed = 300
+#var starting_walk_speed
+var max_x_speed = 340
+var current_x_speed = 0
 
 #--------------------------------------------------------        JUMP
 var is_jump_pressed = false
@@ -65,6 +67,7 @@ var move_step = 0
 var dec_step = 0
 
 #--------------------------------------------------------        NRG
+var nrg_max = 100
 var nrg = 100
 var last_nrg = 100
 var nrg_regen_rate = 5
@@ -106,7 +109,7 @@ func _ready():
 	anim.play("Left-Idle")
 	move_step = walk_speed / move_speed_time_needed
 	dec_step = walk_speed / deceleration_time_needed
-	starting_walk_speed = walk_speed
+#	starting_walk_speed = walk_speed
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
 #	current_shape = col_stand
@@ -188,7 +191,8 @@ func _process(delta):
 #	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 
 func _physics_process(delta):
-	move_and_slide(Vector2(vel.x + knocked_back.x , 0 + knocked_back.y ))#* delta))
+	move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
+#	move_and_slide(Vector2(vel.x + knocked_back.x , 0 + knocked_back.y ))#* delta))
 	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
 	if on_floor:
@@ -205,23 +209,39 @@ func move_x(_moving, _right):
 			if _moving:
 				if is_down:
 					if _right:
-						vel.x = walk_speed * speed_power_up / 3 #* delta
+						current_x_speed += max_x_speed /10 * speed_power_up / 3 #* delta
 					else:
-						vel.x = -walk_speed * speed_power_up / 3 #* delta
+						current_x_speed += -max_x_speed /10 * speed_power_up / 3 #* delta
+					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
 					if _right:
-						vel.x = walk_speed * speed_power_up #* delta
+						current_x_speed += max_x_speed / 5 * speed_power_up #* delta
 					else:
-						vel.x = -walk_speed * speed_power_up #* delta
+						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
 			else:
-				pass
-#				vel.x = 0
+				if current_x_speed < 2 && current_x_speed > -2 || on_ladder:
+					current_x_speed = 0
+				else:
+					current_x_speed -= current_x_speed / 2
 		else:
 			if _moving:
-				if _right:
-					vel.x = walk_speed * speed_power_up# / 4 #* delta
+				if is_down:
+					if _right:
+						current_x_speed += max_x_speed /50 * speed_power_up / 3 #* delta
+					else:
+						current_x_speed += -max_x_speed /50 * speed_power_up / 3 #* delta
+					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
-					vel.x = -walk_speed * speed_power_up# / 4#* delta
+					if _right:
+						current_x_speed += max_x_speed / 35 * speed_power_up #* delta
+					else:
+						current_x_speed += -max_x_speed / 35 * speed_power_up #* delta
+			else:
+				if current_x_speed < 2 && current_x_speed > -2 || on_ladder:
+					current_x_speed = 0
+				else:
+					current_x_speed -= current_x_speed / 20
+	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
 func jump(down_input, left_input, right_input):
 	if down_input && on_floor && !left_input && !right_input:
@@ -469,10 +489,10 @@ func _test_headroom():
 		head_room = 0
 
 func nrg_update():
-	emit_signal("nrg_update", player, nrg)
+	Player_Stats.nrg_update(player, nrg, nrg_max)
 
 func add_nrg(_nrg):
-	nrg = clamp(nrg + _nrg, 0, 100)
+	nrg = clamp(nrg + _nrg, 0, nrg_max)
 
 func add_ammo(_ammo):
 	if take_ammo:

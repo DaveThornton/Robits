@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites/Pawns/Robit_Pawn-04-Shield.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Pawns/AnimationPlayer-pawn.tscn" type="PackedScene" id=6]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=1]
 resource_name = "Kick-Wall-Left"
 length = 0.3
 tracks/0/type = "value"
@@ -59,7 +59,7 @@ tracks/3/keys = {
 "values": [ 40, 41, 42 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "Kick-Wall-Right"
 length = 0.3
 tracks/0/type = "value"
@@ -111,26 +111,26 @@ tracks/3/keys = {
 "values": [ 10, 11, 12 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 22 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 7.79235, 22 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 20.9118, 8 )
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=6]
 radius = 21.9999
 height = 34.0001
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=7]
 radius = 5.04766
 height = 41.3699
 
 [node name="Robit-04" type="KinematicBody2D" groups=[
-"hittable",
 "player",
+"hittable",
 "ladder",
 ]]
 collision_layer = 2
@@ -181,8 +181,8 @@ hframes = 16
 frame = 10
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 6 )]
-anims/Kick-Wall-Left = SubResource( 6 )
-anims/Kick-Wall-Right = SubResource( 7 )
+anims/Kick-Wall-Left = SubResource( 1 )
+anims/Kick-Wall-Right = SubResource( 2 )
 
 [node name="Position2D-Arm-Gun" type="Position2D" parent="."]
 position = Vector2( 5, -4 )
@@ -215,17 +215,17 @@ wait_time = 0.3
 
 [node name="CollisionShape2D-Stand" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D-Run" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="CollisionShape2D-Prone" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, 14 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 disabled = true
 
 [node name="RayCast2D_Up" type="RayCast2D" parent="."]
@@ -313,7 +313,7 @@ collision_mask = 851968
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grab_Area2D"]
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Platform-Raycasts" type="Node2D" parent="."]
 visible = false
@@ -324,7 +324,7 @@ collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area2D"]
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 [connection signal="timeout" from="Shield_Timer" to="." method="_on_Shield_Timer_timeout"]
 [connection signal="timeout" from="Shield_Hit_Timer" to="." method="_on_Shield_Hit_Timer_timeout"]
 [connection signal="timeout" from="Speed_Timer" to="." method="_on_Speed_Timer_timeout"]
