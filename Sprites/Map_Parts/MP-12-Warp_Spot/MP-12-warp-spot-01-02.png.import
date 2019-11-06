@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MP-12-warp-spot-01.png-1f00eea04e17119f0c806136cd9f928d.stex"
+path="res://.import/MP-12-warp-spot-01-02.png-e9fa18e54f996f1be97c05d9c0c34ddd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Map_Parts/MP-12-warp-spot-01.png"
-dest_files=[ "res://.import/MP-12-warp-spot-01.png-1f00eea04e17119f0c806136cd9f928d.stex" ]
+source_file="res://Sprites/Map_Parts/MP-12-Warp_Spot/MP-12-warp-spot-01-02.png"
+dest_files=[ "res://.import/MP-12-warp-spot-01-02.png-e9fa18e54f996f1be97c05d9c0c34ddd.stex" ]
 
 [params]
 

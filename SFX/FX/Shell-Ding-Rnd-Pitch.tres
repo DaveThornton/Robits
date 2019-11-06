@@ -2,6 +2,5 @@
 
 [ext_resource path="res://SFX/FX/sfx_coin_single3.wav" type="AudioStream" id=1]
 
-
 [resource]
 audio_stream = ExtResource( 1 )

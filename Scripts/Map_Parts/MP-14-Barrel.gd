@@ -2,9 +2,18 @@ extends RigidBody2D
 export(PackedScene) var boom
 export var armor = 0
 export var damage = 111
+export var color_lquid = Color8(0,255,0,255)
+export var color_barrel = Color8(255,255,255,255)
+
+onready var barrel_l = $"MP-14-Barrel-Lquid"
+onready var barrel_b = $"MP-14-Barrel-Still"
 
 var health = 50
 var is_right = true
+
+func _ready():
+	barrel_l.self_modulate = color_lquid
+	barrel_b.self_modulate = color_barrel
 
 func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)

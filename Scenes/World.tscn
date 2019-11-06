@@ -24,7 +24,6 @@ console_start = ExtResource( 5 )
 console_end = ExtResource( 6 )
 demo_map = ExtResource( 7 )
 campaign_map = ExtResource( 8 )
-game_mode = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 pause_mode = 1
@@ -59,13 +58,13 @@ texture = ExtResource( 11 )
 
 [node name="Dead_Weight_Dave_inc" type="Sprite" parent="."]
 visible = false
-position = Vector2( 99.0355, 903.54 )
+position = Vector2( 84.8929, 923.047 )
 scale = Vector2( 0.376896, 0.380914 )
 z_index = 25
 texture = ExtResource( 12 )
 
 [node name="ROBITS-Logo-03" type="Sprite" parent="."]
-position = Vector2( 80.8884, 1062.25 )
+position = Vector2( 78.6589, 1060.83 )
 scale = Vector2( 0.112891, 0.122107 )
 texture = ExtResource( 13 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -4,10 +4,18 @@ export var color = Color ( 255, 255, 255 )
 onready var sprite_warp = $"Sprite-Warp"
 onready var warp_spot = $Position2D
 onready var anim = $AnimationPlayer
+onready var w1 = $"MP-12-warp-spot-01-01"
+onready var w2 = $"MP-12-warp-spot-01-02"
+onready var w3 = $"MP-12-warp-spot-01-03"
+onready var w4 = $"MP-12-warp-spot-01-04"
 
 func _ready():
-	sprite_warp.modulate = color
-	anim.play("Default")
+	sprite_warp.self_modulate = color
+	w1.self_modulate = color
+	w2.self_modulate = color
+	w3.self_modulate = color
+	w4.self_modulate = color
+	anim.play("Current")
 
 func _on_Area2D_body_entered(body):
 	if warp_spot:
