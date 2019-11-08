@@ -24,6 +24,7 @@ console_start = ExtResource( 5 )
 console_end = ExtResource( 6 )
 demo_map = ExtResource( 7 )
 campaign_map = ExtResource( 8 )
+game_mode = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 pause_mode = 1

@@ -237,6 +237,11 @@ func move_x(_moving, _right):
 					current_x_speed = 0
 				else:
 					current_x_speed -= current_x_speed / 20
+	else:
+		if current_x_speed < 2 && current_x_speed > -2 || on_ladder:
+			current_x_speed = 0
+		else:
+			current_x_speed -= current_x_speed / 10
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
 func jump(down_input, left_input, right_input):
