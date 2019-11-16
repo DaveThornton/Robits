@@ -33,7 +33,6 @@ onready var ray_right_down = $RayCast2D_Right_Down
 onready var ray_left_down = $RayCast2D_Left_Down
 onready var ray_left = $RayCast2D_Left
 onready var ray_down_plat = $RayCast2D
-#onready var ray_plat_test = $RayCast2D_Plat_Test
 
 var player = 1
 var play_type = 2

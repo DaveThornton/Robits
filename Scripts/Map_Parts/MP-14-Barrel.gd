@@ -11,9 +11,16 @@ onready var barrel_b = $"MP-14-Barrel-Still"
 var health = 50
 var is_right = true
 
+signal boom
+
 func _ready():
 	barrel_l.self_modulate = color_lquid
 	barrel_b.self_modulate = color_barrel
+
+func init(_health,_gpos):
+	if _health > 0:
+		health = _health
+	self.global_transform = _gpos
 
 func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
@@ -32,6 +39,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			is_right = true
 
 func _explode(_by_who):
+	self.emit_signal("boom")
 	var x = boom.instance()
 	get_tree().get_current_scene().add_child(x)
 	x.init(_by_who, self.position, "Barrel", 0, damage)
