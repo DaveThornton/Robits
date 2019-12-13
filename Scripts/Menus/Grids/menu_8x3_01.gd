@@ -47,14 +47,14 @@ func move_down():
 		update_from_pos()
 
 func move_left():
-	if pos == 1 || pos == 8 || pos == 17:
+	if pos == 1 || pos == 9 || pos == 17:
 		pass
 	else:
 		pos -= 1
 		update_from_pos()
 
 func move_right():
-	if pos == 9 || pos == 16 || pos == 24:
+	if pos == 8 || pos == 16 || pos == 24:
 		pass
 	else:
 		pos += 1

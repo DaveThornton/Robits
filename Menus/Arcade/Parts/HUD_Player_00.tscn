@@ -1990,6 +1990,7 @@ text = "]"
 align = 1
 
 [node name="HBox_Select" type="HBoxContainer" parent="VBox_In_Game"]
+editor/display_folded = true
 visible = false
 margin_top = 41.0
 margin_right = 220.0
@@ -2098,6 +2099,7 @@ margin_bottom = 479.0
 texture = ExtResource( 3 )
 
 [node name="VBox_In_Menu" type="VBoxContainer" parent="."]
+editor/display_folded = true
 margin_top = 41.0
 margin_right = 220.0
 margin_bottom = 78.0
@@ -2235,7 +2237,3 @@ anims/PLAYER_READY = SubResource( 7 )
 anims/PLAYER_SELECT = SubResource( 8 )
 anims/PRESS_START = SubResource( 9 )
 anims/SHOW_ALL = SubResource( 10 )
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

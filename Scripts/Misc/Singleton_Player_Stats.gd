@@ -336,6 +336,26 @@ func can_player_start(_player):
 	else:
 		return false
 
+func get_num_in_play():
+	var _num_in_play = 0
+	if p1["in_play"]:
+		_num_in_play += 1
+	if p2["in_play"]:
+		_num_in_play += 1
+	if p3["in_play"]:
+		_num_in_play += 1
+	if p4["in_play"]:
+		_num_in_play += 1
+	if p5["in_play"]:
+		_num_in_play += 1
+	if p6["in_play"]:
+		_num_in_play += 1
+	if p7["in_play"]:
+		_num_in_play += 1
+	if p8["in_play"]:
+		_num_in_play += 1
+	return _num_in_play
+
 func get_places():
 	p_in_p = 0
 	var _places =[]

@@ -61,7 +61,7 @@ func _armed(_time):
 #warning-ignore:unused_argument
 #warning-ignore:unused_argument
 #warning-ignore:unused_argument
-func hit(_owned, my_name, damage_type, damage1):
+func hit(_owned, _my_name, _damage_type, _damage1):
 	if ready:
 		_armed(time)
 		player =  _owned

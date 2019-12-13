@@ -1,7 +1,6 @@
 extends VBoxContainer
 
 onready var anim = $AnimationPlayer
-onready var timer = $Timer
 onready var game_box = $VBox_In_Game
 onready var player_num_ig = $VBox_In_Game/HBox_Player/Label_Player_Count
 onready var ammo_count_ig = $VBox_In_Game/HBox_Ammo/Label_Ammo_Count
@@ -68,6 +67,3 @@ func press_start():
 
 func show_player():
 	anim.play("PLAYER")
-
-func _on_Timer_timeout():
-	show_player()

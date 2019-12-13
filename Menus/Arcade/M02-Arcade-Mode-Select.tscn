@@ -24,3 +24,5 @@ choose game type
 
 V.s. mode"
 align = 1
+
+[node name="Timer" type="Timer" parent="."]
