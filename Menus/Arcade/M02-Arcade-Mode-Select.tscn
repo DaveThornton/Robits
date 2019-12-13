@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Menus/Arcade/Scripts/M02-Arcade-Mode-Select.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Arcade/M03-Arcade-Player-Select-VS.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menus/Grids/menu_1X3_01.tscn" type="PackedScene" id=3]
+[ext_resource path="res://misc/line-text-big.tres" type="DynamicFont" id=4]
+
+[node name="M02-Arcade-Mode-Select" type="Node2D"]
+script = ExtResource( 1 )
+vs_mode = ExtResource( 2 )
+
+[node name="menu_1X3_01" parent="." instance=ExtResource( 3 )]
+position = Vector2( 960, 540 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 389.0
+margin_top = 221.5
+margin_right = 1531.0
+margin_bottom = 858.5
+custom_fonts/font = ExtResource( 4 )
+text = "campaign
+
+choose game type
+
+V.s. mode"
+align = 1

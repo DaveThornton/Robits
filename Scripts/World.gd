@@ -370,6 +370,7 @@ func set_all_out_of_play():
 #	p8_exists = false
 
 func coin_insert( _player):
+	print(_player," incerted coin")
 	if _player == 1:
 		Player_Stats.p1["credit"] += 1
 	elif _player == 2:

@@ -134,12 +134,14 @@ var p_in_p = 0
 
 signal hud_update(_p1,_p2,_p3,_p4,_p5,_p6,_p7,_p8)
 
+signal coin_inserted()
+
 func _ready():
 	pass
 
 func update_hud():
 	emit_signal("hud_update", p1, p2, p3, p4, p5, p6, p7, p8)
-	
+
 func set_hud(_hud):
 	hud = _hud
 
@@ -148,7 +150,6 @@ func add_kill(_killed, _killer, _point, _by_what):
 	add_score(_killed,(-1 * _point))
 	add_death(_killed)
 	update_hud()
-
 
 func add_death(_player):
 	if _player == 1:
@@ -233,6 +234,49 @@ func add_hit(_player, _hit_amount):
 		print("Error in Singleton_Player_Stats add_hit function invalid player number. ", _player, " <---player number.. hit amount--->", _hit_amount)
 #	print(p1["shot"],"<--shot, hit--->", p1["hit"])
 
+func coin_insert( _player):
+	print(_player," incerted coin")
+	if _player == 1:
+		p1["credit"] += 1
+#		HUD.coin_up(_player)
+	elif _player == 2:
+		p2["credit"] += 1
+	elif _player == 3:
+		p3["credit"] += 1
+	elif _player == 4:
+		p4["credit"] += 1
+	elif _player == 5:
+		p5["credit"] += 1
+	elif _player == 6:
+		p6["credit"] += 1
+	elif _player == 7:
+		p7["credit"] += 1
+	elif _player == 8:
+		p8["credit"] += 1
+	HUD.coin_up(_player)
+#	emit_signal("coin_up")
+#	can_player_start_arcade(_player)
+	
+func use_credit( _player):
+	if _player == 1:
+		p1["credit"] -= 1
+	elif _player == 2:
+		p2["credit"] -= 1
+	elif _player == 3:
+		p3["credit"] -= 1
+	elif _player == 4:
+		p4["credit"] -= 1
+	elif _player == 5:
+		p5["credit"] -= 1
+	elif _player == 6:
+		p6["credit"] -= 1
+	elif _player == 7:
+		p7["credit"] -= 1
+	elif _player == 8:
+		p8["credit"] -= 1
+	HUD.use_credit(_player)
+#	can_player_start_arcade(_player)
+
 func nrg_update(_player, _nrg, _nrg_max):
 	var _current_nrg = int((float(_nrg) / _nrg_max)* 100)
 	if _player == 1:
@@ -254,8 +298,6 @@ func nrg_update(_player, _nrg, _nrg_max):
 	else:
 		print("error on nrg update not a valid player number")
 
-
-
 func ammo_update(_player, _ammo):
 	if _player == 1:
 		hud.update_p1_ammo(_ammo)
@@ -273,6 +315,26 @@ func ammo_update(_player, _ammo):
 		hud.update_p7_ammo(_ammo)
 	elif _player == 8:
 		hud.update_p8_ammo(_ammo)
+
+func can_player_start(_player):
+	if _player == 1 && p1["credit"] > 0:
+		return true
+	elif _player == 2 && p2["credit"] > 0:
+		return true
+	elif _player == 3 && p3["credit"] > 0:
+		return true
+	elif _player == 4 && p4["credit"] > 0:
+		return true
+	elif _player == 5 && p5["credit"] > 0:
+		return true
+	elif _player == 6 && p6["credit"] > 0:
+		return true
+	elif _player == 7 && p7["credit"] > 0:
+		return true
+	elif _player == 8 && p8["credit"] > 0:
+		return true
+	else:
+		return false
 
 func get_places():
 	p_in_p = 0

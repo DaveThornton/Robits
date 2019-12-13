@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Menus/Arcade/Scripts/M01-Arcade-Start.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Arcade/M02-Arcade-Mode-Select.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Menu/Console_PC-Screen.png" type="Texture" id=3]
+
+[node name="M01-Arcade-Start" type="Node2D"]
+script = ExtResource( 1 )
+next_screen = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 960, 811.585 )
+texture = ExtResource( 3 )

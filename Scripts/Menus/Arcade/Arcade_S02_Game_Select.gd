@@ -1,6 +1,6 @@
 extends MarginContainer
 export(PackedScene) var campaign
-export(PackedScene) var vs_mode                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+export(PackedScene) var vs_mode
 
 onready var menu = $menu_1X3_01
 onready var bottom_hud = $VBoxContainer/Arcade_Bottom_HUD

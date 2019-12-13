@@ -1,0 +1,311 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/Map_Parts/Parts/AnimationPlayer_Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Map_Parts/MP-06-Trap_Door-160x20.png" type="Texture" id=2]
+[ext_resource path="res://SFX/Map_Parts/sfx_movement_dooropen2.wav" type="AudioStream" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+#export var open_timer = .75
+export var open_on_top = true 
+export var open_on_bot = true 
+export var open_on_far_top = false 
+export var open_on_far_bot = false 
+export var open_for_bg = true
+export var open_for_player = true
+
+onready var anim = $AnimationPlayer
+onready var timer = $Timer
+onready var far_top = $\"Area2D-Top/CollisionShape2D-Top-Far\"
+onready var far_bot = $\"Area2D-Bot/CollisionShape2D-Bot-Far\"
+onready var sfx = $AudioStreamPlayer
+onready var area_left = $\"Area2D-Top\"
+onready var area_right = $\"Area2D-Bot\"
+
+var bodies = 0
+var open = false 
+var open_last = false
+
+func _ready():
+#	print(\"ready!!!!!\")
+#	anim.play_backwards(\"Door_Open\")
+#	timer.wait_time = open_timer
+	far_top.disabled = !open_on_far_top
+	far_bot.disabled = !open_on_far_bot
+	area_left.set_collision_mask_bit(1,open_for_player)
+	area_right.set_collision_mask_bit(1,open_for_player)
+	area_left.set_collision_mask_bit(10,open_for_player)
+	area_right.set_collision_mask_bit(10,open_for_player)
+	area_left.set_collision_mask_bit(11,open_for_bg)
+	area_right.set_collision_mask_bit(11,open_for_bg)
+#	print(open_for_player, \"<---------------for player|| for badguy-------->\", open_for_bg)
+
+#warning-ignore:unused_argument
+func _process(delta):
+	if open != open_last:
+		sfx.play()
+		open_last = open
+
+func _on_entered(body):
+#	print(\"body entered\")
+	if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+#		print(\"player or bg entered\")
+		bodies += 1
+		if !anim.is_playing():
+#			print(\"playing anim\")
+			if !open:
+				anim.play(\"Trap_Door_Open\")
+				open = true
+			else:
+				timer.stop()
+		else :
+			var _anim_pos = anim.current_animation_position
+			if !open:
+				anim.play(\"Trap_Door_Open\")
+				anim.seek(_anim_pos)
+				open = true
+			else:
+				timer.stop()
+
+func _on_exited(body):
+	if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+		bodies -= 1
+		if bodies <= 0:
+			timer.start()
+
+func _on_Timer_timeout():
+	if open:
+		anim.play(\"Trap_Door_Open\",0,-1,true)
+		open = false
+#		sfx.play()
+
+func _on_Area2DLeft_body_entered(body):
+	if open_on_top:
+#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+		_on_entered(body)
+
+func _on_Area2DRight_body_entered(body):
+	if open_on_bot:
+#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+		_on_entered(body)
+
+func _on_Area2DLeft_body_exited(body):
+	if open_on_top:
+#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+		_on_exited(body)
+
+func _on_Area2DRight_body_exited(body):
+	if open_on_bot:
+#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+		_on_exited(body)"
+
+[sub_resource type="Animation" id=7]
+resource_name = "Trap_Door_Open"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("StaticBody2D/Door_Bottom:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("StaticBody2D/Door_Top:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("StaticBody2D/Door_Top2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("StaticBody2D/Door_Top4:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("StaticBody2D/Door_Top3:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("StaticBody2D/Very_Top:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("StaticBody2D/Very_Top2:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 17.1905
+height = 104.785
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 2.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 16 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10, 13.625 )
+
+[node name="Trap_Door-160_Wide" type="Node2D" groups=[
+"map",
+]]
+script = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." instance=ExtResource( 1 )]
+anims/Trap_Door_Open = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 7
+
+[node name="Area2D-Top" type="Area2D" parent="."]
+position = Vector2( 0, -32 )
+collision_layer = 262144
+collision_mask = 3074
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Top"]
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D-Top-Far" type="CollisionShape2D" parent="Area2D-Top"]
+position = Vector2( 0, -35 )
+rotation = 1.5708
+shape = SubResource( 6 )
+disabled = true
+
+[node name="Area2D-Bot" type="Area2D" parent="."]
+position = Vector2( 0, 32 )
+collision_layer = 262144
+collision_mask = 3074
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Bot"]
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D-Bot-Far" type="CollisionShape2D" parent="Area2D-Bot"]
+position = Vector2( 0, 35 )
+rotation = 1.5708
+shape = SubResource( 6 )
+disabled = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+"map",
+]]
+collision_layer = 8
+collision_mask = 885279
+
+[node name="Very_Top" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -78, 0 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Very_Top2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 78, 0 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Door_Top" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -29, 0 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="Door_Top2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 29, 0 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="Door_Top3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 60, 0 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="Door_Top4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -60, 0 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="Door_Bottom" type="CollisionShape2D" parent="StaticBody2D"]
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -22.0
+bus = "SFX"
+[connection signal="body_entered" from="Area2D-Top" to="." method="_on_Area2DLeft_body_entered"]
+[connection signal="body_exited" from="Area2D-Top" to="." method="_on_Area2DLeft_body_exited"]
+[connection signal="body_entered" from="Area2D-Bot" to="." method="_on_Area2DRight_body_entered"]
+[connection signal="body_exited" from="Area2D-Bot" to="." method="_on_Area2DRight_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

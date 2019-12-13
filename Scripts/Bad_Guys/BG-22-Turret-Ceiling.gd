@@ -27,7 +27,7 @@ onready var shoot_timer = $Timer_Shoot
 #onready var sfx = $SFX_Lib
 
 var can_shoot = true
-var damage = 2
+var damage = 20
 var ex_dmg = 25
 var health = 75
 var player = -1
@@ -64,10 +64,10 @@ func _process(delta):
 			remove_dead()
 			if bodies_in_range.size() > 0:
 				if bodies_in_range.size() > 1:
-					print(bodies_in_range)
+#					print(bodies_in_range)
 	#					bodies_in_range.sort_custom(self, "sort_distance")
 					bodies_in_range.sort_custom(self, "sort_distance")
-					print(bodies_in_range)
+#					print(bodies_in_range)
 				gun_arm.look_at(bodies_in_range[0].global_position)
 	#				gun_arm.look_at(bodies_in_range[0].position)
 				if can_shoot:

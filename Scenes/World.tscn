@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Robit-Controller.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Menus/Arcade/Arcade_S01_Start.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menus/Arcade/M01-Arcade-Start.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menus/Arcade/Arcade_Game_over.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Menus/Console-PC/Console_Start.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Menus/Console-PC/Console_Game_over.tscn" type="PackedScene" id=6]
@@ -24,7 +24,6 @@ console_start = ExtResource( 5 )
 console_end = ExtResource( 6 )
 demo_map = ExtResource( 7 )
 campaign_map = ExtResource( 8 )
-game_mode = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 pause_mode = 1

@@ -273,7 +273,6 @@ position = Vector2( 260, 1010 )
 position = Vector2( 300, 970 )
 
 [node name="Bad_Guys" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="BG-24-Turret-Wall-Left" parent="Bad_Guys" instance=ExtResource( 12 )]
 position = Vector2( 1150, 430 )

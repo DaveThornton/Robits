@@ -688,6 +688,7 @@ value = 100.0
 percent_visible = false
 
 [node name="VBoxContainer8" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+editor/display_folded = true
 margin_left = 1750.0
 margin_right = 1850.0
 margin_bottom = 75.0
