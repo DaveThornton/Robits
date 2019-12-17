@@ -9,7 +9,8 @@ onready var score_count_ig = $VBox_In_Game/HBox_Score/Label_Score_Count
 onready var menu_box = $VBox_In_Menu
 onready var player_num_im = $VBox_In_Menu/HBox_Player/Label_Player_Count
 onready var coin_count_im = $VBox_In_Menu/HBox_Coin/Label_Coin_Count
-onready var nrg_bar =$VBox_In_Game/NRG_Bar
+onready var nrg_bar = $VBox_In_Game/HBox_for_NRG/NRG_Bar
+onready var game_over_stats = $Player_End_VS_Stats
 
 export var time_out = 5
 export var player_num = 0
@@ -26,9 +27,9 @@ func in_game():
 	game_box.visible = true
 	menu_box.visible = false
 
-
 func set_player_num(_num):
 	player_num_ig.text = str(_num)
+	nrg_bar.self_modulate = Player_Stats.get_body_color(_num)
 	player_num_im.text = str(_num)
 
 func set_ammo_count(_amount):
@@ -67,3 +68,11 @@ func press_start():
 
 func show_player():
 	anim.play("PLAYER")
+
+# end game stats
+func end_game():
+	game_over_stats.visible = true
+	game_over_stats.update()
+
+func end_game_reset():
+	game_over_stats.visible = false

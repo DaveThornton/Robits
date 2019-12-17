@@ -202,7 +202,6 @@ func spawn_player_contoller(player_num, _auto_respawn):
 	self.connect("game_over", z, "game_over")
 #warning-ignore:return_value_discarded
 	self.connect("reset",z,"reset")
-#	print("spawned player")
 	if player_num == 1:
 		p1_controller = z
 	elif player_num == 2:
@@ -357,17 +356,9 @@ func set_in_play(_player):
 		Player_Stats.p8["exist"] = true
 	if hud:
 		update_hud()
-		
+
 func set_all_out_of_play():
 	print("set all out of play world.gd i broke it on purpose whats wrong now")
-#	p1_exists = false
-#	p2_exists = false
-#	p3_exists = false
-#	p4_exists = false
-#	p5_exists = false
-#	p6_exists = false
-#	p7_exists = false
-#	p8_exists = false
 
 func coin_insert( _player):
 	print(_player," incerted coin")
@@ -391,6 +382,7 @@ func coin_insert( _player):
 	can_player_start_arcade(_player)
 	
 func use_credit( _player):
+	print("quit using this one should use the pne in player stats")
 	if _player == 1:
 		Player_Stats.p1["credit"] -= 1
 	elif _player == 2:

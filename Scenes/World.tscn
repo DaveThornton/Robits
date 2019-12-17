@@ -27,7 +27,7 @@ campaign_map = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
 pause_mode = 1
-position = Vector2( 957.074, 540 )
+position = Vector2( 960, 540 )
 z_index = -40
 texture = ExtResource( 9 )
 
@@ -64,6 +64,7 @@ z_index = 25
 texture = ExtResource( 12 )
 
 [node name="ROBITS-Logo-03" type="Sprite" parent="."]
+visible = false
 position = Vector2( 78.6589, 1060.83 )
 scale = Vector2( 0.112891, 0.122107 )
 texture = ExtResource( 13 )

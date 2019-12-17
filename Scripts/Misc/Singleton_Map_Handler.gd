@@ -1,11 +1,11 @@
 extends Node
+
 var map
+
 onready var splash = $Level_Load_Screen
-#var splash = "res://Menus/Campaign/Level_Load_Screen.tscn"
-#onready var timer = $Timer
 onready var timer_camp = $Timer_Camp_Load
-#func _ready():
-#	pass # Replace with function body.
+
+var the_game
 var level
 
 func spawn_pos():
@@ -18,7 +18,7 @@ func load_map( _map_to_load):
 	map = m
 	add_child(m)
 	get_tree().get_current_scene().map = m
-	Menu_Hand.load_arcade_hud()
+#	Menu_Hand.load_arcade_hud()
 	get_tree().get_current_scene().spawn_started()
 	get_tree().get_current_scene().out_of_menu()
 	get_tree().get_current_scene().connect("reset",m,"reset")

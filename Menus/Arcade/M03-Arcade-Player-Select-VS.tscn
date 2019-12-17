@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Menus/Arcade/Scripts/M03-Arcade-Player-Select-VS.gd" type="Script" id=1]
-[ext_resource path="res://Menus/Arcade/Arcade_S04_Map_Select_VS.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menus/Arcade/M04-Arcade-Map-Select-VS.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menus/Grids/menu_8x2_01.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Menu/Player_Select_8x2.png" type="Texture" id=4]
 

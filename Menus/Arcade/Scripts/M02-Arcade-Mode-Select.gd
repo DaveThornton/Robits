@@ -1,13 +1,12 @@
 extends Node2D
+
 export(PackedScene) var campaign
 export(PackedScene) var vs_mode
 
 onready var menu = $menu_1X3_01
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 var menu_pos = 2
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	var test3 = Menu_Hand.connect("input_to_screen", self, "movement")
 	if test3 != 0:
@@ -17,18 +16,11 @@ func _ready():
 func _start():
 	if menu_pos == 1:
 		Menu_Hand.load_screen(campaign)
-#		emit_signal("load_screen", campaign)
-#		get_tree().get_current_scene().load_screen(campaign)
 		call_deferred("free")
 	if menu_pos == 2:
 		pass
-#		HUD.in_play_to_select()
-#		sfx play some shit
-#		pass
 	if menu_pos == 3:
 		Menu_Hand.load_screen(vs_mode)
-#		emit_signal("load_screen", vs_mode)
-#		get_tree().get_current_scene().load_screen(vs_mode)
 		call_deferred("free")
 
 func movement(_player, _dir):
@@ -43,16 +35,13 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				menu.move_down()
 			elif _dir ==5:
-#				if can_start:
 				menu_pos = menu.pos
-#				started_num += 1
 				HUD.player_ready(_player)
 				_start()
 		elif Player_Stats.p1["credit"] >= 1:
 			if _dir == 5:
-				Player_Stats.p1["in_play"] = true
+				Player_Stats.use_credit(_player)
 				HUD.player_select(_player)
-				emit_signal("use_credit",_player)
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 2:
@@ -66,16 +55,13 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				menu.move_down()
 			elif _dir ==5:
-#				if can_start:
 				menu_pos = menu.pos
-#				started_num += 1
 				HUD.player_ready(_player)
 				_start()
 		elif Player_Stats.p2["credit"] >= 1:
 			if _dir == 5:
-				Player_Stats.p2["in_play"] = true
+				Player_Stats.use_credit(_player)
 				HUD.player_select(_player)
-				emit_signal("use_credit",_player)
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 3:
@@ -89,16 +75,13 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				menu.move_down()
 			elif _dir ==5:
-#				if can_start:
 				menu_pos = menu.pos
-#				started_num += 1
 				HUD.player_ready(_player)
 				_start()
 		elif Player_Stats.p3["credit"] >= 1:
 			if _dir == 5:
-				Player_Stats.p3["in_play"] = true
+				Player_Stats.use_credit(_player)
 				HUD.player_select(_player)
-				emit_signal("use_credit",_player)
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 4:
@@ -112,16 +95,13 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				menu.move_down()
 			elif _dir ==5:
-#				if can_start:
 				menu_pos = menu.pos
-#				started_num += 1
 				HUD.player_ready(_player)
 				_start()
 		elif Player_Stats.p4["credit"] >= 1:
 			if _dir == 5:
-				Player_Stats.p4["in_play"] = true
+				Player_Stats.use_credit(_player)
 				HUD.player_select(_player)
-				emit_signal("use_credit",_player)
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 5:
@@ -135,16 +115,13 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				menu.move_down()
 			elif _dir ==5:
-#				if can_start:
 				menu_pos = menu.pos
-#				started_num += 1
 				HUD.player_ready(_player)
 				_start()
 		elif Player_Stats.p5["credit"] >= 1:
 			if _dir == 5:
-				Player_Stats.p5["in_play"] = true
+				Player_Stats.use_credit(_player)
 				HUD.player_select(_player)
-				emit_signal("use_credit",_player)
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 6:
@@ -158,16 +135,13 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				menu.move_down()
 			elif _dir ==5:
-#				if can_start:
 				menu_pos = menu.pos
-#				started_num += 1
 				HUD.player_ready(_player)
 				_start()
 		elif Player_Stats.p6["credit"] >= 1:
 			if _dir == 5:
-				Player_Stats.p6["in_play"] = true
+				Player_Stats.use_credit(_player)
 				HUD.player_select(_player)
-				emit_signal("use_credit",_player)
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 7:
@@ -181,19 +155,15 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				menu.move_down()
 			elif _dir ==5:
-#				if can_start:
 				menu_pos = menu.pos
-#				started_num += 1
 				HUD.player_ready(_player)
 				_start()
 		elif Player_Stats.p7["credit"] >= 1:
 			if _dir == 5:
-				Player_Stats.p7["in_play"] = true
+				Player_Stats.use_credit(_player)
 				HUD.player_select(_player)
-				emit_signal("use_credit",_player)
 		else:
 			HUD.ask_insert_coin(_player)
-
 	elif _player == 8:
 		if Player_Stats.p8["in_play"]:
 			if _dir ==1:
@@ -205,20 +175,14 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				menu.move_down()
 			elif _dir ==5:
-#				if can_start:
 				menu_pos = menu.pos
-#				started_num += 1
 				HUD.player_ready(_player)
 				_start()
 		elif Player_Stats.p8["credit"] >= 1:
 			if _dir == 5:
-				Player_Stats.p8["in_play"] = true
+				Player_Stats.use_credit(_player)
 				HUD.player_select(_player)
-				emit_signal("use_credit",_player)
 		else:
 			HUD.ask_insert_coin(_player)
 	else:
-		print("error invald player in arcade start")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+		print("error invald player in arcade mode select")

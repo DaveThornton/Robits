@@ -27,6 +27,14 @@ onready var s21 = $Sprite21
 onready var s22 = $Sprite22
 onready var s23 = $Sprite23
 onready var s24 = $Sprite24
+onready var s25 = $Sprite25
+onready var s26 = $Sprite26
+onready var s27 = $Sprite27
+onready var s28 = $Sprite28
+onready var s29 = $Sprite29
+onready var s30 = $Sprite30
+onready var s31 = $Sprite31
+onready var s32 = $Sprite32
 
 func _ready():
 	update_from_pos()
@@ -40,21 +48,21 @@ func move_up():
 		update_from_pos()
 
 func move_down():
-	if pos == 17 || pos == 18 || pos == 19 || pos == 20 ||pos == 21 || pos == 22 || pos == 23 || pos == 24:
+	if pos == 25 || pos == 26 || pos == 27 || pos == 28 ||pos == 29 || pos == 30 || pos == 31 || pos == 32:
 		pass
 	else:
 		pos += 8
 		update_from_pos()
 
 func move_left():
-	if pos == 1 || pos == 9 || pos == 17:
+	if pos == 1 || pos == 9 || pos == 17 || pos == 25:
 		pass
 	else:
 		pos -= 1
 		update_from_pos()
 
 func move_right():
-	if pos == 8 || pos == 16 || pos == 24:
+	if pos == 8 || pos == 16 || pos == 24 || pos == 32:
 		pass
 	else:
 		pos += 1
@@ -109,8 +117,24 @@ func update_from_pos():
 		sq23()
 	elif pos == 24:
 		sq24()
+	elif pos == 25:
+		sq25()
+	elif pos == 26:
+		sq26()
+	elif pos == 27:
+		sq27()
+	elif pos == 28:
+		sq28()
+	elif pos == 29:
+		sq29()
+	elif pos == 30:
+		sq30()
+	elif pos == 31:
+		sq31()
+	elif pos == 32:
+		sq32()
 	else:
-		print("error in pos number menu 8 x 3 number higher than 24 or lower than 1 invalid")
+		print("error in pos number menu 8 x 4 number higher than 32 or lower than 1 invalid")
 
 func sq01():
 	blank_squares()
@@ -184,6 +208,30 @@ func sq23():
 func sq24():
 	blank_squares()
 	s24.frame = player
+func sq25():
+	blank_squares()
+	s25.frame = player
+func sq26():
+	blank_squares()
+	s26.frame = player
+func sq27():
+	blank_squares()
+	s27.frame = player
+func sq28():
+	blank_squares()
+	s28.frame = player
+func sq29():
+	blank_squares()
+	s29.frame = player
+func sq30():
+	blank_squares()
+	s30.frame = player
+func sq31():
+	blank_squares()
+	s31.frame = player
+func sq32():
+	blank_squares()
+	s32.frame = player
 
 
 func blank_squares():
@@ -211,3 +259,11 @@ func blank_squares():
 	s22.frame = 0
 	s23.frame = 0
 	s24.frame = 0
+	s25.frame = 0
+	s26.frame = 0
+	s27.frame = 0
+	s28.frame = 0
+	s29.frame = 0
+	s30.frame = 0
+	s31.frame = 0
+	s32.frame = 0

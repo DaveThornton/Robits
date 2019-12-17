@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Menus/Arcade/Scripts/M04-Arcade-Map-Select-VS.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Misc/Game_Modes/G01-Arcade-VS.tscn" type="PackedScene" id=2]
+[ext_resource path="res://map/VS_Mode/Map-01-Disputed.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menus/Grids/menu_8x4_01.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Menu/Map_Select_8x4.png" type="Texture" id=5]
+
+[node name="M04-Arcade-Map-Select-VS" type="Node2D"]
+script = ExtResource( 1 )
+game = ExtResource( 2 )
+map = ExtResource( 3 )
+
+[node name="Menu_8x4_01" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 960, 578 )
+
+[node name="Menu_8x4_02" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 960, 578 )
+player = 2
+pos = 2
+
+[node name="Menu_8x4_03" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 960, 578 )
+player = 3
+pos = 4
+
+[node name="Menu_8x4_04" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 960, 578 )
+player = 4
+pos = 6
+
+[node name="Menu_8x4_05" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 960, 578 )
+player = 5
+pos = 32
+
+[node name="Menu_8x4_06" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 960, 578 )
+player = 6
+pos = 6
+
+[node name="Menu_8x4_07" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 960, 578 )
+player = 7
+pos = 7
+
+[node name="Menu_8x4_08" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 960, 578 )
+player = 8
+pos = 32
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 960, 578 )
+texture = ExtResource( 5 )

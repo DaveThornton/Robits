@@ -1,15 +1,16 @@
 extends Node2D
 
-export(PackedScene) var vs_map_select
+export(PackedScene) var game
+export(PackedScene) var map
 
-onready var p1_menu = $Menu_8x2_01
-onready var p2_menu = $Menu_8x2_02
-onready var p3_menu = $Menu_8x2_03
-onready var p4_menu = $Menu_8x2_04
-onready var p5_menu = $Menu_8x2_05
-onready var p6_menu = $Menu_8x2_06
-onready var p7_menu = $Menu_8x2_07
-onready var p8_menu = $Menu_8x2_08
+onready var p1_menu = $Menu_8x4_01
+onready var p2_menu = $Menu_8x4_02
+onready var p3_menu = $Menu_8x4_03
+onready var p4_menu = $Menu_8x4_04
+onready var p5_menu = $Menu_8x4_05
+onready var p6_menu = $Menu_8x4_06
+onready var p7_menu = $Menu_8x4_07
+onready var p8_menu = $Menu_8x4_08
 
 var ready_count = 0
 
@@ -23,27 +24,13 @@ func _ready():
 func _start():
 	ready_count += 1
 	if ready_count >= Player_Stats.get_num_in_play():
-		_next_screen()
+		_next_screen() 
 
 func _next_screen():
-	if Player_Stats.p1["in_play"]:
-		Player_Stats.p1["pawn_num"] = p1_menu.pos
-	if Player_Stats.p2["in_play"]:
-		Player_Stats.p2["pawn_num"] = p2_menu.pos
-	if Player_Stats.p3["in_play"]:
-		Player_Stats.p3["pawn_num"] = p3_menu.pos
-	if Player_Stats.p4["in_play"]:
-		Player_Stats.p4["pawn_num"] = p4_menu.pos
-	if Player_Stats.p5["in_play"]:
-		Player_Stats.p5["pawn_num"] = p5_menu.pos
-	if Player_Stats.p6["in_play"]:
-		Player_Stats.p6["pawn_num"] = p6_menu.pos
-	if Player_Stats.p7["in_play"]:
-		Player_Stats.p7["pawn_num"] = p7_menu.pos
-	if Player_Stats.p8["in_play"]:
-		Player_Stats.p8["pawn_num"] = p8_menu.pos
-	Menu_Hand.load_screen(vs_map_select)
-	self.call_deferred("free")
+	Map_Hand.load_map(map)
+	HUD.in_game()
+	call_deferred("free")
+#	pass
 
 func menu_check():
 	if Player_Stats.p1["in_play"]:
@@ -211,4 +198,4 @@ func movement(_player, _dir):
 				menu_check()
 				HUD.player_select(_player)
 	else:
-		print("error invald player in arcade player select VS")
+		print("error invald player in arcade map select VS")

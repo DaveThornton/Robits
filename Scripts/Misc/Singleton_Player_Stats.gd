@@ -140,6 +140,7 @@ func _ready():
 	pass
 
 func update_hud():
+	HUD.in_game()
 	emit_signal("hud_update", p1, p2, p3, p4, p5, p6, p7, p8)
 
 func set_hud(_hud):
@@ -192,6 +193,7 @@ func add_score(_player, _score_amount):
 		print("singleton_player_stats map kill")
 	else:
 		print("Error in Singleton_Player_Stats add_score function invalid player number. ", _player, " <---player number.. score amount--->", _score_amount)
+	HUD.set_score(_player)
 
 func add_shot(_player, _shot_amount):
 	if _player == 1:
@@ -260,61 +262,72 @@ func coin_insert( _player):
 func use_credit( _player):
 	if _player == 1:
 		p1["credit"] -= 1
+		p1["in_play"] = true
 	elif _player == 2:
 		p2["credit"] -= 1
+		p2["in_play"] = true
 	elif _player == 3:
 		p3["credit"] -= 1
+		p3["in_play"] = true
 	elif _player == 4:
 		p4["credit"] -= 1
+		p4["in_play"] = true
 	elif _player == 5:
 		p5["credit"] -= 1
+		p5["in_play"] = true
 	elif _player == 6:
 		p6["credit"] -= 1
+		p6["in_play"] = true
 	elif _player == 7:
 		p7["credit"] -= 1
+		p7["in_play"] = true
 	elif _player == 8:
 		p8["credit"] -= 1
+		p8["in_play"] = true
 	HUD.use_credit(_player)
 #	can_player_start_arcade(_player)
 
 func nrg_update(_player, _nrg, _nrg_max):
 	var _current_nrg = int((float(_nrg) / _nrg_max)* 100)
-	if _player == 1:
-		hud.update_p1_nrg(_current_nrg)
-	elif _player == 2:
-		hud.update_p2_nrg(_current_nrg)
-	elif _player == 3:
-		hud.update_p3_nrg(_current_nrg)
-	elif _player == 4:
-		hud.update_p4_nrg(_current_nrg)
-	elif _player == 5:
-		hud.update_p5_nrg(_current_nrg)
-	elif _player == 6:
-		hud.update_p6_nrg(_current_nrg)
-	elif _player == 7:
-		hud.update_p7_nrg(_current_nrg)
-	elif _player == 8:
-		hud.update_p8_nrg(_current_nrg)
-	else:
-		print("error on nrg update not a valid player number")
+	HUD.set_nrg(_player, _current_nrg)
+#	if _player == 1:
+#		hud.update_p1_nrg(_current_nrg)
+#	elif _player == 2:
+#		hud.update_p2_nrg(_current_nrg)
+#	elif _player == 3:
+#		hud.update_p3_nrg(_current_nrg)
+#	elif _player == 4:
+#		hud.update_p4_nrg(_current_nrg)
+#	elif _player == 5:
+#		hud.update_p5_nrg(_current_nrg)
+#	elif _player == 6:
+#		hud.update_p6_nrg(_current_nrg)
+#	elif _player == 7:
+#		hud.update_p7_nrg(_current_nrg)
+#	elif _player == 8:
+#		hud.update_p8_nrg(_current_nrg)
+#	else:
+#		print("error on nrg update not a valid player number")
 
 func ammo_update(_player, _ammo):
-	if _player == 1:
-		hud.update_p1_ammo(_ammo)
-	elif _player == 2:
-		hud.update_p2_ammo(_ammo)
-	elif _player == 3:
-		hud.update_p3_ammo(_ammo)
-	elif _player == 4:
-		hud.update_p4_ammo(_ammo)
-	elif _player == 5:
-		hud.update_p5_ammo(_ammo)
-	elif _player == 6:
-		hud.update_p6_ammo(_ammo)
-	elif _player == 7:
-		hud.update_p7_ammo(_ammo)
-	elif _player == 8:
-		hud.update_p8_ammo(_ammo)
+	HUD.set_ammo(_player, _ammo)
+	
+#	if _player == 1:
+#		hud.update_p1_ammo(_ammo)
+#	elif _player == 2:
+#		hud.update_p2_ammo(_ammo)
+#	elif _player == 3:
+#		hud.update_p3_ammo(_ammo)
+#	elif _player == 4:
+#		hud.update_p4_ammo(_ammo)
+#	elif _player == 5:
+#		hud.update_p5_ammo(_ammo)
+#	elif _player == 6:
+#		hud.update_p6_ammo(_ammo)
+#	elif _player == 7:
+#		hud.update_p7_ammo(_ammo)
+#	elif _player == 8:
+#		hud.update_p8_ammo(_ammo)
 
 func can_player_start(_player):
 	if _player == 1 && p1["credit"] > 0:
@@ -355,6 +368,24 @@ func get_num_in_play():
 	if p8["in_play"]:
 		_num_in_play += 1
 	return _num_in_play
+
+func get_body_color(_player):
+	if _player == 1:
+		return p1["color_body"]
+	elif _player == 2:
+		return p2["color_body"]
+	elif _player == 3:
+		return p3["color_body"]
+	elif _player == 4:
+		return p4["color_body"]
+	elif _player == 5:
+		return p5["color_body"]
+	elif _player == 6:
+		return p6["color_body"]
+	elif _player == 7:
+		return p7["color_body"]
+	elif _player == 8:
+		return p8["color_body"]
 
 func get_places():
 	p_in_p = 0
@@ -399,6 +430,7 @@ func sort_place(a, b):
 		return a.y
 
 func reset():
+	HUD.reset()
 	# might now work ? looks like it should work
 	p1["kill"] = 0
 	p1["death"] = 0
