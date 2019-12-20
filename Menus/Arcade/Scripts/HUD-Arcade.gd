@@ -168,6 +168,24 @@ func in_game():
 	else:
 		p8.in_game()
 
+func game_over():
+	if Player_Stats.p1["in_play"]:
+		p1.game_over()
+	if Player_Stats.p2["in_play"]:
+		p2.game_over()
+	if Player_Stats.p3["in_play"]:
+		p3.game_over()
+	if Player_Stats.p4["in_play"]:
+		p4.game_over()
+	if Player_Stats.p5["in_play"]:
+		p5.game_over()
+	if Player_Stats.p6["in_play"]:
+		p6.game_over()
+	if Player_Stats.p7["in_play"]:
+		p7.game_over()
+	if Player_Stats.p8["in_play"]:
+		p8.game_over()
+
 func set_score(_player):
 	if _player == 1:
 		p1.set_score_count(Player_Stats.p1["score"])

@@ -12,7 +12,7 @@ bg_color = Color( 1, 1, 1, 1 )
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=3]
 resource_name = "COIN_UP"
 length = 5.0
 step = 0.5
@@ -233,8 +233,7 @@ tracks/17/keys = {
 "values": [ true, false, true, false, true, false, true, false, true, false, true ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "INSERT_COIN"
+[sub_resource type="Animation" id=4]
 length = 6.0
 step = 0.5
 tracks/0/type = "value"
@@ -454,8 +453,7 @@ tracks/17/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "IN_MENU"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("VBox_In_Game:visible")
 tracks/0/interp = 1
@@ -553,8 +551,7 @@ tracks/7/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "IN_PLAY"
+[sub_resource type="Animation" id=6]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("VBox_In_Game/HBox_Score:visible")
@@ -737,8 +734,7 @@ tracks/14/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "PLAYER"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("VBox_In_Game/HBox_Score:visible")
 tracks/0/interp = 1
@@ -956,8 +952,7 @@ tracks/17/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "PLAYER_READY"
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("VBox_In_Game/HBox_Player:visible")
 tracks/0/interp = 1
@@ -1175,8 +1170,7 @@ tracks/17/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "PLAYER_SELECT"
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("VBox_In_Game/HBox_Player:visible")
 tracks/0/interp = 1
@@ -1394,7 +1388,7 @@ tracks/17/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("VBox_In_Game/HBox_Score:visible")
@@ -1613,8 +1607,7 @@ tracks/17/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "SHOW_ALL"
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("VBox_In_Game:visible")
 tracks/0/interp = 1
@@ -2229,47 +2222,52 @@ custom_fonts/font = ExtResource( 3 )
 text = "Press Start"
 align = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="VBox_Game_over" type="VBoxContainer" parent="."]
+visible = false
 margin_top = 207.0
 margin_right = 220.0
-margin_bottom = 422.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-margin_top = 426.0
-margin_right = 220.0
-margin_bottom = 641.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Player_End_VS_Stats" parent="." instance=ExtResource( 5 )]
-visible = false
-margin_top = 313.0
-margin_right = 220.0
-margin_bottom = 974.0
-
-[node name="MarginContainer3" type="MarginContainer" parent="."]
-margin_top = 645.0
-margin_right = 220.0
-margin_bottom = 860.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer4" type="MarginContainer" parent="."]
-margin_top = 864.0
-margin_right = 220.0
 margin_bottom = 1080.0
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBox_Game_over"]
+margin_right = 220.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBox_Game_over"]
+margin_top = 53.0
+margin_right = 220.0
+margin_bottom = 102.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Player_End_VS_Stats" parent="VBox_Game_over" instance=ExtResource( 5 )]
+margin_top = 106.0
+margin_right = 220.0
+margin_bottom = 767.0
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBox_Game_over"]
+margin_top = 771.0
+margin_right = 220.0
+margin_bottom = 820.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBox_Game_over"]
+margin_top = 824.0
+margin_right = 220.0
+margin_bottom = 873.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/COIN_UP = SubResource( 11 )
-anims/INSERT_COIN = SubResource( 3 )
-anims/IN_MENU = SubResource( 4 )
-anims/IN_PLAY = SubResource( 5 )
-anims/PLAYER = SubResource( 6 )
-anims/PLAYER_READY = SubResource( 7 )
-anims/PLAYER_SELECT = SubResource( 8 )
-anims/PRESS_START = SubResource( 9 )
-anims/SHOW_ALL = SubResource( 10 )
+anims/COIN_UP = SubResource( 3 )
+anims/INSERT_COIN = SubResource( 4 )
+anims/IN_MENU = SubResource( 5 )
+anims/IN_PLAY = SubResource( 6 )
+anims/PLAYER = SubResource( 7 )
+anims/PLAYER_READY = SubResource( 8 )
+anims/PLAYER_SELECT = SubResource( 9 )
+anims/PRESS_START = SubResource( 10 )
+anims/SHOW_ALL = SubResource( 11 )

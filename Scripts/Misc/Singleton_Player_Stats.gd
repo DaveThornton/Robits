@@ -240,7 +240,6 @@ func coin_insert( _player):
 	print(_player," incerted coin")
 	if _player == 1:
 		p1["credit"] += 1
-#		HUD.coin_up(_player)
 	elif _player == 2:
 		p2["credit"] += 1
 	elif _player == 3:
@@ -386,6 +385,24 @@ func get_body_color(_player):
 		return p7["color_body"]
 	elif _player == 8:
 		return p8["color_body"]
+
+func get_player_stats(_num):
+	if _num == 1:
+		return p1
+	elif _num == 2:
+		return p2
+	elif _num == 3:
+		return p3
+	elif _num == 4:
+		return p4
+	elif _num == 5:
+		return p5
+	elif _num == 6:
+		return p6
+	elif _num == 7:
+		return p7
+	elif _num == 8:
+		return p8
 
 func get_places():
 	p_in_p = 0

@@ -4,12 +4,14 @@ var map
 
 onready var splash = $Level_Load_Screen
 onready var timer_camp = $Timer_Camp_Load
+onready var clearing_house = $clearing_house
+
 
 var the_game
 var level
 
 func spawn_pos():
-	map = get_tree().get_current_scene().map #elemate this
+#	map = get_tree().get_current_scene().map #elemate this
 	return map.next_spawn_pos()
 
 func load_map( _map_to_load):
@@ -17,7 +19,7 @@ func load_map( _map_to_load):
 	var m = _map_to_load.instance()
 	map = m
 	add_child(m)
-	get_tree().get_current_scene().map = m
+#	get_tree().get_current_scene().map = m
 #	Menu_Hand.load_arcade_hud()
 	get_tree().get_current_scene().spawn_started()
 	get_tree().get_current_scene().out_of_menu()
@@ -26,11 +28,16 @@ func load_map( _map_to_load):
 #func add_kid_to_map(_obj):                   <----------------never do this bad idea
 #	call_deferred("_add_kid_to_map",_obj)
 func add_kid_to_map(_obj):
-	if map:
+	if is_instance_valid(map):
+#		Map_Hand.clearing_house.add_child(_obj)
 		map.add_child(_obj) #weird error
 	else:
-		get_tree().get_current_scene().clearing_house.add_child(_obj)
-#
+#		map.add_child(_obj)
+		clearing_house.add_child(_obj)
+
+func clear_map():
+	map.call_deferred("free")
+
 func load_map_cam(_level, _label_1, _label_2, _time, _show):
 	if _show:
 		level = _level

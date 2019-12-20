@@ -13,21 +13,37 @@ onready var miss = $HBox_Miss/Label2.text
 onready var place = $Place_Label.text
 
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func set_player_num(_player):
 	player_num = _player
 
 func update():
-	if player_num == 1:
-		player = str(player_num)
-		score = str(Player_Stats.p1["score"])
-		kills = str(Player_Stats.p1["kills"])
-		deaths = str(Player_Stats.p1["death"])
-		kdr = str(Player_Stats.p1["kills"] / Player_Stats.p1["death"])
-		shots = str(Player_Stats.p1["shot"])
-		hits = str(Player_Stats.p1["hit"])
-		miss = str(Player_Stats.p1["shot"] - Player_Stats.p1["hit"])
+	var _player = Player_Stats.get_player_stats(player_num)
+	#do this from _player should be easy should be
+#	player = str(player_num)
+#	score = str(Player_Stats.p1["score"])
+#	kills = str(Player_Stats.p1["kills"])
+#	deaths = str(Player_Stats.p1["death"])
+#	kdr = str(Player_Stats.p1["kills"] / Player_Stats.p1["death"])
+#	shots = str(Player_Stats.p1["shot"])
+#	hits = str(Player_Stats.p1["hit"])
+#	miss = str(Player_Stats.p1["shot"] - Player_Stats.p1["hit"])
+
+
+
+
+
+
+#	if player_num == 1:
+#		player = str(player_num)
+#		score = str(Player_Stats.p1["score"])
+#		kills = str(Player_Stats.p1["kills"])
+#		deaths = str(Player_Stats.p1["death"])
+#		kdr = str(Player_Stats.p1["kills"] / Player_Stats.p1["death"])
+#		shots = str(Player_Stats.p1["shot"])
+#		hits = str(Player_Stats.p1["hit"])
+#		miss = str(Player_Stats.p1["shot"] - Player_Stats.p1["hit"])
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
