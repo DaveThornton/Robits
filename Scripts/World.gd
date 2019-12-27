@@ -2,9 +2,9 @@ extends Node
 
 export(PackedScene) var player_controller
 export(PackedScene) var arcade_start
-export(PackedScene) var arcade_end
+#export(PackedScene) var arcade_end
 export(PackedScene) var console_start
-export(PackedScene) var console_end
+#export(PackedScene) var console_end
 export(PackedScene) var demo_map
 export(PackedScene) var campaign_map
 #game_mode (1 arcade mode) (2 console and pc mode) (3 demo mode)
@@ -30,18 +30,15 @@ var p6_controller
 var p7_controller
 var p8_controller
 
-var is_game_over = false 
 var end_game_score = 1
-
-var map
-#var hud
+#var map
 var screen_loaded
 var arcade_start_screen
 var console_start_screen
 
 signal game_over
-signal coin_up
-signal input_to_screen #movement up:1 left:2 right:3 down:4 start:5 back:6
+#signal coin_up
+#signal input_to_screen #movement up:1 left:2 right:3 down:4 start:5 back:6
 signal reset
 signal second
 
@@ -60,7 +57,6 @@ func init():
 		add_child(a)
 		screen_loaded = a
 		_start(Settings.max_num_of_player)
-#		_start(how_many_players)
 	
 	elif game_mode == 2:
 		print("console game mode selected")
@@ -177,22 +173,15 @@ func _start(_players):
 	
 func _game_over(_winner):
 	print("game over has beeen called in world gd this is not the best spot fot this is it fix that")
-	if !is_game_over:
-#		print("Game Over Winner is ",_winner)
+	if !Settings.is_game_over:
 		emit_signal("game_over", _winner)
-		is_game_over = true 
+		Settings.set_game_over(true)
+#		is_game_over = true 
 		Map_Hand.clear_map()
-#		if hud:
-#			hud.visible = false
-#		if map:
-#			map.propagate_call("queue_free")
-#			map = null
 		if game_mode == 1:
 			HUD.game_over()
-#			load_screen(arcade_end)
 		elif game_mode == 2:
 			HUD.game_over()
-#			load_screen(console_end)
 
 func spawn_player_contoller(player_num, _auto_respawn):
 	var z = player_controller.instance()
@@ -202,10 +191,8 @@ func spawn_player_contoller(player_num, _auto_respawn):
 #	z.connect("player_score", self, "player_scores") 
 	z.connect("coin_insert", self, "coin_insert")
 	z.connect("use_credit", self, "use_credit")
-	z.pawn_num = player_num     #<-------------this changes the pawns in demo mode
-#warning-ignore:return_value_discarded
+#	z.pawn_num = Player_Stats     #<-------------this changes the pawns in demo mode
 	self.connect("game_over", z, "game_over")
-#warning-ignore:return_value_discarded
 	self.connect("reset",z,"reset")
 	if player_num == 1:
 		p1_controller = z
@@ -223,11 +210,7 @@ func spawn_player_contoller(player_num, _auto_respawn):
 		p7_controller = z
 	elif player_num == 8:
 		p8_controller = z
-		
 	z.init(player_num, _auto_respawn, game_mode, play_type)
-	
-#func player_scores( _dead_player, _player, _points, _with):
-#	Player_Stats.add_kill(_dead_player, _player, _points, _with)
 
 func check_game_over():
 	print("check game over in world should be somewhere else")
@@ -257,7 +240,6 @@ func check_game_over():
 
 func spawn_started():
 	print("spawn started in world is this the best place for it")
-#	Menu_Hand.load_hud(in_game_hud)
 	if Player_Stats.p1["in_play"]:
 		p1_controller.spawn_pawn()
 	if Player_Stats.p2["in_play"]:
@@ -274,38 +256,12 @@ func spawn_started():
 		p7_controller.spawn_pawn()
 	if Player_Stats.p8["in_play"]:
 		p8_controller.spawn_pawn()
-#	if hud:
-#		update_hud()
 	else:
 		print("error no hud in world load map")
 
-#func load_hud(_hud_to_load):
-#	print("called load hud in world gd this should not happen and will be complet+ely removed in upcoming version")
-#	if hud:
-#		hud.queue_free()
-#	var h = _hud_to_load.instance()
-#	add_child(h)
-#	hud = h
-#
-#func load_screen(_screen_to_load):
-#	print("called load screen in world gd  this should not happen and will be complet+ely removed in upcoming version")
-#	var s = _screen_to_load.instance()
-#	add_child(s)
-#	screen_loaded = s
-
-func screen_input( _player, _dir):
-	if screen_loaded:
-		emit_signal("input_to_screen",_player, _dir)
-
-#func update_hud():
-#	print("called update hud in world.gd this should not happen and will be complet+ely removed in upcoming version")
-#	pass
-#	if !is_game_over:
-#		hud.update_player_hud_vis(Player_Stats.p1["exist"],
-#		Player_Stats.p2["exist"], Player_Stats.p3["exist"],
-#		Player_Stats.p4["exist"], Player_Stats.p5["exist"],
-#		Player_Stats.p6["exist"], Player_Stats.p7["exist"],
-#		Player_Stats.p8["exist"])
+#func screen_input( _player, _dir):
+#	if screen_loaded:
+#		emit_signal("input_to_screen",_player, _dir)
 
 func _clean_house():
 	for child in clearing_house.get_children():
@@ -365,115 +321,17 @@ func set_in_play(_player):
 		Player_Stats.p7["exist"] = true
 	elif _player == 8:
 		Player_Stats.p8["exist"] = true
-	
-#	if hud:
-#		update_hud()
-
-#func set_all_out_of_play():
-#	print("set all out of play world.gd i broke it on purpose whats wrong now")
-
-#func coin_insert( _player):
-#	print("coin insert : quit using this one should use the one in player stats")
-#	print(_player," incerted coin")
-#	if _player == 1:
-#		Player_Stats.p1["credit"] += 1
-#	elif _player == 2:
-#		Player_Stats.p2["credit"] += 1
-#	elif _player == 3:
-#		Player_Stats.p3["credit"] += 1
-#	elif _player == 4:
-#		Player_Stats.p4["credit"] += 1
-#	elif _player == 5:
-#		Player_Stats.p5["credit"] += 1
-#	elif _player == 6:
-#		Player_Stats.p6["credit"] += 1
-#	elif _player == 7:
-#		Player_Stats.p7["credit"] += 1
-#	elif _player == 8:
-#		Player_Stats.p8["credit"] += 1
-#	emit_signal("coin_up")
-#	can_player_start_arcade(_player)
-#
-#func use_credit( _player):
-#	print("use credit : quit using this one should use the one in player stats")
-#	if _player == 1:
-#		Player_Stats.p1["credit"] -= 1
-#	elif _player == 2:
-#		Player_Stats.p2["credit"] -= 1
-#	elif _player == 3:
-#		Player_Stats.p3["credit"] -= 1
-#	elif _player == 4:
-#		Player_Stats.p4["credit"] -= 1
-#	elif _player == 5:
-#		Player_Stats.p5["credit"] -= 1
-#	elif _player == 6:
-#		Player_Stats.p6["credit"] -= 1
-#	elif _player == 7:
-#		Player_Stats.p7["credit"] -= 1
-#	elif _player == 8:
-#		Player_Stats.p8["credit"] -= 1
-#	can_player_start_arcade(_player)
-#
-#func can_player_start_arcade( _player):
-#	print("can player start in world gd this should be somewhere else right and it is who called for this")
-#	var j = null
-#	if j == 1:
-#		print("error")
-#	if _player == 1:
-#		if Player_Stats.p1["credit"] >= 1:
-#			p1_controller.can_start = true
-#		else:
-#			p1_controller.can_start = false
-#	elif _player == 2:
-#		if Player_Stats.p2["credit"] >= 1:
-#			p2_controller.can_start = true
-#		else:
-#			p2_controller.can_start = false
-#	elif _player == 3:
-#		if Player_Stats.p3["credit"] >= 1:
-#			p3_controller.can_start = true
-#		else:
-#			p3_controller.can_start = false
-#	elif _player == 4:
-#		if Player_Stats.p4["credit"] >= 1:
-#			p4_controller.can_start = true
-#		else:
-#			p4_controller.can_start = false
-#	elif _player == 5:
-#		if Player_Stats.p5["credit"] >= 1:
-#			p5_controller.can_start = true
-#		else:
-#			p5_controller.can_start = false
-#	elif _player == 6:
-#		if Player_Stats.p6["credit"] >= 1:
-#			p6_controller.can_start = true
-#		else:
-#			p6_controller.can_start = false
-#	elif _player == 7:
-#		if Player_Stats.p7["credit"] >= 1:
-#			p7_controller.can_start = true
-#		else:
-#			p7_controller.can_start = false
-#	elif _player == 8:
-#		if Player_Stats.p8["credit"] >= 1:
-#			p8_controller.can_start = true
-#		else:
-#			p8_controller.can_start = false
-#	else:
-#		print("error in world can player start arcade")
 
 func arcade_reset():
 	emit_signal("reset")
-#	if hud:
-#		hud.queue_free()
-#		hud = null
-	if map:
-		map.propagate_call("queue_free")
-		map = null
-	else:
-		pass
+#	if map:
+#		map.propagate_call("queue_free")
+#		map = null
+#	else:
+#		pass
+	HUD.reset()
 	Player_Stats.reset()
-	is_game_over = false 
+	Settings.set_game_over(false) #maybe change this to a reset
 	init()
 
 func _on_Timer_timeout():

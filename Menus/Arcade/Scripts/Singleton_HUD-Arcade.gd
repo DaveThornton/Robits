@@ -45,11 +45,6 @@ func ask_insert_coin(_player):
 	elif _player == 8:
 		p8.insert_coin()
 
-#	if _player == 1:
-#		p1["credit"] += 1
-#		HUD.coin_count(1)
-#		HUD.coin_up(_player,1)#_amount)
-
 func coin_up(_player):
 	if _player == 1:
 		p1.set_coin_count(Player_Stats.p1["credit"])
@@ -185,6 +180,8 @@ func game_over():
 		p7.game_over()
 	if Player_Stats.p8["in_play"]:
 		p8.game_over()
+	set_places()
+#	get_tree().get_current_scene().in_to_menu()
 
 func set_score(_player):
 	if _player == 1:
@@ -241,6 +238,46 @@ func set_ammo(_player, _amount):
 		p7.set_ammo_count(_amount)
 	elif _player == 8:
 		p8.set_ammo_count(_amount)
+
+func set_places():
+	var _places = Player_Stats.get_places()
+	var _num_in_play = Player_Stats.get_num_in_play()
+	for _p in _places.size():
+		var p = _p + 1
+		if p == _num_in_play:
+			if p == 1:
+				p1.set_place(8)
+			elif p == 2:
+				p2.set_place(8)
+			elif p == 3:
+				p3.set_place(8)
+			elif p == 4:
+				p4.set_place(8)
+			elif p == 5:
+				p5.set_place(8)
+			elif p == 6:
+				p6.set_place(8)
+			elif p == 7:
+				p7.set_place(8)
+			elif p == 8:
+				p8.set_place(8)
+		else:
+			if _places[_p].x == 1:
+				p1.set_place(p)
+			elif _places[_p].x == 2:
+				p2.set_place(p)
+			elif _places[_p].x == 3:
+				p3.set_place(p)
+			elif _places[_p].x == 4:
+				p4.set_place(p)
+			elif _places[_p].x == 5:
+				p5.set_place(p)
+			elif _places[_p].x == 6:
+				p6.set_place(p)
+			elif _places[_p].x == 7:
+				p7.set_place(p)
+			elif _places[_p].x == 8:
+				p8.set_place(p)
 
 func reset():
 	print("need to make reset in hud get on it lazy ass !!!")

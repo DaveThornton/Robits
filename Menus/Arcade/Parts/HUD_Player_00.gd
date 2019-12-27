@@ -13,7 +13,6 @@ onready var nrg_bar = $VBox_In_Game/HBox_for_NRG/NRG_Bar
 onready var game_over_box = $VBox_Game_over
 onready var game_over_stats = $VBox_Game_over/Player_End_VS_Stats
 
-export var time_out = 5
 export var player_num = 0
 
 func _ready():
@@ -31,16 +30,16 @@ func in_game():
 	menu_box.visible = false
 
 func game_over():
-	game_over_box.visible = false
+	game_over_box.visible = true
 	game_box.visible = false
-	menu_box.visible = true
+	menu_box.visible = false
 	game_over_stats.update()
 
 func set_player_num(_num):
 	player_num_ig.text = str(_num)
 	nrg_bar.self_modulate = Player_Stats.get_body_color(_num)
 	player_num_im.text = str(_num)
-	game_over_stats.player = _num
+	game_over_stats.set_player_num(_num)
 
 func set_ammo_count(_amount):
 	ammo_count_ig.text = str(_amount)
@@ -54,6 +53,10 @@ func set_score_count(_amount):
 
 func set_nrg_bar(_amount):
 	nrg_bar.value = _amount
+
+func set_place(_place):
+	var _place_name = Player_Stats.get_place_name(_place)
+	game_over_stats.set_place_text(_place_name)
 
 func in_play():
 	in_game()

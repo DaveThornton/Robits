@@ -2223,7 +2223,6 @@ text = "Press Start"
 align = 1
 
 [node name="VBox_Game_over" type="VBoxContainer" parent="."]
-visible = false
 margin_top = 207.0
 margin_right = 220.0
 margin_bottom = 1080.0

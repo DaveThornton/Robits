@@ -28,6 +28,7 @@ var p2 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
+	pawn_num = 0,
 	color_face = Color8(0, 255, 255, 255),
 	color_body = Color8(255, 0, 255, 255),
 	color_loco = Color8(255, 225, 225, 222)
@@ -44,6 +45,7 @@ var p3 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
+	pawn_num = 0,
 	color_face = Color8(255, 255, 0, 255),
 	color_body = Color8(255, 0, 0, 255),
 	color_loco = Color8(255, 225, 225, 222)
@@ -60,6 +62,7 @@ var p4 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
+	pawn_num = 0,
 	color_face = Color8(255, 255, 0, 255),
 	color_body = Color8(0, 0, 255, 255),
 	color_loco = Color8(255, 225, 225, 222)
@@ -76,6 +79,7 @@ var p5 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
+	pawn_num = 0,
 	color_face = Color8(255, 0, 0, 255),
 	color_body = Color8(255, 255, 0, 255),
 	color_loco = Color8(255, 225, 225, 222)
@@ -92,6 +96,7 @@ var p6 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
+	pawn_num = 0,
 	color_face = Color8(255, 0, 0, 255),
 	color_body = Color8(123, 0, 255, 255),
 	color_loco = Color8(255, 225, 225, 222)
@@ -108,6 +113,7 @@ var p7 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
+	pawn_num = 0,
 	color_face = Color8(255, 0, 0, 255),
 	color_body = Color8(0, 255, 255, 255),
 	color_loco = Color8(255, 225, 225, 222)
@@ -124,6 +130,7 @@ var p8 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
+	pawn_num = 0,
 	color_face = Color8(255, 0, 0, 255),
 	color_body = Color8(0, 255, 0, 255),
 	color_loco = Color8(255, 225, 225, 222)
@@ -289,44 +296,9 @@ func use_credit( _player):
 func nrg_update(_player, _nrg, _nrg_max):
 	var _current_nrg = int((float(_nrg) / _nrg_max)* 100)
 	HUD.set_nrg(_player, _current_nrg)
-#	if _player == 1:
-#		hud.update_p1_nrg(_current_nrg)
-#	elif _player == 2:
-#		hud.update_p2_nrg(_current_nrg)
-#	elif _player == 3:
-#		hud.update_p3_nrg(_current_nrg)
-#	elif _player == 4:
-#		hud.update_p4_nrg(_current_nrg)
-#	elif _player == 5:
-#		hud.update_p5_nrg(_current_nrg)
-#	elif _player == 6:
-#		hud.update_p6_nrg(_current_nrg)
-#	elif _player == 7:
-#		hud.update_p7_nrg(_current_nrg)
-#	elif _player == 8:
-#		hud.update_p8_nrg(_current_nrg)
-#	else:
-#		print("error on nrg update not a valid player number")
 
 func ammo_update(_player, _ammo):
 	HUD.set_ammo(_player, _ammo)
-	
-#	if _player == 1:
-#		hud.update_p1_ammo(_ammo)
-#	elif _player == 2:
-#		hud.update_p2_ammo(_ammo)
-#	elif _player == 3:
-#		hud.update_p3_ammo(_ammo)
-#	elif _player == 4:
-#		hud.update_p4_ammo(_ammo)
-#	elif _player == 5:
-#		hud.update_p5_ammo(_ammo)
-#	elif _player == 6:
-#		hud.update_p6_ammo(_ammo)
-#	elif _player == 7:
-#		hud.update_p7_ammo(_ammo)
-#	elif _player == 8:
-#		hud.update_p8_ammo(_ammo)
 
 func can_player_start(_player):
 	if _player == 1 && p1["credit"] > 0:
@@ -386,6 +358,24 @@ func get_body_color(_player):
 	elif _player == 8:
 		return p8["color_body"]
 
+func get_pawn_num(_player):
+	if _player == 1:
+		return p1["pawn_num"]
+	elif _player == 2:
+		return p2["pawn_num"]
+	elif _player == 3:
+		return p3["pawn_num"]
+	elif _player == 4:
+		return p4["pawn_num"]
+	elif _player == 5:
+		return p5["pawn_num"]
+	elif _player == 6:
+		return p6["pawn_num"]
+	elif _player == 7:
+		return p7["pawn_num"]
+	elif _player == 8:
+		return p8["pawn_num"]
+
 func get_player_stats(_num):
 	if _num == 1:
 		return p1
@@ -403,6 +393,24 @@ func get_player_stats(_num):
 		return p7
 	elif _num == 8:
 		return p8
+
+func get_place_name(_place):
+	if _place == 1:
+		return "First Place"
+	elif _place == 2:
+		return "2nd"
+	elif _place == 3:
+		return "Turd Place"
+	elif _place == 4:
+		return "forthishis"
+	elif _place == 5:
+		return "the 5th"
+	elif _place == 6:
+		return "deepsix"
+	elif _place == 7:
+		return "Se7enth"
+	elif _place == 8:
+		return "the Last"
 
 func get_places():
 	p_in_p = 0

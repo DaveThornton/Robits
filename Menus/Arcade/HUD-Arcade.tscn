@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Menus/Arcade/Scripts/HUD-Arcade.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Arcade/Scripts/Singleton_HUD-Arcade.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/Parts/HUD_Player_00.tscn" type="PackedScene" id=2]
 
 [node name="HUD-Arcade" type="HBoxContainer"]
+margin_left = 1.67041
 margin_right = 1920.0
-margin_bottom = 148.0
+margin_bottom = 1080.0
 script = ExtResource( 1 )
 
 [node name="Blank_09" type="Label" parent="."]
@@ -106,6 +107,6 @@ player_num = 8
 [node name="Blank_08" type="Label" parent="."]
 margin_left = 1904.0
 margin_top = 533.0
-margin_right = 1920.0
+margin_right = 1918.0
 margin_bottom = 547.0
 size_flags_horizontal = 3

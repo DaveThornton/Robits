@@ -170,9 +170,6 @@ func set_places():
 				p8_results.set_place((_p - mid_num) + 1)
 		last_num = first_num
 
-
-func place_results():
-	pass
 func movement(_player, _dir):
 	if _player == 1:
 		if Player_Stats.p1["in_play"]:

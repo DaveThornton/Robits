@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var r_timer = $"Respawn-Timer"
-export var pawn_num = 1
+#export var pawn_num = 1
 export(PackedScene) var boom
 var spawn_spot
 var my_pawn
@@ -142,7 +142,7 @@ func init(_player_num, _auto_respawn, _game_mode, _play_type):
 func spawn_pawn():
 	if !is_game_over:
 #		print(player, " in controller on spawn")
-		var z = Equipment.get_pawn(pawn_num).instance()
+		var z = Equipment.get_pawn(Player_Stats.get_pawn_num(player)).instance()
 		get_tree().get_current_scene().pawns.add_child(z)
 #		self.add_child(z)
 		z.connect("explode_p", self, "explode_pawn")
@@ -153,6 +153,8 @@ func spawn_pawn():
 		alive = true
 #		emit_signal("change_spawn_pos")
 		emit_signal("in_play", player)
+#	else:
+#		in_menu = true
 
 func explode_pawn(_player, _pos, _by_who, _by_what):
 	call_deferred("_explode_pawn",_player, _pos, _by_who, _by_what)
@@ -162,7 +164,7 @@ func _explode_pawn(_player, _pos, _by_who, _by_what):
 	alive = false 
 	var x = boom.instance()
 	add_child(x)
-	x.init(_player, _pos, str("player ", player, "'s destruct system"), pawn_num, 2)
+	x.init(_player, _pos, str("player ", player, "'s destruct system"), Player_Stats.get_pawn_num(player), 2)
 	Player_Stats.add_kill(player, _by_who , 1, _by_what)
 #	Player_Stats.add_death(player)
 #	Player_Stats.add_score(_by_who, 1)

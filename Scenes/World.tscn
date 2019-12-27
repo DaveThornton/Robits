@@ -1,35 +1,32 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Robit-Controller.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menus/Arcade/M01-Arcade-Start.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Menus/Arcade/Arcade_Game_over.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Menus/Console-PC/Console_Start.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Menus/Console-PC/Console_Game_over.tscn" type="PackedScene" id=6]
-[ext_resource path="res://map/VS_Mode/Map-02-Refuted.tscn" type="PackedScene" id=7]
-[ext_resource path="res://map/Campaign-mode/Map-C-01-Level-01.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Misc/Back-Space.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/Level_Loader.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sprites/Misc/Black_Side_Pannel.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Misc/Dead_Weight_Dave_inc.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Misc/ROBITS-Logo-03.png" type="Texture" id=13]
+[ext_resource path="res://Menus/Console-PC/Console_Start.tscn" type="PackedScene" id=4]
+[ext_resource path="res://map/VS_Mode/Map-02-Refuted.tscn" type="PackedScene" id=5]
+[ext_resource path="res://map/Campaign-mode/Map-C-01-Level-01.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Misc/Back-Space.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Level_Loader.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Misc/Black_Side_Pannel.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Misc/Dead_Weight_Dave_inc.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Misc/ROBITS-Logo-03.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=12]
 
 [node name="World" type="Node"]
 pause_mode = 1
 script = ExtResource( 1 )
 player_controller = ExtResource( 2 )
 arcade_start = ExtResource( 3 )
-arcade_end = ExtResource( 4 )
-console_start = ExtResource( 5 )
-console_end = ExtResource( 6 )
-demo_map = ExtResource( 7 )
-campaign_map = ExtResource( 8 )
+console_start = ExtResource( 4 )
+demo_map = ExtResource( 5 )
+campaign_map = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
 pause_mode = 1
 position = Vector2( 960, 540 )
 z_index = -40
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 
 [node name="players" type="Node" parent="."]
 
@@ -39,7 +36,7 @@ pause_mode = 1
 [node name="Clearing_House" type="Node2D" parent="."]
 pause_mode = 1
 
-[node name="Level_Loader" parent="." instance=ExtResource( 10 )]
+[node name="Level_Loader" parent="." instance=ExtResource( 8 )]
 
 [node name="Line2D" type="Line2D" parent="."]
 pause_mode = 1
@@ -55,18 +52,21 @@ autostart = true
 visible = false
 position = Vector2( -170, 543.761 )
 z_index = 100
-texture = ExtResource( 11 )
+texture = ExtResource( 9 )
 
 [node name="Dead_Weight_Dave_inc" type="Sprite" parent="."]
 visible = false
 position = Vector2( 84.8929, 923.047 )
 scale = Vector2( 0.376896, 0.380914 )
 z_index = 25
-texture = ExtResource( 12 )
+texture = ExtResource( 10 )
 
 [node name="ROBITS-Logo-03" type="Sprite" parent="."]
 visible = false
 position = Vector2( 78.6589, 1060.83 )
 scale = Vector2( 0.112891, 0.122107 )
-texture = ExtResource( 13 )
+texture = ExtResource( 11 )
+
+[node name="Kill_Zone" parent="." instance=ExtResource( 12 )]
+position = Vector2( 960, 1500 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
