@@ -169,7 +169,7 @@ func _start(_players):
 	print("spawning player controllers")
 	for j in range(_players):
 		print("spawn player controller ", j + 1, "in _start in world gd")
-		spawn_player_contoller(j+1, auto_respawn)
+		Controllers.spawn_player_contoller(j+1, auto_respawn)
 	
 func _game_over(_winner):
 	print("game over has beeen called in world gd this is not the best spot fot this is it fix that")
@@ -241,21 +241,29 @@ func check_game_over():
 func spawn_started():
 	print("spawn started in world is this the best place for it")
 	if Player_Stats.p1["in_play"]:
-		p1_controller.spawn_pawn()
+		Controllers.p1.spawn_pawn()
+#		p1_controller.spawn_pawn()
 	if Player_Stats.p2["in_play"]:
-		p2_controller.spawn_pawn()
+		Controllers.p2.spawn_pawn()
+#		p2_controller.spawn_pawn()
 	if Player_Stats.p3["in_play"]:
-		p3_controller.spawn_pawn()
+		Controllers.p3.spawn_pawn()
+#		p3_controller.spawn_pawn()
 	if Player_Stats.p4["in_play"]:
-		p4_controller.spawn_pawn()
+		Controllers.p4.spawn_pawn()
+#		p4_controller.spawn_pawn()
 	if Player_Stats.p5["in_play"]:
-		p5_controller.spawn_pawn()
+		Controllers.p1.spawn_pawn()
+#		p5_controller.spawn_pawn()
 	if Player_Stats.p6["in_play"]:
-		p6_controller.spawn_pawn()
+		Controllers.p6.spawn_pawn()
+#		p6_controller.spawn_pawn()
 	if Player_Stats.p7["in_play"]:
-		p7_controller.spawn_pawn()
+		Controllers.p7.spawn_pawn()
+#		p7_controller.spawn_pawn()
 	if Player_Stats.p8["in_play"]:
-		p8_controller.spawn_pawn()
+		Controllers.p8.spawn_pawn()
+#		p8_controller.spawn_pawn()
 	else:
 		print("error no hud in world load map")
 

@@ -25,7 +25,7 @@ var in_menu = true
 var alive = false
 var can_start = false
 var start_equiped = 0
-var is_game_over = false
+#var is_game_over = false
 
 signal in_play
 #signal use_credit( _player)
@@ -34,12 +34,12 @@ signal in_play
 func _ready():
 	pass
 	
-func init(_player_num, _auto_respawn, _game_mode, _play_type):
-	is_game_over = false
+func init(_player_num):#, _auto_respawn, _game_mode, _play_type):
+#	is_game_over = false
 	player = _player_num
-	auto_respawn = _auto_respawn
-	game_mode = _game_mode
-	play_type =  _play_type
+#	auto_respawn = _auto_respawn
+#	game_mode = _game_mode
+#	play_type =  _play_type
 	if player == 1:
 		pawn_color = 1
 		player_input_l = "P1_Left"
@@ -140,7 +140,7 @@ func init(_player_num, _auto_respawn, _game_mode, _play_type):
 		print("Error in Robit controller init player number invald")
 
 func spawn_pawn():
-	if !is_game_over:
+	if !Game.over:
 #		print(player, " in controller on spawn")
 		var z = Equipment.get_pawn(Player_Stats.get_pawn_num(player)).instance()
 		get_tree().get_current_scene().pawns.add_child(z)
@@ -175,7 +175,7 @@ func _explode_pawn(_player, _pos, _by_who, _by_what):
 			r_timer.start()
 	
 func game_over(_winner):
-	is_game_over = true
+#	is_game_over = true
 	print("the player controller noticed the game is over winner is player ", _winner)
 	
 func _process(delta):

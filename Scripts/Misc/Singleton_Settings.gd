@@ -13,6 +13,8 @@ func _ready():
 
 func set_game_over(_game_over):
 	is_game_over = _game_over
+func get_game_over():
+	return is_game_over
 
 func set_end_game_score(_end_score):
 	end_game_score = _end_score
