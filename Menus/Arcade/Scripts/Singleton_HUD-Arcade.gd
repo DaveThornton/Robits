@@ -1,5 +1,7 @@
 extends HBoxContainer
 
+
+
 onready var p1 = $VBox_Player_01
 onready var p2 = $VBox_Player_02
 onready var p3 = $VBox_Player_03
@@ -10,22 +12,24 @@ onready var p7 = $VBox_Player_07
 onready var p8 = $VBox_Player_08
 
 func _ready():
-	p1.in_menu()
-	p2.in_menu()
-	p3.in_menu()
-	p4.in_menu()
-	p5.in_menu()
-	p6.in_menu()
-	p7.in_menu()
-	p8.in_menu()
-	p1.show_player()
-	p2.show_player()
-	p3.show_player()
-	p4.show_player()
-	p5.show_player()
-	p6.show_player()
-	p7.show_player()
-	p8.show_player()
+	get_tree().get_current_scene().connect("reset", self, "reset")
+	reset()
+#	p1.in_menu()
+#	p2.in_menu()
+#	p3.in_menu()
+#	p4.in_menu()
+#	p5.in_menu()
+#	p6.in_menu()
+#	p7.in_menu()
+#	p8.in_menu()
+#	p1.show_player()
+#	p2.show_player()
+#	p3.show_player()
+#	p4.show_player()
+#	p5.show_player()
+#	p6.show_player()
+#	p7.show_player()
+#	p8.show_player()
 
 func ask_insert_coin(_player):
 	if _player == 1:
@@ -70,6 +74,16 @@ func coin_up(_player):
 	elif _player == 8:
 		p8.set_coin_count(Player_Stats.p8["credit"])
 		p8.coin_up()
+
+func coin_count():
+	p1.set_coin_count(Player_Stats.p1["credit"])
+	p2.set_coin_count(Player_Stats.p2["credit"])
+	p3.set_coin_count(Player_Stats.p3["credit"])
+	p4.set_coin_count(Player_Stats.p4["credit"])
+	p5.set_coin_count(Player_Stats.p5["credit"])
+	p6.set_coin_count(Player_Stats.p6["credit"])
+	p7.set_coin_count(Player_Stats.p7["credit"])
+	p8.set_coin_count(Player_Stats.p8["credit"])
 
 func use_credit(_player):
 #	in_game()
@@ -202,49 +216,32 @@ func set_score(_player):
 		p8.set_score_count(Player_Stats.p8["score"])
 
 func set_nrg(_player, _amount):
-	if _player == 1:
-		p1.set_nrg_bar(_amount)
-	elif _player == 2:
-		p2.set_nrg_bar(_amount)
-	elif _player == 3:
-		p3.set_nrg_bar(_amount)
-	elif _player == 4:
-		p4.set_nrg_bar(_amount)
-	elif _player == 5:
-		p5.set_nrg_bar(_amount)
-	elif _player == 6:
-		p6.set_nrg_bar(_amount)
-	elif _player == 7:
-		p7.set_nrg_bar(_amount)
-	elif _player == 8:
-		p8.set_nrg_bar(_amount)
-	else:
-		print("error in nrg_update player number not valid. player : ",_player, ". amount :", _amount)
+	if _player == 1: p1.set_nrg_bar(_amount)
+	elif _player == 2: p2.set_nrg_bar(_amount)
+	elif _player == 3: p3.set_nrg_bar(_amount)
+	elif _player == 4: p4.set_nrg_bar(_amount)
+	elif _player == 5: p5.set_nrg_bar(_amount)
+	elif _player == 6: p6.set_nrg_bar(_amount)
+	elif _player == 7: p7.set_nrg_bar(_amount)
+	elif _player == 8: p8.set_nrg_bar(_amount)
+	else: print("error in nrg_update player number not valid. player : ",_player, ". amount :", _amount)
 
 func set_ammo(_player, _amount):
-	if _player == 1:
-		p1.set_ammo_count(_amount)
-	elif _player == 2:
-		p2.set_ammo_count(_amount)
-	elif _player == 3:
-		p3.set_ammo_count(_amount)
-	elif _player == 4:
-		p4.set_ammo_count(_amount)
-	elif _player == 5:
-		p5.set_ammo_count(_amount)
-	elif _player == 6:
-		p6.set_ammo_count(_amount)
-	elif _player == 7:
-		p7.set_ammo_count(_amount)
-	elif _player == 8:
-		p8.set_ammo_count(_amount)
+	if _player == 1: p1.set_ammo_count(_amount)
+	elif _player == 2: p2.set_ammo_count(_amount)
+	elif _player == 3: p3.set_ammo_count(_amount)
+	elif _player == 4: p4.set_ammo_count(_amount)
+	elif _player == 5: p5.set_ammo_count(_amount)
+	elif _player == 6: p6.set_ammo_count(_amount)
+	elif _player == 7: p7.set_ammo_count(_amount)
+	elif _player == 8: p8.set_ammo_count(_amount)
 
 func set_places():
 	var _places = Player_Stats.get_places()
 	var _num_in_play = Player_Stats.get_num_in_play()
-	for _p in _places.size():
-		var p = _p + 1
-		if p == _num_in_play:
+	for p in _places.size():
+#		var p = _p #+ 1
+		if p == _num_in_play - 1:
 			if p == 1:
 				p1.set_place(8)
 			elif p == 2:
@@ -262,25 +259,102 @@ func set_places():
 			elif p == 8:
 				p8.set_place(8)
 		else:
-			if _places[_p].x == 1:
+			if _places[p].x == 1:
 				p1.set_place(p)
-			elif _places[_p].x == 2:
+			elif _places[p].x == 2:
 				p2.set_place(p)
-			elif _places[_p].x == 3:
+			elif _places[p].x == 3:
 				p3.set_place(p)
-			elif _places[_p].x == 4:
+			elif _places[p].x == 4:
 				p4.set_place(p)
-			elif _places[_p].x == 5:
+			elif _places[p].x == 5:
 				p5.set_place(p)
-			elif _places[_p].x == 6:
+			elif _places[p].x == 6:
 				p6.set_place(p)
-			elif _places[_p].x == 7:
+			elif _places[p].x == 7:
 				p7.set_place(p)
-			elif _places[_p].x == 8:
+			elif _places[p].x == 8:
 				p8.set_place(p)
 
-func reset():
-	print("need to make reset in hud get on it lazy ass !!!")
+func game_over_input(_player, _input):
+	if _player == 1:
+		if _input == 5:
+			p1.game_over_done()
+		elif _input ==6:
+			p1.game_over_not_done()
+	elif _player == 2:
+		if _input == 5:
+			p2.game_over_done()
+		elif _input ==6:
+			p2.game_over_not_done()
+	elif _player == 3:
+		if _input == 5:
+			p3.game_over_done()
+		elif _input ==6:
+			p3.game_over_not_done()
+	elif _player == 4:
+		if _input == 5:
+			p4.game_over_done()
+		elif _input ==6:
+			p4.game_over_not_done()
+	elif _player == 5:
+		if _input == 5:
+			p5.game_over_done()
+		elif _input ==6:
+			p5.game_over_not_done()
+	elif _player == 6:
+		if _input == 5:
+			p6.game_over_done()
+		elif _input ==6:
+			p6.game_over_not_done()
+	elif _player == 7:
+		if _input == 5:
+			p7.game_over_done()
+		elif _input ==6:
+			p7.game_over_not_done()
+	elif _player == 8:
+		if _input == 5:
+			p8.game_over_done()
+		elif _input ==6:
+			p8.game_over_not_done()
+	else:
+		print("error game over input player number not valid. player : ",_player, ". input :", _input)
+	var _in_play = Player_Stats.get_num_in_play()
+	var _done
+	
+#	----------------------------------------------reenable this------------------------------------------------
 
-#func _process(delta):
-#	pass
+#	if _in_play == _done:
+#		get_tree().get_current_scene().arcade_reset()
+
+func get_game_over_done_count():
+	var _done = 0
+	if p1.game_done: _done += 1
+	if p2.game_done: _done += 1
+	if p3.game_done: _done += 1
+	if p4.game_done: _done += 1
+	if p5.game_done: _done += 1
+	if p6.game_done: _done += 1
+	if p7.game_done: _done += 1
+	if p8.game_done: _done += 1
+	return _done
+
+func reset():
+#	print("need to make reset in hud get on it lazy ass !!!")
+	coin_count()
+	p1.in_menu()
+	p2.in_menu()
+	p3.in_menu()
+	p4.in_menu()
+	p5.in_menu()
+	p6.in_menu()
+	p7.in_menu()
+	p8.in_menu()
+	p1.show_player()
+	p2.show_player()
+	p3.show_player()
+	p4.show_player()
+	p5.show_player()
+	p6.show_player()
+	p7.show_player()
+	p8.show_player()

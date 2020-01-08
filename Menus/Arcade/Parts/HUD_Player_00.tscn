@@ -2095,7 +2095,6 @@ margin_bottom = 479.0
 texture = ExtResource( 4 )
 
 [node name="VBox_In_Menu" type="VBoxContainer" parent="."]
-editor/display_folded = true
 margin_top = 125.0
 margin_right = 220.0
 margin_bottom = 203.0
@@ -2228,33 +2227,64 @@ margin_right = 220.0
 margin_bottom = 1080.0
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBox_Game_over"]
+[node name="HBox_Player" type="HBoxContainer" parent="VBox_Game_over"]
+editor/display_folded = true
 margin_right = 220.0
-margin_bottom = 49.0
+margin_bottom = 37.0
+alignment = 1
+
+[node name="Label_Player_Text" type="Label" parent="VBox_Game_over/HBox_Player"]
+margin_left = 28.0
+margin_right = 168.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "Player "
+align = 1
+
+[node name="Label_Player_Count" type="Label" parent="VBox_Game_over/HBox_Player"]
+margin_left = 172.0
+margin_right = 192.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 3 )
+text = "0"
+align = 1
+
+[node name="Label_Done" type="Label" parent="VBox_Game_over"]
+margin_top = 41.0
+margin_right = 220.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 3 )
+text = "done"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBox_Game_over"]
+margin_top = 82.0
+margin_right = 220.0
+margin_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBox_Game_over"]
-margin_top = 53.0
+margin_top = 114.0
 margin_right = 220.0
-margin_bottom = 102.0
+margin_bottom = 142.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Player_End_VS_Stats" parent="VBox_Game_over" instance=ExtResource( 5 )]
-margin_top = 106.0
+margin_top = 146.0
 margin_right = 220.0
-margin_bottom = 767.0
+margin_bottom = 807.0
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBox_Game_over"]
-margin_top = 771.0
+margin_top = 811.0
 margin_right = 220.0
-margin_bottom = 820.0
+margin_bottom = 839.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer4" type="MarginContainer" parent="VBox_Game_over"]
-margin_top = 824.0
+margin_top = 843.0
 margin_right = 220.0
 margin_bottom = 873.0
 size_flags_horizontal = 3

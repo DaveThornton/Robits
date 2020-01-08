@@ -95,8 +95,9 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				p1_menu.move_down()
 			elif _dir ==5:
-				p1_ready = true
-				ready_num += 1
+				if !p1_ready:
+					p1_ready = true
+					ready_num += 1
 		elif p1_has_credits && !p1_started:
 			if _dir == 5:
 				Player_Stats.p1["in_play"] = true
@@ -112,8 +113,9 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				p2_menu.move_down()
 			elif _dir ==5:
-				p2_ready = true
-				ready_num += 1
+				if !p2_ready:
+					p2_ready = true
+					ready_num += 1
 		elif p2_has_credits && !p2_started:
 			if _dir == 5:
 				Player_Stats.p2["in_play"] = true
@@ -129,8 +131,9 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				p3_menu.move_down()
 			elif _dir ==5:
-				p3_ready = true
-				ready_num += 1
+				if !p3_ready:
+					p3_ready = true
+					ready_num += 1
 		elif p3_has_credits && !p3_started:
 			if _dir == 5:
 				Player_Stats.p3["in_play"] = true
@@ -146,8 +149,9 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				p4_menu.move_down()
 			elif _dir ==5:
-				p4_ready = true
-				ready_num += 1
+				if !p4_ready:
+					p4_ready = true
+					ready_num += 1
 		elif p4_has_credits && !p4_started:
 			if _dir == 5:
 				Player_Stats.p4["in_play"] = true
@@ -163,8 +167,9 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				p5_menu.move_down()
 			elif _dir ==5:
-				p5_ready = true
-				ready_num += 1
+				if !p5_ready:
+					p5_ready = true
+					ready_num += 1
 		elif p5_has_credits && !p5_started:
 			if _dir == 5:
 				Player_Stats.p5["in_play"] = true
@@ -180,8 +185,9 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				p6_menu.move_down()
 			elif _dir ==5:
-				p6_ready = true
-				ready_num += 1
+				if !p6_ready:
+					p6_ready = true
+					ready_num += 1
 		elif p6_has_credits && !p6_started:
 			if _dir == 5:
 				Player_Stats.p6["in_play"] = true
@@ -197,8 +203,9 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				p7_menu.move_down()
 			elif _dir ==5:
-				p7_ready = true
-				ready_num += 1
+				if !p7_ready:
+					p7_ready = true
+					ready_num += 1
 		elif p7_has_credits && !p7_started:
 			if _dir == 5:
 				Player_Stats.p7["in_play"] = true
@@ -214,8 +221,9 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				p8_menu.move_down()
 			elif _dir ==5:
-				p8_ready = true
-				ready_num += 1
+				if !p8_ready:
+					p8_ready = true
+					ready_num += 1
 		elif p8_has_credits && !p8_started:
 			if _dir == 5:
 				Player_Stats.p8["in_play"] = true

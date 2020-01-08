@@ -1,7 +1,6 @@
 extends Node2D
 
 onready var r_timer = $"Respawn-Timer"
-#export var pawn_num = 1
 export(PackedScene) var boom
 var spawn_spot
 var my_pawn
@@ -25,21 +24,12 @@ var in_menu = true
 var alive = false
 var can_start = false
 var start_equiped = 0
-#var is_game_over = false
-
-signal in_play
-#signal use_credit( _player)
-#signal coin_insert( _player)
 
 func _ready():
 	pass
 	
-func init(_player_num):#, _auto_respawn, _game_mode, _play_type):
-#	is_game_over = false
+func init(_player_num):
 	player = _player_num
-#	auto_respawn = _auto_respawn
-#	game_mode = _game_mode
-#	play_type =  _play_type
 	if player == 1:
 		pawn_color = 1
 		player_input_l = "P1_Left"
@@ -136,46 +126,41 @@ func init(_player_num):#, _auto_respawn, _game_mode, _play_type):
 		player_input_h = "P8_Hold_Ground"
 		player_input_start = "P8_start"
 		player_input_coin = "P8_Coin"
-	else:
-		print("Error in Robit controller init player number invald")
+	else: print("Error in Robit controller init player number invald")
 
 func spawn_pawn():
 	if !Game.over:
-#		print(player, " in controller on spawn")
+		print("spawning pawn bc game is not over in robit controller")
 		var z = Equipment.get_pawn(Player_Stats.get_pawn_num(player)).instance()
 		get_tree().get_current_scene().pawns.add_child(z)
-#		self.add_child(z)
 		z.connect("explode_p", self, "explode_pawn")
 		my_pawn = z
-#		var _spawn_pos = Map_Hand.spawn_pos()
-		my_pawn.init(player, Map_Hand.spawn_pos(), start_equiped, play_type)
+		call_deferred("_init_pawn")
 		in_game = true
 		alive = true
-#		emit_signal("change_spawn_pos")
-		emit_signal("in_play", player)
-#	else:
-#		in_menu = true
+		in_menu = false
+	else:
+		in_menu = true
+
+func _init_pawn():
+	my_pawn.init(player, Map_Hand.spawn_pos(), start_equiped, play_type)
 
 func explode_pawn(_player, _pos, _by_who, _by_what):
 	call_deferred("_explode_pawn",_player, _pos, _by_who, _by_what)
-#	get_tree().get_current_scene().check_game_over()
 
 func _explode_pawn(_player, _pos, _by_who, _by_what):
 	alive = false 
 	var x = boom.instance()
 	add_child(x)
 	x.init(_player, _pos, str("player ", player, "'s destruct system"), Player_Stats.get_pawn_num(player), 2)
-	Player_Stats.add_kill(player, _by_who , 1, _by_what)
-#	Player_Stats.add_death(player)
-#	Player_Stats.add_score(_by_who, 1)
-#	emit_signal("player_score", player, _by_who, 1, _by_what)
-	get_tree().get_current_scene().check_game_over()
-	if auto_respawn:
-		if in_game:
-			r_timer.start()
+	if !Game.over:
+		Player_Stats.add_kill(player, _by_who , 1, _by_what)
+		Game.check_over()
+		if auto_respawn:
+			if in_game:
+				r_timer.start()
 	
 func game_over(_winner):
-#	is_game_over = true
 	print("the player controller noticed the game is over winner is player ", _winner)
 	
 func _process(delta):
@@ -201,65 +186,117 @@ func _process(delta):
 	
 	if Input.is_action_pressed("Exit"):
 		get_tree().quit()
-	
-	if !in_menu:
-		if in_game:
-			if alive:
-				if right_input && !left_input:
-					if !hold_input:
-						my_pawn.move_x(true, true)
-					my_pawn.is_right = true
-				if left_input && !right_input:
-					if!hold_input:
-						my_pawn.move_x(true, false)
-					my_pawn.is_right = false
-				if !left_input && !right_input:
-					my_pawn.move_x(false, false)
-				if jump_input:
-					my_pawn.jump(down_input, left_input, right_input)
-				if jump_rel:
-					my_pawn.jump_rel()
-				if shoot_input:
-					my_pawn.shoot()
-				if shoot_input_j:
-					my_pawn.shoot_j()
-				if shoot_input_r:
-					my_pawn.shoot_r()
-				if pick_input:
-					my_pawn.pick_throw(left_input, right_input, up_input, down_input,hold_input)
-#				nrg = my_pawn.nrg
-				my_pawn.anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta)
+	if !Game.over:
+		if!in_menu:
+			if in_game:
+				if alive:
+					if right_input && !left_input:
+						if !hold_input:
+							my_pawn.move_x(true, true)
+						my_pawn.is_right = true
+					if left_input && !right_input:
+						if!hold_input:
+							my_pawn.move_x(true, false)
+						my_pawn.is_right = false
+					if !left_input && !right_input:
+						my_pawn.move_x(false, false)
+					if jump_input:
+						my_pawn.jump(down_input, left_input, right_input)
+					if jump_rel:
+						my_pawn.jump_rel()
+					if shoot_input:
+						my_pawn.shoot()
+					if shoot_input_j:
+						my_pawn.shoot_j()
+					if shoot_input_r:
+						my_pawn.shoot_r()
+					if pick_input:
+						my_pawn.pick_throw(left_input, right_input, up_input, down_input,hold_input)
+					my_pawn.anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta)
+			else:
+				if start_input:
+					if Player_Stats.can_player_start(player):
+						Player_Stats.use_credit(player)
+						spawn_pawn()
+					else:
+						print("need to put a coin in or this is an error  ", Player_Stats.can_player_start(player))
 		else:
-			if start_input:
-				if Player_Stats.can_player_start(player):
-					Player_Stats.use_credit(player)
-					spawn_pawn()
-#					Player_Stats.use_credit(player)
-				else:
-					print("need to put a coin in or this is an error  ", Player_Stats.can_player_start(player))
+			if up_input_j:
+				Menu_Hand.input(player, 1)
+			elif left_input_j:
+				Menu_Hand.input(player, 2)
+			elif right_input_j:
+				Menu_Hand.input(player, 3)
+			elif down_input_j:
+				Menu_Hand.input(player, 4)
+			elif jump_input_j || shoot_input_j ||start_input:
+				Menu_Hand.input(player, 5)
+			elif hold_input_j || pick_input:
+				Menu_Hand.input(player, 6)
 	else:
-		if up_input_j:
-			Menu_Hand.input(player, 1)
-#			emit_signal("menu_signal", player, 1)
-		elif left_input_j:
-			Menu_Hand.input(player, 2)
-#			emit_signal("menu_signal", player, 2)
-		elif right_input_j:
-			Menu_Hand.input(player, 3)
-#			emit_signal("menu_signal", player, 3)
-		elif down_input_j:
-			Menu_Hand.input(player, 4)
-#			emit_signal("menu_signal", player, 4)
-		elif jump_input_j || shoot_input_j ||start_input:
-			Menu_Hand.input(player, 5)
-#			emit_signal("menu_signal", player, 5)
+		if jump_input_j || shoot_input_j ||start_input:
+			HUD.game_over_input(player, 5)
 		elif hold_input_j || pick_input:
-			Menu_Hand.input(player, 6)
-#			emit_signal("menu_signal", player, 6)
+			HUD.game_over_input(player, 6)
+	
+	
+	
+#	if !in_menu:
+#		if in_game:
+#			if alive:
+#				if right_input && !left_input:
+#					if !hold_input:
+#						my_pawn.move_x(true, true)
+#					my_pawn.is_right = true
+#				if left_input && !right_input:
+#					if!hold_input:
+#						my_pawn.move_x(true, false)
+#					my_pawn.is_right = false
+#				if !left_input && !right_input:
+#					my_pawn.move_x(false, false)
+#				if jump_input:
+#					my_pawn.jump(down_input, left_input, right_input)
+#				if jump_rel:
+#					my_pawn.jump_rel()
+#				if shoot_input:
+#					my_pawn.shoot()
+#				if shoot_input_j:
+#					my_pawn.shoot_j()
+#				if shoot_input_r:
+#					my_pawn.shoot_r()
+#				if pick_input:
+#					my_pawn.pick_throw(left_input, right_input, up_input, down_input,hold_input)
+##				nrg = my_pawn.nrg
+#				my_pawn.anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta)
+#		else:
+#			if start_input:
+#				if Player_Stats.can_player_start(player):
+#					Player_Stats.use_credit(player)
+#					spawn_pawn()
+##					Player_Stats.use_credit(player)
+#				else:
+#					print("need to put a coin in or this is an error  ", Player_Stats.can_player_start(player))
+#	else:
+#		if up_input_j:
+#			Menu_Hand.input(player, 1)
+##			emit_signal("menu_signal", player, 1)
+#		elif left_input_j:
+#			Menu_Hand.input(player, 2)
+##			emit_signal("menu_signal", player, 2)
+#		elif right_input_j:
+#			Menu_Hand.input(player, 3)
+##			emit_signal("menu_signal", player, 3)
+#		elif down_input_j:
+#			Menu_Hand.input(player, 4)
+##			emit_signal("menu_signal", player, 4)
+#		elif jump_input_j || shoot_input_j ||start_input:
+#			Menu_Hand.input(player, 5)
+##			emit_signal("menu_signal", player, 5)
+#		elif hold_input_j || pick_input:
+#			Menu_Hand.input(player, 6)
+##			emit_signal("menu_signal", player, 6)
 	if coin_input:
 		Player_Stats.coin_insert(player)
-#		emit_signal("coin_insert", player)
-	
 
 func set_spawn_spot(_pos):
 	spawn_spot = _pos
@@ -271,10 +308,7 @@ func _on_RespawnTimer_timeout():
 	spawn_pawn()
 
 func reset():
+	print("reset called in controller")
 	in_game = false
 	in_menu = true
 	alive = false
-	print("controller queued free")
-	call_deferred("free")#queue_free()
-#	if my_pawn:
-#		my_pawn.queue_free()

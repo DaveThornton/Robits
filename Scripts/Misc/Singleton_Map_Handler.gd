@@ -11,8 +11,9 @@ var the_game
 var level
 
 func spawn_pos():
+	if !Game.over:
 #	map = get_tree().get_current_scene().map #elemate this
-	return map.next_spawn_pos()
+		return map.next_spawn_pos()
 
 func load_map( _map_to_load):
 #	print("loading map")
@@ -22,7 +23,7 @@ func load_map( _map_to_load):
 #	get_tree().get_current_scene().map = m
 #	Menu_Hand.load_arcade_hud()
 	get_tree().get_current_scene().spawn_started()
-	get_tree().get_current_scene().out_of_menu()
+#	get_tree().get_current_scene().out_of_menu()
 	get_tree().get_current_scene().connect("reset",m,"reset")
 
 #func add_kid_to_map(_obj):                   <----------------never do this bad idea

@@ -19,16 +19,17 @@ var play_type
 #signal input_to_screen 
 
 func spawn_player_contoller(player_num, _auto_respawn):
+	print("spawning controller ", player_num," in controllers singlton now working")
 	var z = player_controller.instance()
 	players.add_child(z)
+	get_tree().get_current_scene().connect("reset",z,"reset")
 #	z.connect("change_spawn_pos",self,"get_spawn_spot")
-	z.connect("in_play",self,"set_in_play")
+#	z.connect("in_play",self,"set_in_play")
 #	z.connect("player_score", self, "player_scores") 
 #	z.connect("coin_insert", self, "coin_insert")
 #	z.connect("use_credit", self, "use_credit")
 #	z.pawn_num = Player_Stats     #<-------------this changes the pawns in demo mode
-	self.connect("game_over", z, "game_over")
-	self.connect("reset",z,"reset")
+#	self.connect("game_over", z, "game_over")
 	
 	if player_num == 1:
 		p1 = z

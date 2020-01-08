@@ -136,22 +136,20 @@ var p8 = {
 	color_loco = Color8(255, 225, 225, 222)
 }
 
-var hud
+#var hud
 var p_in_p = 0
 
-signal hud_update(_p1,_p2,_p3,_p4,_p5,_p6,_p7,_p8)
-
-signal coin_inserted()
+#signal hud_update(_p1,_p2,_p3,_p4,_p5,_p6,_p7,_p8)
 
 func _ready():
-	pass
+	get_tree().get_current_scene().connect("reset", self, "reset")
 
 func update_hud():
 	HUD.in_game()
-	emit_signal("hud_update", p1, p2, p3, p4, p5, p6, p7, p8)
+#	emit_signal("hud_update", p1, p2, p3, p4, p5, p6, p7, p8)
 
-func set_hud(_hud):
-	hud = _hud
+#func set_hud(_hud):
+#	hud = _hud
 
 func add_kill(_killed, _killer, _point, _by_what):
 	add_score(_killer, _point)
@@ -395,22 +393,26 @@ func get_player_stats(_num):
 		return p8
 
 func get_place_name(_place):
-	if _place == 1:
-		return "First Place"
+	if _place == 0:
+		return "first Place"
+	elif _place == 1:
+		return "Second P!!!"
 	elif _place == 2:
-		return "2nd"
-	elif _place == 3:
 		return "Turd Place"
+	elif _place == 3:
+		return "Fourth Spot"
 	elif _place == 4:
-		return "forthishis"
+		return "5ish place"
 	elif _place == 5:
-		return "the 5th"
+		return "Deep Six"
 	elif _place == 6:
-		return "deepsix"
+		return "Almost Last"
 	elif _place == 7:
-		return "Se7enth"
+		return "No Just No"
 	elif _place == 8:
-		return "the Last"
+		return "why so Last"
+	else:
+		return "error not a valaid number"
 
 func get_places():
 	p_in_p = 0
@@ -455,7 +457,7 @@ func sort_place(a, b):
 		return a.y
 
 func reset():
-	HUD.reset()
+#	HUD.reset()
 	# might now work ? looks like it should work
 	p1["kill"] = 0
 	p1["death"] = 0

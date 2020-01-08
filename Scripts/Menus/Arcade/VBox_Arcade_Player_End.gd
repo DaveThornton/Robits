@@ -22,28 +22,36 @@ var pawn_num = 1
 
 func _ready():
 	if player_num == 1:
-		player_con = get_tree().get_current_scene().p1_controller
+		player_con = Controllers.p1
+#		player_con = get_tree().get_current_scene().p1_controller
 		player1()
 	elif player_num == 2:
-		player_con = get_tree().get_current_scene().p2_controller
+		player_con = Controllers.p2
+#		player_con = get_tree().get_current_scene().p2_controller
 		player2()
 	elif player_num == 3:
-		player_con = get_tree().get_current_scene().p3_controller
+		player_con = Controllers.p3
+#		player_con = get_tree().get_current_scene().p3_controller
 		player3()
 	elif player_num == 4:
-		player_con = get_tree().get_current_scene().p4_controller
+		player_con = Controllers.p4
+#		player_con = get_tree().get_current_scene().p4_controller
 		player4()
 	elif player_num == 5:
-		player_con = get_tree().get_current_scene().p5_controller
+		player_con = Controllers.p5
+#		player_con = get_tree().get_current_scene().p5_controller
 		player5()
 	elif player_num == 6:
-		player_con = get_tree().get_current_scene().p3_controller
+		player_con = Controllers.p6
+#		player_con = get_tree().get_current_scene().p6_controller
 		player6()
 	elif player_num == 7:
-		player_con = get_tree().get_current_scene().p4_controller
+		player_con = Controllers.p7
+#		player_con = get_tree().get_current_scene().p7_controller
 		player7()
 	elif player_num == 8:
-		player_con = get_tree().get_current_scene().p5_controller
+		player_con = Controllers.p8
+#		player_con = get_tree().get_current_scene().p8_controller
 		player8()
 	print("arcade vbox says im pawn ", pawn_num)
 	place_label.text = "first place"
@@ -51,7 +59,7 @@ func _ready():
 func set_place(_place):
 	if _place == 1:
 		place_label.text = "first place"
-	elif _place == Player_Stats.p_in_p:
+	elif _place == Player_Stats.get_num_in_play():
 		place_label.text = "Last!?!"
 	elif _place == 2:
 		place_label.text = "first loser"

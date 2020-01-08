@@ -28,6 +28,7 @@ func load_screen(_screen_to_load):
 	screen_loaded = s
 
 func input( _player, _dir):
+	print("player: ", _player," dir: ", _dir)
 	emit_signal("input_to_screen",_player, _dir)
 
 #func update_hud():

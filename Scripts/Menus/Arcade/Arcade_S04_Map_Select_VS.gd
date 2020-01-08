@@ -234,10 +234,33 @@ func movement(_player, _dir):
 
 func check():
 	_credit_check()
-	_get_started_num()
+	var _ready_num = _get_ready_num()
+	var _play_num = Player_Stats.get_num_in_play()
+#	_get_started_num()
 	_bottom_hud_update()
-	if started_num == ready_num:
+	if _play_num == _ready_num:
 		load_next()
+
+func _get_ready_num():
+	var _ready_num = 0
+	if p1_ready:
+		_ready_num += 1
+	if p2_ready:
+		_ready_num += 1
+	if p3_ready:
+		_ready_num += 1
+	if p4_ready:
+		_ready_num += 1
+	if p5_ready:
+		_ready_num += 1
+	if p6_ready:
+		_ready_num += 1
+	if p7_ready:
+		_ready_num += 1
+	if p8_ready:
+		_ready_num += 1
+		return _ready_num
+
 
 func _get_started_num():
 	p1_started = Player_Stats.p1["in_play"]

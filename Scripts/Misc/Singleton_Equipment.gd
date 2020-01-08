@@ -123,14 +123,14 @@ func get_item(_item):
 		return item_pick_01
 	elif _item == 2:
 		return item_pick_02
-	elif _item == 3:
+	elif _item == 3: 
 		return item_pick_03
 	elif _item == 4:
-		return item_pick_04
+		 return item_pick_04
 	elif _item == 5:
-		return item_pick_05
+		 return item_pick_05
 	elif _item == 6:
-		return item_pick_06
+		 return item_pick_06
 	else:
 		print("Error in Singleton Equipment wrong item number ----> ", _item)
 

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Menus/Arcade/Scripts/M04-Arcade-Map-Select-VS.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Misc/Game_Modes/G01-Arcade-VS.tscn" type="PackedScene" id=2]
-[ext_resource path="res://map/VS_Mode/Map-01-Disputed.tscn" type="PackedScene" id=3]
+[ext_resource path="res://map/VS_Mode/Map-02-Refuted.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menus/Grids/menu_8x4_01.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/Menu/Map_Select_8x4.png" type="Texture" id=5]
 
