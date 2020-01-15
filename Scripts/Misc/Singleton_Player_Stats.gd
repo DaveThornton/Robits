@@ -449,12 +449,24 @@ func get_places():
 		var _p8score = Vector2(8, p8["score"])
 		_places.append(_p8score)
 		p_in_p += 1
+	print("places before sort : ",_places, " in player stats")
+#	_places.sort()
 	_places.sort_custom(self,"sort_place")
+	print("places after sort : ",_places, " in player stats")
 	return _places
 
 func sort_place(a, b):
-	if a.y > b.y:
-		return a.y
+	if a.y < b.y:
+		return false
+	return true
+	
+	
+	
+	
+#	if a.y > b.y:
+#		return a
+#	else:
+#		return b
 
 func reset():
 #	HUD.reset()

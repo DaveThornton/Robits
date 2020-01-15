@@ -1,16 +1,15 @@
 extends Node2D
 
-export(PackedScene) var game
-export(PackedScene) var map
+export(PackedScene) var camp_map_select
 
-onready var p1_menu = $Menu_8x4_01
-onready var p2_menu = $Menu_8x4_02
-onready var p3_menu = $Menu_8x4_03
-onready var p4_menu = $Menu_8x4_04
-onready var p5_menu = $Menu_8x4_05
-onready var p6_menu = $Menu_8x4_06
-onready var p7_menu = $Menu_8x4_07
-onready var p8_menu = $Menu_8x4_08
+onready var p1_menu = $Menu_8x2_01
+onready var p2_menu = $Menu_8x2_02
+onready var p3_menu = $Menu_8x2_03
+onready var p4_menu = $Menu_8x2_04
+onready var p5_menu = $Menu_8x2_05
+onready var p6_menu = $Menu_8x2_06
+onready var p7_menu = $Menu_8x2_07
+onready var p8_menu = $Menu_8x2_08
 
 var p1_ready = false
 var p2_ready = false
@@ -24,7 +23,7 @@ var p8_ready = false
 func _ready():
 	var test3 = Menu_Hand.connect("input_to_screen", self, "movement")
 	if test3 != 0:
-		print("error in arcade player select VS connect input to screen")
+		print("error in arcade player select Comp connect input to screen")
 	HUD.in_play_to_select()
 	menu_check()
 
@@ -33,10 +32,24 @@ func _start():
 		_next_screen()
 
 func _next_screen():
-	Map_Hand.load_map(map)
-	HUD.in_game()
-	call_deferred("free")
-#	pass
+	if Player_Stats.p1["in_play"]:
+		Player_Stats.p1["pawn_num"] = p1_menu.pos
+	if Player_Stats.p2["in_play"]:
+		Player_Stats.p2["pawn_num"] = p2_menu.pos
+	if Player_Stats.p3["in_play"]:
+		Player_Stats.p3["pawn_num"] = p3_menu.pos
+	if Player_Stats.p4["in_play"]:
+		Player_Stats.p4["pawn_num"] = p4_menu.pos
+	if Player_Stats.p5["in_play"]:
+		Player_Stats.p5["pawn_num"] = p5_menu.pos
+	if Player_Stats.p6["in_play"]:
+		Player_Stats.p6["pawn_num"] = p6_menu.pos
+	if Player_Stats.p7["in_play"]:
+		Player_Stats.p7["pawn_num"] = p7_menu.pos
+	if Player_Stats.p8["in_play"]:
+		Player_Stats.p8["pawn_num"] = p8_menu.pos
+	Menu_Hand.load_screen(camp_map_select)
+	self.call_deferred("free")
 
 func menu_check():
 	if Player_Stats.p1["in_play"]:
@@ -60,21 +73,18 @@ func movement(_player, _dir):
 	if _player == 1:
 		if Player_Stats.p1["in_play"]:
 			if !p1_ready:
-				if _dir == 1:
+				if _dir ==1:
 					p1_menu.move_up()
-				elif _dir == 2:
+				elif _dir ==2:
 					p1_menu.move_left()
-				elif _dir == 3:
+				elif _dir ==3:
 					p1_menu.move_right()
-				elif _dir == 4:
+				elif _dir ==4:
 					p1_menu.move_down()
-				elif _dir == 5:
+				elif _dir ==5:
 					p1_ready = true
 					HUD.player_ready(_player)
 					_start()
-			elif _dir == 6:
-				p1_ready = false
-				HUD.player_select(_player)
 		elif Player_Stats.p1["credit"] >= 1:
 			if _dir == 5:
 				Player_Stats.use_credit(_player)
@@ -97,9 +107,6 @@ func movement(_player, _dir):
 					p2_ready = true
 					HUD.player_ready(_player)
 					_start()
-			elif _dir == 6:
-				p2_ready = false
-				HUD.player_select(_player)
 		elif Player_Stats.p2["credit"] >= 1:
 			if _dir == 5:
 				Player_Stats.use_credit(_player)
@@ -120,9 +127,6 @@ func movement(_player, _dir):
 					p3_ready = true
 					HUD.player_ready(_player)
 					_start()
-			elif _dir == 6:
-				p3_ready = false
-				HUD.player_select(_player)
 		elif Player_Stats.p3["credit"] >= 1:
 			if _dir == 5:
 				Player_Stats.use_credit(_player)
@@ -143,9 +147,6 @@ func movement(_player, _dir):
 					p4_ready = true
 					HUD.player_ready(_player)
 					_start()
-			elif _dir == 6:
-				p4_ready = false
-				HUD.player_select(_player)
 		elif Player_Stats.p4["credit"] >= 1:
 			if _dir == 5:
 				Player_Stats.use_credit(_player)
@@ -166,9 +167,6 @@ func movement(_player, _dir):
 					p5_ready = true
 					HUD.player_ready(_player)
 					_start()
-			elif _dir == 6:
-				p5_ready = false
-				HUD.player_select(_player)
 		elif Player_Stats.p5["credit"] >= 1:
 			if _dir == 5:
 				Player_Stats.use_credit(_player)
@@ -189,9 +187,6 @@ func movement(_player, _dir):
 					p6_ready = true
 					HUD.player_ready(_player)
 					_start()
-			elif _dir == 6:
-				p6_ready = false
-				HUD.player_select(_player)
 		elif Player_Stats.p6["credit"] >= 1:
 			if _dir == 5:
 				Player_Stats.use_credit(_player)
@@ -212,9 +207,6 @@ func movement(_player, _dir):
 					p7_ready = true
 					HUD.player_ready(_player)
 					_start()
-			elif _dir == 6:
-				p7_ready = false
-				HUD.player_select(_player)
 		elif Player_Stats.p7["credit"] >= 1:
 			if _dir == 5:
 				Player_Stats.use_credit(_player)
@@ -235,16 +227,13 @@ func movement(_player, _dir):
 					p8_ready = true
 					HUD.player_ready(_player)
 					_start()
-			elif _dir == 6:
-				p8_ready = false
-				HUD.player_select(_player)
 		elif Player_Stats.p8["credit"] >= 1:
 			if _dir == 5:
 				Player_Stats.use_credit(_player)
 				menu_check()
 				HUD.player_select(_player)
 	else:
-		print("error invald player in arcade map select VS")
+		print("error invald player in arcade player select Comp")
 
 func _get_ready_num():
 	var _ready_num = 0

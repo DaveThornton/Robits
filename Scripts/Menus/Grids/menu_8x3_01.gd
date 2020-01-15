@@ -29,6 +29,7 @@ onready var s23 = $Sprite23
 onready var s24 = $Sprite24
 
 func _ready():
+	modulate = Player_Stats.get_body_color(player)
 	update_from_pos()
 
 func move_up():

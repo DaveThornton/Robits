@@ -22,7 +22,8 @@ func load_map( _map_to_load):
 	add_child(m)
 #	get_tree().get_current_scene().map = m
 #	Menu_Hand.load_arcade_hud()
-	get_tree().get_current_scene().spawn_started()
+	Game.spawn_started()
+#	get_tree().get_current_scene().spawn_started()
 #	get_tree().get_current_scene().out_of_menu()
 	get_tree().get_current_scene().connect("reset",m,"reset")
 

@@ -238,43 +238,53 @@ func set_ammo(_player, _amount):
 
 func set_places():
 	var _places = Player_Stats.get_places()
-	var _num_in_play = Player_Stats.get_num_in_play()
+	var _set_back = 1
+	var last_y = null
+	var last_place_y = _places.back().y
+	print(_places, _places.size())
 	for p in _places.size():
-#		var p = _p #+ 1
-		if p == _num_in_play - 1:
-			if p == 1:
+		var o = p
+		print(_places[p],"<---_places.  p---->", p," -  _places.size ----->",_places.size())
+		if _places[p].y == last_place_y:
+			if _places[p].x == 1:
 				p1.set_place(8)
-			elif p == 2:
+			elif _places[p].x == 2:
 				p2.set_place(8)
-			elif p == 3:
+			elif _places[p].x == 3:
 				p3.set_place(8)
-			elif p == 4:
+			elif _places[p].x == 4:
 				p4.set_place(8)
-			elif p == 5:
+			elif _places[p].x == 5:
 				p5.set_place(8)
-			elif p == 6:
+			elif _places[p].x == 6:
 				p6.set_place(8)
-			elif p == 7:
+			elif _places[p].x == 7:
 				p7.set_place(8)
-			elif p == 8:
+			elif _places[p].x == 8:
 				p8.set_place(8)
 		else:
+			if _places[p].y != last_y:
+				last_y = _places[p].y
+				_set_back = 0
+			else:
+				_set_back += 1
+			o = p - _set_back
 			if _places[p].x == 1:
-				p1.set_place(p)
+				p1.set_place(o)
 			elif _places[p].x == 2:
-				p2.set_place(p)
+				p2.set_place(o)
 			elif _places[p].x == 3:
-				p3.set_place(p)
+				p3.set_place(o)
 			elif _places[p].x == 4:
-				p4.set_place(p)
+				p4.set_place(o)
 			elif _places[p].x == 5:
-				p5.set_place(p)
+				p5.set_place(o)
 			elif _places[p].x == 6:
-				p6.set_place(p)
+				p6.set_place(o)
 			elif _places[p].x == 7:
-				p7.set_place(p)
+				p7.set_place(o)
 			elif _places[p].x == 8:
-				p8.set_place(p)
+				p8.set_place(o)
 
 func game_over_input(_player, _input):
 	if _player == 1:
