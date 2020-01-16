@@ -18,11 +18,11 @@ var player_input_h = "P1_Hold_Ground"
 var player_input_start = "P1_start"
 var player_input_coin = "P1_Coin"
 var auto_respawn = true
-var game_mode = 0
+#var game_mode = 0
 var in_game = false 
 var in_menu = true
 var alive = false
-var can_start = false
+#var can_start = false
 var start_equiped = 0
 
 func _ready():

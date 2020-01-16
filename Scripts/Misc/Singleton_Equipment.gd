@@ -167,3 +167,6 @@ func get_pawn(_pawn_num):
 		return pawn_15
 	elif _pawn_num == 16:
 		return pawn_16
+	else:
+		print("not a good pawn number ", _pawn_num, " so im sending in pawn #1")
+		return pawn_01

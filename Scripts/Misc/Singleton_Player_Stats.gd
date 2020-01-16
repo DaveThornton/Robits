@@ -142,7 +142,9 @@ var p_in_p = 0
 #signal hud_update(_p1,_p2,_p3,_p4,_p5,_p6,_p7,_p8)
 
 func _ready():
-	get_tree().get_current_scene().connect("reset", self, "reset")
+	var test = get_tree().get_current_scene().connect("reset", self, "reset")
+	if test != 0:
+		print("error Singleton Player Stats connecting to reset from world gd")
 
 func update_hud():
 	HUD.in_game()
@@ -242,7 +244,7 @@ func add_hit(_player, _hit_amount):
 #	print(p1["shot"],"<--shot, hit--->", p1["hit"])
 
 func coin_insert( _player):
-	print(_player," incerted coin")
+#	print(_player," inserted coin")
 	if _player == 1:
 		p1["credit"] += 1
 	elif _player == 2:
@@ -408,7 +410,7 @@ func get_place_name(_place):
 	elif _place == 6:
 		return "Almost Last"
 	elif _place == 7:
-		return "No Just No"
+		return "Last"
 	elif _place == 8:
 		return "why so Last"
 	else:

@@ -12,7 +12,10 @@ onready var p7 = $VBox_Player_07
 onready var p8 = $VBox_Player_08
 
 func _ready():
-	get_tree().get_current_scene().connect("reset", self, "reset")
+#	get_tree().get_current_scene().connect("reset", self, "reset")
+	var test = get_tree().get_current_scene().connect("reset", self, "reset")
+	if test != 0:
+		print("error Singleton HUD connecting to reset from world gd")
 	reset()
 #	p1.in_menu()
 #	p2.in_menu()

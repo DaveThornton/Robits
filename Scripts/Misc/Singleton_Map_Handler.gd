@@ -7,7 +7,7 @@ onready var timer_camp = $Timer_Camp_Load
 onready var clearing_house = $clearing_house
 
 
-var the_game
+#var the_game
 var level
 
 func spawn_pos():
@@ -25,7 +25,11 @@ func load_map( _map_to_load):
 	Game.spawn_started()
 #	get_tree().get_current_scene().spawn_started()
 #	get_tree().get_current_scene().out_of_menu()
-	get_tree().get_current_scene().connect("reset",m,"reset")
+#	get_tree().get_current_scene().connect("reset",m,"reset")
+	var test = get_tree().get_current_scene().connect("reset", m, "reset")
+	if test != 0:
+		print("error Singleton Map Handler connecting map to reset from world gd")
+	
 
 #func add_kid_to_map(_obj):                   <----------------never do this bad idea
 #	call_deferred("_add_kid_to_map",_obj)

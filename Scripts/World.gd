@@ -1,6 +1,6 @@
 extends Node
 
-export(PackedScene) var player_controller
+#export(PackedScene) var player_controller
 export(PackedScene) var arcade_start
 export(PackedScene) var console_start
 export(PackedScene) var demo_map
@@ -8,7 +8,7 @@ export(PackedScene) var campaign_map
 #game_mode (1 arcade mode) (2 console and pc mode) (3 demo mode)
 export var game_mode = 1
 
-onready var players = $players
+#onready var players = $players
 #warning-ignore:unused_class_variable
 onready var pawns = $Pawns
 onready var clearing_house = $Clearing_House
@@ -17,14 +17,14 @@ onready var level_loader =$Level_Loader
 onready var line = $Line2D
 
 var auto_respawn = true
-var play_type = 2
+#var play_type = 2
 
-var end_game_score = 1
+#var end_game_score = 1
 var screen_loaded
 var arcade_start_screen
 var console_start_screen
 
-signal game_over
+#signal game_over
 signal reset
 signal second
 

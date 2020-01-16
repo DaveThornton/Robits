@@ -98,7 +98,7 @@ var over_ladder = false
 var ladder_speed = 225
 
 signal explode_p
-signal nrg_update(_player, _nrg)
+#signal nrg_update(_player, _nrg)
 
 func _ready():
 	move_step = walk_speed / move_speed_time_needed
@@ -107,9 +107,9 @@ func _ready():
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
 #	current_shape = col_stand
-	var test = self.connect("nrg_update", Player_Stats, "nrg_update")
-	if test != 0:
-		print("error Robit 01 connecting nrg update")
+#	var test = self.connect("nrg_update", Player_Stats, "nrg_update")
+#	if test != 0:
+#		print("error Robit 01 connecting nrg update")
 
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num

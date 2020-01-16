@@ -8,6 +8,7 @@ var players = []
 var timers = []
 
 func _process(delta):
+	#yeah this whole this is dumb right
 	if players.size() > 0:
 		for p in players.size():
 			if is_instance_valid(players[p]):

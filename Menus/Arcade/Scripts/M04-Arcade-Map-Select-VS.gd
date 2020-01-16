@@ -1,6 +1,6 @@
 extends Node2D
 
-export(PackedScene) var game
+#export(PackedScene) var game
 export(PackedScene) var map
 
 onready var p1_menu = $Menu_8x4_01
@@ -24,7 +24,7 @@ var p8_ready = false
 func _ready():
 	var test3 = Menu_Hand.connect("input_to_screen", self, "movement")
 	if test3 != 0:
-		print("error in arcade player select VS connect input to screen")
+		print("error in arcade map select VS connect input to screen")
 	HUD.in_play_to_select()
 	menu_check()
 

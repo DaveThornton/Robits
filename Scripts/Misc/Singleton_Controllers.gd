@@ -1,7 +1,7 @@
 extends Node2D
 
 export(PackedScene) var player_controller
-export(PackedScene) var net_controller
+#export(PackedScene) var net_controller
 
 onready var players = $Players
 
@@ -14,15 +14,17 @@ var p6
 var p7
 var p8
 
-var play_type
+#var play_type
 
 #signal input_to_screen 
 
 func spawn_player_contoller(player_num, _auto_respawn):
-	print("spawning controller ", player_num," in controllers singlton now working")
+#	print("spawning controller ", player_num," in controllers singlton now working")
 	var z = player_controller.instance()
 	players.add_child(z)
-	get_tree().get_current_scene().connect("reset",z,"reset")
+	var test = get_tree().get_current_scene().connect("reset", z, "reset")
+	if test != 0:
+		print("error Singleton Controller connecting Player Controller to reset from world gd")
 #	z.connect("change_spawn_pos",self,"get_spawn_spot")
 #	z.connect("in_play",self,"set_in_play")
 #	z.connect("player_score", self, "player_scores") 

@@ -7,16 +7,18 @@ var over = false
 var end_game_score = 5
 
 func _ready():
-	get_tree().get_current_scene().connect("reset", self, "reset")
+	var test = get_tree().get_current_scene().connect("reset", self, "reset")
+	if test != 0:
+		print("error Singleton Game connecting to reset from world gd")
 
 func start(_players):
-	print("spawning player controllers")
+#	print("spawning player controllers")
 	for j in range(_players):
-		print("spawn player controller ", j + 1, "in start in game singleton delete me soon")
+#		print("spawn player controller ", j + 1, "in start in game singleton delete me soon")
 		Controllers.spawn_player_contoller(j+1, true)
 
 func spawn_started():
-	print("spawn started in game singleton delete me soon")
+#	print("spawn started in game singleton delete me soon")
 	if Player_Stats.p1["in_play"]:
 		Controllers.p1.spawn_pawn()
 	if Player_Stats.p2["in_play"]:

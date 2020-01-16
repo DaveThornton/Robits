@@ -3,7 +3,9 @@ extends Node2D
 export(PackedScene) var next_screen 
 
 func _ready():
-	var test2 = Menu_Hand.connect("input_to_screen", self, "movement")
+	var test = Menu_Hand.connect("input_to_screen", self, "movement")
+	if test != 0:
+		print("error M01 Arcade Start  connecting input to movement")
 
 func movement(_player, _dir):
 	if _player == 1:
