@@ -12,8 +12,9 @@ var level
 
 func spawn_pos():
 	if !Game.over:
-#	map = get_tree().get_current_scene().map #elemate this
 		return map.next_spawn_pos()
+	else:
+		return null
 
 func load_map( _map_to_load):
 #	print("loading map")

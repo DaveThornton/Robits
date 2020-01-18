@@ -21,8 +21,3 @@ func _ready():
 
 func set_max_players(_num_of_players):
 	max_num_of_player = _num_of_players
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

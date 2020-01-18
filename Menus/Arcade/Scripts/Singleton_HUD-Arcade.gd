@@ -1,7 +1,5 @@
 extends HBoxContainer
 
-
-
 onready var p1 = $VBox_Player_01
 onready var p2 = $VBox_Player_02
 onready var p3 = $VBox_Player_03
@@ -12,27 +10,10 @@ onready var p7 = $VBox_Player_07
 onready var p8 = $VBox_Player_08
 
 func _ready():
-#	get_tree().get_current_scene().connect("reset", self, "reset")
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
 		print("error Singleton HUD connecting to reset from world gd")
 	reset()
-#	p1.in_menu()
-#	p2.in_menu()
-#	p3.in_menu()
-#	p4.in_menu()
-#	p5.in_menu()
-#	p6.in_menu()
-#	p7.in_menu()
-#	p8.in_menu()
-#	p1.show_player()
-#	p2.show_player()
-#	p3.show_player()
-#	p4.show_player()
-#	p5.show_player()
-#	p6.show_player()
-#	p7.show_player()
-#	p8.show_player()
 
 func ask_insert_coin(_player):
 	if _player == 1:

@@ -18,24 +18,6 @@ onready var p6_box = $VBoxContainer6
 onready var p7_box = $VBoxContainer7
 onready var p8_box = $VBoxContainer8
 
-#onready var p1_ready_label = $VBoxContainer1/Label_ready1
-#onready var p2_ready_label = $VBoxContainer2/Label_ready2
-#onready var p3_ready_label = $VBoxContainer3/Label_ready3
-#onready var p4_ready_label = $VBoxContainer4/Label_ready4
-#onready var p5_ready_label = $VBoxContainer5/Label_ready5
-#onready var p6_ready_label = $VBoxContainer6/Label_ready6
-#onready var p7_ready_label = $VBoxContainer7/Label_ready7
-#onready var p8_ready_label = $VBoxContainer8/Label_ready8
-
-#onready var p1_select_label = $VBoxContainer1/Label_Select1
-#onready var p2_select_label = $VBoxContainer2/Label_Select2
-#onready var p3_select_label = $VBoxContainer3/Label_Select3
-#onready var p4_select_label = $VBoxContainer4/Label_Select4
-#onready var p5_select_label = $VBoxContainer5/Label_Select5
-#onready var p6_select_label = $VBoxContainer6/Label_Select6
-#onready var p7_select_label = $VBoxContainer7/Label_Select7
-#onready var p8_select_label = $VBoxContainer8/Label_Select8
-
 onready var p1_start_label = $VBoxContainer1/Label_press_start
 onready var p2_start_label = $VBoxContainer2/Label_press_start
 onready var p3_start_label = $VBoxContainer3/Label_press_start

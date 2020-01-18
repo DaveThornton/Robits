@@ -1,30 +1,22 @@
 extends Node
 
-#export(PackedScene) var player_controller
 export(PackedScene) var arcade_start
 export(PackedScene) var console_start
 export(PackedScene) var demo_map
 export(PackedScene) var campaign_map
-#game_mode (1 arcade mode) (2 console and pc mode) (3 demo mode)
+
 export var game_mode = 1
 
-#onready var players = $players
-#warning-ignore:unused_class_variable
 onready var pawns = $Pawns
 onready var clearing_house = $Clearing_House
-# warning-ignore:unused_class_variable
+
 onready var level_loader =$Level_Loader
 onready var line = $Line2D
 
-var auto_respawn = true
-#var play_type = 2
-
-#var end_game_score = 1
 var screen_loaded
 var arcade_start_screen
 var console_start_screen
 
-#signal game_over
 signal reset
 signal second
 
@@ -49,7 +41,7 @@ func init():
 		console_start_screen = a 
 		add_child(a)
 		screen_loaded = a
-		_start(Settings.max_num_of_player)
+		Game.start(Settings.max_num_of_player)
 	
 	elif game_mode == 3:
 		print("game mode 3: demo mode selected")
@@ -97,65 +89,10 @@ func init():
 			Player_Stats.p6["in_play"] = true
 			Player_Stats.p7["in_play"] = true
 			Player_Stats.p8["in_play"] = true
-		_start(Settings.max_num_of_player)
+		Game.start(Settings.max_num_of_player)
 		Map_Hand.load_map(demo_map)
-	
-	elif game_mode == 4:
-		if Settings.max_num_of_player == 1:
-			Player_Stats.p1["in_play"] = true
-		elif Settings.max_num_of_player == 2:
-			Player_Stats.p1["in_play"] = true
-			Player_Stats.p2["in_play"] = true
-		elif Settings.max_num_of_player == 3:
-			Player_Stats.p1["in_play"] = true
-			Player_Stats.p2["in_play"] = true
-			Player_Stats.p3["in_play"] = true
-		elif Settings.max_num_of_player == 4:
-			Player_Stats.p1["in_play"] = true
-			Player_Stats.p2["in_play"] = true
-			Player_Stats.p3["in_play"] = true
-			Player_Stats.p4["in_play"] = true
-		elif Settings.max_num_of_player == 5:
-			Player_Stats.p1["in_play"] = true
-			Player_Stats.p2["in_play"] = true
-			Player_Stats.p3["in_play"] = true
-			Player_Stats.p4["in_play"] = true
-			Player_Stats.p5["in_play"] = true
-		elif Settings.max_num_of_player == 6:
-			Player_Stats.p1["in_play"] = true
-			Player_Stats.p2["in_play"] = true
-			Player_Stats.p3["in_play"] = true
-			Player_Stats.p4["in_play"] = true
-			Player_Stats.p5["in_play"] = true
-			Player_Stats.p6["in_play"] = true
-		elif Settings.max_num_of_player == 7:
-			Player_Stats.p1["in_play"] = true
-			Player_Stats.p2["in_play"] = true
-			Player_Stats.p3["in_play"] = true
-			Player_Stats.p4["in_play"] = true
-			Player_Stats.p5["in_play"] = true
-			Player_Stats.p6["in_play"] = true
-			Player_Stats.p7["in_play"] = true
-		else:
-			Player_Stats.p1["in_play"] = true
-			Player_Stats.p2["in_play"] = true
-			Player_Stats.p3["in_play"] = true
-			Player_Stats.p4["in_play"] = true
-			Player_Stats.p5["in_play"] = true
-			Player_Stats.p6["in_play"] = true
-			Player_Stats.p7["in_play"] = true
-			Player_Stats.p8["in_play"] = true
-		_start(Settings.max_num_of_player)
-		Map_Hand.load_map(campaign_map)
 	else:
 		print("error in game mode type may not exceed 4 (world.gd) _check_game_over")
-
-#this should be moved out of world al the way
-func _start(_players):
-	print("spawning player controllers")
-	for j in range(_players):
-		print("spawn player controller ", j + 1, " in _start in world gd this should be done in mode?")
-		Controllers.spawn_player_contoller(j+1, auto_respawn)
 
 func _clean_house():
 	for child in clearing_house.get_children():
@@ -163,7 +100,6 @@ func _clean_house():
 
 func arcade_reset():
 	emit_signal("reset")
-#	Game.set_game_over(false)
 	var a = arcade_start.instance()
 	arcade_start_screen = a 
 	add_child(a)

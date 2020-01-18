@@ -59,6 +59,20 @@ export(PackedScene) var item_pick_03
 export(PackedScene) var item_pick_04
 export(PackedScene) var item_pick_05
 export(PackedScene) var item_pick_06
+#export(PackedScene) var item_pick_07
+#export(PackedScene) var item_pick_08
+#export(PackedScene) var item_pick_09
+#export(PackedScene) var item_pick_10
+#export(PackedScene) var item_pick_11
+#export(PackedScene) var item_pick_12
+#export(PackedScene) var item_pick_13
+#export(PackedScene) var item_pick_14
+#export(PackedScene) var item_pick_15
+#export(PackedScene) var item_pick_16
+#export(PackedScene) var item_pick_17
+#export(PackedScene) var item_pick_18
+#export(PackedScene) var item_pick_19
+#export(PackedScene) var item_pick_20
 
 export(PackedScene) var pawn_01
 export(PackedScene) var pawn_02
@@ -76,10 +90,6 @@ export(PackedScene) var pawn_13
 export(PackedScene) var pawn_14
 export(PackedScene) var pawn_15
 export(PackedScene) var pawn_16
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 func get_weap_hold(_weap):
 	if _weap == 1:
@@ -113,7 +123,8 @@ func get_weap_hold(_weap):
 	elif _weap == 80:
 		return gun_hold_80
 	else:
-		print("Error in Singleton Equipment wrong weap number ----> ", _weap)
+		print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+		return gun_hold_02
 
 func get_weap_pick(_item):
 	pass
@@ -126,13 +137,14 @@ func get_item(_item):
 	elif _item == 3: 
 		return item_pick_03
 	elif _item == 4:
-		 return item_pick_04
+		return item_pick_04
 	elif _item == 5:
-		 return item_pick_05
+		return item_pick_05
 	elif _item == 6:
-		 return item_pick_06
+		return item_pick_06
 	else:
-		print("Error in Singleton Equipment wrong item number ----> ", _item)
+		print("Error in Singleton Equipment wrong item number ----> ", _item, " you get Ammo")
+		return item_pick_01
 
 func get_pawn(_pawn_num):
 	if _pawn_num == 1:
@@ -167,6 +179,9 @@ func get_pawn(_pawn_num):
 		return pawn_15
 	elif _pawn_num == 16:
 		return pawn_16
+	elif _pawn_num == 0:
+		print("no pawn selected pawn number = ", _pawn_num, " you get pawn #2")
+		return pawn_02
 	else:
 		print("not a good pawn number ", _pawn_num, " so im sending in pawn #1")
 		return pawn_01

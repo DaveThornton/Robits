@@ -24,7 +24,6 @@ onready var anim2 = $AnimationPlayer2
 onready var gun_arm = $Gun_Arm
 onready var shoot_cast = $Gun_Arm/RayCast2D
 onready var shoot_timer = $Timer_Shoot
-#onready var sfx = $SFX_Lib
 
 var can_shoot = true
 var damage = 20

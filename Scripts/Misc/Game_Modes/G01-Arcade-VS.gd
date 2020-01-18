@@ -7,6 +7,7 @@ func _ready():
 
 func set_end_score(_score):
 	end_score = _score
+
 func get_end_score():
 	return end_score
 

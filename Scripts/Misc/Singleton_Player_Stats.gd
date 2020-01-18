@@ -136,10 +136,7 @@ var p8 = {
 	color_loco = Color8(255, 225, 225, 222)
 }
 
-#var hud
 var p_in_p = 0
-
-#signal hud_update(_p1,_p2,_p3,_p4,_p5,_p6,_p7,_p8)
 
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
@@ -148,10 +145,6 @@ func _ready():
 
 func update_hud():
 	HUD.in_game()
-#	emit_signal("hud_update", p1, p2, p3, p4, p5, p6, p7, p8)
-
-#func set_hud(_hud):
-#	hud = _hud
 
 func add_kill(_killed, _killer, _point, _by_what):
 	add_score(_killer, _point)
@@ -241,10 +234,8 @@ func add_hit(_player, _hit_amount):
 		p8["hit"] += _hit_amount
 	else:
 		print("Error in Singleton_Player_Stats add_hit function invalid player number. ", _player, " <---player number.. hit amount--->", _hit_amount)
-#	print(p1["shot"],"<--shot, hit--->", p1["hit"])
 
 func coin_insert( _player):
-#	print(_player," inserted coin")
 	if _player == 1:
 		p1["credit"] += 1
 	elif _player == 2:
@@ -261,10 +252,10 @@ func coin_insert( _player):
 		p7["credit"] += 1
 	elif _player == 8:
 		p8["credit"] += 1
+	else:
+		print("invalid player in player stats coin insert ... _player --> ", _player)
 	HUD.coin_up(_player)
-#	emit_signal("coin_up")
-#	can_player_start_arcade(_player)
-	
+
 func use_credit( _player):
 	if _player == 1:
 		p1["credit"] -= 1
@@ -290,8 +281,9 @@ func use_credit( _player):
 	elif _player == 8:
 		p8["credit"] -= 1
 		p8["in_play"] = true
+	else:
+		print("invalid player in player stats use credit... _player --> ", _player)
 	HUD.use_credit(_player)
-#	can_player_start_arcade(_player)
 
 func nrg_update(_player, _nrg, _nrg_max):
 	var _current_nrg = int((float(_nrg) / _nrg_max)* 100)
@@ -357,6 +349,9 @@ func get_body_color(_player):
 		return p7["color_body"]
 	elif _player == 8:
 		return p8["color_body"]
+	else:
+		print("invalid player number in player stats , get body color so ill send player 1")
+		return p1["color_body"]
 
 func get_pawn_num(_player):
 	if _player == 1:
@@ -375,6 +370,8 @@ func get_pawn_num(_player):
 		return p7["pawn_num"]
 	elif _player == 8:
 		return p8["pawn_num"]
+	else:
+		print("invalid player number in get pawn num in player stats --> ", _player )
 
 func get_player_stats(_num):
 	if _num == 1:
@@ -393,6 +390,8 @@ func get_player_stats(_num):
 		return p7
 	elif _num == 8:
 		return p8
+	else:
+		print("invalid get player stats, get player stats thats dumb  -->  ", _num)
 
 func get_place_name(_place):
 	if _place == 0:
@@ -408,7 +407,7 @@ func get_place_name(_place):
 	elif _place == 5:
 		return "Deep Six"
 	elif _place == 6:
-		return "Almost Last"
+		return "Almost 7ast"
 	elif _place == 7:
 		return "Last"
 	elif _place == 8:
@@ -461,18 +460,8 @@ func sort_place(a, b):
 	if a.y < b.y:
 		return false
 	return true
-	
-	
-	
-	
-#	if a.y > b.y:
-#		return a
-#	else:
-#		return b
 
 func reset():
-#	HUD.reset()
-	# might now work ? looks like it should work
 	p1["kill"] = 0
 	p1["death"] = 0
 	p1["score"] = 0

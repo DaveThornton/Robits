@@ -69,13 +69,8 @@ func check_over():
 func get_start_screen():
 	return start_screen
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 func reset():
 	set_game_over(false)
 
 func _on_Timer_timeout():
 	get_tree().get_current_scene().arcade_reset()
-#	pass # Replace with function body.
