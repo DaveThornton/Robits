@@ -97,6 +97,12 @@ var on_ladder = false
 var over_ladder = false
 var ladder_speed = 225
 
+var _body_color = Color8(255, 255, 255, 255)
+var _im_hit = false
+var _hit_time = 0.0
+var _hit_color_01 = Color8(255, 255, 255, 255)
+var _hit_color_02 = Color8(255, 106, 0, 130)
+
 signal explode_p
 #signal nrg_update(_player, _nrg)
 
@@ -114,40 +120,7 @@ func _ready():
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
 	play_type = _play_type
-	if player == 1:#Grey
-		sprite_face.self_modulate = Player_Stats.p1.color_face
-		sprite_body.self_modulate = Player_Stats.p1.color_body
-		sprite_loco.self_modulate = Player_Stats.p1.color_loco
-	elif player == 2:#Pink
-		sprite_face.self_modulate = Player_Stats.p2.color_face
-		sprite_body.self_modulate = Player_Stats.p2.color_body
-		sprite_loco.self_modulate = Player_Stats.p2.color_loco
-	elif player == 3:#Red
-		sprite_face.self_modulate = Player_Stats.p3.color_face
-		sprite_body.self_modulate = Player_Stats.p3.color_body
-		sprite_loco.self_modulate = Player_Stats.p3.color_loco
-	elif player == 4:#Blue
-		sprite_face.self_modulate = Player_Stats.p4.color_face
-		sprite_body.self_modulate = Player_Stats.p4.color_body
-		sprite_loco.self_modulate = Player_Stats.p4.color_loco
-	elif player == 5:#Yellow
-		sprite_face.self_modulate = Player_Stats.p5.color_face
-		sprite_body.self_modulate = Player_Stats.p5.color_body
-		sprite_loco.self_modulate = Player_Stats.p5.color_loco
-	elif player == 6:#Purple
-		sprite_face.self_modulate = Player_Stats.p6.color_face
-		sprite_body.self_modulate = Player_Stats.p6.color_body
-		sprite_loco.self_modulate = Player_Stats.p6.color_loco
-	elif player == 7:#Teal
-		sprite_face.self_modulate = Player_Stats.p7.color_face
-		sprite_body.self_modulate = Player_Stats.p7.color_body
-		sprite_loco.self_modulate = Player_Stats.p7.color_loco
-	elif player == 8:#Green
-		sprite_face.self_modulate = Player_Stats.p8.color_face
-		sprite_body.self_modulate = Player_Stats.p8.color_body
-		sprite_loco.self_modulate = Player_Stats.p8.color_loco
-	else:
-		print("error in robit init player number invald")
+	_set_color()
 	sprite_loco.self_modulate = sprite_face.self_modulate
 	sprite_loco.self_modulate.a8 = 160
 	start_equiped = _start_equiped
@@ -183,6 +156,21 @@ func _process(delta):
 		my_gun.shoot_pos = shoot_spot
 # warning-ignore:return_value_discarded
 #	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
+	if _im_hit:
+		print(delta)
+		if _hit_time > 0.1:
+			_hit_time -= delta
+			sprite_body.self_modulate = _hit_color_01
+		elif _hit_time > 0.05:
+			_hit_time -= delta
+			sprite_body.self_modulate = _hit_color_02
+		elif _hit_time > 0:
+			_hit_time -= delta
+			sprite_body.self_modulate = _hit_color_01
+		else:
+			sprite_body.self_modulate = _body_color
+			_hit_time = 0.0
+			_im_hit = false
 
 func _physics_process(delta):
 	move_and_slide(Vector2(vel.x + knocked_back.x , 0 + knocked_back.y ))#* delta))
@@ -488,6 +476,8 @@ func stun(_gun_num):
 	let_go()
 
 func hit(_by_who, _by_what, _damage_type, _damage):
+	_im_hit = true
+	_hit_time += 0.11
 	if play_type == 1:
 		if is_shield_up:
 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
@@ -612,6 +602,50 @@ func _is_on_floor():
 #		on_m_plat = true
 #	else:
 #		on_m_plat = false
+
+func _set_color():
+	if player == 1:#Grey
+		sprite_face.self_modulate = Player_Stats.p1.color_face
+		sprite_body.self_modulate = Player_Stats.p1.color_body
+		sprite_loco.self_modulate = Player_Stats.p1.color_loco
+		_body_color = Player_Stats.p1.color_body
+	elif player == 2:#Pink
+		sprite_face.self_modulate = Player_Stats.p2.color_face
+		sprite_body.self_modulate = Player_Stats.p2.color_body
+		sprite_loco.self_modulate = Player_Stats.p2.color_loco
+		_body_color = Player_Stats.p2.color_body
+	elif player == 3:#Red
+		sprite_face.self_modulate = Player_Stats.p3.color_face
+		sprite_body.self_modulate = Player_Stats.p3.color_body
+		sprite_loco.self_modulate = Player_Stats.p3.color_loco
+		_body_color = Player_Stats.p3.color_body
+	elif player == 4:#Blue
+		sprite_face.self_modulate = Player_Stats.p4.color_face
+		sprite_body.self_modulate = Player_Stats.p4.color_body
+		sprite_loco.self_modulate = Player_Stats.p4.color_loco
+		_body_color = Player_Stats.p4.color_body
+	elif player == 5:#Yellow
+		sprite_face.self_modulate = Player_Stats.p5.color_face
+		sprite_body.self_modulate = Player_Stats.p5.color_body
+		sprite_loco.self_modulate = Player_Stats.p5.color_loco
+		_body_color = Player_Stats.p5.color_body
+	elif player == 6:#Purple
+		sprite_face.self_modulate = Player_Stats.p6.color_face
+		sprite_body.self_modulate = Player_Stats.p6.color_body
+		sprite_loco.self_modulate = Player_Stats.p6.color_loco
+		_body_color = Player_Stats.p6.color_body
+	elif player == 7:#Teal
+		sprite_face.self_modulate = Player_Stats.p7.color_face
+		sprite_body.self_modulate = Player_Stats.p7.color_body
+		sprite_loco.self_modulate = Player_Stats.p7.color_loco
+		_body_color = Player_Stats.p7.color_body
+	elif player == 8:#Green
+		sprite_face.self_modulate = Player_Stats.p8.color_face
+		sprite_body.self_modulate = Player_Stats.p8.color_body
+		sprite_loco.self_modulate = Player_Stats.p8.color_loco
+		_body_color = Player_Stats.p8.color_body
+	else:
+		print("error in robit 01 setting player color player number invaliid")
 
 func _on_Shield_Hit_Timer_timeout():
 	sprite_shield_hit.visible = false

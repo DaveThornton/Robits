@@ -2,7 +2,7 @@ extends Node
 
 var map
 
-onready var splash = $Level_Load_Screen
+#onready var splash = $Level_Load_Screen
 onready var timer_camp = $Timer_Camp_Load
 onready var clearing_house = $clearing_house
 
@@ -47,11 +47,12 @@ func clear_map():
 
 func load_map_cam(_level, _label_1, _label_2, _time, _show):
 	if _show:
+		Menu_Hand.splash(_label_1, _label_2, _time, true)
 		level = _level
-		splash.change_text(_label_1, _label_2)
-		splash.visible = true
-		timer_camp.wait_time = _time
-		timer_camp.start()
+#		splash.change_text(_label_1, _label_2)
+#		splash.visible = true
+#		timer_camp.wait_time = _time
+#		timer_camp.start()
 #		timer.wait_time = _time
 #		timer.start()
 	else:
@@ -76,11 +77,11 @@ func _load_map_cam(_level):
 #	if !e:
 #		print("error in map handler _load_map_cam: error connecting reset")
 
-func _on_Timer_timeout():
-	get_tree().paused = false
-	splash.visible = false
-
-func _on_Timer_Camp_Load_timeout():
-	_load_map_cam(level)
-	get_tree().paused = false
-	splash.visible = false
+#func _on_Timer_timeout():
+#	get_tree().paused = false
+#	splash.visible = false
+#
+#func _on_Timer_Camp_Load_timeout():
+#	_load_map_cam(level)
+#	get_tree().paused = false
+#	splash.visible = false

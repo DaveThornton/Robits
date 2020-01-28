@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://misc/CRT-Shader/crt_shader.shader" type="Shader" id=1]
+
+[resource]
+render_priority = 1
+shader = ExtResource( 1 )
+shader_param/boost = 1.2
+shader_param/grille_opacity = 0.85
+shader_param/scanlines_opacity = 0.95
+shader_param/vignette_opacity = 0.2
+shader_param/scanlines_speed = 1.0
+shader_param/show_grille = true
+shader_param/show_scanlines = true
+shader_param/show_vignette = true
+shader_param/show_curvature = true
+shader_param/screen_size = Vector2( 1920, 1080 )
+shader_param/aberration_amount = 0.0
+shader_param/move_aberration = false
+shader_param/aberration_speed = 1.0

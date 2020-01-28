@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://map/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -14,8 +14,6 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-15-Level_Change-01-Door.tscn" type="PackedScene" id=12]
 [ext_resource path="res://map/Campaign-mode/Map-C-02-A-Level.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_20x80-01.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Menus/Campaign/Level_Load_Screen.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.4407, 294.705 )
@@ -100,7 +98,6 @@ position = Vector2( 1107.29, 778.691 )
 shape = SubResource( 1 )
 
 [node name="MP-04-Nav2D" parent="." instance=ExtResource( 8 )]
-editor/display_folded = true
 
 [node name="TileMap" type="TileMap" parent="MP-04-Nav2D"]
 tile_set = ExtResource( 9 )
@@ -215,27 +212,3 @@ position = Vector2( 750, 880 )
 open_for_player = false
 
 [node name="BadGuys" type="Node2D" parent="."]
-editor/display_folded = true
-
-[node name="BG-02-Open_Gunner-01" parent="BadGuys" instance=ExtResource( 15 )]
-position = Vector2( 1580, 920 )
-active = false
-
-[node name="BG-02-Open_Gunner-02" parent="BadGuys" instance=ExtResource( 15 )]
-position = Vector2( 1631.7, 920.755 )
-active = false
-
-[node name="BG-02-Open_Gunner-03" parent="BadGuys" instance=ExtResource( 15 )]
-position = Vector2( 1649.43, 1060.75 )
-active = false
-
-[node name="BG-02-Open_Gunner-04" parent="BadGuys" instance=ExtResource( 15 )]
-position = Vector2( 1476.98, 1060.75 )
-active = false
-
-[node name="Splash" type="Node2D" parent="."]
-z_index = 500
-
-[node name="Level_Load_Screen" parent="Splash" instance=ExtResource( 16 )]
-pause_mode = 2
-visible = false

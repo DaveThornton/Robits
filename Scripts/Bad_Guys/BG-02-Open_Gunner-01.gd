@@ -110,9 +110,10 @@ func _process(delta: float) -> void:
 	else:
 		can_move = true
 		if !nav_system:
-			if self.get_tree().get_current_scene().map.nav_system:
-				nav_system = self.get_tree().get_current_scene().map.nav_system
-				var map = self.get_tree().get_current_scene().map
+#			if self.get_tree().get_current_scene().map.nav_system:
+			if Map_Hand.map.nav_system:
+				nav_system = Map_Hand.map.nav_system
+				var map = Map_Hand.map
 				map.connect("activate", self, "activate")
 				print("nav system found ", nav_system)
 				nav_system.found_me()

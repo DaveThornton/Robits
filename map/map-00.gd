@@ -1,14 +1,10 @@
 extends Node2D
 
-#export var show_splash = false
-#export var title_text = "Title"
-#export var text_body = "Body"
-#export var splash_time = 5.0
-#onready var map = $TileMap
-#onready var platforms = $TileMap2
+export var splash = false
+export var top_text = "top_text"
+export var body_text = "body_text testing levely stuff blah blah ... blah!!!"
 onready var player_spawns = $Player_spawns
 onready var parts = $Map_parts
-#onready var splash_screen = $"Splash/Level_Load_Screen"
 var next_spawn_spot = 0
 var nav_system
 
@@ -18,20 +14,9 @@ func _ready():
 		print("map nav system found")
 	else:
 		print("map has no navigation")
-#	print(map, platforms)
-#	delete_square(player_spawns.get_child(next_spawn_spot).position)
-#	print(player_spawns.get_child_count())
-	# Called every time the node is added to the scene.
-	# Initialization here
-#	pass
 
-#func get_next_pos():
-#	var g = get_parent()
-#	g.set_spawn_spot(player_spawns.get_child(next_spawn_spot).position)
-#	next_spawn_spot += 1
-##	print("next spawn spot  ", next_spawn_spot)
-#	if next_spawn_spot > player_spawns.get_child_count() - 1:
-#		next_spawn_spot = 0
+	if splash:
+		Menu_Hand.splash(top_text, body_text, 1.5, true)
 
 func next_spawn_pos():
 	next_spawn_spot += 1

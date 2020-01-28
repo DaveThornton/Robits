@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://map/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Menus/Campaign/Level_Load_Screen.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 30.0984
@@ -79,6 +78,7 @@ cell_size = Vector2( 20, 20 )
 format = 1
 
 [node name="MP-04-Nav2D" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
 
 [node name="TileMap" type="TileMap" parent="MP-04-Nav2D"]
 tile_set = ExtResource( 8 )
@@ -118,6 +118,7 @@ position = Vector2( 1000, 570 )
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
+editor/display_folded = true
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 9 )]
 
@@ -132,12 +133,7 @@ position = Vector2( 385.367, 94.7624 )
 shape = SubResource( 1 )
 
 [node name="BadGuys" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="BG-02-Open_Gunner-01" parent="BadGuys" instance=ExtResource( 12 )]
 position = Vector2( 1160, 1060 )
-
-[node name="Splash" type="Node2D" parent="."]
-editor/display_folded = true
-
-[node name="Level_Load_Screen" parent="Splash" instance=ExtResource( 13 )]
-visible = false

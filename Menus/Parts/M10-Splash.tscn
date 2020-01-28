@@ -1,10 +1,11 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/Menus/Campaign/Level_Load_Screen.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Parts/Scripts/M10-Splash.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Menu/Menu-Map_load-Backround.png" type="Texture" id=2]
 [ext_resource path="res://misc/line-text-big.tres" type="DynamicFont" id=3]
 
-[node name="Level_Load_Screen" type="Control"]
+[node name="M10-Splash" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -96,4 +97,5 @@ rect_min_size = Vector2( 150, 0 )
 size_flags_horizontal = 0
 
 [node name="Timer" type="Timer" parent="."]
+pause_mode = 2
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

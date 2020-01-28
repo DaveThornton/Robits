@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://map/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -17,9 +17,8 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-15-Level_Change-01-Door.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Bad_Guys/BG-22-Turret-Ceiling.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Menus/Campaign/Level_Load_Screen.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Map_Parts/MP-29-Trash_Spawner.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Map_Parts/MP-29-Trash_Spawner.tscn" type="PackedScene" id=19]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.0
@@ -430,35 +429,29 @@ position = Vector2( 1480, 730 )
 [node name="BG-02-Open_Gunner-02" parent="BadGuys" instance=ExtResource( 16 )]
 position = Vector2( 1230, 860 )
 
-[node name="Splash" type="Node2D" parent="."]
-editor/display_folded = true
-
-[node name="Level_Load_Screen" parent="Splash" instance=ExtResource( 18 )]
-visible = false
-
-[node name="MP-25-Activate_Area" parent="." instance=ExtResource( 19 )]
+[node name="MP-25-Activate_Area" parent="." instance=ExtResource( 18 )]
 editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MP-25-Activate_Area"]
 position = Vector2( 445, 850 )
 shape = SubResource( 1 )
 
-[node name="MP-29-Trash_Spawner" parent="." instance=ExtResource( 20 )]
+[node name="MP-29-Trash_Spawner" parent="." instance=ExtResource( 19 )]
 position = Vector2( 1880, -20 )
 shoot_dir = Vector2( 50, 150 )
 
-[node name="MP-29-Trash_Spawner2" parent="." instance=ExtResource( 20 )]
+[node name="MP-29-Trash_Spawner2" parent="." instance=ExtResource( 19 )]
 position = Vector2( 1930, 450 )
 shoot_dir = Vector2( 0, -20 )
 
-[node name="MP-29-Trash_Spawner3" parent="." instance=ExtResource( 20 )]
+[node name="MP-29-Trash_Spawner3" parent="." instance=ExtResource( 19 )]
 position = Vector2( -10, 290 )
 shoot_dir = Vector2( 20, -20 )
 
-[node name="MP-29-Trash_Spawner4" parent="." instance=ExtResource( 20 )]
+[node name="MP-29-Trash_Spawner4" parent="." instance=ExtResource( 19 )]
 position = Vector2( 1926, 870 )
 shoot_dir = Vector2( -50, -50 )
 
-[node name="MP-29-Trash_Spawner5" parent="." instance=ExtResource( 20 )]
+[node name="MP-29-Trash_Spawner5" parent="." instance=ExtResource( 19 )]
 position = Vector2( 1926, 210 )
 shoot_dir = Vector2( -5, -10 )

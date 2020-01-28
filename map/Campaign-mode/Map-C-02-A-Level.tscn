@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://map/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -19,7 +19,6 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-10-Blaster_Pistol.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Menus/Campaign/Level_Load_Screen.tscn" type="PackedScene" id=20]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 168.0
@@ -212,10 +211,3 @@ editor/display_folded = true
 
 [node name="BG-02-Open_Gunner-01" parent="BadGuys" instance=ExtResource( 19 )]
 position = Vector2( 1190, 660 )
-
-[node name="Splash" type="Node2D" parent="."]
-z_index = 25
-
-[node name="Level_Load_Screen" parent="Splash" instance=ExtResource( 20 )]
-pause_mode = 2
-visible = false

@@ -77,6 +77,7 @@ format = 1
 tile_data = PoolIntArray( 655425, 1, 0, 720961, 0, 0, 786497, 0, 0, 852033, 0, 0, 917569, 0, 0, 983105, 0, 0, 1048641, 0, 0, 1114177, 0, 0, 1179713, 0, 0, 1245249, 0, 0, 1310785, 0, 0, 1376321, 0, 0, 1441857, 0, 0, 1507393, 0, 0, 1572929, 0, 0, 1638465, 0, 0, 1704001, 0, 0, 1769537, 0, 0, 1835073, 0, 0, 1900609, 0, 0, 1966145, 0, 0, 2031681, 0, 0, 2097217, 0, 0, 2162753, 0, 0, 2228289, 0, 0, 2293825, 0, 0, 2359361, 0, 0, 2424897, 0, 0, 2490433, 0, 0, 2555969, 0, 0, 2621505, 0, 0, 2687041, 0, 0, 2752577, 2, 0, 2818093, 0, 0, 2883629, 0, 0, 2949165, 0, 0, 3014701, 0, 0, 3080237, 0, 0, 3145773, 0, 0, 3211309, 0, 0, 3276845, 0, 0, 3342381, 0, 0, 3407917, 0, 0 )
 
 [node name="MP-04-Nav2D" parent="." instance=ExtResource( 6 )]
+editor/display_folded = true
 
 [node name="TileMap" type="TileMap" parent="MP-04-Nav2D"]
 visible = false
@@ -118,6 +119,7 @@ position = Vector2( 320, 190 )
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
+editor/display_folded = true
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 8 )]
 
@@ -128,6 +130,7 @@ position = Vector2( 1016.51, 1127.47 )
 position = Vector2( 730, 390 )
 
 [node name="MP-33-Belt-9-07" parent="Map_parts" instance=ExtResource( 10 )]
+editor/display_folded = true
 position = Vector2( 720, 650 )
 
 [node name="BG-23-Turret-Ground" parent="Map_parts/MP-33-Belt-9-07" instance=ExtResource( 11 )]
@@ -273,6 +276,7 @@ position = Vector2( 260, 1010 )
 position = Vector2( 300, 970 )
 
 [node name="Bad_Guys" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="BG-24-Turret-Wall-Left" parent="Bad_Guys" instance=ExtResource( 12 )]
 position = Vector2( 1150, 430 )

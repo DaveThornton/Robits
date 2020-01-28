@@ -24,6 +24,7 @@ func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	anim.play("Explode")
 	weap_name = _weap_name
 	SFX.play("EX_Standard")
+	FX.CAMERA.shake(.2, 15, 8)
 
 func start( _sr , _ss, _sss, _player):
 #	_check_dir()

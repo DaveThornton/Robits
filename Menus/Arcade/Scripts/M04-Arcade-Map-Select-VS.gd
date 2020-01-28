@@ -56,10 +56,10 @@ func _next_screen():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var map_num_to_load = rng.randi_range(0,(map_array.size() - 1))
-	print(map_num_to_load)
+	print(map_num_to_load, "   M04 Arcade Map Select VS")
 #	map_num_to_load -= 1
 	var _map_to_load = map_array[map_num_to_load]
-	print("map stuff  ", map_num_to_load,"  ", _map_to_load,"  ", map_array,"  " ,map_array.size())
+	print("map stuff  ", map_num_to_load,"  ", _map_to_load,"  ", map_array,"  " ,map_array.size(), "   M04 Arcade Map Select VS")
 	Map_Hand.load_map(_map_to_load)
 	HUD.in_game()
 	call_deferred("free")

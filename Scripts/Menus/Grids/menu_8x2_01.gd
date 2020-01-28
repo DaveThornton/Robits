@@ -25,6 +25,9 @@ func _ready():
 #	self_modulate = Player_Stats.get_body_color(player)
 	update_from_pos()
 
+func get_pos():
+	return pos
+
 func move_up():
 	if pos == 1 || pos == 2 || pos == 3 || pos == 4 || pos == 5 || pos == 6 || pos == 7 || pos == 8:
 #		print("cant move up")

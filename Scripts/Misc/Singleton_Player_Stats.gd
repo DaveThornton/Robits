@@ -136,6 +136,24 @@ var p8 = {
 	color_loco = Color8(255, 225, 225, 222)
 }
 
+#var t1 ={
+#	kill = 0,
+#	death = 0,
+#	score = 0,
+#	color_1_face = Color8(0, 255, 0, 255),
+#	color_1_body = Color8(255, 0, 0, 255),
+#	color_1_loco = Color8(150, 150, 150, 222)
+#} 
+#
+#var t2 ={
+#	kill = 0,
+#	death = 0,
+#	score = 0,
+#	color_1_face = Color8(255, 0, 0, 255),
+#	color_1_body = Color8(0, 0, 255, 255),
+#	color_1_loco = Color8(150, 150, 150, 222)
+#} 
+
 var p_in_p = 0
 
 func _ready():

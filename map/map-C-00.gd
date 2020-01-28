@@ -3,7 +3,7 @@ extends Node2D
 export var show_splash = false
 export var title_text = "Title"
 export var body_text = "Body"
-export var splash_time = 3
+export var splash_time = 1.5
 
 onready var player_spawns = $Player_spawns
 onready var parts = $Map_parts
@@ -16,10 +16,12 @@ signal activate(_num, _player)
 
 func _ready():
 	if show_splash:
-		splash_screen.change_text(title_text, body_text)
-		splash_screen.visible = true
-		splash_screen.start_timer(splash_time)
-		get_tree().paused = true
+		Menu_Hand.splash(title_text, body_text, splash_time, true)
+#
+#		splash_screen.change_text(title_text, body_text)
+#		splash_screen.visible = true
+#		splash_screen.start_timer(splash_time)
+#		get_tree().paused = true
 	if $"MP-04-Nav2D":
 		nav_system = $"MP-04-Nav2D"
 		print("map nav system found")

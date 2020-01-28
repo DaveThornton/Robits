@@ -1,6 +1,7 @@
 extends Node
 
 var arcade_hud = "res://Scenes/Top_HUD.tscn"
+var splash_screen = "res://Menus/Parts/M10-Splash.tscn"
 var hud
 var screen_loaded
 
@@ -26,6 +27,11 @@ func load_screen(_screen_to_load):
 	var s = _screen_to_load.instance()
 	add_child(s)
 	screen_loaded = s
+
+func splash(_top, _body, _time, _pause):
+	var s = load(splash_screen).instance()
+	add_child(s)
+	s.init(_top, _body, _time, _pause)
 
 func input( _player, _dir):
 	print("player: ", _player," dir: ", _dir)

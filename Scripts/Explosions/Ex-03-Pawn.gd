@@ -37,6 +37,7 @@ func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	weap_name = _weap_name
 	anim.play()
 	SFX.play("EX_Pawn")
+#	FX.CAMERA.shake(.3, 25, 9)
 
 func start( _sr , _ss, _sss, _player):
 	owned = _player

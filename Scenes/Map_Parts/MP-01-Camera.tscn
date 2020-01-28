@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Map_Parts/MP-01-Camera.gd" type="Script" id=1]
+[ext_resource path="res://misc/CRT-Shader/crt_material.tres" type="Material" id=2]
+[ext_resource path="res://Sprites/Misc/Left_Side_Pannel.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Misc/Right_Side_Pannel.png" type="Texture" id=4]
+
+[node name="MP-01-Camera" type="Camera2D"]
+position = Vector2( 960, 540 )
+z_index = 100
+current = true
+script = ExtResource( 1 )
+
+[node name="CRT" type="CanvasLayer" parent="."]
+offset = Vector2( 960, 540 )
+transform = Transform2D( 1, 0, 0, 1, 960, 540 )
+
+[node name="ColorRect" type="ColorRect" parent="CRT"]
+material = ExtResource( 2 )
+anchor_right = 1.0
+margin_left = -960.0
+margin_top = -540.0
+margin_right = -960.0
+margin_bottom = 540.0
+
+[node name="Sprite" type="Sprite" parent="CRT"]
+position = Vector2( -1130.01, 0 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="CRT"]
+position = Vector2( 1130.01, 0.0474854 )
+texture = ExtResource( 4 )
