@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scripts/Menus/Grids/menu_1X3_01.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Grids/Scripts/menu_1X3_01.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Menu/menu-box-1200x128.png" type="Texture" id=2]
+
+
 
 [node name="menu_1X3_01" type="Node2D"]
 script = ExtResource( 1 )
