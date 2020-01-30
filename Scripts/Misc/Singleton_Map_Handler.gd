@@ -3,7 +3,7 @@ extends Node
 var map
 
 #onready var splash = $Level_Load_Screen
-onready var timer_camp = $Timer_Camp_Load
+#onready var timer_camp = $Timer_Camp_Load
 onready var clearing_house = $clearing_house
 
 

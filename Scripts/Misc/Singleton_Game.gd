@@ -18,7 +18,6 @@ func start(_players):
 		Controllers.spawn_player_contoller(j+1, true)
 
 func spawn_started():
-#	print("spawn started in game singleton delete me soon")
 	if Player_Stats.p1["in_play"]:
 		Controllers.p1.spawn_pawn()
 	if Player_Stats.p2["in_play"]:

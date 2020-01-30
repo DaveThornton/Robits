@@ -8,8 +8,8 @@
 texture_mode = -1102592574
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 971.41, 1006.97 )
-scale = Vector2( 4, 4 )
+position = Vector2( 935.36, 534.71 )
+scale = Vector2( 4.6337, 2.94384 )
 texture = ExtResource( 1 )
 
 [node name="Pawns" type="Node" parent="."]

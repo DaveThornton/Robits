@@ -3,14 +3,14 @@ extends Node
 export(PackedScene) var arcade_start
 export(PackedScene) var console_start
 export(PackedScene) var demo_map
-export(PackedScene) var campaign_map
+#export(PackedScene) var campaign_map
 
-export var game_mode = 1
+export var game_mode = 3
 
 onready var pawns = $Pawns
 onready var clearing_house = $Clearing_House
 
-onready var level_loader =$Level_Loader
+#onready var level_loader =$Level_Loader
 onready var line = $Line2D
 
 var screen_loaded

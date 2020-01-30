@@ -7,7 +7,7 @@ export var splash_time = 1.5
 
 onready var player_spawns = $Player_spawns
 onready var parts = $Map_parts
-onready var splash_screen = $"Splash/Level_Load_Screen"
+#onready var splash_screen = $"Splash/Level_Load_Screen"
 
 var next_spawn_spot = 0
 var nav_system
