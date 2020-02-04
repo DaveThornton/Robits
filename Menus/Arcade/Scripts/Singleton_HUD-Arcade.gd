@@ -252,12 +252,10 @@ func game_over_input(_player, _input):
 	else:
 		print("error game over input player number not valid. player : ",_player, ". input :", _input)
 	var _in_play = Player_Stats.get_num_in_play()
-	var _done
+	var _done = get_game_over_done_count()
 	
-#	----------------------------------------------reenable this------------------------------------------------
-
-#	if _in_play == _done:
-#		get_tree().get_current_scene().arcade_reset()
+	if _in_play == _done:
+		get_tree().get_current_scene().arcade_reset()
 
 func get_game_over_done_count():
 	var _done = 0
@@ -273,19 +271,11 @@ func get_game_over_done_count():
 
 func reset():
 	coin_count()
-	p1.in_menu()
-	p2.in_menu()
-	p3.in_menu()
-	p4.in_menu()
-	p5.in_menu()
-	p6.in_menu()
-	p7.in_menu()
-	p8.in_menu()
-	p1.show_player()
-	p2.show_player()
-	p3.show_player()
-	p4.show_player()
-	p5.show_player()
-	p6.show_player()
-	p7.show_player()
-	p8.show_player()
+	p1.reset()
+	p2.reset()
+	p3.reset()
+	p4.reset()
+	p5.reset()
+	p6.reset()
+	p7.reset()
+	p8.reset()

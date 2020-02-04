@@ -23,6 +23,11 @@ var game_done = false
 func _ready():
 	set_player_num(player_num)
 
+func reset():
+	game_done = false
+	in_menu()
+	show_player()
+
 func in_menu():
 	game_over_box.visible = false
 	game_box.visible = false

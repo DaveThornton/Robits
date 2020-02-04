@@ -4,7 +4,7 @@ export(PackedScene) var start_screen
 onready var timer = $Timer
 var mode
 var over = false
-var end_game_score = 5
+var end_game_score = 1
 
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
@@ -72,4 +72,5 @@ func reset():
 	set_game_over(false)
 
 func _on_Timer_timeout():
-	get_tree().get_current_scene().arcade_reset()
+	if over:
+		get_tree().get_current_scene().arcade_reset()
