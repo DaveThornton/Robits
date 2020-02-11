@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://Scenes/Guns/Weap-Pick-02-Ak-47.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-40-RPG.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Map_Parts/MP-37-Moving_Plat_Way_point.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Map_Parts/MP-07-WayPoints.tscn" type="PackedScene" id=25]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -130,10 +132,30 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="MP-07-WayPoints-00" parent="." instance=ExtResource( 25 )]
+line_color = Color( 0.662745, 0.14902, 0.14902, 0.815686 )
+
+[node name="Position2D2" type="Position2D" parent="MP-07-WayPoints-00"]
+position = Vector2( 460, 320 )
+
+[node name="Position2D5" type="Position2D" parent="MP-07-WayPoints-00"]
+position = Vector2( 440, 440 )
+
+[node name="Position2D3" type="Position2D" parent="MP-07-WayPoints-00"]
+position = Vector2( 1060, 160 )
+
+[node name="Position2D4" type="Position2D" parent="MP-07-WayPoints-00"]
+position = Vector2( 440, 200 )
+
+[node name="MP-37-Moving_Plat_Way_point" parent="." instance=ExtResource( 24 )]
+position = Vector2( 791.427, 255.931 )
+editor_process = false
+speed = 200.0
+waypoints_path = NodePath("../MP-07-WayPoints-00")
+
 [node name="MP-04-Nav2D" parent="." instance=ExtResource( 9 )]
 
 [node name="Player_spawns" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Position2D" type="Position2D" parent="Player_spawns"]
 position = Vector2( 1660, 390 )
@@ -242,7 +264,6 @@ position = Vector2( 1860, 586 )
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
-editor/display_folded = true
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 10 )]
 
