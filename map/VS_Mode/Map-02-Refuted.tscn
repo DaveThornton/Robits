@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -23,8 +23,12 @@
 [ext_resource path="res://Scenes/Guns/Weap-Pick-02-Ak-47.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-40-RPG.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Map_Parts/MP-37-Moving_Plat_Way_point.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Map_Parts/MP-07-WayPoints.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Map_Parts/MP-35-Area_Way_Point_Moving.tscn" type="PackedScene" id=26]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 90.0
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -147,11 +151,20 @@ position = Vector2( 1060, 160 )
 [node name="Position2D4" type="Position2D" parent="MP-07-WayPoints-00"]
 position = Vector2( 440, 200 )
 
-[node name="MP-37-Moving_Plat_Way_point" parent="." instance=ExtResource( 24 )]
-position = Vector2( 791.427, 255.931 )
-editor_process = false
-speed = 200.0
-waypoints_path = NodePath("../MP-07-WayPoints-00")
+[node name="MP-07-WayPoints-01" parent="." instance=ExtResource( 25 )]
+line_color = Color( 0.662745, 0.14902, 0.14902, 0.815686 )
+
+[node name="Position2D2" type="Position2D" parent="MP-07-WayPoints-01"]
+position = Vector2( 640, 500 )
+
+[node name="Position2D5" type="Position2D" parent="MP-07-WayPoints-01"]
+position = Vector2( 1240, 480 )
+
+[node name="Position2D3" type="Position2D" parent="MP-07-WayPoints-01"]
+position = Vector2( 1200, 20 )
+
+[node name="Position2D4" type="Position2D" parent="MP-07-WayPoints-01"]
+position = Vector2( 800, 0 )
 
 [node name="MP-04-Nav2D" parent="." instance=ExtResource( 9 )]
 
@@ -358,3 +371,32 @@ body_1 = ExtResource( 22 )
 [node name="RigidBody_Spawner3" parent="Map_parts" instance=ExtResource( 20 )]
 position = Vector2( 920, 1050 )
 body_1 = ExtResource( 23 )
+
+[node name="MP-35-Area_Way_Point_Moving" parent="." instance=ExtResource( 26 )]
+position = Vector2( 460, 320 )
+collision_layer = 3
+collision_mask = 3
+waypoints_path = NodePath("../MP-07-WayPoints-00")
+
+[node name="TileMap" type="TileMap" parent="MP-35-Area_Way_Point_Moving"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 20, 20 )
+cell_custom_transform = Transform2D( 0, 0, 0, 0, 0, 0 )
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 65533, 1, 196608, 65534, 1, 196609, 65535, 1, 196609, 0, 1, 196609, 1, 1, 196609, 2, 1, 196610 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MP-35-Area_Way_Point_Moving"]
+position = Vector2( 0, -10 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="MP-35-Area_Way_Point_Moving2" parent="." instance=ExtResource( 26 )]
+position = Vector2( 953.642, 7.68207 )
+collision_layer = 3
+collision_mask = 3
+editor_process = false
+waypoints_path = NodePath("../MP-07-WayPoints-01")
+
+[node name="MP-51-Saw" parent="MP-35-Area_Way_Point_Moving2" instance=ExtResource( 24 )]

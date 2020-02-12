@@ -6,8 +6,8 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.02551, 6.92517 )
 
-[sub_resource type="CapsuleShape2D" id=2]
-height = 90.0
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 60.1319 )
 
 [node name="MP-37-Moving_Plat_Way_point" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -25,9 +25,10 @@ tile_set = ExtResource( 2 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 28
 format = 1
-tile_data = PoolIntArray( 65533, 0, 196608, 65534, 0, 196609, 65535, 0, 196609, 0, 0, 196609, 1, 0, 196609, 2, 0, 196610 )
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 rotation = 1.5708
