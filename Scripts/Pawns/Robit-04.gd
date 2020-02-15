@@ -162,7 +162,7 @@ func _process(delta):
 # warning-ignore:return_value_discarded
 #	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 	if _im_hit:
-		print(delta)
+#		print(delta)
 		if _hit_time > 0.1:
 			_hit_time -= delta
 			sprite_body.self_modulate = _hit_color_01

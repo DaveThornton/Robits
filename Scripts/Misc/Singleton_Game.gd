@@ -4,7 +4,7 @@ export(PackedScene) var start_screen
 onready var timer = $Timer
 var mode
 var over = false
-var end_game_score = 1
+var end_game_score = 5
 
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")

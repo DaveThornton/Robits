@@ -238,63 +238,6 @@ func _process(delta):
 			HUD.game_over_input(player, 5)
 		elif hold_input_j || pick_input:
 			HUD.game_over_input(player, 6)
-	
-	
-	
-#	if !in_menu:
-#		if in_game:
-#			if alive:
-#				if right_input && !left_input:
-#					if !hold_input:
-#						my_pawn.move_x(true, true)
-#					my_pawn.is_right = true
-#				if left_input && !right_input:
-#					if!hold_input:
-#						my_pawn.move_x(true, false)
-#					my_pawn.is_right = false
-#				if !left_input && !right_input:
-#					my_pawn.move_x(false, false)
-#				if jump_input:
-#					my_pawn.jump(down_input, left_input, right_input)
-#				if jump_rel:
-#					my_pawn.jump_rel()
-#				if shoot_input:
-#					my_pawn.shoot()
-#				if shoot_input_j:
-#					my_pawn.shoot_j()
-#				if shoot_input_r:
-#					my_pawn.shoot_r()
-#				if pick_input:
-#					my_pawn.pick_throw(left_input, right_input, up_input, down_input,hold_input)
-##				nrg = my_pawn.nrg
-#				my_pawn.anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta)
-#		else:
-#			if start_input:
-#				if Player_Stats.can_player_start(player):
-#					Player_Stats.use_credit(player)
-#					spawn_pawn()
-##					Player_Stats.use_credit(player)
-#				else:
-#					print("need to put a coin in or this is an error  ", Player_Stats.can_player_start(player))
-#	else:
-#		if up_input_j:
-#			Menu_Hand.input(player, 1)
-##			emit_signal("menu_signal", player, 1)
-#		elif left_input_j:
-#			Menu_Hand.input(player, 2)
-##			emit_signal("menu_signal", player, 2)
-#		elif right_input_j:
-#			Menu_Hand.input(player, 3)
-##			emit_signal("menu_signal", player, 3)
-#		elif down_input_j:
-#			Menu_Hand.input(player, 4)
-##			emit_signal("menu_signal", player, 4)
-#		elif jump_input_j || shoot_input_j ||start_input:
-#			Menu_Hand.input(player, 5)
-##			emit_signal("menu_signal", player, 5)
-#		elif hold_input_j || pick_input:
-#			Menu_Hand.input(player, 6)
-##			emit_signal("menu_signal", player, 6)
 	if coin_input:
 		Player_Stats.coin_insert(player)
 

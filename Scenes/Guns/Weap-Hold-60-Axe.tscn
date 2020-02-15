@@ -395,7 +395,6 @@ tracks/2/keys = {
 }
 
 [node name="Weap-Hold-60-Axe" type="Node2D"]
-rotation = -1.22173
 script = ExtResource( 1 )
 axe_pickup = ExtResource( 2 )
 
@@ -417,7 +416,7 @@ polygon = PoolVector2Array( -1, -25, 8, -14, 13, -25, 11, -36, -1, -32 )
 disabled = true
 
 [node name="Pos_Throw" type="Position2D" parent="."]
-position = Vector2( 35, 0 )
+position = Vector2( 25, 0 )
 
 [node name="Anim_Pos" type="AnimationPlayer" parent="."]
 anims/Down-Left = SubResource( 1 )

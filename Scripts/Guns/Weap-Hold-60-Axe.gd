@@ -5,7 +5,6 @@ export(PackedScene) var axe_pickup
 onready var anim_pos = $Anim_Pos
 onready var pos_throw = $Pos_Throw
 onready var pos_arm = $Pos_Arm
-#onready var pos_swing = $Pos_Swing
 onready var hit_area = $Pos_Arm/Area2D/CollisionPolygon2D
 
 var player = 1
@@ -13,7 +12,6 @@ var gun_num = 60
 var ammo = 1
 # warning-ignore:unused_class_variable
 var take_ammo = false
-#var armed = false
 var my_name = "Axe"
 var new_anim = "Un_pos"
 var old_anim = "Un_pos"
@@ -25,8 +23,9 @@ var change_shoot_pos = true
 var is_right = true
 var time = 4.0
 var max_rot = 120
-var up_swing = 1000
-var down_swing = 35
+var up_swing = 500
+var down_swing = 750
+var swinging: = false
 
 signal ammo_change(player, ammo)
 signal shot(player)
@@ -38,48 +37,45 @@ func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 60 Axe")
-#	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
-#	if test2 != 0:
-#		print("failed to connect shot in weap hold 60 Axe")
+	var test2 = self.connect("shot", Player_Stats, "add_shot")
+	if test2 != 0:
+		print("failed to connect shot in weap hold 60 Axe")
 
 func init(_ammo, _player, _time, _just_shot):
 	player = _player
 	ammo = 1
 	emit_signal("ammo_change",player,ammo)
 
-# TODO : delta intergration is needed!!!!
 func _process(delta):
-	_set_anim()
-	if pos_arm.rotation_degrees >= max_rot:
+	#axe swinging
+	if swinging:
+		pos_arm.rotation_degrees += (down_swing * delta)
+	else:
+		pos_arm.rotation_degrees -= (up_swing * delta)
+	pos_arm.rotation_degrees = clamp(pos_arm.rotation_degrees,0,max_rot)
+	#enabling and disableing attack area
+	if pos_arm.rotation_degrees < max_rot && pos_arm.rotation_degrees > 0 && swinging:
+		hit_area.disabled = false
+	else:
 		hit_area.disabled = true
-	pos_arm.rotation_degrees -= up_swing * delta
-	if pos_arm.rotation_degrees <= 0:
-		pos_arm.rotation_degrees = clamp(pos_arm.rotation_degrees,0,max_rot)
-#	if pos_arm.rotation_degrees == max_rot:
-#		hit_area.disabled = true
+	#setting animations for point what direction
+	_set_anim()
 	if new_anim != old_anim:
 		anim_pos.play(new_anim)
 		old_anim = new_anim
 
 func shoot_j():
-	pass
+	swinging = true
+	emit_signal("shot", player, 1)
 
 func shoot():
-	if can_shoot:
-		hit_area.disabled = false
-		pos_arm.rotation_degrees += down_swing
-		pos_arm.rotation_degrees = clamp(pos_arm.rotation_degrees,0, max_rot)
-		var arm_pos = pos_arm.rotation_degrees 
-		if arm_pos >= 60 :
-			if arm_pos <= 80:
-				Player_Stats.add_shot(player, 1)
-#				emit_signal("shot", player)
+	pass
 
 func shoot_r():
-	hit_area.disabled = true
+	swinging = false
 
 func melee():
-	shoot()
+	print("trying to hit with melee does it still work if so please remove this melee in axe holding else fix it then dummy")
 
 func throw():
 	var t = axe_pickup.instance()
@@ -89,12 +85,11 @@ func throw():
 	t.init(ammo, player, .5, is_right, shoot_pos, true)
 	_throw_where(t)
 	emit_signal("ammo_change",player,0)
-	emit_signal("shot", player)
+	emit_signal("shot", player, 1)
 	queue_free()
 
 func drop():
 	call_deferred("_drop")
-	
 func _drop():
 	var t = axe_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
