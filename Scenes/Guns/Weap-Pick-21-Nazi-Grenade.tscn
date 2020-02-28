@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Guns/Weap-Pick-21-Nazi-Grenade.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Guns/Weap-21-Nazi-Grenade.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.25
@@ -71,6 +72,9 @@ wait_time = 0.1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Armed = SubResource( 4 )
+
+[node name="FX-21-Timer_Label" parent="." instance=ExtResource( 6 )]
+visible = false
 [connection signal="body_entered" from="." to="." method="_on_WeapPick21NaziGrenade_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]

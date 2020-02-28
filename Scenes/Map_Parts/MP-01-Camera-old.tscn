@@ -63,33 +63,30 @@
 [ext_resource path="res://Sprites/FX/Static/Real/scene00042.png" type="Texture" id=61]
 [ext_resource path="res://Sprites/FX/Static/Real/scene00006.png" type="Texture" id=62]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 20 ), ExtResource( 57 ), ExtResource( 24 ), ExtResource( 38 ), ExtResource( 62 ), ExtResource( 30 ), ExtResource( 35 ), ExtResource( 49 ), ExtResource( 16 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 51 ), ExtResource( 18 ), ExtResource( 27 ), ExtResource( 40 ), ExtResource( 52 ), ExtResource( 33 ), ExtResource( 59 ), ExtResource( 36 ), ExtResource( 17 ), ExtResource( 47 ), ExtResource( 61 ), ExtResource( 34 ), ExtResource( 45 ), ExtResource( 41 ), ExtResource( 32 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 50 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 46 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 43 ), ExtResource( 23 ), ExtResource( 31 ), ExtResource( 26 ), ExtResource( 44 ), ExtResource( 25 ), ExtResource( 37 ), ExtResource( 48 ), ExtResource( 53 ), ExtResource( 60 ), ExtResource( 54 ), ExtResource( 58 ), ExtResource( 56 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 20 ), ExtResource( 57 ), ExtResource( 24 ), ExtResource( 38 ), ExtResource( 62 ), ExtResource( 30 ), ExtResource( 35 ), ExtResource( 49 ), ExtResource( 16 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 51 ), ExtResource( 18 ), ExtResource( 27 ), ExtResource( 40 ), ExtResource( 52 ), ExtResource( 33 ), ExtResource( 59 ), ExtResource( 36 ), ExtResource( 17 ), ExtResource( 47 ), ExtResource( 61 ), ExtResource( 34 ), ExtResource( 45 ), ExtResource( 41 ), ExtResource( 32 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 46 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 43 ), ExtResource( 23 ), ExtResource( 31 ), ExtResource( 26 ), ExtResource( 50 ), ExtResource( 44 ), ExtResource( 25 ), ExtResource( 37 ), ExtResource( 48 ), ExtResource( 53 ), ExtResource( 60 ), ExtResource( 54 ), ExtResource( 58 ), ExtResource( 56 ) ],
 "loop": true,
 "name": "Real",
 "speed": 5.0
 } ]
 
-[node name="MP-01-Camera" type="Node2D"]
-script = ExtResource( 1 )
-
-[node name="Camera" type="Camera2D" parent="."]
+[node name="MP-01-Camera" type="Camera2D"]
 position = Vector2( 960, 540 )
 z_index = 100
-rotating = true
 current = true
+script = ExtResource( 1 )
 
-[node name="CRT" type="CanvasLayer" parent="Camera"]
+[node name="CRT" type="CanvasLayer" parent="."]
 offset = Vector2( 960, 540 )
 transform = Transform2D( 1, 0, 0, 1, 960, 540 )
 
-[node name="ColorRect" type="ColorRect" parent="Camera/CRT"]
+[node name="ColorRect" type="ColorRect" parent="CRT"]
 material = ExtResource( 2 )
 anchor_right = 1.0
 margin_left = -960.0
@@ -100,18 +97,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="Camera/CRT"]
+[node name="Sprite" type="Sprite" parent="CRT"]
 position = Vector2( -1130.01, 0 )
 texture = ExtResource( 3 )
 
-[node name="Sprite2" type="Sprite" parent="Camera/CRT"]
+[node name="Sprite2" type="Sprite" parent="CRT"]
 position = Vector2( 1130, 4.84288e-08 )
 texture = ExtResource( 4 )
 
-[node name="SpriteStatic" type="AnimatedSprite" parent="Camera"]
-modulate = Color( 1, 1, 1, 0.0392157 )
-frames = SubResource( 2 )
+[node name="SpriteStatic" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0.0196078 )
+frames = SubResource( 1 )
 animation = "Real"
-frame = 5
+frame = 36
 speed_scale = 7.0
 playing = true

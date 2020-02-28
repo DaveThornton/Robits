@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://misc/line-text-small.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/FX/FX-21-Timer_Label.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/FX/FX-21-Timer-Label.png" type="Texture" id=4]
+
+[node name="FX-21-Timer_Label" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+margin_left = -19.1527
+margin_top = -27.6163
+margin_right = 20.8473
+margin_bottom = -11.6163
+custom_fonts/font = ExtResource( 1 )
+text = "5.0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -20 )
+scale = Vector2( 1, 0.95 )
+z_index = -1
+texture = ExtResource( 4 )

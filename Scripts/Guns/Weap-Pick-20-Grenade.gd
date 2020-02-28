@@ -11,6 +11,7 @@ onready var spin_timer = $Timer_Spin
 onready var timer_boom = $Timer_Boom
 onready var sprite = $Sprite_Body
 onready var pin = $Sprite_Pin
+onready var label= $"FX-21-Timer_Label"
 
 var player = 0
 var my_name = "Grenade"
@@ -26,12 +27,16 @@ func _ready():
 	if armed:
 		ammo = 0
 		pin.visible = false
+		label.visible = true
 		timer_boom.wait_time = time
-		timer_boom.start()		
+		timer_boom.start()
 
 #warning-ignore:unused_argument
 func _process(delta):
-	time = timer_boom.wait_time
+	time = timer_boom.time_left
+	label.set_time(time)
+#	label.text = String(stepify(time,0.1))
+	
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
@@ -40,9 +45,11 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if _ammo == 0:
 		ammo = 0
 		pin.visible = false
+		label.visible = true
 		timer_boom.wait_time = _time
 		timer_boom.start()
 	else:
+		label.visible = false
 		timer.wait_time = expire_time
 		timer.start()
 

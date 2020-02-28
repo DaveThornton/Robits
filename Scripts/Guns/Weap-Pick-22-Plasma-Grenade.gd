@@ -33,7 +33,7 @@ func _ready():
 
 #warning-ignore:unused_argument
 func _process(delta):
-	time = timer_boom.wait_time
+	time = timer_boom.time_left
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)

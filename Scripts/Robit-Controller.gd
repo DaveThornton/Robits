@@ -184,6 +184,13 @@ func _process(delta):
 	var start_input = Input.is_action_just_pressed(player_input_start)
 	var coin_input = Input.is_action_just_pressed(player_input_coin)
 	
+	#delete me when done please!!!!
+	var test_button = Input.is_action_just_pressed("test_button")
+	if player == 1:
+#		print("test button still active in player 1 controller!! [see robit controller]")
+		if test_button:
+			FX.add_trauma(1)
+	
 	if Input.is_action_pressed("Exit"):
 		get_tree().quit()
 	if !Game.over:

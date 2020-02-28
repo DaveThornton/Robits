@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Guns/Weap-Pick-23-Bomb-Man.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Explosions/Ex-05-Bomb_Man.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/Weap-23-Bomb-fuse.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Guns/Weap-23-Bomb.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.05
@@ -105,6 +106,10 @@ anims/Unlit = SubResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.0296669, 1.9796 )
 shape = SubResource( 6 )
+
+[node name="FX-21-Timer_Label" parent="." instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 0, -22.9747 )
 
 [node name="Timer_start" type="Timer" parent="."]
 wait_time = 0.1

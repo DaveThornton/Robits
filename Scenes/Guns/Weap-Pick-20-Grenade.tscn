@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Guns/Weap-Pick-20-Grenade.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Guns/Weap-20-Grenade.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.5
@@ -14,8 +15,8 @@ radius = 6.0
 height = 6.0
 
 [node name="Weap-Pick-20-Grenade" type="RigidBody2D" groups=[
-"PickUp",
 "FX",
+"PickUp",
 ]]
 collision_layer = 524288
 collision_mask = 786462
@@ -53,6 +54,9 @@ wait_time = 0.1
 
 [node name="Timer_Boom" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="FX-21-Timer_Label" parent="." instance=ExtResource( 7 )]
+visible = false
 [connection signal="body_exited" from="." to="." method="_on_WeapPick20Grenade_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]

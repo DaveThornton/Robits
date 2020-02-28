@@ -10,6 +10,7 @@ onready var timer_boom = $Timer_Boom
 #onready var fuse = $Sprite_Fuse
 onready var anim1 = $AnimationPlayer
 onready var anim2 = $AnimationPlayer2
+onready var label= $"FX-21-Timer_Label"
 
 var player = 0
 var my_name = "Bomb-Man"
@@ -23,16 +24,18 @@ var just_shot = false
 
 #warning-ignore:unused_argument
 func _process(delta):
-	time = timer_boom.wait_time
+	time = timer_boom.time_left
+	label.set_time(time)
 	rotation = 0
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
-#	print(_time)
 	player = _player
 	if _ammo == 0:
 		ammo = 0
+		label.visible = true
 		_armed(_time)
 	else:
+		label.visible = false
 		timer.wait_time = 30
 		timer.start()
 

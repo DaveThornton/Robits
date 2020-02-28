@@ -53,7 +53,7 @@ func _process(delta):
 	else:
 		pos_arm.rotation_degrees -= (up_swing * delta)
 	pos_arm.rotation_degrees = clamp(pos_arm.rotation_degrees,0,max_rot)
-	#enabling and disableing attack area
+	#enabling and disabling attack area
 	if pos_arm.rotation_degrees < max_rot && pos_arm.rotation_degrees > 0 && swinging:
 		hit_area.disabled = false
 	else:

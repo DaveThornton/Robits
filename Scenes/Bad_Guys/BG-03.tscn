@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Bad_Guys/Parts/BG-03-Anim.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Bad_Guys/BG-03.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 15.4086
+height = 15.9331
+
+[node name="BG-03" type="KinematicBody2D"]
+z_index = 19
+collision_layer = 2056
+collision_mask = 2056
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.711967, 6.835 )
+shape = SubResource( 1 )
+
+[node name="Anim_BG_03" parent="." instance=ExtResource( 1 )]
+gun_color = Color( 0, 0, 0, 1 )
+accent_color = Color( 0.564706, 0.564706, 0.564706, 1 )
