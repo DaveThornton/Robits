@@ -129,9 +129,9 @@ radius = 5.04766
 height = 41.3699
 
 [node name="Robit-04" type="KinematicBody2D" groups=[
-"player",
 "hittable",
 "ladder",
+"player",
 ]]
 collision_layer = 2
 collision_mask = 66078
@@ -306,7 +306,6 @@ cast_to = Vector2( 2, 0 )
 collision_mask = 8
 
 [node name="Grab_Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 visible = false
 collision_layer = 262144
 collision_mask = 851968

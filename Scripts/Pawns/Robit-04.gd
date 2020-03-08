@@ -162,7 +162,6 @@ func _process(delta):
 # warning-ignore:return_value_discarded
 #	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 	if _im_hit:
-#		print(delta)
 		if _hit_time > 0.1:
 			_hit_time -= delta
 			sprite_body.self_modulate = _hit_color_01
@@ -258,16 +257,10 @@ func jump_rel():
 
 func shoot_j():
 	if my_gun:
-#		if ray_right_melee.is_colliding() && is_right || ray_left_melee.is_colliding() && !is_right:
-#			my_gun.melee()
-#		else:
 		my_gun.shoot_j()
 
 func shoot():
 	if my_gun:
-#		if ray_right_melee.is_colliding() && is_right || ray_left_melee.is_colliding() && !is_right:
-#			my_gun.melee()
-#		else:
 		my_gun.shoot()
 
 func shoot_r():
@@ -717,10 +710,12 @@ func _on_Ladder_Area2D_body_exited(body):
 	ladder_count.erase(body)
 
 func _on_Wall_Kick_Timer_timeout():
+	can_move = true
 	can_kick_wall = true
 
 func _wall_kick(_right):
 	if can_kick_wall && !on_floor:
+		can_move = false
 		can_kick_wall = false
 		wall_kick_timer.start()
 		print("kickin walls fucker")

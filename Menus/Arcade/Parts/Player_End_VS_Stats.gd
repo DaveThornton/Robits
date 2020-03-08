@@ -45,9 +45,9 @@ func set_place_text(_text):
 	place.text = _text
 
 func grfx_update(_player):
-	sprite_body.modulate = _player["color_body"]
-	sprite_face.modulate = _player["color_face"]
-	sprite_loco.modulate = _player["color_loco"]
+	sprite_body.modulate = _player["color_2"]
+	sprite_face.modulate = _player["color_1"]
+	sprite_loco.modulate = _player["color_3"]
 	if _player["pawn_num"] == 1:
 		sprite_body.texture = load("res://Sprites/Pawns/Robit_Pawn-01-00.png")
 		sprite_face.texture = load("res://Sprites/Pawns/Robit_Pawn-01-00-Face.png")

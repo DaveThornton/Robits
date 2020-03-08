@@ -3,8 +3,6 @@ extends Area2D
 export(PackedScene) var boom
 onready var timer = $Timer
 onready var cast_forward = $RayCast2D
-#onready var sfx = $SFX_Lib
-#onready var timer2 = $Timer2
 var speed = 800
 var owned = 0
 onready var anim = $AnimationPlayer

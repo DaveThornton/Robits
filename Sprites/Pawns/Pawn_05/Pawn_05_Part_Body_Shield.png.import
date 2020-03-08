@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/level shit.png-79c34ae8ca12fd539096b9a88281ee93.stex"
+path="res://.import/Pawn_05_Part_Body_Shield.png-6d0c50fdc030f58b891873cca4b08d0f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level shit.png"
-dest_files=[ "res://.import/level shit.png-79c34ae8ca12fd539096b9a88281ee93.stex" ]
+source_file="res://Sprites/Pawns/Pawn_05/Pawn_05_Part_Body_Shield.png"
+dest_files=[ "res://.import/Pawn_05_Part_Body_Shield.png-6d0c50fdc030f58b891873cca4b08d0f.stex" ]
 
 [params]
 

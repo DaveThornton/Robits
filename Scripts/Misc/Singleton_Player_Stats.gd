@@ -12,9 +12,9 @@ var p1 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = 0,
-	color_face = Color8(255, 0, 0, 255),
-	color_body = Color8(145, 145, 145, 255),
-	color_loco = Color8(255, 225, 225, 222)
+	color_1 = Color8(255, 0, 0, 255),
+	color_2 = Color8(145, 145, 145, 255),
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p2 = {
@@ -29,9 +29,9 @@ var p2 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = 0,
-	color_face = Color8(0, 255, 255, 255),
-	color_body = Color8(255, 0, 255, 255),
-	color_loco = Color8(255, 225, 225, 222)
+	color_1 = Color8(0, 255, 255, 255),
+	color_2 = Color8(255, 0, 255, 255),
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p3 = {
@@ -46,9 +46,9 @@ var p3 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = 0,
-	color_face = Color8(255, 255, 0, 255),
-	color_body = Color8(255, 0, 0, 255),
-	color_loco = Color8(255, 225, 225, 222)
+	color_1 = Color8(255, 255, 0, 255),
+	color_2 = Color8(255, 0, 0, 255),
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p4 = {
@@ -63,9 +63,9 @@ var p4 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = 0,
-	color_face = Color8(255, 255, 0, 255),
-	color_body = Color8(0, 0, 255, 255),
-	color_loco = Color8(255, 225, 225, 222)
+	color_1 = Color8(255, 255, 0, 255),
+	color_2 = Color8(0, 0, 255, 255),
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p5 = {
@@ -80,9 +80,9 @@ var p5 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = 0,
-	color_face = Color8(255, 0, 0, 255),
-	color_body = Color8(255, 255, 0, 255),
-	color_loco = Color8(255, 225, 225, 222)
+	color_1 = Color8(255, 0, 0, 255),
+	color_2 = Color8(255, 255, 0, 255),
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p6 = {
@@ -97,9 +97,9 @@ var p6 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = 0,
-	color_face = Color8(255, 0, 0, 255),
-	color_body = Color8(123, 0, 255, 255),
-	color_loco = Color8(255, 225, 225, 222)
+	color_1 = Color8(255, 0, 0, 255),
+	color_2 = Color8(123, 0, 255, 255),
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p7 = {
@@ -114,9 +114,9 @@ var p7 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = 0,
-	color_face = Color8(255, 0, 0, 255),
-	color_body = Color8(0, 255, 255, 255),
-	color_loco = Color8(255, 225, 225, 222)
+	color_1 = Color8(255, 0, 0, 255),
+	color_2 = Color8(0, 255, 255, 255),
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p8 = {
@@ -131,9 +131,9 @@ var p8 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = 0,
-	color_face = Color8(255, 0, 0, 255),
-	color_body = Color8(0, 255, 0, 255),
-	color_loco = Color8(255, 225, 225, 222)
+	color_1 = Color8(255, 0, 0, 255),
+	color_2 = Color8(0, 255, 0, 255),
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 #var t1 ={
@@ -352,24 +352,24 @@ func get_num_in_play():
 
 func get_body_color(_player):
 	if _player == 1:
-		return p1["color_body"]
+		return p1["color_2"]
 	elif _player == 2:
-		return p2["color_body"]
+		return p2["color_2"]
 	elif _player == 3:
-		return p3["color_body"]
+		return p3["color_2"]
 	elif _player == 4:
-		return p4["color_body"]
+		return p4["color_2"]
 	elif _player == 5:
-		return p5["color_body"]
+		return p5["color_2"]
 	elif _player == 6:
-		return p6["color_body"]
+		return p6["color_2"]
 	elif _player == 7:
-		return p7["color_body"]
+		return p7["color_2"]
 	elif _player == 8:
-		return p8["color_body"]
+		return p8["color_2"]
 	else:
 		print("invalid player number in player stats , get body color so ill send player 1")
-		return p1["color_body"]
+		return p1["color_2"]
 
 func get_pawn_num(_player):
 	if _player == 1:

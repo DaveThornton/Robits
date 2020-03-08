@@ -24,21 +24,21 @@ func init(_player, _pawn, _part_num, _move, _pos, _impulse):
 	elif _pawn > 4:
 		print("wreckage doesnt go past pawn 4 so you should fix that or the pawn FX-05 ")
 	if _player == 1:#Grey
-		sprite.self_modulate = Player_Stats.p1.color_body
+		sprite.self_modulate = Player_Stats.p1.color_2
 	elif _player == 2:#Pink
-		sprite.self_modulate = Player_Stats.p2.color_body
+		sprite.self_modulate = Player_Stats.p2.color_2
 	elif _player == 3:#Red
-		sprite.self_modulate = Player_Stats.p3.color_body
+		sprite.self_modulate = Player_Stats.p3.color_2
 	elif _player == 4:#Blue
-		sprite.self_modulate = Player_Stats.p4.color_body
+		sprite.self_modulate = Player_Stats.p4.color_2
 	elif _player == 5:#Yellow
-		sprite.self_modulate = Player_Stats.p5.color_body
+		sprite.self_modulate = Player_Stats.p5.color_2
 	elif _player == 6:#Purple
-		sprite.self_modulate = Player_Stats.p6.color_body
+		sprite.self_modulate = Player_Stats.p6.color_2
 	elif _player == 7:#Teal
-		sprite.self_modulate = Player_Stats.p7.color_body
+		sprite.self_modulate = Player_Stats.p7.color_2
 	elif _player == 8:#Green
-		sprite.self_modulate = Player_Stats.p8.color_body
+		sprite.self_modulate = Player_Stats.p8.color_2
 	sprite.frame = _part_num
 	if _move:
 		self.position = _pos
