@@ -1,8 +1,7 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_05/Pawn_05_Part_Body.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_05/Pawn_05_Part_Body_Shield.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Body.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Key.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Pawns/Pawn_05.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Wheel.tscn" type="PackedScene" id=8]
@@ -1713,10 +1712,6 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
 position = Vector2( 0, -14 )
 shape = SubResource( 16 )
-
-[node name="Pawn_06_Part_Body" type="Sprite" parent="."]
-position = Vector2( 0, -16 )
-texture = ExtResource( 3 )
 [connection signal="timeout" from="Timers/Knock_Back" to="." method="_on_Knock_Back_timeout"]
 [connection signal="timeout" from="Timers/Shield_Hit" to="." method="_on_Shield_Hit_timeout"]
 [connection signal="timeout" from="Timers/Shield_Up" to="." method="_on_Shield_Up_timeout"]

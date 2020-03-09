@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Body.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Key.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Pawns/Pawn_06/Parts/Pawn_06_Part_Head.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Pawns/Pawn_06/Parts/Pawn_06_Part_Hover.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 12.0
+height = 12.0
+
+[node name="Pawn_06" type="KinematicBody2D"]
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="Raycast" type="Node2D" parent="."]
+
+[node name="Up" type="RayCast2D" parent="Raycast"]
+position = Vector2( 0, -17 )
+cast_to = Vector2( 0, -5 )
+
+[node name="Down_L" type="RayCast2D" parent="Raycast"]
+position = Vector2( -13, 15 )
+cast_to = Vector2( 0, 13 )
+
+[node name="Down_R" type="RayCast2D" parent="Raycast"]
+position = Vector2( 13, 15 )
+cast_to = Vector2( 0, 13 )
+
+[node name="Down_C" type="RayCast2D" parent="Raycast"]
+position = Vector2( 0, 18 )
+cast_to = Vector2( 0, 8 )
+
+[node name="Pawn_06_Part_Hover" parent="." instance=ExtResource( 4 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 0, 14 )
+
+[node name="Pawn_06_Part_Head" parent="." instance=ExtResource( 3 )]
+position = Vector2( 3, -14 )
+
+[node name="Body_Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -1 )
+texture = ExtResource( 1 )
+hframes = 7
+frame = 5
+
+[node name="Pawn_05_Part_Key" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( -3, -4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="POS_Gun" type="Position2D" parent="."]
+position = Vector2( 0, -5 )

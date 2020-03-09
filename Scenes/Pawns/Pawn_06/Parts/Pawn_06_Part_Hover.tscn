@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Pawn_06_Part_Hover" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 16
+lifetime = 0.8
+lifetime_randomness = 0.2
+emission_shape = 2
+emission_rect_extents = Vector2( 18, 1 )
+gravity = Vector2( 0, 50 )
+scale_amount = 1.5
+scale_amount_random = 0.5
