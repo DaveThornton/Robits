@@ -1,13 +1,19 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Temp.png" type="Texture" id=1]
 
 [node name="Pawn_06_Part_Hover" type="Node2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 16
+amount = 32
 lifetime = 0.8
+speed_scale = 2.0
 lifetime_randomness = 0.2
+local_coords = false
+texture = ExtResource( 1 )
 emission_shape = 2
-emission_rect_extents = Vector2( 18, 1 )
+emission_rect_extents = Vector2( 3, 2 )
 gravity = Vector2( 0, 50 )
 scale_amount = 1.5
 scale_amount_random = 0.5
+color = Color( 1, 1, 1, 0.0705882 )
