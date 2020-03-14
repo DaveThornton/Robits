@@ -13,7 +13,7 @@ func _ready() -> void:
 	if not Engine.editor_hint:
 		set_process(false)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update()
 
 func _draw() -> void:

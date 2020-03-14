@@ -23,6 +23,7 @@ onready var stun_timer = $Timers/Stun
 onready var speed_timer = $Timers/Speed
 onready var jump_timer = $Timers/Jump
 onready var nrg_up_timer = $Timers/NRG_Up
+onready var jump_up_timer = $Timers/Jump_up
 
 onready var anim = $AnimationPlayer
 
@@ -32,6 +33,7 @@ onready var ray_up = $Raycast/Up
 onready var ray_down_l = $Raycast/Down_L 
 onready var ray_down_c = $Raycast/Down_C
 onready var ray_down_r = $Raycast/Down_R 
+onready var ray_down_p = $Raycast/Down_Plat
 
 var player = 1
 var play_type = 2
@@ -50,14 +52,19 @@ var max_x_speed = 240
 var current_x_speed = 0
 
 #-------------------------------------------------------------------JUMP--------
-var is_jump_pressed = false
+var is_jump_pressed: = false
+var jumping_up: = false
+var can_jump = true
+var jump_top_pos = 0.0
+var jump_top = false
+var jump_height = 180
 var max_air_jump_count = 5
-var max_air_jump_power = 2
+var max_air_jump_power = 4
 var min_air_jump_power = 1.5
 var air_jump_count = 0
 var max_jump_power = 8
 var min_jump_power = 1.5
-var head_room = 0
+#var head_room = 0
 
 var move_step = 0
 var dec_step = 0
@@ -129,7 +136,6 @@ func _process(delta):
 		over_ladder = false
 		on_ladder = false
 	_is_on_floor()
-#	_test_wall()
 	_test_headroom()
 	if on_floor:
 		air_jump_count = 0
@@ -138,8 +144,9 @@ func _process(delta):
 		last_anim = new_anim
 	if nrg < nrg_regen_max:
 		if nrg > light_on_nrg:
-			print("do something with less nrg in pawn 06 _process")
-#			light.off()
+			head.play_face(3)
+		else:
+			head.play_face(1)
 		nrg = clamp(nrg + (nrg_regen_rate * delta), 0, 100)
 	if nrg != last_nrg:
 		nrg_update()
@@ -147,43 +154,49 @@ func _process(delta):
 	if my_gun:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
-# warning-ignore:return_value_discarded
-#	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 	
 	if _im_hit:
 		if _hit_time > 0.1:
 			_hit_time -= delta
+			head.set_head_color(_hit_color_01)
 			body_sprite.self_modulate = _hit_color_01
 			key_sprite.self_modulate = _hit_color_01
 		elif _hit_time > 0.05:
 			_hit_time -= delta
+			head.set_head_color(_hit_color_02)
 			body_sprite.self_modulate = _hit_color_02
 			key_sprite.self_modulate = _hit_color_02
 		elif _hit_time > 0:
 			_hit_time -= delta
+			head.set_head_color(_hit_color_01)
 			body_sprite.self_modulate = _hit_color_01
 			key_sprite.self_modulate = _hit_color_01
 		else:
+			head.set_head_color(_body_color)
 			body_sprite.self_modulate = _body_color
 			key_sprite.self_modulate = _body_color
 			_hit_time = 0.0
 			_im_hit = false
 
 func _physics_process(delta):
-	move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
-#	move_and_slide(Vector2(vel.x + knocked_back.x , 0 + knocked_back.y ))#* delta))
-	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
+	if move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y )):
+		pass
+#		print("move and slide failed pawn 06")
+	var movement = Vector2(0 , (vel.y + (grav * int(!on_floor)) * delta))
 	vel = movement
-	if going_up:
-		vel.y = -2
-	elif on_floor && !is_jump_pressed:
-		vel.y = 0
-#		vel.y = vel.y / 1.1
-	elif vel.y > terminal_vel:
-		vel.y = terminal_vel
-# warning-ignore:return_value_discarded
-#	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
-	move_and_collide(vel)
+	if !is_jump_pressed:
+		if going_up:
+			vel.y = -2
+		elif on_floor && !is_jump_pressed:
+			vel.y = 0
+		elif vel.y > terminal_vel:
+			vel.y = terminal_vel
+	else:
+		if jump_top:
+			vel.y = 0
+	if move_and_collide(vel):
+		pass
+#		print("move and collide no work pawn 06")
 
 ##-------------------------------------------------------------------[Move/jump]
 func move_x(_moving, _right):
@@ -192,15 +205,15 @@ func move_x(_moving, _right):
 			if _moving:
 				if is_down:
 					if _right:
-						current_x_speed += max_x_speed /10 * speed_power_up / 3 #* delta
+						current_x_speed += max_x_speed /10 * speed_power_up / 3
 					else:
-						current_x_speed += -max_x_speed /10 * speed_power_up / 3 #* delta
+						current_x_speed += -max_x_speed /10 * speed_power_up / 3
 					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
 					if _right:
-						current_x_speed += max_x_speed / 5 * speed_power_up #* delta
+						current_x_speed += max_x_speed / 5 * speed_power_up
 					else:
-						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
+						current_x_speed += -max_x_speed / 5 * speed_power_up
 			else:
 				if current_x_speed < 2 && current_x_speed > -2 || on_ladder:
 					current_x_speed = 0
@@ -210,15 +223,15 @@ func move_x(_moving, _right):
 			if _moving:
 				if is_down:
 					if _right:
-						current_x_speed += max_x_speed /50 * speed_power_up / 3 #* delta
+						current_x_speed += max_x_speed /50 * speed_power_up / 3
 					else:
-						current_x_speed += -max_x_speed /50 * speed_power_up / 3 #* delta
+						current_x_speed += -max_x_speed /50 * speed_power_up / 3
 					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
 					if _right:
-						current_x_speed += max_x_speed / 35 * speed_power_up #* delta
+						current_x_speed += max_x_speed / 35 * speed_power_up
 					else:
-						current_x_speed += -max_x_speed / 35 * speed_power_up #* delta
+						current_x_speed += -max_x_speed / 35 * speed_power_up
 			else:
 				if current_x_speed < 2 && current_x_speed > -2 || on_ladder:
 					current_x_speed = 0
@@ -233,11 +246,26 @@ func move_x(_moving, _right):
 
 func jump(down_input, left_input, right_input):
 	if down_input && on_floor && !left_input && !right_input:
-		vel.y += 1.5
-		self.position.y += 1.5
-	elif !is_jump_pressed && on_floor:# && !down_input:
+		var thing1 = ray_down_p.get_collider()
+		print(thing1)
+		if thing1:
+			if thing1.get_groups().has("map"):
+				pass
+			else:
+				vel.y += terminal_vel / 3
+				self.position.y += 2
+	elif !is_jump_pressed && on_floor && can_jump:
 		vel.y = -max_jump_power * jump_power_up
-	elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
+		jump_top_pos = global_position.y - jump_height
+	elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump:
+		jump_top = true
+		can_jump = false
+		if jump_up_timer.is_stopped():
+			jump_up_timer.start()
+		else:
+			print("got to the top")
+		print(jump_top_pos)
+	elif !is_jump_pressed && can_jump && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
 		vel.y = -max_air_jump_power * jump_power_up
 		air_jump_count += 1
 	is_jump_pressed = true
@@ -249,7 +277,9 @@ func jump_rel():
 	elif vel.y < -min_jump_power:
 		vel.y = min_jump_power
 	is_jump_pressed = false
-
+	jump_top = false
+	can_jump = true
+	
 ##-----------------------------------------------------------------------[Shoot]
 func shoot_j():
 	if my_gun:
@@ -372,6 +402,8 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_up_timer.start()
 
 func _body(_num: int):
+	call_deferred("_body_",_num)
+func _body_(_num: int):
 	if _num == 1:
 		body_shape_01.disabled = false
 		body_shape_02.disabled = true
@@ -395,9 +427,10 @@ func _body(_num: int):
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
 	if ray_up.is_colliding():
-		head_room = 1
-	else:
-		head_room = 0
+		jump_top_pos = position.y
+#		head_room = 1
+#	else:
+#		head_room = 0
 
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
@@ -453,6 +486,7 @@ func add_ammo(_ammo):
 			my_gun.add_ammo(_ammo)
 
 ##-------------------------------------------------------------------[Animation]
+# warning-ignore:unused_argument
 func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
 	if !down_input:
 		is_down = false
@@ -541,16 +575,20 @@ func _anim_idle():
 	hover_part.angle = 0
 	if is_right:
 		new_anim = "Right-Idle"
+		head.right()
 	else:
 		new_anim = "Left-Idle"
+		head.left()
 
 func _anim_run():
 	if is_right:
+		head.right()
 		new_anim = "Right-Run"
 		hover_part.angle = -20
 		key.turn(true)
 		_body(3)
 	else:
+		head.left()
 		new_anim = "Left-Run"
 		hover_part.angle = 20
 		key.turn(false)
@@ -562,10 +600,12 @@ func _anim_jump():
 #	else:
 #		new_anim = "Left-Jump"
 	if is_right:
+		head.right()
 		new_anim = "Right-Run"
 		key.turn(true)
 		_body(3)
 	else:
+		head.left()
 		new_anim = "Left-Run"
 		key.turn(false)
 		_body(1)
@@ -575,46 +615,58 @@ func _anim_prone_idle():
 	key.stop()
 	hover_part.angle = 0
 	if is_right:
+		head.right()
 		new_anim = "Right-Prone-Idle"
 	else:
+		head.left()
 		new_anim = "Left-Prone-Idle"
 
 func _anim_prone_crawl():
 	_body(4)
 	hover_part.angle = 0
 	if is_right:
+		head.right()
 		new_anim = "Right-Prone-Crawl"
 		key.turn(true)
 	else:
+		head.left()
 		new_anim = "Left-Prone-Crawl"
 		key.turn(false)
 
 func _anim_stun():
 	_body(2)
+	head.play_face(5)
 	if is_right:
+		head.right()
 		new_anim = "Right-Stun"
 	else:
+		head.left()
 		new_anim = "Left-Stun"
 
 func _anim_Knock():
 	_body(2)
 	if is_right:
+		head.right()
 		new_anim = "Right-Knock_Back"
 	else:
+		head.left()
 		new_anim = "Left-Knock_Back"
 
 func _anim_ladder_move():
 	_body(2)
 	new_anim = "Ladder-Move"
+	head.up()
 	key.ladder()
 
 func _anim_ladder_right():
 	_body(2)
+	head.right()
 	new_anim = "Ladder-Right"
 	key.ladder()
 
 func _anim_ladder_left():
 	_body(2)
+	head.left()
 	new_anim = "Ladder-Left"
 	key.ladder()
 
@@ -622,7 +674,9 @@ func _anim_ladder_left():
 func _set_color():
 	if player == 1:#Grey
 		key_sprite.self_modulate = Player_Stats.p1.color_2
-		head.set_color(Player_Stats.p1.color_1, Player_Stats.p1.color_2)
+#		head.set_color(Player_Stats.p1.color_1, Player_Stats.p1.color_2)
+		head.set_head_color(Player_Stats.p1.color_2)
+		head.set_face_color(Player_Stats.p1.color_1)
 		hover.modulate = Player_Stats.p1.color_1
 #		wheel_sprite.self_modulate = Player_Stats.p1.color_3
 #		light_sprite.self_modulate = Player_Stats.p1.color_1
@@ -630,43 +684,57 @@ func _set_color():
 		body_sprite.self_modulate = Player_Stats.p1.color_2
 		_body_color = Player_Stats.p1.color_2
 	elif player == 2:#Pink
-		head.set_color(Player_Stats.p2.color_1, Player_Stats.p2.color_2)
+#		head.set_color(Player_Stats.p2.color_1, Player_Stats.p2.color_2)
+		head.set_head_color(Player_Stats.p2.color_2)
+		head.set_face_color(Player_Stats.p2.color_1)
 		hover.modulate = Player_Stats.p2.color_1
 		key_sprite.self_modulate = Player_Stats.p2.color_2
 		body_sprite.self_modulate = Player_Stats.p2.color_2
 		_body_color = Player_Stats.p2.color_2
 	elif player == 3:#Red
-		head.set_color(Player_Stats.p3.color_1, Player_Stats.p3.color_2)
+#		head.set_color(Player_Stats.p3.color_1, Player_Stats.p3.color_2)
+		head.set_head_color(Player_Stats.p3.color_2)
+		head.set_face_color(Player_Stats.p3.color_1)
 		hover.modulate = Player_Stats.p3.color_1
 		key_sprite.self_modulate = Player_Stats.p3.color_2
 		body_sprite.self_modulate = Player_Stats.p3.color_2
 		_body_color = Player_Stats.p3.color_2
 	elif player == 4:#Blue
-		head.set_color(Player_Stats.p4.color_1, Player_Stats.p4.color_2)
+#		head.set_color(Player_Stats.p4.color_1, Player_Stats.p4.color_2)
+		head.set_head_color(Player_Stats.p4.color_2)
+		head.set_face_color(Player_Stats.p4.color_1)
 		hover.modulate = Player_Stats.p4.color_1
 		key_sprite.self_modulate = Player_Stats.p4.color_2
 		body_sprite.self_modulate = Player_Stats.p4.color_2
 		_body_color = Player_Stats.p4.color_2
 	elif player == 5:#Yellow
-		head.set_color(Player_Stats.p5.color_1, Player_Stats.p5.color_2)
+#		head.set_color(Player_Stats.p5.color_1, Player_Stats.p5.color_2)
+		head.set_head_color(Player_Stats.p5.color_2)
+		head.set_face_color(Player_Stats.p5.color_1)
 		hover.modulate = Player_Stats.p5.color_1
 		key_sprite.self_modulate = Player_Stats.p5.color_2
 		body_sprite.self_modulate = Player_Stats.p5.color_2
 		_body_color = Player_Stats.p5.color_2
 	elif player == 6:#Purple
-		head.set_color(Player_Stats.p6.color_1, Player_Stats.p6.color_2)
+#		head.set_color(Player_Stats.p6.color_1, Player_Stats.p6.color_2)
+		head.set_head_color(Player_Stats.p6.color_2)
+		head.set_face_color(Player_Stats.p6.color_1)
 		hover.modulate = Player_Stats.p6.color_1
 		key_sprite.self_modulate = Player_Stats.p6.color_2
 		body_sprite.self_modulate = Player_Stats.p6.color_2
 		_body_color = Player_Stats.p6.color_2
 	elif player == 7:#Teal
-		head.set_color(Player_Stats.p7.color_1, Player_Stats.p7.color_2)
+#		head.set_color(Player_Stats.p7.color_1, Player_Stats.p7.color_2)
+		head.set_head_color(Player_Stats.p7.color_2)
+		head.set_face_color(Player_Stats.p7.color_1)
 		hover.modulate = Player_Stats.p7.color_1
 		key_sprite.self_modulate = Player_Stats.p7.color_2
 		body_sprite.self_modulate = Player_Stats.p7.color_2
 		_body_color = Player_Stats.p7.color_2
 	elif player == 8:#Green
-		head.set_color(Player_Stats.p8.color_1, Player_Stats.p8.color_2)
+#		head.set_color(Player_Stats.p8.color_1, Player_Stats.p8.color_2)
+		head.set_head_color(Player_Stats.p8.color_2)
+		head.set_face_color(Player_Stats.p8.color_1)
 		hover.modulate = Player_Stats.p8.color_1
 		key_sprite.self_modulate = Player_Stats.p8.color_2
 		body_sprite.self_modulate = Player_Stats.p8.color_2
@@ -702,7 +770,11 @@ func _on_Stun_timeout():
 func _on_Knock_Back_timeout():
 	knocked_back = Vector2(0, 0)
 
-
+func _on_Jump_up_timeout():
+	print("jump up timeout Pawn 06")
+	jump_top = false
+	is_jump_pressed = false
+	
 ##-------------------------------------------------------------[The in and outs]
 
 func _on_Pick_Up_Area_body_entered(body):

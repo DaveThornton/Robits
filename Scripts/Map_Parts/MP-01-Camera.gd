@@ -37,15 +37,19 @@ func add_trauma(_amount):
 	trauma += _amount * 0.1
 	print(trauma)
 
+# warning-ignore:unused_argument
 func _c_shake(delta):
 	var amount = pow(trauma,trauma_power)
 	camera.offset_h = max_c_off.x * amount * noise_gen.get_noise_2d(noise_gen.seed, noise_y)
 	camera.offset_v = max_c_off.y * amount * noise_gen.get_noise_2d(noise_gen.seed*2, noise_y)
 	
+# warning-ignore:unused_argument
 func _c_rotate(delta):
 	var amount = pow(trauma,trauma_power) * 20
 	camera.rotation = max_c_rot * amount * noise_gen.get_noise_2d(noise_gen.seed*3, noise_y)
 	
+# warning-ignore:unused_argument
 func _c_static(delta):
 	var amount = pow(trauma,trauma_power) * 100 * max_c_static
+# warning-ignore:narrowing_conversion
 	static_sprite.modulate = Color8(255,255,255,clamp(amount, min_c_static ,max_c_static))

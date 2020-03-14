@@ -573,6 +573,18 @@ tracks/8/keys = {
 "update": 1,
 "values": [ 28, 29, 30, 31 ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("Pawn_05_Part_Key:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0 ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "Left-Prone-Idle"
@@ -1624,26 +1636,24 @@ collision_mask = 30
 [node name="RayCast2D4" type="RayCast2D" parent="Raycast"]
 
 [node name="Pawn_05_Part_Wheel" parent="." instance=ExtResource( 8 )]
-position = Vector2( -16, 0 )
 
 [node name="Pawn_05_Part_Light" parent="." instance=ExtResource( 9 )]
 modulate = Color( 0.8, 0.788235, 0, 1 )
-position = Vector2( 14, -17 )
+position = Vector2( 1, -44 )
 
 [node name="Body_Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -17 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 20
-frame = 8
+frame = 12
 
 [node name="Pawn_05_Part_Key" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.678431, 0.678431, 0.678431, 1 )
-position = Vector2( 3, -5 )
-rotation = 1.5708
+position = Vector2( -4, -19 )
 
 [node name="Pawn_05_Part_Face" parent="." instance=ExtResource( 10 )]
-position = Vector2( 13, -3 )
+position = Vector2( 0, -30 )
 
 [node name="Shape_Left" type="CollisionShape2D" parent="."]
 visible = false
@@ -1672,7 +1682,7 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="POS_Gun" type="Position2D" parent="."]
-position = Vector2( 4, -1 )
+position = Vector2( 0, -19 )
 
 [node name="Shield_Sprite" type="Sprite" parent="."]
 visible = false
@@ -1681,7 +1691,7 @@ position = Vector2( 0, -17 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 20
-frame = 8
+frame = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Ladder-Left = SubResource( 2 )

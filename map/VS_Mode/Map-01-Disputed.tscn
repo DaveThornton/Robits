@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -23,7 +23,6 @@
 [ext_resource path="res://Scenes/Guns/Weap-Pick-02-Ak-47.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Pawns/Pawn_06/Pawn_06.tscn" type="PackedScene" id=24]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -112,7 +111,7 @@ cell_size = Vector2( 20, 20 )
 collision_layer = 32
 collision_mask = 32
 format = 1
-tile_data = PoolIntArray( 3407942, 2, 0 )
+tile_data = PoolIntArray( 393260, 0, 0, 458796, 0, 65536, 524332, 0, 65536, 589868, 0, 65536, 655404, 0, 65536, 720940, 0, 65536, 786476, 0, 65536, 852012, 0, 65536, 917548, 0, 65536, 983084, 0, 131072, 3407942, 2, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -264,6 +263,3 @@ position = Vector2( 1690, 620 )
 
 [node name="Weap-Pick-02-Ak-47" parent="." instance=ExtResource( 21 )]
 position = Vector2( 1030, 270 )
-
-[node name="Pawn_06" parent="." instance=ExtResource( 24 )]
-position = Vector2( 1190, 413 )
