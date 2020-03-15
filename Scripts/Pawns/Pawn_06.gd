@@ -48,7 +48,7 @@ var vel = Vector2()
 var grav = 8
 var terminal_vel = 5
 
-var max_x_speed = 240
+var max_x_speed = 200
 var current_x_speed = 0
 
 #-------------------------------------------------------------------JUMP--------
@@ -64,27 +64,26 @@ var min_air_jump_power = 1.5
 var air_jump_count = 0
 var max_jump_power = 8
 var min_jump_power = 1.5
-#var head_room = 0
 
 var move_step = 0
 var dec_step = 0
 
 
 #--------------------------------------------------------------------NRG--------
-var nrg_max = 100
-var nrg = 100
-var last_nrg = 100
+var nrg_max = 90
+var nrg = 90
+var last_nrg = 90
 var nrg_regen_rate = 5
-var nrg_regen_max = 30
-var nrg_default_regen_rate = 5
-var nrg_default_regen_max = 30
-var light_on_nrg = 20
+var nrg_regen_max = 40
+var nrg_default_regen_rate = 4
+var nrg_default_regen_max = 40
+var light_on_nrg = 39
 
 var can_move = true
 var is_right = true
 var is_down = false
 var on_floor = false
-var on_wall = false
+#var on_wall = false
 var going_up = false
 #var on_m_plat = false
 var not_on_angle = false
@@ -182,7 +181,7 @@ func _physics_process(delta):
 	if move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y )):
 		pass
 #		print("move and slide failed pawn 06")
-	var movement = Vector2(0 , (vel.y + (grav * int(!on_floor)) * delta))
+	var movement = Vector2(0 , (vel.y + (grav * int(!on_floor)) * delta)* int(!on_ladder))
 	vel = movement
 	if !is_jump_pressed:
 		if going_up:
@@ -223,15 +222,15 @@ func move_x(_moving, _right):
 			if _moving:
 				if is_down:
 					if _right:
-						current_x_speed += max_x_speed /50 * speed_power_up / 3
+						current_x_speed += max_x_speed /5 * speed_power_up / 3
 					else:
-						current_x_speed += -max_x_speed /50 * speed_power_up / 3
+						current_x_speed += -max_x_speed /5 * speed_power_up / 3
 					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
 					if _right:
-						current_x_speed += max_x_speed / 35 * speed_power_up
+						current_x_speed += max_x_speed / 2 * speed_power_up
 					else:
-						current_x_speed += -max_x_speed / 35 * speed_power_up
+						current_x_speed += -max_x_speed / 2 * speed_power_up
 			else:
 				if current_x_speed < 2 && current_x_speed > -2 || on_ladder:
 					current_x_speed = 0
@@ -562,12 +561,12 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 		else:
 			_anim_ladder_left()
 
-	if on_wall:
-		if !not_on_angle:
-			if shoot_spot == 3:
-				shoot_spot = 2
-		else:
-			shoot_spot = 1
+#	if on_wall:
+#		if !not_on_angle:
+#			if shoot_spot == 3:
+#				shoot_spot = 2
+#		else:
+#			shoot_spot = 1
 
 func _anim_idle():
 	_body(2)

@@ -1,18 +1,15 @@
 extends Node2D
 
-#export var head_color = Color8(255, 255, 255, 255)
-#export var face_color = Color8(255, 255, 255, 255)
-
 onready var head = $Head
 onready var face = $Face
 onready var anim_head = $AnimationPlayer_Head
 onready var anim_face = $AnimationPlayer_Face
 
-var is_right: = false
 var last_face = "Idle"
-#func _ready():
-#	head.modulate = head_color
-#	face.modulate = face_color
+
+
+func _ready():
+	anim_face.play("Idle")
 
 func play_face(_num):
 	if _num == 0:
@@ -33,15 +30,12 @@ func right():
 	var _face_anim = anim_face.get_current_animation()
 	if _face_anim == "Up":# || _face_anim == "":
 		anim_face.play(last_face)
-		
-	is_right = true
 
 func left():
 	var _face_anim = anim_face.get_current_animation()
 	if _face_anim == "Up":
 		anim_face.play(last_face)
 	anim_head.play("Left")
-	is_right = false
 
 func up():
 	var _last_face = anim_face.get_current_animation()
@@ -51,13 +45,9 @@ func up():
 		pass
 	anim_head.play("Up")
 	anim_face.play("Up")
-	pass
 
 func set_head_color(_head_color):
 	head.modulate = _head_color
 
 func set_face_color(_face_color):
 	face.modulate = _face_color
-
-#func _process(delta):
-#	pass
