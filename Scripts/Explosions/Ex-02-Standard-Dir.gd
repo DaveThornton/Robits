@@ -24,7 +24,9 @@ func _ready():
 #	my_name = weap_name
 	pass
 
-func init(_owner, _pos, _weap_name):
+func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
+	damage1 = _dmg / 2
+	damage2 = _dmg
 	print(area_out.get_overlapping_bodies())
 	self.global_position = _pos
 	owned = _owner
@@ -227,3 +229,9 @@ func _on_Timer_timeout():
 
 func _on_Timer2_timeout():
 	queue_free()
+
+func _on_Timer3_timeout():
+	poly_up.disabled = true
+	poly_right.disabled = true
+	poly_down.disabled = true
+	poly_left.disabled = true

@@ -120,15 +120,19 @@ collision_mask = 395778
 
 [node name="CollisionPolygon2D_UP" type="CollisionPolygon2D" parent="Area2D-outer"]
 polygon = PoolVector2Array( 0.27269, -0.078804, 51.6343, -51.8333, 0.154968, -75.3164, -54.7357, -47.8581 )
+disabled = true
 
 [node name="CollisionPolygon2D_Right" type="CollisionPolygon2D" parent="Area2D-outer"]
 polygon = PoolVector2Array( -0.0670319, 0.311394, 54.973, 50.5782, 73.7612, -0.554459, 52.119, -51.2116 )
+disabled = true
 
 [node name="CollisionPolygon2D_Down" type="CollisionPolygon2D" parent="Area2D-outer"]
 polygon = PoolVector2Array( -0.0670319, 0.311394, -52.2871, 55.5727, -0.202682, 78.1662, 53.5462, 51.7674 )
+disabled = true
 
 [node name="CollisionPolygon2D_Left" type="CollisionPolygon2D" parent="Area2D-outer"]
 polygon = PoolVector2Array( -0.0670319, 0.311394, -55.1407, -46.9308, -75.1182, -0.792362, -54.1894, 54.3835 )
+disabled = true
 
 [node name="Area2D2-inner" type="Area2D" parent="."]
 collision_layer = 655872
@@ -147,6 +151,9 @@ autostart = true
 wait_time = 9.0
 autostart = true
 
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 0.2
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 autoplay = true
@@ -159,28 +166,30 @@ hframes = 9
 [node name="Casts" type="Node2D" parent="."]
 
 [node name="RayCast2D_Up" type="RayCast2D" parent="Casts"]
-position = Vector2( 0, -20 )
+position = Vector2( 0, -10 )
 exclude_parent = false
-cast_to = Vector2( 0, -50 )
+cast_to = Vector2( 0, -75 )
 collision_mask = 8
 
 [node name="RayCast2D_Down" type="RayCast2D" parent="Casts"]
-position = Vector2( 0, 20 )
+position = Vector2( 0, 10 )
 exclude_parent = false
+cast_to = Vector2( 0, 75 )
 collision_mask = 8
 
 [node name="RayCast2D_Left" type="RayCast2D" parent="Casts"]
-position = Vector2( -20, 0 )
+position = Vector2( -10, 0 )
 exclude_parent = false
-cast_to = Vector2( -50, 0 )
+cast_to = Vector2( -75, 0 )
 collision_mask = 8
 
 [node name="RayCast2D_Right" type="RayCast2D" parent="Casts"]
-position = Vector2( 20, 0 )
+position = Vector2( 10, 0 )
 exclude_parent = false
-cast_to = Vector2( 50, 0 )
+cast_to = Vector2( 75, 0 )
 collision_mask = 8
 [connection signal="body_entered" from="Area2D-outer" to="." method="_on_Area2Douter_body_entered"]
 [connection signal="body_entered" from="Area2D2-inner" to="." method="_on_Area2D2inner_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_Timer3_timeout"]
