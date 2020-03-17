@@ -180,8 +180,8 @@ func get_pawn(_pawn_num):
 	elif _pawn_num == 16:
 		return pawn_16
 	elif _pawn_num == 0:
-		print("no pawn selected pawn number = ", _pawn_num, " you get pawn #6")
-		return pawn_06
+		print("no pawn selected pawn number = ", _pawn_num, " you get pawn #5")
+		return pawn_05
 	else:
 		print("not a good pawn number ", _pawn_num, " so im sending in pawn #1")
 		return pawn_01

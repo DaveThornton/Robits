@@ -167,7 +167,7 @@ disabled = true
 [node name="Area2D-Blast" type="Area2D" parent="."]
 space_override = 3
 gravity_distance_scale = 1024.0
-gravity_vec = Vector2( -1, -1 )
+gravity_vec = Vector2( -2, -2 )
 gravity = -1024.0
 linear_damp = 0.0
 angular_damp = 0.0

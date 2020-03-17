@@ -2,6 +2,7 @@ extends Node2D
 
 onready var head = $Head
 onready var face = $Face
+onready var shield = $Shield
 onready var anim_head = $AnimationPlayer_Head
 onready var anim_face = $AnimationPlayer_Face
 
@@ -46,8 +47,17 @@ func up():
 	anim_head.play("Up")
 	anim_face.play("Up")
 
+func shield_up():
+	shield.visible = true
+ 
+func shield_down():
+	shield.visible = false
+
 func set_head_color(_head_color):
 	head.modulate = _head_color
 
 func set_face_color(_face_color):
 	face.modulate = _face_color
+
+func set_shield_color(_shield_color):
+	shield.modulate = _shield_color

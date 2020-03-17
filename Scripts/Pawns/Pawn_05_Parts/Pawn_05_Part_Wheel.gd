@@ -1,6 +1,8 @@
 extends Node2D
 
 onready var anim = $AnimationPlayer
+onready var shield = $Sprite2
+onready var wheel = $Sprite
 
 var on_floor = true
 
@@ -22,9 +24,14 @@ func ladder():
 func stop():
 	anim.stop(false)
 
-func _ready():
-	pass # Replace with function body.
+func shield_up():
+	shield.visible = true
+	
+func shield_down():
+	shield.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func shield_color(_color):
+	shield.self_modulate = _color
+
+func color(_color):
+	wheel.self_modulate = _color

@@ -13,7 +13,7 @@ onready var hover = $Pawn_06_Part_Hover
 onready var hover_part = $Pawn_06_Part_Hover/CPUParticles2D
 
 onready var body_sprite = $Body_Sprite
-onready var key_sprite = $Pawn_05_Part_Key/Sprite
+#onready var key_sprite = $Pawn_05_Part_Key/Sprite
 onready var shield_sprite = $Shield_Sprite
 
 onready var knockback_timer = $Timers/Knock_Back
@@ -30,9 +30,9 @@ onready var anim = $AnimationPlayer
 onready var ladder_count = [] #shouldnt be here??!!??
 
 onready var ray_up = $Raycast/Up
-onready var ray_down_l = $Raycast/Down_L 
+onready var ray_down_l = $Raycast/Down_L
 onready var ray_down_c = $Raycast/Down_C
-onready var ray_down_r = $Raycast/Down_R 
+onready var ray_down_r = $Raycast/Down_R
 onready var ray_down_p = $Raycast/Down_Plat
 
 var player = 1
@@ -159,21 +159,25 @@ func _process(delta):
 			_hit_time -= delta
 			head.set_head_color(_hit_color_01)
 			body_sprite.self_modulate = _hit_color_01
-			key_sprite.self_modulate = _hit_color_01
+			key.color(_hit_color_01)
+#			key_sprite.self_modulate = _hit_color_01
 		elif _hit_time > 0.05:
 			_hit_time -= delta
 			head.set_head_color(_hit_color_02)
 			body_sprite.self_modulate = _hit_color_02
-			key_sprite.self_modulate = _hit_color_02
+			key.color(_hit_color_02)
+#			key_sprite.self_modulate = _hit_color_02
 		elif _hit_time > 0:
 			_hit_time -= delta
 			head.set_head_color(_hit_color_01)
 			body_sprite.self_modulate = _hit_color_01
-			key_sprite.self_modulate = _hit_color_01
+			key.color(_hit_color_01)
+#			key_sprite.self_modulate = _hit_color_01
 		else:
 			head.set_head_color(_body_color)
 			body_sprite.self_modulate = _body_color
-			key_sprite.self_modulate = _body_color
+			key.color(_body_color)
+#			key_sprite.self_modulate = _body_color
 			_hit_time = 0.0
 			_im_hit = false
 
@@ -345,6 +349,8 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			call_deferred("free")
 	elif play_type > 1:
 		shield_sprite.visible = true
+		head.shield_up()
+		key.shield_up()
 		shield_hit_timer.start()
 		if !is_shield_up:
 			nrg = nrg - (_damage - armor)
@@ -610,7 +616,7 @@ func _anim_jump():
 		_body(1)
 
 func _anim_prone_idle():
-	_body(2)
+	_body(4)
 	key.stop()
 	hover_part.angle = 0
 	if is_right:
@@ -658,13 +664,13 @@ func _anim_ladder_move():
 	key.ladder()
 
 func _anim_ladder_right():
-	_body(2)
+	_body(3)
 	head.right()
 	new_anim = "Ladder-Right"
 	key.ladder()
 
 func _anim_ladder_left():
-	_body(2)
+	_body(1)
 	head.left()
 	new_anim = "Ladder-Left"
 	key.ladder()
@@ -672,70 +678,83 @@ func _anim_ladder_left():
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
 	if player == 1:#Grey
-		key_sprite.self_modulate = Player_Stats.p1.color_2
-#		head.set_color(Player_Stats.p1.color_1, Player_Stats.p1.color_2)
 		head.set_head_color(Player_Stats.p1.color_2)
 		head.set_face_color(Player_Stats.p1.color_1)
+		head.set_shield_color(Player_Stats.p1.color_1)
 		hover.modulate = Player_Stats.p1.color_1
-#		wheel_sprite.self_modulate = Player_Stats.p1.color_3
-#		light_sprite.self_modulate = Player_Stats.p1.color_1
-#		face_sprite.self_modulate = Player_Stats.p1.color_1
+		key.color(Player_Stats.p1.color_2)
+#		key_sprite.self_modulate = Player_Stats.p1.color_2
+		shield_sprite.self_modulate = Player_Stats.p1.color_1
 		body_sprite.self_modulate = Player_Stats.p1.color_2
 		_body_color = Player_Stats.p1.color_2
 	elif player == 2:#Pink
-#		head.set_color(Player_Stats.p2.color_1, Player_Stats.p2.color_2)
 		head.set_head_color(Player_Stats.p2.color_2)
 		head.set_face_color(Player_Stats.p2.color_1)
+		head.set_shield_color(Player_Stats.p2.color_1)
 		hover.modulate = Player_Stats.p2.color_1
-		key_sprite.self_modulate = Player_Stats.p2.color_2
+		key.color(Player_Stats.p2.color_2)
+#		key_sprite.self_modulate = Player_Stats.p2.color_2
+		shield_sprite.self_modulate = Player_Stats.p2.color_1
 		body_sprite.self_modulate = Player_Stats.p2.color_2
 		_body_color = Player_Stats.p2.color_2
 	elif player == 3:#Red
-#		head.set_color(Player_Stats.p3.color_1, Player_Stats.p3.color_2)
 		head.set_head_color(Player_Stats.p3.color_2)
 		head.set_face_color(Player_Stats.p3.color_1)
+		head.set_shield_color(Player_Stats.p3.color_1)
 		hover.modulate = Player_Stats.p3.color_1
-		key_sprite.self_modulate = Player_Stats.p3.color_2
+		key.color(Player_Stats.p3.color_2)
+#		key_sprite.self_modulate = Player_Stats.p3.color_2
+		shield_sprite.self_modulate = Player_Stats.p3.color_1
 		body_sprite.self_modulate = Player_Stats.p3.color_2
 		_body_color = Player_Stats.p3.color_2
 	elif player == 4:#Blue
-#		head.set_color(Player_Stats.p4.color_1, Player_Stats.p4.color_2)
 		head.set_head_color(Player_Stats.p4.color_2)
 		head.set_face_color(Player_Stats.p4.color_1)
+		head.set_shield_color(Player_Stats.p4.color_1)
 		hover.modulate = Player_Stats.p4.color_1
-		key_sprite.self_modulate = Player_Stats.p4.color_2
+		key.color(Player_Stats.p4.color_2)
+#		key_sprite.self_modulate = Player_Stats.p4.color_2
+		shield_sprite.self_modulate = Player_Stats.p4.color_1
 		body_sprite.self_modulate = Player_Stats.p4.color_2
 		_body_color = Player_Stats.p4.color_2
 	elif player == 5:#Yellow
-#		head.set_color(Player_Stats.p5.color_1, Player_Stats.p5.color_2)
 		head.set_head_color(Player_Stats.p5.color_2)
 		head.set_face_color(Player_Stats.p5.color_1)
+		head.set_shield_color(Player_Stats.p5.color_1)
 		hover.modulate = Player_Stats.p5.color_1
-		key_sprite.self_modulate = Player_Stats.p5.color_2
+		key.color(Player_Stats.p5.color_2)
+#		key_sprite.self_modulate = Player_Stats.p5.color_2
+		shield_sprite.self_modulate = Player_Stats.p5.color_1
 		body_sprite.self_modulate = Player_Stats.p5.color_2
 		_body_color = Player_Stats.p5.color_2
 	elif player == 6:#Purple
-#		head.set_color(Player_Stats.p6.color_1, Player_Stats.p6.color_2)
 		head.set_head_color(Player_Stats.p6.color_2)
 		head.set_face_color(Player_Stats.p6.color_1)
+		head.set_shield_color(Player_Stats.p6.color_1)
 		hover.modulate = Player_Stats.p6.color_1
-		key_sprite.self_modulate = Player_Stats.p6.color_2
+		key.color(Player_Stats.p6.color_2)
+#		key_sprite.self_modulate = Player_Stats.p6.color_2
+		shield_sprite.self_modulate = Player_Stats.p6.color_1
 		body_sprite.self_modulate = Player_Stats.p6.color_2
 		_body_color = Player_Stats.p6.color_2
 	elif player == 7:#Teal
-#		head.set_color(Player_Stats.p7.color_1, Player_Stats.p7.color_2)
 		head.set_head_color(Player_Stats.p7.color_2)
 		head.set_face_color(Player_Stats.p7.color_1)
+		head.set_shield_color(Player_Stats.p7.color_1)
 		hover.modulate = Player_Stats.p7.color_1
-		key_sprite.self_modulate = Player_Stats.p7.color_2
+		key.color(Player_Stats.p7.color_2)
+#		key_sprite.self_modulate = Player_Stats.p7.color_2
+		shield_sprite.self_modulate = Player_Stats.p7.color_1
 		body_sprite.self_modulate = Player_Stats.p7.color_2
 		_body_color = Player_Stats.p7.color_2
 	elif player == 8:#Green
-#		head.set_color(Player_Stats.p8.color_1, Player_Stats.p8.color_2)
 		head.set_head_color(Player_Stats.p8.color_2)
 		head.set_face_color(Player_Stats.p8.color_1)
+		head.set_shield_color(Player_Stats.p8.color_1)
 		hover.modulate = Player_Stats.p8.color_1
-		key_sprite.self_modulate = Player_Stats.p8.color_2
+		key.color(Player_Stats.p8.color_2)
+#		key_sprite.self_modulate = Player_Stats.p8.color_2
+		shield_sprite.self_modulate = Player_Stats.p8.color_1
 		body_sprite.self_modulate = Player_Stats.p8.color_2
 		_body_color = Player_Stats.p8.color_2
 	else:
@@ -749,6 +768,8 @@ func _on_Shield_Up_timeout():
 
 func _on_Shield_Hit_timeout():
 	shield_sprite.visible = false
+	head.shield_down()
+	key.shield_down()
 	is_shield_up = false
 
 func _on_Speed_timeout():

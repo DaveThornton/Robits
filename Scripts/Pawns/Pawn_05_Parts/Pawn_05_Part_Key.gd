@@ -1,12 +1,10 @@
 extends Node2D
 
 onready var anim = $AnimationPlayer
-
-func _ready():
-	pass # Replace with function body.
+onready var shield = $Sprite2
+onready var key = $Sprite
 
 func turn(right:bool):
-#	anim.play("Turn")
 	if right:
 		anim.play("Turn")
 	else:
@@ -18,6 +16,14 @@ func ladder():
 func stop():
 	anim.stop(false)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func shield_up():
+	shield.visible = true
+	
+func shield_down():
+	shield.visible = false
+
+func shield_color(_color):
+	shield.self_modulate = _color
+
+func color(_color):
+	key.self_modulate = _color

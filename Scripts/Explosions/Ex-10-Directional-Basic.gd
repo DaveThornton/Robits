@@ -39,6 +39,8 @@ onready var shape_out5 = $"Area2D-Outer/CollisionPolygon2D5"
 onready var shape_out6 = $"Area2D-Outer/CollisionPolygon2D6"
 onready var shape_out7 = $"Area2D-Outer/CollisionPolygon2D7"
 onready var shape_out8 = $"Area2D-Outer/CollisionPolygon2D8"
+# Blast Shape the shape that pushs FX OBJs 
+onready var shape_blast = $"Area2D-Blast/CollisionShape2D"
 
 
 var owned = 0
@@ -90,6 +92,7 @@ func _on_Timer2_timeout():
 	queue_free()
 
 func _on_Timer3_timeout():
+	shape_blast.disabled = true
 	shape_in1.disabled = true
 	shape_in2.disabled = true
 	shape_in3.disabled = true

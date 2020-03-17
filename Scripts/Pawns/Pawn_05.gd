@@ -13,7 +13,7 @@ onready var light = $Pawn_05_Part_Light
 onready var face = $Pawn_05_Part_Face
 
 onready var body_sprite = $Body_Sprite
-onready var key_sprite = $Pawn_05_Part_Key/Sprite
+#onready var key_sprite = $Pawn_05_Part_Key/Sprite
 onready var wheel_sprite = $Pawn_05_Part_Wheel/Sprite
 onready var light_sprite = $Pawn_05_Part_Light/Sprite
 onready var face_sprite = $Pawn_05_Part_Face/Sprite
@@ -159,18 +159,22 @@ func _process(delta):
 		if _hit_time > 0.1:
 			_hit_time -= delta
 			body_sprite.self_modulate = _hit_color_01
-			key_sprite.self_modulate = _hit_color_01
+			key.color(_hit_color_01)
+#			key_sprite.self_modulate = _hit_color_01
 		elif _hit_time > 0.05:
 			_hit_time -= delta
 			body_sprite.self_modulate = _hit_color_02
-			key_sprite.self_modulate = _hit_color_02
+			key.color(_hit_color_01)
+#			key_sprite.self_modulate = _hit_color_02
 		elif _hit_time > 0:
 			_hit_time -= delta
 			body_sprite.self_modulate = _hit_color_01
-			key_sprite.self_modulate = _hit_color_01
+			key.color(_hit_color_01)
+#			key_sprite.self_modulate = _hit_color_01
 		else:
 			body_sprite.self_modulate = _body_color
-			key_sprite.self_modulate = _body_color
+			key.color(_hit_color_01)
+#			key_sprite.self_modulate = _body_color
 			_hit_time = 0.0
 			_im_hit = false
 
@@ -317,6 +321,8 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
 			call_deferred("free")
 	elif play_type > 1:
+		key.shield_up()
+		wheel.shield_up()
 		shield_sprite.visible = true
 		shield_hit_timer.start()
 		if !is_shield_up:
@@ -639,57 +645,73 @@ func _anim_ladder_left():
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
 	if player == 1:#Grey
-		key_sprite.self_modulate = Player_Stats.p1.color_2
-		wheel_sprite.self_modulate = Player_Stats.p1.color_3
+		key.color(Player_Stats.p1.color_2)
+		key.shield_color(Player_Stats.p1.color_1)
+		wheel.color(Player_Stats.p1.color_3)
+		wheel.shield_color(Player_Stats.p1.color_1)
 		light_sprite.self_modulate = Player_Stats.p1.color_1
 		face_sprite.self_modulate = Player_Stats.p1.color_1
 		body_sprite.self_modulate = Player_Stats.p1.color_2
 		_body_color = Player_Stats.p1.color_2
 	elif player == 2:#Pink
-		key_sprite.self_modulate = Player_Stats.p2.color_2
-		wheel_sprite.self_modulate = Player_Stats.p2.color_3
+		key.color(Player_Stats.p2.color_2)
+		key.shield_color(Player_Stats.p2.color_1)
+		wheel.color(Player_Stats.p2.color_3)
+		wheel.shield_color(Player_Stats.p2.color_1)
 		light_sprite.self_modulate = Player_Stats.p2.color_1
 		face_sprite.self_modulate = Player_Stats.p2.color_1
 		body_sprite.self_modulate = Player_Stats.p2.color_2
 		_body_color = Player_Stats.p2.color_2
 	elif player == 3:#Red
-		key_sprite.self_modulate = Player_Stats.p3.color_2
-		wheel_sprite.self_modulate = Player_Stats.p3.color_3
+		key.color(Player_Stats.p3.color_2)
+		key.shield_color(Player_Stats.p3.color_1)
+		wheel.color(Player_Stats.p3.color_3)
+		wheel.shield_color(Player_Stats.p3.color_1)
 		light_sprite.self_modulate = Player_Stats.p3.color_1
 		face_sprite.self_modulate = Player_Stats.p3.color_1
 		body_sprite.self_modulate = Player_Stats.p3.color_2
 		_body_color = Player_Stats.p3.color_2
 	elif player == 4:#Blue
-		key_sprite.self_modulate = Player_Stats.p4.color_2
-		wheel_sprite.self_modulate = Player_Stats.p4.color_3
+		key.color(Player_Stats.p4.color_2)
+		key.shield_color(Player_Stats.p4.color_1)
+		wheel.color(Player_Stats.p4.color_3)
+		wheel.shield_color(Player_Stats.p4.color_1)
 		light_sprite.self_modulate = Player_Stats.p4.color_1
 		face_sprite.self_modulate = Player_Stats.p4.color_1
 		body_sprite.self_modulate = Player_Stats.p4.color_2
 		_body_color = Player_Stats.p4.color_2
 	elif player == 5:#Yellow
-		key_sprite.self_modulate = Player_Stats.p5.color_2
-		wheel_sprite.self_modulate = Player_Stats.p5.color_3
+		key.color(Player_Stats.p5.color_2)
+		key.shield_color(Player_Stats.p5.color_1)
+		wheel.color(Player_Stats.p5.color_3)
+		wheel.shield_color(Player_Stats.p5.color_1)
 		light_sprite.self_modulate = Player_Stats.p5.color_1
 		face_sprite.self_modulate = Player_Stats.p5.color_1
 		body_sprite.self_modulate = Player_Stats.p5.color_2
 		_body_color = Player_Stats.p5.color_2
 	elif player == 6:#Purple
-		key_sprite.self_modulate = Player_Stats.p6.color_2
-		wheel_sprite.self_modulate = Player_Stats.p6.color_3
+		key.color(Player_Stats.p6.color_2)
+		key.shield_color(Player_Stats.p6.color_1)
+		wheel.color(Player_Stats.p6.color_3)
+		wheel.shield_color(Player_Stats.p6.color_1)
 		light_sprite.self_modulate = Player_Stats.p6.color_1
 		face_sprite.self_modulate = Player_Stats.p6.color_1
 		body_sprite.self_modulate = Player_Stats.p6.color_2
 		_body_color = Player_Stats.p6.color_2
 	elif player == 7:#Teal
-		key_sprite.self_modulate = Player_Stats.p7.color_2
-		wheel_sprite.self_modulate = Player_Stats.p7.color_3
+		key.color(Player_Stats.p7.color_2)
+		key.shield_color(Player_Stats.p7.color_1)
+		wheel.color(Player_Stats.p7.color_3)
+		wheel.shield_color(Player_Stats.p7.color_1)
 		light_sprite.self_modulate = Player_Stats.p7.color_1
 		face_sprite.self_modulate = Player_Stats.p7.color_1
 		body_sprite.self_modulate = Player_Stats.p7.color_2
 		_body_color = Player_Stats.p7.color_2
 	elif player == 8:#Green
-		key_sprite.self_modulate = Player_Stats.p8.color_2
-		wheel_sprite.self_modulate = Player_Stats.p8.color_3
+		key.color(Player_Stats.p8.color_2)
+		key.shield_color(Player_Stats.p8.color_1)
+		wheel.color(Player_Stats.p8.color_3)
+		wheel.shield_color(Player_Stats.p8.color_1)
 		light_sprite.self_modulate = Player_Stats.p8.color_1
 		face_sprite.self_modulate = Player_Stats.p8.color_1
 		body_sprite.self_modulate = Player_Stats.p8.color_2
@@ -704,6 +726,8 @@ func _on_Shield_Up_timeout():
 	is_shield_up = false
 
 func _on_Shield_Hit_timeout():
+	key.shield_down()
+	wheel.shield_down()
 	shield_sprite.visible = false
 	is_shield_up = false
 

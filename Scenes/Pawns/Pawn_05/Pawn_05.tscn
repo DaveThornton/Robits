@@ -1066,7 +1066,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 1, 0, 1, 2, 3 ]
+"values": [ 0, 1, 2, 3, 0, 1, 2, 3 ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -1635,6 +1635,13 @@ collision_mask = 30
 
 [node name="RayCast2D4" type="RayCast2D" parent="Raycast"]
 
+[node name="Shield_Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -17 )
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 20
+
 [node name="Pawn_05_Part_Wheel" parent="." instance=ExtResource( 8 )]
 
 [node name="Pawn_05_Part_Light" parent="." instance=ExtResource( 9 )]
@@ -1646,11 +1653,10 @@ position = Vector2( 0, -17 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 20
-frame = 12
 
 [node name="Pawn_05_Part_Key" parent="." instance=ExtResource( 6 )]
 modulate = Color( 0.678431, 0.678431, 0.678431, 1 )
-position = Vector2( -4, -19 )
+position = Vector2( -4, -20 )
 
 [node name="Pawn_05_Part_Face" parent="." instance=ExtResource( 10 )]
 position = Vector2( 0, -30 )
@@ -1682,16 +1688,7 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="POS_Gun" type="Position2D" parent="."]
-position = Vector2( 0, -19 )
-
-[node name="Shield_Sprite" type="Sprite" parent="."]
-visible = false
-modulate = Color( 1, 0, 0, 0.152941 )
-position = Vector2( 0, -17 )
-texture = ExtResource( 2 )
-vframes = 2
-hframes = 20
-frame = 12
+position = Vector2( 1, -21 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Ladder-Left = SubResource( 2 )

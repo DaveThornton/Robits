@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://Scenes/Guns/Weap-Pick-40-RPG.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Sprites/Pawns/temp-01.png" type="Texture" id=19]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Pawn_05.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Sprites/Pawns/Pawn_07-Temp1.png" type="Texture" id=21]
+[ext_resource path="res://Scenes/Pawns/Pawn_07/Pawn_07.tscn" type="PackedScene" id=22]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -216,3 +218,10 @@ position = Vector2( 589.854, 1030.88 )
 [node name="temp-01" type="Sprite" parent="."]
 position = Vector2( 628.458, 1007.84 )
 texture = ExtResource( 19 )
+
+[node name="Pawn_07-Temp1" type="Sprite" parent="."]
+position = Vector2( 665.523, 1015.47 )
+texture = ExtResource( 21 )
+
+[node name="KinematicBody2D" parent="Pawn_07-Temp1" instance=ExtResource( 22 )]
+position = Vector2( 43.7615, 14.4218 )
