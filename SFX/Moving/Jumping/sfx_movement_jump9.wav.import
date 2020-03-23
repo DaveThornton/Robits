@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_movement_jump9.wav-becf93f4d6f36ba45db9e17b0b7cf0e7.sample"
+
+[deps]
+
+source_file="res://SFX/Moving/Jumping/sfx_movement_jump9.wav"
+dest_files=[ "res://.import/sfx_movement_jump9.wav-becf93f4d6f36ba45db9e17b0b7cf0e7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

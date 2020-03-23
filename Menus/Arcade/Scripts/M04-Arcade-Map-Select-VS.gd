@@ -49,6 +49,7 @@ func _vote(_player,_map_num):
 	_add_to_map_array(_map_num)
 
 func _start():
+	SFX.play("Menu_Select_02")
 	if _get_ready_num() == Player_Stats.get_num_in_play():
 		_next_screen()
 

@@ -13,8 +13,7 @@ func movement(_player, _dir):
 			if _dir == 5:
 				Player_Stats.p1["in_play"] = true
 				Player_Stats.use_credit(_player)
-				Menu_Hand.load_screen(next_screen)
-				queue_free()
+				next_screen()
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 2:
@@ -22,8 +21,7 @@ func movement(_player, _dir):
 			if _dir == 5:
 				Player_Stats.p2["in_play"] = true
 				Player_Stats.use_credit(_player)
-				Menu_Hand.load_screen(next_screen)
-				queue_free()
+				next_screen()
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 3:
@@ -31,8 +29,7 @@ func movement(_player, _dir):
 			if _dir == 5:
 				Player_Stats.p3["in_play"] = true
 				Player_Stats.use_credit(_player)
-				Menu_Hand.load_screen(next_screen)
-				queue_free()
+				next_screen()
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 4:
@@ -40,8 +37,7 @@ func movement(_player, _dir):
 			if _dir == 5:
 				Player_Stats.p4["in_play"] = true
 				Player_Stats.use_credit(_player)
-				Menu_Hand.load_screen(next_screen)
-				queue_free()
+				next_screen()
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 5:
@@ -49,8 +45,7 @@ func movement(_player, _dir):
 			if _dir == 5:
 				Player_Stats.p5["in_play"] = true
 				Player_Stats.use_credit(_player)
-				Menu_Hand.load_screen(next_screen)
-				queue_free()
+				next_screen()
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 6:
@@ -58,8 +53,7 @@ func movement(_player, _dir):
 			if _dir == 5:
 				Player_Stats.p6["in_play"] = true
 				Player_Stats.use_credit(_player)
-				Menu_Hand.load_screen(next_screen)
-				queue_free()
+				next_screen()
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 7:
@@ -67,8 +61,7 @@ func movement(_player, _dir):
 			if _dir == 5:
 				Player_Stats.p7["in_play"] = true
 				Player_Stats.use_credit(_player)
-				Menu_Hand.load_screen(next_screen)
-				queue_free()
+				next_screen()
 		else:
 			HUD.ask_insert_coin(_player)
 	elif _player == 8:
@@ -76,9 +69,15 @@ func movement(_player, _dir):
 			if _dir == 5:
 				Player_Stats.p8["in_play"] = true
 				Player_Stats.use_credit(_player)
-				Menu_Hand.load_screen(next_screen)
-				queue_free()
+				next_screen()
+#				Menu_Hand.load_screen(next_screen)
+#				queue_free()
 		else:
 			HUD.ask_insert_coin(_player)
 	else:
 		print("error invald player in arcade start")
+
+func next_screen():
+	SFX.play("Menu_Select_01")
+	Menu_Hand.load_screen(next_screen)
+	queue_free()

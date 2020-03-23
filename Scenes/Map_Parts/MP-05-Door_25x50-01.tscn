@@ -2,7 +2,8 @@
 
 [ext_resource path="res://Scripts/Map_Parts/MP-05-Door-01.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Map_Parts/Door25x50.png" type="Texture" id=2]
-[ext_resource path="res://SFX/Map_Parts/sfx_movement_dooropen2.wav" type="AudioStream" id=3]
+[ext_resource path="res://SFX/Map_Parts/Doors/sfx_movement_dooropen2.wav" type="AudioStream" id=3]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "Door_Close"

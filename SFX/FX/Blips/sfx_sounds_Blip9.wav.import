@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_sounds_Blip9.wav-571d776bab471e303823465e71544b0d.sample"
+
+[deps]
+
+source_file="res://SFX/FX/Blips/sfx_sounds_Blip9.wav"
+dest_files=[ "res://.import/sfx_sounds_Blip9.wav-571d776bab471e303823465e71544b0d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

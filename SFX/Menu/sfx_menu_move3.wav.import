@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_menu_move3.wav-337eeaaf21c1a0940f0ff07b5ddb7150.sample"
+
+[deps]
+
+source_file="res://SFX/Menu/sfx_menu_move3.wav"
+dest_files=[ "res://.import/sfx_menu_move3.wav-337eeaaf21c1a0940f0ff07b5ddb7150.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

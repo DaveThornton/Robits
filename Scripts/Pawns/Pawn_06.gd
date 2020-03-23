@@ -199,7 +199,6 @@ func _physics_process(delta):
 			vel.y = 0
 	if move_and_collide(vel):
 		pass
-#		print("move and collide no work pawn 06")
 
 ##-------------------------------------------------------------------[Move/jump]
 func move_x(_moving, _right):
@@ -248,9 +247,10 @@ func move_x(_moving, _right):
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
 func jump(down_input, left_input, right_input):
-	if down_input && on_floor && !left_input && !right_input:
+	if down_input && ray_down_p.is_colliding():
+		SFX.play("Move_Jump_08")
 		var thing1 = ray_down_p.get_collider()
-		print(thing1)
+#		print(thing1)
 		if thing1:
 			if thing1.get_groups().has("map"):
 				pass
@@ -258,19 +258,18 @@ func jump(down_input, left_input, right_input):
 				vel.y += terminal_vel / 3
 				self.position.y += 2
 	elif !is_jump_pressed && on_floor && can_jump:
+		SFX.play("Move_Jump_01")
 		vel.y = -max_jump_power * jump_power_up
 		jump_top_pos = global_position.y - jump_height
+	elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count:
+		SFX.play("Move_Jump_05")
+		vel.y = -max_air_jump_power * jump_power_up
+		air_jump_count += 1
 	elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump:
 		jump_top = true
 		can_jump = false
 		if jump_up_timer.is_stopped():
 			jump_up_timer.start()
-		else:
-			print("got to the top")
-		print(jump_top_pos)
-	elif !is_jump_pressed && can_jump && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
-		vel.y = -max_air_jump_power * jump_power_up
-		air_jump_count += 1
 	is_jump_pressed = true
 	on_ladder = false
 
@@ -279,6 +278,7 @@ func jump_rel():
 		vel.y = -min_air_jump_power
 	elif vel.y < -min_jump_power:
 		vel.y = min_jump_power
+	jump_top_pos = global_position.y - jump_height
 	is_jump_pressed = false
 	jump_top = false
 	can_jump = true
@@ -299,8 +299,10 @@ func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 		take_ammo = false
 		is_holding = false
 		if !left_input && !right_input && !up_input && !down_input && !hold_input:
+			SFX.play("Blip_11")
 			my_gun.drop()
 		else:
+			SFX.play("Blip_06")
 			my_gun.throw()
 		my_gun = null
 	elif wep_array.size() > 0:
@@ -314,6 +316,7 @@ func let_go():
 		my_gun = null
 
 func pick_up():
+	SFX.play("Blip_04")
 	poss_pick_obj = wep_array.front()
 	var _time_left = poss_pick_obj.time
 	var _ammo_pick_up = poss_pick_obj.ammo
@@ -433,9 +436,6 @@ func _body_(_num: int):
 func _test_headroom():
 	if ray_up.is_colliding():
 		jump_top_pos = position.y
-#		head_room = 1
-#	else:
-#		head_room = 0
 
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
@@ -447,7 +447,6 @@ func _is_on_floor():
 		going_up = true
 	else:
 		going_up = false
-#		print("check is on floor not working pawn 06")
 
 ##----------------------------------------------------------------[Stun / Knock]
 func stun(_gun_num):
@@ -791,7 +790,7 @@ func _on_Knock_Back_timeout():
 	knocked_back = Vector2(0, 0)
 
 func _on_Jump_up_timeout():
-	print("jump up timeout Pawn 06")
+#	print("jump up timeout Pawn 06")
 	jump_top = false
 	is_jump_pressed = false
 	

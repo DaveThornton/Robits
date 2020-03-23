@@ -15,11 +15,14 @@ func _ready():
 
 func _start():
 	if menu_pos == 1:
+		SFX.play("Menu_Select_02")
 		Menu_Hand.load_screen(campaign)
 		call_deferred("free")
 	if menu_pos == 2:
+		SFX.play("Menu_Nagger_02")
 		pass
 	if menu_pos == 3:
+		SFX.play("Menu_Select_02")
 		Menu_Hand.load_screen(vs_mode)
 		call_deferred("free")
 

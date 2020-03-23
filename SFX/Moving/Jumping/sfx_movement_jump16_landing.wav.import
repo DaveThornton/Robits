@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_movement_jump16_landing.wav-cf7e6de71426165f5b455937fac9e531.sample"
+
+[deps]
+
+source_file="res://SFX/Moving/Jumping/sfx_movement_jump16_landing.wav"
+dest_files=[ "res://.import/sfx_movement_jump16_landing.wav-cf7e6de71426165f5b455937fac9e531.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -499,7 +499,6 @@ texture = ExtResource( 6 )
 hframes = 5
 
 [node name="Area2D_Melee" type="Area2D" parent="Pos2D_Walk"]
-editor/display_folded = true
 collision_layer = 512
 collision_mask = 512
 

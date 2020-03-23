@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
@@ -12,6 +12,47 @@
 [ext_resource path="res://SFX/FX/sfx_exp_cluster4.wav" type="AudioStream" id=10]
 [ext_resource path="res://SFX/Explosions/sfx_exp_short_hard7.wav" type="AudioStream" id=11]
 [ext_resource path="res://SFX/Explosions/sfx_exp_medium5.wav" type="AudioStream" id=12]
+[ext_resource path="res://SFX/Menu/Coin/sfx_coin_cluster5.wav" type="AudioStream" id=13]
+[ext_resource path="res://SFX/Menu/sfx_menu_select1.wav" type="AudioStream" id=14]
+[ext_resource path="res://SFX/Menu/sfx_menu_move5.wav" type="AudioStream" id=15]
+[ext_resource path="res://SFX/Menu/sfx_menu_move1.wav" type="AudioStream" id=16]
+[ext_resource path="res://SFX/Menu/sfx_menu_move4.wav" type="AudioStream" id=17]
+[ext_resource path="res://SFX/Menu/sfx_menu_move3.wav" type="AudioStream" id=18]
+[ext_resource path="res://SFX/Menu/sfx_menu_select3.wav" type="AudioStream" id=19]
+[ext_resource path="res://SFX/Menu/sfx_menu_move2.wav" type="AudioStream" id=20]
+[ext_resource path="res://SFX/Menu/sfx_menu_select2.wav" type="AudioStream" id=21]
+[ext_resource path="res://SFX/Menu/sfx_menu_select4.wav" type="AudioStream" id=22]
+[ext_resource path="res://SFX/Menu/sfx_menu_select5.wav" type="AudioStream" id=23]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error1.wav" type="AudioStream" id=24]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error6.wav" type="AudioStream" id=25]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error9.wav" type="AudioStream" id=26]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error15.wav" type="AudioStream" id=27]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error2.wav" type="AudioStream" id=28]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error4.wav" type="AudioStream" id=29]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error5.wav" type="AudioStream" id=30]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error11.wav" type="AudioStream" id=31]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error13.wav" type="AudioStream" id=32]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error7.wav" type="AudioStream" id=33]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error14.wav" type="AudioStream" id=34]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error3.wav" type="AudioStream" id=35]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error10.wav" type="AudioStream" id=36]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error8.wav" type="AudioStream" id=37]
+[ext_resource path="res://SFX/Menu/sfx_sounds_error12.wav" type="AudioStream" id=38]
+[ext_resource path="res://SFX/Menu/sfx_sound_nagger2.wav" type="AudioStream" id=39]
+[ext_resource path="res://SFX/FX/Blips/sfx_sounds_Blip2.wav" type="AudioStream" id=40]
+[ext_resource path="res://SFX/FX/Blips/sfx_sounds_Blip3.wav" type="AudioStream" id=41]
+[ext_resource path="res://SFX/FX/Blips/sfx_sounds_Blip5.wav" type="AudioStream" id=42]
+[ext_resource path="res://SFX/FX/Blips/sfx_sounds_Blip9.wav" type="AudioStream" id=43]
+[ext_resource path="res://SFX/FX/Blips/sfx_sounds_Blip7.wav" type="AudioStream" id=44]
+[ext_resource path="res://SFX/FX/Blips/sfx_sounds_Blip10.wav" type="AudioStream" id=45]
+[ext_resource path="res://SFX/FX/Blips/sfx_sounds_Blip11.wav" type="AudioStream" id=46]
+[ext_resource path="res://SFX/FX/Blips/sfx_sounds_Blip8.wav" type="AudioStream" id=47]
+[ext_resource path="res://SFX/FX/Blips/sfx_sounds_Blip6.wav" type="AudioStream" id=48]
+[ext_resource path="res://SFX/FX/Blips/sfx_sounds_Blip1.wav" type="AudioStream" id=49]
+[ext_resource path="res://SFX/FX/Blips/sfx_sounds_Blip4.wav" type="AudioStream" id=50]
+[ext_resource path="res://SFX/Moving/Jumping/sfx_movement_jump5.wav" type="AudioStream" id=51]
+[ext_resource path="res://SFX/Moving/Jumping/sfx_movement_jump1.wav" type="AudioStream" id=52]
+[ext_resource path="res://SFX/Moving/Jumping/sfx_movement_jump8.wav" type="AudioStream" id=53]
 
 [node name="SFX_Lib" type="Node2D"]
 script = ExtResource( 1 )
@@ -58,4 +99,167 @@ bus = "SFX"
 
 [node name="EX_Standard" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
+bus = "SFX"
+
+[node name="Menu_Coin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+
+[node name="Menu_Move_01" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+bus = "Menu"
+
+[node name="Menu_Move_02" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 20 )
+bus = "Menu"
+
+[node name="Menu_Move_03" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 18 )
+bus = "Menu"
+
+[node name="Menu_Move_04" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+bus = "Menu"
+
+[node name="Menu_Move_05" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )
+bus = "Menu"
+
+[node name="Menu_Select_01" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
+bus = "Menu"
+
+[node name="Menu_Select_02" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 21 )
+bus = "Menu"
+
+[node name="Menu_Select_03" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 19 )
+bus = "Menu"
+
+[node name="Menu_Select_04" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 22 )
+bus = "Menu"
+
+[node name="Menu_Select_05" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 23 )
+bus = "Menu"
+
+[node name="Menu_Error_01" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 24 )
+bus = "Menu"
+
+[node name="Menu_Error_02" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 28 )
+bus = "Menu"
+
+[node name="Menu_Error_03" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 35 )
+bus = "Menu"
+
+[node name="Menu_Error_04" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 29 )
+bus = "Menu"
+
+[node name="Menu_Error_05" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 30 )
+bus = "Menu"
+
+[node name="Menu_Error_06" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 25 )
+bus = "Menu"
+
+[node name="Menu_Error_07" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 33 )
+bus = "Menu"
+
+[node name="Menu_Error_08" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 37 )
+bus = "Menu"
+
+[node name="Menu_Error_09" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 26 )
+bus = "Menu"
+
+[node name="Menu_Error_10" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 36 )
+bus = "Menu"
+
+[node name="Menu_Error_11" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 31 )
+bus = "Menu"
+
+[node name="Menu_Error_12" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 38 )
+bus = "Menu"
+
+[node name="Menu_Error_13" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 32 )
+bus = "Menu"
+
+[node name="Menu_Error_14" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 34 )
+bus = "Menu"
+
+[node name="Menu_Error_15" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 27 )
+bus = "Menu"
+
+[node name="Menu_Nagger_02" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 39 )
+bus = "Menu"
+
+[node name="Blip_01" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 49 )
+bus = "SFX"
+
+[node name="Blip_02" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 40 )
+bus = "SFX"
+
+[node name="Blip_03" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 41 )
+bus = "SFX"
+
+[node name="Blip_04" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 50 )
+bus = "SFX"
+
+[node name="Blip_05" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 42 )
+bus = "SFX"
+
+[node name="Blip_06" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 48 )
+bus = "SFX"
+
+[node name="Blip_07" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 44 )
+bus = "SFX"
+
+[node name="Blip_08" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 47 )
+bus = "SFX"
+
+[node name="Blip_09" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 43 )
+bus = "SFX"
+
+[node name="Blip_10" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 45 )
+bus = "SFX"
+
+[node name="Blip_11" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 46 )
+bus = "SFX"
+
+[node name="Move_Jump_01" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 52 )
+bus = "SFX"
+
+[node name="Move_Jump_05" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 51 )
+bus = "SFX"
+
+[node name="Move_Jump_08" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 53 )
 bus = "SFX"

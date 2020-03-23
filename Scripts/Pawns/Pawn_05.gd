@@ -239,11 +239,14 @@ func move_x(_moving, _right):
 
 func jump(down_input, left_input, right_input):
 	if down_input && on_floor && !left_input && !right_input:
+		SFX.play("Move_Jump_08")
 		vel.y += 1.5
 		self.position.y += 1.5
 	elif !is_jump_pressed && on_floor:# && !down_input:
+		SFX.play("Move_Jump_01")
 		vel.y = -max_jump_power * jump_power_up
 	elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
+		SFX.play("Move_Jump_05")
 		vel.y = -max_air_jump_power * jump_power_up
 		air_jump_count += 1
 	is_jump_pressed = true
@@ -272,8 +275,10 @@ func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 		take_ammo = false
 		is_holding = false
 		if !left_input && !right_input && !up_input && !down_input && !hold_input:
+			SFX.play("Blip_11")
 			my_gun.drop()
 		else:
+			SFX.play("Blip_06")
 			my_gun.throw()
 		my_gun = null
 	elif wep_array.size() > 0:
@@ -287,6 +292,7 @@ func let_go():
 		my_gun = null
 
 func pick_up():
+	SFX.play("Blip_04")
 	poss_pick_obj = wep_array.front()
 	var _time_left = poss_pick_obj.time
 	var _ammo_pick_up = poss_pick_obj.ammo

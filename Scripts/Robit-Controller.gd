@@ -246,6 +246,7 @@ func _process(delta):
 		elif hold_input_j || pick_input:
 			HUD.game_over_input(player, 6)
 	if coin_input:
+#		SFX.play("Menu_Coin")
 		Player_Stats.coin_insert(player)
 
 func set_spawn_spot(_pos):

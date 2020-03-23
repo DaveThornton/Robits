@@ -1,6 +1,5 @@
 extends Node2D
 export(PackedScene) var start_screen
-#export(PackedScene) var m01_VS
 onready var timer = $Timer
 var mode
 var over = false

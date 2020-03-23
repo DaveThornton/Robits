@@ -16,6 +16,7 @@ func _ready():
 	reset()
 
 func ask_insert_coin(_player):
+	SFX.play("Menu_Nagger_02")
 	if _player == 1: p1.insert_coin()
 	elif _player == 2: p2.insert_coin()
 	elif _player == 3: p3.insert_coin()
@@ -26,6 +27,7 @@ func ask_insert_coin(_player):
 	elif _player == 8: p8.insert_coin()
 
 func coin_up(_player):
+	SFX.play("Menu_Coin")
 	if _player == 1:
 		p1.set_coin_count(Player_Stats.p1["credit"])
 		p1.coin_up()

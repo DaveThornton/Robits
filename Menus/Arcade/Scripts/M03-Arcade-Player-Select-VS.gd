@@ -28,6 +28,7 @@ func _ready():
 	menu_check()
 
 func _start():
+	SFX.play("Menu_Select_02")
 	if _get_ready_num() == Player_Stats.get_num_in_play():
 		_next_screen()
 
