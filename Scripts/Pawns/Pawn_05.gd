@@ -384,6 +384,8 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_up_timer.start()
 
 func _body(_num: int):
+	call_deferred("_body_",_num)
+func _body_(_num: int):
 	if _num == 1:
 		body_shape_01.disabled = false
 		body_shape_02.disabled = true
@@ -413,8 +415,10 @@ func _test_headroom():
 
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
-		on_floor = true
-		wheel.on_floor = true
+		if !on_floor:
+			on_floor = true
+			wheel.on_floor = true
+			SFX.play("Move_Jump_19_Land")
 	else :
 		on_floor = false
 		wheel.on_floor = false

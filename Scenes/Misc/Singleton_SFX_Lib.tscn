@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
@@ -53,6 +53,7 @@
 [ext_resource path="res://SFX/Moving/Jumping/sfx_movement_jump5.wav" type="AudioStream" id=51]
 [ext_resource path="res://SFX/Moving/Jumping/sfx_movement_jump1.wav" type="AudioStream" id=52]
 [ext_resource path="res://SFX/Moving/Jumping/sfx_movement_jump8.wav" type="AudioStream" id=53]
+[ext_resource path="res://SFX/Moving/Jumping/sfx_movement_jump19_landing.wav" type="AudioStream" id=54]
 
 [node name="SFX_Lib" type="Node2D"]
 script = ExtResource( 1 )
@@ -262,4 +263,9 @@ bus = "SFX"
 
 [node name="Move_Jump_08" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 53 )
+bus = "SFX"
+
+[node name="Move_Jump_19_Land" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 54 )
+volume_db = 3.0
 bus = "SFX"

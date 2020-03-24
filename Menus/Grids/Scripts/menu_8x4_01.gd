@@ -45,31 +45,34 @@ func get_pos():
 
 func move_up():
 	if pos == 1 || pos == 2 || pos == 3 || pos == 4 || pos == 5 || pos == 6 || pos == 7 || pos == 8:
-#		print("cant move up")
-		pass
+		cant_move_sound()
 	else:
 		pos -= 8
+		move_sound()
 		update_from_pos()
 
 func move_down():
 	if pos == 25 || pos == 26 || pos == 27 || pos == 28 ||pos == 29 || pos == 30 || pos == 31 || pos == 32:
-		pass
+		cant_move_sound()
 	else:
 		pos += 8
+		move_sound()
 		update_from_pos()
 
 func move_left():
 	if pos == 1 || pos == 9 || pos == 17 || pos == 25:
-		pass
+		cant_move_sound()
 	else:
 		pos -= 1
+		move_sound()
 		update_from_pos()
 
 func move_right():
 	if pos == 8 || pos == 16 || pos == 24 || pos == 32:
-		pass
+		cant_move_sound()
 	else:
 		pos += 1
+		move_sound()
 		update_from_pos()
 
 func update_from_pos():
@@ -271,3 +274,9 @@ func blank_squares():
 	s30.frame = 0
 	s31.frame = 0
 	s32.frame = 0
+
+func move_sound():
+	SFX.play("Menu_Move_01")
+
+func cant_move_sound():
+	SFX.play("Menu_Error_02")

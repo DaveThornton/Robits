@@ -247,7 +247,7 @@ func move_x(_moving, _right):
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
 func jump(down_input, left_input, right_input):
-	if down_input && ray_down_p.is_colliding():
+	if down_input && ray_down_p.is_colliding() && !left_input && !right_input:
 		SFX.play("Move_Jump_08")
 		var thing1 = ray_down_p.get_collider()
 #		print(thing1)
@@ -411,6 +411,7 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 
 func _body(_num: int):
 	call_deferred("_body_",_num)
+
 func _body_(_num: int):
 	if _num == 1:
 		body_shape_01.disabled = false
@@ -439,7 +440,9 @@ func _test_headroom():
 
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
-		on_floor = true
+		if !on_floor:
+			SFX.play("Move_Jump_19_Land")
+			on_floor = true
 	else:
 		on_floor = false
 	

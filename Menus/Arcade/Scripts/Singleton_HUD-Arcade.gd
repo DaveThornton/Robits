@@ -16,7 +16,8 @@ func _ready():
 	reset()
 
 func ask_insert_coin(_player):
-	SFX.play("Menu_Nagger_02")
+#	SFX.play("Menu_Nagger_02")
+	print("find a new sfx for no coins insterted in hud singlton")
 	if _player == 1: p1.insert_coin()
 	elif _player == 2: p2.insert_coin()
 	elif _player == 3: p3.insert_coin()

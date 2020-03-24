@@ -11,18 +11,17 @@ func _ready():
 
 func move_up():
 	if pos == 1:
-#		print("cant move up")
-		pass
+		cant_move_sound()
 	else:
 		pos -= 1
+		move_sound()
 		update_from_pos()
 
 func move_down():
 	if pos == 3:
-		print("cant move down")
-		pass
+		cant_move_sound()
 	else:
-		print("move down")
+		move_sound()
 		pos += 1
 		update_from_pos()
 
@@ -56,3 +55,9 @@ func blank_squares():
 	s01.visible = false
 	s02.visible = false
 	s03.visible = false
+
+func move_sound():
+	SFX.play("Menu_Move_01")
+
+func cant_move_sound():
+	SFX.play("Menu_Error_02")

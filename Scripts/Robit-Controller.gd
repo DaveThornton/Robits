@@ -228,7 +228,9 @@ func _process(delta):
 					else:
 						print("need to put a coin in or this is an error  ", Player_Stats.can_player_start(player))
 		else:
-			if up_input_j:
+			if start_input:
+				Menu_Hand.input(player, 0)
+			elif up_input_j:
 				Menu_Hand.input(player, 1)
 			elif left_input_j:
 				Menu_Hand.input(player, 2)
@@ -236,17 +238,20 @@ func _process(delta):
 				Menu_Hand.input(player, 3)
 			elif down_input_j:
 				Menu_Hand.input(player, 4)
-			elif jump_input_j || shoot_input_j ||start_input:
+			elif jump_input_j:# || shoot_input_j ||start_input:
 				Menu_Hand.input(player, 5)
-			elif hold_input_j || pick_input:
+			elif shoot_input_j:
 				Menu_Hand.input(player, 6)
+			elif hold_input_j:# || pick_input:
+				Menu_Hand.input(player, 7)
+			elif pick_input:
+				Menu_Hand.input(player, 8)
 	else:
 		if jump_input_j || shoot_input_j ||start_input:
 			HUD.game_over_input(player, 5)
 		elif hold_input_j || pick_input:
 			HUD.game_over_input(player, 6)
 	if coin_input:
-#		SFX.play("Menu_Coin")
 		Player_Stats.coin_insert(player)
 
 func set_spawn_spot(_pos):
