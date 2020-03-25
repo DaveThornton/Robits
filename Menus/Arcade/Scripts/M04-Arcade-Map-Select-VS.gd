@@ -48,9 +48,9 @@ func _ready():
 func _vote(_player,_map_num):
 	_add_to_map_array(_map_num)
 
-func _start():
+func _start(_player):
 	SFX.play("Menu_Select_02")
-	if _get_ready_num() == Player_Stats.get_num_in_play():
+	if _get_ready_num(_player) == Player_Stats.get_num_in_play():
 		_next_screen()
 
 func _next_screen():
@@ -95,11 +95,11 @@ func movement(_player, _dir):
 					p1_menu.move_right()
 				elif _dir == 4:
 					p1_menu.move_down()
-				elif _dir == 5:
+				elif _dir == 0 || _dir == 5 || _dir == 6:
 					p1_ready = true
 					HUD.player_ready(_player)
 					_vote(_player, p1_menu.get_pos())
-					_start()
+					_start(_player)
 			elif _dir == 6:
 				p1_ready = false
 				HUD.player_select(_player)
@@ -125,7 +125,7 @@ func movement(_player, _dir):
 					p2_ready = true
 					HUD.player_ready(_player)
 					_vote(_player, p2_menu.get_pos())
-					_start()
+					_start(_player)
 			elif _dir == 6:
 				p2_ready = false
 				HUD.player_select(_player)
@@ -149,7 +149,7 @@ func movement(_player, _dir):
 					p3_ready = true
 					HUD.player_ready(_player)
 					_vote(_player, p3_menu.get_pos())
-					_start()
+					_start(_player)
 			elif _dir == 6:
 				p3_ready = false
 				HUD.player_select(_player)
@@ -173,7 +173,7 @@ func movement(_player, _dir):
 					p4_ready = true
 					HUD.player_ready(_player)
 					_vote(_player, p4_menu.get_pos())
-					_start()
+					_start(_player)
 			elif _dir == 6:
 				p4_ready = false
 				HUD.player_select(_player)
@@ -197,7 +197,7 @@ func movement(_player, _dir):
 					p5_ready = true
 					HUD.player_ready(_player)
 					_vote(_player, p5_menu.get_pos())
-					_start()
+					_start(_player)
 			elif _dir == 6:
 				p5_ready = false
 				HUD.player_select(_player)
@@ -221,7 +221,7 @@ func movement(_player, _dir):
 					p6_ready = true
 					HUD.player_ready(_player)
 					_vote(_player, p6_menu.get_pos())
-					_start()
+					_start(_player)
 			elif _dir == 6:
 				p6_ready = false
 				HUD.player_select(_player)
@@ -245,7 +245,7 @@ func movement(_player, _dir):
 					p7_ready = true
 					HUD.player_ready(_player)
 					_vote(_player, p7_menu.get_pos())
-					_start()
+					_start(_player)
 			elif _dir == 6:
 				p7_ready = false
 				HUD.player_select(_player)
@@ -269,7 +269,7 @@ func movement(_player, _dir):
 					p8_ready = true
 					HUD.player_ready(_player)
 					_vote(_player, p8_menu.get_pos())
-					_start()
+					_start(_player)
 			elif _dir == 6:
 				p8_ready = false
 				HUD.player_select(_player)
@@ -316,7 +316,8 @@ func _add_to_map_array(_num):
 		map_array.append(map)
 	pass
 
-func _get_ready_num():
+func _get_ready_num(_player):
+	HUD.player_ready(_player)
 	var _ready_num = 0
 	if p1_ready:
 		_ready_num += 1
@@ -335,3 +336,23 @@ func _get_ready_num():
 	if p8_ready:
 		_ready_num += 1
 	return _ready_num
+
+func _back(_player):
+	print("put in a back sound M04 Arcade")
+	SFX.play("")
+	if _player == 1:
+		p1_ready = false
+	elif _player == 2:
+		p2_ready = false
+	elif _player == 3:
+		p3_ready = false
+	elif _player == 4:
+		p4_ready = false
+	elif _player == 5:
+		p5_ready = false
+	elif _player == 6:
+		p6_ready = false
+	elif _player == 7:
+		p7_ready = false
+	elif _player == 8:
+		p8_ready = false

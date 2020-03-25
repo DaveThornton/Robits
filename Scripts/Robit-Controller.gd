@@ -174,15 +174,16 @@ func _process(delta):
 	var down_input_j = Input.is_action_just_pressed(player_input_d)
 	var jump_input = Input.is_action_pressed(player_input_j)
 	var jump_input_j = Input.is_action_just_pressed(player_input_j)
-	var jump_rel = Input.is_action_just_released(player_input_j)
+	var jump_input_r = Input.is_action_just_released(player_input_j)
 	var shoot_input = Input.is_action_pressed(player_input_s)
 	var shoot_input_j = Input.is_action_just_pressed(player_input_s)
 	var shoot_input_r = Input.is_action_just_released(player_input_s)
-	var pick_input = Input.is_action_just_pressed(player_input_p)
+	var pick_input_j = Input.is_action_just_pressed(player_input_p)
 	var hold_input = Input.is_action_pressed(player_input_h)
 	var hold_input_j = Input.is_action_just_pressed(player_input_h)
-	var start_input = Input.is_action_just_pressed(player_input_start)
-	var coin_input = Input.is_action_just_pressed(player_input_coin)
+	var start_input_j = Input.is_action_just_pressed(player_input_start)
+#	var start_input = Input.is_action_pressed(player_input_start)
+	var coin_input_j = Input.is_action_just_pressed(player_input_coin)
 	
 	#delete me when done please!!!!
 	var test_button = Input.is_action_just_pressed("test_button")
@@ -209,7 +210,7 @@ func _process(delta):
 						my_pawn.move_x(false, false)
 					if jump_input:
 						my_pawn.jump(down_input, left_input, right_input)
-					if jump_rel:
+					if jump_input_r:
 						my_pawn.jump_rel()
 					if shoot_input:
 						my_pawn.shoot()
@@ -217,18 +218,18 @@ func _process(delta):
 						my_pawn.shoot_j()
 					if shoot_input_r:
 						my_pawn.shoot_r()
-					if pick_input:
+					if pick_input_j:
 						my_pawn.pick_throw(left_input, right_input, up_input, down_input,hold_input)
 					my_pawn.anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta)
 			else:
-				if start_input:
+				if start_input_j:
 					if Player_Stats.can_player_start(player):
 						Player_Stats.use_credit(player)
 						spawn_pawn()
 					else:
 						print("need to put a coin in or this is an error  ", Player_Stats.can_player_start(player))
 		else:
-			if start_input:
+			if start_input_j:
 				Menu_Hand.input(player, 0)
 			elif up_input_j:
 				Menu_Hand.input(player, 1)
@@ -244,14 +245,14 @@ func _process(delta):
 				Menu_Hand.input(player, 6)
 			elif hold_input_j:# || pick_input:
 				Menu_Hand.input(player, 7)
-			elif pick_input:
+			elif pick_input_j:
 				Menu_Hand.input(player, 8)
 	else:
-		if jump_input_j || shoot_input_j ||start_input:
+		if jump_input_j || shoot_input_j ||start_input_j:
 			HUD.game_over_input(player, 5)
-		elif hold_input_j || pick_input:
+		elif hold_input_j || pick_input_j:
 			HUD.game_over_input(player, 6)
-	if coin_input:
+	if coin_input_j:
 		Player_Stats.coin_insert(player)
 
 func set_spawn_spot(_pos):

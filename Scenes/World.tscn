@@ -11,6 +11,7 @@ pause_mode = 1
 script = ExtResource( 1 )
 arcade_start = ExtResource( 2 )
 demo_map = ExtResource( 3 )
+game_mode = 1
 
 [node name="Sprite" type="Sprite" parent="."]
 pause_mode = 1
