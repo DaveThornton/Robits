@@ -135,7 +135,8 @@ func spawn_pawn():
 		get_tree().get_current_scene().pawns.add_child(z)
 		z.connect("explode_p", self, "explode_pawn")
 		my_pawn = z
-		call_deferred("_init_pawn")
+		_init_pawn()
+#		call_deferred("_init_pawn")
 		in_game = true
 		alive = true
 		in_menu = false

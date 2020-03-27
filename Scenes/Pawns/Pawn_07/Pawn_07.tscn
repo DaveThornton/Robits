@@ -1944,7 +1944,7 @@ collision_mask = 14
 [node name="Shield" type="Sprite" parent="."]
 visible = false
 modulate = Color( 0.913725, 0, 0, 1 )
-position = Vector2( 0, -8 )
+position = Vector2( 0, -1 )
 texture = ExtResource( 1 )
 hframes = 4
 
@@ -1965,17 +1965,15 @@ visible = false
 polygon = PoolVector2Array( 7, -19, 14, 0, 2, 8, -2, 8, -14, 0, -7, -19 )
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( 0, -8 )
 texture = ExtResource( 3 )
 hframes = 4
 
 [node name="Pawn_07_Part_Head" parent="." instance=ExtResource( 4 )]
-position = Vector2( -1, -26 )
+position = Vector2( 1, -15 )
 
 [node name="Pawn_05_Part_Key" parent="." instance=ExtResource( 5 )]
 visible = false
-position = Vector2( 11, -14 )
-rotation = 3.14159
+position = Vector2( -11, -8 )
 
 [node name="Pawn_07_Part_Fire" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, 18 )
@@ -1984,7 +1982,7 @@ position = Vector2( 0, 18 )
 position = Vector2( 0, 1 )
 
 [node name="POS_Gun" type="Position2D" parent="."]
-position = Vector2( 0, -15 )
+position = Vector2( 4, -8 )
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
 visible = false

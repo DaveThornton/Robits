@@ -434,8 +434,6 @@ tracks/1/keys = {
 }
 
 [node name="Weap-Hold-10-Blaster_Pistol" type="Node2D"]
-rotation = -0.610865
-scale = Vector2( -1, 1 )
 script = ExtResource( 1 )
 blaster_pistol_pickup = ExtResource( 2 )
 projectile = ExtResource( 3 )
@@ -496,7 +494,7 @@ anims/Fire = SubResource( 12 )
 anims/Melee = SubResource( 13 )
 
 [node name="Pos2D_Throw" type="Position2D" parent="."]
-position = Vector2( 24, 0 )
+position = Vector2( 17, 0 )
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]
 [connection signal="body_entered" from="Pos2D_Walk/Area2D_Melee" to="." method="_on_Area2D_Melee_body_entered"]

@@ -28,8 +28,10 @@ func _ready():
 	menu_check()
 
 func _start(_player):
+	_set_ready(_player)
+	HUD.player_ready(_player)
 	SFX.play("Menu_Select_02")
-	if _get_ready_num(_player) == Player_Stats.get_num_in_play():
+	if _get_ready_num() == Player_Stats.get_num_in_play():
 		_next_screen()
 
 func _next_screen():
@@ -52,24 +54,6 @@ func _next_screen():
 	Menu_Hand.load_screen(vs_map_select)
 	self.call_deferred("free")
 
-func menu_check():
-	if Player_Stats.p1["in_play"]:
-		p1_menu.visible = true
-	if Player_Stats.p2["in_play"]:
-		p2_menu.visible = true
-	if Player_Stats.p3["in_play"]:
-		p3_menu.visible = true
-	if Player_Stats.p4["in_play"]:
-		p4_menu.visible = true
-	if Player_Stats.p5["in_play"]:
-		p5_menu.visible = true
-	if Player_Stats.p6["in_play"]:
-		p6_menu.visible = true
-	if Player_Stats.p7["in_play"]:
-		p7_menu.visible = true
-	if Player_Stats.p8["in_play"]:
-		p8_menu.visible = true
-
 func movement(_player, _dir):
 	if _player == 1:
 		if Player_Stats.p1["in_play"]:
@@ -83,7 +67,6 @@ func movement(_player, _dir):
 				elif _dir == 4:
 					p1_menu.move_down()
 				elif _dir == 0 || _dir == 5 || _dir == 6: #|| 7 || 8:
-					p1_ready = true
 					_start(_player)
 			elif _dir == 7 || _dir == 8:
 					_back(_player)
@@ -105,7 +88,6 @@ func movement(_player, _dir):
 				elif _dir == 4:
 					p2_menu.move_down()
 				elif _dir == 0 || _dir == 5 || _dir == 6: #|| 7 || 8:
-					p2_ready = true
 					_start(_player)
 			elif _dir == 7 || _dir == 8:
 					_back(_player)
@@ -129,7 +111,6 @@ func movement(_player, _dir):
 				elif _dir == 4:
 					p3_menu.move_down()
 				elif _dir == 0 || _dir == 5 || _dir == 6: #|| 7 || 8:
-					p3_ready = true
 					_start(_player)
 			elif _dir == 7 || 8:
 					_back(_player)
@@ -153,7 +134,6 @@ func movement(_player, _dir):
 				elif _dir == 4:
 					p4_menu.move_down()
 				elif _dir == 0 || _dir == 5 || _dir == 6: #|| 7 || 8:
-					p4_ready = true
 					_start(_player)
 			elif _dir == 7 || _dir == 8:
 					_back(_player)
@@ -177,7 +157,6 @@ func movement(_player, _dir):
 				elif _dir == 4:
 					p5_menu.move_down()
 				elif _dir == 0 || _dir == 5 || _dir == 6: #|| 7 || 8:
-					p5_ready = true
 					_start(_player)
 			elif _dir == 7 || _dir == 8:
 					_back(_player)
@@ -201,7 +180,6 @@ func movement(_player, _dir):
 				elif _dir == 4:
 					p6_menu.move_down()
 				elif _dir == 0 || _dir == 5 || _dir == 6: #|| 7 || 8:
-					p6_ready = true
 					_start(_player)
 			elif _dir == 7 || _dir == 8:
 					_back(_player)
@@ -225,7 +203,6 @@ func movement(_player, _dir):
 				elif _dir == 4:
 					p7_menu.move_down()
 				elif _dir == 0 || _dir == 5 || _dir == 6: #|| 7 || 8:
-					p7_ready = true
 					_start(_player)
 			elif _dir == 7 || _dir == 8:
 					_back(_player)
@@ -249,7 +226,6 @@ func movement(_player, _dir):
 				elif _dir == 4:
 					p8_menu.move_down()
 				elif _dir == 0 || _dir == 5 || _dir == 6: #|| 7 || 8:
-					p8_ready = true
 					_start(_player)
 			elif _dir == 7 || _dir == 8:
 					_back(_player)
@@ -264,8 +240,46 @@ func movement(_player, _dir):
 	else:
 		print("error invald player in arcade player select VS")
 
-func _get_ready_num(_player):
-	HUD.player_ready(_player)
+func _set_ready(_player):
+	if _player == 1:
+		p1_ready = true
+	elif _player == 2:
+		p2_ready = true
+	elif _player == 3:
+		p3_ready = true
+	elif _player == 4:
+		p4_ready = true
+	elif _player == 5:
+		p5_ready = true
+	elif _player == 6:
+		p6_ready = true
+	elif _player == 7:
+		p7_ready = true
+	elif _player == 8:
+		p8_ready = true
+	
+func _back(_player):
+#	print("put in a back sound M03 Arcade")
+	HUD.player_select(_player)
+	SFX.play("Menu_Error_13")
+	if _player == 1:
+		p1_ready = false
+	elif _player == 2:
+		p2_ready = false
+	elif _player == 3:
+		p3_ready = false
+	elif _player == 4:
+		p4_ready = false
+	elif _player == 5:
+		p5_ready = false
+	elif _player == 6:
+		p6_ready = false
+	elif _player == 7:
+		p7_ready = false
+	elif _player == 8:
+		p8_ready = false
+
+func _get_ready_num():
 	var _ready_num = 0
 	if p1_ready:
 		_ready_num += 1
@@ -284,23 +298,21 @@ func _get_ready_num(_player):
 	if p8_ready:
 		_ready_num += 1
 	return _ready_num
-	
-func _back(_player):
-#	print("put in a back sound M03 Arcade")
-	SFX.play("Menu_Error_13")
-	if _player == 1:
-		p1_ready = false
-	elif _player == 2:
-		p2_ready = false
-	elif _player == 3:
-		p3_ready = false
-	elif _player == 4:
-		p4_ready = false
-	elif _player == 5:
-		p5_ready = false
-	elif _player == 6:
-		p6_ready = false
-	elif _player == 7:
-		p7_ready = false
-	elif _player == 8:
-		p8_ready = false
+
+func menu_check():
+	if Player_Stats.p1["in_play"]:
+		p1_menu.visible = true
+	if Player_Stats.p2["in_play"]:
+		p2_menu.visible = true
+	if Player_Stats.p3["in_play"]:
+		p3_menu.visible = true
+	if Player_Stats.p4["in_play"]:
+		p4_menu.visible = true
+	if Player_Stats.p5["in_play"]:
+		p5_menu.visible = true
+	if Player_Stats.p6["in_play"]:
+		p6_menu.visible = true
+	if Player_Stats.p7["in_play"]:
+		p7_menu.visible = true
+	if Player_Stats.p8["in_play"]:
+		p8_menu.visible = true

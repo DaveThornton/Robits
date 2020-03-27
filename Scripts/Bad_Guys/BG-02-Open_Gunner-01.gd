@@ -308,9 +308,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		call_deferred("free")
 
 func _explode():
-	var x = explode.instance()
-	get_tree().get_current_scene().map.add_child(x)
-	x.init(9, self.position, str("player ", x, "'s destruct system"), 0, 0)
+	var e = explode.instance()
+	Map_Hand.add_kid_to_map(e)
+#	get_tree().get_current_scene().map.add_child(x)
+	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
 
 func _on_floor():
 	on_floor = cast_down.is_colliding()

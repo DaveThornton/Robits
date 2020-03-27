@@ -17,11 +17,6 @@ signal activate(_num, _player)
 func _ready():
 	if show_splash:
 		Menu_Hand.splash(title_text, body_text, splash_time, true)
-#
-#		splash_screen.change_text(title_text, body_text)
-#		splash_screen.visible = true
-#		splash_screen.start_timer(splash_time)
-#		get_tree().paused = true
 	if $"MP-04-Nav2D":
 		nav_system = $"MP-04-Nav2D"
 		print("map nav system found")
@@ -30,8 +25,6 @@ func _ready():
 	var e = self.connect("reset",get_tree().get_current_scene(),"reset")
 	if !e:
 		print("error in map ready: error connecting reset")
-#	else:
-#		print("map ready: connecting reset it works")
 
 func next_spawn_pos():
 	next_spawn_spot += 1

@@ -17,23 +17,16 @@ func spawn_pos():
 		return null
 
 func load_map( _map_to_load):
-#	print("loading map")
 	var m = _map_to_load.instance()
+	if map:
+		map.queue_free()
 	map = m
 	add_child(m)
-#	get_tree().get_current_scene().map = m
-#	Menu_Hand.load_arcade_hud()
 	Game.spawn_started()
-#	get_tree().get_current_scene().spawn_started()
-#	get_tree().get_current_scene().out_of_menu()
-#	get_tree().get_current_scene().connect("reset",m,"reset")
 	var test = get_tree().get_current_scene().connect("reset", m, "reset")
 	if test != 0:
 		print("error Singleton Map Handler connecting map to reset from world gd")
-	
 
-#func add_kid_to_map(_obj):                   <----------------never do this bad idea
-#	call_deferred("_add_kid_to_map",_obj)
 func add_kid_to_map(_obj):
 	if is_instance_valid(map):
 #		Map_Hand.clearing_house.add_child(_obj)
@@ -46,9 +39,11 @@ func clear_map():
 	map.call_deferred("free")
 
 func load_map_cam(_level, _label_1, _label_2, _time, _show):
+#	var m = _level.instance()
 	if _show:
 		Menu_Hand.splash(_label_1, _label_2, _time, true)
-		level = _level
+#		level = _level
+		_load_map_cam(_level)
 #		splash.change_text(_label_1, _label_2)
 #		splash.visible = true
 #		timer_camp.wait_time = _time
@@ -60,15 +55,19 @@ func load_map_cam(_level, _label_1, _label_2, _time, _show):
 
 func _load_map_cam(_level):
 	var m = _level.instance()
+	if map:
+		map.queue_free()
 	map = m
-	get_tree().get_current_scene().add_child(m)
-	get_tree().get_current_scene().map.call_deferred("free")
-	get_tree().get_current_scene().map = m
-#	var e = get_tree().get_current_scene().connect("reset",m,"reset")
-#	if !e:
-#		print("error in map handler _load_map_cam: error connecting reset")
-#	timer.wait_time = _time
-#	timer.start()
+	add_child(m)
+#	Game.spawn_started()
+	var test = get_tree().get_current_scene().connect("reset", m, "reset")
+	if test != 0:
+		print("error Singleton Map Handler connecting (map in cam) to reset from world gd")
+
+	for x in get_tree().get_current_scene().pawns.get_child_count():
+		print(x)
+		pass
+
 	for p in get_tree().get_current_scene().pawns.get_children():
 		p.position = m.player_spawns.get_child(m.next_spawn_spot).position
 		m.next_spawn_spot += 1

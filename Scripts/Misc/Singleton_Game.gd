@@ -36,7 +36,7 @@ func spawn_started():
 
 func set_game_over(_over):
 	over = _over
-	if _over:
+	if over:
 		Map_Hand.clear_map()
 		HUD.game_over()
 		timer.start()

@@ -65,7 +65,7 @@ func coin_count():
 	p8.set_coin_count(Player_Stats.p8["credit"])
 
 func use_credit(_player):
-	pass
+	SFX.play("Blip_05")
 
 func player_ready(_player):
 	if _player == 1: p1.player_ready()
