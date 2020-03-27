@@ -8,5 +8,5 @@ onready var anim = $AnimationPlayer
 func _ready():
 	anim.play("Right-Run")
 
-func _process(delta):
-	pass
+#func _process(delta):
+#	pass

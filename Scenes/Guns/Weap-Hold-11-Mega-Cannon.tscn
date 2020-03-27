@@ -471,7 +471,6 @@ tracks/1/keys = {
 }
 
 [node name="Weap-Hold-11-Mega-Cannon" type="Node2D"]
-scale = Vector2( -1, 1 )
 script = ExtResource( 1 )
 mega_cannon = ExtResource( 2 )
 projectile = ExtResource( 3 )

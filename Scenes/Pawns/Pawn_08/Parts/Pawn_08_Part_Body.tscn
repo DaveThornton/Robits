@@ -23,4 +23,4 @@ frame = 2
 [node name="Pawn_08_Part_Eye" type="Sprite" parent="Pawn_08_Part_Face"]
 texture = ExtResource( 2 )
 hframes = 4
-frame = 3
+frame = 2
