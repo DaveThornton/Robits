@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Scripts/Guns/Weap-Pick-02-Ak-47.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Guns/Weap-02-Pick-Ak-47.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_02-AK47.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 5.0
-height = 15.0
+radius = 2.99997
+height = 12.0001
 
 [node name="Weap-Pick-02-Ak-47" type="RigidBody2D" groups=[
 "FX",
@@ -26,7 +26,6 @@ script = ExtResource( 1 )
 smoke = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 hframes = 2
 

@@ -2,6 +2,7 @@ extends Node2D
 
 onready var camera = $Camera
 onready var static_sprite = $Camera/SpriteStatic
+onready var effect = $Camera/CRT/ColorRect
 
 onready var noise_gen = OpenSimplexNoise.new()
 var noise_y = 0
@@ -30,6 +31,19 @@ func _process(delta):
 		_c_static(delta)
 		
 		trauma = max(trauma - trauma_depletion * delta,0)
+
+func static_on():
+	static_sprite.visible = true
+func static_off():
+	static_sprite.visible = false
+func static_set_amount(_amount):
+	min_c_static = _amount
+#	static_sprite.modulate = Color8(255,255,255,_amount)
+
+func crt_on():
+	effect.visible = true
+func crt_off():
+	effect.visible = false
 
 #TODO ADD all this to effect in FX singlton connect 
 func add_trauma(_amount):

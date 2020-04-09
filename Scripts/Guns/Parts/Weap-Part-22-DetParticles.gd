@@ -3,6 +3,7 @@ extends Node2D
 export(PackedScene) var boom
 
 onready var timer = $Timer
+onready var part = $Particles2D
 
 var player = 0
 var my_name = "Plasma Grenade"
@@ -22,13 +23,19 @@ func init(_player, _time, _started):
 	if _started:
 		timer.start()
 
+func start(_time):
+	timer.wait_time = _time
+	timer.start()
+	part.visible = true
+
 func _on_Timer_timeout():
+	
+
+
 	var dad = get_parent()
 	if dad.get_groups().has("player"):
 		var b = boom.instance()
 		Map_Hand.add_kid_to_map(b)
-#		self.get_tree().get_current_scene().add_child(b)
-	#	b.position = self.global_position
 		b.init(player, self.global_position, my_name, 0, damage)
 	else:
 		emit_signal("explode")

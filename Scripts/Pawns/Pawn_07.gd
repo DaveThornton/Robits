@@ -74,7 +74,6 @@ var can_move = true
 var is_right = true
 var is_down = false
 var on_floor = false
-#var on_wall = false
 var not_on_angle = false
 
 var is_shield_up = false
@@ -90,7 +89,6 @@ var is_holding = false
 var wep_array = []
 var poss_pick_obj
 var knocked_back = Vector2(0, 0)
-#var current_shape
 
 var on_ladder = false
 var over_ladder = false
@@ -242,6 +240,9 @@ func jump(down_input, left_input, right_input):
 	is_jump_pressed = true
 	on_ladder = false
 
+func jump_j():
+	pass
+
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
 		vel.y = -min_air_jump_power
@@ -340,10 +341,8 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 				call_deferred("free")
 			elif nrg < light_on_nrg:
 				pass
-#				light.on()
 			else:
 				pass
-#				light.blink(2)
 
 func change_pos(_pos):
 	self.position = _pos
@@ -384,8 +383,6 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_up_timer.start()
 
 func _body(_num: int):
-#	print("_body not working yet in pawn 07")
-#	pass
 	if _num == 1:
 		body_shape_01.disabled = false
 		body_shape_02.disabled = true
@@ -538,14 +535,6 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			_anim_ladder_right()
 		else:
 			_anim_ladder_left()
-#	if player == 1:
-#		print(new_anim)
-#	if on_wall:
-#		if !not_on_angle:
-#			if shoot_spot == 3:
-#				shoot_spot = 2
-#		else:
-#			shoot_spot = 1
 
 func _anim_idle():
 	_body(2)
@@ -570,27 +559,20 @@ func _anim_run():
 		trax.turn(false)
 		key.turn(false)
 		head.left()
-#		face.play(false)
 		_body(1)
 
 func _anim_jump():
-#	if is_right:
-#		new_anim = "Right-Jump"
-#	else:
-#		new_anim = "Left-Jump"
 	if is_right:
 		new_anim = "Right-Run"
 		trax.turn(true)
 		key.turn(true)
 		head.right()
-#		face.play(true)
 		_body(3)
 	else:
 		new_anim = "Left-Run"
 		trax.turn(false)
 		key.turn(false)
 		head.left()
-#		face.play(false)
 		_body(1)
 
 func _anim_prone_idle():
@@ -600,11 +582,9 @@ func _anim_prone_idle():
 	if is_right:
 		new_anim = "Right-Prone-Idle"
 		head.right()
-#		face.play(true)
 	else:
 		new_anim = "Left-Prone-Idle"
 		head.left()
-#		face.play(false)
 
 func _anim_prone_crawl():
 	_body(4)
@@ -613,24 +593,20 @@ func _anim_prone_crawl():
 		trax.turn(true)
 		key.turn(true)
 		head.right()
-#		face.play(true)
 	else:
 		new_anim = "Left-Prone-Crawl"
 		trax.turn(false)
 		key.turn(false)
 		head.left()
-#		face.play(false)
 
 func _anim_stun():
 	_body(2)
 	if is_right:
 		new_anim = "Right-Stun"
 		head.right()
-#		face.play(true)
 	else:
 		new_anim = "Left-Stun"
 		head.left()
-#		face.play(false)
 
 func _anim_Knock():
 	_body(2)
@@ -647,7 +623,6 @@ func _anim_ladder_move():
 	trax.ladder()
 	key.ladder()
 	head.up()
-#	face.blank()
 
 func _anim_ladder_right():
 	_body(2)
@@ -655,7 +630,6 @@ func _anim_ladder_right():
 	trax.ladder()
 	key.ladder()
 	head.right()
-#	face.play(true)
 
 func _anim_ladder_left():
 	_body(2)
@@ -663,100 +637,19 @@ func _anim_ladder_left():
 	trax.ladder()
 	key.ladder()
 	head.left()
-#	face.play(false)
 
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
-	if player == 1:#Grey
-		key.color(Player_Stats.p1.color_2)
-		key.shield_color(Player_Stats.p1.color_1)
-		trax.color(Player_Stats.p1.color_2)
-		trax.shield_color(Player_Stats.p1.color_1)
-		head.set_head_color(Player_Stats.p1.color_2)
-		head.set_face_color(Player_Stats.p1.color_1)
-		head.set_shield_color(Player_Stats.p1.color_1)
-		shield_sprite.modulate = Player_Stats.p1.color_1
-		body_sprite.modulate = Player_Stats.p1.color_2
-		_body_color = Player_Stats.p1.color_2
-	elif player == 2:#Pink
-		key.color(Player_Stats.p2.color_2)
-		key.shield_color(Player_Stats.p2.color_1)
-		trax.color(Player_Stats.p2.color_2)
-		trax.shield_color(Player_Stats.p2.color_1)
-		head.set_head_color(Player_Stats.p2.color_2)
-		head.set_face_color(Player_Stats.p2.color_1)
-		head.set_shield_color(Player_Stats.p2.color_1)
-		shield_sprite.modulate = Player_Stats.p2.color_1
-		body_sprite.modulate = Player_Stats.p2.color_2
-		_body_color = Player_Stats.p2.color_2
-	elif player == 3:#Red
-		key.color(Player_Stats.p3.color_2)
-		key.shield_color(Player_Stats.p3.color_1)
-		trax.color(Player_Stats.p3.color_2)
-		trax.shield_color(Player_Stats.p3.color_1)
-		head.set_head_color(Player_Stats.p3.color_2)
-		head.set_face_color(Player_Stats.p3.color_1)
-		head.set_shield_color(Player_Stats.p3.color_1)
-		shield_sprite.modulate = Player_Stats.p3.color_1
-		body_sprite.modulate = Player_Stats.p3.color_2
-		_body_color = Player_Stats.p3.color_2
-	elif player == 4:#Blue
-		key.color(Player_Stats.p4.color_2)
-		key.shield_color(Player_Stats.p4.color_1)
-		trax.color(Player_Stats.p4.color_2)
-		trax.shield_color(Player_Stats.p4.color_1)
-		head.set_head_color(Player_Stats.p4.color_2)
-		head.set_face_color(Player_Stats.p4.color_1)
-		head.set_shield_color(Player_Stats.p4.color_1)
-		shield_sprite.modulate = Player_Stats.p4.color_1
-		body_sprite.modulate = Player_Stats.p4.color_2
-		_body_color = Player_Stats.p4.color_2
-	elif player == 5:#Yellow
-		key.color(Player_Stats.p5.color_2)
-		key.shield_color(Player_Stats.p5.color_1)
-		trax.color(Player_Stats.p5.color_2)
-		trax.shield_color(Player_Stats.p5.color_1)
-		head.set_head_color(Player_Stats.p5.color_2)
-		head.set_face_color(Player_Stats.p5.color_1)
-		head.set_shield_color(Player_Stats.p5.color_1)
-		shield_sprite.modulate = Player_Stats.p5.color_1
-		body_sprite.modulate = Player_Stats.p5.color_2
-		_body_color = Player_Stats.p5.color_2
-	elif player == 6:#Purple
-		key.color(Player_Stats.p6.color_2)
-		key.shield_color(Player_Stats.p6.color_1)
-		trax.color(Player_Stats.p6.color_2)
-		trax.shield_color(Player_Stats.p6.color_1)
-		head.set_head_color(Player_Stats.p6.color_2)
-		head.set_face_color(Player_Stats.p6.color_1)
-		head.set_shield_color(Player_Stats.p6.color_1)
-		shield_sprite.modulate = Player_Stats.p6.color_1
-		body_sprite.modulate = Player_Stats.p6.color_2
-		_body_color = Player_Stats.p6.color_2
-	elif player == 7:#Teal
-		key.color(Player_Stats.p7.color_2)
-		key.shield_color(Player_Stats.p7.color_1)
-		trax.color(Player_Stats.p7.color_2)
-		trax.shield_color(Player_Stats.p7.color_1)
-		head.set_head_color(Player_Stats.p7.color_2)
-		head.set_face_color(Player_Stats.p7.color_1)
-		head.set_shield_color(Player_Stats.p7.color_1)
-		shield_sprite.modulate = Player_Stats.p7.color_1
-		body_sprite.modulate = Player_Stats.p7.color_2
-		_body_color = Player_Stats.p7.color_2
-	elif player == 8:#Green
-		key.color(Player_Stats.p8.color_2)
-		key.shield_color(Player_Stats.p8.color_1)
-		trax.color(Player_Stats.p8.color_2)
-		trax.shield_color(Player_Stats.p8.color_1)
-		head.set_head_color(Player_Stats.p8.color_2)
-		head.set_face_color(Player_Stats.p8.color_1)
-		head.set_shield_color(Player_Stats.p8.color_1)
-		shield_sprite.modulate = Player_Stats.p8.color_1
-		body_sprite.modulate = Player_Stats.p8.color_2
-		_body_color = Player_Stats.p8.color_2
-	else:
-		print("error in Pawn 05 setting player color player number invaliid")
+	key.color(Player_Stats.get_body_color(player))
+	key.shield_color(Player_Stats.get_sec_color(player))
+	trax.color(Player_Stats.get_body_color(player))
+	trax.shield_color(Player_Stats.get_sec_color(player))
+	head.set_head_color(Player_Stats.get_body_color(player))
+	head.set_face_color(Player_Stats.get_sec_color(player))
+	head.set_shield_color(Player_Stats.get_sec_color(player))
+	shield_sprite.modulate = Player_Stats.get_sec_color(player)
+	body_sprite.modulate = Player_Stats.get_body_color(player)
+	_body_color = Player_Stats.get_body_color(player)
 
 ##--------------------------------------------------------------------[Time Out]
 
@@ -788,7 +681,6 @@ func _on_Stun_timeout():
 
 func _on_Knock_Back_timeout():
 	knocked_back = Vector2(0, 0)
-
 
 ##-------------------------------------------------------------[The in and outs]
 

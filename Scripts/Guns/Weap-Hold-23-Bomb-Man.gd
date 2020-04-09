@@ -12,7 +12,7 @@ onready var pos_throw = $Pos2D_Throw
 
 #var just_shot = false
 var player = 1
-var gun_num = 20
+var gun_num = 23
 var ammo = 1
 # warning-ignore:unused_class_variable
 var take_ammo = false

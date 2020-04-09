@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Scripts/Guns/Weap-Pick-04-M_16.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Guns/Weap-04-M_16.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_04_M16.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 5.0
-height = 15.0
+radius = 3.99995
+height = 24.0001
 
 [node name="Weap-Pick-04-M_16" type="RigidBody2D" groups=[
 "FX",
@@ -27,13 +27,11 @@ script = ExtResource( 1 )
 smoke = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.0969925, -0.0969887 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 2.16385, -0.630419 )
 texture = ExtResource( 3 )
-hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.01838, 1.89127 )
+position = Vector2( 1.16385, -0.630419 )
 rotation = 1.5708
 shape = SubResource( 2 )
 

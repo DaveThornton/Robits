@@ -2,14 +2,14 @@
 
 [ext_resource path="res://Scripts/Guns/Weap-Pick-03-Sniper.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Guns/Weap-03-Sniper.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_03_Sniper.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 5.0
-height = 15.0
+radius = 3.99992
+height = 28.0002
 
 [node name="Weap-Pick-03-Sniper" type="RigidBody2D" groups=[
 "FX",
@@ -27,9 +27,7 @@ smoke = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.0969925, -0.0969887 )
-scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
-hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

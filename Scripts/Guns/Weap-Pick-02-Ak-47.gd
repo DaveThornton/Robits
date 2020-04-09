@@ -29,6 +29,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 			expire_time = expire_time * .1
 		if _ammo != -1: 
 			ammo = _ammo
+	is_right = _is_right
 	timer.wait_time = expire_time
 	timer.start()
 	time = _time
@@ -49,7 +50,7 @@ func set_dir(_is_right, _dir):
 	is_right = _is_right
 	dir = _dir
 	if _is_right:
-		sprite.frame = 0
+		sprite.scale = Vector2(1.5, 1.5)
 		if _dir == 1:
 			self.rotation_degrees = -85
 		elif _dir == 2:
@@ -61,7 +62,7 @@ func set_dir(_is_right, _dir):
 		elif _dir == 5:
 			self.rotation_degrees = 85
 	else:
-		sprite.frame = 1
+		sprite.scale = Vector2(1.5, -1.5)
 		if _dir == 1:
 			self.rotation_degrees = -95
 		elif _dir == 2:

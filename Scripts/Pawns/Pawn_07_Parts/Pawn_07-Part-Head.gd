@@ -14,7 +14,7 @@ func _ready():
 func play_face(_num):
 	if _num == 0:
 		anim_face.play("Up")
-	if _num == 1:
+	elif _num == 1:
 		anim_face.play("Idle")
 	elif _num == 2:
 		anim_face.play("Off")

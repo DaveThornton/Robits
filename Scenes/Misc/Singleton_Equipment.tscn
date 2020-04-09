@@ -1,17 +1,17 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Equipment.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-02-Ak-47.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-03-Sniper.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-04-M_16.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-10-Blaster_Pistol.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-11-Mega-Cannon.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-20-Grenade.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-21-Nazi-Grenade.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-22-Plasma-Grenade.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-23-Bomb-man.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-40-RPG.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-50-Shot_Gun.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Guns/Hold/W_02-AK47_Hold.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Guns/Hold/W_03-Sniper_Hold.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Guns/Hold/W_04_M16_Hold.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Guns/Hold/W_10_Blaster_Pistol_Hold.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Guns/Hold/W_11_MegaCannon_Hold.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Guns/Hold/W_20_Grenade_Hold.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Guns/Hold/W_21_Nazi_Grenade_Hold.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Guns/Hold/W_22_Plasma_Grenade_Hold.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Guns/Hold/W_23_Bomb_Man_Hold.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Guns/Hold/W_40_RPG_Hold.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Guns/Hold/W_50_ShotGun_hold.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Guns/Weap-Hold-60-Axe.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Guns/Weap-Hold-61-Sword.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Guns/Weap-Hold-80-Leaf_Blower.tscn" type="PackedScene" id=15]
@@ -28,8 +28,11 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Pawn_05.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Pawns/Pawn_06/Pawn_06.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Pawns/Pawn_07/Pawn_07.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Pawns/Pawn_08/Pawn_08.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/Pawns/Pawn_09/Pawn_09.tscn" type="PackedScene" id=30]
 
 [node name="Equipment" type="Node2D"]
+position = Vector2( 1000, 131 )
 script = ExtResource( 1 )
 gun_hold_02 = ExtResource( 2 )
 gun_hold_03 = ExtResource( 3 )
@@ -58,8 +61,8 @@ pawn_04 = ExtResource( 25 )
 pawn_05 = ExtResource( 26 )
 pawn_06 = ExtResource( 27 )
 pawn_07 = ExtResource( 28 )
-pawn_08 = ExtResource( 25 )
-pawn_09 = ExtResource( 22 )
+pawn_08 = ExtResource( 29 )
+pawn_09 = ExtResource( 30 )
 pawn_10 = ExtResource( 23 )
 pawn_11 = ExtResource( 24 )
 pawn_12 = ExtResource( 25 )

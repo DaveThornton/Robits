@@ -57,6 +57,42 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Shield:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3, -9 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Head:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3, -9 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Face:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3, -9 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Right"
@@ -109,6 +145,42 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Head:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, -9 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Face:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, -9 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Shield:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3, -9 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -270,16 +342,19 @@ script = ExtResource( 3 )
 
 [node name="Shield" type="Sprite" parent="."]
 visible = false
+position = Vector2( 3, -9 )
 texture = ExtResource( 4 )
 hframes = 8
 
 [node name="Head" type="Sprite" parent="."]
 modulate = Color( 0.619608, 0.619608, 0.619608, 1 )
+position = Vector2( 3, -9 )
 texture = ExtResource( 1 )
 hframes = 3
 
 [node name="Face" type="Sprite" parent="."]
 modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 3, -9 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 8

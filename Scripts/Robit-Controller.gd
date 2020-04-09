@@ -209,6 +209,8 @@ func _process(delta):
 						my_pawn.is_right = false
 					if !left_input && !right_input:
 						my_pawn.move_x(false, false)
+					if jump_input_j:
+						my_pawn.jump_j()
 					if jump_input:
 						my_pawn.jump(down_input, left_input, right_input)
 					if jump_input_r:
@@ -264,6 +266,10 @@ func _spawn_spot():# set up for map handler singleton
 
 func _on_RespawnTimer_timeout():
 	spawn_pawn()
+
+func get_pawn():
+	if my_pawn:
+		return my_pawn
 
 func reset():
 	print("reset called in controller")

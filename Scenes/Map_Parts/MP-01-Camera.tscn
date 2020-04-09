@@ -63,7 +63,7 @@
 [ext_resource path="res://Sprites/FX/Static/Real/scene00042.png" type="Texture" id=61]
 [ext_resource path="res://Sprites/FX/Static/Real/scene00006.png" type="Texture" id=62]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 12 ) ],
 "loop": true,
@@ -109,9 +109,9 @@ position = Vector2( 1130, 4.84288e-08 )
 texture = ExtResource( 4 )
 
 [node name="SpriteStatic" type="AnimatedSprite" parent="Camera"]
-modulate = Color( 1, 1, 1, 0.0392157 )
-frames = SubResource( 2 )
+modulate = Color( 1, 1, 1, 0.0196078 )
+frames = SubResource( 1 )
 animation = "Real"
-frame = 5
+frame = 4
 speed_scale = 7.0
 playing = true

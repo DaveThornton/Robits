@@ -251,7 +251,7 @@ tracks/9/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 resource_name = "Up"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Head:frame")
@@ -266,8 +266,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Idle"
+[sub_resource type="Animation" id=11]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Face:frame")
@@ -282,8 +281,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Off"
+[sub_resource type="Animation" id=12]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Face:frame")
@@ -298,8 +296,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Pulse"
+[sub_resource type="Animation" id=13]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -315,8 +312,7 @@ tracks/0/keys = {
 "values": [ 1, 0 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Rotate"
+[sub_resource type="Animation" id=14]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -332,8 +328,7 @@ tracks/0/keys = {
 "values": [ 4, 5, 6 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Stun"
+[sub_resource type="Animation" id=15]
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Face:frame")
@@ -348,8 +343,7 @@ tracks/0/keys = {
 "values": [ 2, 3, 0, 11, 12, 1, 7, 0 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Up"
+[sub_resource type="Animation" id=9]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Face:frame")
@@ -386,12 +380,12 @@ frame = 2
 [node name="AnimationPlayer_Head" type="AnimationPlayer" parent="."]
 anims/Left = SubResource( 1 )
 anims/Right = SubResource( 2 )
-anims/Up = SubResource( 9 )
+anims/Up = SubResource( 10 )
 
 [node name="AnimationPlayer_Face" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 3 )
-anims/Off = SubResource( 4 )
-anims/Pulse = SubResource( 5 )
-anims/Rotate = SubResource( 6 )
-anims/Stun = SubResource( 7 )
-anims/Up = SubResource( 8 )
+anims/Idle = SubResource( 11 )
+anims/Off = SubResource( 12 )
+anims/Pulse = SubResource( 13 )
+anims/Rotate = SubResource( 14 )
+anims/Stun = SubResource( 15 )
+anims/Up = SubResource( 9 )

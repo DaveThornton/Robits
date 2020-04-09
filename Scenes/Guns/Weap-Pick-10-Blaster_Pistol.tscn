@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Guns/Weap-Pick-10-Blaster_Pistol.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Guns/Weap-10-Blaster_Pistol.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_10_BlasterPistol.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.2
@@ -12,8 +12,8 @@ radius = 6.0
 height = 5.0
 
 [node name="Weap-Pick-10-Blaster_Pistol" type="RigidBody2D" groups=[
-"PickUp",
 "FX",
+"PickUp",
 ]]
 collision_layer = 524288
 collision_mask = 917534
@@ -29,7 +29,7 @@ smoke = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
-hframes = 4
+hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

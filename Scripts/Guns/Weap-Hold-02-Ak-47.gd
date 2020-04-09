@@ -6,6 +6,7 @@ export(PackedScene) var shell
 
 onready var anim_pos = $Anim_Player_Pos
 onready var anim_fire = $Anim_Player_Shoot
+onready var anim_pawn = $Anim_Pawn
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
 onready var shoot_cast = $Pos2D_Walk/RayCast2D
@@ -14,9 +15,11 @@ onready var pos_shoot = $Pos2D_Walk/Pos2D_Shoot
 onready var pos_shell = $Pos2D_Walk/Pos2D_Shell
 onready var pos_walk = $Pos2D_Walk
 onready var pos_throw = $Pos2D_Throw
+onready var arm = $Pos2D_Walk/Arm
 #onready var sfx = $SFX_Lib
 
 var player = 1
+var pawn = 0
 #warning-ignore:unused_class_variable
 var gun_num = 2
 var ammo = 30
@@ -52,7 +55,17 @@ func _ready():
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
+	set_arm_color()
+	pawn = Player_Stats.get_pawn_num(player)
 	emit_signal("ammo_change",player,ammo)
+
+	print(pawn)
+	if pawn == 8:
+		anim_pawn.play("Test")
+#	elif pawn == 1:
+	else:
+		anim_pawn.play("Pawn_01")
+	
 #	if test3 :
 #		print("hold ak47 init error on ammo change")
 
@@ -74,6 +87,8 @@ func shoot_j():
 	pass
 
 func shoot():
+	print(position)
+	print(global_position)
 	if can_shoot:
 		if melee_cast.is_colliding() && shoot_pos == 3:
 			melee()
@@ -227,6 +242,9 @@ func _set_anim():
 			new_anim = "Left-Down"
 		if shoot_pos == 5:
 			new_anim = "Down-Left"
+
+func set_arm_color():
+	arm.self_modulate = Player_Stats.get_body_color(player)
 
 func _on_Shoot_Timer_timeout():
 	can_shoot = true

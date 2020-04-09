@@ -34,7 +34,8 @@ var change_shoot_pos = true
 var is_right = true
 var just_shot = false
 var time = 4.0
-var walk = 22
+var walk = 0.0
+var walk_amount = 12.0
 var pawn
 
 signal ammo_change(player, ammo)
@@ -44,7 +45,7 @@ func _ready():
 	my_name = my_name
 	gun_num = gun_num
 	time = time
-	pawn = get_parent().get_parent()
+	pawn = Controllers.get_pawn(player)
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 50 Shot Gun")
@@ -55,6 +56,7 @@ func _ready():
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
+	pawn = Controllers.get_pawn(player)
 	emit_signal("ammo_change",player,ammo)
 	just_shot = _just_shot
 
@@ -107,7 +109,7 @@ func shoot_j():
 				emit_signal("ammo_change",player,ammo)
 				Player_Stats.add_shot(player, 1)
 #				emit_signal("shot", player)
-				pawn.knock_back(500, .2)
+				pawn.knock_back(50, .05)
 				pos_walk.rotation_degrees -= walk
 		else:
 			anim_fire.play("Pump")

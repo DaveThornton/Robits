@@ -2,6 +2,7 @@ extends Node2D
 
 onready var anim = $AnimationPlayer
 onready var hip = $Hip
+onready var sec = $Pawn_08_Part_Hip_Sec
 
 func turn(right:bool):
 	if right:
@@ -12,5 +13,6 @@ func turn(right:bool):
 func stop():
 	anim.stop(false)
 
-func color(_color):
-	hip.self_modulate = _color
+func color(_color_main, _color_sec):
+	hip.self_modulate = _color_main
+	sec.self_modulate = _color_sec

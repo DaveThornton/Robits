@@ -1953,7 +1953,6 @@ visible = false
 polygon = PoolVector2Array( 3, -25, 12, 2, 10, 8, -8, 8, -14, 0, -14, -31 )
 
 [node name="Shape_Stand" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PoolVector2Array( 8, -31, 14, 2, 8, 8, -8, 8, -14, 2, -7, -31 )
 
 [node name="Shape_Right" type="CollisionPolygon2D" parent="."]

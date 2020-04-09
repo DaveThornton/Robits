@@ -17,6 +17,7 @@ onready var pos_shoot = $Pos2D_Walk/Pos2D_Shoot
 
 
 var player = 1
+var pawn = 0
 var gun_num = 2
 var ammo = 3
 var ammo_max = 9

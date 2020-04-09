@@ -1,12 +1,14 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Scripts/Guns/Weap-Hold-40-RPG.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-40-RPG.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Projectiles/Proj-40-RPG.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/Guns/Weap-40-RPG.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Guns/Weap-Hold-50-Shot_Gun.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-50-Shot_Gun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Projectiles/Proj-50-Shot_Gun_Main.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Projectiles/Shell-03-Shot_Gun.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Guns/Weap-50-Shot_Gun.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/FX/shot-right-01.png" type="Texture" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 10.7613
+radius = 12.0416
 
 [sub_resource type="Animation" id=2]
 tracks/0/type = "value"
@@ -19,7 +21,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -90.0 ]
+"values": [ -85.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:scale")
@@ -43,7 +45,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 55, -2 ) ]
+"values": [ Vector2( 55, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -57,7 +59,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 90.0 ]
+"values": [ 85.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:scale")
@@ -81,7 +83,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 55, -2 ) ]
+"values": [ Vector2( 55, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -119,7 +121,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 21, -2 ) ]
+"values": [ Vector2( 20, 0 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -157,7 +159,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 30, -2 ) ]
+"values": [ Vector2( 30, 0 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -195,7 +197,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 35, -2 ) ]
+"values": [ Vector2( 35, 0 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -233,7 +235,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 21, -2 ) ]
+"values": [ Vector2( 20, 0 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -271,7 +273,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 30, -2 ) ]
+"values": [ Vector2( 30, 0 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -309,7 +311,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 35, -2 ) ]
+"values": [ Vector2( 35, 0 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -323,7 +325,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 90.0 ]
+"values": [ 85.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:scale")
@@ -347,7 +349,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 40, -2 ) ]
+"values": [ Vector2( 40, 0 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -361,7 +363,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -90.0 ]
+"values": [ -85.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:scale")
@@ -385,97 +387,156 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 40, -2 ) ]
+"values": [ Vector2( 40, 0 ) ]
 }
 
 [sub_resource type="Animation" id=12]
-resource_name = "Melee"
-length = 0.4
-step = 0.05
+length = 0.13
+step = 0.03
 tracks/0/type = "value"
-tracks/0/path = NodePath("Pos2D_Walk/Sprite_Gun:position")
+tracks/0/path = NodePath("Pos2D_Walk/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 4, 0 ), Vector2( 8, 0 ), Vector2( 16, 0 ), Vector2( 20, 0 ), Vector2( 0, 0 ) ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Pos2D_Walk/Sprite_Gun:rotation_degrees")
+tracks/1/path = NodePath("Pos2D_Walk/Sprite2:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, -60.0, 0.0 ]
+"times": PoolRealArray( 0, 0.03, 0.06, 0.09, 0.12 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 4, 3, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Melee"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pos2D_Walk/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4, 3, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pos2D_Walk/Sprite2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pos2D_Walk/Melee_Area2D/CollisionShape2D:disabled")
+tracks/2/path = NodePath("Pos2D_Walk/Area2D/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3 ),
+"times": PoolRealArray( 0, 0.05, 0.35 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
 }
 
-[node name="Weap-Hold-40-RPG" type="Node2D"]
-rotation = -1.5708
+[sub_resource type="Animation" id=14]
+resource_name = "Pump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pos2D_Walk/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 1, 0 ]
+}
+
+[node name="Weap-Hold-50-Shot_Gun" type="Node2D"]
 script = ExtResource( 1 )
-RPG_Pickup = ExtResource( 2 )
+shot_gun_Pickup = ExtResource( 2 )
 projectile = ExtResource( 3 )
-
-[node name="Pos2D_Walk" type="Position2D" parent="."]
-
-[node name="Sprite_Gun" type="Sprite" parent="Pos2D_Walk"]
-texture = ExtResource( 4 )
-hframes = 5
-frame = 2
-
-[node name="Sprite_Fire" type="Sprite" parent="Pos2D_Walk"]
-position = Vector2( -22.4295, -2.03905 )
-hframes = 14
-
-[node name="RayCast2D" type="RayCast2D" parent="Pos2D_Walk"]
-position = Vector2( 35, -1.5 )
-cast_to = Vector2( 10, 0 )
-collision_mask = 2570
-
-[node name="Melee_Cast" type="RayCast2D" parent="Pos2D_Walk"]
-position = Vector2( 15, 0 )
-enabled = true
-cast_to = Vector2( 21, 0 )
-collision_mask = 2570
-
-[node name="Pos2D_Shoot" type="Position2D" parent="Pos2D_Walk"]
-position = Vector2( 36, -2 )
-
-[node name="Melee_Area2D" type="Area2D" parent="Pos2D_Walk"]
-collision_layer = 512
-collision_mask = 512
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pos2D_Walk/Melee_Area2D"]
-position = Vector2( 25, -1 )
-shape = SubResource( 1 )
-disabled = true
+shell = ExtResource( 4 )
 
 [node name="Shoot_Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Pump_Timer" type="Timer" parent="."]
+wait_time = 0.4
 one_shot = true
 
 [node name="Melee_Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.3
 
-[node name="Anim_Pos" type="AnimationPlayer" parent="."]
+[node name="Pos2D_Walk" type="Position2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Pos2D_Walk"]
+position = Vector2( 16, 0 )
+texture = ExtResource( 5 )
+vframes = 2
+hframes = 4
+
+[node name="RayCast2D" type="RayCast2D" parent="Pos2D_Walk"]
+visible = false
+position = Vector2( 32, -3 )
+enabled = true
+cast_to = Vector2( 25, 0 )
+collision_mask = 2570
+
+[node name="RayCast2D_Melee" type="RayCast2D" parent="Pos2D_Walk"]
+visible = false
+position = Vector2( 14, 0 )
+enabled = true
+cast_to = Vector2( 24, 0 )
+collision_mask = 2570
+
+[node name="Pos2D_Shell" type="Position2D" parent="Pos2D_Walk"]
+position = Vector2( 10, -3 )
+
+[node name="Sprite2" type="Sprite" parent="Pos2D_Walk"]
+position = Vector2( 40, -3 )
+texture = ExtResource( 6 )
+hframes = 5
+
+[node name="Area2D" type="Area2D" parent="Pos2D_Walk"]
+visible = false
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pos2D_Walk/Area2D"]
+position = Vector2( 26, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Pos2D_Shoot" type="Position2D" parent="Pos2D_Walk"]
+visible = false
+position = Vector2( 35, -3 )
+
+[node name="Anim_Player_Pos" type="AnimationPlayer" parent="."]
 anims/Down-Left = SubResource( 2 )
 anims/Down-Right = SubResource( 3 )
 anims/Left = SubResource( 4 )
@@ -487,11 +548,14 @@ anims/Right-Up = SubResource( 9 )
 anims/Up-Left = SubResource( 10 )
 anims/Up-Right = SubResource( 11 )
 
-[node name="Anim_Shoot" type="AnimationPlayer" parent="."]
-anims/Melee = SubResource( 12 )
+[node name="Anim_Player_Shoot" type="AnimationPlayer" parent="."]
+anims/Fire = SubResource( 12 )
+anims/Melee = SubResource( 13 )
+anims/Pump = SubResource( 14 )
 
 [node name="Pos2D_Throw" type="Position2D" parent="."]
-position = Vector2( 40, -2 )
-[connection signal="body_entered" from="Pos2D_Walk/Melee_Area2D" to="." method="_on_Melee_Area2D_body_entered"]
+position = Vector2( 20, 0 )
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
-[connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]
+[connection signal="timeout" from="Pump_Timer" to="." method="_on_Pump_Timer_timeout"]
+[connection signal="timeout" from="Melee_Timer" to="." method="_on_Shoot_Timer_timeout"]
+[connection signal="body_entered" from="Pos2D_Walk/Area2D" to="." method="_on_Area2D_body_entered"]

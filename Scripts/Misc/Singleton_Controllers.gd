@@ -38,3 +38,21 @@ func spawn_player_contoller(player_num, _auto_respawn):
 	elif player_num == 8:
 		p8 = z
 	z.init(player_num)#, _auto_respawn, Game.mode, play_type)
+
+func get_pawn(_player: int):
+	if _player == 1:
+		return p1.get_pawn()
+	elif _player == 2:
+		return p2.get_pawn()
+	elif _player == 3:
+		return p3.get_pawn()
+	elif _player == 4:
+		return p4.get_pawn()
+	elif _player == 5:
+		return p5.get_pawn()
+	elif _player == 6:
+		return p6.get_pawn()
+	elif _player == 7:
+		return p7.get_pawn()
+	elif _player == 8:
+		return p8.get_pawn()

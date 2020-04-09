@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Guns/Parts/Weap-Part-22-DetParticles.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Explosions/Ex-10-Directional-Basic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/Weap-22-Plasma-Grenade.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/FX/22-plasma-cloud.png" type="Texture" id=4]
 
@@ -23,12 +23,13 @@ linear_accel_random = 0.18
 scale = 1.5
 color = Color( 0.34902, 0.368627, 0.992157, 1 )
 
-[node name="22-plasma-det" type="Node2D"]
+[node name="22_plasma_det" type="Node2D"]
 material = SubResource( 1 )
 script = ExtResource( 1 )
 boom = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 hframes = 4
@@ -38,6 +39,7 @@ frame = 1
 one_shot = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
+visible = false
 amount = 100
 local_coords = false
 process_material = SubResource( 2 )

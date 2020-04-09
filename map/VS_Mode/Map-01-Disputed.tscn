@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -23,7 +23,14 @@
 [ext_resource path="res://Scenes/Guns/Weap-Pick-02-Ak-47.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Pawns/Pawn_08/Pawn_08.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-11-Mega-Cannon.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-10-Blaster_Pistol.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-03-Sniper.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-50-Shot_Gun.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-20-Grenade.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-21-Nazi-Grenade.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-23-Bomb-Man.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-22-Plasma-Grenade.tscn" type="PackedScene" id=31]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -138,13 +145,13 @@ __meta__ = {
 position = Vector2( 740, 195 )
 
 [node name="Position2D2" type="Position2D" parent="Player_spawns"]
-position = Vector2( 910, 199.9 )
+position = Vector2( 937.207, 277.441 )
 
 [node name="Position2D3" type="Position2D" parent="Player_spawns"]
 position = Vector2( 1760, 210 )
 
 [node name="Position2D7" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1100, 210 )
+position = Vector2( 1128.57, 264.415 )
 
 [node name="Position2D6" type="Position2D" parent="Player_spawns"]
 position = Vector2( 390, 199.9 )
@@ -162,7 +169,7 @@ position = Vector2( 220, 200 )
 position = Vector2( 1620, 210 )
 
 [node name="Position2D10" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1290, 210 )
+position = Vector2( 1262.79, 275.298 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
@@ -263,7 +270,34 @@ body_1 = ExtResource( 19 )
 position = Vector2( 1690, 620 )
 
 [node name="Weap-Pick-02-Ak-47" parent="." instance=ExtResource( 21 )]
-position = Vector2( 1030, 270 )
+position = Vector2( 987.812, 152.899 )
 
-[node name="Pawn_08" parent="." instance=ExtResource( 24 )]
-position = Vector2( 1076.36, 296.869 )
+[node name="Weap-Pick-11-Mega-Cannon" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1596.01, 421.65 )
+
+[node name="Weap-Pick-40-RPG" parent="." instance=ExtResource( 19 )]
+position = Vector2( 1653.5, 420.622 )
+
+[node name="Weap-Pick-10-Blaster_Pistol" parent="." instance=ExtResource( 25 )]
+position = Vector2( 1428.87, 239.761 )
+
+[node name="Weap-Pick-04-M_16" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1427.12, 173.706 )
+
+[node name="Weap-Pick-03-Sniper" parent="." instance=ExtResource( 26 )]
+position = Vector2( 1568.36, 209.375 )
+
+[node name="Weap-Pick-50-Shot_Gun" parent="." instance=ExtResource( 27 )]
+position = Vector2( 1732.46, 323.149 )
+
+[node name="Weap-Pick-20-Grenade" parent="." instance=ExtResource( 28 )]
+position = Vector2( 1681.61, 130.817 )
+
+[node name="Weap-Pick-21-Nazi-Grenade" parent="." instance=ExtResource( 29 )]
+position = Vector2( 1723.35, 129.291 )
+
+[node name="Weap-Pick-23-Bomb-Man" parent="." instance=ExtResource( 30 )]
+position = Vector2( 917.4, 383.2 )
+
+[node name="Weap-Pick-22-Plasma-Grenade" parent="." instance=ExtResource( 31 )]
+position = Vector2( 1011.8, 260.943 )

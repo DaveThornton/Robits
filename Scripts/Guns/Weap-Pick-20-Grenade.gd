@@ -16,7 +16,7 @@ onready var label= $"FX-21-Timer_Label"
 var player = 0
 var my_name = "Grenade"
 var damage = 100
-var time = 3.0
+var time = 5.0
 var gun_num = 20
 var ammo = 1
 var is_right = false
@@ -40,7 +40,7 @@ func _process(delta):
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
-	print("time left: ",_time," in ", my_name)
+#	print("time left: ",_time," in ", my_name)
 	player = _player
 	if _ammo == 0:
 		ammo = 0

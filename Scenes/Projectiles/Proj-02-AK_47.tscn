@@ -7,7 +7,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.39871
-height = 23.3694
+height = 11.2026
 
 [node name="Projectile" type="Area2D" groups=[
 "projectile",
@@ -20,12 +20,12 @@ hit_anim_map = ExtResource( 2 )
 hit_anim_move = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 7, -1.36295e-006 )
+position = Vector2( 0, -5.68434e-13 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 4.98911, 0.00801982 )
+position = Vector2( 9.53674e-07, 0 )
 scale = Vector2( 2.35699, 0.483344 )
 texture = ExtResource( 4 )
 hframes = 12

@@ -16,7 +16,7 @@ var gun_num = 22
 var ammo = 1
 # warning-ignore:unused_class_variable
 var take_ammo = false
-var armed = false
+#var armed = false
 var my_name = "Plasma Grenade"
 var new_anim = "Un_pos"
 var old_anim = "Un_pos"
@@ -71,7 +71,7 @@ func shoot():
 func shoot_r():
 	if can_shoot:
 		if ammo > 0:
-			armed = true
+#			armed = true
 			var p = pin.instance()
 			Map_Hand.add_kid_to_map(p)
 #			get_tree().get_current_scene().add_child(p)

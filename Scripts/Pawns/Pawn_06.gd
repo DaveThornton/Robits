@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-onready var gun_pos = $POS_Gun
+onready var arm_pos = $POS_Arm
+onready var gun_pos = $POS_Arm/POS_Gun
 
 onready var body_shape_01 = $Shape_Left
 onready var body_shape_02 = $Shape_Stand
@@ -13,7 +14,6 @@ onready var hover = $Pawn_06_Part_Hover
 onready var hover_part = $Pawn_06_Part_Hover/CPUParticles2D
 
 onready var body_sprite = $Body_Sprite
-#onready var key_sprite = $Pawn_05_Part_Key/Sprite
 onready var shield_sprite = $Shield_Sprite
 
 onready var knockback_timer = $Timers/Knock_Back
@@ -83,9 +83,7 @@ var can_move = true
 var is_right = true
 var is_down = false
 var on_floor = false
-#var on_wall = false
 var going_up = false
-#var on_m_plat = false
 var not_on_angle = false
 
 var is_shield_up = false
@@ -101,7 +99,6 @@ var is_holding = false
 var wep_array = []
 var poss_pick_obj
 var knocked_back = Vector2(0, 0)
-#var current_shape
 
 var on_ladder = false
 var over_ladder = false
@@ -122,9 +119,6 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
 	play_type = _play_type
 	_set_color()
-#	start_equiped = _start_equiped
-#	if start_equiped > 0:
-#		equip_start_weap()
 	change_pos(_pos)
 	nrg_update()
 
@@ -136,6 +130,7 @@ func _process(delta):
 		on_ladder = false
 	_is_on_floor()
 	_test_headroom()
+	_set_gun_dir()
 	if on_floor:
 		air_jump_count = 0
 	if new_anim != last_anim:
@@ -160,19 +155,16 @@ func _process(delta):
 			head.set_head_color(_hit_color_01)
 			body_sprite.self_modulate = _hit_color_01
 			key.color(_hit_color_01)
-#			key_sprite.self_modulate = _hit_color_01
 		elif _hit_time > 0.05:
 			_hit_time -= delta
 			head.set_head_color(_hit_color_02)
 			body_sprite.self_modulate = _hit_color_02
 			key.color(_hit_color_02)
-#			key_sprite.self_modulate = _hit_color_02
 		elif _hit_time > 0:
 			_hit_time -= delta
 			head.set_head_color(_hit_color_01)
 			body_sprite.self_modulate = _hit_color_01
 			key.color(_hit_color_01)
-#			key_sprite.self_modulate = _hit_color_01
 		else:
 			head.set_head_color(_body_color)
 			body_sprite.self_modulate = _body_color
@@ -273,6 +265,9 @@ func jump(down_input, left_input, right_input):
 	is_jump_pressed = true
 	on_ladder = false
 
+func jump_j():
+	pass
+
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
 		vel.y = -min_air_jump_power
@@ -366,10 +361,8 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 				call_deferred("free")
 			elif nrg < light_on_nrg:
 				print("do something with less nrg in pawn 06 hit")
-#				light.on()
 			else:
 				print("do something with less nrg in pawn 06 hit")
-#				light.blink(2)
 
 func change_pos(_pos):
 	self.position = _pos
@@ -411,7 +404,6 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 
 func _body(_num: int):
 	call_deferred("_body_",_num)
-
 func _body_(_num: int):
 	if _num == 1:
 		body_shape_01.disabled = false
@@ -459,6 +451,7 @@ func stun(_gun_num):
 	let_go()
 
 func knock_back(_amount, _time):
+	knockback_timer.wait_time = _time
 	knockback_timer.start()
 	if is_right:
 		if shoot_spot == 1:
@@ -569,13 +562,6 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 		else:
 			_anim_ladder_left()
 
-#	if on_wall:
-#		if !not_on_angle:
-#			if shoot_spot == 3:
-#				shoot_spot = 2
-#		else:
-#			shoot_spot = 1
-
 func _anim_idle():
 	_body(2)
 	key.stop()
@@ -602,10 +588,6 @@ func _anim_run():
 		_body(1)
 
 func _anim_jump():
-#	if is_right:
-#		new_anim = "Right-Jump"
-#	else:
-#		new_anim = "Left-Jump"
 	if is_right:
 		head.right()
 		new_anim = "Right-Run"
@@ -677,90 +659,57 @@ func _anim_ladder_left():
 	new_anim = "Ladder-Left"
 	key.ladder()
 
+func _set_gun_dir():
+	if is_right:
+		arm_pos.scale.x = 1
+		if shoot_spot == 3 || shoot_spot == 6:
+			arm_pos.rotation_degrees = 0
+			head.rotation_degrees = 0
+		elif shoot_spot == 1:
+			arm_pos.rotation_degrees = -85
+			head.rotation_degrees = -85
+		elif shoot_spot == 2:
+			arm_pos.rotation_degrees = -45
+			head.rotation_degrees =-45
+		elif shoot_spot == 4:
+			arm_pos.rotation_degrees = 35
+			head.rotation_degrees = 35
+		elif shoot_spot == 5:
+			arm_pos.rotation_degrees = 85
+			head.rotation_degrees = 85
+		if my_gun:
+			arm_pos.rotation_degrees -= my_gun.walk
+	else:
+		arm_pos.scale.x = -1
+		if shoot_spot == 3 || shoot_spot == 6:
+			arm_pos.rotation_degrees = 0
+			head.rotation_degrees = 0
+		elif shoot_spot == 1:
+			arm_pos.rotation_degrees = 85
+			head.rotation_degrees = 85
+		elif shoot_spot == 2:
+			arm_pos.rotation_degrees = 45
+			head.rotation_degrees = 45
+		elif shoot_spot == 4:
+			arm_pos.rotation_degrees = -35
+			head.rotation_degrees = -35
+		elif shoot_spot == 5:
+			arm_pos.rotation_degrees = -85
+			head.rotation_degrees = -85
+		if my_gun:
+			arm_pos.rotation_degrees += my_gun.walk
+
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
-	if player == 1:#Grey
-		head.set_head_color(Player_Stats.p1.color_2)
-		head.set_face_color(Player_Stats.p1.color_1)
-		head.set_shield_color(Player_Stats.p1.color_1)
-		hover.modulate = Player_Stats.p1.color_1
-		key.color(Player_Stats.p1.color_2)
-#		key_sprite.self_modulate = Player_Stats.p1.color_2
-		shield_sprite.self_modulate = Player_Stats.p1.color_1
-		body_sprite.self_modulate = Player_Stats.p1.color_2
-		_body_color = Player_Stats.p1.color_2
-	elif player == 2:#Pink
-		head.set_head_color(Player_Stats.p2.color_2)
-		head.set_face_color(Player_Stats.p2.color_1)
-		head.set_shield_color(Player_Stats.p2.color_1)
-		hover.modulate = Player_Stats.p2.color_1
-		key.color(Player_Stats.p2.color_2)
-#		key_sprite.self_modulate = Player_Stats.p2.color_2
-		shield_sprite.self_modulate = Player_Stats.p2.color_1
-		body_sprite.self_modulate = Player_Stats.p2.color_2
-		_body_color = Player_Stats.p2.color_2
-	elif player == 3:#Red
-		head.set_head_color(Player_Stats.p3.color_2)
-		head.set_face_color(Player_Stats.p3.color_1)
-		head.set_shield_color(Player_Stats.p3.color_1)
-		hover.modulate = Player_Stats.p3.color_1
-		key.color(Player_Stats.p3.color_2)
-#		key_sprite.self_modulate = Player_Stats.p3.color_2
-		shield_sprite.self_modulate = Player_Stats.p3.color_1
-		body_sprite.self_modulate = Player_Stats.p3.color_2
-		_body_color = Player_Stats.p3.color_2
-	elif player == 4:#Blue
-		head.set_head_color(Player_Stats.p4.color_2)
-		head.set_face_color(Player_Stats.p4.color_1)
-		head.set_shield_color(Player_Stats.p4.color_1)
-		hover.modulate = Player_Stats.p4.color_1
-		key.color(Player_Stats.p4.color_2)
-#		key_sprite.self_modulate = Player_Stats.p4.color_2
-		shield_sprite.self_modulate = Player_Stats.p4.color_1
-		body_sprite.self_modulate = Player_Stats.p4.color_2
-		_body_color = Player_Stats.p4.color_2
-	elif player == 5:#Yellow
-		head.set_head_color(Player_Stats.p5.color_2)
-		head.set_face_color(Player_Stats.p5.color_1)
-		head.set_shield_color(Player_Stats.p5.color_1)
-		hover.modulate = Player_Stats.p5.color_1
-		key.color(Player_Stats.p5.color_2)
-#		key_sprite.self_modulate = Player_Stats.p5.color_2
-		shield_sprite.self_modulate = Player_Stats.p5.color_1
-		body_sprite.self_modulate = Player_Stats.p5.color_2
-		_body_color = Player_Stats.p5.color_2
-	elif player == 6:#Purple
-		head.set_head_color(Player_Stats.p6.color_2)
-		head.set_face_color(Player_Stats.p6.color_1)
-		head.set_shield_color(Player_Stats.p6.color_1)
-		hover.modulate = Player_Stats.p6.color_1
-		key.color(Player_Stats.p6.color_2)
-#		key_sprite.self_modulate = Player_Stats.p6.color_2
-		shield_sprite.self_modulate = Player_Stats.p6.color_1
-		body_sprite.self_modulate = Player_Stats.p6.color_2
-		_body_color = Player_Stats.p6.color_2
-	elif player == 7:#Teal
-		head.set_head_color(Player_Stats.p7.color_2)
-		head.set_face_color(Player_Stats.p7.color_1)
-		head.set_shield_color(Player_Stats.p7.color_1)
-		hover.modulate = Player_Stats.p7.color_1
-		key.color(Player_Stats.p7.color_2)
-#		key_sprite.self_modulate = Player_Stats.p7.color_2
-		shield_sprite.self_modulate = Player_Stats.p7.color_1
-		body_sprite.self_modulate = Player_Stats.p7.color_2
-		_body_color = Player_Stats.p7.color_2
-	elif player == 8:#Green
-		head.set_head_color(Player_Stats.p8.color_2)
-		head.set_face_color(Player_Stats.p8.color_1)
-		head.set_shield_color(Player_Stats.p8.color_1)
-		hover.modulate = Player_Stats.p8.color_1
-		key.color(Player_Stats.p8.color_2)
-#		key_sprite.self_modulate = Player_Stats.p8.color_2
-		shield_sprite.self_modulate = Player_Stats.p8.color_1
-		body_sprite.self_modulate = Player_Stats.p8.color_2
-		_body_color = Player_Stats.p8.color_2
-	else:
-		print("error in Pawn 05 setting player color player number invaliid")
+		head.set_head_color(Player_Stats.get_body_color(player))
+		head.set_face_color(Player_Stats.get_sec_color(player))
+		head.set_shield_color(Player_Stats.get_sec_color(player))
+		hover.modulate = Player_Stats.get_sec_color(player)
+		key.color(Player_Stats.get_body_color(player))
+		shield_sprite.self_modulate = Player_Stats.get_sec_color(player)
+		body_sprite.self_modulate = Player_Stats.get_body_color(player)
+		arm_pos.self_modulate = Player_Stats.get_body_color(player)
+		_body_color = Player_Stats.get_body_color(player)
 
 ##--------------------------------------------------------------------[Time Out]
 

@@ -87,6 +87,7 @@ offset = Vector2( 960, 540 )
 transform = Transform2D( 1, 0, 0, 1, 960, 540 )
 
 [node name="ColorRect" type="ColorRect" parent="CRT"]
+visible = false
 material = ExtResource( 2 )
 anchor_right = 1.0
 margin_left = -960.0
@@ -106,9 +107,9 @@ position = Vector2( 1130, 4.84288e-08 )
 texture = ExtResource( 4 )
 
 [node name="SpriteStatic" type="AnimatedSprite" parent="."]
-modulate = Color( 1, 1, 1, 0.0196078 )
+modulate = Color( 1, 1, 1, 0.00784314 )
 frames = SubResource( 1 )
 animation = "Real"
-frame = 36
+frame = 46
 speed_scale = 7.0
 playing = true

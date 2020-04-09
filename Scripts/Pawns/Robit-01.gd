@@ -248,6 +248,9 @@ func jump(down_input, left_input, right_input):
 	is_jump_pressed = true
 	on_ladder = false
 
+func jump_j():
+	pass
+
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
 		vel.y = -min_air_jump_power
@@ -627,6 +630,12 @@ func _is_on_floor():
 #		on_m_plat = false
 
 func _set_color():
+	sprite_face.self_modulate = Player_Stats.get_sec_color(player)
+	sprite_body.self_modulate = Player_Stats.get_body_color(player)
+	sprite_loco.self_modulate = Player_Stats.get_body_color(player)
+	_body_color = Player_Stats.get_body_color(player)
+
+func _old_set_color():
 	if player == 1:#Grey
 		sprite_face.self_modulate = Player_Stats.p1.color_1
 		sprite_body.self_modulate = Player_Stats.p1.color_2

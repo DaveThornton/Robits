@@ -252,6 +252,9 @@ func jump(down_input, left_input, right_input):
 	is_jump_pressed = true
 	on_ladder = false
 
+func jump_j():
+	pass
+
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
 		vel.y = -min_air_jump_power
@@ -654,6 +657,16 @@ func _anim_ladder_left():
 
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
+		key.color(Player_Stats.get_body_color(player))
+		key.shield_color(Player_Stats.get_sec_color(player))
+		wheel.color(Player_Stats.get_body_color(player))
+		wheel.shield_color(Player_Stats.get_sec_color(player))
+		light_sprite.self_modulate = Player_Stats.get_sec_color(player)
+		face_sprite.self_modulate = Player_Stats.get_sec_color(player)
+		body_sprite.self_modulate = Player_Stats.get_body_color(player)
+		_body_color = Player_Stats.get_body_color(player)
+	
+func _old_set_color():
 	if player == 1:#Grey
 		key.color(Player_Stats.p1.color_2)
 		key.shield_color(Player_Stats.p1.color_1)
