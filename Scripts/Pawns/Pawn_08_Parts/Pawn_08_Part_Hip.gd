@@ -13,6 +13,6 @@ func turn(right:bool):
 func stop():
 	anim.stop(false)
 
-func color(_color_main, _color_sec):
-	hip.self_modulate = _color_main
-	sec.self_modulate = _color_sec
+func color(_pri, _sec):
+	hip.self_modulate = _pri
+	sec.self_modulate = _sec

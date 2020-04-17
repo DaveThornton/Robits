@@ -76,6 +76,8 @@ func throw():
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
 	t.position = pos_throw.global_position
+	self.remove_child(det)
+	t.add_det(det)
 	t.init(ammo, player, time, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
 		t.position = self.global_position
@@ -125,11 +127,17 @@ func _drop_where(_obj):
 	_obj.set_collision_layer_bit( 1, false)
 	_obj.set_collision_mask_bit( 1, false)
 
-func _on_Timer_timeout():
+func boom():
 	var p = Controllers.get_pawn(player)
 	p.my_gun = null
 	p.is_holding = false
-#	var b = boom.instance()
-#	Map_Hand.add_kid_to_map(b)
-#	b.init(player, self.global_position, my_name, 0, damage)
-	queue_free()
+	queue_free()	
+
+#func _on_Timer_timeout():
+#	var p = Controllers.get_pawn(player)
+#	p.my_gun = null
+#	p.is_holding = false
+##	var b = boom.instance()
+##	Map_Hand.add_kid_to_map(b)
+##	b.init(player, self.global_position, my_name, 0, damage)
+#	queue_free()

@@ -13,37 +13,41 @@ func init():
 
 func look(_pos: int, _right: bool):
 	if _right:
-		if _pos == 1:
-			anim_face.play("Up")
-			return
-		elif _pos == 2:
-			anim_face.play("Right_Up")
-			return
-		elif _pos == 3:
-			anim_face.play("Right")
-			return
-		elif _pos == 4:
-			anim_face.play("Right_Down")
-			return
-		elif _pos == 5:
-			anim_face.play("Down")
-			return
+		self.scale.x = 1
 	else:
-		if _pos == 1:
-			anim_face.play("Up")
-			return
-		elif _pos == 2:
-			anim_face.play("Left_Up")
-			return
-		elif _pos == 3:
-			anim_face.play("Left")
-			return
-		elif _pos == 4:
-			anim_face.play("Left_Down")
-			return
-		elif _pos == 5:
-			anim_face.play("Down")
-			return
+		self.scale.x = -1
+#	if _right:
+	if _pos == 1:
+		anim_face.play("Up")
+		return
+	elif _pos == 2:
+		anim_face.play("Right_Up")
+		return
+	elif _pos == 3:
+		anim_face.play("Right")
+		return
+	elif _pos == 4:
+		anim_face.play("Right_Down")
+		return
+	elif _pos == 5:
+		anim_face.play("Down")
+		return
+#	else:
+#		if _pos == 1:
+#			anim_face.play("Up")
+#			return
+#		elif _pos == 2:
+#			anim_face.play("Left_Up")
+#			return
+#		elif _pos == 3:
+#			anim_face.play("Left")
+#			return
+#		elif _pos == 4:
+#			anim_face.play("Left_Down")
+#			return
+#		elif _pos == 5:
+#			anim_face.play("Down")
+#			return
 
 func play_eye(_num):
 	if _num == 0:
@@ -57,11 +61,7 @@ func shield_up():
 func shield_down():
 	shield.visible = false
 
-func set_eye_color(_head_color):
-	eye.self_modulate = _head_color
-
-func set_body_color(_face_color):
-	body.self_modulate = _face_color
-
-func set_shield_color(_shield_color):
-	shield.modulate = _shield_color
+func color(_pri, _sec):
+	eye.self_modulate = _sec
+	body.self_modulate = _pri
+	shield.modulate = _sec

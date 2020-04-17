@@ -2,10 +2,11 @@
 
 [ext_resource path="res://Sprites/FX/shot-right-01.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Guns/W_04_M16.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Guns/Hold/W_04_M16.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Guns/Hold/W_04_M16_Hold.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Projectiles/Proj-04-M_16.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Projectiles/Shell-01.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-04-M_16.tscn" type="PackedScene" id=6]
+
 
 [sub_resource type="CircleShape2D" id=1]
 

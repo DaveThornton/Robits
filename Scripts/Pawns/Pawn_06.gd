@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-onready var arm_pos = $POS_Arm
-onready var gun_pos = $POS_Arm/POS_Gun
+onready var arm = $POS_Arm/Pawn_06_Part_Arm
+onready var gun_pos = $POS_Arm/Pawn_06_Part_Arm/POS_Gun
 
 onready var body_shape_01 = $Shape_Left
 onready var body_shape_02 = $Shape_Stand
@@ -104,7 +104,8 @@ var on_ladder = false
 var over_ladder = false
 var ladder_speed = 225
 ##---------------------------------------------------------------HIT------------
-var _body_color = Color8(255, 255, 255, 255)
+var _pri_color = Color8(255, 255, 255, 255)
+var _sec_color = Color8(255, 255, 255, 255)
 var _im_hit = false
 var _hit_time = 0.0
 var _hit_color_01 = Color8(255, 255, 255, 255)
@@ -152,24 +153,15 @@ func _process(delta):
 	if _im_hit:
 		if _hit_time > 0.1:
 			_hit_time -= delta
-			head.set_head_color(_hit_color_01)
-			body_sprite.self_modulate = _hit_color_01
-			key.color(_hit_color_01)
+			_set_new_color(_hit_color_01, _hit_color_02)
 		elif _hit_time > 0.05:
 			_hit_time -= delta
-			head.set_head_color(_hit_color_02)
-			body_sprite.self_modulate = _hit_color_02
-			key.color(_hit_color_02)
+			_set_new_color(_hit_color_02, _hit_color_01)
 		elif _hit_time > 0:
 			_hit_time -= delta
-			head.set_head_color(_hit_color_01)
-			body_sprite.self_modulate = _hit_color_01
-			key.color(_hit_color_01)
+			_set_new_color(_hit_color_01, _hit_color_02)
 		else:
-			head.set_head_color(_body_color)
-			body_sprite.self_modulate = _body_color
-			key.color(_body_color)
-#			key_sprite.self_modulate = _body_color
+			_set_new_color(_pri_color, _sec_color)
 			_hit_time = 0.0
 			_im_hit = false
 
@@ -661,55 +653,57 @@ func _anim_ladder_left():
 
 func _set_gun_dir():
 	if is_right:
-		arm_pos.scale.x = 1
+		arm.is_right(true)
 		if shoot_spot == 3 || shoot_spot == 6:
-			arm_pos.rotation_degrees = 0
+			arm.rotation_degrees = 0
 			head.rotation_degrees = 0
 		elif shoot_spot == 1:
-			arm_pos.rotation_degrees = -85
+			arm.rotation_degrees = -85
 			head.rotation_degrees = -85
 		elif shoot_spot == 2:
-			arm_pos.rotation_degrees = -45
+			arm.rotation_degrees = -45
 			head.rotation_degrees =-45
 		elif shoot_spot == 4:
-			arm_pos.rotation_degrees = 35
+			arm.rotation_degrees = 35
 			head.rotation_degrees = 35
 		elif shoot_spot == 5:
-			arm_pos.rotation_degrees = 85
+			arm.rotation_degrees = 85
 			head.rotation_degrees = 85
 		if my_gun:
-			arm_pos.rotation_degrees -= my_gun.walk
+			arm.rotation_degrees -= my_gun.walk
 	else:
-		arm_pos.scale.x = -1
+		arm.is_right(false)
 		if shoot_spot == 3 || shoot_spot == 6:
-			arm_pos.rotation_degrees = 0
+			arm.rotation_degrees = 0
 			head.rotation_degrees = 0
 		elif shoot_spot == 1:
-			arm_pos.rotation_degrees = 85
+			arm.rotation_degrees = 85
 			head.rotation_degrees = 85
 		elif shoot_spot == 2:
-			arm_pos.rotation_degrees = 45
+			arm.rotation_degrees = 45
 			head.rotation_degrees = 45
 		elif shoot_spot == 4:
-			arm_pos.rotation_degrees = -35
+			arm.rotation_degrees = -35
 			head.rotation_degrees = -35
 		elif shoot_spot == 5:
-			arm_pos.rotation_degrees = -85
+			arm.rotation_degrees = -85
 			head.rotation_degrees = -85
 		if my_gun:
-			arm_pos.rotation_degrees += my_gun.walk
+			arm.rotation_degrees += my_gun.walk
 
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
-		head.set_head_color(Player_Stats.get_body_color(player))
-		head.set_face_color(Player_Stats.get_sec_color(player))
-		head.set_shield_color(Player_Stats.get_sec_color(player))
-		hover.modulate = Player_Stats.get_sec_color(player)
-		key.color(Player_Stats.get_body_color(player))
-		shield_sprite.self_modulate = Player_Stats.get_sec_color(player)
-		body_sprite.self_modulate = Player_Stats.get_body_color(player)
-		arm_pos.self_modulate = Player_Stats.get_body_color(player)
-		_body_color = Player_Stats.get_body_color(player)
+	_pri_color = Player_Stats.get_body_color(player)
+	_sec_color = Player_Stats.get_sec_color(player)
+	_set_new_color(_pri_color,_sec_color)
+
+func _set_new_color(_pri, _sec):
+	head.color(_pri, _sec)
+	key.color(_pri, _sec)
+	arm.color(_pri, _sec)
+	hover.modulate = _sec
+	shield_sprite.self_modulate = _sec
+	body_sprite.self_modulate = _pri
 
 ##--------------------------------------------------------------------[Time Out]
 

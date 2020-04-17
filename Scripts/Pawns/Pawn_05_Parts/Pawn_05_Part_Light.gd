@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var anim = $AnimationPlayer
-
+onready var light = $Sprite
 var blinked_num = 0
 var blinked_max = 3
 
@@ -26,3 +26,6 @@ func _blinked():
 	blinked_num += 1
 	if blinked_num == blinked_max:
 		anim.stop()
+
+func color(_pri: Color, _sec: Color):
+	light.self_modulate = _sec

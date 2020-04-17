@@ -27,7 +27,6 @@ func _ready():
 		det.init(player, time, true)
 		pin.visible = false
 		det.visible = true
-#		timer.wait_time  = time
 		timer_boom.wait_time = time
 		timer_boom.start()		
 
@@ -39,26 +38,10 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
 	print(_time)
 	player = _player
-	if _ammo  == 0:
-		ammo = 0
-		det.init(player, time, true)
-		pin.visible = false
-		det.visible = true
-##		timer.wait_time  = time
-#		timer_boom.wait_time = _time
-#		timer_boom.start()
-#	else:
-#		det.visible = false
-#		timer.wait_time = 30
-#		timer.start()
 
-func booming():
-	var b = boom.instance()
-	Map_Hand.add_kid_to_map(b)
-#	self.get_tree().get_current_scene().add_child(b)
-#	b.position = self.global_position
-	b.init(player, self.global_position, my_name, 0, damage)
-	call_deferred("free")#queue_free()
+func add_det(_det):
+	self.add_child(_det)
+	det = _det
 
 func spin(_how_much):
 	if is_right:
@@ -107,19 +90,21 @@ func set_dir(_is_right, _dir):
 func _on_Timer_timeout():
 	var s = smoke.instance()
 	Map_Hand.add_kid_to_map(s)
-#	get_tree().get_current_scene().add_child(s)
 	s.start( 0 , self.global_position, 0, 0)
 	call_deferred("free")#queue_free()
 
 func _on_Area2D_body_entered(body):
-	if ammo == 0:
+	print(det.part.visible, body)
+#	if ammo == 0:
+	if det.part.visible == true:
 		if body.get_groups().has("player"):
 			self.remove_child(det)
 			body.add_child(det)
 			print("hit person")
 			call_deferred("free")#queue_free()
 
+func boom():
+	call_deferred("free")
+
 func dont_hit_player():
 	self.set_collision_mask_bit( 1, false)
-#func free():
-#	call_deferred("free")#queue_free()

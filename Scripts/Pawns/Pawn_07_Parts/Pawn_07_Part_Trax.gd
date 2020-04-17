@@ -3,6 +3,7 @@ extends Node2D
 onready var anim = $Animation
 onready var shield = $Sprite2
 onready var trax = $Sprite
+onready var trax_back = $Sprite3
 
 func turn(right:bool):
 	anim.play("Turn")
@@ -25,8 +26,7 @@ func shield_up():
 func shield_down():
 	shield.visible = false
 
-func shield_color(_color):
-	shield.self_modulate = _color
-
-func color(_color):
-	trax.self_modulate = _color
+func color(_pri: Color, _sec: Color):
+	shield.self_modulate = _sec
+#	trax.self_modulate = _sec
+	trax_back.self_modulate = _pri

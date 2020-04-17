@@ -4,8 +4,9 @@
 [ext_resource path="res://Scenes/Projectiles/Shell-03-Shot_Gun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-50-Shot_Gun.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Projectiles/Proj-50-Shot_Gun_Main.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scripts/Guns/Hold/W_50_ShotGun.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Guns/Hold/W_50_ShotGun_Hold.gd" type="Script" id=6]
 [ext_resource path="res://Sprites/Guns/W_50_ShotGun.png" type="Texture" id=7]
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.0

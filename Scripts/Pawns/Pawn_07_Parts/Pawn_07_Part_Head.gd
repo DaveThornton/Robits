@@ -25,6 +25,25 @@ func play_face(_num):
 	elif _num == 5:
 		anim_face.play("Stun")
 
+
+func pos(_pos):
+	if _pos == 1:
+		anim_head.play("Up-Right")
+	elif _pos == 2:
+		anim_head.play("Right-Up")
+	elif _pos == 3 || _pos == 6:
+		anim_head.play("Right")
+	elif _pos == 4:
+		anim_head.play("Right-Down")
+	elif _pos == 5:
+		anim_head.play("Down-Right")
+
+func is_right(_right: bool):
+	if _right == true:
+		self.scale.x = 1
+	else:
+		self.scale.x = -1
+
 func right():
 	anim_head.play("Right")
 	var _face_anim = anim_face.get_current_animation()
@@ -52,11 +71,7 @@ func shield_up():
 func shield_down():
 	shield.visible = false
 
-func set_head_color(_head_color):
-	head.modulate = _head_color
-
-func set_face_color(_face_color):
-	face.modulate = _face_color
-
-func set_shield_color(_shield_color):
-	shield.modulate = _shield_color
+func color(_pri: Color, _sec: Color):
+	head.self_modulate = _pri
+	shield.self_modulate = _sec
+	face.modulate = _sec

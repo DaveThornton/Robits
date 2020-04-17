@@ -1,13 +1,14 @@
 extends KinematicBody2D
 
-onready var gun_pos = $POS_Gun
+onready var arm = $Arm_POS/Pawn_07_Part_Arm
+onready var gun_pos = $Arm_POS/Pawn_07_Part_Arm/POS_Gun
 
 onready var body_shape_01 = $Shape_Left
 onready var body_shape_02 = $Shape_Stand
 onready var body_shape_03 = $Shape_Right
 onready var body_shape_04 = $Shape_Crouch
 
-onready var head = $Pawn_07_Part_Head
+onready var head = $Head_POS/Pawn_07_Part_Head
 onready var key = $Pawn_05_Part_Key
 onready var trax = $Pawn_07_Part_Trax
 onready var rockets = $Pawn_07_Part_Fire
@@ -95,7 +96,8 @@ var over_ladder = false
 var ladder_speed = 225
 
 ##---------------------------------------------------------------HIT------------
-var _body_color = Color8(255, 255, 255, 255)
+var _pri_color = Color8(255, 255, 255, 255)
+var _sec_color = Color8(255, 255, 255, 255)
 var _im_hit = false
 var _hit_time = 0.0
 var _hit_color_01 = Color8(255, 255, 255, 255)
@@ -122,6 +124,7 @@ func _process(delta):
 	_is_on_floor()
 #	_test_wall()
 	_test_headroom()
+	_set_gun_dir()
 	if on_floor:
 		air_jump_count = 0
 	if new_anim != last_anim:
@@ -142,26 +145,17 @@ func _process(delta):
 #	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 	
 	if _im_hit:
-		print("fix pawn 07 hit in process")
 		if _hit_time > 0.1:
 			_hit_time -= delta
-			body_sprite.self_modulate = _hit_color_01
-			key.color(_hit_color_01)
-			head.set_head_color(_hit_color_01)
+			_set_new_color(_hit_color_01, _hit_color_02)
 		elif _hit_time > 0.05:
 			_hit_time -= delta
-			body_sprite.self_modulate = _hit_color_02
-			key.color(_hit_color_02)
-			head.set_head_color(_hit_color_02)
+			_set_new_color(_hit_color_02, _hit_color_01)
 		elif _hit_time > 0:
 			_hit_time -= delta
-			body_sprite.self_modulate = _hit_color_01
-			key.color(_hit_color_01)
-			head.set_head_color(_hit_color_01)
+			_set_new_color(_hit_color_01, _hit_color_02)
 		else:
-			body_sprite.self_modulate = _body_color
-			key.color(_body_color)
-			head.set_head_color(_body_color)
+			_set_new_color(_pri_color, _sec_color)
 			_hit_time = 0.0
 			_im_hit = false
 
@@ -304,6 +298,7 @@ func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
 	var g = Equipment.get_weap_hold(_weap_num).instance()
 	gun_pos.add_child(g)
 	g.init(_ammo_pick_up, player, _time_left, _just_shot)
+	g.position = Vector2(0,0)
 	take_ammo = g.take_ammo
 	my_gun = g
 	is_holding = true
@@ -542,23 +537,23 @@ func _anim_idle():
 	key.stop()
 	if is_right:
 		new_anim = "Right-Idle"
-		head.right()
+#		head.right()
 	else:
 		new_anim = "Left-Idle"
-		head.left()
+#		head.left()
 
 func _anim_run():
 	if is_right:
 		new_anim = "Right-Run"
 		trax.turn(true)
 		key.turn(true)
-		head.right()
+#		head.right()
 		_body(3)
 	else:
 		new_anim = "Left-Run"
 		trax.turn(false)
 		key.turn(false)
-		head.left()
+#		head.left()
 		_body(1)
 
 func _anim_jump():
@@ -566,13 +561,13 @@ func _anim_jump():
 		new_anim = "Right-Run"
 		trax.turn(true)
 		key.turn(true)
-		head.right()
+#		head.right()
 		_body(3)
 	else:
 		new_anim = "Left-Run"
 		trax.turn(false)
 		key.turn(false)
-		head.left()
+#		head.left()
 		_body(1)
 
 func _anim_prone_idle():
@@ -581,10 +576,10 @@ func _anim_prone_idle():
 	key.stop()
 	if is_right:
 		new_anim = "Right-Prone-Idle"
-		head.right()
+#		head.right()
 	else:
 		new_anim = "Left-Prone-Idle"
-		head.left()
+#		head.left()
 
 func _anim_prone_crawl():
 	_body(4)
@@ -592,30 +587,30 @@ func _anim_prone_crawl():
 		new_anim = "Right-Prone-Crawl"
 		trax.turn(true)
 		key.turn(true)
-		head.right()
+#		head.right()
 	else:
 		new_anim = "Left-Prone-Crawl"
 		trax.turn(false)
 		key.turn(false)
-		head.left()
+#		head.left()
 
 func _anim_stun():
 	_body(2)
 	if is_right:
 		new_anim = "Right-Stun"
-		head.right()
+#		head.right()
 	else:
 		new_anim = "Left-Stun"
-		head.left()
+#		head.left()
 
 func _anim_Knock():
 	_body(2)
 	if is_right:
 		new_anim = "Right-Knock_Back"
-		head.right()
+#		head.right()
 	else:
 		new_anim = "Left-Knock_Back"
-		head.left()
+#		head.left()
 
 func _anim_ladder_move():
 	_body(2)
@@ -629,27 +624,89 @@ func _anim_ladder_right():
 	new_anim = "Ladder-Right"
 	trax.ladder()
 	key.ladder()
-	head.right()
+#	head.right()
 
 func _anim_ladder_left():
 	_body(2)
 	new_anim = "Ladder-Left"
 	trax.ladder()
 	key.ladder()
-	head.left()
+#	head.left()
+
+func _set_gun_dir():
+	head.pos(shoot_spot)
+	arm.is_right(is_right)
+	if is_right:
+#		arm.is_right(is_right)
+		head.is_right(true)
+#		head.right()
+#		head.scale.x = 1
+		if shoot_spot == 3 || shoot_spot == 6:
+			arm.rotation_degrees = 0
+			arm.bend(2)
+#			head.pos(3)
+#			head.rotation_degrees = 0
+		elif shoot_spot == 1:
+			arm.rotation_degrees = -85
+			arm.bend(1)
+#			head.pos(1)
+#			head.rotation_degrees = -85
+		elif shoot_spot == 2:
+			arm.rotation_degrees = -45
+			arm.bend(2)
+#			head.pos(2)
+#			head.rotation_degrees =-45
+		elif shoot_spot == 4:
+			arm.rotation_degrees = 35
+			arm.bend(2)
+#			head.rotation_degrees = 35
+		elif shoot_spot == 5:
+			arm.rotation_degrees = 85
+			arm.bend(3)
+#			head.rotation_degrees = 85
+		if my_gun:
+			arm.rotation_degrees -= my_gun.walk
+	else:
+#		arm.scale.x = -1
+		head.is_right(false)
+#		head.left()
+#		head.scale.x = -1
+		if shoot_spot == 3 || shoot_spot == 6:
+			arm.rotation_degrees = 0
+			arm.bend(2)
+#			head.rotation_degrees = 0
+		elif shoot_spot == 1:
+			arm.rotation_degrees = 85
+			arm.bend(1)
+#			head.rotation_degrees = 85
+		elif shoot_spot == 2:
+			arm.rotation_degrees = 45
+			arm.bend(2)
+#			head.rotation_degrees = 45
+		elif shoot_spot == 4:
+			arm.rotation_degrees = -35
+			arm.bend(2)
+#			head.rotation_degrees = -35
+		elif shoot_spot == 5:
+			arm.rotation_degrees = -85
+			arm.bend(3)
+#			head.rotation_degrees = -85
+		if my_gun:
+			arm.rotation_degrees += my_gun.walk
 
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
-	key.color(Player_Stats.get_body_color(player))
-	key.shield_color(Player_Stats.get_sec_color(player))
-	trax.color(Player_Stats.get_body_color(player))
-	trax.shield_color(Player_Stats.get_sec_color(player))
-	head.set_head_color(Player_Stats.get_body_color(player))
-	head.set_face_color(Player_Stats.get_sec_color(player))
-	head.set_shield_color(Player_Stats.get_sec_color(player))
-	shield_sprite.modulate = Player_Stats.get_sec_color(player)
-	body_sprite.modulate = Player_Stats.get_body_color(player)
-	_body_color = Player_Stats.get_body_color(player)
+	_pri_color = Player_Stats.get_body_color(player)
+	_sec_color = Player_Stats.get_sec_color(player)
+	_set_new_color(_pri_color,_sec_color)
+
+func _set_new_color(_pri, _sec):
+	arm.color(_pri, _sec)
+	key.color(_pri, _sec)
+	trax.color(_pri, _sec)
+	head.color(_pri, _sec)
+	shield_sprite.modulate = _sec
+	body_sprite.modulate = _pri
 
 ##--------------------------------------------------------------------[Time Out]
 

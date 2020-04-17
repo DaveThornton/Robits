@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Arm.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Pawns/Pawn_06_Parts/Pawn_06_Part_Arm.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "135"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Arm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 15, 7 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "180"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Arm:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 19, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "90"
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 11, 9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Arm:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[node name="Pawn_06_Part_Arm" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Arm" type="Sprite" parent="."]
+position = Vector2( 12, 4 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 1
+
+[node name="Shield" type="Sprite" parent="."]
+
+[node name="POS_Gun" type="Position2D" parent="."]
+position = Vector2( 15, 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/135 = SubResource( 1 )
+anims/180 = SubResource( 2 )
+anims/90 = SubResource( 3 )

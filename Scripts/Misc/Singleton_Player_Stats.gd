@@ -11,7 +11,7 @@ var p1 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
-	pawn_num = 9,
+	pawn_num = 5,
 	color_2 = Color8(255, 0, 0, 255),
 	color_1 = Color8(145, 145, 145, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -135,24 +135,6 @@ var p8 = {
 	color_1 = Color8(0, 255, 0, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
-
-#var t1 ={
-#	kill = 0,
-#	death = 0,
-#	score = 0,
-#	color_1_face = Color8(0, 255, 0, 255),
-#	color_1_body = Color8(255, 0, 0, 255),
-#	color_1_loco = Color8(150, 150, 150, 222)
-#} 
-#
-#var t2 ={
-#	kill = 0,
-#	death = 0,
-#	score = 0,
-#	color_1_face = Color8(255, 0, 0, 255),
-#	color_1_body = Color8(0, 0, 255, 255),
-#	color_1_loco = Color8(150, 150, 150, 222)
-#} 
 
 var p_in_p = 0
 

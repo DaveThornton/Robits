@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var legs = $Legs
+onready var shield = $Shield
 onready var anim = $AnimationPlayer
 
 func run(_right):
@@ -59,5 +60,12 @@ func sit_up(_right):
 		self.scale.x = -1
 	anim.play_backwards("Sit")
 
+func shield_up():
+	shield.visible = true
+
+func shield_down():
+	shield.visible = false
+
 func color(_pri, _sec):
 	legs.self_modulate = _pri
+	shield.self_modulate = _sec

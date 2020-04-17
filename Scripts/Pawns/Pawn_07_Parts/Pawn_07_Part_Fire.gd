@@ -24,7 +24,3 @@ func flame_down():
 func flame_off():
 	on = false
 	anim.play("Off")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

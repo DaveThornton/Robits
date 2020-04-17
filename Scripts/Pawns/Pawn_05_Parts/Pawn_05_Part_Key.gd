@@ -22,8 +22,6 @@ func shield_up():
 func shield_down():
 	shield.visible = false
 
-func shield_color(_color):
-	shield.self_modulate = _color
-
-func color(_color):
-	key.self_modulate = _color
+func color(_pri: Color, _sec: Color):
+	key.self_modulate = _pri
+	shield.self_modulate = _sec

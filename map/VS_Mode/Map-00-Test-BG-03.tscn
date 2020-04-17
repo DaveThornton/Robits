@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Pawn_05.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Sprites/Pawns/Pawn_07-Temp1.png" type="Texture" id=21]
 [ext_resource path="res://Scenes/Pawns/Pawn_07/Pawn_07.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Pawns/Pawn_11/Pawn_11.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=24]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -84,18 +86,6 @@ format = 1
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Weap-Pick-40-RPG" parent="TileMap-Main-02" instance=ExtResource( 18 )]
-position = Vector2( 969.645, 967.003 )
-
-[node name="Weap-Pick-40-RPG2" parent="TileMap-Main-02" instance=ExtResource( 18 )]
-position = Vector2( 1399.54, 917.907 )
-
-[node name="Weap-Pick-40-RPG3" parent="TileMap-Main-02" instance=ExtResource( 18 )]
-position = Vector2( 607.409, 843.664 )
-
-[node name="Weap-Pick-40-RPG4" parent="TileMap-Main-02" instance=ExtResource( 18 )]
-position = Vector2( 164.344, 864.021 )
 
 [node name="TileMap-Plat-01" type="TileMap" parent="." groups=[
 "map_part",
@@ -177,7 +167,7 @@ position = Vector2( 1290, 210 )
 [node name="Power_Ups" type="Node2D" parent="."]
 
 [node name="BG-03" parent="Power_Ups" instance=ExtResource( 13 )]
-position = Vector2( 850, 830 )
+position = Vector2( 154.734, 1009.79 )
 
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
@@ -225,3 +215,21 @@ texture = ExtResource( 21 )
 
 [node name="KinematicBody2D" parent="Pawn_07-Temp1" instance=ExtResource( 22 )]
 position = Vector2( 43.7615, 14.4218 )
+
+[node name="Pawn_10" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1140, 1040 )
+
+[node name="Weap-Pick-40-RPG4" parent="." instance=ExtResource( 18 )]
+position = Vector2( 969.645, 967.003 )
+
+[node name="Weap-Pick-40-RPG5" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1399.54, 917.907 )
+
+[node name="Weap-Pick-40-RPG6" parent="." instance=ExtResource( 18 )]
+position = Vector2( 607.409, 843.664 )
+
+[node name="Weap-Pick-40-RPG7" parent="." instance=ExtResource( 18 )]
+position = Vector2( 164.344, 864.021 )
+
+[node name="Weap-Pick-60-Axe" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1070, 850 )

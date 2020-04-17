@@ -5,8 +5,8 @@ onready var body_head = $Pawn_08_Part_Body
 onready var hip = $Pawn_08_Part_Hip
 onready var shield = $Shield
 
-onready var arm_pos = $POS_Arm
-onready var gun_pos = $POS_Arm/POS_Gun
+onready var arm = $POS_Arm/Pawn_09_Part_Arm
+onready var gun_pos = $POS_Arm/Pawn_09_Part_Arm/POS_Gun
 onready var anim = $AnimationPlayer
 
 onready var knockback_timer = $Timers/Knock_Back
@@ -47,11 +47,7 @@ var current_x_speed = 0
 
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed: = false
-#var jumping_up: = false
 var can_jump = true
-#var jump_top_pos = 0.0
-#var jump_top = false
-#var jump_height = 180
 var max_air_jump_power = 5
 var min_air_jump_power = 5
 var air_jump_count = 0
@@ -106,6 +102,8 @@ var on_ladder = false
 var over_ladder = false
 var ladder_speed = 225
 ##---------------------------------------------------------------HIT------------
+var _pri_color = Color8(255, 255, 255, 255)
+var _sec_color = Color8(255, 255, 255, 255)
 var _im_hit = false
 var _hit_time = 0.0
 var _hit_color_01 = Color8(255, 255, 255, 255)
@@ -142,29 +140,19 @@ func _process(delta):
 		nrg_update()
 		last_nrg = nrg
 	
-#	if my_gun:
 	_set_gun_dir()
-#		my_gun.is_right = is_right
-#		my_gun.shoot_pos = shoot_spot
-# warning-ignore:return_value_discarded
-#	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
-
 	if _im_hit:
 		if _hit_time > 0.1:
 			_hit_time -= delta
-			body_head.set_body_color(_hit_color_01)
-			legs.self_modulate = _hit_color_01
+			_set_new_color(_hit_color_01, _hit_color_02)
 		elif _hit_time > 0.05:
 			_hit_time -= delta
-			body_head.set_body_color(_hit_color_02)
-			legs.self_modulate = _hit_color_02
+			_set_new_color(_hit_color_02, _hit_color_01)
 		elif _hit_time > 0:
 			_hit_time -= delta
-			body_head.set_body_color(_hit_color_01)
-			legs.self_modulate = _hit_color_01
+			_set_new_color(_hit_color_01, _hit_color_02)
 		else:
-			body_head.set_body_color(Player_Stats.get_body_color(player))
-			legs.self_modulate = Player_Stats.get_body_color(player)
+			_set_new_color(_pri_color, _sec_color)
 			_hit_time = 0.0
 			_im_hit = false
 
@@ -353,8 +341,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
 			call_deferred("free")
 	elif play_type > 1:
-		shield.visible = true
-		body_head.shield_up()
+		shield_up()
 		shield_hit_timer.start()
 		if !is_shield_up:
 			nrg = nrg - (_damage - armor)
@@ -380,7 +367,7 @@ func nrg_update():
 
 func put_shield_up(_how_long):
 	is_shield_up = true
-	shield.visible = true
+	shield_up()
 	if _how_long <= 0:
 		shield_up_timer.wait_time = 10
 	else:
@@ -407,14 +394,6 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_regen_max = _how_much
 	nrg_up_timer.wait_time = _how_long
 	nrg_up_timer.start()
-
-func _body(_num: int):
-	if _num == 1:
-		body_shape_01.disabled = false
-		body_shape_02.disabled = true
-	elif _num == 2:
-		body_shape_01.disabled = true
-		body_shape_02.disabled = false
 
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
@@ -567,7 +546,7 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			_anim_ladder_left()
 	if on_wall != 0:
 		_anim_on_wall()
-			
+
 
 func _anim_idle():
 	_body(1)
@@ -666,55 +645,78 @@ func _anim_on_wall():
 		new_anim = "Right_Wall"
 
 func _set_gun_dir():
+	arm.is_right(is_right)
 	if is_right:
-		arm_pos.scale.x = 1
 		if shoot_spot == 3 || shoot_spot == 6:
-			arm_pos.rotation_degrees = 0
+			arm.rotation_degrees = 0
+			arm.bend(2)
 		elif shoot_spot == 1:
-			arm_pos.rotation_degrees = -85
+			arm.rotation_degrees = -85
+			arm.bend(1)
 		elif shoot_spot == 2:
-			arm_pos.rotation_degrees = -45
+			arm.rotation_degrees = -45
+			arm.bend(2)
 		elif shoot_spot == 4:
-			arm_pos.rotation_degrees = 35
+			arm.rotation_degrees = 35
+			arm.bend(3)
 		elif shoot_spot == 5:
-			arm_pos.rotation_degrees = 85
+			arm.rotation_degrees = 85
+			arm.bend(3)
 		if my_gun:
-			arm_pos.rotation_degrees -= my_gun.walk
+			arm.rotation_degrees -= my_gun.walk
 	else:
-		arm_pos.scale.x = -1
 		if shoot_spot == 3 || shoot_spot == 6:
-			arm_pos.rotation_degrees = 0
+			arm.rotation_degrees = 0
+			arm.bend(2)
 		elif shoot_spot == 1:
-			arm_pos.rotation_degrees = 85
+			arm.rotation_degrees = 85
+			arm.bend(1)
 		elif shoot_spot == 2:
-			arm_pos.rotation_degrees = 45
+			arm.rotation_degrees = 45
+			arm.bend(2)
 		elif shoot_spot == 4:
-			arm_pos.rotation_degrees = -35
+			arm.rotation_degrees = -35
+			arm.bend(3)
 		elif shoot_spot == 5:
-			arm_pos.rotation_degrees = -85
+			arm.rotation_degrees = -85
+			arm.bend(3)
 		if my_gun:
-			arm_pos.rotation_degrees += my_gun.walk
+			arm.rotation_degrees += my_gun.walk
 
+func _body(_num: int):
+	if _num == 1:
+		body_shape_01.disabled = false
+		body_shape_02.disabled = true
+	elif _num == 2:
+		body_shape_01.disabled = true
+		body_shape_02.disabled = false
+
+func shield_up():
+	body_head.shield_up()
+	shield.visible = true
+
+func shield_down():
+	body_head.shield_down()
+	shield.visible = false
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
-	body_head.set_body_color(Player_Stats.get_body_color(player))
-	body_head.set_eye_color(Player_Stats.get_sec_color(player))
-	body_head.set_shield_color(Player_Stats.get_sec_color(player))
-	hip.color(Player_Stats.get_body_color(player), Player_Stats.get_sec_color(player))
-#	hip.modulate = Player_Stats.get_sec_color(player)
-	legs.self_modulate = Player_Stats.get_body_color(player)
-	shield.self_modulate = Player_Stats.get_sec_color(player)
+	_pri_color = Player_Stats.get_body_color(player)
+	_sec_color = Player_Stats.get_sec_color(player)
+	_set_new_color(_pri_color,_sec_color)
+
+func _set_new_color(_pri, _sec):
+	body_head.color(_pri, _sec)
+	hip.color(_pri, _sec)
+	legs.self_modulate = _pri
+	shield.self_modulate = _sec
 
 ##--------------------------------------------------------------------[Time Out]
 
 func _on_Shield_Up_timeout():
-	shield.visible = false
-	is_shield_up = false
+	shield_down()
 
 func _on_Shield_Hit_timeout():
-	shield.visible = false
-	body_head.shield_down()
-	is_shield_up = false
+	shield_down()
 
 func _on_Speed_timeout():
 	is_speed_up = false

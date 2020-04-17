@@ -412,7 +412,6 @@ hframes = 4
 frame = 1
 
 [node name="22-plasma-det" parent="." instance=ExtResource( 7 )]
-visible = false
 material = SubResource( 1 )
 position = Vector2( 18.1703, -1.14873 )
 

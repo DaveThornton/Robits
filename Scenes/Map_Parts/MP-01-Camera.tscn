@@ -112,6 +112,5 @@ texture = ExtResource( 4 )
 modulate = Color( 1, 1, 1, 0.0196078 )
 frames = SubResource( 1 )
 animation = "Real"
-frame = 4
 speed_scale = 7.0
 playing = true

@@ -12,9 +12,9 @@
 [ext_resource path="res://Scenes/Guns/Hold/W_23_Bomb_Man_Hold.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Guns/Hold/W_40_RPG_Hold.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Guns/Hold/W_50_ShotGun_hold.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-60-Axe.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Guns/Hold/W_60_Axe_Hold.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Guns/Weap-Hold-61-Sword.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-80-Leaf_Blower.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Guns/Old/Weap-Hold-80-Leaf_Blower.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-02-Shield_Power_Up.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-03-Speed_Power_Up.tscn" type="PackedScene" id=18]
@@ -32,7 +32,6 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_09/Pawn_09.tscn" type="PackedScene" id=30]
 
 [node name="Equipment" type="Node2D"]
-position = Vector2( 1000, 131 )
 script = ExtResource( 1 )
 gun_hold_02 = ExtResource( 2 )
 gun_hold_03 = ExtResource( 3 )

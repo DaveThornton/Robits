@@ -13,8 +13,8 @@ var trauma_depletion: = 0.4
 
 var max_c_off: = Vector2(50, 25)
 var max_c_rot: = 0.9
-var max_c_static: = 255
-var min_c_static: = 15
+var max_c_static: = 240
+var min_c_static: = 7
 
 
 func _ready():

@@ -126,7 +126,8 @@ func get_weap_hold(_weap):
 		print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 		return gun_hold_02
 
-func get_weap_pick(_item):
+func get_weap_pick(_weap):
+	print("get_weap_pick is empty in singleton equipment")
 	pass
 
 func get_item(_item):

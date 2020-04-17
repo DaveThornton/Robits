@@ -53,11 +53,7 @@ func shield_up():
 func shield_down():
 	shield.visible = false
 
-func set_head_color(_head_color):
-	head.modulate = _head_color
-
-func set_face_color(_face_color):
-	face.modulate = _face_color
-
-func set_shield_color(_shield_color):
-	shield.modulate = _shield_color
+func color(_pri: Color, _sec: Color):
+	head.self_modulate = _pri
+	shield.self_modulate = _sec
+	face.modulate = _sec

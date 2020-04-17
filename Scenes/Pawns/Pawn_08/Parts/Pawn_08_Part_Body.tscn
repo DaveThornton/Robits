@@ -8,6 +8,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "Down"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_08_Part_Face:rotation_degrees")
 tracks/0/interp = 1
@@ -18,7 +19,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 90.0 ]
+"values": [ 50.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pawn_08_Part_Face:scale")
@@ -116,6 +117,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "Right"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_08_Part_Face:rotation_degrees")
 tracks/0/interp = 1
@@ -143,6 +145,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "Right_Down"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_08_Part_Face:rotation_degrees")
 tracks/0/interp = 1
@@ -153,7 +156,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 35.0 ]
+"values": [ 30.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pawn_08_Part_Face:scale")
@@ -170,6 +173,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "Right_Up"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_08_Part_Face:rotation_degrees")
 tracks/0/interp = 1
@@ -197,6 +201,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=8]
 resource_name = "Up"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_08_Part_Face:rotation_degrees")
 tracks/0/interp = 1
@@ -207,7 +212,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -90.0 ]
+"values": [ -80.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pawn_08_Part_Face:scale")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_07_Part_Body_Shield.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Pawns/Pawn_07.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Key.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Pawns/Pawn_07/Parts/Pawn_07_Part_Trax.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Pawns/Pawn_07/Parts/Pawn_07_Part_Fire.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Pawns/Pawn_07/Parts/Pawn_07_Part_Arm.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 23.0
@@ -79,11 +80,11 @@ tracks/4/keys = {
 "values": [ 0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Pawn_07_Part_Head:position")
+tracks/5/path = NodePath("Head_POS/Pawn_07_Part_Head:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -91,11 +92,11 @@ tracks/5/keys = {
 "values": [ Vector2( -2, -28 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pawn_07_Part_Head:rotation_degrees")
+tracks/6/path = NodePath("Head_POS/Pawn_07_Part_Head:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -163,7 +164,7 @@ tracks/11/keys = {
 "values": [ 0.0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("POS_Gun:position")
+tracks/12/path = NodePath("Head_POS:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -172,19 +173,7 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -8, -16 ) ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("POS_Gun:rotation_degrees")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 90.0 ]
+"values": [ Vector2( 0, -19 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -263,7 +252,7 @@ tracks/5/keys = {
 "values": [ 180.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("POS_Gun:position")
+tracks/6/path = NodePath("Pawn_07_Part_Trax:position")
 tracks/6/interp = 0
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -272,10 +261,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -15 ) ]
+"values": [ Vector2( 0, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("POS_Gun:rotation_degrees")
+tracks/7/path = NodePath("Pawn_07_Part_Trax:rotation_degrees")
 tracks/7/interp = 0
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -287,23 +276,23 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Pawn_07_Part_Trax:position")
+tracks/8/path = NodePath("Head_POS/Pawn_07_Part_Head:position")
 tracks/8/interp = 0
 tracks/8/loop_wrap = true
 tracks/8/imported = false
-tracks/8/enabled = true
+tracks/8/enabled = false
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 1 ) ]
+"values": [ Vector2( 0, -26 ), Vector2( 0, -27.1 ), Vector2( 0, -26 ), Vector2( 0, -25 ), Vector2( -1, -26 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Pawn_07_Part_Trax:rotation_degrees")
+tracks/9/path = NodePath("Head_POS/Pawn_07_Part_Head:rotation_degrees")
 tracks/9/interp = 0
 tracks/9/loop_wrap = true
 tracks/9/imported = false
-tracks/9/enabled = true
+tracks/9/enabled = false
 tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -311,40 +300,52 @@ tracks/9/keys = {
 "values": [ 0.0 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Pawn_07_Part_Head:position")
+tracks/10/path = NodePath("Shield:position")
 tracks/10/interp = 0
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6, 0.8, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -1, -26 ), Vector2( -1, -27.1 ), Vector2( -1, -26 ), Vector2( -1, -25 ), Vector2( -1, -26 ) ]
+"values": [ Vector2( 0, -8 ), Vector2( 0, -10 ), Vector2( 0, -8 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("Pawn_07_Part_Head:rotation_degrees")
+tracks/11/path = NodePath("Head_POS:position")
 tracks/11/interp = 0
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -19 ), Vector2( 0, -21 ), Vector2( 0, -20 ), Vector2( 0, -19 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Head_POS:rotation_degrees")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
-tracks/12/type = "value"
-tracks/12/path = NodePath("Shield:position")
-tracks/12/interp = 0
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0, 0.3, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+tracks/13/type = "value"
+tracks/13/path = NodePath("Arm_POS:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -8 ), Vector2( 0, -10 ), Vector2( 0, -8 ) ]
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -401,7 +402,7 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("POS_Gun:rotation_degrees")
+tracks/4/path = NodePath("Pawn_07_Part_Fire:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -413,19 +414,19 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("POS_Gun:position")
+tracks/5/path = NodePath("Pawn_07_Part_Fire:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -4, -8 ), Vector2( -4, -7 ) ]
+"values": [ Vector2( 0, 18 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pawn_07_Part_Fire:rotation_degrees")
+tracks/6/path = NodePath("Pawn_07_Part_Trax:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -437,7 +438,7 @@ tracks/6/keys = {
 "values": [ 0.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Pawn_07_Part_Fire:position")
+tracks/7/path = NodePath("Pawn_07_Part_Trax:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -446,47 +447,47 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 18 ) ]
+"values": [ Vector2( 0, 1 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Pawn_07_Part_Trax:rotation_degrees")
-tracks/8/interp = 1
+tracks/8/path = NodePath("Head_POS/Pawn_07_Part_Head:position")
+tracks/8/interp = 0
 tracks/8/loop_wrap = true
 tracks/8/imported = false
-tracks/8/enabled = true
+tracks/8/enabled = false
 tracks/8/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ), Vector2( 1, -16 ), Vector2( 0, -16 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Head_POS/Pawn_07_Part_Head:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = false
+tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
-tracks/9/type = "value"
-tracks/9/path = NodePath("Pawn_07_Part_Trax:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 1 ) ]
-}
 tracks/10/type = "value"
-tracks/10/path = NodePath("Pawn_07_Part_Head:position")
-tracks/10/interp = 1
+tracks/10/path = NodePath("Pawn_05_Part_Key:position")
+tracks/10/interp = 0
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.15, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -1, -16 ), Vector2( 0, -16 ), Vector2( -1, -16 ) ]
+"values": [ Vector2( 11, -8 ), Vector2( 10, -8 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("Pawn_07_Part_Head:rotation_degrees")
-tracks/11/interp = 1
+tracks/11/path = NodePath("Pawn_05_Part_Key:rotation_degrees")
+tracks/11/interp = 0
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
@@ -494,35 +495,35 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 180.0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("Pawn_05_Part_Key:position")
+tracks/12/path = NodePath("Shield:position")
 tracks/12/interp = 0
 tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 0.4 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 11, -8 ), Vector2( 10, -8 ) ]
+"values": [ Vector2( 0, -1 ), Vector2( -1, -1 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("Pawn_05_Part_Key:rotation_degrees")
+tracks/13/path = NodePath("Head_POS:position")
 tracks/13/interp = 0
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 180.0 ]
+"values": [ Vector2( 0, -8 ), Vector2( -1, -8 ) ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("Shield:position")
-tracks/14/interp = 1
+tracks/14/path = NodePath("Arm_POS:position")
+tracks/14/interp = 0
 tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
@@ -530,12 +531,37 @@ tracks/14/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -1 ), Vector2( -1, -1 ) ]
+"values": [ Vector2( 0, -7 ), Vector2( -1, -7 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Arm_POS:rotation_degrees")
+tracks/15/interp = 0
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Head_POS:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=6]
 resource_name = "Left-Prone-Idle"
 length = 0.5
+loop = true
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:position")
@@ -562,11 +588,11 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Pawn_07_Part_Head:position")
-tracks/2/interp = 1
+tracks/2/path = NodePath("Head_POS/Pawn_07_Part_Head:position")
+tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
 "times": PoolRealArray( 0, 0.25, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -574,11 +600,11 @@ tracks/2/keys = {
 "values": [ Vector2( -1, -15 ), Vector2( -1, -16 ), Vector2( -1, -15 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Pawn_07_Part_Head:rotation_degrees")
+tracks/3/path = NodePath("Head_POS/Pawn_07_Part_Head:rotation_degrees")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -646,8 +672,8 @@ tracks/8/keys = {
 "values": [ Vector2( 0, 1 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("POS_Gun:position")
-tracks/9/interp = 0
+tracks/9/path = NodePath("Head_POS:position")
+tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
@@ -655,15 +681,39 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -4, -8 ) ]
+"values": [ Vector2( 0, -8 ) ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("POS_Gun:rotation_degrees")
-tracks/10/interp = 0
+tracks/10/path = NodePath("Head_POS:rotation_degrees")
+tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Arm_POS:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -7 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Arm_POS:rotation_degrees")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -722,23 +772,23 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Pawn_07_Part_Head:position")
+tracks/4/path = NodePath("Head_POS/Pawn_07_Part_Head:position")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.3, 0.5, 0.7, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 0.6, 0.7, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -1, -26 ), Vector2( -1, -25 ), Vector2( -2, -25 ), Vector2( -3, -26 ), Vector2( -2, -26 ), Vector2( -1, -26 ) ]
+"values": [ Vector2( -3, -26 ), Vector2( -3, -25 ), Vector2( -2, -25 ), Vector2( -1, -25 ), Vector2( -2, -25 ), Vector2( -2, -26 ), Vector2( -1, -26 ), Vector2( -2, -26 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Pawn_07_Part_Head:rotation_degrees")
+tracks/5/path = NodePath("Head_POS/Pawn_07_Part_Head:rotation_degrees")
 tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -806,7 +856,7 @@ tracks/10/keys = {
 "values": [ 0.0 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("POS_Gun:position")
+tracks/11/path = NodePath("Shield:position")
 tracks/11/interp = 0
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -815,10 +865,10 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -8, -15 ) ]
+"values": [ Vector2( 0, -8 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("POS_Gun:rotation_degrees")
+tracks/12/path = NodePath("Head_POS:position")
 tracks/12/interp = 0
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -827,19 +877,43 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ Vector2( 0, -19 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("Shield:position")
-tracks/13/interp = 1
+tracks/13/path = NodePath("Arm_POS:position")
+tracks/13/interp = 0
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -15 ), Vector2( 0, -16 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Head_POS:rotation_degrees")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -8 ) ]
+"values": [ 0.0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Arm_POS:rotation_degrees")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -881,23 +955,23 @@ tracks/2/keys = {
 "values": [ 0.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Pawn_07_Part_Head:position")
-tracks/3/interp = 1
+tracks/3/path = NodePath("Head_POS/Pawn_07_Part_Head:position")
+tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/keys = {
 "times": PoolRealArray( 0, 0.2, 1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -1, -26 ), Vector2( 6, -21 ), Vector2( 1, -26 ) ]
+"values": [ Vector2( 0, -26 ), Vector2( 5, -21 ), Vector2( 0, -26 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Pawn_07_Part_Head:rotation_degrees")
-tracks/4/interp = 1
+tracks/4/path = NodePath("Head_POS/Pawn_07_Part_Head:rotation_degrees")
+tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -977,7 +1051,7 @@ tracks/10/keys = {
 "values": [ 0.0 ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("POS_Gun:position")
+tracks/11/path = NodePath("Shield:frame")
 tracks/11/interp = 0
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -985,11 +1059,11 @@ tracks/11/enabled = true
 tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, -15 ) ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("POS_Gun:rotation_degrees")
+tracks/12/path = NodePath("Shield:position")
 tracks/12/interp = 0
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -998,31 +1072,55 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ Vector2( 0, -8 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("Shield:frame")
-tracks/13/interp = 0
+tracks/13/path = NodePath("Head_POS:position")
+tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 10, -19 ), Vector2( 0, -17 ), Vector2( 0, -19 ) ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("Shield:position")
-tracks/14/interp = 1
+tracks/14/path = NodePath("Arm_POS:position")
+tracks/14/interp = 0
 tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -8 ) ]
+"values": [ Vector2( 0, -15 ), Vector2( 0, -13 ), Vector2( 0, -15 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Arm_POS:rotation_degrees")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -60.0, 0.0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Head_POS:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 30.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -1100,7 +1198,7 @@ tracks/5/keys = {
 "values": [ 0.0 ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("POS_Gun:position")
+tracks/6/path = NodePath("Pawn_07_Part_Trax:position")
 tracks/6/interp = 0
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1109,10 +1207,10 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -15 ) ]
+"values": [ Vector2( 0, 1 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("POS_Gun:rotation_degrees")
+tracks/7/path = NodePath("Pawn_07_Part_Trax:rotation_degrees")
 tracks/7/interp = 0
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1124,23 +1222,23 @@ tracks/7/keys = {
 "values": [ 0.0 ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Pawn_07_Part_Trax:position")
+tracks/8/path = NodePath("Head_POS/Pawn_07_Part_Head:position")
 tracks/8/interp = 0
 tracks/8/loop_wrap = true
 tracks/8/imported = false
-tracks/8/enabled = true
+tracks/8/enabled = false
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.2, 0.3, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 1 ) ]
+"values": [ Vector2( 0, -26 ), Vector2( 1, -27.1 ), Vector2( 0, -27.1 ), Vector2( 0, -26 ), Vector2( 0, -25 ), Vector2( 0, -26 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Pawn_07_Part_Trax:rotation_degrees")
+tracks/9/path = NodePath("Head_POS/Pawn_07_Part_Head:rotation_degrees")
 tracks/9/interp = 0
 tracks/9/loop_wrap = true
 tracks/9/imported = false
-tracks/9/enabled = true
+tracks/9/enabled = false
 tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -1148,40 +1246,52 @@ tracks/9/keys = {
 "values": [ 0.0 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Pawn_07_Part_Head:position")
+tracks/10/path = NodePath("Shield:position")
 tracks/10/interp = 0
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6, 0.8, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.5, 0.6, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, -26 ), Vector2( 1, -27.1 ), Vector2( 1, -26 ), Vector2( 1, -25 ), Vector2( 1, -26 ) ]
+"values": [ Vector2( 0, -8 ), Vector2( 0, -10 ), Vector2( 0, -10 ), Vector2( 0, -8 ), Vector2( 0, -8 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("Pawn_07_Part_Head:rotation_degrees")
+tracks/11/path = NodePath("Head_POS:position")
 tracks/11/interp = 0
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.3, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ Vector2( 0, -19 ), Vector2( 0, -21 ), Vector2( 0, -20 ), Vector2( 0, -19 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("Shield:position")
+tracks/12/path = NodePath("Arm_POS:position")
 tracks/12/interp = 0
 tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 0.3, 0.5, 0.6, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -8 ), Vector2( 0, -10 ), Vector2( 0, -10 ), Vector2( 0, -8 ), Vector2( 0, -8 ) ]
+"values": [ Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Arm_POS:rotation_degrees")
+tracks/13/interp = 0
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -1190,7 +1300,7 @@ loop = true
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
-tracks/0/interp = 1
+tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1202,7 +1312,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Body:position")
-tracks/1/interp = 1
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -1214,7 +1324,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Body:rotation_degrees")
-tracks/2/interp = 1
+tracks/2/interp = 0
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
@@ -1226,7 +1336,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Body:scale")
-tracks/3/interp = 1
+tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
@@ -1237,8 +1347,8 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("POS_Gun:rotation_degrees")
-tracks/4/interp = 1
+tracks/4/path = NodePath("Pawn_07_Part_Fire:rotation_degrees")
+tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
@@ -1249,20 +1359,20 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("POS_Gun:position")
-tracks/5/interp = 1
+tracks/5/path = NodePath("Pawn_07_Part_Fire:position")
+tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 4, -8 ), Vector2( 4, -7 ) ]
+"values": [ Vector2( 0, 18 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pawn_07_Part_Fire:rotation_degrees")
-tracks/6/interp = 1
+tracks/6/path = NodePath("Pawn_07_Part_Trax:rotation_degrees")
+tracks/6/interp = 0
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
@@ -1273,8 +1383,8 @@ tracks/6/keys = {
 "values": [ 0.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Pawn_07_Part_Fire:position")
-tracks/7/interp = 1
+tracks/7/path = NodePath("Pawn_07_Part_Trax:position")
+tracks/7/interp = 0
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
@@ -1282,23 +1392,23 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 18 ) ]
+"values": [ Vector2( 0, 1 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Pawn_07_Part_Trax:rotation_degrees")
-tracks/8/interp = 1
+tracks/8/path = NodePath("Pawn_05_Part_Key:position")
+tracks/8/interp = 0
 tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ Vector2( -11, -8 ), Vector2( -10, -8 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Pawn_07_Part_Trax:position")
-tracks/9/interp = 1
+tracks/9/path = NodePath("Pawn_05_Part_Key:rotation_degrees")
+tracks/9/interp = 0
 tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
@@ -1306,67 +1416,55 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 1 ) ]
+"values": [ 0.0 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Pawn_07_Part_Head:position")
-tracks/10/interp = 1
+tracks/10/path = NodePath("Shield:position")
+tracks/10/interp = 0
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.15, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, -16 ), Vector2( 0, -16 ), Vector2( 0.714286, -16 ) ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("Pawn_07_Part_Head:rotation_degrees")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("Pawn_05_Part_Key:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( -11, -8 ), Vector2( -10, -8 ) ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("Pawn_05_Part_Key:rotation_degrees")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/14/type = "value"
-tracks/14/path = NodePath("Shield:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, -1 ), Vector2( 1, -1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Head_POS:position")
+tracks/11/interp = 0
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -8 ), Vector2( 1, -8 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Head_POS:rotation_degrees")
+tracks/12/interp = 0
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Arm_POS:position")
+tracks/13/interp = 0
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -7 ), Vector2( 1, -7 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -1422,7 +1520,7 @@ tracks/3/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("POS_Gun:rotation_degrees")
+tracks/4/path = NodePath("Pawn_07_Part_Fire:rotation_degrees")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -1434,7 +1532,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("POS_Gun:position")
+tracks/5/path = NodePath("Pawn_07_Part_Fire:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1443,10 +1541,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 4, -8 ) ]
+"values": [ Vector2( 0, 18 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pawn_07_Part_Fire:rotation_degrees")
+tracks/6/path = NodePath("Pawn_07_Part_Trax:rotation_degrees")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1458,7 +1556,7 @@ tracks/6/keys = {
 "values": [ 0.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Pawn_07_Part_Fire:position")
+tracks/7/path = NodePath("Pawn_07_Part_Trax:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -1467,46 +1565,46 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 18 ) ]
+"values": [ Vector2( 0, 1 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Pawn_07_Part_Trax:rotation_degrees")
+tracks/8/path = NodePath("Head_POS/Pawn_07_Part_Head:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
-tracks/8/enabled = true
+tracks/8/enabled = false
 tracks/8/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -15 ), Vector2( 0, -16 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Head_POS/Pawn_07_Part_Head:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = false
+tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
-tracks/9/type = "value"
-tracks/9/path = NodePath("Pawn_07_Part_Trax:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 1 ) ]
-}
 tracks/10/type = "value"
-tracks/10/path = NodePath("Pawn_07_Part_Head:position")
+tracks/10/path = NodePath("Pawn_05_Part_Key:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.25 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1, -15 ), Vector2( 1, -16 ) ]
+"values": [ Vector2( -11, -8 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("Pawn_07_Part_Head:rotation_degrees")
+tracks/11/path = NodePath("Pawn_05_Part_Key:rotation_degrees")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -1518,7 +1616,7 @@ tracks/11/keys = {
 "values": [ 0.0 ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("Pawn_05_Part_Key:position")
+tracks/12/path = NodePath("Shield:frame")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -1526,11 +1624,11 @@ tracks/12/enabled = true
 tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -11, -8 ) ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("Pawn_05_Part_Key:rotation_degrees")
+tracks/13/path = NodePath("Shield:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -1539,10 +1637,10 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ Vector2( 0, -1 ) ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("Shield:frame")
+tracks/14/path = NodePath("Head_POS:position")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -1550,11 +1648,11 @@ tracks/14/enabled = true
 tracks/14/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"update": 0,
+"values": [ Vector2( 0, -8 ) ]
 }
 tracks/15/type = "value"
-tracks/15/path = NodePath("Shield:position")
+tracks/15/path = NodePath("Arm_POS:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/imported = false
@@ -1563,7 +1661,31 @@ tracks/15/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -1 ) ]
+"values": [ Vector2( 0, -7 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Arm_POS:rotation_degrees")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Head_POS:rotation_degrees")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -1665,11 +1787,11 @@ tracks/7/keys = {
 "values": [ Vector2( -11, -15 ), Vector2( -11, -16 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Pawn_07_Part_Head:rotation_degrees")
+tracks/8/path = NodePath("Head_POS/Pawn_07_Part_Head:rotation_degrees")
 tracks/8/interp = 0
 tracks/8/loop_wrap = true
 tracks/8/imported = false
-tracks/8/enabled = true
+tracks/8/enabled = false
 tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -1677,11 +1799,11 @@ tracks/8/keys = {
 "values": [ 0.0 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Pawn_07_Part_Head:position")
+tracks/9/path = NodePath("Head_POS/Pawn_07_Part_Head:position")
 tracks/9/interp = 0
 tracks/9/loop_wrap = true
 tracks/9/imported = false
-tracks/9/enabled = true
+tracks/9/enabled = false
 tracks/9/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.7, 0.8, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
@@ -1690,7 +1812,7 @@ tracks/9/keys = {
 }
 tracks/10/type = "value"
 tracks/10/path = NodePath("Shield:position")
-tracks/10/interp = 1
+tracks/10/interp = 0
 tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
@@ -1701,8 +1823,8 @@ tracks/10/keys = {
 "values": [ Vector2( 0, -8 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("POS_Gun:position")
-tracks/11/interp = 1
+tracks/11/path = NodePath("Head_POS:position")
+tracks/11/interp = 0
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
@@ -1710,7 +1832,31 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 8, -16 ) ]
+"values": [ Vector2( 0, -19 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Arm_POS:position")
+tracks/12/interp = 0
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -15 ), Vector2( 0, -16 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Arm_POS:rotation_degrees")
+tracks/13/interp = 0
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -1751,43 +1897,43 @@ tracks/2/keys = {
 "values": [ 0.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Pawn_07_Part_Head:position")
-tracks/3/interp = 1
+tracks/3/path = NodePath("Pawn_07_Part_Fire:position")
+tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.2, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, -26 ), Vector2( -6, -21 ), Vector2( 1, -26 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Pawn_07_Part_Head:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Pawn_07_Part_Fire:position")
-tracks/5/interp = 0
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, 18 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pawn_07_Part_Fire:rotation_degrees")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Pawn_05_Part_Key:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -11, -15 ), Vector2( -11, -13 ), Vector2( -11, -15 ), Vector2( -11, -15 ) ]
+}
 tracks/6/type = "value"
-tracks/6/path = NodePath("Pawn_07_Part_Fire:rotation_degrees")
+tracks/6/path = NodePath("Pawn_05_Part_Key:rotation_degrees")
 tracks/6/interp = 0
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -1799,19 +1945,19 @@ tracks/6/keys = {
 "values": [ 0.0 ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("Pawn_05_Part_Key:position")
+tracks/7/path = NodePath("Pawn_07_Part_Trax:position")
 tracks/7/interp = 0
 tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -11, -15 ), Vector2( -11, -13 ), Vector2( -11, -15 ), Vector2( -11, -15 ) ]
+"values": [ Vector2( 0, 1 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("Pawn_05_Part_Key:rotation_degrees")
+tracks/8/path = NodePath("Pawn_07_Part_Trax:rotation_degrees")
 tracks/8/interp = 0
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -1823,7 +1969,7 @@ tracks/8/keys = {
 "values": [ 0.0 ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("Pawn_07_Part_Trax:position")
+tracks/9/path = NodePath("Shield:frame")
 tracks/9/interp = 0
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -1831,11 +1977,11 @@ tracks/9/enabled = true
 tracks/9/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 1 ) ]
+"update": 1,
+"values": [ 0 ]
 }
 tracks/10/type = "value"
-tracks/10/path = NodePath("Pawn_07_Part_Trax:rotation_degrees")
+tracks/10/path = NodePath("Shield:position")
 tracks/10/interp = 0
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -1844,23 +1990,23 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ Vector2( 0, -8 ) ]
 }
 tracks/11/type = "value"
-tracks/11/path = NodePath("POS_Gun:position")
-tracks/11/interp = 0
+tracks/11/path = NodePath("Head_POS:position")
+tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -15 ) ]
+"values": [ Vector2( -8, -19 ), Vector2( -5, -19 ), Vector2( 0, -17 ), Vector2( 0, -19 ), Vector2( 0, -19 ) ]
 }
 tracks/12/type = "value"
-tracks/12/path = NodePath("POS_Gun:rotation_degrees")
-tracks/12/interp = 0
+tracks/12/path = NodePath("Arm_POS:position")
+tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
@@ -1868,31 +2014,31 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ Vector2( 0, -15 ) ]
 }
 tracks/13/type = "value"
-tracks/13/path = NodePath("Shield:frame")
-tracks/13/interp = 0
+tracks/13/path = NodePath("Arm_POS:rotation_degrees")
+tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 40.0, 0.0 ]
 }
 tracks/14/type = "value"
-tracks/14/path = NodePath("Shield:position")
+tracks/14/path = NodePath("Head_POS:rotation_degrees")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -8 ) ]
+"values": [ -30.0, 0.0 ]
 }
 
 [node name="Pawn_07" type="KinematicBody2D" groups=[
@@ -1907,6 +2053,7 @@ script = ExtResource( 2 )
 [node name="Timers" type="Node2D" parent="."]
 
 [node name="Knock_Back" type="Timer" parent="Timers"]
+wait_time = 0.05
 
 [node name="Shield_Hit" type="Timer" parent="Timers"]
 wait_time = 0.1
@@ -1944,7 +2091,7 @@ collision_mask = 14
 [node name="Shield" type="Sprite" parent="."]
 visible = false
 modulate = Color( 0.913725, 0, 0, 1 )
-position = Vector2( 0, -1 )
+position = Vector2( 0, -8 )
 texture = ExtResource( 1 )
 hframes = 4
 
@@ -1953,6 +2100,7 @@ visible = false
 polygon = PoolVector2Array( 3, -25, 12, 2, 10, 8, -8, 8, -14, 0, -14, -31 )
 
 [node name="Shape_Stand" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PoolVector2Array( 8, -31, 14, 2, 8, 8, -8, 8, -14, 2, -7, -31 )
 
 [node name="Shape_Right" type="CollisionPolygon2D" parent="."]
@@ -1964,24 +2112,24 @@ visible = false
 polygon = PoolVector2Array( 7, -19, 14, 0, 2, 8, -2, 8, -14, 0, -7, -19 )
 
 [node name="Body" type="Sprite" parent="."]
+position = Vector2( 0, -8 )
 texture = ExtResource( 3 )
 hframes = 4
 
-[node name="Pawn_07_Part_Head" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1, -15 )
+[node name="Head_POS" type="Position2D" parent="."]
+position = Vector2( 0, -19 )
+
+[node name="Pawn_07_Part_Head" parent="Head_POS" instance=ExtResource( 4 )]
 
 [node name="Pawn_05_Part_Key" parent="." instance=ExtResource( 5 )]
 visible = false
-position = Vector2( -11, -8 )
+position = Vector2( -11, -15 )
 
 [node name="Pawn_07_Part_Fire" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, 18 )
 
 [node name="Pawn_07_Part_Trax" parent="." instance=ExtResource( 6 )]
 position = Vector2( 0, 1 )
-
-[node name="POS_Gun" type="Position2D" parent="."]
-position = Vector2( 4, -8 )
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
 visible = false
@@ -2014,6 +2162,11 @@ anims/Right-Prone-Crawl = SubResource( 10 )
 anims/Right-Prone-Idle = SubResource( 11 )
 anims/Right-Run = SubResource( 12 )
 anims/Right-Stun = SubResource( 13 )
+
+[node name="Arm_POS" type="Position2D" parent="."]
+position = Vector2( 0, -15 )
+
+[node name="Pawn_07_Part_Arm" parent="Arm_POS" instance=ExtResource( 8 )]
 [connection signal="timeout" from="Timers/Knock_Back" to="." method="_on_Knock_Back_timeout"]
 [connection signal="timeout" from="Timers/Shield_Hit" to="." method="_on_Shield_Hit_timeout"]
 [connection signal="timeout" from="Timers/Shield_Up" to="." method="_on_Shield_Up_timeout"]
