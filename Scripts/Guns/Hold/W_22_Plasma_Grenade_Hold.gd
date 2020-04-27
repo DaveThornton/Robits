@@ -127,7 +127,7 @@ func _drop_where(_obj):
 	_obj.set_collision_layer_bit( 1, false)
 	_obj.set_collision_mask_bit( 1, false)
 
-func boom():
+func booming():
 	var p = Controllers.get_pawn(player)
 	p.my_gun = null
 	p.is_holding = false

@@ -5,7 +5,7 @@ export(PackedScene) var boom
 
 onready var timer = $Timer
 onready var pos_throw = $POS_Gun/POS/Position2D
-onready var sprite_pin = $POS_Gun/Pin
+#onready var sprite_pin = $POS_Gun/Pin
 onready var throw_cast = $POS_Gun/Raycast/RayCast2D
 onready var anim = $AnimationPlayer
 
@@ -35,9 +35,10 @@ func init(_ammo, _player, _time, _just_shot):
 	ammo = _ammo
 	if _ammo <= 0:
 		ammo = 0
-		sprite_pin.visible = false
-		timer.wait_time = _time
-		timer.start()
+#		sprite_pin.visible = false
+#		timer.wait_time = _time
+#		timer.start()
+		_armed(_time)
 	else:
 		timer.wait_time = time
 	emit_signal("ammo_change",player,ammo)

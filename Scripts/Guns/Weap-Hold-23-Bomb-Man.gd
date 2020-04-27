@@ -90,7 +90,6 @@ func melee():
 func throw():
 	var t = bomb_man_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
-#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, timer.time_left, is_right, shoot_pos, false)
 	_throw_where(t)
@@ -102,7 +101,6 @@ func drop():
 func _drop():
 	var t = bomb_man_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
-#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, timer.time_left, is_right, shoot_pos, false)
 	_drop_where(t)
@@ -174,7 +172,5 @@ func _on_Timer_timeout():
 	get_parent().get_parent().is_holding = false
 	var b = boom.instance()
 	Map_Hand.add_kid_to_map(b)
-#	self.get_tree().get_current_scene().add_child(b)
-#	b.position = self.global_position
 	b.init(player, self.global_position, my_name, 0, damage)
 	queue_free()

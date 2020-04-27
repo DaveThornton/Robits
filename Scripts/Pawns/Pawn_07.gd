@@ -293,6 +293,12 @@ func pick_up():
 	equip_weap(_weap_num,_ammo_pick_up, _time_left, _just_shot)
 	poss_pick_obj.queue_free()
 
+func no_gun():
+	if is_holding == true:
+		take_ammo = false
+		is_holding = false
+		my_gun = null
+
 ##-----------------------------------------------------------------------[Equip]
 func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
 	var g = Equipment.get_weap_hold(_weap_num).instance()
@@ -378,6 +384,8 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_up_timer.start()
 
 func _body(_num: int):
+	call_deferred("_body_",_num)
+func _body_(_num: int):
 	if _num == 1:
 		body_shape_01.disabled = false
 		body_shape_02.disabled = true

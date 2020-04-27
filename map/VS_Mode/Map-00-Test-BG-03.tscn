@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -24,6 +24,10 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_07/Pawn_07.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Pawns/Pawn_11/Pawn_11.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-61-Sword.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Guns/Weap-Pick-62-Diamond_PickAxe.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Guns/Pick/W_39_P_Mine_Pick.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Pawns/Pawn_12/Test.tscn" type="PackedScene" id=28]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -233,3 +237,21 @@ position = Vector2( 164.344, 864.021 )
 
 [node name="Weap-Pick-60-Axe" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1070, 850 )
+
+[node name="Weap-Pick-61-Sword" parent="." instance=ExtResource( 25 )]
+position = Vector2( 1110, 880 )
+
+[node name="Weap-Pick-62-PickAxe" parent="." instance=ExtResource( 26 )]
+position = Vector2( 910, 860 )
+
+[node name="W_39_P_Mine" parent="." instance=ExtResource( 27 )]
+position = Vector2( 240, 860 )
+
+[node name="W_39_P_Mine2" parent="." instance=ExtResource( 27 )]
+position = Vector2( 250, 800 )
+
+[node name="W_39_P_Mine3" parent="." instance=ExtResource( 27 )]
+position = Vector2( 230, 750 )
+
+[node name="Node2D" parent="." instance=ExtResource( 28 )]
+position = Vector2( 770, 1010 )

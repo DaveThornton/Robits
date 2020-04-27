@@ -103,7 +103,7 @@ func _on_Area2D_body_entered(body):
 			print("hit person")
 			call_deferred("free")#queue_free()
 
-func boom():
+func booming():
 	call_deferred("free")
 
 func dont_hit_player():

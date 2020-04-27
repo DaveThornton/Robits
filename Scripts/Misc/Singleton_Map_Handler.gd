@@ -27,6 +27,8 @@ func load_map( _map_to_load):
 	if test != 0:
 		print("error Singleton Map Handler connecting map to reset from world gd")
 
+#func add_kid_to_map(_obj):<-------------------------bad idea----
+#	call_deferred("_add_kid_to_map",_obj)<-----------------------
 func add_kid_to_map(_obj):
 	if is_instance_valid(map):
 #		Map_Hand.clearing_house.add_child(_obj)

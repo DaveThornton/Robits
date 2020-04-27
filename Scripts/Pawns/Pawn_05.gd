@@ -292,9 +292,16 @@ func pick_up():
 	var _time_left = poss_pick_obj.time
 	var _ammo_pick_up = poss_pick_obj.ammo
 	var _weap_num = poss_pick_obj.gun_num
+	print(_weap_num)
 	var _just_shot = poss_pick_obj.just_shot
 	equip_weap(_weap_num,_ammo_pick_up, _time_left, _just_shot)
 	poss_pick_obj.queue_free()
+
+func no_gun():
+		if is_holding == true:
+			take_ammo = false
+			is_holding = false
+			my_gun = null
 
 ##-----------------------------------------------------------------------[Equip]
 func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):

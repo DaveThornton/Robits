@@ -140,10 +140,12 @@ func _physics_process(delta):
 		vel.y = vel.y / 1.1
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
+# warning-ignore:return_value_discarded
 	move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
 	var movement = Vector2(0, ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
 	vel.x -= delta
+# warning-ignore:return_value_discarded
 	move_and_collide(vel)
 
 ##-------------------------------------------------------------------[Move/jump]
@@ -260,6 +262,12 @@ func pick_up():
 	var _just_shot = poss_pick_obj.just_shot
 	equip_weap(_weap_num,_ammo_pick_up, _time_left, _just_shot)
 	poss_pick_obj.queue_free()
+
+func no_gun():
+	if is_holding == true:
+		take_ammo = false
+		is_holding = false
+		my_gun = null
 
 ##-----------------------------------------------------------------------[Equip]
 func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
@@ -623,6 +631,8 @@ func _set_gun_dir():
 			arm.rotation_degrees += my_gun.walk
 
 func _body(_num: int):
+	call_deferred("_body_",_num)
+func _body_(_num: int):
 	if _num == 1:
 		body1.disabled = false
 		body2.disabled = true

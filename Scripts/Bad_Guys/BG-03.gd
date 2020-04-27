@@ -26,4 +26,5 @@ func _physics_process(delta):
 		vel.y = vel.y / 1.1
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
+# warning-ignore:return_value_discarded
 	move_and_collide(vel)

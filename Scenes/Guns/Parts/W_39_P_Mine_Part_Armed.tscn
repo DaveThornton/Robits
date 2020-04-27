@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Guns/W_39_P_Mine.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Guns/Parts/W_39_P_Mine_Part_Armed.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Flash"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mine:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 12, 13, 14, 13, 12, 11 ]
+}
+
+[node name="W_39_P_Mine_Part_Armed" type="Node2D"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+boom = ExtResource( 3 )
+
+[node name="Mine" type="Sprite" parent="."]
+position = Vector2( 0, 3.5 )
+texture = ExtResource( 1 )
+hframes = 15
+frame = 9
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, 8 )
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 512
+collision_mask = 3586
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 0, 0, -48, 2, -46, 16, -39, 31, -23, 41, 0, 45, 23, 41, 39, 31, 46, 16, 48, 2 )
+
+[node name="Timer_In" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Timer_Out" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Flash = SubResource( 1 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Timer_In" to="." method="_on_Timer_In_timeout"]
+[connection signal="timeout" from="Timer_Out" to="." method="_on_Timer_Out_timeout"]

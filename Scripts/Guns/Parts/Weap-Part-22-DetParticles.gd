@@ -31,9 +31,9 @@ func _on_Timer_timeout():
 	var b = boom.instance()
 	Map_Hand.add_kid_to_map(b)
 	b.init(player, self.global_position, my_name, 0, damage)
-	if get_parent().has_method("boom"):
+	if get_parent().has_method("booming"):
 #		print("yeah it has boom w 22")
-		get_parent().boom()
+		get_parent().booming()
 #	else:
 #		print("there is no boom w 22")
 	queue_free()

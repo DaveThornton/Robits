@@ -1,6 +1,6 @@
 extends Node2D
 
-export(PackedScene) var axe_pickup
+export(PackedScene) var sword_pickup
 
 onready var gun_pos = $POS_Gun
 onready var pos_throw = $POS_Throw
@@ -12,7 +12,7 @@ var player = 1
 var gun_num = 60
 var ammo = 1
 var take_ammo = false
-var my_name = "Axe"
+var my_name = "Sword"
 var dmg_type = "blade"
 var damage = 33
 var can_shoot = true
@@ -24,8 +24,8 @@ var up_swing = 500
 var down_swing = 750
 var time_swing = 0.0
 var time = 4.0
-var walk = 40
-var walk_back = 40
+var walk = 30
+var walk_back = 30
 
 signal ammo_change(player, ammo)
 
@@ -40,7 +40,7 @@ func init(_ammo, _player, _time, _just_shot):
 	emit_signal("ammo_change",player,ammo)
 
 func _process(delta):
-	#axe swinging
+	#Sword swinging
 	if swinging:
 		walk = walk - down_swing * delta
 		walk = clamp(walk,0,walk_back)
@@ -78,7 +78,7 @@ func melee():
 	print("i dont know how this got called W_60_Axe Melee?")
 
 func throw():
-	var t = axe_pickup.instance()
+	var t = sword_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 #	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
@@ -97,7 +97,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = axe_pickup.instance()
+	var t = sword_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 #	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
@@ -117,25 +117,25 @@ func add_ammo(_ammo):
 func _throw_where(_obj):
 	if is_right:
 		if shoot_pos == 1:
-			_obj.apply_impulse(pos_throw.position, Vector2(100, -800))
+			_obj.apply_impulse(pos_throw.position, Vector2(100, -700))
 		elif shoot_pos == 2:
-			_obj.apply_impulse(pos_throw.position, Vector2(600, -600))
+			_obj.apply_impulse(pos_throw.position, Vector2(600, -400))
 		elif shoot_pos == 3 ||shoot_pos == 6:
-			_obj.apply_impulse(pos_throw.position, Vector2(800, -200))
+			_obj.apply_impulse(pos_throw.position, Vector2(600, -200))
 		elif shoot_pos == 4:
-			_obj.apply_impulse(pos_throw.position, Vector2(600, 200))
+			_obj.apply_impulse(pos_throw.position, Vector2(500, 200))
 		elif shoot_pos == 5:
 			_obj.apply_impulse(pos_throw.position, Vector2(100, 700))
 		_obj.spin(20000)
 	else:
 		if shoot_pos == 1:
-			_obj.apply_impulse(pos_throw.position, Vector2(-100, -800))
+			_obj.apply_impulse(pos_throw.position, Vector2(-100, -700))
 		elif shoot_pos == 2:
-			_obj.apply_impulse(pos_throw.position, Vector2(-600, -600))
+			_obj.apply_impulse(pos_throw.position, Vector2(-600, -400))
 		elif shoot_pos == 3 ||shoot_pos == 6:
-			_obj.apply_impulse(pos_throw.position, Vector2(-800, -200))
+			_obj.apply_impulse(pos_throw.position, Vector2(-600, -200))
 		elif shoot_pos == 4:
-			_obj.apply_impulse(pos_throw.position, Vector2(-600, 200))
+			_obj.apply_impulse(pos_throw.position, Vector2(-500, 200))
 		elif shoot_pos == 5:
 			_obj.apply_impulse(pos_throw.position, Vector2(-100, 700))
 		_obj.spin(-20000)

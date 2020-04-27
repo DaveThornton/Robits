@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Hold/W_02-AK47_Hold.tscn" type="PackedScene" id=2]
@@ -13,7 +13,7 @@
 [ext_resource path="res://Scenes/Guns/Hold/W_40_RPG_Hold.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Guns/Hold/W_50_ShotGun_hold.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Guns/Hold/W_60_Axe_Hold.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Guns/Weap-Hold-61-Sword.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Guns/Hold/W_61_Sword_Hold.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Guns/Old/Weap-Hold-80-Leaf_Blower.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-02-Shield_Power_Up.tscn" type="PackedScene" id=17]
@@ -30,6 +30,8 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_07/Pawn_07.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Pawns/Pawn_08/Pawn_08.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Scenes/Pawns/Pawn_09/Pawn_09.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/Guns/Hold/W_62_Diamond_Pick_Axe_Hold.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Scenes/Guns/Hold/W_39_P_Mine_Hold.tscn" type="PackedScene" id=32]
 
 [node name="Equipment" type="Node2D"]
 script = ExtResource( 1 )
@@ -42,10 +44,12 @@ gun_hold_20 = ExtResource( 7 )
 gun_hold_21 = ExtResource( 8 )
 gun_hold_22 = ExtResource( 9 )
 gun_hold_23 = ExtResource( 10 )
+gun_hold_39 = ExtResource( 32 )
 gun_hold_40 = ExtResource( 11 )
 gun_hold_50 = ExtResource( 12 )
 gun_hold_60 = ExtResource( 13 )
 gun_hold_61 = ExtResource( 14 )
+gun_hold_62 = ExtResource( 31 )
 gun_hold_80 = ExtResource( 15 )
 item_pick_01 = ExtResource( 16 )
 item_pick_02 = ExtResource( 17 )

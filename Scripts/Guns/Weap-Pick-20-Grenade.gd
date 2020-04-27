@@ -31,16 +31,13 @@ func _ready():
 		timer_boom.wait_time = time
 		timer_boom.start()
 
-#warning-ignore:unused_argument
-func _process(delta):
+func _process(_delta):
 	time = timer_boom.time_left
 	label.set_time(time)
-#	label.text = String(stepify(time,0.1))
 	
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
-#	print("time left: ",_time," in ", my_name)
 	player = _player
 	if _ammo == 0:
 		ammo = 0
@@ -56,22 +53,17 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 func _on_Timer_Boom_timeout():
 	var b = boom.instance()
 	Map_Hand.add_kid_to_map(b)
-#	self.get_tree().get_current_scene().add_child(b)
-#	b.position = self.global_position
 	b.init(player, self.global_position, my_name, 0, damage)
 	queue_free()
 
 func _on_WeapPick20Grenade_body_exited(body):
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
-	else:# body.get_groups().has("map_part"):
-#		self.set_collision_layer_bit( 1, false)
-#		self.set_collision_mask_bit( 1, false)
-		hit_timer.start()
+	else:
+		dont_hit_player()
+#		hit_timer.start()
 
 func _on_Timer_Hit_timeout():
-#	pass # Replace with function body.
-#	self.set_collision_mask_bit( 1, false)
 	dont_hit_player()
 
 func dont_hit_player():
@@ -94,37 +86,27 @@ func set_dir(_is_right, _dir):
 		sprite.scale.y = 1
 		if _dir == 1:
 			self.rotation_degrees = -85
-#			sprite.scale.y = 1
 		elif _dir == 2:
 			self.rotation_degrees = -45
-#			sprite.scale.y = 1
 		elif _dir == 3 || _dir == 6:
 			self.rotation_degrees = 9
-#			sprite.scale.y = 1
 		elif _dir == 4:
 			self.rotation_degrees = 45
-#			sprite.scale.y = 1
 		elif _dir == 5:
 			self.rotation_degrees = 85
-#			sprite.scale.y = 1
 	else:
 		self.scale.y = -1
 		pin.position   = Vector2(-6, 6)
 		if _dir == 1:
 			self.rotation_degrees = -95
-#			sprite.scale.y = -1
 		elif _dir == 2:
 			self.rotation_degrees = -135
-#			sprite.scale.y = -1
 		elif _dir == 3 || _dir == 6:
 			self.rotation_degrees = -171
-#			sprite.scale.y = -1
 		elif _dir == 4:
 			self.rotation_degrees = -220
-#			sprite.scale.y = -1
 		elif _dir == 5:
 			self.rotation_degrees = -265
-#			sprite.scale.y = -1
 
 func _on_Timer_timeout():
 	var s = smoke.instance()

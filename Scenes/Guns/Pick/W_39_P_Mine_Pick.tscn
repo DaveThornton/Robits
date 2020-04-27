@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/Guns/W_39_P_Mine.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Guns/Pick/W_39_P_Mine_Pick.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Guns/Parts/W_39_P_Mine_Part_Armed.tscn" type="PackedScene" id=4]
+
+[sub_resource type="PhysicsMaterial" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 3.53553
+
+[node name="W_39_P_Mine" type="RigidBody2D" groups=[
+"FX",
+"PickUp",
+]]
+collision_layer = 524288
+collision_mask = 917532
+physics_material_override = SubResource( 2 )
+gravity_scale = 6.0
+continuous_cd = 1
+script = ExtResource( 2 )
+smoke = ExtResource( 3 )
+mine = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+hframes = 15
+frame = 7
+
+[node name="Big_CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.5, 0.5 )
+shape = SubResource( 1 )
+
+[node name="Raycast" type="Node2D" parent="."]
+
+[node name="Up" type="RayCast2D" parent="Raycast"]
+position = Vector2( 0.5, -1.2 )
+enabled = true
+cast_to = Vector2( 0, -16 )
+collision_mask = 12
+
+[node name="Left" type="RayCast2D" parent="Raycast"]
+position = Vector2( -1.2, 0.5 )
+enabled = true
+cast_to = Vector2( -16, 0 )
+collision_mask = 12
+
+[node name="Right" type="RayCast2D" parent="Raycast"]
+position = Vector2( 2.2, 0.5 )
+enabled = true
+cast_to = Vector2( 16, 0 )
+collision_mask = 12
+
+[node name="Down" type="RayCast2D" parent="Raycast"]
+position = Vector2( 0.5, 2.2 )
+enabled = true
+cast_to = Vector2( 0, 16 )
+collision_mask = 12
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+[connection signal="body_shape_entered" from="." to="." method="_on_W_39_P_Mine_body_shape_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
