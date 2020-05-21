@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Hold/W_02-AK47_Hold.tscn" type="PackedScene" id=2]
@@ -32,12 +32,15 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_09/Pawn_09.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Scenes/Guns/Hold/W_62_Diamond_Pick_Axe_Hold.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Scenes/Guns/Hold/W_39_P_Mine_Hold.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Scenes/Pawns/Pawn_12/Pawn_12.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Scenes/Guns/Hold/W_07_CrossBow_Hold.tscn" type="PackedScene" id=34]
 
 [node name="Equipment" type="Node2D"]
 script = ExtResource( 1 )
 gun_hold_02 = ExtResource( 2 )
 gun_hold_03 = ExtResource( 3 )
 gun_hold_04 = ExtResource( 4 )
+gun_hold_07 = ExtResource( 34 )
 gun_hold_10 = ExtResource( 5 )
 gun_hold_11 = ExtResource( 6 )
 gun_hold_20 = ExtResource( 7 )
@@ -68,7 +71,7 @@ pawn_08 = ExtResource( 29 )
 pawn_09 = ExtResource( 30 )
 pawn_10 = ExtResource( 23 )
 pawn_11 = ExtResource( 24 )
-pawn_12 = ExtResource( 25 )
+pawn_12 = ExtResource( 33 )
 pawn_13 = ExtResource( 22 )
 pawn_14 = ExtResource( 23 )
 pawn_15 = ExtResource( 24 )

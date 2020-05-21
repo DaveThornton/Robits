@@ -28,7 +28,7 @@ tracks/0/keys = {
 [node name="MP-14-Barrel" type="RigidBody2D" groups=[
 "hittable",
 ]]
-collision_layer = 131072
+collision_layer = 131584
 collision_mask = 524
 mass = 3.5
 gravity_scale = 3.0

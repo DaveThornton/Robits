@@ -6,10 +6,11 @@
 [node name="Pawn_10_Part_Head" type="Node2D"]
 
 [node name="Head" type="Sprite" parent="."]
-self_modulate = Color( 0.45098, 0.45098, 0.45098, 1 )
 texture = ExtResource( 2 )
+hframes = 4
 
 [node name="Face" type="Sprite" parent="."]
+visible = false
 self_modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 1 )
 

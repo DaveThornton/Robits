@@ -1,5 +1,6 @@
 extends VBoxContainer
 
+onready var timer = $Timer
 onready var anim = $AnimationPlayer
 onready var game_box = $VBox_In_Game
 onready var player_num_ig = $VBox_In_Game/HBox_Player/Label_Player_Count
@@ -98,10 +99,18 @@ func player_select():
 	anim.play("PLAYER_SELECT")
 
 func coin_up():
-	anim.play("COIN_UP")
+	if Controllers.get_controller(player_num).in_game:
+		anim.play("COIN_UP_IN_GAME")
+	else:
+		anim.play("COIN_UP")
 
 func press_start():
 	anim.play("PRESS_START")
+#	timer.start()
 
 func show_player():
 	anim.play("PLAYER")
+
+func _on_Timer_timeout():
+	in_play()
+#	get_parent().in_game(player_num)

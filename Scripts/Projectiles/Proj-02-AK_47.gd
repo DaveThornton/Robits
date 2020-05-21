@@ -18,8 +18,6 @@ func start(_rot, _pos, _scale, _owner, dmg):
 	scale = _scale
 	owned = _owner
 	damage = dmg
-#	print(_pos)
-#	print(rotation) res://Scripts/Proj-10-Laser.gd
 
 func _physics_process(delta):
 	move_local_x(speed * delta)

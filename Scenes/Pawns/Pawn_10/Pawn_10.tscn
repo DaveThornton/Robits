@@ -1,12 +1,11 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://Sprites/Pawns/Pawn_05/Pawn_05_Part_Body.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Pawns/Pawn_10/Pawn_10_Part_Body.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_05/Pawn_05_Part_Body_Shield.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Head.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Pawns/Pawn_10/Pawn_10_Part_Tire.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Arm.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Pawns/Pawn_10/Parts/Pawn_10_Part_Head.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Key.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scripts/Pawns/Pawn_05.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Wheel.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -1747,7 +1746,7 @@ tracks/10/keys = {
 "values": [ Vector2( 0, -22 ) ]
 }
 
-[node name="Pawn_05" type="KinematicBody2D" groups=[
+[node name="Pawn_10" type="KinematicBody2D" groups=[
 "hittable",
 "ladder",
 "player",
@@ -1755,7 +1754,6 @@ tracks/10/keys = {
 z_index = 5
 collision_layer = 2
 collision_mask = 66078
-script = ExtResource( 7 )
 
 [node name="Timers" type="Node2D" parent="."]
 
@@ -1808,32 +1806,32 @@ hframes = 20
 frame = 16
 
 [node name="Pawn_05_Part_Wheel" parent="." instance=ExtResource( 8 )]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
 
 [node name="Pawn_05_Part_Body" type="Sprite" parent="."]
-self_modulate = Color( 0.631373, 0.631373, 0.631373, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -12 )
 hframes = 3
-frame = 2
-
-[node name="POS_Head" type="Position2D" parent="Pawn_05_Part_Body"]
-position = Vector2( 0, -26 )
-
-[node name="Pawn_05_Part_Head" parent="Pawn_05_Part_Body/POS_Head" instance=ExtResource( 3 )]
-visible = false
-
-[node name="Pawn_10_Part_Head" parent="Pawn_05_Part_Body/POS_Head" instance=ExtResource( 5 )]
-position = Vector2( 0, -14 )
-
-[node name="POS_Arm" type="Position2D" parent="Pawn_05_Part_Body"]
-position = Vector2( 0, -22 )
-
-[node name="Pawn_09_Part_Arm" parent="Pawn_05_Part_Body/POS_Arm" instance=ExtResource( 4 )]
-position = Vector2( 0, 1.90735e-06 )
 
 [node name="Pawn_05_Part_Key" parent="Pawn_05_Part_Body" instance=ExtResource( 6 )]
+visible = false
 show_behind_parent = true
-position = Vector2( 5, -19 )
+position = Vector2( -5, -18 )
+
+[node name="POS_Head" type="Position2D" parent="Pawn_05_Part_Body"]
+position = Vector2( -2, -24 )
+
+[node name="Pawn_10_Part_Head" parent="Pawn_05_Part_Body/POS_Head" instance=ExtResource( 5 )]
+position = Vector2( 3, -7 )
+
+[node name="POS_Arm" type="Position2D" parent="Pawn_05_Part_Body"]
+position = Vector2( 0, -26 )
+
+[node name="Pawn_09_Part_Arm" parent="Pawn_05_Part_Body/POS_Arm" instance=ExtResource( 4 )]
+position = Vector2( 0, 9 )
 
 [node name="Shape_Left" type="CollisionShape2D" parent="."]
 visible = false

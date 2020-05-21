@@ -19,7 +19,7 @@ var player_input_start = "P1_start"
 var player_input_coin = "P1_Coin"
 var auto_respawn = true
 #var game_mode = 0
-var in_game = false 
+var in_game = false
 var in_menu = true
 var alive = false
 #var can_start = false
@@ -27,7 +27,7 @@ var start_equiped = 0
 
 func _ready():
 	pass
-	
+
 func init(_player_num):
 	player = _player_num
 	if player == 1:
@@ -136,7 +136,6 @@ func spawn_pawn():
 		z.connect("explode_p", self, "explode_pawn")
 		my_pawn = z
 		_init_pawn()
-#		call_deferred("_init_pawn")
 		in_game = true
 		alive = true
 		in_menu = false
@@ -150,7 +149,7 @@ func explode_pawn(_player, _pos, _by_who, _by_what):
 	call_deferred("_explode_pawn",_player, _pos, _by_who, _by_what)
 
 func _explode_pawn(_player, _pos, _by_who, _by_what):
-	alive = false 
+	alive = false
 	var x = boom.instance()
 	add_child(x)
 	x.init(_player, _pos, str("player ", player, "'s destruct system"), Player_Stats.get_pawn_num(player), 2)
@@ -160,10 +159,10 @@ func _explode_pawn(_player, _pos, _by_who, _by_what):
 		if auto_respawn:
 			if in_game:
 				r_timer.start()
-	
+
 func game_over(_winner):
 	print("the player controller noticed the game is over winner is player ", _winner)
-	
+
 func _process(delta):
 	var left_input = Input.is_action_pressed(player_input_l)
 	var left_input_j = Input.is_action_just_pressed(player_input_l)
@@ -185,14 +184,14 @@ func _process(delta):
 	var start_input_j = Input.is_action_just_pressed(player_input_start)
 #	var start_input = Input.is_action_pressed(player_input_start)
 	var coin_input_j = Input.is_action_just_pressed(player_input_coin)
-	
+
 	#delete me when done please!!!!
 	var test_button = Input.is_action_just_pressed("test_button")
 	if player == 1:
 #		print("test button still active in player 1 controller!! [see robit controller]")
 		if test_button:
 			FX.add_trauma(1)
-	
+
 	if Input.is_action_pressed("Exit"):
 		get_tree().quit()
 	if !Game.over:

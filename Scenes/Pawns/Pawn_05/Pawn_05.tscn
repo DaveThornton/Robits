@@ -1759,6 +1759,7 @@ script = ExtResource( 7 )
 [node name="Timers" type="Node2D" parent="."]
 
 [node name="Knock_Back" type="Timer" parent="Timers"]
+one_shot = true
 
 [node name="Shield_Hit" type="Timer" parent="Timers"]
 wait_time = 0.1
@@ -1768,10 +1769,13 @@ one_shot = true
 one_shot = true
 
 [node name="NRG_Up" type="Timer" parent="Timers"]
+one_shot = true
 
 [node name="Speed" type="Timer" parent="Timers"]
+one_shot = true
 
 [node name="Jump" type="Timer" parent="Timers"]
+one_shot = true
 
 [node name="Stun" type="Timer" parent="Timers"]
 one_shot = true

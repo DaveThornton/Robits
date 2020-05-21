@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Pawns/Pawn_13/Parts/Pawn_13_Part_Head.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Pawns/Pawn_13/Parts/Pawn_13_Part_Legs.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Pawns/Pawn_13/Pawn_13_Part_Body.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 14.0
+height = 30.0
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, -24 )
+shape = SubResource( 1 )
+
+[node name="Pawn_13_Legs" parent="." instance=ExtResource( 2 )]
+position = Vector2( -1, -24 )
+
+[node name="Pawn_13_Part_Body" type="Sprite" parent="."]
+position = Vector2( 6, -29 )
+texture = ExtResource( 4 )
+hframes = 2
+
+[node name="Pawn_13_Part_Head" parent="Pawn_13_Part_Body" instance=ExtResource( 1 )]
+position = Vector2( 0, -7 )

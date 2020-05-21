@@ -95,12 +95,13 @@ func shoot():
 			walk += walk_amount
 			can_shoot = false
 			shoot_timer.start()
-			anim_fire.play("Fire")
+			anim_fire.play("Shoot")
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
 			SFX.play("AK_Shoot")
 		else:
+			anim_fire.play("Click")
 			can_shoot = false
 			shoot_timer.start()
 			SFX.play("Gun_Click")

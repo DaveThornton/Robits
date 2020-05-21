@@ -35,6 +35,8 @@ func _process(delta):
 	time = timer_boom.time_left
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
+	if _ammo == 0:
+		remove_from_group("PickUp")
 	set_dir(_is_right, _dir)
 	print(_time)
 	player = _player

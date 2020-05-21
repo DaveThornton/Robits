@@ -16,7 +16,6 @@ bounce = 0.25
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 9.0
 
 [sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true

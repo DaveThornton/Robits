@@ -8,6 +8,7 @@ export var color_barrel = Color8(255,255,255,255)
 onready var barrel_l = $"MP-14-Barrel-Lquid"
 onready var barrel_b = $"MP-14-Barrel-Still"
 
+var player = 0
 var health = 50
 var is_right = true
 

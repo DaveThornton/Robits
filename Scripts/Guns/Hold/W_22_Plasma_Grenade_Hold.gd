@@ -79,6 +79,7 @@ func throw():
 	self.remove_child(det)
 	t.add_det(det)
 	t.init(ammo, player, time, is_right, shoot_pos, false)
+#	print("w 22 hold throw ammo =",ammo)
 	if throw_cast.is_colliding():
 		t.position = self.global_position
 		_drop_where(t)

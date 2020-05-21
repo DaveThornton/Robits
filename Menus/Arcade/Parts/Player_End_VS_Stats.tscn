@@ -10,6 +10,9 @@
 margin_right = 256.0
 margin_bottom = 800.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MarginContainer0" type="MarginContainer" parent="."]
 margin_right = 256.0
@@ -44,7 +47,6 @@ margin_bottom = 275.0
 size_flags_vertical = 3
 
 [node name="HBox_Player" type="HBoxContainer" parent="."]
-editor/display_folded = true
 margin_top = 279.0
 margin_right = 256.0
 margin_bottom = 316.0
@@ -88,7 +90,6 @@ margin_bottom = 335.0
 size_flags_vertical = 3
 
 [node name="HBox_Score" type="HBoxContainer" parent="."]
-editor/display_folded = true
 margin_top = 339.0
 margin_right = 256.0
 margin_bottom = 376.0
@@ -132,7 +133,6 @@ margin_bottom = 395.0
 size_flags_vertical = 3
 
 [node name="HBox_Kills" type="HBoxContainer" parent="."]
-editor/display_folded = true
 margin_top = 399.0
 margin_right = 256.0
 margin_bottom = 436.0
@@ -176,7 +176,6 @@ margin_bottom = 455.0
 size_flags_vertical = 3
 
 [node name="HBox_Deaths" type="HBoxContainer" parent="."]
-editor/display_folded = true
 margin_top = 459.0
 margin_right = 256.0
 margin_bottom = 496.0
@@ -220,7 +219,6 @@ margin_bottom = 515.0
 size_flags_vertical = 3
 
 [node name="HBox_KDR" type="HBoxContainer" parent="."]
-editor/display_folded = true
 margin_top = 519.0
 margin_right = 256.0
 margin_bottom = 556.0
@@ -264,7 +262,6 @@ margin_bottom = 575.0
 size_flags_vertical = 3
 
 [node name="HBox_Shots" type="HBoxContainer" parent="."]
-editor/display_folded = true
 margin_top = 579.0
 margin_right = 256.0
 margin_bottom = 616.0
@@ -308,7 +305,6 @@ margin_bottom = 635.0
 size_flags_vertical = 3
 
 [node name="HBox_Hits" type="HBoxContainer" parent="."]
-editor/display_folded = true
 margin_top = 639.0
 margin_right = 256.0
 margin_bottom = 676.0
@@ -352,7 +348,6 @@ margin_bottom = 695.0
 size_flags_vertical = 3
 
 [node name="HBox_Miss" type="HBoxContainer" parent="."]
-editor/display_folded = true
 margin_top = 699.0
 margin_right = 256.0
 margin_bottom = 736.0

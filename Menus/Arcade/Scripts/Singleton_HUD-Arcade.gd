@@ -117,6 +117,32 @@ func in_game():
 	if Player_Stats.p8["in_play"]: p8.in_play()
 	else: p8.in_game()
 
+func check_in_game(_num):
+	if _num == 1:
+		if Player_Stats.p1["in_play"]: p1.in_play()
+		else: p1.in_game()
+	elif _num == 2:
+		if Player_Stats.p2["in_play"]: p2.in_play()
+		else: p2.in_game()
+	elif _num == 3:
+		if Player_Stats.p3["in_play"]: p3.in_play()
+		else: p3.in_game()
+	elif _num == 4:
+		if Player_Stats.p4["in_play"]: p4.in_play()
+		else: p4.in_game()
+	elif _num == 5:
+		if Player_Stats.p5["in_play"]: p5.in_play()
+		else: p5.in_game()
+	elif _num == 6:
+		if Player_Stats.p6["in_play"]: p6.in_play()
+		else: p6.in_game()
+	elif _num == 7:
+		if Player_Stats.p7["in_play"]: p7.in_play()
+		else: p7.in_game()
+	elif _num == 8:
+		if Player_Stats.p8["in_play"]: p8.in_play()
+		else: p8.in_game()
+
 func game_over():
 	if Player_Stats.p1["in_play"]: p1.game_over()
 	if Player_Stats.p2["in_play"]: p2.game_over()

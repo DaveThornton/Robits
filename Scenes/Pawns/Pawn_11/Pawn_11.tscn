@@ -3,7 +3,7 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_10/Parts/Pawn_10_Part_Head.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Arm.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Part_Body.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/Pawns/Pawn_10.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Pawns/Pawn_11.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Part_Face.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Part_Head.png" type="Texture" id=6]
 
@@ -48,7 +48,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -8 ), Vector2( 0, 0 ) ]
 }
 
-[node name="Pawn_10" type="Node2D"]
+[node name="Pawn_11" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
