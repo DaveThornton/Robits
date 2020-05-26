@@ -29,6 +29,8 @@ func _physics_process(delta):
 			x.init(player, damage, spot, rotation, scale, 2)
 			print("map")
 		else:
+			if ray.get_collider().get_groups().has("player"):
+				Player_Stats.add_hit(player,1)
 			var spot = ray.get_collision_point()
 			print(spot)
 			var x = stuck_bolt.instance()

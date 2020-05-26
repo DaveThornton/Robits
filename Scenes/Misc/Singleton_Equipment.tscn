@@ -32,8 +32,8 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_09/Pawn_09.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Scenes/Guns/Hold/W_62_Diamond_Pick_Axe_Hold.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Scenes/Guns/Hold/W_39_P_Mine_Hold.tscn" type="PackedScene" id=32]
-[ext_resource path="res://Scenes/Pawns/Pawn_12/Pawn_12.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Guns/Hold/W_07_CrossBow_Hold.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Scenes/Pawns/Pawn_13/Pawn_13.tscn" type="PackedScene" id=35]
 
 [node name="Equipment" type="Node2D"]
 script = ExtResource( 1 )
@@ -71,8 +71,7 @@ pawn_08 = ExtResource( 29 )
 pawn_09 = ExtResource( 30 )
 pawn_10 = ExtResource( 23 )
 pawn_11 = ExtResource( 24 )
-pawn_12 = ExtResource( 33 )
-pawn_13 = ExtResource( 22 )
+pawn_13 = ExtResource( 35 )
 pawn_14 = ExtResource( 23 )
 pawn_15 = ExtResource( 24 )
 pawn_16 = ExtResource( 25 )

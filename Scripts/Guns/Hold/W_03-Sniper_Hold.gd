@@ -7,7 +7,7 @@ export(PackedScene) var shell
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
-onready var pump_timer = $Pump_Timer
+#onready var pump_timer = $Pump_Timer
 onready var shoot_cast = $POS_Gun/Raycast/Shoot
 onready var melee_cast = $POS_Gun/Raycast/Melee
 onready var throw_cast = $POS_Gun/Raycast/Throw

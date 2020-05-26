@@ -11,7 +11,6 @@ onready var shoot_cast = $POS_Gun/Raycast/Shoot
 onready var melee_cast = $POS_Gun/Raycast/Melee
 onready var throw_cast = $POS_Gun/Raycast/Throw
 onready var pos_shoot = $POS_Gun/POS/Shoot
-onready var pos_shell = $POS_Gun/POS/Shell
 onready var pos_throw = $POS_Gun/POS/Throw
 
 var player = 1
@@ -98,7 +97,7 @@ func shoot():
 			walk += walk_amount
 			can_shoot = false
 			shoot_timer.start()
-			anim.play("Fire")
+#			anim.play("Fire")
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
