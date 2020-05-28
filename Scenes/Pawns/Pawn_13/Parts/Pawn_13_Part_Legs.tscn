@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Pawns/Pawn_13/Pawn_13_Part_Legs_Front.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Pawns/Pawn_13_Parts/Pawn_13_Part_Legs.gd" type="Script" id=4]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=1]
 resource_name = "Fall"
 length = 0.05
 loop = true
@@ -210,7 +210,7 @@ tracks/2/keys = {
 "values": [ 22, 23 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 length = 0.6
 loop = true
 step = 0.075
@@ -308,12 +308,12 @@ hframes = 29
 frame = 12
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fall = SubResource( 8 )
+anims/Fall = SubResource( 1 )
 anims/Idle = SubResource( 2 )
 anims/Jump = SubResource( 3 )
 anims/Prone-Crawl = SubResource( 4 )
 anims/Prone-Idle = SubResource( 5 )
-anims/Run = SubResource( 9 )
+anims/Run = SubResource( 6 )
 anims/Sit = SubResource( 7 )
 
 [node name="Shield" type="Sprite" parent="."]

@@ -243,7 +243,10 @@ func jump(down_input, left_input, right_input):
 
 # Wall Jump can jump
 # -1 = left -- 1 = right -- 0 = both
-func jump_j():
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
+func jump_j(down_input, left_input, right_input):
 	print(on_wall)
 	if on_wall == 0:
 		return

@@ -209,7 +209,7 @@ func _process(delta):
 					if !left_input && !right_input:
 						my_pawn.move_x(false, false)
 					if jump_input_j:
-						my_pawn.jump_j()
+						my_pawn.jump_j(down_input, left_input, right_input)
 					if jump_input:
 						my_pawn.jump(down_input, left_input, right_input)
 					if jump_input_r:

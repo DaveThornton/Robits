@@ -219,10 +219,10 @@ anims/Sit = SubResource( 7 )
 visible = false
 texture = ExtResource( 3 )
 hframes = 29
-frame = 22
+frame = 15
 
 [node name="Legs" type="Sprite" parent="."]
 self_modulate = Color( 0, 0.0470588, 1, 1 )
 texture = ExtResource( 1 )
 hframes = 29
-frame = 22
+frame = 15

@@ -244,7 +244,7 @@ func jump(down_input, left_input, right_input):
 	is_jump_pressed = true
 	on_ladder = false
 
-func jump_j():
+func jump_j(down_input, left_input, right_input):
 	pass
 
 func jump_rel():

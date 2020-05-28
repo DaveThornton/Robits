@@ -206,7 +206,7 @@ func jump(down_input, left_input, right_input):
 	is_jump_pressed = true
 	on_ladder = false
 
-func jump_j():
+func jump_j(down_input, left_input, right_input):
 	pass
 
 func jump_rel():
@@ -359,7 +359,7 @@ func _test_headroom():
 
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
-		if !on_floor && !is_jump_pressed:
+		if !on_floor: # && !is_jump_pressed:
 			SFX.play("Move_Jump_19_Land")
 		on_floor = true
 	else :
@@ -520,8 +520,8 @@ func _anim_jump():
 
 func _anim_prone_idle():
 	legs.prone(is_right)
-	if vel.y > 1.1:
-		legs.fall(is_right)
+#	if vel.y > 1.1:
+#		legs.fall(is_right)
 	_body(3)
 	if is_right:
 		anim.play("Right_Prone")
