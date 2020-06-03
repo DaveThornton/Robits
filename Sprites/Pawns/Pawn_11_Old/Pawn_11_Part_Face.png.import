@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pawn_11_Part_Head.png-3f8ee33710de57ac986b84a147b77c11.stex"
+path="res://.import/Pawn_11_Part_Face.png-e864c69a8a6762a0564536cecf878029.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Pawns/Pawn_11/Pawn_11_Part_Head.png"
-dest_files=[ "res://.import/Pawn_11_Part_Head.png-3f8ee33710de57ac986b84a147b77c11.stex" ]
+source_file="res://Sprites/Pawns/Pawn_11_Old/Pawn_11_Part_Face.png"
+dest_files=[ "res://.import/Pawn_11_Part_Face.png-e864c69a8a6762a0564536cecf878029.stex" ]
 
 [params]
 

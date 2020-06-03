@@ -720,33 +720,33 @@ func _set_new_color(_pri, _sec):
 
 ##--------------------------------------------------------------------[Time Out]
 
-func _on_Shield_Up_timeout():
-	shield_sprite.visible = false
-	is_shield_up = false
+func knockbacktimer():
+	knocked_back = Vector2(0, 0)
 
-func _on_Shield_Hit_timeout():
+func shieldhittimer():
 	key.shield_down()
 	wheel.shield_down()
 	shield_sprite.visible = false
 	is_shield_up = false
 
-func _on_Speed_timeout():
+func shielduptimer():
+	shield_sprite.visible = false
+	is_shield_up = false
+
+func speedtimer():
 	is_speed_up = false
 	speed_power_up = 1
 
-func _on_Jump_timeout():
+func jumptimer():
 	is_jump_up = false
 	jump_power_up = 1
 
-func _on_NRG_Up_timeout():
+func nrguptimer():
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
 
-func _on_Stun_timeout():
+func stuntimer():
 	can_move = true
-
-func _on_Knock_Back_timeout():
-	knocked_back = Vector2(0, 0)
 
 ##-------------------------------------------------------------[The in and outs]
 

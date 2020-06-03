@@ -166,10 +166,10 @@ func move_x(_moving, _right):
 					else:
 						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
 			else:
-				if current_x_speed < 2 && current_x_speed > -2 || on_ladder:
+				if current_x_speed < 4 && current_x_speed > -4 || on_ladder:
 					current_x_speed = 0
 				else:
-					current_x_speed -= current_x_speed / 2
+					current_x_speed -= current_x_speed / 5
 		else:
 			if _moving:
 				if is_down:
@@ -410,84 +410,103 @@ func add_ammo(_ammo):
 ##-------------------------------------------------------------------[Animation]
 # warning-ignore:unused_argument
 func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
-	if !down_input:
-		is_down = false
 	if can_move:
-		if !hold_input:
-			if !is_down:
-				if is_jump_pressed && !on_floor:
-					_anim_jump()
-				elif right_input || left_input:
-					_anim_run()
-					if up_input:
-						shoot_spot = 2
-					elif down_input:
-						shoot_spot = 4
-					else:
-						shoot_spot = 3
-				elif up_input:
-					shoot_spot = 1
-					if over_ladder || on_ladder:
-						air_jump_count = 0
-						on_ladder = true
-						self.position.y -= ladder_speed * delta
-						_anim_ladder_move()
-					elif on_floor:
-						_anim_idle()
-					else:
-						_anim_jump()
-				elif down_input:
-					if over_ladder || on_ladder:
-						on_ladder = true
-						self.position.y += ladder_speed * delta
-					elif on_floor:
-						is_down = true
-						shoot_spot = 6
-						_anim_prone_idle()
-					else:
-						shoot_spot = 5
-						_anim_jump()
-				elif !left_input && !right_input:
-					shoot_spot = 3
-					if on_floor:
-						_anim_idle()
-					if !on_floor:
-						_anim_jump()
-					elif down_input:
-						if on_floor:
-							is_down = true
-							shoot_spot = 6
-							_anim_prone_idle()
-						else:
-							shoot_spot = 5
-							_anim_prone_crawl()
+		if !down_input && is_down:
+			is_down = false
+		if hold_input:
+			if on_floor:
+				if current_x_speed < 9 && current_x_speed > -9:
+					current_x_speed = 0
+				elif current_x_speed <= -10.0:
+					current_x_speed += 9
+				elif current_x_speed >= 10.0:
+					current_x_speed -= 9
+			if up_input && !down_input && !left_input && !right_input:
+				shoot_spot = 1
+			elif !up_input && down_input && !left_input && !right_input:
+				shoot_spot = 5
+			elif !up_input && !down_input && left_input && !right_input:
+				shoot_spot = 3
+			elif !up_input && !down_input && !left_input && right_input:
+				shoot_spot = 3
+			elif up_input && !down_input && left_input && !right_input:
+				shoot_spot = 2
+			elif up_input && !down_input && !left_input && right_input:
+				shoot_spot = 2
+			elif !up_input && down_input && left_input && !right_input:
+				shoot_spot = 4
+			elif !up_input && down_input && !left_input && right_input:
+				shoot_spot = 4
+			if on_floor:
+				_anim_idle()
+			else:
+				_anim_jump()
+		else:# no hold input
+			if is_down:
+				shoot_spot = 6
+				if down_input && !left_input && !right_input:
+					_anim_prone_idle()
+				elif down_input && left_input && !right_input:
+					_anim_prone_crawl()
+				elif down_input && !left_input && right_input:
+					_anim_prone_crawl()
+				elif !down_input:
+					is_down = false
 			else:
 				if on_floor:
-					if left_input || right_input:
-						_anim_prone_crawl()
-					else:
+					if down_input && !left_input && !right_input && !on_ladder:
 						_anim_prone_idle()
-				else:
-					print("what?!?!? pawn 13")
-		else:
-			_anim_idle()
-			if right_input || left_input:
-				if !up_input && !down_input:
-					shoot_spot = 3
-				elif down_input:
-					shoot_spot = 4
-				elif up_input:
-					shoot_spot = 2
-			elif up_input && !left_input && !right_input:
-				shoot_spot = 1
-			elif down_input && !left_input && !right_input:
-				shoot_spot = 5
-	if on_ladder && !up_input && !down_input:
-		if is_right:
-			_anim_ladder_right()
-		else:
-			_anim_ladder_left()
-
+						is_down = true
+					elif !down_input && !left_input && right_input:
+						_anim_run()
+						if up_input:
+							shoot_spot = 2
+						else:
+							shoot_spot = 3
+					elif !up_input && !left_input && right_input:
+						_anim_run()
+						if down_input:
+							shoot_spot = 4
+						else:
+							shoot_spot = 3
+					elif !down_input && left_input && !right_input:
+						_anim_run()
+						if up_input:
+							shoot_spot = 2
+						else:
+							shoot_spot = 3
+					elif !up_input && left_input && !right_input:
+						_anim_run()
+						if down_input:
+							shoot_spot = 4
+						else:
+							shoot_spot = 3
+					elif !down_input && !up_input && !left_input && !right_input:
+						_anim_idle()
+						shoot_spot = 3
+					elif up_input && !down_input && !left_input && !right_input:
+						_anim_idle()
+						shoot_spot = 1
+				else:# not on floor
+					_anim_jump()
+					if !up_input && !down_input && !left_input && !right_input:
+						shoot_spot = 3
+					elif up_input && !down_input && !left_input && !right_input:
+						shoot_spot = 1
+					elif !up_input && down_input && !left_input && !right_input:
+						shoot_spot = 5
+					elif !up_input && !down_input && left_input && !right_input:
+						shoot_spot = 3
+					elif !up_input && !down_input && !left_input && right_input:
+						shoot_spot = 3
+					elif up_input && !down_input && left_input && !right_input:
+						shoot_spot = 2
+					elif up_input && !down_input && !left_input && right_input:
+						shoot_spot = 2
+					elif !up_input && down_input && left_input && !right_input:
+						shoot_spot = 4
+					elif !up_input && down_input && !left_input && right_input:
+						shoot_spot = 4
 func _anim_idle():
 	legs.idle(is_right)
 	if is_right:
@@ -597,6 +616,7 @@ func _set_gun_dir():
 			arm.bend(3)
 		elif shoot_spot == 6:
 			head.rotation_degrees = 0
+			hbody.rotation_degrees = 0
 			arm.rotation_degrees = 0
 			arm.bend(3)
 		if my_gun:
@@ -629,6 +649,7 @@ func _set_gun_dir():
 			arm.bend(3)
 		elif shoot_spot == 6:
 			head.rotation_degrees = 0
+			hbody.rotation_degrees = 0
 			arm.rotation_degrees = 0
 			arm.bend(3)
 		if my_gun:

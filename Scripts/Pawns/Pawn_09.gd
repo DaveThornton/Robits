@@ -42,10 +42,10 @@ var current_x_speed = 0
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed: = false
 var can_jump = true
-var max_air_jump_power = 5
-var min_air_jump_power = 5
+var max_air_jump_power = 4
+var min_air_jump_power = 2
 var air_jump_count = 0
-var max_jump_power = 9
+var max_jump_power = 7
 var min_jump_power = 2
 var head_room = 0
 var ladder_count = [] #shouldnt be here??!!??
@@ -165,10 +165,10 @@ func move_x(_moving, _right):
 					else:
 						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
 			else:
-				if current_x_speed < 2 && current_x_speed > -2 || on_ladder:
+				if current_x_speed < 4 && current_x_speed > -4 || on_ladder:
 					current_x_speed = 0
 				else:
-					current_x_speed -= current_x_speed / 2
+					current_x_speed -= current_x_speed / 5
 		else:
 			if _moving:
 				if is_down:
@@ -413,10 +413,10 @@ func add_ammo(_ammo):
 ##-------------------------------------------------------------------[Animation]
 # warning-ignore:unused_argument
 func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
-	if !down_input:
-		is_down = false
 	if can_move:
-		if hold_input:
+		if !down_input && is_down:
+			is_down = false
+		if hold_input && !is_down:
 			if vel.x < 1 && vel.x > -1:
 				vel.x = 0
 			elif vel.x <= -2.0:
@@ -489,9 +489,11 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 					elif up_input && !down_input && !left_input && !right_input:
 						_anim_idle()
 						shoot_spot = 1
-				else:
+				else:# not on floor
 					_anim_jump()
-					if up_input && !down_input && !left_input && !right_input:
+					if !up_input && !down_input && !left_input && !right_input:
+						shoot_spot = 3
+					elif up_input && !down_input && !left_input && !right_input:
 						shoot_spot = 1
 					elif !up_input && down_input && !left_input && !right_input:
 						shoot_spot = 5
@@ -617,6 +619,7 @@ func _set_gun_dir():
 			arm.bend(3)
 		elif shoot_spot == 6:
 			head.rotation_degrees = 0
+			hbody.rotation_degrees = 0
 			arm.rotation_degrees = 0
 			arm.bend(3)
 		if my_gun:
@@ -649,6 +652,7 @@ func _set_gun_dir():
 			arm.bend(3)
 		elif shoot_spot == 6:
 			head.rotation_degrees = 0
+			hbody.rotation_degrees = 0
 			arm.rotation_degrees = 0
 			arm.bend(3)
 		if my_gun:

@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Tracks_Wheels.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Tracks_Back.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Body.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Tracks_Top.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Tracks_Wheel_Anim.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Head.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Pawns/Pawn_06/Parts/Pawn_06_Part_Arm.tscn" type="PackedScene" id=7]
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+[node name="Wheels" type="Sprite" parent="."]
+
+[node name="Back" type="Sprite" parent="Wheels"]
+texture = ExtResource( 2 )
+hframes = 8
+
+[node name="Wheels" type="Sprite" parent="Wheels"]
+texture = ExtResource( 1 )
+hframes = 8
+
+[node name="Wheel_A" type="Sprite" parent="Wheels"]
+texture = ExtResource( 5 )
+hframes = 8
+
+[node name="Top" type="Sprite" parent="Wheels"]
+texture = ExtResource( 4 )
+
+[node name="Head" type="Sprite" parent="."]
+position = Vector2( 0, -27 )
+texture = ExtResource( 6 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, -15 )
+texture = ExtResource( 3 )
+hframes = 3
+frame = 1
+
+[node name="Pawn_06_Part_Arm" parent="Sprite2" instance=ExtResource( 7 )]
+position = Vector2( 0, -2 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_12/Parts/Pawn_12_Part_Arm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_12/Parts/Pawn_12_Part_Head.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Sprites/Pawns/Pawn_12/Pawn_12_Part_Body_Shield.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Pawns/Pawn_12/Pawn_12_Part_Legs_F_Shield.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Pawns/Pawn_12/Pawn_12_Part_Legs_B_Shield.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 9.0
@@ -2613,30 +2614,32 @@ collision_layer = 2
 collision_mask = 67102
 script = ExtResource( 8 )
 
-[node name="Timers" type="Node2D" parent="."]
+[node name="Timers" parent="." instance=ExtResource( 12 )]
+
+[node name="Timers_old" type="Node2D" parent="."]
 visible = false
 
-[node name="Knock_Back" type="Timer" parent="Timers"]
+[node name="Knock_Back" type="Timer" parent="Timers_old"]
 wait_time = 0.05
 one_shot = true
 
-[node name="Shield_Hit" type="Timer" parent="Timers"]
+[node name="Shield_Hit" type="Timer" parent="Timers_old"]
 wait_time = 0.1
 one_shot = true
 
-[node name="Shield_Up" type="Timer" parent="Timers"]
+[node name="Shield_Up" type="Timer" parent="Timers_old"]
 one_shot = true
 
-[node name="NRG_Up" type="Timer" parent="Timers"]
+[node name="NRG_Up" type="Timer" parent="Timers_old"]
 one_shot = true
 
-[node name="Speed" type="Timer" parent="Timers"]
+[node name="Speed" type="Timer" parent="Timers_old"]
 one_shot = true
 
-[node name="Jump" type="Timer" parent="Timers"]
+[node name="Jump" type="Timer" parent="Timers_old"]
 one_shot = true
 
-[node name="Stun" type="Timer" parent="Timers"]
+[node name="Stun" type="Timer" parent="Timers_old"]
 one_shot = true
 
 [node name="Raycasts" type="Node2D" parent="."]
@@ -2753,13 +2756,13 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
 shape = SubResource( 16 )
-[connection signal="timeout" from="Timers/Knock_Back" to="." method="_on_Knock_Back_timeout"]
-[connection signal="timeout" from="Timers/Shield_Hit" to="." method="_on_Shield_Hit_timeout"]
-[connection signal="timeout" from="Timers/Shield_Up" to="." method="_on_Shield_Up_timeout"]
-[connection signal="timeout" from="Timers/NRG_Up" to="." method="_on_NRG_Up_timeout"]
-[connection signal="timeout" from="Timers/Speed" to="." method="_on_Speed_timeout"]
-[connection signal="timeout" from="Timers/Jump" to="." method="_on_Jump_timeout"]
-[connection signal="timeout" from="Timers/Stun" to="." method="_on_Stun_timeout"]
+[connection signal="timeout" from="Timers_old/Knock_Back" to="." method="_on_Knock_Back_timeout"]
+[connection signal="timeout" from="Timers_old/Shield_Hit" to="." method="_on_Shield_Hit_timeout"]
+[connection signal="timeout" from="Timers_old/Shield_Up" to="." method="_on_Shield_Up_timeout"]
+[connection signal="timeout" from="Timers_old/NRG_Up" to="." method="_on_NRG_Up_timeout"]
+[connection signal="timeout" from="Timers_old/Speed" to="." method="_on_Speed_timeout"]
+[connection signal="timeout" from="Timers_old/Jump" to="." method="_on_Jump_timeout"]
+[connection signal="timeout" from="Timers_old/Stun" to="." method="_on_Stun_timeout"]
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Tracks_Wheels.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Tracks_Back.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Tracks_Top.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Tracks_Wheel_Anim.png" type="Texture" id=4]
+
+[node name="Pawn_11_Part_Tracks" type="Node2D"]
+
+[node name="Back" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 8
+
+[node name="Wheels" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 8
+
+[node name="Wheel_Moves" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+hframes = 8
+
+[node name="Top" type="Sprite" parent="."]
+texture = ExtResource( 3 )

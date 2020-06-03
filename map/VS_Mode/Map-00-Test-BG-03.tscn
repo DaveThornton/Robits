@@ -22,12 +22,13 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Pawn_05.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Sprites/Pawns/Pawn_07-Temp1.png" type="Texture" id=21]
 [ext_resource path="res://Scenes/Pawns/Pawn_07/Pawn_07.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Pawns/Pawn_11/Pawn_11.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Pawns/Pawn_11_Old/Pawn_11.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-61-Sword.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-62-Diamond_PickAxe.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Guns/Pick/W_39_P_Mine_Pick.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Pawns/Pawn_12/Test.tscn" type="PackedScene" id=28]
+
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
