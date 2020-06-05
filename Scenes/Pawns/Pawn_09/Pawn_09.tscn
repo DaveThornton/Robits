@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_09/Body.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_09/Parts/Pawn_09_Part_Legs.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Pawns/Pawn_09/Parts/Pawn_09_Part_Head.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Pawns/Pawn_09/Parts/Pawn_09_Part_Arm.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Pawns/Pawn_09.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 14.0
@@ -337,24 +338,7 @@ collision_layer = 2
 collision_mask = 67102
 script = ExtResource( 5 )
 
-[node name="Timers" type="Node2D" parent="."]
-
-[node name="Knock_Back" type="Timer" parent="Timers"]
-wait_time = 0.05
-
-[node name="Shield_Hit" type="Timer" parent="Timers"]
-wait_time = 0.1
-
-[node name="Shield_Up" type="Timer" parent="Timers"]
-
-[node name="Stun" type="Timer" parent="Timers"]
-wait_time = 1.1
-
-[node name="Speed" type="Timer" parent="Timers"]
-
-[node name="Jump" type="Timer" parent="Timers"]
-
-[node name="NRG_Up" type="Timer" parent="Timers"]
+[node name="Timers" parent="." instance=ExtResource( 6 )]
 
 [node name="Raycasts" type="Node2D" parent="."]
 visible = false
@@ -442,12 +426,5 @@ anims/Left = SubResource( 5 )
 anims/Left_Prone = SubResource( 6 )
 anims/Right = SubResource( 7 )
 anims/Right_Prone = SubResource( 8 )
-[connection signal="timeout" from="Timers/Knock_Back" to="." method="_on_Knock_Back_timeout"]
-[connection signal="timeout" from="Timers/Shield_Hit" to="." method="_on_Shield_Hit_timeout"]
-[connection signal="timeout" from="Timers/Shield_Up" to="." method="_on_Shield_Up_timeout"]
-[connection signal="timeout" from="Timers/Stun" to="." method="_on_Stun_timeout"]
-[connection signal="timeout" from="Timers/Speed" to="." method="_on_Speed_timeout"]
-[connection signal="timeout" from="Timers/Jump" to="." method="_on_Jump_timeout"]
-[connection signal="timeout" from="Timers/NRG_Up" to="." method="_on_NRG_Up_timeout"]
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]

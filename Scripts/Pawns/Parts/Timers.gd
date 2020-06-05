@@ -20,21 +20,23 @@ func _on_NRG_Up_timeout():
 func _on_Speed_timeout():
 	dad.speedtimer()
 
-func _on_Jump_timeout():
-	dad.jumptimer()
+func _on_Jump_Up_timeout():
+	dad.jumpuptimer()
 
 func _on_Stun_timeout():
 	dad.stuntimer()
 
+func _on_Jump_timeout():
+	dad.jumptimer()
 
 #func shieldhittimer()
 #
 #func shielduptimer()
 #
 #func nrguptimer()
-#
+#knockbacktimer()
 #func speedtimer()
 #
-#func jumptimer()
+#func jumpuptimer()
 #
 #func stuntimer()

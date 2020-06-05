@@ -18,6 +18,9 @@ one_shot = true
 [node name="NRG_Up" type="Timer" parent="."]
 one_shot = true
 
+[node name="Jump_Up" type="Timer" parent="."]
+one_shot = true
+
 [node name="Speed" type="Timer" parent="."]
 one_shot = true
 
@@ -30,6 +33,7 @@ one_shot = true
 [connection signal="timeout" from="Shield_Hit" to="." method="_on_Shield_Hit_timeout"]
 [connection signal="timeout" from="Shield_Up" to="." method="_on_Shield_Up_timeout"]
 [connection signal="timeout" from="NRG_Up" to="." method="_on_NRG_Up_timeout"]
+[connection signal="timeout" from="Jump_Up" to="." method="_on_Jump_Up_timeout"]
 [connection signal="timeout" from="Speed" to="." method="_on_Speed_timeout"]
 [connection signal="timeout" from="Jump" to="." method="_on_Jump_timeout"]
 [connection signal="timeout" from="Stun" to="." method="_on_Stun_timeout"]

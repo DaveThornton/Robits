@@ -21,7 +21,7 @@ onready var shield_hit_timer = $Timers/Shield_Hit
 onready var shield_up_timer = $Timers/Shield_Up
 onready var stun_timer = $Timers/Stun
 onready var speed_timer = $Timers/Speed
-onready var jump_timer = $Timers/Jump
+onready var jump_up_timer = $Timers/Jump_Up
 onready var nrg_up_timer = $Timers/NRG_Up
 
 onready var anim = $AnimationPlayer
@@ -372,10 +372,10 @@ func put_jump_up(_how_long):
 	is_jump_up = true
 	jump_power_up = 2
 	if _how_long <= 0:
-		jump_timer.wait_time = 10
+		jump_up_timer.wait_time = 10
 	else:
-		jump_timer.wait_time = _how_long
-	jump_timer.start()
+		jump_up_timer.wait_time = _how_long
+	jump_up_timer.start()
 
 func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_regen_rate = _how_fast
@@ -718,33 +718,33 @@ func _set_new_color(_pri, _sec):
 
 ##--------------------------------------------------------------------[Time Out]
 
-func _on_Shield_Up_timeout():
+func shielduptimer():
 	shield_sprite.visible = false
 	is_shield_up = false
 
-func _on_Shield_Hit_timeout():
+func shieldhittimer():
 	key.shield_down()
 	head.shield_down()
 	trax.shield_down()
 	shield_sprite.visible = false
 	is_shield_up = false
 
-func _on_Speed_timeout():
+func speedtimer():
 	is_speed_up = false
 	speed_power_up = 1
 
-func _on_Jump_timeout():
+func jumpuptimer():
 	is_jump_up = false
 	jump_power_up = 1
 
-func _on_NRG_Up_timeout():
+func nrguptimer():
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
 
-func _on_Stun_timeout():
+func stuntimer():
 	can_move = true
 
-func _on_Knock_Back_timeout():
+func knockbacktimer():
 	knocked_back = Vector2(0, 0)
 
 ##-------------------------------------------------------------[The in and outs]

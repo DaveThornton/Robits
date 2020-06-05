@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Body.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Key.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Body-Sheild.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Guns/Weap-02-AK-47.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Pawns/Pawn_06/Parts/Pawn_06_Part_Arm.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.0
@@ -2096,25 +2097,7 @@ collision_layer = 2
 collision_mask = 67102
 script = ExtResource( 5 )
 
-[node name="Timers" type="Node2D" parent="."]
-
-[node name="Knock_Back" type="Timer" parent="Timers"]
-
-[node name="Shield_Hit" type="Timer" parent="Timers"]
-wait_time = 0.1
-
-[node name="Shield_Up" type="Timer" parent="Timers"]
-
-[node name="Jump_up" type="Timer" parent="Timers"]
-one_shot = true
-
-[node name="NRG_Up" type="Timer" parent="Timers"]
-
-[node name="Speed" type="Timer" parent="Timers"]
-
-[node name="Jump" type="Timer" parent="Timers"]
-
-[node name="Stun" type="Timer" parent="Timers"]
+[node name="Timers" parent="." instance=ExtResource( 9 )]
 
 [node name="Raycast" type="Node2D" parent="."]
 
@@ -2241,14 +2224,6 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
 shape = SubResource( 16 )
-[connection signal="timeout" from="Timers/Knock_Back" to="." method="_on_Knock_Back_timeout"]
-[connection signal="timeout" from="Timers/Shield_Hit" to="." method="_on_Shield_Hit_timeout"]
-[connection signal="timeout" from="Timers/Shield_Up" to="." method="_on_Shield_Up_timeout"]
-[connection signal="timeout" from="Timers/Jump_up" to="." method="_on_Jump_up_timeout"]
-[connection signal="timeout" from="Timers/NRG_Up" to="." method="_on_NRG_Up_timeout"]
-[connection signal="timeout" from="Timers/Speed" to="." method="_on_Speed_timeout"]
-[connection signal="timeout" from="Timers/Jump" to="." method="_on_Jump_timeout"]
-[connection signal="timeout" from="Timers/Stun" to="." method="_on_Stun_timeout"]
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

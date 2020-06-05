@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Tracks_Wheels.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Tracks_Back.png" type="Texture" id=2]
@@ -7,8 +7,11 @@
 [ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Tracks_Wheel_Anim.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Head.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Pawns/Pawn_06/Parts/Pawn_06_Part_Arm.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=8]
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
+
+[node name="Timers" parent="." instance=ExtResource( 8 )]
 
 [node name="Wheels" type="Sprite" parent="."]
 
