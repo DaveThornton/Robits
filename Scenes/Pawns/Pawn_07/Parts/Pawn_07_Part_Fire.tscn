@@ -3,7 +3,7 @@
 [ext_resource path="res://Sprites/Pawns/Pawn_07/Pawn_07_Part_Fire.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Pawns/Pawn_07_Parts/Pawn_07_Part_Fire.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Flame_Down"
 length = 0.2
 step = 0.05
@@ -46,8 +46,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Flame_Up"
+[sub_resource type="Animation" id=2]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -161,7 +160,7 @@ texture = ExtResource( 1 )
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Flame_Down = SubResource( 2 )
-anims/Flame_Up = SubResource( 1 )
+anims/Flame_Down = SubResource( 1 )
+anims/Flame_Up = SubResource( 2 )
 anims/Off = SubResource( 3 )
 anims/On = SubResource( 4 )
