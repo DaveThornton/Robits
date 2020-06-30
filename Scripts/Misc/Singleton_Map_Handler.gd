@@ -39,11 +39,13 @@ func add_kid_to_map(_obj):
 
 func clear_map():
 	map.call_deferred("free")
+	map = null
 
 func load_map_cam(_level, _label_1, _label_2, _time, _show):
 #	var m = _level.instance()
 	if _show:
-		Menu_Hand.splash(_label_1, _label_2, _time, true)
+#		Menu_Hand.splash(_label_1, _label_2, _time, true)
+		HUD.splash(_label_1, _label_2, _time, true)
 #		level = _level
 		_load_map_cam(_level)
 #		splash.change_text(_label_1, _label_2)

@@ -20,16 +20,22 @@ var p6_ready = false
 var p7_ready = false
 var p8_ready = false
 
+func _init():
+	HUD.menu_state()
+
 func _ready():
-	var test3 = Menu_Hand.connect("input_to_screen", self, "movement")
+	var test2 = HUD.connect("screen_update", self, "menu_check")
+	if test2 != 0:
+		print("error M03 Arcade player select connecting next_screen")
+	var test3 = HUD.connect("input_to_screen", self, "movement")
 	if test3 != 0:
 		print("error in arcade player select VS connect input to screen")
-	HUD.in_play_to_select()
+	HUD.menu_state()
 	menu_check()
 
 func _start(_player):
+	HUD.set_pri(_player,5)
 	_set_ready(_player)
-	HUD.player_ready(_player)
 	SFX.play("Menu_Select_02")
 	if _get_ready_num() == Player_Stats.get_num_in_play():
 		_next_screen()
@@ -51,7 +57,7 @@ func _next_screen():
 		Player_Stats.p7["pawn_num"] = p7_menu.pos
 	if Player_Stats.p8["in_play"]:
 		Player_Stats.p8["pawn_num"] = p8_menu.pos
-	Menu_Hand.load_screen(vs_map_select)
+	HUD.load_screen(vs_map_select)
 	self.call_deferred("free")
 
 func movement(_player, _dir):
@@ -259,8 +265,7 @@ func _set_ready(_player):
 		p8_ready = true
 	
 func _back(_player):
-#	print("put in a back sound M03 Arcade")
-	HUD.player_select(_player)
+	HUD.set_pri(_player,4)
 	SFX.play("Menu_Error_13")
 	if _player == 1:
 		p1_ready = false

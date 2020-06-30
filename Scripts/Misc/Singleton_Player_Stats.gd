@@ -2,6 +2,7 @@ extends Node
 
 var p1 = {
 	in_play = false,
+	in_game = false,
 	exist = false,
 	credit = 0,
 	kill = 0,
@@ -11,7 +12,7 @@ var p1 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
-	pawn_num =11,
+	pawn_num = -1,
 	color_2 = Color8(255, 0, 0, 255),
 	color_1 = Color8(145, 145, 145, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -19,6 +20,7 @@ var p1 = {
 
 var p2 = {
 	in_play = false,
+	in_game = false,
 	exist = false,
 	credit = 0,
 	kill = 0,
@@ -28,7 +30,7 @@ var p2 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
-	pawn_num = 7,
+	pawn_num = -1,
 	color_2 = Color8(0, 255, 255, 255),
 	color_1 = Color8(255, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -36,6 +38,7 @@ var p2 = {
 
 var p3 = {
 	in_play = false,
+	in_game = false,
 	exist = false,
 	credit = 0,
 	kill = 0,
@@ -45,7 +48,7 @@ var p3 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
-	pawn_num = 6,
+	pawn_num = -1,
 	color_2 = Color8(255, 255, 0, 255),
 	color_1 = Color8(255, 0, 0, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -53,6 +56,7 @@ var p3 = {
 
 var p4 = {
 	in_play = false,
+	in_game = false,
 	exist = false,
 	credit = 0,
 	kill = 0,
@@ -62,7 +66,7 @@ var p4 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
-	pawn_num = 5,
+	pawn_num = -1,
 	color_2 = Color8(255, 255, 0, 255),
 	color_1 = Color8(0, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -70,6 +74,7 @@ var p4 = {
 
 var p5 = {
 	in_play = false,
+	in_game = false,
 	exist = false,
 	credit = 0,
 	kill = 0,
@@ -79,7 +84,7 @@ var p5 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
-	pawn_num = 4,
+	pawn_num = -1,
 	color_2 = Color8(255, 0, 0, 255),
 	color_1 = Color8(255, 255, 0, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -87,6 +92,7 @@ var p5 = {
 
 var p6 = {
 	in_play = false,
+	in_game = false,
 	exist = false,
 	credit = 0,
 	kill = 0,
@@ -96,7 +102,7 @@ var p6 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
-	pawn_num = 3,
+	pawn_num = -1,
 	color_2 = Color8(255, 0, 0, 255),
 	color_1 = Color8(123, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -104,6 +110,7 @@ var p6 = {
 
 var p7 = {
 	in_play = false,
+	in_game = false,
 	exist = false,
 	credit = 0,
 	kill = 0,
@@ -113,7 +120,7 @@ var p7 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
-	pawn_num = 2,
+	pawn_num = -1,
 	color_2 = Color8(255, 0, 0, 255),
 	color_1 = Color8(0, 255, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -121,6 +128,7 @@ var p7 = {
 
 var p8 = {
 	in_play = false,
+	in_game = false,
 	exist = false,
 	credit = 0,
 	kill = 0,
@@ -130,7 +138,7 @@ var p8 = {
 	hit = 0,
 	ammo = 0,
 	nrg = 100,
-	pawn_num = 1,
+	pawn_num = -1,
 	color_2 = Color8(255, 0, 0, 255),
 	color_1 = Color8(0, 255, 0, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -142,11 +150,22 @@ func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
 		print("error Singleton Player Stats connecting to reset from world gd")
+	if get_tree().get_current_scene().game_mode == 3:
+		p1["pawn_num"] = 12
+		p2["pawn_num"] = 8
+		p3["pawn_num"] = 9
+		p4["pawn_num"] = 13
+		p5["pawn_num"] = 7
+		p6["pawn_num"] = 6
+		p7["pawn_num"] = 5
+		p8["pawn_num"] = 12
 
 func update_hud():
-	HUD.in_game()
+	print("update hud in HUD isnt doing anything")
+#	HUD.in_game()
 
 func add_kill(_killed, _killer, _point, _by_what):
+	print(_killed," by ",_killer," for ",_point, " points with ",_by_what)
 	add_score(_killer, _point)
 	add_score(_killed,(-1 * _point))
 	add_death(_killed)
@@ -283,7 +302,8 @@ func use_credit( _player):
 		p8["in_play"] = true
 	else:
 		print("invalid player in player stats use credit... _player --> ", _player)
-	HUD.use_credit(_player)
+	HUD.state_machine()
+#	HUD.use_credit(_player)
 
 func nrg_update(_player, _nrg, _nrg_max):
 	var _current_nrg = int((float(_nrg) / _nrg_max)* 100)
@@ -310,6 +330,84 @@ func can_player_start(_player):
 	elif _player == 8 && p8["credit"] > 0:
 		return true
 	else:
+		return false
+
+func set_in_game(_player,_in_game):
+	if _player == 1:
+		p1["in_game"] = _in_game
+	elif _player == 2:
+		p2["in_game"] = _in_game
+	elif _player == 3:
+		p3["in_game"] = _in_game
+	elif _player == 4:
+		p4["in_game"] = _in_game
+	elif _player == 5:
+		p5["in_game"] = _in_game
+	elif _player == 6:
+		p6["in_game"] = _in_game
+	elif _player == 7:
+		p7["in_game"] = _in_game
+	elif _player == 8:
+		p8["in_game"] = _in_game
+
+func set_in_play(_player,_in_play):
+	if _player == 1:
+		p1["in_play"] = _in_play
+	elif _player == 2:
+		p2["in_play"] = _in_play
+	elif _player == 3:
+		p3["in_play"] = _in_play
+	elif _player == 4:
+		p4["in_play"] = _in_play
+	elif _player == 5:
+		p5["in_play"] = _in_play
+	elif _player == 6:
+		p6["in_play"] = _in_play
+	elif _player == 7:
+		p7["in_play"] = _in_play
+	elif _player == 8:
+		p8["in_play"] = _in_play
+
+func get_in_game(_player):
+	if _player == 1:
+		return p1["in_game"]
+	elif _player == 2:
+		return p2["in_game"]
+	elif _player == 3:
+		return p3["in_game"]
+	elif _player == 4:
+		return p4["in_game"]
+	elif _player == 5:
+		return p5["in_game"]
+	elif _player == 6:
+		return p6["in_game"]
+	elif _player == 7:
+		return p7["in_game"]
+	elif _player == 8:
+		return p8["in_game"]
+	else:
+		print("invalid player number in player stats , get in_game so ill return false")
+		return false
+
+func get_in_play(_player):
+	if _player == 1:
+		return p1["in_play"]
+	elif _player == 2:
+		return p2["in_play"]
+	elif _player == 3:
+		return p3["in_play"]
+	elif _player == 4:
+		return p4["in_play"]
+	elif _player == 5:
+		return p5["in_play"]
+	elif _player == 6:
+		return p6["in_play"]
+	elif _player == 7:
+		return p7["in_play"]
+	elif _player == 8:
+		return p8["in_play"]
+	else:
+		print("invalid player number in player stats , get in_play so ill return false")
 		return false
 
 func get_num_in_play():

@@ -14,7 +14,7 @@ var p6
 var p7
 var p8
 
-func spawn_player_contoller(player_num: int, _auto_respawn):
+func spawn_player_contoller(player_num: int):#, _auto_respawn):
 	var z = player_controller.instance()
 	players.add_child(z)
 	var test = get_tree().get_current_scene().connect("reset", z, "reset")

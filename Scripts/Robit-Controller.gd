@@ -19,8 +19,8 @@ var player_input_start = "P1_start"
 var player_input_coin = "P1_Coin"
 var auto_respawn = true
 #var game_mode = 0
-var in_game = false
-var in_menu = true
+#var in_game = false
+#var in_menu = true
 var alive = false
 #var can_start = false
 var start_equiped = 0
@@ -136,11 +136,13 @@ func spawn_pawn():
 		z.connect("explode_p", self, "explode_pawn")
 		my_pawn = z
 		_init_pawn()
-		in_game = true
+		Player_Stats.set_in_game(player, true)
+#		in_game = true
 		alive = true
-		in_menu = false
+#		in_menu = false
 	else:
-		in_menu = true
+		Player_Stats.set_in_game(player, false)
+#		in_menu = true
 
 func _init_pawn():
 	my_pawn.init(player, Map_Hand.spawn_pos(), start_equiped, play_type)
@@ -157,7 +159,7 @@ func _explode_pawn(_player, _pos, _by_who, _by_what):
 		Player_Stats.add_kill(player, _by_who , 1, _by_what)
 		Game.check_over()
 		if auto_respawn:
-			if in_game:
+			if Player_Stats.get_in_game(player):
 				r_timer.start()
 
 func game_over(_winner):
@@ -190,39 +192,43 @@ func _process(delta):
 	if player == 1:
 #		print("test button still active in player 1 controller!! [see robit controller]")
 		if test_button:
+			print("test button add trama pressed in controller")
 			FX.add_trauma(1)
-
 	if Input.is_action_pressed("Exit"):
 		get_tree().quit()
+	if coin_input_j:
+		Player_Stats.coin_insert(player)
+		HUD.coin_up(player)
+
 	if !Game.over:
-		if!in_menu:
-			if in_game:
-				if alive:
-					if right_input && !left_input:
-						if !hold_input:
-							my_pawn.move_x(true, true)
-						my_pawn.is_right = true
-					if left_input && !right_input:
-						if!hold_input:
-							my_pawn.move_x(true, false)
-						my_pawn.is_right = false
-					if !left_input && !right_input:
-						my_pawn.move_x(false, false)
-					if jump_input_j:
-						my_pawn.jump_j(down_input, left_input, right_input)
-					if jump_input:
-						my_pawn.jump(down_input, left_input, right_input)
-					if jump_input_r:
-						my_pawn.jump_rel()
-					if shoot_input:
-						my_pawn.shoot()
-					if shoot_input_j:
-						my_pawn.shoot_j()
-					if shoot_input_r:
-						my_pawn.shoot_r()
-					if pick_input_j:
-						my_pawn.pick_throw(left_input, right_input, up_input, down_input,hold_input)
-					my_pawn.anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta)
+		if Player_Stats.get_in_game(player):
+#			if in_game:
+			if alive:
+				if right_input && !left_input:
+					if !hold_input:
+						my_pawn.move_x(true, true)
+					my_pawn.is_right = true
+				if left_input && !right_input:
+					if!hold_input:
+						my_pawn.move_x(true, false)
+					my_pawn.is_right = false
+				if !left_input && !right_input:
+					my_pawn.move_x(false, false)
+				if jump_input_j:
+					my_pawn.jump_j(down_input, left_input, right_input)
+				if jump_input:
+					my_pawn.jump(down_input, left_input, right_input)
+				if jump_input_r:
+					my_pawn.jump_rel()
+				if shoot_input:
+					my_pawn.shoot()
+				if shoot_input_j:
+					my_pawn.shoot_j()
+				if shoot_input_r:
+					my_pawn.shoot_r()
+				if pick_input_j:
+					my_pawn.pick_throw(left_input, right_input, up_input, down_input,hold_input)
+				my_pawn.anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta)
 			else:
 				if start_input_j:
 					if Player_Stats.can_player_start(player):
@@ -232,30 +238,37 @@ func _process(delta):
 						print("need to put a coin in or this is an error  ", Player_Stats.can_player_start(player))
 		else:
 			if start_input_j:
-				Menu_Hand.input(player, 0)
+#				Menu_Hand.input(player, 0)
+				HUD.input(player, 0)
 			elif up_input_j:
-				Menu_Hand.input(player, 1)
+#				Menu_Hand.input(player, 1)
+				HUD.input(player, 1)
 			elif left_input_j:
-				Menu_Hand.input(player, 2)
+#				Menu_Hand.input(player, 2)
+				HUD.input(player, 2)
 			elif right_input_j:
-				Menu_Hand.input(player, 3)
+#				Menu_Hand.input(player, 3)
+				HUD.input(player, 3)
 			elif down_input_j:
-				Menu_Hand.input(player, 4)
+#				Menu_Hand.input(player, 4)
+				HUD.input(player, 4)
 			elif jump_input_j:# || shoot_input_j ||start_input:
-				Menu_Hand.input(player, 5)
+#				Menu_Hand.input(player, 5)
+				HUD.input(player, 5)
 			elif shoot_input_j:
-				Menu_Hand.input(player, 6)
+#				Menu_Hand.input(player, 6)
+				HUD.input(player, 6)
 			elif hold_input_j:# || pick_input:
-				Menu_Hand.input(player, 7)
+#				Menu_Hand.input(player, 7)
+				HUD.input(player, 7)
 			elif pick_input_j:
-				Menu_Hand.input(player, 8)
+#				Menu_Hand.input(player, 8)
+				HUD.input(player, 8)
 	else:
 		if jump_input_j || shoot_input_j ||start_input_j:
 			HUD.game_over_input(player, 5)
 		elif hold_input_j || pick_input_j:
 			HUD.game_over_input(player, 6)
-	if coin_input_j:
-		Player_Stats.coin_insert(player)
 
 func set_spawn_spot(_pos):
 	spawn_spot = _pos
@@ -272,6 +285,8 @@ func get_pawn():
 
 func reset():
 	print("reset called in controller")
-	in_game = false
-	in_menu = true
+	Player_Stats.set_in_game(player, false)
+	Player_Stats.set_in_play(player, false)
+#	in_game = false
+#	in_menu = true
 	alive = false

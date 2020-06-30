@@ -181,7 +181,7 @@ shape = SubResource( 2 )
 [node name="Shield" type="Sprite" parent="."]
 
 [node name="POS_Body" type="Position2D" parent="."]
-position = Vector2( -7, -5 )
+position = Vector2( -7, -20 )
 
 [node name="Pawn_13_Part_Body" type="Sprite" parent="POS_Body"]
 texture = ExtResource( 4 )

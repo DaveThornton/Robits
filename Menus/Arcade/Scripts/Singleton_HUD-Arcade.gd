@@ -9,113 +9,367 @@ onready var p6 = $VBox_Player_06
 onready var p7 = $VBox_Player_07
 onready var p8 = $VBox_Player_08
 
+var p1state = {
+	mode = 1,
+	pri = 2,
+	sec = 0
+}
+var p2state = {
+	mode = 1,
+	pri = 2,
+	sec = 0
+}
+var p3state = {
+	mode = 1,
+	pri = 2,
+	sec = 0
+}
+var p4state = {
+	mode = 1,
+	pri = 2,
+	sec = 0
+}
+var p5state = {
+	mode = 1,
+	pri = 2,
+	sec = 0
+}
+var p6state = {
+	mode = 1,
+	pri = 2,
+	sec = 0
+}
+var p7state = {
+	mode = 1,
+	pri = 2,
+	sec = 0
+}
+var p8state = {
+	mode = 1,
+	pri = 2,
+	sec = 0
+}
+var mode = 1
+var splash_screen = "res://Menus/Parts/M10-Splash.tscn"
+var screen_loaded
+
+signal input_to_screen #movement up:1 left:2 right:3 down:4 start:5 back:6
+signal screen_update
+
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
 		print("error Singleton HUD connecting to reset from world gd")
+#	start()
 	reset()
 
-func ask_insert_coin(_player):
-#	SFX.play("Menu_Nagger_02")
-	print("find a new sfx for no coins insterted in hud singlton")
-	if _player == 1: p1.insert_coin()
-	elif _player == 2: p2.insert_coin()
-	elif _player == 3: p3.insert_coin()
-	elif _player == 4: p4.insert_coin()
-	elif _player == 5: p5.insert_coin()
-	elif _player == 6: p6.insert_coin()
-	elif _player == 7: p7.insert_coin()
-	elif _player == 8: p8.insert_coin()
+func state_machine():
+	if Game.started && !Game.over:
+		mode = 2
+		game_state()
+	elif !Game.started && !Game.over:
+		mode = 1
+		menu_state()
+	elif Game.started && Game.over:
+		print("game mode is set to 0 in hud")
+		mode = 0
+		game_over_state()
+	else:
+		print("error in state machine hud values not met")
+		print("game started = ", Game.started)
+		print("game over = ", Game.over)
 
-func coin_up(_player):
-	SFX.play("Menu_Coin")
+func start():
+	p1state["mode"] = 1
+	p1state["sec"] = 0
+	p1state["mode"] = 1
+	p1state["sec"] = 0
+	p1state["mode"] = 1
+	p1state["sec"] = 0
+	p1state["mode"] = 1
+	p1state["sec"] = 0
+	p1state["mode"] = 1
+	p1state["sec"] = 0
+	p1state["mode"] = 1
+	p1state["sec"] = 0
+	p1state["mode"] = 1
+	p1state["sec"] = 0
+	p1state["mode"] = 1
+	p1state["sec"] = 0
+	if Player_Stats.can_player_start(1): p1state["pri"] = 3
+	else: p1state["pri"] = 2
+	if Player_Stats.can_player_start(2): p2state["pri"] = 3
+	else: p2state["pri"] = 2
+	if Player_Stats.can_player_start(3): p3state["pri"] = 3
+	else: p3state["pri"] = 2
+	if Player_Stats.can_player_start(4): p4state["pri"] = 3
+	else: p4state["pri"] = 2
+	if Player_Stats.can_player_start(5): p5state["pri"] = 3
+	else: p5state["pri"] = 2
+	if Player_Stats.can_player_start(6): p6state["pri"] = 3
+	else: p6state["pri"] = 2
+	if Player_Stats.can_player_start(7): p7state["pri"] = 3
+	else: p7state["pri"] = 2
+	if Player_Stats.can_player_start(8): p8state["pri"] = 3
+	else: p8state["pri"] = 2
+	p1.update_state(p1state)
+	p2.update_state(p2state)
+	p3.update_state(p3state)
+	p4.update_state(p4state)
+	p5.update_state(p5state)
+	p6.update_state(p6state)
+	p7.update_state(p7state)
+	p8.update_state(p8state)
+
+func update_player(_player):
 	if _player == 1:
-		p1.set_coin_count(Player_Stats.p1["credit"])
-		p1.coin_up()
+		p1.update_state(p1state)
 	elif _player == 2:
-		p2.set_coin_count(Player_Stats.p2["credit"])
-		p2.coin_up()
+		p2.update_state(p2state)
 	elif _player == 3:
-		p3.set_coin_count(Player_Stats.p3["credit"])
-		p3.coin_up()
+		p3.update_state(p3state)
 	elif _player == 4:
-		p4.set_coin_count(Player_Stats.p4["credit"])
-		p4.coin_up()
+		p4.update_state(p4state)
 	elif _player == 5:
-		p5.set_coin_count(Player_Stats.p5["credit"])
-		p5.coin_up()
+		p5.update_state(p5state)
 	elif _player == 6:
-		p6.set_coin_count(Player_Stats.p6["credit"])
-		p6.coin_up()
+		p6.update_state(p6state)
 	elif _player == 7:
-		p7.set_coin_count(Player_Stats.p7["credit"])
-		p7.coin_up()
+		p7.update_state(p7state)
 	elif _player == 8:
-		p8.set_coin_count(Player_Stats.p8["credit"])
-		p8.coin_up()
+		p8.update_state(p8state)
 
-func coin_count():
-	p1.set_coin_count(Player_Stats.p1["credit"])
-	p2.set_coin_count(Player_Stats.p2["credit"])
-	p3.set_coin_count(Player_Stats.p3["credit"])
-	p4.set_coin_count(Player_Stats.p4["credit"])
-	p5.set_coin_count(Player_Stats.p5["credit"])
-	p6.set_coin_count(Player_Stats.p6["credit"])
-	p7.set_coin_count(Player_Stats.p7["credit"])
-	p8.set_coin_count(Player_Stats.p8["credit"])
+func update_players():
+	p1.update_state(p1state)
+	p2.update_state(p2state)
+	p3.update_state(p3state)
+	p4.update_state(p4state)
+	p5.update_state(p5state)
+	p6.update_state(p6state)
+	p7.update_state(p7state)
+	p8.update_state(p8state)
 
-func use_credit(_player):
-	SFX.play("Blip_05")
+func set_pri(_player, _pri):
+	if _player == 1:
+		p1state["pri"] = _pri
+	elif _player == 2:
+		p2state["pri"] = _pri
+	elif _player == 3:
+		p3state["pri"] = _pri
+	elif _player == 4:
+		p4state["pri"] = _pri
+	elif _player == 5:
+		p5state["pri"] = _pri
+	elif _player == 6:
+		p6state["pri"] = _pri
+	elif _player == 7:
+		p7state["pri"] = _pri
+	elif _player == 8:
+		p8state["pri"] = _pri
+	update_player(_player)
 
-func player_ready(_player):
-	if _player == 1: p1.player_ready()
-	elif _player == 2: p2.player_ready()
-	elif _player == 3: p3.player_ready()
-	elif _player == 4: p4.player_ready()
-	elif _player == 5: p5.player_ready()
-	elif _player == 6: p6.player_ready()
-	elif _player == 7: p7.player_ready()
-	elif _player == 8: p8.player_ready()
-	else: print("error in player_ready player number not valid. player : ",_player)
+func game_over_state():
+	if mode == 0:
+		p1state["pri"] = 11
+		p2state["pri"] = 11
+		p3state["pri"] = 11
+		p4state["pri"] = 11
+		p5state["pri"] = 11
+		p6state["pri"] = 11
+		p7state["pri"] = 11
+		p8state["pri"] = 11
+		update_players()
 
-func player_select(_player):
-	if _player == 1: p1.player_select()
-	elif _player == 2: p2.player_select()
-	elif _player == 3: p3.player_select()
-	elif _player == 4: p4.player_select()
-	elif _player == 5: p5.player_select()
-	elif _player == 6: p6.player_select()
-	elif _player == 7: p7.player_select()
-	elif _player == 8: p8.player_select()
-	else: print("error player_select player number not valid. player : ",_player)
+func menu_state():
+	if mode == 1:
+		if !Player_Stats.get_in_play(1) && Player_Stats.can_player_start(1):
+			p1state["pri"] = 3
+		elif Player_Stats.get_in_play(1) && screen_loaded.p1_ready:
+			p1state["pri"] = 5
+		elif Player_Stats.get_in_play(1) && !screen_loaded.p1_ready:
+			p1state["pri"] = 4
+		else:
+			p1state["pri"] = 2
+		
+		if !Player_Stats.get_in_play(2) && Player_Stats.can_player_start(2):
+			p2state["pri"] = 3
+		elif Player_Stats.get_in_play(2) && screen_loaded.p2_ready:
+			p2state["pri"] = 5
+		elif Player_Stats.get_in_play(2) && !screen_loaded.p2_ready:
+			p2state["pri"] = 4
+		else:
+			p2state["pri"] = 2
+	
+		if !Player_Stats.get_in_play(3) && Player_Stats.can_player_start(3):
+			p3state["pri"] = 3
+		elif Player_Stats.get_in_play(3) && screen_loaded.p3_ready:
+			p3state["pri"] = 5
+		elif Player_Stats.get_in_play(3) && !screen_loaded.p3_ready:
+			p3state["pri"] = 4
+		else:
+			p3state["pri"] = 2
+		
+		if !Player_Stats.get_in_play(4) && Player_Stats.can_player_start(4):
+			p4state["pri"] = 3
+		elif Player_Stats.get_in_play(4) && screen_loaded.p4_ready:
+			p4state["pri"] = 5
+		elif Player_Stats.get_in_play(4) && !screen_loaded.p4_ready:
+			p4state["pri"] = 4
+		else:
+			p4state["pri"] = 2
+	
+		if !Player_Stats.get_in_play(5) && Player_Stats.can_player_start(5):
+			p5state["pri"] = 3
+		elif Player_Stats.get_in_play(5) && screen_loaded.p5_ready:
+			p5state["pri"] = 5
+		elif Player_Stats.get_in_play(5) && !screen_loaded.p5_ready:
+			p5state["pri"] = 4
+		else:
+			p5state["pri"] = 2
+		
+		if !Player_Stats.get_in_play(6) && Player_Stats.can_player_start(6):
+			p6state["pri"] = 3
+		elif Player_Stats.get_in_play(6) && screen_loaded.p6_ready:
+			p6state["pri"] = 5
+		elif Player_Stats.get_in_play(6) && !screen_loaded.p6_ready:
+			p6state["pri"] = 4
+		else:
+			p6state["pri"] = 2
+	
+		if !Player_Stats.get_in_play(7) && Player_Stats.can_player_start(7):
+			p7state["pri"] = 3
+		elif Player_Stats.get_in_play(7) && screen_loaded.p7_ready:
+			p7state["pri"] = 5
+		elif Player_Stats.get_in_play(7) && !screen_loaded.p7_ready:
+			p7state["pri"] = 4
+		else:
+			p7state["pri"] = 2
+		
+		if !Player_Stats.get_in_play(8) && Player_Stats.can_player_start(8):
+			p8state["pri"] = 3
+		elif Player_Stats.get_in_play(8) && screen_loaded.p8_ready:
+			p8state["pri"] = 5
+		elif Player_Stats.get_in_play(8) && !screen_loaded.p8_ready:
+			p8state["pri"] = 4
+		else:
+			p8state["pri"] = 2
+	update_players()
 
-func in_play_to_select():
-	if Player_Stats.p1["in_play"]: p1.player_select()
-	if Player_Stats.p2["in_play"]: p2.player_select()
-	if Player_Stats.p3["in_play"]: p3.player_select()
-	if Player_Stats.p4["in_play"]: p4.player_select()
-	if Player_Stats.p5["in_play"]: p5.player_select()
-	if Player_Stats.p6["in_play"]: p6.player_select()
-	if Player_Stats.p7["in_play"]: p7.player_select()
-	if Player_Stats.p8["in_play"]: p8.player_select()
+func game_state():
+	if mode == 2:
+		if Player_Stats.p1["in_game"]:
+			set_pri(1,10)
+		elif Player_Stats.get_in_play(1) && !Player_Stats.p1["in_game"]:
+			set_pri(1, 9)
+		elif !Player_Stats.get_in_play(1) && !Player_Stats.p1["in_game"] && Player_Stats.can_player_start(1):
+			set_pri(1, 3)
+		elif !Player_Stats.get_in_play(1) && !Player_Stats.can_player_start(1):
+			set_pri(1, 2)
+	
+		if Player_Stats.p2["in_game"]:
+			set_pri(2,10)
+		elif Player_Stats.get_in_play(2) && !Player_Stats.p2["in_game"]:
+			set_pri(2, 9)
+		elif !Player_Stats.get_in_play(2) && !Player_Stats.p2["in_game"] && Player_Stats.can_player_start(2):
+			set_pri(2, 3)
+		elif !Player_Stats.get_in_play(2) && !Player_Stats.can_player_start(2):
+			set_pri(2, 2)
+	
+		if Player_Stats.p3["in_game"]:
+			set_pri(3,10)
+		elif Player_Stats.get_in_play(3) && !Player_Stats.p3["in_game"]:
+			set_pri(3, 9)
+		elif !Player_Stats.get_in_play(3) && !Player_Stats.p3["in_game"] && Player_Stats.can_player_start(3):
+			set_pri(3, 3)
+		elif !Player_Stats.get_in_play(3) && !Player_Stats.can_player_start(3):
+			set_pri(3, 2)
+	
+		if Player_Stats.p4["in_game"]:
+			set_pri(4,10)
+		elif Player_Stats.get_in_play(4) && !Player_Stats.p4["in_game"]:
+			set_pri(4, 9)
+		elif !Player_Stats.get_in_play(4) && !Player_Stats.p4["in_game"] && Player_Stats.can_player_start(4):
+			set_pri(4, 3)
+		elif !Player_Stats.get_in_play(4) && !Player_Stats.can_player_start(4):
+			set_pri(4, 2)
+	
+		if Player_Stats.p5["in_game"]:
+			set_pri(5,10)
+		elif Player_Stats.get_in_play(5) && !Player_Stats.p5["in_game"]:
+			set_pri(5, 9)
+		elif !Player_Stats.get_in_play(5) && !Player_Stats.p5["in_game"] && Player_Stats.can_player_start(5):
+			set_pri(5, 3)
+		elif !Player_Stats.get_in_play(5) && !Player_Stats.can_player_start(5):
+			set_pri(5, 2)
+	
+		if Player_Stats.p6["in_game"]:
+			set_pri(6,10)
+		elif Player_Stats.get_in_play(6) && !Player_Stats.p6["in_game"]:
+			set_pri(6, 9)
+		elif !Player_Stats.get_in_play(6) && !Player_Stats.p6["in_game"] && Player_Stats.can_player_start(6):
+			set_pri(6, 3)
+		elif !Player_Stats.get_in_play(6) && !Player_Stats.can_player_start(6):
+			set_pri(6, 2)
+	
+		if Player_Stats.p7["in_game"]:
+			set_pri(7,10)
+		elif Player_Stats.get_in_play(7) && !Player_Stats.p7["in_game"]:
+			set_pri(7, 9)
+		elif !Player_Stats.get_in_play(7) && !Player_Stats.p7["in_game"] && Player_Stats.can_player_start(7):
+			set_pri(7, 3)
+		elif !Player_Stats.get_in_play(7) && !Player_Stats.can_player_start(7):
+			set_pri(7, 2)
+	
+		if Player_Stats.p8["in_game"]:
+			set_pri(8,10)
+		elif Player_Stats.get_in_play(8) && !Player_Stats.p8["in_game"]:
+			set_pri(8, 9)
+		elif !Player_Stats.get_in_play(8) && !Player_Stats.p8["in_game"] && Player_Stats.can_player_start(8):
+			set_pri(8, 3)
+		elif !Player_Stats.get_in_play(8) && !Player_Stats.can_player_start(8):
+			set_pri(8, 2)
 
-func in_game():
-	if Player_Stats.p1["in_play"]: p1.in_play()
-	else: p1.in_game()
-	if Player_Stats.p2["in_play"]: p2.in_play()
-	else: p2.in_game()
-	if Player_Stats.p3["in_play"]: p3.in_play()
-	else: p3.in_game()
-	if Player_Stats.p4["in_play"]: p4.in_play()
-	else: p4.in_game()
-	if Player_Stats.p5["in_play"]: p5.in_play()
-	else: p5.in_game()
-	if Player_Stats.p6["in_play"]: p6.in_play()
-	else: p6.in_game()
-	if Player_Stats.p7["in_play"]: p7.in_play()
-	else: p7.in_game()
-	if Player_Stats.p8["in_play"]: p8.in_play()
-	else: p8.in_game()
+func in_game_player(_player):
+	if _player == 1:
+		if Player_Stats.p1["pawn_num"] == -1:
+			p1.not_in_play()
+		elif Player_Stats.p1["pawn_num"] > -1:
+			p1.in_play()
+	elif _player == 2:
+		if Player_Stats.p2["pawn_num"] == -1:
+			p2.not_in_play()
+		elif Player_Stats.p2["pawn_num"] > -1:
+			p2.in_play()
+	elif _player == 3:
+		if Player_Stats.p3["pawn_num"] == -1:
+			p3.not_in_play()
+		elif Player_Stats.p3["pawn_num"] > -1:
+			p3.in_play()
+	elif _player == 4:
+		if Player_Stats.p4["pawn_num"] == -1:
+			p4.not_in_play()
+		elif Player_Stats.p4["pawn_num"] > -1:
+			p4.in_play()
+	elif _player == 5:
+		if Player_Stats.p5["pawn_num"] == -1:
+			p5.not_in_play()
+		elif Player_Stats.p5["pawn_num"] > -1:
+			p5.in_play()
+	elif _player == 6:
+		if Player_Stats.p6["pawn_num"] == -1:
+			p6.not_in_play()
+		elif Player_Stats.p6["pawn_num"] > -1:
+			p6.in_play()
+	elif _player == 7:
+		if Player_Stats.p7["pawn_num"] == -1:
+			p7.not_in_play()
+		elif Player_Stats.p7["pawn_num"] > -1:
+			p7.in_play()
+	elif _player == 8:
+		if Player_Stats.p8["pawn_num"] == -1:
+			p8.not_in_play()
+		elif Player_Stats.p8["pawn_num"] > -1:
+			p8.in_play()
 
 func check_in_game(_num):
 	if _num == 1:
@@ -142,17 +396,6 @@ func check_in_game(_num):
 	elif _num == 8:
 		if Player_Stats.p8["in_play"]: p8.in_play()
 		else: p8.in_game()
-
-func game_over():
-	if Player_Stats.p1["in_play"]: p1.game_over()
-	if Player_Stats.p2["in_play"]: p2.game_over()
-	if Player_Stats.p3["in_play"]: p3.game_over()
-	if Player_Stats.p4["in_play"]: p4.game_over()
-	if Player_Stats.p5["in_play"]: p5.game_over()
-	if Player_Stats.p6["in_play"]: p6.game_over()
-	if Player_Stats.p7["in_play"]: p7.game_over()
-	if Player_Stats.p8["in_play"]: p8.game_over()
-	set_places()
 
 func set_score(_player):
 	if _player == 1: p1.set_score_count(Player_Stats.p1["score"])
@@ -192,10 +435,10 @@ func set_places():
 	var _set_back = 1
 	var last_y = null
 	var last_place_y = _places.back().y
-	print(_places, _places.size())
+#	print(_places, _places.size())
 	for p in _places.size():
 		var o = p
-		print(_places[p],"<---_places.  p---->", p," -  _places.size ----->",_places.size())
+#		print(_places[p],"<---_places.  p---->", p," -  _places.size ----->",_places.size())
 		if _places[p].y == last_place_y:
 			if _places[p].x == 1:
 				p1.set_place(8)
@@ -236,6 +479,10 @@ func set_places():
 				p7.set_place(o)
 			elif _places[p].x == 8:
 				p8.set_place(o)
+
+func game_over():
+	print("game over doesnt do much in hud so fun!")
+	pass
 
 func game_over_input(_player, _input):
 	if _player == 1:
@@ -288,18 +535,40 @@ func game_over_input(_player, _input):
 
 func get_game_over_done_count():
 	var _done = 0
-	if p1.game_done: _done += 1
-	if p2.game_done: _done += 1
-	if p3.game_done: _done += 1
-	if p4.game_done: _done += 1
-	if p5.game_done: _done += 1
-	if p6.game_done: _done += 1
-	if p7.game_done: _done += 1
-	if p8.game_done: _done += 1
+	if p1.in_game_over_box.game_done: _done += 1
+	if p2.in_game_over_box.game_done: _done += 1
+	if p3.in_game_over_box.game_done: _done += 1
+	if p4.in_game_over_box.game_done: _done += 1
+	if p5.in_game_over_box.game_done: _done += 1
+	if p6.in_game_over_box.game_done: _done += 1
+	if p7.in_game_over_box.game_done: _done += 1
+	if p8.in_game_over_box.game_done: _done += 1
 	return _done
 
+func coin_up(_player):
+	SFX.play("Menu_Coin")
+#	print("coin up doesnt update much in hud")
+	if _player == 1:
+		p1.set_coin_count(Player_Stats.p1["credit"])
+	elif _player == 2:
+		p2.set_coin_count(Player_Stats.p2["credit"])
+	elif _player == 3:
+		p3.set_coin_count(Player_Stats.p3["credit"])
+	elif _player == 4:
+		p4.set_coin_count(Player_Stats.p4["credit"])
+	elif _player == 5:
+		p5.set_coin_count(Player_Stats.p5["credit"])
+	elif _player == 6:
+		p6.set_coin_count(Player_Stats.p6["credit"])
+	elif _player == 7:
+		p7.set_coin_count(Player_Stats.p7["credit"])
+	elif _player == 8:
+		p8.set_coin_count(Player_Stats.p8["credit"])
+	state_machine()
+
 func reset():
-	coin_count()
+	start()
+#	coin_count()
 	p1.reset()
 	p2.reset()
 	p3.reset()
@@ -308,3 +577,146 @@ func reset():
 	p6.reset()
 	p7.reset()
 	p8.reset()
+
+func load_screen(_screen_to_load):
+	var s = _screen_to_load.instance()
+	add_child(s)
+	screen_loaded = s
+	state_machine()
+
+func splash(_top, _body, _time, _pause):
+	var s = load(splash_screen).instance()
+	add_child(s)
+	s.init(_top, _body, _time, _pause)
+
+func input( _player, _dir):
+	if !Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
+		if _dir == 0 && Player_Stats.can_player_start(_player):
+			Player_Stats.set_in_play(_player,true)
+			Player_Stats.use_credit(_player)
+			set_pri(_player,3)
+			update_player(_player)
+			emit_signal("screen_update")
+		elif _dir != 0 && Player_Stats.can_player_start(_player):
+			set_pri(_player,3)
+#			ask_press_start(_player)
+		elif !Player_Stats.can_player_start(_player):
+			set_pri(_player,2)
+#			ask_insert_coin(_player)
+		else:
+			print("error in input HUD no parameters met 0002")
+
+	elif !Game.started && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
+#		print("player: ", _player," dir: ", _dir)
+		emit_signal("input_to_screen",_player, _dir)
+
+	elif Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
+		if _dir == 0 && Player_Stats.can_player_start(_player):
+			Player_Stats.set_in_play(_player,true)
+			Player_Stats.use_credit(_player)
+			p1.pawn_menu_vis(true)
+#			in_game()
+		elif _dir != 0 && Player_Stats.can_player_start(_player):
+			set_pri(_player,3)
+#			ask_press_start(_player)
+		elif !Player_Stats.can_player_start(_player):
+			set_pri(_player,2)
+#			ask_insert_coin(_player)
+		else:
+			print("error in input HUD no parameters met 0004")
+
+	elif Game.started && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
+		if _player == 1: 
+			if _dir == 2:
+				p1.go_left()
+			elif _dir == 3:
+				p1.go_right()
+			elif _dir == 0 || _dir == 6:
+				Player_Stats.p1["pawn_num"] = p1.go_start()
+				Player_Stats.set_in_game(_player,true)
+				Controllers.p1.spawn_pawn()
+				p1.pawn_menu_vis(false)
+#				in_game()
+		elif _player == 2:
+			if _dir == 2:
+				p2.go_left()
+			elif _dir == 3:
+				p2.go_right()
+			elif _dir == 0 || _dir == 6:
+				Player_Stats.p2["pawn_num"] = p2.go_start()
+				Player_Stats.set_in_game(_player,true)
+				Controllers.p2.spawn_pawn()
+				p2.pawn_menu_vis(false)
+#				in_game()
+		elif _player == 3:
+			if _dir == 2:
+				p3.go_left()
+			elif _dir == 3:
+				p3.go_right()
+			elif _dir == 0 || _dir == 6:
+				Player_Stats.p3["pawn_num"] = p3.go_start()
+				Player_Stats.set_in_game(_player,true)
+				Controllers.p3.spawn_pawn()
+				p3.pawn_menu_vis(false)
+#				in_game()
+		elif _player == 4:
+			if _dir == 2:
+				p4.go_left()
+			elif _dir == 3:
+				p4.go_right()
+			elif _dir == 0 || _dir == 6:
+				Player_Stats.p4["pawn_num"] = p4.go_start()
+				Player_Stats.set_in_game(_player,true)
+				Controllers.p4.spawn_pawn()
+				p4.pawn_menu_vis(false)
+#				in_game()
+		elif _player == 5:
+			if _dir == 2:
+				p5.go_left()
+			elif _dir == 3:
+				p5.go_right()
+			elif _dir == 0 || _dir == 6:
+				Player_Stats.p5["pawn_num"] = p5.go_start()
+				Player_Stats.set_in_game(_player,true)
+				Controllers.p5.spawn_pawn()
+				p5.pawn_menu_vis(false)
+#				in_game()
+		elif _player == 6:
+			if _dir == 2:
+				p6.go_left()
+			elif _dir == 3:
+				p6.go_right()
+			elif _dir == 0 || _dir == 6:
+				Player_Stats.p6["pawn_num"] = p6.go_start()
+				Player_Stats.set_in_game(_player,true)
+				Controllers.p6.spawn_pawn()
+				p6.pawn_menu_vis(false)
+#				in_game()
+		elif _player == 7:
+			if _dir == 2:
+				p7.go_left()
+			elif _dir == 3:
+				p7.go_right()
+			elif _dir == 0 || _dir == 6:
+				Player_Stats.p7["pawn_num"] = p7.go_start()
+				Player_Stats.set_in_game(_player,true)
+				Controllers.p7.spawn_pawn()
+				p7.pawn_menu_vis(false)
+#				in_game()
+		elif _player == 8: 
+			if _dir == 2:
+				p8.go_left()
+			elif _dir == 3:
+				p8.go_right()
+			elif _dir == 0 || _dir == 6:
+				Player_Stats.p8["pawn_num"] = p8.go_start()
+				Player_Stats.set_in_game(_player,true)
+				Controllers.p8.spawn_pawn()
+				p8.pawn_menu_vis(false)
+#				in_game()
+
+	elif Game.started && Player_Stats.get_in_play(_player) && Player_Stats.get_in_game(_player):
+		print("error in hud input shouldnt see this you should be playing a game 0003")
+	else:
+		print("error in hud input no parameters met 0001 --- ","game started = ", Game.started,"in play = ",Player_Stats.get_in_play(_player),"in game = ",Player_Stats.get_in_game(_player))
+	state_machine()

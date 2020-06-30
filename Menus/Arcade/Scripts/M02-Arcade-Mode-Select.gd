@@ -5,24 +5,33 @@ export(PackedScene) var vs_mode
 
 onready var menu = $menu_1X3_01
 
+var p1_ready = false
+var p2_ready = false
+var p3_ready = false
+var p4_ready = false
+var p5_ready = false
+var p6_ready = false
+var p7_ready = false
+var p8_ready = false
+
 var menu_pos = 2
 
 func _ready():
-	var test3 = Menu_Hand.connect("input_to_screen", self, "movement")
+	var test3 = HUD.connect("input_to_screen", self, "movement")
 	if test3 != 0:
 		print("error in arcade game select connect input to screen")
-	HUD.in_play_to_select()
+	HUD.menu_state()
 
 func _start(_player):
 	if menu_pos == 1:
 		SFX.play("Menu_Select_02")
-		Menu_Hand.load_screen(campaign)
+		HUD.load_screen(campaign)
 		call_deferred("free")
-	if menu_pos == 2:
+	elif menu_pos == 2:
 		SFX.play("Menu_Error_02")
-	if menu_pos == 3:
+	elif menu_pos == 3:
 		SFX.play("Menu_Select_02")
-		Menu_Hand.load_screen(vs_mode)
+		HUD.load_screen(vs_mode)
 		call_deferred("free")
 
 func movement(_player, _dir):
@@ -94,7 +103,7 @@ func movement(_player, _dir):
 			elif _dir ==4:
 				menu.move_down()
 			elif _dir ==5 || 6 || 7 || 8:
-				menu_pos = menu.can_process()
+				menu_pos = menu.pos
 				_start(_player)
 		elif Player_Stats.p4["credit"] >= 1:
 			if _dir == 0:

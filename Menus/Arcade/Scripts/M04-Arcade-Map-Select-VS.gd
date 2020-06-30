@@ -38,16 +38,22 @@ var p8_ready = false
 
 var map_array = []
 
+#func _init():
+#	HUD.menu_state()
+
 func _ready():
-	var test3 = Menu_Hand.connect("input_to_screen", self, "movement")
+	var test2 = HUD.connect("screen_update", self, "menu_check")
+	if test2 != 0:
+		print("error M04 Arcade map select connecting next_screen")
+	var test3 = HUD.connect("input_to_screen", self, "movement")
 	if test3 != 0:
 		print("error in arcade map select VS connect input to screen")
-	HUD.in_play_to_select()
+	HUD.menu_state()
 	menu_check()
 
 func _start(_player):
 	_set_ready(_player)
-	HUD.player_ready(_player)
+	HUD.set_pri(_player, 5)
 	SFX.play("Menu_Select_02")
 	if _get_ready_num() == Player_Stats.get_num_in_play():
 		_next_screen()
@@ -56,12 +62,9 @@ func _next_screen():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var map_num_to_load = rng.randi_range(0,(map_array.size() - 1))
-	print(map_num_to_load, "   M04 Arcade Map Select VS")
-#	map_num_to_load -= 1
 	var _map_to_load = map_array[map_num_to_load]
-	print("map stuff  ", map_num_to_load,"  ", _map_to_load,"  ", map_array,"  " ,map_array.size(), "   M04 Arcade Map Select VS")
 	Map_Hand.load_map(_map_to_load)
-	HUD.in_game()
+	HUD.mode = 2
 	call_deferred("free")
 
 func movement(_player, _dir):
@@ -166,7 +169,7 @@ func movement(_player, _dir):
 					p5_menu.move_right()
 				elif _dir == 4:
 					p5_menu.move_down()
-				elif _dir == 0 || _dir == 5 || _dir == 6: #|| 7 || 8:
+				elif _dir == 0 || _dir == 5 || _dir == 6:
 					_start(_player)
 			elif _dir == 7 || _dir == 8:
 					_back(_player)
@@ -287,14 +290,10 @@ func _unvote(_player):
 		_remove_from_map_array(p8_menu.get_pos())
 
 func _add_to_map_array(_num):
-	print(map_array)
 	map_array.append(_get_map(_num))
-	print(map_array)
 
 func _remove_from_map_array(_num):
-	print(map_array)
 	map_array.erase(_get_map(_num))
-	print(map_array)
 
 func _get_map(_num):
 	if _num == 1:

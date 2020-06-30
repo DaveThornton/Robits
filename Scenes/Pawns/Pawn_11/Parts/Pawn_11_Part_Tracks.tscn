@@ -41,8 +41,10 @@ frame = 7
 
 [node name="Top" type="Sprite" parent="."]
 texture = ExtResource( 3 )
+hframes = 8
 
 [node name="Shield" type="Sprite" parent="."]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Right = SubResource( 1 )

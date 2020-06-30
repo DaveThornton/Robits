@@ -16,7 +16,7 @@ signal activate(_num, _player)
 
 func _ready():
 	if show_splash:
-		Menu_Hand.splash(title_text, body_text, splash_time, true)
+		HUD.splash(title_text, body_text, splash_time, true)
 	if $"MP-04-Nav2D":
 		nav_system = $"MP-04-Nav2D"
 		print("map nav system found")

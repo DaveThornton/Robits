@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_11/Parts/Pawn_11_Part_Tracks.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Pawns/Pawn_11/Parts/Pawn_11_Part_Head.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Pawns/Pawn_11/Parts/Pawn_11_Part_Body.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Pawns/Pawn_11.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Key.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Pawns/Pawn_07/Parts/Pawn_07_Part_Fire.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Pawns/Pawn_11/Pawn_11_Body.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Pawns/Pawn_11/Parts/Pawn_11_Part_Arm.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 13.0
@@ -20,7 +21,418 @@ height = 44.0
 radius = 6.0
 height = 46.0
 
-[node name="Pawn_11" type="KinematicBody2D"]
+[sub_resource type="Animation" id=4]
+resource_name = "Left-Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Robit_11/Pawn_11_Body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Robit_11/Pawn_11_Body:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Robit_11/Pawn_11_Body/Pos_Arm:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Robit_11/Pawn_11_Body:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -9 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Left-Prone-Crawl"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Robit_11/Pawn_11_Body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -60.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Robit_11/Pawn_11_Body:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Robit_11/Pawn_11_Body/Pos_Arm:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 60.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 60.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Robit_11/Pawn_11_Body:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -4, 2 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2, -9 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Left-Run-old"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Robit_11/Pawn_11_Body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -20.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Robit_11/Pawn_11_Body:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Robit_11/Pawn_11_Body/Pos_Arm:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 20.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 20.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Robit_11/Pawn_11_Body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Robit_11/Pawn_11_Body:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Robit_11/Pawn_11_Body/Pos_Arm:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Robit_11/Pawn_11_Body:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -9 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Right-Prone-Crawl"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Robit_11/Pawn_11_Body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 60.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Robit_11/Pawn_11_Body:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Robit_11/Pawn_11_Body/Pos_Arm:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -60.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -60.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Robit_11/Pawn_11_Body:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 4, 2 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, -9 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Right-Run-old"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Robit_11/Pawn_11_Body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 20.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Robit_11/Pawn_11_Body:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Robit_11/Pawn_11_Body/Pos_Arm:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -20.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -20.0 ]
+}
+
+[node name="Pawn_11" type="KinematicBody2D" groups=[
+"hittable",
+"ladder",
+"player",
+]]
 collision_layer = 2
 collision_mask = 66078
 script = ExtResource( 5 )
@@ -46,23 +458,37 @@ collision_mask = 14
 position = Vector2( 0, -22 )
 enabled = true
 cast_to = Vector2( 0, -5 )
-collision_mask = 14
+collision_mask = 10
 
-[node name="Pawn_11_Part_Body" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, 7 )
+[node name="Robit_11" type="Node2D" parent="."]
 
-[node name="Pawn_07_Part_Fire" parent="Pawn_11_Part_Body" instance=ExtResource( 7 )]
-position = Vector2( 0.808411, 21 )
+[node name="Pawn_11_Body" type="Sprite" parent="Robit_11"]
+texture = ExtResource( 8 )
+offset = Vector2( 0, -5 )
+hframes = 8
+frame = 6
 
-[node name="Pawn_11_Part_Tracks" parent="Pawn_11_Part_Body" instance=ExtResource( 2 )]
-position = Vector2( 0, 3.90835 )
+[node name="Pawn_11_Part_Head" parent="Robit_11/Pawn_11_Body" instance=ExtResource( 3 )]
+position = Vector2( 0, -9 )
 
-[node name="Pawn_11_Part_Head" parent="Pawn_11_Part_Body" instance=ExtResource( 3 )]
-position = Vector2( -0.191589, -15.0916 )
-
-[node name="Pawn_05_Part_Key" parent="Pawn_11_Part_Body" instance=ExtResource( 6 )]
+[node name="Pawn_05_Part_Key" parent="Robit_11/Pawn_11_Body" instance=ExtResource( 6 )]
+visible = false
 show_behind_parent = true
-position = Vector2( -2, -12 )
+position = Vector2( -2, -6 )
+
+[node name="Pos_Arm" type="Position2D" parent="Robit_11/Pawn_11_Body"]
+position = Vector2( 0, -7 )
+
+[node name="Pawn_11_Part_Arm" parent="Robit_11/Pawn_11_Body/Pos_Arm" instance=ExtResource( 9 )]
+
+[node name="Pawn_11_Part_Tracks" parent="Robit_11" instance=ExtResource( 2 )]
+position = Vector2( 0, 11 )
+
+[node name="Pawn_07_Part_Fire" parent="Robit_11/Pawn_11_Part_Tracks" instance=ExtResource( 7 )]
+show_behind_parent = true
+position = Vector2( 0, 17 )
+
+[node name="Shield" type="Sprite" parent="Robit_11"]
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
 visible = false
@@ -74,6 +500,8 @@ shape = SubResource( 1 )
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
 visible = false
+collision_layer = 262144
+collision_mask = 786432
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
 position = Vector2( 0, -1 )
@@ -82,12 +510,20 @@ shape = SubResource( 2 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
 visible = false
+collision_layer = 32
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
 position = Vector2( -0.191589, 0 )
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Left-Idle = SubResource( 4 )
+anims/Left-Prone-Crawl = SubResource( 8 )
+anims/Left-Run-old = SubResource( 5 )
+anims/Right-Idle = SubResource( 6 )
+anims/Right-Prone-Crawl = SubResource( 9 )
+anims/Right-Run-old = SubResource( 7 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

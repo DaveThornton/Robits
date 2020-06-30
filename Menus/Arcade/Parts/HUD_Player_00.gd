@@ -1,116 +1,86 @@
 extends VBoxContainer
 
-onready var timer = $Timer
-onready var anim = $AnimationPlayer
-onready var game_box = $VBox_In_Game
-onready var player_num_ig = $VBox_In_Game/HBox_Player/Label_Player_Count
-onready var ammo_count_ig = $VBox_In_Game/HBox_Ammo/Label_Ammo_Count
-onready var coin_count_ig = $VBox_In_Game/HBox_Coin/Label_Coin_Count
-onready var score_count_ig = $VBox_In_Game/HBox_Score/Label_Score_Count
-onready var menu_box = $VBox_In_Menu
-onready var player_num_im = $VBox_In_Menu/HBox_Player/Label_Player_Count
-onready var coin_count_im = $VBox_In_Menu/HBox_Coin/Label_Coin_Count
-onready var nrg_bar = $VBox_In_Game/HBox_for_NRG/NRG_Bar
-onready var game_over_box = $VBox_Game_over
-onready var game_over_stats = $VBox_Game_over/Player_End_VS_Stats
-onready var player_num_count_go = $VBox_Game_over/HBox_Player/Label_Player_Count
-onready var player_num_go = $VBox_Game_over/HBox_Player
-onready var player_done_go = $VBox_Game_over/Label_Done
-
+onready var in_game_over_box = $VBox_Game_Over# mode 0
+onready var in_menu_box = $VBox_In_Menu#        mode 1
+onready var in_game_box = $VBox_In_Game#        mode 2
+onready var pawn_menu=$VBox_In_Game/Pawn_Menu
 export var player_num = 0
 
-var game_done = false
 
 func _ready():
 	set_player_num(player_num)
 
 func reset():
-	game_done = false
 	in_menu()
-	show_player()
-
-func in_menu():
-	game_over_box.visible = false
-	game_box.visible = false
-	menu_box.visible = true
-#	anim.play("IN_MENU")
-
-func in_game():
-	game_over_box.visible = false
-	game_box.visible = true
-	menu_box.visible = false
+ 
+func update_state(_state):
+	var mode = get_parent().mode
+	var pri = _state["pri"]
+	var sec = _state["sec"]
+	if mode == 0:
+		game_over()
+	elif mode == 1:
+		in_menu()
+		in_menu_box.set_state(pri, sec)
+	elif mode == 2:
+		in_game()
+		in_game_box.set_state(pri, sec)
 
 func game_over():
-	game_over_box.visible = true
-	game_box.visible = false
-	menu_box.visible = false
-	game_over_stats.update()
-	game_over_not_done()
-	
-func game_over_done():
-	player_done_go.visible = true
-	player_num_go.visible = true
-	game_over_stats.visible = false
-	game_done = true
+	in_game_over_box.visible = true
+	in_menu_box.visible = false
+	in_game_box.visible = false
+	in_game_over_box.start()
 
-func game_over_not_done():
-	player_done_go.visible = false
-	player_num_go.visible = false
-	game_over_stats.visible = true
-	game_done = false
+func in_menu():
+	in_game_over_box.visible = false
+	in_menu_box.visible = true
+	in_game_box.visible = false
+
+func in_game():
+	in_game_over_box.visible = false
+	in_menu_box.visible = false
+	in_game_box.visible = true
 
 func set_player_num(_num):
-	player_num_ig.text = str(_num)
-	nrg_bar.self_modulate = Player_Stats.get_body_color(_num)
-	player_num_im.text = str(_num)
-	player_num_count_go.text = str(_num)
-	game_over_stats.set_player_num(_num)
+	in_game_box.player_num_update(_num)
+	in_menu_box.player_num_update(_num)
+	in_game_over_box.player_num_update(_num)
 
 func set_ammo_count(_amount):
-	ammo_count_ig.text = str(_amount)
+	in_game_box.ammo_update(_amount)
 
 func set_coin_count(_amount):
-	coin_count_ig.text = str(_amount)
-	coin_count_im.text = str(_amount)
+	in_game_box.coin_count_update(_amount)
+	in_menu_box.coin_count_update(_amount)
 
 func set_score_count(_amount):
-	score_count_ig.text = str(_amount)
+	in_game_box.score_update(_amount)
 
 func set_nrg_bar(_amount):
-	nrg_bar.value = _amount
+	in_game_box.nrg_update(_amount)
 
 func set_place(_place):
-	var _place_name = Player_Stats.get_place_name(_place)
-	game_over_stats.set_place_text(_place_name)
+	in_game_over_box.set_place(_place)
 
-func in_play():
-	in_game()
-	anim.play("IN_PLAY")
+func parent_in_game():
+	get_parent().in_game_player(player_num)
 
-func insert_coin():
-	anim.play("INSERT_COIN")
-#	timer.wait_time = time_out
-#	timer.start()
+func go_left():
+	pawn_menu.go_left()
 
-func player_ready():
-	anim.play("PLAYER_READY")
+func go_right():
+	pawn_menu.go_right()
 
-func player_select():
-	anim.play("PLAYER_SELECT")
+func go_start():
+	pawn_menu.go_start()
+	return pawn_menu.pos
 
-func coin_up():
-	if Controllers.get_controller(player_num).in_game:
-		anim.play("COIN_UP_IN_GAME")
-	else:
-		anim.play("COIN_UP")
+func game_over_done():
+	in_game_over_box.game_over_done()
 
-func press_start():
-	anim.play("PRESS_START")
-#	timer.start()
+func game_over_not_done():
+	in_game_over_box.game_over_not_done()
 
-func show_player():
-	anim.play("PLAYER")
-
-func _on_Timer_timeout():
-	in_play()
-#	get_parent().in_game(player_num)
+func pawn_menu_vis(_vis):
+	pawn_menu.visible = _vis

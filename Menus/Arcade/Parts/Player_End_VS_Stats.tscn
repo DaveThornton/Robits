@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Menus/Arcade/Parts/Player_End_VS_Stats.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Pawns/Robit_Pawn-01-00-Wheel.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Pawns/Robit_Pawn-01-00.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Pawns/Robit_Pawn-01-00-Face.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Pawns/Pawn_11/Pawn_11_Pic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scenes/Pawns/Pawn_05/Pawn_05_Pic.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Pawns/Pawn_09/Pawn_09_Pic.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Pawns/Pawn_12/Pawn_12_Pic.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Pawns/Pawn_06/Pawn_06_Pic.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Pawns/Pawn_13/Pawn_13_Pic.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Pawns/Pawn_08/Pawn_08_Pic.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Pawns/Pawn_07/Pawn_07_Pic.tscn" type="PackedScene" id=12]
 
 [node name="Player_End_VS_Stats" type="VBoxContainer"]
 margin_right = 256.0
@@ -19,26 +24,45 @@ margin_right = 256.0
 margin_bottom = 256.0
 rect_min_size = Vector2( 128, 256 )
 
-[node name="Sprite_Loco" type="Sprite" parent="MarginContainer0"]
+[node name="Pawn_05_Pic" parent="MarginContainer0" instance=ExtResource( 6 )]
+visible = false
 position = Vector2( 128, 128 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
-vframes = 5
-hframes = 16
 
-[node name="Sprite_Body" type="Sprite" parent="MarginContainer0"]
-position = Vector2( 128, 128 )
+[node name="Pawn_06_Pic" parent="MarginContainer0" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 128, 100 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 3 )
-vframes = 5
-hframes = 16
 
-[node name="Sprite_Face" type="Sprite" parent="MarginContainer0"]
+[node name="Pawn_07_Pic" parent="MarginContainer0" instance=ExtResource( 12 )]
+visible = false
 position = Vector2( 128, 128 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 4 )
-vframes = 5
-hframes = 16
+
+[node name="Pawn_08_Pic" parent="MarginContainer0" instance=ExtResource( 11 )]
+visible = false
+position = Vector2( 128, 90 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_09_Pic" parent="MarginContainer0" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 128, 140 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_11_Pic" parent="MarginContainer0" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 128, 140 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_12_Pic" parent="MarginContainer0" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 128, 140 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_13_Pic" parent="MarginContainer0" instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 128, 140 )
+scale = Vector2( 4, 4 )
 
 [node name="MarginContainer1" type="MarginContainer" parent="."]
 margin_top = 260.0

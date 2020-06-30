@@ -10,7 +10,7 @@ onready var sprite_pin = $POS_Gun/Pin
 onready var throw_cast = $POS_Gun/Raycast/RayCast2D
 onready var det = $"22_plasma_det"
 
-var player = 1
+var player = 0
 var gun_num = 22
 var ammo = 1
 var take_ammo = false

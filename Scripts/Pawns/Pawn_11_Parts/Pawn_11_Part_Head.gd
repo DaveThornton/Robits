@@ -9,9 +9,13 @@ func pos(_pos:int):
 
 func is_right(_right):
 	if _right:
-		face.scale.x = 1
+		head.frame = 0
+		face.frame = 0
+#		head.scale.x = 1
 	else:
-		face.scale.x = -1
+#		head.scale.x = -1
+		head.frame = 1
+		face.frame = 1
 
 func shield_up():
 	shield.visible = true

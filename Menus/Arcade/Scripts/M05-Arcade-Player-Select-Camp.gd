@@ -21,7 +21,7 @@ var p7_ready = false
 var p8_ready = false
 
 func _ready():
-	var test3 = Menu_Hand.connect("input_to_screen", self, "movement")
+	var test3 = HUD.connect("input_to_screen", self, "movement")
 	if test3 != 0:
 		print("error in arcade player select Comp connect input to screen")
 	HUD.in_play_to_select()

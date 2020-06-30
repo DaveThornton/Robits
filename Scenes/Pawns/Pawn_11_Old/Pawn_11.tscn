@@ -1,11 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Arm.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Pawns/Pawn_10/Parts/Pawn_10_Part_Head.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Pawns/Pawn_10_old/Parts/Pawn_10_Part_Head.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Pawns/Pawn_11.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/Pawns/Pawn_11_Old/Pawn_11_Part_Face.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Pawns/Pawn_11_Old/Pawn_11_Part_Body.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Pawns/Pawn_11_Old/Pawn_11_Part_Head.png" type="Texture" id=6]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "Bounce"

@@ -26,13 +26,14 @@ tracks/0/keys = {
 script = ExtResource( 4 )
 
 [node name="Back" type="Sprite" parent="."]
-modulate = Color( 1, 0, 0, 0.294118 )
+modulate = Color( 0.305882, 0.305882, 0.305882, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -9 )
 texture = ExtResource( 1 )
 hframes = 5
 
 [node name="Face" type="Sprite" parent="."]
-modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -9 )
 texture = ExtResource( 3 )
 hframes = 5

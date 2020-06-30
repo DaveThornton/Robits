@@ -1,0 +1,137 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menus/Arcade/Scripts/HUD_01_VBox_In_Menu.gd" type="Script" id=2]
+
+[node name="VBox_In_Menu" type="VBoxContainer"]
+margin_right = 225.0
+margin_bottom = 246.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox_Player" type="HBoxContainer" parent="."]
+margin_right = 225.0
+margin_bottom = 37.0
+alignment = 1
+
+[node name="Label_Player_Text" type="Label" parent="HBox_Player"]
+margin_left = 30.0
+margin_right = 170.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "Player "
+align = 1
+
+[node name="Label_Player_Count" type="Label" parent="HBox_Player"]
+margin_left = 174.0
+margin_right = 194.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+
+[node name="Label_Insert_Coin" type="Label" parent="."]
+margin_top = 41.0
+margin_right = 225.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "insert coin"
+align = 1
+
+[node name="Label_Press_Start" type="Label" parent="."]
+margin_top = 82.0
+margin_right = 225.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 1 )
+text = "Press Start"
+align = 1
+
+[node name="HBox_Select" type="HBoxContainer" parent="."]
+margin_top = 123.0
+margin_right = 225.0
+margin_bottom = 160.0
+alignment = 1
+
+[node name="Label_Select_Text_1" type="Label" parent="HBox_Select"]
+margin_left = 42.0
+margin_right = 182.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "Select "
+align = 1
+
+[node name="Label_Select_Text_3" type="Label" parent="HBox_Select"]
+visible = false
+margin_left = 204.0
+margin_right = 215.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "["
+align = 1
+
+[node name="Label_Select_Count" type="Label" parent="HBox_Select"]
+visible = false
+margin_left = 160.0
+margin_right = 200.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "00"
+align = 1
+
+[node name="Label_Select_Text_2" type="Label" parent="HBox_Select"]
+visible = false
+margin_left = 204.0
+margin_right = 215.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "]"
+align = 1
+
+[node name="Label_Ready" type="Label" parent="."]
+margin_top = 164.0
+margin_right = 225.0
+margin_bottom = 201.0
+custom_fonts/font = ExtResource( 1 )
+text = "Ready !"
+align = 1
+
+[node name="HBox_Coin" type="HBoxContainer" parent="."]
+margin_top = 205.0
+margin_right = 225.0
+margin_bottom = 242.0
+alignment = 1
+
+[node name="Label_Coin_Text_1" type="Label" parent="HBox_Coin"]
+margin_left = 43.0
+margin_right = 142.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "Coin ["
+align = 1
+
+[node name="Label_Coin_Count" type="Label" parent="HBox_Coin"]
+margin_left = 146.0
+margin_right = 166.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+
+[node name="Label_Coin_Text_2" type="Label" parent="HBox_Coin"]
+margin_left = 170.0
+margin_right = 181.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "]"
+align = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_top = 246.0
+margin_right = 225.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

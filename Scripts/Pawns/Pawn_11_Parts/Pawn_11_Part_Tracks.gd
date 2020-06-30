@@ -16,6 +16,8 @@ func turn(_right:bool):
 func stop():
 	anim.stop(false)
 
+func ladder():
+	pass
 
 func is_right(_right):
 	pass

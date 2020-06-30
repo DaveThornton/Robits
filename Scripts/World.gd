@@ -5,7 +5,7 @@ export(PackedScene) var console_start
 export(PackedScene) var demo_map
 #export(PackedScene) var campaign_map
 
-export var game_mode = 3
+export var game_mode = 1
 
 onready var pawns = $Pawns
 onready var clearing_house = $Clearing_House
@@ -29,14 +29,11 @@ func _ready():
 func init():
 	if game_mode == 1:
 		print("arcade game mode selected")
-		var a = arcade_start.instance()
-		arcade_start_screen = a 
-		add_child(a)
-		screen_loaded = a
+		HUD.load_screen(arcade_start)
 		Game.start(Settings.max_num_of_player)
 	
 	elif game_mode == 2:
-		print("console game mode selected")
+		print("console game mode selected this mode needs a lot of work before you go ahead")
 		var a = console_start.instance()
 		console_start_screen = a 
 		add_child(a)
@@ -100,10 +97,7 @@ func _clean_house():
 
 func arcade_reset():
 	emit_signal("reset")
-	var a = arcade_start.instance()
-	arcade_start_screen = a 
-	add_child(a)
-	screen_loaded = a
+	HUD.load_screen(arcade_start)
 
 func _on_Timer_timeout():
 	emit_signal("second")

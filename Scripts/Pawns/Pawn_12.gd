@@ -210,7 +210,7 @@ func jump(down_input, left_input, right_input):
 		SFX.play("Move_Jump_08")
 		vel.y += 1.5
 		self.position.y += 1.5
-func jump_j(down_input, left_input, right_input):
+func jump_j(down_input, _left_input, _right_input):
 	print(is_down)
 	if is_down && on_floor:
 		pass

@@ -35,11 +35,26 @@ func _process(delta):
 	time = timer_boom.time_left
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
-	if _ammo == 0:
-		remove_from_group("PickUp")
 	set_dir(_is_right, _dir)
 	print(_time)
 	player = _player
+	if _ammo  == 0:
+		ammo = 0
+		pin.visible = false
+		det.init(player,_time,true)
+#		label.visible = true
+		timer_boom.wait_time = _time
+		timer_boom.start()
+#	else:
+##		label.visible = false
+#		timer.wait_time = 30
+#		timer.start()
+#func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
+#	set_dir(_is_right, _dir)
+#	print(_time)
+#	player = _player
+#	if _ammo == 0:
+#		remove_from_group("PickUp")
 
 func add_det(_det):
 	self.add_child(_det)

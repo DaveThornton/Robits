@@ -2,9 +2,14 @@ extends VBoxContainer
 
 export var player_num = 0
 
-onready var sprite_loco = $MarginContainer0/Sprite_Loco
-onready var sprite_body = $MarginContainer0/Sprite_Body
-onready var sprite_face = $MarginContainer0/Sprite_Face 
+onready var pawn_05 = $MarginContainer0/Pawn_05_Pic
+onready var pawn_06 = $MarginContainer0/Pawn_06_Pic
+onready var pawn_07 = $MarginContainer0/Pawn_07_Pic
+onready var pawn_08 = $MarginContainer0/Pawn_08_Pic
+onready var pawn_09 = $MarginContainer0/Pawn_09_Pic
+onready var pawn_12 = $MarginContainer0/Pawn_12_Pic
+onready var pawn_11 = $MarginContainer0/Pawn_11_Pic
+onready var pawn_13 = $MarginContainer0/Pawn_13_Pic
 
 onready var player = $HBox_Player/Label2
 onready var score = $HBox_Score/Label2
@@ -24,7 +29,7 @@ func set_player_num(_player):
 
 func update():
 	var _player = Player_Stats.get_player_stats(player_num)
-	grfx_update(_player)
+	grfx_update()
 	player.text = str(player_num)
 	score.text = str(_player["score"])
 	kills.text = str(_player["kill"])
@@ -44,49 +49,48 @@ func update():
 func set_place_text(_text):
 	place.text = _text
 
-func grfx_update(_player):
-	sprite_body.modulate = _player["color_1"]
-	sprite_face.modulate = _player["color_2"]
-	sprite_loco.modulate = _player["color_3"]
-	if _player["pawn_num"] == 1:
-		sprite_body.texture = load("res://Sprites/Pawns/Robit_Pawn-01-00.png")
-		sprite_face.texture = load("res://Sprites/Pawns/Robit_Pawn-01-00-Face.png")
-		sprite_loco.texture = load("res://Sprites/Pawns/Robit_Pawn-01-00-Wheel.png")
-	elif _player["pawn_num"] == 2:
-		sprite_body.texture = load("res://Sprites/Pawns/Robit_Pawn-02-00.png")
-		sprite_face.texture = load("res://Sprites/Pawns/Robit_Pawn-02-00-Face.png")
-		sprite_loco.texture = load("res://Sprites/Pawns/Robit_Pawn-02-00-Loco.png")
-	elif _player["pawn_num"] == 3:
-		sprite_body.texture = load("res://Sprites/Pawns/Robit_Pawn-03-00.png")
-		sprite_face.texture = load("res://Sprites/Pawns/Robit_Pawn-03-00-Face.png")
-		sprite_loco.texture = load("res://Sprites/Pawns/Robit_Pawn-03-00-Loco.png")
-	elif _player["pawn_num"] == 4:
-		sprite_body.texture = load("res://Sprites/Pawns/Robit_Pawn-04-00.png")
-		sprite_face.texture = load("res://Sprites/Pawns/Robit_Pawn-04-00-Face.png")
-		sprite_loco.texture = load("res://Sprites/Pawns/Robit_Pawn-04-00-Loco.png")
-	elif _player["pawn_num"] == 5:
-		pass
-	elif _player["pawn_num"] == 6:
-		pass
-	elif _player["pawn_num"] == 7:
-		pass
-	elif _player["pawn_num"] == 8:
-		pass
-	elif _player["pawn_num"] == 9:
-		pass
-	elif _player["pawn_num"] == 10:
-		pass
-	elif _player["pawn_num"] == 11:
-		pass
-	elif _player["pawn_num"] == 12:
-		pass
-	elif _player["pawn_num"] == 13:
-		pass
-	elif _player["pawn_num"] == 14:
-		pass
-	elif _player["pawn_num"] == 15:
-		pass
-	elif _player["pawn_num"] == 16:
-		pass
+func grfx_update():
+	if player_num == 0:
+		print("error in player end vs stats grfx update is getting called before it has a player number")
+		return
+	var _pawn = Player_Stats.get_pawn_num(player_num)
+	visable_pawn(_pawn).init(player_num)
+		
+	
+func visable_pawn(_num):
+	pawn_05.visible = false
+	pawn_06.visible = false
+	pawn_07.visible = false
+	pawn_08.visible = false
+	pawn_09.visible = false
+	pawn_11.visible = false
+	pawn_12.visible = false
+	pawn_13.visible = false
+	#set all to false
+	if _num == 5:
+		pawn_05.visible = true
+		return pawn_05
+	elif _num == 6:
+		pawn_06.visible = true
+		return pawn_06
+	elif _num == 7:
+		pawn_07.visible = true
+		return pawn_07
+	elif _num == 8:
+		pawn_08.visible = true
+		return pawn_08
+	elif _num == 9:
+		pawn_09.visible = true
+		return pawn_09
+	elif _num == 11:
+		pawn_11.visible = true
+		return pawn_11
+	elif _num == 12:
+		pawn_12.visible = true
+		return pawn_12
+	elif _num == 13:
+		pawn_13.visible = true
+		return pawn_13
 	else:
-		pass
+		print("invalid pawn number in visible pawn in end game stats")
+		return pawn_05

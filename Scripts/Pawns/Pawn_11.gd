@@ -1,18 +1,18 @@
 extends KinematicBody2D
 
-onready var arm = $Pawn_11_Part_Body/Pos/Pawn_11_Part_Arm
-onready var gun_pos = $Pawn_11_Part_Body/Pos/Pawn_11_Part_Arm/POS_Gun
+onready var arm = $Robit_11/Pawn_11_Body/Pos_Arm/Pawn_11_Part_Arm
+onready var gun_pos = $Robit_11/Pawn_11_Body/Pos_Arm/Pawn_11_Part_Arm/POS_Gun
 
 onready var body_shape_01 = $Shape_Stand
 onready var body_shape_02 = $Shape_Prone
 
-onready var head = $Pawn_11_Part_Body/Pawn_11_Part_Head
-onready var key = $Pawn_11_Part_Body/Pawn_05_Part_Key
-onready var trax = $Pawn_11_Part_Body/Pawn_11_Part_Tracks
-onready var rockets = $Pawn_11_Part_Body/Pawn_07_Part_Fire
-onready var body = $Pawn_11_Part_Body
-#onready var body_sprite = $B
-onready var shield_sprite = $Shield
+onready var head = $Robit_11/Pawn_11_Body/Pawn_11_Part_Head
+onready var key = $Robit_11/Pawn_11_Body/Pawn_05_Part_Key
+onready var trax = $Robit_11/Pawn_11_Part_Tracks
+onready var rockets = $Robit_11/Pawn_11_Part_Tracks/Pawn_07_Part_Fire
+#onready var body = $Pawn_11_Part_Body
+onready var body_sprite = $Robit_11/Pawn_11_Body
+onready var shield_sprite = $Robit_11/Shield
 
 onready var knockback_timer = $Timers/Knock_Back
 onready var shield_hit_timer = $Timers/Shield_Hit
@@ -232,7 +232,7 @@ func jump(down_input, left_input, right_input):
 	is_jump_pressed = true
 	on_ladder = false
 
-func jump_j(down_input, left_input, right_input):
+func jump_j(_down_input, _left_input, _right_input):
 	pass
 
 func jump_rel():
@@ -396,16 +396,7 @@ func _body_(_num: int):
 #		body_shape_04.disabled = true
 	else:
 		print("pawn 11 ERROR : bad body number")
-#	elif _num == 3:
-#		body_shape_01.disabled = true
-#		body_shape_02.disabled = true
-#		body_shape_03.disabled = false
-#		body_shape_04.disabled = true
-#	elif _num == 4:
-#		body_shape_01.disabled = true
-#		body_shape_02.disabled = true
-#		body_shape_03.disabled = true
-#		body_shape_04.disabled = false
+
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
 	if ray_up.is_colliding():
@@ -463,8 +454,8 @@ func add_ammo(_ammo):
 			my_gun.add_ammo(_ammo)
 
 ##-------------------------------------------------------------------[Animation]
-# warning-ignore:unused_argument
-func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
+
+func anim_update(left_input, right_input, up_input, down_input, _jump_input, hold_input, delta):
 	if !down_input:
 		is_down = false
 	if can_move:
@@ -540,7 +531,7 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			_anim_ladder_left()
 
 func _anim_idle():
-	_body(2)
+	_body(1)
 	trax.stop()
 	key.stop()
 	if is_right:
@@ -548,159 +539,152 @@ func _anim_idle():
 #		head.right()
 	else:
 		new_anim = "Left-Idle"
-#		head.left()
 
 func _anim_run():
+	_body(1)
 	if is_right:
 		new_anim = "Right-Run"
 		trax.turn(true)
 		key.turn(true)
-#		head.right()
-		_body(3)
 	else:
 		new_anim = "Left-Run"
 		trax.turn(false)
 		key.turn(false)
-#		head.left()
-		_body(1)
 
 func _anim_jump():
+	_body(1)
 	if is_right:
 		new_anim = "Right-Run"
 		trax.turn(true)
 		key.turn(true)
-#		head.right()
-		_body(3)
 	else:
 		new_anim = "Left-Run"
 		trax.turn(false)
 		key.turn(false)
-#		head.left()
-		_body(1)
 
 func _anim_prone_idle():
 	_body(2)
 	trax.stop()
 	key.stop()
 	if is_right:
-		new_anim = "Right-Prone-Idle"
-#		head.right()
+		new_anim = "Right-Prone-Crawl"
 	else:
-		new_anim = "Left-Prone-Idle"
-#		head.left()
+		new_anim = "Left-Prone-Crawl"
 
 func _anim_prone_crawl():
-	_body(4)
+	_body(2)
 	if is_right:
 		new_anim = "Right-Prone-Crawl"
 		trax.turn(true)
 		key.turn(true)
-#		head.right()
 	else:
 		new_anim = "Left-Prone-Crawl"
 		trax.turn(false)
 		key.turn(false)
-#		head.left()
 
 func _anim_stun():
-	_body(2)
+	_body(1)
 	if is_right:
 		new_anim = "Right-Stun"
-#		head.right()
 	else:
 		new_anim = "Left-Stun"
-#		head.left()
 
 func _anim_Knock():
-	_body(2)
+	_body(1)
 	if is_right:
 		new_anim = "Right-Knock_Back"
-#		head.right()
 	else:
 		new_anim = "Left-Knock_Back"
-#		head.left()
 
 func _anim_ladder_move():
-	_body(2)
+	_body(1)
 	new_anim = "Ladder-Move"
 	trax.ladder()
 	key.ladder()
 	head.up()
 
 func _anim_ladder_right():
-	_body(2)
+	_body(1)
 	new_anim = "Ladder-Right"
 	trax.ladder()
 	key.ladder()
-#	head.right()
 
 func _anim_ladder_left():
-	_body(2)
+	_body(1)
 	new_anim = "Ladder-Left"
 	trax.ladder()
 	key.ladder()
-#	head.left()
 
 func _set_gun_dir():
-	head.pos(shoot_spot)
 	arm.is_right(is_right)
+	head.is_right(is_right)
 	if is_right:
-#		arm.is_right(is_right)
-		head.is_right(true)
-#		head.right()
-#		head.scale.x = 1
-		if shoot_spot == 3 || shoot_spot == 6:
+		if shoot_spot == 3:
+			head.rotation_degrees = 0
+			body_sprite.rotation_degrees = 0
 			arm.rotation_degrees = 0
 			arm.bend(2)
-#			head.pos(3)
-#			head.rotation_degrees = 0
 		elif shoot_spot == 1:
-			arm.rotation_degrees = -85
+			head.rotation_degrees = -10
+			body_sprite.rotation_degrees = -42
+			arm.rotation_degrees = -40#head.rotation_degrees
 			arm.bend(1)
-#			head.pos(1)
-#			head.rotation_degrees = -85
 		elif shoot_spot == 2:
-			arm.rotation_degrees = -45
-			arm.bend(2)
-#			head.pos(2)
-#			head.rotation_degrees =-45
+			head.rotation_degrees = -7
+			body_sprite.rotation_degrees = -22
+			arm.rotation_degrees = -23#head.rotation_degrees
+			arm.bend(1)
 		elif shoot_spot == 4:
-			arm.rotation_degrees = 35
+			head.rotation_degrees = 9
+			body_sprite.rotation_degrees = 17
+			arm.rotation_degrees = 18#head.rotation_degrees
 			arm.bend(2)
-#			head.rotation_degrees = 35
 		elif shoot_spot == 5:
-			arm.rotation_degrees = 85
+			head.rotation_degrees = 21
+			body_sprite.rotation_degrees = 42
+			arm.rotation_degrees = 43#head.rotation_degrees
 			arm.bend(3)
-#			head.rotation_degrees = 85
+		elif shoot_spot == 6:
+			head.rotation_degrees = -90
+			body_sprite.rotation_degrees = 90
+			arm.rotation_degrees = -30
+			arm.bend(3)
 		if my_gun:
 			arm.rotation_degrees -= my_gun.walk
 	else:
-#		arm.scale.x = -1
-		head.is_right(false)
-#		head.left()
-#		head.scale.x = -1
-		if shoot_spot == 3 || shoot_spot == 6:
-			arm.rotation_degrees = 0
+		if shoot_spot == 3:
+			head.rotation_degrees = 0
+			body_sprite.rotation_degrees = 0
+			arm.rotation_degrees = 0#head.rotation_degrees
 			arm.bend(2)
-#			head.rotation_degrees = 0
 		elif shoot_spot == 1:
-			arm.rotation_degrees = 85
+			head.rotation_degrees = 10
+			body_sprite.rotation_degrees = 42
+			arm.rotation_degrees = 43 #head.rotation_degrees
 			arm.bend(1)
-#			head.rotation_degrees = 85
 		elif shoot_spot == 2:
-			arm.rotation_degrees = 45
-			arm.bend(2)
-#			head.rotation_degrees = 45
+			head.rotation_degrees = 7
+			body_sprite.rotation_degrees = 22
+			arm.rotation_degrees = 23#head.rotation_degrees
+			arm.bend(1)
 		elif shoot_spot == 4:
-			arm.rotation_degrees = -35
+			head.rotation_degrees = -9
+			body_sprite.rotation_degrees = -17
+			arm.rotation_degrees = -18#head.rotation_degrees
 			arm.bend(2)
-#			head.rotation_degrees = -35
 		elif shoot_spot == 5:
-			arm.rotation_degrees = -85
+			head.rotation_degrees = -21
+			body_sprite.rotation_degrees = -42
+			arm.rotation_degrees = -43#head.rotation_degrees
 			arm.bend(3)
-#			head.rotation_degrees = -85
+		elif shoot_spot == 6:
+			head.rotation_degrees = 90
+			body_sprite.rotation_degrees = -90
+			arm.rotation_degrees = 30
+			arm.bend(3)
 		if my_gun:
 			arm.rotation_degrees += my_gun.walk
+
 
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
@@ -713,7 +697,7 @@ func _set_new_color(_pri, _sec):
 	key.color(_pri, _sec)
 	trax.color(_pri, _sec)
 	head.color(_pri, _sec)
-	body.color(_pri, _sec)
+	body_sprite.self_modulate = _pri
 
 ##--------------------------------------------------------------------[Time Out]
 
@@ -768,4 +752,3 @@ func killed_by_map(_by_who, _by_what, _damage_type, _damage):
 func start_next_level():
 	if !my_gun && start_equiped > 0:
 		equip_start_weap()
-

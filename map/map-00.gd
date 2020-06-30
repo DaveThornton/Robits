@@ -16,7 +16,7 @@ func _ready():
 		print("map has no navigation")
 
 	if splash:
-		Menu_Hand.splash(top_text, body_text, 1.5, true)
+		HUD.splash(top_text, body_text, 1.5, true)
 
 func next_spawn_pos():
 	next_spawn_spot += 1

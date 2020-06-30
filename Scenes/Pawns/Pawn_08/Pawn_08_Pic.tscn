@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/Pawns/Pawn_07/Pawn_07_Part_Arm.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Legs.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Face.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Body.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Hip.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Eye.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Pawns/Pawn_08_Parts/Pawn_08_Pic.gd" type="Script" id=7]
+
+[node name="Pawn_08_Pic" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Sprite_Body" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+hframes = 4
+
+[node name="Sprite_Face" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+hframes = 4
+frame = 2
+
+[node name="Sprite_Eye" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+hframes = 4
+frame = 3
+
+[node name="Sprite_Legs" type="Sprite" parent="."]
+position = Vector2( 0, 9 )
+texture = ExtResource( 2 )
+hframes = 27
+frame = 8
+
+[node name="Sprite_Hip" type="Sprite" parent="."]
+position = Vector2( 0, 9 )
+texture = ExtResource( 5 )
+hframes = 8
+
+[node name="Sprite_Arm" type="Sprite" parent="."]
+position = Vector2( 11, 5 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 1
