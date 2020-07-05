@@ -21,6 +21,7 @@ var is_right = false
 # warning-ignore:unused_class_variable
 var just_shot = false
 var move = 0 #0 = none #1 = Left #2 = Right #3 = Up #4 = Down
+var time = 1
 
 func _ready():
 	anim.play("Spin")
@@ -40,9 +41,10 @@ func _process(_delta):
 		return
 	elif move == 1:#moving left
 		if ray_d.is_colliding():
-			move_and_collide(Vector2(-10,5))
+			print("going dowm turtle pick")
+			move_and_collide(Vector2(-10,-1))
 		else:
-			move_and_collide(Vector2(-10,0))
+			move_and_collide(Vector2(-10,2))
 		side_hit(true)
 		top_hit(false)
 		bott_hit(false)
@@ -50,9 +52,9 @@ func _process(_delta):
 		return
 	elif move == 2:#moving right
 		if ray_d.is_colliding():
-			move_and_collide(Vector2(10,5))
+			move_and_collide(Vector2(10,-1))
 		else:
-			move_and_collide(Vector2(10,0))
+			move_and_collide(Vector2(-10,2))
 		side_hit(true)
 		top_hit(false)
 		bott_hit(false)

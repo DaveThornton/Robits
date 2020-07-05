@@ -7,10 +7,10 @@ onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
 onready var shoot_cast = $POS_Gun/Raycast/Shoot
 onready var melee_cast = $POS_Gun/Raycast/Melee
-onready var throw_cast = $POS_Gun/Raycast/Throw
-onready var pos_shoot = $POS_Gun/POS/Shoot
-onready var pos_shell = $POS_Gun/POS/Shell
-onready var pos_throw = $POS_Gun/POS/Throw
+
+onready var throw_cast = $RayCast2D_Throw
+
+onready var pos_throw = $Position2D
 
 var player = 1
 #var pawn = 0
@@ -27,6 +27,8 @@ var just_shot = false
 var shoot_pos = 3
 var change_shoot_pos = true
 var is_right = true
+var walk = 0
+#var time = 1
 
 signal ammo_change(player, ammo)
 
@@ -104,28 +106,29 @@ func add_ammo(_ammo):
 	emit_signal("ammo_change",player,ammo)
 
 func _throw_where(_obj):
-	if is_right:
-		if shoot_pos == 1:
-			_obj.apply_impulse(pos_throw.position, Vector2(100, -700))
-		elif shoot_pos == 2:
-			_obj.apply_impulse(pos_throw.position, Vector2(600, -400))
-		elif shoot_pos == 3 || shoot_pos == 6:
-			_obj.apply_impulse(pos_throw.position, Vector2(600, -200))
-		elif shoot_pos == 4:
-			_obj.apply_impulse(pos_throw.position, Vector2(600, 200))
-		elif shoot_pos == 5:
-			_obj.apply_impulse(pos_throw.position, Vector2(100, 700))
-	else:
-		if shoot_pos == 1:
-			_obj.apply_impulse(pos_throw.position, Vector2(-100, -700))
-		elif shoot_pos == 2:
-			_obj.apply_impulse(pos_throw.position, Vector2(-600, -400))
-		elif shoot_pos == 3 ||shoot_pos == 6:
-			_obj.apply_impulse(pos_throw.position, Vector2(-600, -200))
-		elif shoot_pos == 4:
-			_obj.apply_impulse(pos_throw.position, Vector2(-600, 200))
-		elif shoot_pos == 5:
-			_obj.apply_impulse(pos_throw.position, Vector2(-100, 700))
+	pass
+#	if is_right:
+#		if shoot_pos == 1:
+#			_obj.apply_impulse(pos_throw.position, Vector2(100, -700))
+#		elif shoot_pos == 2:
+#			_obj.apply_impulse(pos_throw.position, Vector2(600, -400))
+#		elif shoot_pos == 3 || shoot_pos == 6:
+#			_obj.apply_impulse(pos_throw.position, Vector2(600, -200))
+#		elif shoot_pos == 4:
+#			_obj.apply_impulse(pos_throw.position, Vector2(600, 200))
+#		elif shoot_pos == 5:
+#			_obj.apply_impulse(pos_throw.position, Vector2(100, 700))
+#	else:
+#		if shoot_pos == 1:
+#			_obj.apply_impulse(pos_throw.position, Vector2(-100, -700))
+#		elif shoot_pos == 2:
+#			_obj.apply_impulse(pos_throw.position, Vector2(-600, -400))
+#		elif shoot_pos == 3 ||shoot_pos == 6:
+#			_obj.apply_impulse(pos_throw.position, Vector2(-600, -200))
+#		elif shoot_pos == 4:
+#			_obj.apply_impulse(pos_throw.position, Vector2(-600, 200))
+#		elif shoot_pos == 5:
+#			_obj.apply_impulse(pos_throw.position, Vector2(-100, 700))
 
 func _drop_where(_obj):
 	_obj.set_collision_layer_bit( 1, false)

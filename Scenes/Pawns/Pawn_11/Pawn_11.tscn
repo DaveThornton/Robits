@@ -97,7 +97,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -9 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "Left-Prone-Crawl"
 length = 0.1
 tracks/0/type = "value"
@@ -173,8 +173,7 @@ tracks/5/keys = {
 "values": [ Vector2( -2, -9 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Left-Run-old"
+[sub_resource type="Animation" id=6]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Robit_11/Pawn_11_Body:rotation_degrees")
@@ -225,7 +224,7 @@ tracks/3/keys = {
 "values": [ 20.0 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Robit_11/Pawn_11_Body:rotation_degrees")
@@ -300,7 +299,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -9 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "Right-Prone-Crawl"
 length = 0.1
 tracks/0/type = "value"
@@ -376,8 +375,7 @@ tracks/5/keys = {
 "values": [ Vector2( 2, -9 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Right-Run-old"
+[sub_resource type="Animation" id=9]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Robit_11/Pawn_11_Body:rotation_degrees")
@@ -519,11 +517,11 @@ shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Left-Idle = SubResource( 4 )
-anims/Left-Prone-Crawl = SubResource( 8 )
-anims/Left-Run-old = SubResource( 5 )
-anims/Right-Idle = SubResource( 6 )
-anims/Right-Prone-Crawl = SubResource( 9 )
-anims/Right-Run-old = SubResource( 7 )
+anims/Left-Prone-Crawl = SubResource( 5 )
+anims/Left-Run-old = SubResource( 6 )
+anims/Right-Idle = SubResource( 7 )
+anims/Right-Prone-Crawl = SubResource( 8 )
+anims/Right-Run-old = SubResource( 9 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]
