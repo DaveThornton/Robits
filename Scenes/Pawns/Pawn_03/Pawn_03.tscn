@@ -1,0 +1,128 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Sprites/Pawns/Pawn_03/Pawn_03_Part_Body.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Pawns/Pawn_03/Parts/Pawn_03_Part_Small_Wheel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Pawns/Pawn_03/Parts/Pawn_03_Part_Head.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Pawns/Pawn_03/Parts/Pawn_03_Part_Big_Wheel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Pawns/Pawn_03.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Pawns/Pawn_03/Parts/Pawn_03_Part_Arm.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=8]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 12.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 20.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 8.0
+height = 42.0
+
+[node name="Pawn_03" type="KinematicBody2D" groups=[
+"hittable",
+"ladder",
+"player",
+]]
+collision_layer = 2
+collision_mask = 2147549726
+script = ExtResource( 5 )
+
+[node name="Timers" parent="." instance=ExtResource( 8 )]
+
+[node name="Raycasts" type="Node2D" parent="."]
+visible = false
+
+[node name="Right" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 9, 12 )
+enabled = true
+cast_to = Vector2( 0, 4 )
+collision_mask = 30
+
+[node name="Left" type="RayCast2D" parent="Raycasts"]
+position = Vector2( -9, 12 )
+enabled = true
+cast_to = Vector2( 0, 4 )
+collision_mask = 30
+
+[node name="Up" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 0, -27 )
+enabled = true
+cast_to = Vector2( 0, -5 )
+collision_mask = 8
+
+[node name="Pawn_03_Part_Big_Wheel" parent="." instance=ExtResource( 4 )]
+show_behind_parent = true
+
+[node name="Body" type="Sprite" parent="."]
+position = Vector2( 0, -2 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="Pawn_03_Part_Head" parent="Body" instance=ExtResource( 3 )]
+position = Vector2( 0, -14 )
+
+[node name="Pawn_03_Part_Small_Wheel" parent="Body" instance=ExtResource( 2 )]
+show_behind_parent = true
+position = Vector2( 20, 11 )
+
+[node name="POS_Arm" type="Position2D" parent="Body"]
+position = Vector2( 0, -10 )
+
+[node name="Pawn_03_Part_Arm" parent="Body/POS_Arm" instance=ExtResource( 6 )]
+
+[node name="Shield" type="Sprite" parent="Body"]
+
+[node name="CollisionShape2D_Stand" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -6 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D_Prone" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -6 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="CollisionShape2D_Right" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 16, 4 )
+rotation = 1.5708
+shape = SubResource( 2 )
+disabled = true
+
+[node name="CollisionShape2D_Left" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -16, 4 )
+rotation = 1.5708
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Pick_Up_Area" type="Area2D" parent="."]
+visible = false
+collision_layer = 262144
+collision_mask = 786432
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
+position = Vector2( 0, -6 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Ladder_Area" type="Area2D" parent="."]
+visible = false
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
+position = Vector2( 0, -6 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
+[connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
+[connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]
+[connection signal="body_exited" from="Ladder_Area" to="." method="_on_Ladder_Area_body_exited"]

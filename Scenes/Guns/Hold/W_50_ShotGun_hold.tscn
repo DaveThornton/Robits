@@ -7,11 +7,10 @@
 [ext_resource path="res://Scripts/Guns/Hold/W_50_ShotGun_Hold.gd" type="Script" id=6]
 [ext_resource path="res://Sprites/Guns/W_50_ShotGun.png" type="Texture" id=7]
 
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.0
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "Melee"
 length = 0.4
 step = 0.05
@@ -40,8 +39,7 @@ tracks/1/keys = {
 "values": [ true, false, true ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Reload"
+[sub_resource type="Animation" id=3]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -71,8 +69,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Shoot"
+[sub_resource type="Animation" id=4]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -174,9 +171,9 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Melee = SubResource( 4 )
-anims/Reload = SubResource( 2 )
-anims/Shoot = SubResource( 3 )
+anims/Melee = SubResource( 2 )
+anims/Reload = SubResource( 3 )
+anims/Shoot = SubResource( 4 )
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]
 [connection signal="timeout" from="Pump_Timer" to="." method="_on_Pump_Timer_timeout"]

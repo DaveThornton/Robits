@@ -2142,7 +2142,6 @@ scale = Vector2( 1, -1 )
 polygon = PoolVector2Array( -14, 9, 14, 15, 14, 6, 7, -5, 9, -17, 2, -17 )
 
 [node name="Shape_Stand" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PoolVector2Array( 15, 13, -15, 13, -6, -17, 6, -17 )
 
 [node name="Shape_Right" type="CollisionPolygon2D" parent="."]
@@ -2150,7 +2149,6 @@ visible = false
 polygon = PoolVector2Array( -14, 9, 14, 15, 14, 6, 7, -5, 9, -17, 2, -17 )
 
 [node name="Shape_Down" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -1, 13 )
 rotation = 1.5708
 shape = SubResource( 1 )

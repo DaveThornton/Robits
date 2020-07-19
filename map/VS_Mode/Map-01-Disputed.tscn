@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -32,10 +32,10 @@
 [ext_resource path="res://Scenes/Guns/Weap-Pick-23-Bomb-Man.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-22-Plasma-Grenade.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Scenes/Guns/Pick/W_07_CrossBow_Pick.tscn" type="PackedScene" id=32]
-[ext_resource path="res://Scenes/Guns/Pick/W_27_Turtle_Pick.tscn" type="PackedScene" id=33]
-[ext_resource path="res://Scenes/Pawns/Pawn_14/Pawn_14.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Scenes/Pawns/Pawn_03/Pawn_03.tscn" type="PackedScene" id=33]
 
 [node name="testmap-01" type="Node2D"]
+position = Vector2( 0, 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_vertical_guides_": [ 38.1926 ]
@@ -308,8 +308,5 @@ position = Vector2( 1011.8, 260.943 )
 [node name="W_07_CrossBow_Pick" parent="." instance=ExtResource( 32 )]
 position = Vector2( 973, 299 )
 
-[node name="Weap-Pick-27-Turtle" parent="." instance=ExtResource( 33 )]
-position = Vector2( 1236, 428 )
-
-[node name="Pawn_14" parent="." instance=ExtResource( 34 )]
-position = Vector2( 1161, 423 )
+[node name="Pawn_03" parent="." instance=ExtResource( 33 )]
+position = Vector2( 1236, 425 )

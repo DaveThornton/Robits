@@ -222,7 +222,7 @@ hframes = 29
 frame = 15
 
 [node name="Legs" type="Sprite" parent="."]
-self_modulate = Color( 0, 0.0470588, 1, 1 )
+self_modulate = Color( 0.6, 0.6, 0.6, 1 )
 texture = ExtResource( 1 )
 hframes = 29
 frame = 15

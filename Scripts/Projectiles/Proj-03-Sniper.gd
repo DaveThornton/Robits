@@ -18,6 +18,8 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	scale = _scale
 	owned = _owner
 	damage = _dmg
+	if _scale.y < 0:
+		rotation *= -1
 
 func _physics_process(delta):
 	move_local_x(speed * delta)

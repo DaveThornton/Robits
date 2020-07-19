@@ -1,84 +1,228 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Sprites/Pawns/Pawn_14/Pawn_14.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Pawns/Pawn_14/Parts/Leg_01_Outside.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Pawns/Pawn_14/Pawn_14_Body.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Pawns/Pawn_14/Parts/Pawn_14_Part_Tracks.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Pawns/Pawn_14.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Pawns/Pawn_14/Parts/Leg_01_Inside.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Pawns/Pawn_14/Parts/Pawn_14_Part_Arm.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Pawns/Pawn_14/Parts/Pawn_14_Part_Head.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Pawns/Pawn_07/Parts/Pawn_07_Part_Fire.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 4.0
-height = 12.0
+radius = 21.0
+height = 14.0
 
-[node name="Pawn_14" type="KinematicBody2D"]
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 21.0
+height = 2.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 28.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 7.0
+height = 54.0
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Pawn_14_Part_Head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -24 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Pawn_14_Part_Tracks:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 21 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/Shield:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body/POS_Arm:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -3 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Prone"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Body/Pawn_14_Part_Head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -20 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Pawn_14_Part_Tracks:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 14 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Body/POS_Arm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ) ]
+}
+
+[node name="Pawn_14" type="KinematicBody2D" groups=[
+"hittable",
+"ladder",
+"player",
+]]
+collision_layer = 2
+collision_mask = 66078
 script = ExtResource( 3 )
 
-[node name="Back_Legs" type="Node2D" parent="."]
-position = Vector2( -1, 2 )
+[node name="Timers" parent="." instance=ExtResource( 4 )]
 
-[node name="Leg_O_01" parent="Back_Legs" instance=ExtResource( 2 )]
-position = Vector2( 8, 2 )
-flipped = false
+[node name="Raycasts" type="Node2D" parent="."]
 
-[node name="Leg_O_02" parent="Back_Legs" instance=ExtResource( 2 )]
-position = Vector2( 8, -2 )
-flipped = false
+[node name="Down_L" type="RayCast2D" parent="Raycasts"]
+position = Vector2( -21, 26 )
+enabled = true
+cast_to = Vector2( 0, 3 )
+collision_mask = 3102
 
-[node name="Leg_I_01" parent="Back_Legs" instance=ExtResource( 4 )]
-position = Vector2( -1, 2 )
+[node name="Down_R" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 21, 26 )
+enabled = true
+cast_to = Vector2( 0, 3 )
+collision_mask = 3102
 
-[node name="Leg_I_02" parent="Back_Legs" instance=ExtResource( 4 )]
-position = Vector2( -1, -2 )
+[node name="Up" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 0, -28 )
+enabled = true
+cast_to = Vector2( 0, -5 )
+collision_mask = 8
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Body" type="Sprite" parent="."]
+position = Vector2( 0, 3 )
 texture = ExtResource( 1 )
-hframes = 5
 
-[node name="Sprite_Head" type="Sprite" parent="."]
-position = Vector2( 0, -18 )
+[node name="Pawn_14_Part_Head" parent="Body" instance=ExtResource( 6 )]
+position = Vector2( 0, -24 )
+
+[node name="POS_Arm" type="Position2D" parent="Body"]
+position = Vector2( 0, -3 )
+
+[node name="Pawn_14_Part_Arm" parent="Body/POS_Arm" instance=ExtResource( 5 )]
+
+[node name="Pawn_14_Part_Tracks" parent="Body" instance=ExtResource( 2 )]
+position = Vector2( 0, 21 )
+
+[node name="Shield" type="Sprite" parent="Body"]
+visible = false
+self_modulate = Color( 1, 0, 0, 1 )
+show_behind_parent = true
+scale = Vector2( 1.05, 1.1 )
 texture = ExtResource( 1 )
-hframes = 5
-frame = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 1 )
-rotation = 1.5708
+[node name="Pawn_07_Part_Fire" parent="Body" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 0, 31 )
+
+[node name="CollisionShape2D_Stand" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Front_Legs" type="Node2D" parent="."]
-position = Vector2( -1, 3 )
+[node name="CollisionShape2D_Prone" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 6 )
+shape = SubResource( 5 )
 
-[node name="Leg_I_01" parent="Front_Legs" instance=ExtResource( 4 )]
-position = Vector2( 5, 1 )
+[node name="Pick_Up_Area" type="Area2D" parent="."]
+visible = false
+collision_layer = 262144
+collision_mask = 786432
 
-[node name="Leg_I_02" parent="Front_Legs" instance=ExtResource( 4 )]
-position = Vector2( 5, -3 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
+rotation = 1.5708
+shape = SubResource( 2 )
 
-[node name="Leg_O_01" parent="Front_Legs" instance=ExtResource( 2 )]
-position = Vector2( -6, 1 )
+[node name="Ladder_Area" type="Area2D" parent="."]
+visible = false
+collision_layer = 32
+collision_mask = 32
 
-[node name="Leg_O_02" parent="Front_Legs" instance=ExtResource( 2 )]
-position = Vector2( -6, -3 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
+shape = SubResource( 3 )
 
-[node name="LowMidCheck" type="RayCast2D" parent="."]
-position = Vector2( 0, 3 )
-enabled = true
-cast_to = Vector2( 0, 25 )
-collision_mask = 656398
-
-[node name="HighMidCheck" type="RayCast2D" parent="."]
-position = Vector2( 0, 3 )
-enabled = true
-cast_to = Vector2( 0, 30 )
-collision_mask = 656398
-
-[node name="FrontCheck" type="RayCast2D" parent="."]
-position = Vector2( 48, 4 )
-enabled = true
-cast_to = Vector2( 0, 100 )
-collision_mask = 1038
-
-[node name="BackCheck" type="RayCast2D" parent="."]
-position = Vector2( -11, 4 )
-enabled = true
-cast_to = Vector2( 0, 100 )
-collision_mask = 1038
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 4 )
+anims/Prone = SubResource( 6 )
+[connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
+[connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
+[connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]
+[connection signal="body_exited" from="Ladder_Area" to="." method="_on_Ladder_Area_body_exited"]

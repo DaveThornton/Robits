@@ -15,11 +15,14 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	position = _pos
 	scale = _scale
 	owned = _owner
+	if _scale.y < 0:
+		rotation *= -1
 	proj1.start( _owner, int(_dmg / 5))
 	proj2.start( _owner, int(_dmg / 5))
 	proj3.start( _owner, int(_dmg / 5))
 	proj4.start( _owner, int(_dmg / 5))
 	proj5.start( _owner, int(_dmg / 5))
+	
 
 #func _ready():
 #	pass

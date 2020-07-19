@@ -385,6 +385,7 @@ disabled = true
 position = Vector2( 7, 5 )
 
 [node name="Body" type="Sprite" parent="POS_Body"]
+self_modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -11 )
 hframes = 2

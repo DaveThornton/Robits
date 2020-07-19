@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/Projectiles/Shell-01.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-04-M_16.tscn" type="PackedScene" id=6]
 
-
 [sub_resource type="CircleShape2D" id=1]
 
 [node name="W_04_M16" type="Node2D"]

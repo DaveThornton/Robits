@@ -19,6 +19,8 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	scale = _scale
 	player = _owner
 	damage = _dmg
+	if _scale.y < 0:
+		rotation *= -1
 
 func _physics_process(delta):
 	if ray.is_colliding():

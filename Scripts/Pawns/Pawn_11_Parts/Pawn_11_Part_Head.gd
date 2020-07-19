@@ -4,9 +4,6 @@ onready var head = $Head
 onready var face = $Face
 onready var shield = $Shield
 
-func pos(_pos:int):
-	pass
-
 func is_right(_right):
 	if _right:
 		head.frame = 0

@@ -20,7 +20,7 @@ hit_anim_map = ExtResource( 2 )
 hit_anim_move = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 7, -1.36295e-006 )
+position = Vector2( 7, -1.36295e-06 )
 rotation = 1.5708
 shape = SubResource( 1 )
 

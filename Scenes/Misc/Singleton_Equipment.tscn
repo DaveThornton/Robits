@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Hold/W_02-AK47_Hold.tscn" type="PackedScene" id=2]
@@ -21,10 +21,10 @@
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-04-Jump_Power_Up.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-05-NRG_Power_Up.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/Pawns/Robit-01.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Pawns/Robit-02.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Pawns/Robit-03.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Scenes/Pawns/Robit-04.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Pawns/Pawn_10/Pawn_10.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Pawns/Pawn_01/Pawn_01.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Pawns/Pawn_04/Pawn_04.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Pawns/Pawn_14/Pawn_14.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Pawn_05.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Pawns/Pawn_06/Pawn_06.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Pawns/Pawn_07/Pawn_07.tscn" type="PackedScene" id=28]
@@ -37,6 +37,8 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_13/Pawn_13.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Scenes/Pawns/Pawn_11/Pawn_11.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Scenes/Guns/Hold/W_27_Turtle_Hold.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Scenes/Pawns/Pawn_03/Pawn_03.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Scenes/Pawns/Pawn_15/Pawn_15.tscn" type="PackedScene" id=39]
 
 [node name="Equipment" type="Node2D"]
 script = ExtResource( 1 )
@@ -64,19 +66,19 @@ item_pick_03 = ExtResource( 18 )
 item_pick_04 = ExtResource( 19 )
 item_pick_05 = ExtResource( 20 )
 item_pick_06 = ExtResource( 21 )
-pawn_01 = ExtResource( 22 )
-pawn_02 = ExtResource( 23 )
-pawn_03 = ExtResource( 24 )
-pawn_04 = ExtResource( 25 )
+pawn_01 = ExtResource( 23 )
+pawn_02 = ExtResource( 26 )
+pawn_03 = ExtResource( 38 )
+pawn_04 = ExtResource( 24 )
 pawn_05 = ExtResource( 26 )
 pawn_06 = ExtResource( 27 )
 pawn_07 = ExtResource( 28 )
 pawn_08 = ExtResource( 29 )
 pawn_09 = ExtResource( 30 )
-pawn_10 = ExtResource( 23 )
+pawn_10 = ExtResource( 22 )
 pawn_11 = ExtResource( 36 )
 pawn_12 = ExtResource( 33 )
 pawn_13 = ExtResource( 35 )
-pawn_14 = ExtResource( 23 )
-pawn_15 = ExtResource( 24 )
-pawn_16 = ExtResource( 25 )
+pawn_14 = ExtResource( 25 )
+pawn_15 = ExtResource( 39 )
+pawn_16 = ExtResource( 26 )

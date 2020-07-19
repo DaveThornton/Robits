@@ -71,13 +71,13 @@ func shoot():
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				#---------------------------------------------------------------
-				print(is_right)
+#				print(is_right)
 				if is_right:
 					_sr = pos_shoot.global_rotation
 				else:
 					_sr = pos_shoot.global_rotation * -1
 				#---------------------------------------------------------------
-				var _sss = pos_shoot.scale
+				var _sss = pos_shoot.global_scale
 				new_projectile.start( _sr , _ss, _sss, player, damage)
 			else:
 				var _thing = shoot_cast.get_collider()

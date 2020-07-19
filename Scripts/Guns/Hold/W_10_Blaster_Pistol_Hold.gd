@@ -96,7 +96,7 @@ func _fire_projectile():
 		_sr = pos_shoot.global_rotation
 	else:
 		_sr = pos_shoot.global_rotation * -1
-	var _sss = pos_shoot.scale
+	var _sss = pos_shoot.global_scale
 	new_projectile.start( _sr , _ss, _sss, player, damage)
 
 func throw():

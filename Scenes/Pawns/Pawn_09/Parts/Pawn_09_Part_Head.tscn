@@ -117,25 +117,22 @@ position = Vector2( 0, -9 )
 texture = ExtResource( 5 )
 
 [node name="Head" type="Sprite" parent="."]
-self_modulate = Color( 0.0980392, 0, 1, 1 )
+self_modulate = Color( 0.541176, 0.541176, 0.541176, 1 )
 position = Vector2( 0, -9 )
 texture = ExtResource( 2 )
 hframes = 2
-frame = 1
 
 [node name="Face" type="Sprite" parent="."]
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -9 )
 texture = ExtResource( 1 )
 hframes = 2
-frame = 1
 
 [node name="Hat" type="Sprite" parent="."]
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -9 )
 texture = ExtResource( 3 )
 hframes = 2
-frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Left = SubResource( 1 )

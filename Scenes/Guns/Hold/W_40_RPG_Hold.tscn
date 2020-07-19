@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 12.0
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "Melee"
 length = 0.45
 step = 0.05
@@ -113,7 +113,7 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Melee = SubResource( 4 )
+anims/Melee = SubResource( 2 )
 anims/Shoot = SubResource( 3 )
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]

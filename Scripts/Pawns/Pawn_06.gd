@@ -113,9 +113,6 @@ var _hit_color_02 = Color8(255, 106, 0, 130)
 
 signal explode_p
 
-func _ready():
-	pass
-	
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
 	play_type = _play_type

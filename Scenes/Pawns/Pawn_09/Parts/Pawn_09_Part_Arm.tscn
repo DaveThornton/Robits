@@ -88,7 +88,7 @@ tracks/1/keys = {
 script = ExtResource( 2 )
 
 [node name="Arm" type="Sprite" parent="."]
-self_modulate = Color( 0, 0.0627451, 1, 1 )
+self_modulate = Color( 0.533333, 0.533333, 0.533333, 1 )
 position = Vector2( 12, 4 )
 texture = ExtResource( 1 )
 hframes = 3
