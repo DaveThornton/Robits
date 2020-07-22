@@ -437,8 +437,6 @@ func _is_on_floor():
 	else :
 		on_floor = false
 		wheel.on_floor = false
-		
-	print("pawn 10 on floor = ", on_floor)
 
 ##----------------------------------------------------------------[Stun / Knock]
 func stun(_gun_num):

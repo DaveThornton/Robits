@@ -90,7 +90,7 @@ export(PackedScene) var pawn_12
 export(PackedScene) var pawn_13
 export(PackedScene) var pawn_14
 export(PackedScene) var pawn_15
-export(PackedScene) var pawn_16
+#export(PackedScene) var pawn_16
 
 func get_weap_hold(_weap):
 	if _weap == 1:
@@ -196,9 +196,11 @@ func get_pawn(_pawn_num):
 	elif _pawn_num == 15:
 		return pawn_15
 	elif _pawn_num == 16:
-		return pawn_16
+		var _pawn = (randi() % 14) + 1
+#		print(_pawn , " <----- random pawn number from pawn 16 in robit controller")
+		return get_pawn(_pawn)
 	elif _pawn_num == 0:
-		print("no pawn selected pawn number = ", _pawn_num, " you get pawn #8")
+		print("no pawn selected pawn number = ", _pawn_num, " you get pawn #13")
 		return pawn_13
 	else:
 		print("not a good pawn number ", _pawn_num, " so im sending in pawn #1")

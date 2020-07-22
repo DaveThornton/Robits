@@ -587,7 +587,7 @@ func _anim_run():
 		hover.rotation_degrees = -45
 
 func _anim_jump():
-	print("pawn 04 jump")
+#	print("pawn 04 jump")
 	_body(1)
 	new_anim = "Up"
 	_rays_stand()

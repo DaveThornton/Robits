@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Scenes/Guns/Weap-Pick-22-Plasma-Grenade.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Scenes/Guns/Pick/W_07_CrossBow_Pick.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Pawns/Pawn_03/Pawn_03.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Scenes/Pawns/Pawn_02/Pawn_02.tscn" type="PackedScene" id=34]
 
 [node name="testmap-01" type="Node2D"]
 position = Vector2( 0, 2 )
@@ -310,3 +311,6 @@ position = Vector2( 973, 299 )
 
 [node name="Pawn_03" parent="." instance=ExtResource( 33 )]
 position = Vector2( 1236, 425 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 34 )]
+position = Vector2( 1171, 431 )
