@@ -152,7 +152,7 @@ func _physics_process(delta):
 	move_and_slide(Vector2(current_x_speed + knocked_back.x, 0 + knocked_back.y ))
 	var movement = Vector2(0, ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
-	vel.x -= delta
+#	vel.x -= delta
 # warning-ignore:return_value_discarded
 #	_jet_pack(vel.y)
 	move_and_collide(vel)

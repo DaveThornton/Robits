@@ -22,6 +22,12 @@ func is_right(_right: bool):
 #		arm.scale.x = -1
 #		gun_pos.scale.x = -1
 
+func shield_up():
+	shield.visible = true
+	
+func shield_down():
+	shield.visible = false
+
 func color(_pri: Color, _sec: Color):
 	arm.self_modulate = _pri
 	shield.self_modulate = _sec

@@ -144,32 +144,36 @@ func _physics_process(delta):
 	move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
 	var movement = Vector2(0, ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
-	vel.x -= delta
+#	vel.x -= delta
+#	print(vel)
 # warning-ignore:return_value_discarded
 	move_and_collide(vel)
 
 ##-------------------------------------------------------------------[Move/jump]
 func move_x(_moving, _right):
+#	print(current_x_speed)
 	if can_move:
 		if on_floor:
 			if _moving:
 				if is_down:
 					if _right:
-						current_x_speed += max_x_speed /10 * speed_power_up / 3 #* delta
+						current_x_speed += max_x_speed / 10 * speed_power_up / 3 #* delta
 					else:
-						current_x_speed += -max_x_speed /10 * speed_power_up / 3 #* delta
+						current_x_speed -= max_x_speed / 10 * speed_power_up / 3 #* delta
 					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
 					if _right:
 						current_x_speed += max_x_speed / 5 * speed_power_up #* delta
 					else:
-						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
+						current_x_speed -= max_x_speed / 5 * speed_power_up #* delta
 			else:
-				if current_x_speed < 4 && current_x_speed > -4 || on_ladder:
-					current_x_speed = 0
-				else:
-					current_x_speed -= current_x_speed / 5
+				current_x_speed = 0
+#				if current_x_speed < 20 && current_x_speed > -20 || on_ladder:
+#					current_x_speed = 0
+#				else:
+#					current_x_speed -= current_x_speed / 2
 		else:
+			print("pawn 05 not on floor")
 			if _moving:
 				if is_down:
 					if _right:
@@ -183,12 +187,12 @@ func move_x(_moving, _right):
 					else:
 						current_x_speed += -max_x_speed / 35 * speed_power_up #* delta
 			else:
-				if current_x_speed < 2 && current_x_speed > -2 || on_ladder:
+				if current_x_speed < 25 && current_x_speed > -25 || on_ladder:
 					current_x_speed = 0
 				else:
 					current_x_speed -= current_x_speed / 20
 	else:
-		if current_x_speed < 2 && current_x_speed > -2 || on_ladder:
+		if current_x_speed < 50 && current_x_speed > -50 || on_ladder:
 			current_x_speed = 0
 		else:
 			current_x_speed -= current_x_speed / 10

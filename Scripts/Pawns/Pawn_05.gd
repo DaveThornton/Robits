@@ -5,7 +5,8 @@ onready var gun_pos = $Pawn_05_Part_Body/POS_Arm/Pawn_09_Part_Arm/POS_Gun
 onready var body_shape_01 = $Shape_Left
 onready var body_shape_02 = $Shape_Stand
 onready var body_shape_03 = $Shape_Right
-onready var body_shape_04 = $Shape_Down
+onready var body_shape_04 = $Shape_Down_Left
+onready var body_shape_05 = $Shape_Down_Right
 
 onready var head = $Pawn_05_Part_Body/POS_Head/Pawn_05_Part_Head
 onready var head_pos = $Pawn_05_Part_Body/POS_Head
@@ -395,21 +396,33 @@ func _body_(_num: int):
 		body_shape_02.disabled = true
 		body_shape_03.disabled = true
 		body_shape_04.disabled = true
+		body_shape_05.disabled = true
 	elif _num == 2:
 		body_shape_01.disabled = true
 		body_shape_02.disabled = false
 		body_shape_03.disabled = true
 		body_shape_04.disabled = true
+		body_shape_05.disabled = true
 	elif _num == 3:
 		body_shape_01.disabled = true
 		body_shape_02.disabled = true
 		body_shape_03.disabled = false
 		body_shape_04.disabled = true
+		body_shape_05.disabled = true
 	elif _num == 4:
 		body_shape_01.disabled = true
 		body_shape_02.disabled = true
 		body_shape_03.disabled = true
 		body_shape_04.disabled = false
+		body_shape_05.disabled = true
+	elif _num == 5:
+		body_shape_01.disabled = true
+		body_shape_02.disabled = true
+		body_shape_03.disabled = true
+		body_shape_04.disabled = true
+		body_shape_05.disabled = false
+	else:
+		print("pawn 05 invalid body shape in _body")
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
 	if ray_up.is_colliding():
@@ -499,6 +512,7 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 					if over_ladder || on_ladder:
 						on_ladder = true
 						self.position.y += ladder_speed * delta
+						_anim_ladder_move()
 					elif on_floor:
 						is_down = true
 						shoot_spot = 6
@@ -594,21 +608,23 @@ func _anim_jump():
 		_body(1)
 
 func _anim_prone_idle():
-	_body(2)
 	wheel.stop()
 	key.stop()
 	if is_right:
 		new_anim = "Right-Prone-Idle"
+		_body(5)
 	else:
+		_body(4)
 		new_anim = "Left-Prone-Idle"
 
 func _anim_prone_crawl():
-	_body(4)
 	if is_right:
+		_body(5)
 		new_anim = "Right-Prone-Crawl"
 		wheel.turn(true)
 		key.turn(true)
 	else:
+		_body(4)
 		new_anim = "Left-Prone-Crawl"
 		wheel.turn(false)
 		key.turn(false)

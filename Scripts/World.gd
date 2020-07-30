@@ -14,7 +14,7 @@ onready var clearing_house = $Clearing_House
 onready var line = $Line2D
 
 var screen_loaded
-var arcade_start_screen
+var arcade_start_screen 
 var console_start_screen
 
 signal reset

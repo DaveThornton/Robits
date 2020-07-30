@@ -117,7 +117,7 @@ __meta__ = {
 "map_part",
 ]]
 modulate = Color( 0.509804, 0.262745, 0, 1 )
-z_index = 1
+z_index = -1
 tile_set = ExtResource( 7 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 32
