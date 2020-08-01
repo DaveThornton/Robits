@@ -7,27 +7,27 @@
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Pawns/Pawn_02/Pawn_02_Part_Body.png" type="Texture" id=8]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 18.0
 height = 8.0
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 12.0
 height = 24.0
 
-[sub_resource type="CapsuleShape2D" id=11]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 13.0
 height = 40.0
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 18.0
 height = 80.0
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 7.0
 height = 64.0
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=6]
 resource_name = "Ladder_Left"
 length = 0.1
 tracks/0/type = "value"
@@ -287,7 +287,7 @@ tracks/20/keys = {
 "values": [ 90.0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=7]
 resource_name = "Ladder_Move"
 length = 0.1
 tracks/0/type = "value"
@@ -547,7 +547,7 @@ tracks/20/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=8]
 resource_name = "Ladder_Right"
 length = 0.1
 tracks/0/type = "value"
@@ -807,8 +807,7 @@ tracks/20/keys = {
 "values": [ 90.0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Prone_Left"
+[sub_resource type="Animation" id=9]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -1067,8 +1066,7 @@ tracks/20/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Prone_Right"
+[sub_resource type="Animation" id=10]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -1327,8 +1325,7 @@ tracks/20/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Stand_Left"
+[sub_resource type="Animation" id=11]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -1587,8 +1584,7 @@ tracks/20/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Stand_Right"
+[sub_resource type="Animation" id=12]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -1941,19 +1937,19 @@ leg_num = 3
 visible = false
 position = Vector2( 0, -5 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, 1 )
 rotation = 1.5708
-shape = SubResource( 7 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="CollisionShape2D_Ladder" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( 0, -9 )
-shape = SubResource( 11 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
@@ -1964,7 +1960,7 @@ collision_mask = 786432
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
 position = Vector2( 0, -5 )
 rotation = 1.5708
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
 visible = false
@@ -1973,16 +1969,16 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
 position = Vector2( 0, -7 )
-shape = SubResource( 9 )
+shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Ladder_Left = SubResource( 12 )
-anims/Ladder_Move = SubResource( 10 )
-anims/Ladder_Right = SubResource( 13 )
-anims/Prone_Left = SubResource( 4 )
-anims/Prone_Right = SubResource( 5 )
-anims/Stand_Left = SubResource( 6 )
-anims/Stand_Right = SubResource( 3 )
+anims/Ladder_Left = SubResource( 6 )
+anims/Ladder_Move = SubResource( 7 )
+anims/Ladder_Right = SubResource( 8 )
+anims/Prone_Left = SubResource( 9 )
+anims/Prone_Right = SubResource( 10 )
+anims/Stand_Left = SubResource( 11 )
+anims/Stand_Right = SubResource( 12 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

@@ -1,19 +1,21 @@
 extends Node2D
 
-onready var head = $Sprite_Head
-onready var body = $Sprite_Body
-onready var arm = $Sprite_arm
-onready var trax = $Sprite_Trax
-onready var trax_back = $Sprite_Trax/Sprite_Trax_Back
-onready var face =$Sprite_Face
+onready var head = $Pawn_07_Part_Body/Pawn_07_Part_Head
+onready var body = $Pawn_07_Part_Body
+onready var arm = $Pawn_07_Part_Body/Pawn_07_Part_Arm
+onready var trax = $Pawn_07_Part_Trax
+onready var trax_back = $Pawn_07_Part_Trax/Pawn_07_Part_Trax_Back
+onready var face =$Pawn_07_Part_Body/Pawn_07_Part_Head/Pawn_07_Part_Face
 
-var player = 0
+onready var anim = $AnimationPlayer
 
-func init(_num):
-	player = _num
-	var _pri_color = Player_Stats.get_body_color(player)
-	var _sec_color = Player_Stats.get_sec_color(player)
-	head.self_modulate = _pri_color
-	body.self_modulate = _pri_color
-	arm.self_modulate = _pri_color
-	face.self_modulate = _sec_color
+func _ready():
+	anim.play("Idle")
+
+func color(_pri, _sec):
+	head.self_modulate = _pri
+	body.self_modulate = _pri
+	arm.self_modulate = _pri
+	trax_back.self_modulate = _pri
+	trax.self_modulate = _sec
+	face.self_modulate = _sec

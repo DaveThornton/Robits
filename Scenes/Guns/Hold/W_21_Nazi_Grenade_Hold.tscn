@@ -19,10 +19,11 @@ wait_time = 4.5
 [node name="POS_Gun" type="Node2D" parent="."]
 
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
-position = Vector2( 1, -13 )
+position = Vector2( -1, -13 )
 rotation = 3.14159
 texture = ExtResource( 1 )
 hframes = 4
+frame = 1
 
 [node name="Pin" type="Sprite" parent="POS_Gun"]
 position = Vector2( -8, -15 )

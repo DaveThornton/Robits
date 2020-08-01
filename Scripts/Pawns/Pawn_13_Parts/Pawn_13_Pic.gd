@@ -1,26 +1,26 @@
 extends Node2D
 
-onready var head = $Sprite_Head
+onready var head = $Sprite_Body/Sprite_Head
 onready var body = $Sprite_Body
-onready var hbody = $Sprite_H_Body
+onready var hbody = $Sprite_Body/Sprite_H_Body
 onready var arm = $Sprite_Body/Sprite_Arm
-onready var legs_f = $Sprite_H_Body/Sprite_Legs_F
-onready var legs_b = $Sprite_H_Body/Sprite_Legs_B
-onready var face =$Sprite_Head/Sprite_Face
-onready var face_b = $Sprite_Head/Sprite_Face_B
+onready var legs_f = $Sprite_Body/Sprite_H_Body/Sprite_Legs_F
+onready var legs_b = $Sprite_Body/Sprite_H_Body/Sprite_Legs_B
+onready var face =$Sprite_Body/Sprite_Head/Sprite_Face
+onready var face_b = $Sprite_Body/Sprite_Head/Sprite_Face_B
 
-var player = 0
+onready var anim = $AnimationPlayer
 
-func init(_num):
-	player = _num
-	var _pri_color = Player_Stats.get_body_color(player)
-	var _sec_color = Player_Stats.get_sec_color(player)
-	head.self_modulate = _pri_color
-	body.self_modulate = _pri_color
-	legs_f.self_modulate = _pri_color
-	legs_b.self_modulate = _pri_color
-	arm.self_modulate = _pri_color
-	hbody.self_modulate = _pri_color
+func _ready():
+	anim.play("Idle")
+
+func color(_pri, _sec):
+	head.self_modulate = _pri
+	body.self_modulate = _pri
+	legs_f.self_modulate = _pri
+	legs_b.self_modulate = _pri
+	arm.self_modulate = _pri
+	hbody.self_modulate = _pri
 	
-	face.self_modulate = _sec_color
-	face_b.self_modulate = _sec_color
+	face.self_modulate = _sec
+	face_b.self_modulate = _sec

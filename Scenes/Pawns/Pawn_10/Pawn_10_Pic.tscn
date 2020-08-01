@@ -1,0 +1,125 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Pawns/Pawn_10_Parts/Pawn_10_Pic.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Pawns/Pawn_10/Pawn_10_Part_Body.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Pawns/Pawn_10/Pawn_10_Part_Head.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Pawns/Pawn_10/Pawn_10_Part_Face.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Pawns/Pawn_09/Pawn_09_Part_Arm.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Pawns/Pawn_10/Pawn_10_Part_Tire.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pawn_10_Part_Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -8, -11 ), Vector2( 8, -11 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pawn_10_Part_Body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 17.0, -17.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pawn_10_Part_Body/Pawn_10_Part_Tire:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -17.0, 17.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pawn_10_Part_Body/Pawn_09_Part_Arm:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 54.0, 125.4 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pawn_10_Part_Body/Pawn_10_Part_Head:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -17.0, 16.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Pawn_10_Part_Body/Pawn_10_Part_Tire:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 4, 3, 2, 1 ]
+}
+
+[node name="Pawn_10_Pic" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Pawn_10_Part_Body" type="Sprite" parent="."]
+position = Vector2( -4.01628, -11 )
+rotation = 0.148957
+texture = ExtResource( 2 )
+offset = Vector2( 0, -18 )
+hframes = 4
+frame = 2
+
+[node name="Pawn_10_Part_Tire" type="Sprite" parent="Pawn_10_Part_Body"]
+show_behind_parent = true
+rotation = -0.148957
+texture = ExtResource( 6 )
+hframes = 20
+frame = 1
+
+[node name="Pawn_09_Part_Arm" type="Sprite" parent="Pawn_10_Part_Body"]
+position = Vector2( 0, -28 )
+rotation = 1.25275
+texture = ExtResource( 5 )
+offset = Vector2( 12, 4 )
+hframes = 3
+frame = 2
+
+[node name="Pawn_10_Part_Head" type="Sprite" parent="Pawn_10_Part_Body"]
+position = Vector2( 0, -43 )
+rotation = -0.153302
+texture = ExtResource( 3 )
+hframes = 5
+frame = 4
+
+[node name="Pawn_10_Part_Face" type="Sprite" parent="Pawn_10_Part_Body/Pawn_10_Part_Head"]
+texture = ExtResource( 4 )
+hframes = 5
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 1 )

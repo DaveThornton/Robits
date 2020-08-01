@@ -1,20 +1,20 @@
 extends Node2D
 
 onready var body = $Sprite_Body
-onready var arm = $Sprite_Arm
+onready var arm = $Sprite_Body/Sprite_Arm
 onready var legs = $Sprite_Legs
 onready var hip = $Sprite_Hip
-onready var face =$Sprite_Face
-onready var eye = $Sprite_Eye
+onready var face =$Sprite_Body/Sprite_Face
+onready var eye = $Sprite_Body/Sprite_Eye
 
-var player = 0
+onready var anim = $AnimationPlayer
 
-func init(_num):
-	player = _num
-	var _pri_color = Player_Stats.get_body_color(player)
-	var _sec_color = Player_Stats.get_sec_color(player)
-	hip.self_modulate = _pri_color
-	body.self_modulate = _pri_color
-	legs.self_modulate = _pri_color
-	arm.self_modulate = _pri_color
-	eye.self_modulate = _sec_color
+func _ready():
+	anim.play("Idle")
+
+func color(_pri, _sec):
+	hip.self_modulate = _pri
+	body.self_modulate = _pri
+	legs.self_modulate = _pri
+	arm.self_modulate = _pri
+	eye.self_modulate = _sec

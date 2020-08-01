@@ -28,5 +28,5 @@ func shield_down():
 
 func color(_pri: Color, _sec: Color):
 	shield.self_modulate = _sec
-#	trax.self_modulate = _sec
+	trax.self_modulate = _sec
 	trax_back.self_modulate = _pri

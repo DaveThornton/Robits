@@ -14,5 +14,5 @@ func stop():
 	anim.stop(false)
 
 func color(_pri, _sec):
-	hip.self_modulate = _pri
-	sec.self_modulate = _sec
+	hip.self_modulate = _sec
+	sec.self_modulate = _pri

@@ -12,20 +12,19 @@
 radius = 21.0
 height = 14.0
 
-[sub_resource type="CapsuleShape2D" id=5]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 21.0
 height = 2.0
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 28.0
 height = 64.0
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 7.0
 height = 54.0
 
-[sub_resource type="Animation" id=4]
-resource_name = "Idle"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:position")
 tracks/0/interp = 1
@@ -200,7 +199,7 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Prone" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 6 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
 visible = false
@@ -209,7 +208,7 @@ collision_mask = 786432
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
 visible = false
@@ -217,10 +216,10 @@ collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 4 )
+anims/Idle = SubResource( 5 )
 anims/Prone = SubResource( 6 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Head.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Body.png" type="Texture" id=2]
@@ -6,33 +6,84 @@
 [ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Arm.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Pawns/Pawn_06/Parts/Pawn_06_Part_Hover.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/Pawns/Pawn_06_Parts/Pawn_06_Pic.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Temp.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pawn_06_Part_Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -36 ), Vector2( 0, -33 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pawn_06_Part_Body/Pawn_06_Part_Head:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -3.0, 4.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pawn_06_Part_Body/Pawn_06_Part_Arm:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 36.0, 34.0 ]
+}
 
 [node name="Pawn_06_Pic" type="Node2D"]
 script = ExtResource( 6 )
 
-[node name="Pawn_06_Part_Hover" parent="." instance=ExtResource( 5 )]
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 0, 16 )
-scale = Vector2( 4, 4 )
+[node name="Pawn_06_Part_Body" type="Sprite" parent="."]
+position = Vector2( 0, -33.6 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 4 )
+hframes = 7
 
-[node name="Sprite_Head" type="Sprite" parent="."]
-position = Vector2( 3, -12 )
+[node name="Pawn_06_Part_Hover" parent="Pawn_06_Part_Body" instance=ExtResource( 5 )]
+show_behind_parent = true
+position = Vector2( 0, 21.6 )
+
+[node name="Pawn_06_Part_Temp" type="Sprite" parent="Pawn_06_Part_Body/Pawn_06_Part_Hover"]
+position = Vector2( 0, -1 )
+texture = ExtResource( 7 )
+
+[node name="Pawn_06_Part_Head" type="Sprite" parent="Pawn_06_Part_Body"]
+rotation = 0.0453786
 texture = ExtResource( 1 )
+offset = Vector2( 3, -8 )
 hframes = 6
 
-[node name="Sprite_Face" type="Sprite" parent="Sprite_Head"]
-position = Vector2( 0, -1 )
+[node name="Pawn_06_Part_Face" type="Sprite" parent="Pawn_06_Part_Body/Pawn_06_Part_Head"]
+position = Vector2( 3, -9 )
 texture = ExtResource( 3 )
 vframes = 2
 hframes = 8
-frame = 2
+frame = 5
 
-[node name="Sprite_Body" type="Sprite" parent="."]
-texture = ExtResource( 2 )
-hframes = 7
-
-[node name="Sprite_Arm" type="Sprite" parent="."]
-position = Vector2( 12, 0 )
+[node name="Pawn_06_Part_Arm" type="Sprite" parent="Pawn_06_Part_Body"]
+rotation = 0.593412
 texture = ExtResource( 4 )
+offset = Vector2( 12, 4 )
 hframes = 3
 frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 1 )

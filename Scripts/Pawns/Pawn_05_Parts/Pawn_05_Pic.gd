@@ -1,21 +1,24 @@
 extends Node2D
-onready var head =$Sprite_Head
-onready var wheel = $Sprite_Wheel
-onready var key = $Sprite_Key
-onready var body = $Sprite_Body
-onready var arm = $Sprite_Arm
 
-onready var face = $Sprite_Face
+onready var body = $Pawn_05_Part_Body
+onready var head = $Pawn_05_Part_Body/Pawn_05_Part_Head
+onready var arm = $Pawn_05_Part_Body/Pawn_05_Part_Arm
+onready var key = $Pawn_05_Part_Body/Pawn_05_Part_Key
+onready var wheel = $Pawn_05_Part_Body/Pawn_05_Part_Wheel
+onready var face = $Pawn_05_Part_Body/Pawn_05_Part_Head/Pawn_05_Part_Face
+onready var ant = $Pawn_05_Part_Body/Pawn_05_Part_Head/Pawn_05_Part_Ant
 
-var player = 0
+onready var anim = $AnimationPlayer
 
-func init(_num):
-	player = _num
-	var _pri_color = Player_Stats.get_body_color(player)
-	var _sec_color = Player_Stats.get_sec_color(player)
-	head.self_modulate = _pri_color
-#	wheel.self_modulate = _pri_color
-	key.self_modulate = _pri_color
-	body.self_modulate = _pri_color
-	arm.self_modulate = _pri_color
-	face.self_modulate = _sec_color
+func _ready():
+	anim.play("Idle")
+
+func color(_pri, _sec):
+	head.self_modulate = _pri
+	arm.self_modulate = _pri
+	body.self_modulate = _pri
+	key.self_modulate = _pri
+	wheel.self_modulate = _pri
+	
+	ant.self_modulate = _sec
+	face.self_modulate = _sec
