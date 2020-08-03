@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_12/Parts/Pawn_12_Part_Arm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_12/Parts/Pawn_12_Part_Head.tscn" type="PackedScene" id=2]
@@ -20,6 +20,111 @@ height = 36.0
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 9.0
 height = 14.0
+
+[sub_resource type="Animation" id=17]
+resource_name = "Ladder-Move"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pawn_12_Part_Legs_F:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 28, 29, 30, 29, 28, 27 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pawn_12_Part_Legs_B:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 28, 29, 30, 29, 28, 27 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9, -4 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Ladder-Stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pawn_12_Part_Legs_F:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 30, 29, 30, 29, 28, 27, 30, 28 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pawn_12_Part_Legs_B:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 29, 30, 29, 28, 27, 28 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Left-Idle"
@@ -252,6 +357,30 @@ tracks/18/keys = {
 "update": 0,
 "values": [ Vector2( 1, 6 ) ]
 }
+tracks/19/type = "value"
+tracks/19/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "Left-Jump-1"
@@ -472,6 +601,30 @@ tracks/17/keys = {
 "update": 1,
 "values": [ 7 ]
 }
+tracks/18/type = "value"
+tracks/18/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
+}
 
 [sub_resource type="Animation" id=5]
 length = 0.1
@@ -666,6 +819,30 @@ tracks/15/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -899,6 +1076,30 @@ tracks/18/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
+tracks/19/type = "value"
+tracks/19/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 0.1
@@ -1130,6 +1331,30 @@ tracks/18/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ) ]
 }
+tracks/19/type = "value"
+tracks/19/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 length = 0.8
@@ -1313,6 +1538,30 @@ tracks/14/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 1 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -1545,6 +1794,30 @@ tracks/18/keys = {
 "update": 0,
 "values": [ Vector2( 1, 6 ) ]
 }
+tracks/19/type = "value"
+tracks/19/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
+}
 
 [sub_resource type="Animation" id=10]
 resource_name = "Right-Jump-1"
@@ -1765,6 +2038,30 @@ tracks/17/keys = {
 "update": 1,
 "values": [ 7 ]
 }
+tracks/18/type = "value"
+tracks/18/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
+}
 
 [sub_resource type="Animation" id=11]
 length = 0.1
@@ -1959,6 +2256,30 @@ tracks/15/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -2180,6 +2501,30 @@ tracks/17/keys = {
 "update": 0,
 "values": [ Vector2( 1, 6 ) ]
 }
+tracks/18/type = "value"
+tracks/18/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
+}
 
 [sub_resource type="Animation" id=13]
 length = 0.1
@@ -2400,6 +2745,30 @@ tracks/17/keys = {
 "update": 0,
 "values": [ Vector2( 1, 6 ) ]
 }
+tracks/18/type = "value"
+tracks/18/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
+}
 
 [sub_resource type="Animation" id=14]
 length = 0.8
@@ -2596,6 +2965,30 @@ tracks/15/keys = {
 "update": 0,
 "values": [ Vector2( 1, -7 ) ]
 }
+tracks/16/type = "value"
+tracks/16/path = NodePath("Pawn_12_Part_Hip:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Pawn_12_Part_Body/Pawn_12_Part_Arm:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -4 ) ]
+}
 
 [sub_resource type="CapsuleShape2D" id=15]
 radius = 27.0
@@ -2681,15 +3074,14 @@ texture = ExtResource( 9 )
 [node name="Shield_Leg_B" type="Sprite" parent="Shield"]
 position = Vector2( 1, 6 )
 texture = ExtResource( 11 )
-offset = Vector2( 0, 10 )
-hframes = 14
+hframes = 31
 frame = 7
 
 [node name="Shield_Leg_F" type="Sprite" parent="Shield"]
 position = Vector2( 0, 6 )
 texture = ExtResource( 10 )
 offset = Vector2( 0, 10 )
-hframes = 27
+hframes = 31
 frame = 21
 
 [node name="Pawn_12_Part_Legs_B" type="Sprite" parent="."]
@@ -2697,7 +3089,7 @@ position = Vector2( 1, 6 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 4 )
 offset = Vector2( 0, 10 )
-hframes = 27
+hframes = 31
 frame = 7
 
 [node name="Pawn_12_Part_Body" type="Sprite" parent="."]
@@ -2708,24 +3100,26 @@ hframes = 2
 [node name="Pawn_12_Part_Arm" parent="Pawn_12_Part_Body" instance=ExtResource( 1 )]
 position = Vector2( 0, -4 )
 
-[node name="Pawn_12_Part_Jet_Pack" parent="Pawn_12_Part_Body" instance=ExtResource( 3 )]
-
 [node name="Pawn_12_Part_Head" parent="Pawn_12_Part_Body" instance=ExtResource( 2 )]
 show_behind_parent = true
 position = Vector2( 1, -7 )
+
+[node name="Pawn_12_Part_Jet_Pack" parent="Pawn_12_Part_Body" instance=ExtResource( 3 )]
 
 [node name="Pawn_12_Part_Legs_F" type="Sprite" parent="."]
 position = Vector2( 1, 6 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 6 )
 offset = Vector2( 0, 10 )
-hframes = 27
+hframes = 31
 frame = 21
 
 [node name="Pawn_12_Part_Hip" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Ladder-Move = SubResource( 17 )
+anims/Ladder-Stop = SubResource( 18 )
 anims/Left-Idle = SubResource( 3 )
 anims/Left-Jump-1 = SubResource( 4 )
 anims/Left-Jump-2 = SubResource( 5 )

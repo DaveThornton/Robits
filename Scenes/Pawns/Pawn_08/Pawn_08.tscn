@@ -1399,6 +1399,7 @@ frame = 8
 [node name="Pawn_08_Part_Body" parent="." instance=ExtResource( 4 )]
 
 [node name="Legs" type="Sprite" parent="."]
+scale = Vector2( -1, 1 )
 texture = ExtResource( 2 )
 hframes = 27
 frame = 8

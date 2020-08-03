@@ -5,15 +5,15 @@
 [ext_resource path="res://Scripts/Guns/Pick/W_07_CrossBow_Pick.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 5.0
-height = 26.0
+radius = 2.99996
+height = 20.0001
 
 [node name="W_07_CrossBow_Pick" type="RigidBody2D" groups=[
 "FX",
 "PickUp",
 ]]
 collision_layer = 524288
-collision_mask = 917534
+collision_mask = 917532
 script = ExtResource( 3 )
 smoke = ExtResource( 2 )
 
@@ -22,7 +22,7 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 4, 1 )
+position = Vector2( 0, 1 )
 texture = ExtResource( 1 )
 hframes = 3
 frame = 1

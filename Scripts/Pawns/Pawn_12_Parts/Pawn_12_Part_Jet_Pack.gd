@@ -14,11 +14,25 @@ func set_anim(_num: int):
 	elif _num == 4:
 		anim.play("Fire_Down")
 
-func is_right(_right: bool):
-	if _right == true:
-		self.scale.x = 1
-	else:
-		self.scale.x = -1
+func new_pos(_num:int):
+	if _num == 1:#right
+		pack.frame = 0
+		pack.position.x = -12
+		fire.position.x = -12
+	elif _num == 2:#left
+		pack.frame = 1
+		pack.position.x = 12
+		fire.position.x = 12
+	elif _num == 3:#up ladder
+		pack.frame = 2
+		pack.position.x = 0
+		fire.position.x = 0
+
+#func is_right(_right: bool):
+#	if _right == true:
+#		self.scale.x = 1
+#	else:
+#		self.scale.x = -1
 
 func flame_up():
 	if !flame:

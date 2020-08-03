@@ -1,7 +1,5 @@
 extends Node2D
 
-onready var sprite = $Sprite
-onready var sprite2 = $AnimatedSprite
 onready var pawn_01 = $Pawn_01_Pic
 onready var pawn_02 = $Pawn_02_Pic
 onready var pawn_03 = $Pawn_03_Pic
@@ -17,12 +15,12 @@ onready var pawn_12 = $Pawn_12_Pic
 onready var pawn_13 = $Pawn_13_Pic
 onready var pawn_14 = $Pawn_14_Pic
 onready var pawn_15 = $Pawn_15_Pic
+
 export var player = 1
 
 func _ready():
 	var _pri = Player_Stats.get_body_color(player)
 	var _sec = Player_Stats.get_sec_color(player)
-	sprite2.modulate = _pri
 	pawn_01.color(_pri, _sec)
 	pawn_02.color(_pri, _sec)
 	pawn_03.color(_pri, _sec)
@@ -72,7 +70,6 @@ func set_pic(_pawn: int):
 			pawn_14.visible = true
 		elif _pawn == 15:
 			pawn_15.visible = true
-#		sprite.frame = _pawn - 1
 	else:
 		print("error in Robit preview bad pawn number")
 

@@ -1,6 +1,5 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://Sprites/Pawns/Preview_Pics/Pawn_ALL.png" type="Texture" id=1]
 [ext_resource path="res://Menus/Parts/Scripts/M20-Robit_Preview_01.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Pawns/Preview_Pics/Outline.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Pawns/Pawn_01/Pawn_01_Pic.tscn" type="PackedScene" id=4]
@@ -70,25 +69,11 @@ animations = [ {
 [node name="Robit_Preview_01" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -200 )
-texture = ExtResource( 1 )
-hframes = 17
-frame = 16
-
-[node name="Sprite2" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -200 )
-texture = ExtResource( 3 )
-hframes = 11
-frame = 10
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -200 )
 frames = SubResource( 11 )
 animation = "1"
-frame = 6
+frame = 5
 playing = true
 
 [node name="Pawn_01_Pic" parent="." instance=ExtResource( 4 )]

@@ -27,7 +27,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 15, 7 ) ]
+"values": [ Vector2( 14, 5 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -54,7 +54,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 23, 0 ) ]
+"values": [ Vector2( 16, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -69,7 +69,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 11, 9 ) ]
+"values": [ Vector2( 11, 7 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Arm:frame")
@@ -96,7 +96,7 @@ frame = 2
 [node name="Shield" type="Sprite" parent="."]
 
 [node name="POS_Gun" type="Position2D" parent="."]
-position = Vector2( 23, 0 )
+position = Vector2( 16, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/135 = SubResource( 1 )
