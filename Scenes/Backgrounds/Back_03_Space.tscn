@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Background/Back_02_Space.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Background/Back_03_Space_Med_Tile.png" type="Texture" id=2]
+
+[node name="Background" type="Node2D" groups=[
+"unkillable",
+]]
+script = ExtResource( 1 )
+square_size = 2560
+
+[node name="Sprite_01" type="Sprite" parent="."]
+position = Vector2( -1490, 570 )
+texture = ExtResource( 2 )
+
+[node name="Sprite_02" type="Sprite" parent="."]
+position = Vector2( 1070, 570 )
+texture = ExtResource( 2 )
+
+[node name="Sprite_03" type="Sprite" parent="."]
+position = Vector2( 3630, 570 )
+texture = ExtResource( 2 )

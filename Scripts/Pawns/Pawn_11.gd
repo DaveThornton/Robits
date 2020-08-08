@@ -601,7 +601,7 @@ func _anim_ladder_move():
 	new_anim = "Ladder-Move"
 	trax.ladder()
 	key.ladder()
-	head.up()
+#	head.up()
 
 func _anim_ladder_right():
 	_body(1)

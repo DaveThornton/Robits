@@ -17,7 +17,7 @@ func stop():
 	anim.stop(false)
 
 func ladder():
-	pass
+	anim.play("Ladder")
 
 func is_right(_right):
 	pass

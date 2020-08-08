@@ -15,12 +15,13 @@ onready var pawn_12 = $Pawn_12_Pic
 onready var pawn_13 = $Pawn_13_Pic
 onready var pawn_14 = $Pawn_14_Pic
 onready var pawn_15 = $Pawn_15_Pic
-
+onready var outline = $AnimatedSprite
 export var player = 1
 
 func _ready():
 	var _pri = Player_Stats.get_body_color(player)
 	var _sec = Player_Stats.get_sec_color(player)
+	outline.modulate = _pri
 	pawn_01.color(_pri, _sec)
 	pawn_02.color(_pri, _sec)
 	pawn_03.color(_pri, _sec)

@@ -415,7 +415,7 @@ func _test_headroom():
 
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
-		if !on_floor && !is_jump_pressed:
+		if !on_floor:# && !is_jump_pressed:
 			SFX.play("Move_Jump_19_Land")
 			on_floor = true
 			last_jump = 0
@@ -557,6 +557,28 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			_anim_ladder_left()
 	if on_wall != 0:
 		_anim_on_wall()
+	if !on_floor && vel.y < 0:
+		if is_right:
+			hip.stop()
+			new_anim = "Right-Jump"
+			body_head.look(shoot_spot,true)
+			_body(1)
+		else:
+			hip.stop()
+			new_anim = "Left-Jump"
+			body_head.look(shoot_spot,false)
+			_body(1)
+	elif !on_floor && vel.y > 0:
+		if is_right:
+			hip.stop()
+			new_anim = "Right-Fall"
+			body_head.look(shoot_spot,true)
+			_body(1)
+		else:
+			hip.stop()
+			new_anim = "Left-Fall"
+			body_head.look(shoot_spot,false)
+			_body(1)
 
 
 func _anim_idle():
@@ -592,6 +614,28 @@ func _anim_jump():
 		new_anim = "Left-Run"
 		body_head.look(shoot_spot,false)
 		_body(1)
+#	if vel.y > 0:
+#		if is_right:
+#			hip.stop()
+#			new_anim = "Right-Jump"
+#			body_head.look(shoot_spot,true)
+#			_body(1)
+#		else:
+#			hip.stop()
+#			new_anim = "Left-Jump"
+#			body_head.look(shoot_spot,false)
+#			_body(1)
+#	else:
+#		if is_right:
+#			hip.stop()
+#			new_anim = "Right-Fall"
+#			body_head.look(shoot_spot,true)
+#			_body(1)
+#		else:
+#			hip.stop()
+#			new_anim = "Left-Fall"
+#			body_head.look(shoot_spot,false)
+#			_body(1)
 
 func _anim_prone_idle():
 	_body(2)

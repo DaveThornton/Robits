@@ -1,6 +1,7 @@
 extends Node2D
 export var moving = true
 export var going_right = true
+export var square_size = 1280
 
 onready var sp1 = $Sprite_01
 onready var sp2 = $Sprite_02
@@ -15,19 +16,19 @@ func _process(delta):
 			sp1.position.x += delta * 30
 			sp2.position.x += delta * 30
 			sp3.position.x += delta * 30
-			if sp3.position.x >= 2560:
-				sp3.position.x = sp1.position.x - 1280
-			elif sp2.position.x >= 2560:
-				sp2.position.x = sp3.position.x - 1280
-			elif sp1.position.x >= 2560:
-				sp1.position.x = sp2.position.x - 1280
+			if sp3.position.x >= (square_size * 2):
+				sp3.position.x = sp1.position.x - square_size
+			elif sp2.position.x >= (square_size * 2):
+				sp2.position.x = sp3.position.x - square_size
+			elif sp1.position.x >= (square_size * 2):
+				sp1.position.x = sp2.position.x - square_size
 		else:
 			sp1.position.x -= delta * 30
 			sp2.position.x -= delta * 30
 			sp3.position.x -= delta * 30
-			if sp3.position.x <= -640:
-				sp3.position.x = sp2.position.x + 1280
-			elif sp2.position.x <= -640:
-				sp2.position.x = sp1.position.x + 1280
-			elif sp1.position.x <= -640:
-				sp1.position.x = sp3.position.x + 1280
+			if sp3.position.x <= -(square_size / 2):
+				sp3.position.x = sp2.position.x + square_size
+			elif sp2.position.x <= -(square_size / 2):
+				sp2.position.x = sp1.position.x + square_size
+			elif sp1.position.x <= -(square_size / 2):
+				sp1.position.x = sp3.position.x + square_size

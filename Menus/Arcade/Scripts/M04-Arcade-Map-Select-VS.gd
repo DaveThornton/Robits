@@ -352,7 +352,8 @@ func _set_ready(_player):
 	
 func _back(_player):
 #	print("put in a back sound M03 Arcade")
-	HUD.player_select(_player)
+#	HUD.player_select(_player)
+	HUD.set_pri(_player,4)
 	SFX.play("Menu_Error_13")
 	if _player == 1:
 		p1_ready = false

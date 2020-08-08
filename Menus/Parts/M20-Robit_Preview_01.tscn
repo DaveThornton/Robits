@@ -73,7 +73,7 @@ script = ExtResource( 2 )
 position = Vector2( 0, -200 )
 frames = SubResource( 11 )
 animation = "1"
-frame = 5
+frame = 2
 playing = true
 
 [node name="Pawn_01_Pic" parent="." instance=ExtResource( 4 )]

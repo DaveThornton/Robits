@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/M01-Arcade-Start.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sprites/Background/Back_02_Space_Low_Tile.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Backgrounds/Back_03_Space.tscn" type="PackedScene" id=7]
 
 [node name="World" type="Node"]
 pause_mode = 1
@@ -14,9 +15,13 @@ arcade_start = ExtResource( 2 )
 demo_map = ExtResource( 3 )
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
+visible = false
 position = Vector2( -6.10352e-05, -4.57764e-05 )
 z_index = -40
 going_right = false
+
+[node name="Background2" parent="." instance=ExtResource( 7 )]
+z_index = -40
 
 [node name="Sprite" type="Sprite" parent="."]
 pause_mode = 1
