@@ -15,12 +15,12 @@ arcade_start = ExtResource( 2 )
 demo_map = ExtResource( 3 )
 
 [node name="Background" parent="." instance=ExtResource( 6 )]
-visible = false
 position = Vector2( -6.10352e-05, -4.57764e-05 )
 z_index = -40
 going_right = false
 
 [node name="Background2" parent="." instance=ExtResource( 7 )]
+visible = false
 z_index = -40
 
 [node name="Sprite" type="Sprite" parent="."]

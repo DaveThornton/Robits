@@ -76,7 +76,8 @@ frame = 1
 [node name="Sprite_Legs" type="Sprite" parent="."]
 position = Vector2( 0, 9 )
 texture = ExtResource( 2 )
-hframes = 30
+offset = Vector2( 0, 12 )
+hframes = 35
 frame = 1
 
 [node name="Sprite_Hip" type="Sprite" parent="."]

@@ -429,107 +429,7 @@ func add_ammo(_ammo):
 		if my_gun:
 			my_gun.add_ammo(_ammo)
 ##-------------------------------------------------------------------[Animation]
-# warning-ignore:unused_argument
-#func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
-#	if !down_input:
-#		is_down = false
-#	if can_move:
-#		if !hold_input:
-#			if !is_down:
-#				if !on_floor:
-#					_anim_jump()
-#					if up_input && over_ladder || on_ladder:
-#						shoot_spot = 1
-#						air_jump_count = 0
-#						on_ladder = true
-#						self.position.y -= ladder_speed * delta
-#						_anim_ladder_move()
-#					elif up_input && !down_input && !left_input && !right_input:
-#						shoot_spot = 1
-#					elif !up_input && down_input && !left_input && !right_input:
-#						shoot_spot = 5
-#					elif !up_input && !down_input && !left_input && right_input:
-#						shoot_spot = 3
-#					elif !up_input && !down_input && left_input && !right_input:
-#						shoot_spot = 3
-#					elif up_input && !down_input && left_input && !right_input:
-#						shoot_spot = 2
-#					elif up_input && !down_input && !left_input && right_input:
-#						shoot_spot = 2
-#					elif !up_input && down_input && !left_input && right_input:
-#						shoot_spot = 4
-#					elif !up_input && down_input && left_input && !right_input:
-#						shoot_spot = 4
-#
-#				elif right_input || left_input:
-#					_anim_run()
-#					if up_input:
-#						shoot_spot = 2
-#					elif down_input:
-#						shoot_spot = 4
-#					else:
-#						shoot_spot = 3
-#				elif up_input:
-#					shoot_spot = 1
-#					if over_ladder || on_ladder:
-#						air_jump_count = 0
-#						on_ladder = true
-#						self.position.y -= ladder_speed * delta
-#						_anim_ladder_move()
-#					elif on_floor:
-#						_anim_idle()
-#					else:
-#						_anim_jump()
-#				elif down_input:
-#					if over_ladder || on_ladder:
-#						on_ladder = true
-#						self.position.y += ladder_speed * delta
-#					elif on_floor:
-#						is_down = true
-#						shoot_spot = 6
-#						_anim_prone_idle()
-#					else:
-#						shoot_spot = 5
-#						_anim_jump()
-#				elif !left_input && !right_input:
-#					shoot_spot = 3
-#					if on_floor:
-#						_anim_idle()
-#					if !on_floor:
-#						_anim_jump()
-#					elif down_input:
-#						if on_floor:
-#							is_down = true
-#							shoot_spot = 6
-#							_anim_prone_idle()
-#						else:
-#							shoot_spot = 5
-#							_anim_prone_crawl()
-#			else:
-#				if left_input || right_input:
-#					_anim_prone_crawl()
-#				else:
-#					_anim_prone_idle()
-#		else:
-#			_anim_idle()
-#			if right_input || left_input:
-#				if !up_input && !down_input:
-#					shoot_spot = 3
-#				elif down_input:
-#					shoot_spot = 4
-#				elif up_input:
-#					shoot_spot = 2
-#			elif up_input && !left_input && !right_input:
-#				shoot_spot = 1
-#			elif down_input && !left_input && !right_input:
-#				shoot_spot = 5
-#	if on_ladder && !up_input && !down_input:
-#		if is_right:
-#			_anim_ladder_right()
-#		else:
-#			_anim_ladder_left()
-#	print(on_ladder)
-#	_right(is_right)
+
 func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
 	if !down_input:
 		is_down = false
@@ -537,7 +437,10 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 		if !hold_input:
 			if !is_down:
 				if right_input || left_input:
-					_anim_run()
+					if !on_floor:
+						_anim_jump()
+					else:
+						_anim_run()
 					if up_input:
 						shoot_spot = 2
 					elif down_input:

@@ -684,13 +684,13 @@ func _anim_ladder_move():
 func _anim_ladder_right():
 	_body(1)
 	hip.stop()
-	new_anim = "Ladder-Right"
+	new_anim = "Ladder-Stand"
 	body_head.look(shoot_spot,true)
 
 func _anim_ladder_left():
 	_body(1)
 	hip.stop()
-	new_anim = "Ladder-Left"
+	new_anim = "Ladder-Stand"
 	body_head.look(shoot_spot,false)
 
 func _anim_on_wall():
