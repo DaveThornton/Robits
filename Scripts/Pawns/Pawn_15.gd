@@ -52,7 +52,7 @@ var can_jump = true
 var max_air_jump_power = 11
 var min_air_jump_power = 5
 var air_jump_count = 0
-var max_jump_power = 5
+var max_jump_power = 11
 var min_jump_power = 1.5
 var head_room = 0
 #var last_jump = 0
@@ -205,30 +205,31 @@ func move_x(_moving, _right):
 
 ##------------------------------------------------------------------------[Jump]
 func jump(down_input, left_input, right_input):
-	pass
 	if down_input && on_floor && !left_input && !right_input:
 		SFX.play("Move_Jump_08")
 		vel.y += 1.5
 		self.position.y += 1.5
+
 func jump_j(down_input, _left_input, _right_input):
-	print(is_down)
+#	print(is_down)
 	if is_down && on_floor:
 		pass
 	elif !is_jump_pressed && on_floor && !is_down:# && !down_input:
 		SFX.play("Move_Jump_01")
 		vel.y = -max_jump_power * jump_power_up
-	elif !on_floor && air_jump_count == 0 && !is_down:
-		air_jump_count += 1
-		print(air_jump_count)
-		SFX.play("Move_Jump_01")
-		vel.y = -max_air_jump_power * jump_power_up
-	elif !on_floor && air_jump_count == 1 && !is_down:
-		air_jump_count += 1
-		print(air_jump_count)
-		SFX.play("Move_Jump_01")
-		vel.y = -max_jump_power * jump_power_up
+#	elif !on_floor && air_jump_count == 0 && !is_down:
+#		air_jump_count += 1
+#		print(air_jump_count)
+#		SFX.play("Move_Jump_01")
+#		vel.y = -max_air_jump_power * jump_power_up
+#	elif !on_floor && air_jump_count == 1 && !is_down:
+#		air_jump_count += 1
+#		print(air_jump_count)
+#		SFX.play("Move_Jump_01")
+#		vel.y = -max_jump_power * jump_power_up
 	is_jump_pressed = true
 	on_ladder = false
+
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
 		vel.y = -min_air_jump_power
@@ -293,7 +294,7 @@ func no_gun():
 ##-----------------------------------------------------------------------[Equip]
 func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
 	var g = Equipment.get_weap_hold(_weap_num).instance()
-	print(_weap_num, g)
+#	print(_weap_num, g)
 	gun_pos.add_child(g)
 	g.init(_ammo_pick_up, player, _time_left, _just_shot)
 	take_ammo = g.take_ammo
@@ -389,6 +390,7 @@ func _is_on_floor():
 
 ##----------------------------------------------------------------[Stun / Knock]
 func stun(_gun_num):
+	print("stun")
 	stun_timer.start()
 	can_move = false
 	_anim_stun()
@@ -597,11 +599,10 @@ func _anim_prone_crawl():
 func _anim_stun():
 	_body(1)
 	hub.stop()
-	print("pawn 15 make stun animation")
 	if is_right:
-		new_anim = "Right-Stun"
+		new_anim = "Stun_Right"
 	else:
-		new_anim = "Left-Stun"
+		new_anim = "Stun_Left"
 
 func _anim_Knock():
 	_body(1)

@@ -154,6 +154,7 @@ func _physics_process(delta):
 	vel = movement
 #	vel.x -= delta
 # warning-ignore:return_value_discarded
+
 	_jet_pack(vel.y)
 	move_and_collide(vel)
 

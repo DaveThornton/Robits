@@ -195,6 +195,30 @@ tracks/13/keys = {
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
 }
+tracks/14/type = "value"
+tracks/14/path = NodePath("Raycasts/Down_R:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 23, 27 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Raycasts/Down_L:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -23, 27 ) ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "Crawl-Right"
@@ -367,6 +391,30 @@ tracks/13/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Raycasts/Down_L:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -23, 27 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Raycasts/Down_R:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 23, 27 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -541,6 +589,30 @@ tracks/13/keys = {
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
 }
+tracks/14/type = "value"
+tracks/14/path = NodePath("Raycasts/Down_R:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 23, 27 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Raycasts/Down_L:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -23, 27 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "Prone-Right-Idle"
@@ -714,6 +786,30 @@ tracks/13/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
+tracks/14/type = "value"
+tracks/14/path = NodePath("Raycasts/Down_L:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -23, 27 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Raycasts/Down_R:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 23, 27 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 length = 0.8
@@ -849,6 +945,30 @@ tracks/10/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Raycasts/Down_R:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, 27 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Raycasts/Down_L:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -5, 27 ) ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -1009,6 +1129,30 @@ tracks/12/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/13/type = "value"
+tracks/13/path = NodePath("Raycasts/Down_L:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -5, 27 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Raycasts/Down_R:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, 27 ) ]
+}
 
 [node name="Pawn_01" type="KinematicBody2D" groups=[
 "hittable",
@@ -1022,7 +1166,6 @@ script = ExtResource( 11 )
 [node name="Timers" parent="." instance=ExtResource( 10 )]
 
 [node name="Raycasts" type="Node2D" parent="."]
-visible = false
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
 position = Vector2( 5, 27 )
@@ -1092,12 +1235,10 @@ texture = ExtResource( 4 )
 hframes = 31
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 5 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, 23 )
 rotation = 1.5708
 shape = SubResource( 1 )

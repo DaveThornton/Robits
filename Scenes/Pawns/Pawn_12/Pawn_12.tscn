@@ -21,7 +21,7 @@ height = 36.0
 radius = 9.0
 height = 14.0
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=19]
 resource_name = "Ladder-Move"
 length = 0.6
 loop = true
@@ -74,7 +74,7 @@ tracks/3/keys = {
 "values": [ Vector2( 9, -4 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=20]
 resource_name = "Ladder-Stop"
 length = 0.1
 tracks/0/type = "value"
@@ -126,7 +126,7 @@ tracks/3/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=21]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Body:position")
@@ -381,7 +381,7 @@ tracks/20/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=22]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Legs_B:frame")
@@ -624,7 +624,7 @@ tracks/19/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=23]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Legs_B:frame")
@@ -843,7 +843,7 @@ tracks/17/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=24]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -1099,7 +1099,7 @@ tracks/20/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=25]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Body:position")
@@ -1354,7 +1354,7 @@ tracks/20/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=26]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -1562,7 +1562,7 @@ tracks/16/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=27]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Body:position")
@@ -1817,7 +1817,7 @@ tracks/20/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=28]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Legs_B:frame")
@@ -2060,7 +2060,7 @@ tracks/19/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=29]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Legs_B:frame")
@@ -2279,7 +2279,7 @@ tracks/17/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=30]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -2523,7 +2523,7 @@ tracks/19/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=31]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -2767,7 +2767,7 @@ tracks/19/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=32]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -3087,7 +3087,7 @@ scale = Vector2( -1, 1 )
 texture = ExtResource( 4 )
 offset = Vector2( 0, 10 )
 hframes = 31
-frame = 7
+frame = 28
 
 [node name="Pawn_12_Part_Body" type="Sprite" parent="."]
 position = Vector2( 0, 2 )
@@ -3095,7 +3095,7 @@ texture = ExtResource( 5 )
 hframes = 2
 
 [node name="Pawn_12_Part_Arm" parent="Pawn_12_Part_Body" instance=ExtResource( 1 )]
-position = Vector2( 0, -4 )
+position = Vector2( 9, -4 )
 
 [node name="Pawn_12_Part_Head" parent="Pawn_12_Part_Body" instance=ExtResource( 2 )]
 show_behind_parent = true
@@ -3109,26 +3109,27 @@ scale = Vector2( -1, 1 )
 texture = ExtResource( 6 )
 offset = Vector2( 0, 10 )
 hframes = 31
-frame = 21
+frame = 28
 
 [node name="Pawn_12_Part_Hip" parent="." instance=ExtResource( 7 )]
+visible = false
 position = Vector2( 0, 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Ladder-Move = SubResource( 3 )
-anims/Ladder-Stop = SubResource( 4 )
-anims/Left-Idle = SubResource( 5 )
-anims/Left-Jump-1 = SubResource( 6 )
-anims/Left-Jump-2 = SubResource( 7 )
-anims/Left-Prone-Crawl = SubResource( 8 )
-anims/Left-Prone-Idle = SubResource( 9 )
-anims/Left-Run = SubResource( 10 )
-anims/Right-Idle = SubResource( 11 )
-anims/Right-Jump-1 = SubResource( 12 )
-anims/Right-Jump-2 = SubResource( 13 )
-anims/Right-Prone-Crawl = SubResource( 14 )
-anims/Right-Prone-Idle = SubResource( 15 )
-anims/Right-Run = SubResource( 16 )
+anims/Ladder-Move = SubResource( 19 )
+anims/Ladder-Stop = SubResource( 20 )
+anims/Left-Idle = SubResource( 21 )
+anims/Left-Jump-1 = SubResource( 22 )
+anims/Left-Jump-2 = SubResource( 23 )
+anims/Left-Prone-Crawl = SubResource( 24 )
+anims/Left-Prone-Idle = SubResource( 25 )
+anims/Left-Run = SubResource( 26 )
+anims/Right-Idle = SubResource( 27 )
+anims/Right-Jump-1 = SubResource( 28 )
+anims/Right-Jump-2 = SubResource( 29 )
+anims/Right-Prone-Crawl = SubResource( 30 )
+anims/Right-Prone-Idle = SubResource( 31 )
+anims/Right-Run = SubResource( 32 )
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
 visible = false

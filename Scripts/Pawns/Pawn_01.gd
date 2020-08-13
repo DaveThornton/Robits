@@ -169,7 +169,7 @@ func move_x(_moving, _right):
 					else:
 						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
 			else:
-				if current_x_speed < 4 && current_x_speed > -4 || on_ladder:
+				if current_x_speed < 40 && current_x_speed > -40 || on_ladder:
 					current_x_speed = 0
 				else:
 					current_x_speed -= current_x_speed / 5
@@ -587,66 +587,42 @@ func _set_gun_dir():
 	head.is_right(is_right)
 	if is_right:
 		if shoot_spot == 3:
-#			head.rotation_degrees = 0
-#			body.rotation_degrees = 0
 			arm.rotation_degrees = 0
 			arm.bend(2)
 		elif shoot_spot == 1:
-#			head.rotation_degrees = -43
-#			body.rotation_degrees = -42
-			arm.rotation_degrees = -85 #head.rotation_degrees
+			arm.rotation_degrees = -85
 			arm.bend(3)
 		elif shoot_spot == 2:
-#			head.rotation_degrees = -23
-#			body.rotation_degrees = -22
-			arm.rotation_degrees = -45#head.rotation_degrees
+			arm.rotation_degrees = -45
 			arm.bend(3)
 		elif shoot_spot == 4:
-#			head.rotation_degrees = 18
-#			body.rotation_degrees = 17
-			arm.rotation_degrees = 35#head.rotation_degrees
+			arm.rotation_degrees = 35
 			arm.bend(3)
 		elif shoot_spot == 5:
-#			head.rotation_degrees = 43
-#			body.rotation_degrees = 42
-			arm.rotation_degrees = 85#head.rotation_degrees
+			arm.rotation_degrees = 85
 			arm.bend(3)
 		elif shoot_spot == 6:
-#			head.rotation_degrees = 0
-#			body.rotation_degrees = 0
 			arm.rotation_degrees = 0
 			arm.bend(3)
 		if my_gun:
 			arm.rotation_degrees -= my_gun.walk
 	else:
 		if shoot_spot == 3:
-#			head.rotation_degrees = 0
-#			body.rotation_degrees = 0
 			arm.rotation_degrees = head.rotation_degrees
 			arm.bend(2)
 		elif shoot_spot == 1:
-#			head.rotation_degrees = 43
-#			body.rotation_degrees = 42
-			arm.rotation_degrees = 85#head.rotation_degrees
+			arm.rotation_degrees = 85
 			arm.bend(3)
 		elif shoot_spot == 2:
-#			head.rotation_degrees = 23
-#			body.rotation_degrees = 22
-			arm.rotation_degrees = 45#head.rotation_degrees
+			arm.rotation_degrees = 45
 			arm.bend(3)
 		elif shoot_spot == 4:
-#			head.rotation_degrees = -18
-#			body.rotation_degrees = -17
-			arm.rotation_degrees = -35#head.rotation_degrees
+			arm.rotation_degrees = -35
 			arm.bend(3)
 		elif shoot_spot == 5:
-#			head.rotation_degrees = -43
-#			body.rotation_degrees = -42
-			arm.rotation_degrees = -85#head.rotation_degrees
+			arm.rotation_degrees = -85
 			arm.bend(3)
 		elif shoot_spot == 6:
-#			head.rotation_degrees = 0
-#			body.rotation_degrees = 0
 			arm.rotation_degrees = 0
 			arm.bend(3)
 		if my_gun:
