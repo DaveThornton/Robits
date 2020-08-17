@@ -80,7 +80,6 @@ func melee():
 func throw():
 	var t = crowbar_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
-#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, .5, is_right, shoot_pos, true)
 	if cast_throw.is_colliding():
@@ -99,7 +98,6 @@ func drop():
 func _drop():
 	var t = crowbar_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
-#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	_drop_where(t)

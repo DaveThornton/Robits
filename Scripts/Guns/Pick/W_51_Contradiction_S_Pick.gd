@@ -12,7 +12,6 @@ var ammo = 35
 var time = .1
 var is_right = true
 var dir = 3
-# warning-ignore:unused_class_variable
 var just_shot = false
 
 func _ready():
@@ -35,9 +34,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if ready:
 		set_dir(is_right, dir)
 
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
 func _on_WeapPick51Contradiction_S_body_shape_entered(body_id, body, body_shape, local_shape):
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
@@ -76,7 +72,6 @@ func _on_Timer_timeout():
 	print("gun number: ", gun_num, " *poof*")
 	var s = smoke.instance()
 	Map_Hand.add_kid_to_map(s)
-#	get_tree().get_current_scene().add_child(s)
 	s.start( 0 , self.global_position, 0, 0)
 	queue_free()
 	

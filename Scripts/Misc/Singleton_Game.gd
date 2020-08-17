@@ -1,10 +1,9 @@
 extends Node2D
 export(PackedScene) var start_screen
 onready var timer = $Timer
-#var mode
 var started = false
 var over = false
-var end_game_score = 5
+var end_game_score = 3
 
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
@@ -12,10 +11,7 @@ func _ready():
 		print("error Singleton Game connecting to reset from world gd")
 
 func start(_players):
-#	started = true
-#	print("spawning player controllers")
 	for j in range(_players):
-#		print("spawn player controller ", j + 1, "in start in game singleton delete me soon")
 		Controllers.spawn_player_contoller(j+1)#, true)
 
 func spawn_started():
@@ -38,20 +34,11 @@ func spawn_started():
 		Controllers.p8.spawn_pawn()
 
 func set_game_over(_over):
-#	print("set game over in game singleton it was se to ", _over)
 	over = _over
 	if over:
-#		started = false
 		Map_Hand.clear_map()
-#		Game.over = true
 		HUD.state_machine()
-#		HUD.game_over()
 		timer.start()
-
-#func set_mode(_mode):
-#	mode.call_deferred("free")
-#	#make a instance and all that shit then set it bu ttill then here you go the func is here
-#	mode = _mode
 
 func check_over():
 	if Player_Stats.p1["score"] >= end_game_score:
@@ -80,5 +67,4 @@ func reset():
 
 func _on_Timer_timeout():
 	if over:
-#		started = false
 		get_tree().get_current_scene().arcade_reset()

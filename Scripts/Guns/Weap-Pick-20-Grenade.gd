@@ -20,7 +20,6 @@ var time = 5.0
 var gun_num = 20
 var ammo = 1
 var is_right = false
-# warning-ignore:unused_class_variable
 var just_shot = false
 
 func _ready():
@@ -61,7 +60,6 @@ func _on_WeapPick20Grenade_body_exited(body):
 		body.stun(gun_num)
 	else:
 		dont_hit_player()
-#		hit_timer.start()
 
 func _on_Timer_Hit_timeout():
 	dont_hit_player()
@@ -111,9 +109,5 @@ func set_dir(_is_right, _dir):
 func _on_Timer_timeout():
 	var s = smoke.instance()
 	Map_Hand.add_kid_to_map(s)
-#	get_tree().get_current_scene().add_child(s)
 	s.start( 0 , self.global_position, 0, 0)
 	queue_free()
-
-#func _on_WeapPick80Leaf_Blower_body_exited(body):
-#	pass # Replace with function body.

@@ -12,7 +12,6 @@ var gun_num = 63
 var ammo = 0
 var time = .1
 var is_right = true
-# warning-ignore:unused_class_variable
 var just_shot = false
 
 func _ready():
@@ -26,9 +25,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	self.set_collision_mask_bit( 1, _just_shot)
 	self.set_collision_mask_bit( 9, _just_shot)
 	self.set_collision_mask_bit( 11, _just_shot)
-
-#func _process(delta):
-#	pass
 
 func _on_WeapPick61Sword_body_entered(body):
 	if body.get_groups().has("hittable"):

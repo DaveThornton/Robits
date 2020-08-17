@@ -15,7 +15,6 @@ func start(_rot, _pos, _scale, _owner, dmg):
 	timer.start()
 	rotation = _rot + rand_range(-.01, .01)
 	position = _pos
-#	scale = _scale
 	owned = _owner
 	damage = dmg
 	if _scale.y < 0:
@@ -37,7 +36,6 @@ func _on_Proj51Contradiction_S_01_body_entered(body):
 			_hit_move()
 			body.hit(owned, my_name, damage_type, damage)
 			call_deferred("free")
-	#		queue_free()
 		elif body.get_groups().has("projectile"):
 			_hit_move()
 			call_deferred("free")

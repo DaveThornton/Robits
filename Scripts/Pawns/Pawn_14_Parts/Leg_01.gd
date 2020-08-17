@@ -48,7 +48,6 @@ func step(g_pos):
 	step_time = 0.0
  
 func _process(delta):
-#	update_ik(get_global_mouse_position())
 	step_time += delta
 	var target_pos = Vector2()
 	var t = step_time / step_rate

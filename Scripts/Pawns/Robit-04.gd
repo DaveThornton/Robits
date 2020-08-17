@@ -9,10 +9,6 @@ onready var sprite_shield_hit = $Sprite_Shield_Hit
 onready var anim = $AnimationPlayer
 onready var gun_pos = $"Position2D-Arm-Gun"
 
-#onready var col_stand = $"CollisionShape2D-Stand"
-#onready var col_run = $"CollisionShape2D-Run"
-#onready var col_prone = $"CollisionShape2D-Prone"
-
 onready var knockback_timer = $KnockBack_Timer
 onready var shield_timer = $Shield_Timer
 onready var shield_hit_timer = $Shield_Hit_Timer
@@ -31,7 +27,6 @@ onready var ray_right_down = $RayCast2D_Right_Down
 onready var ray_left_down = $RayCast2D_Left_Down
 onready var ray_left = $RayCast2D_Left
 onready var ray_down_plat = $RayCast2D
-#onready var ray_plat_test = $RayCast2D_Plat_Test
 onready var ray_wall_r = $RayCast2D_On_Wall_R
 onready var ray_wall_l = $RayCast2D_On_Wall_L
 
@@ -48,7 +43,6 @@ var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
 var walk_speed = 220
-#var starting_walk_speed
 var max_x_speed = 260
 var current_x_speed = 0
 
@@ -81,7 +75,6 @@ var is_right = true
 var is_down = false
 var on_floor = false
 var on_wall = false
-#var on_m_plat = false
 var not_on_angle = false
 
 var is_shield_up = false
@@ -97,7 +90,6 @@ var is_holding = false
 var wep_array = []
 var poss_pick_obj
 var knocked_back = Vector2(0, 0)
-#var current_shape
 
 var on_ladder = false
 var over_ladder = false
@@ -110,18 +102,12 @@ var _hit_color_01 = Color8(255, 255, 255, 255)
 var _hit_color_02 = Color8(255, 106, 0, 130)
 
 signal explode_p
-#signal nrg_update(_player, _nrg)
 
 func _ready():
 	move_step = walk_speed / move_speed_time_needed
 	dec_step = walk_speed / deceleration_time_needed
-#	starting_walk_speed = walk_speed
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
-#	current_shape = col_stand
-#	var test = self.connect("nrg_update", Player_Stats, "nrg_update")
-#	if test != 0:
-#		print("error Robit 01 connecting nrg update")
 	
 
 func init(_player_num, _pos, _start_equiped, _play_type):
@@ -159,8 +145,6 @@ func _process(delta):
 	if my_gun:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
-# warning-ignore:return_value_discarded
-#	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 	if _im_hit:
 		if _hit_time > 0.1:
 			_hit_time -= delta
@@ -177,18 +161,13 @@ func _process(delta):
 			_im_hit = false
 
 func _physics_process(delta):
-	move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))#* delta))
-#	current_x_speed -= current_x_speed / 4
-#	print(current_x_speed)
-#	move_and_slide(Vector2(vel.x + knocked_back.x , 0 + knocked_back.y ))#* delta))
+	move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
 	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
 	if on_floor:
 		vel.y = vel.y / 1.1
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
-# warning-ignore:return_value_discarded
-#	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 	move_and_collide(vel)
 
 func move_x(_moving, _right):

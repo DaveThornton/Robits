@@ -26,9 +26,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_vertical_guides_": [ 38.1926 ]
 }
-show_splash = true
-title_text = "the begining of it all"
-body_text = "in a world"
 
 [node name="TileMap-Backround" type="TileMap" parent="."]
 z_index = -6

@@ -107,28 +107,6 @@ func add_ammo(_ammo):
 
 func _throw_where(_obj):
 	pass
-#	if is_right:
-#		if shoot_pos == 1:
-#			_obj.apply_impulse(pos_throw.position, Vector2(100, -700))
-#		elif shoot_pos == 2:
-#			_obj.apply_impulse(pos_throw.position, Vector2(600, -400))
-#		elif shoot_pos == 3 || shoot_pos == 6:
-#			_obj.apply_impulse(pos_throw.position, Vector2(600, -200))
-#		elif shoot_pos == 4:
-#			_obj.apply_impulse(pos_throw.position, Vector2(600, 200))
-#		elif shoot_pos == 5:
-#			_obj.apply_impulse(pos_throw.position, Vector2(100, 700))
-#	else:
-#		if shoot_pos == 1:
-#			_obj.apply_impulse(pos_throw.position, Vector2(-100, -700))
-#		elif shoot_pos == 2:
-#			_obj.apply_impulse(pos_throw.position, Vector2(-600, -400))
-#		elif shoot_pos == 3 ||shoot_pos == 6:
-#			_obj.apply_impulse(pos_throw.position, Vector2(-600, -200))
-#		elif shoot_pos == 4:
-#			_obj.apply_impulse(pos_throw.position, Vector2(-600, 200))
-#		elif shoot_pos == 5:
-#			_obj.apply_impulse(pos_throw.position, Vector2(-100, 700))
 
 func _drop_where(_obj):
 	_obj.set_collision_layer_bit( 1, false)

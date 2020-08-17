@@ -223,7 +223,7 @@ func jump(down_input, left_input, right_input):
 	if down_input && on_floor && !left_input && !right_input:
 		SFX.play("Move_Jump_08")
 		vel.y += 1.5
-		self.position.y += 1.5
+		self.position.y += 3
 	elif !is_jump_pressed && on_floor:# && !down_input:
 		SFX.play("Move_Jump_01")
 		vel.y = -max_jump_power * jump_power_up
@@ -557,31 +557,31 @@ func _anim_idle():
 	wheel2.stop()
 	if is_right:
 		_body(1)
-		new_anim = "Right-Idle"
+#		new_anim = "Right-Idle"
 	else:
 		_body(2)
-		new_anim = "Left-Idle"
+#		new_anim = "Left-Idle"
 
 func _anim_run():
 	if is_right:
-		new_anim = "Right-Run"
+#		new_anim = "Right-Run"
 		wheel1.turn(true)
 		wheel2.turn(true)
 		_body(1)
 	else:
-		new_anim = "Left-Run"
+#		new_anim = "Left-Run"
 		wheel1.turn(false)
 		wheel2.turn(false)
 		_body(2)
 
 func _anim_jump():
 	if is_right:
-		new_anim = "Right-Run"
+#		new_anim = "Right-Run"
 		wheel1.turn(true)
 		wheel2.turn(true)
 		_body(1)
 	else:
-		new_anim = "Left-Run"
+#		new_anim = "Left-Run"
 		wheel1.turn(false)
 		wheel2.turn(false)
 		_body(2)
@@ -591,19 +591,19 @@ func _anim_prone_idle():
 	wheel2.stop()
 	if is_right:
 		_body(3)
-		new_anim = "Right-Prone-Idle"
+#		new_anim = "Right-Prone-Idle"
 	else:
-		new_anim = "Left-Prone-Idle"
+#		new_anim = "Left-Prone-Idle"
 		_body(4)
 
 func _anim_prone_crawl():
 	if is_right:
-		new_anim = "Right-Prone-Crawl"
+#		new_anim = "Right-Prone-Crawl"
 		wheel1.turn(true)
 		wheel2.turn(true)
 		_body(3)
 	else:
-		new_anim = "Left-Prone-Crawl"
+#		new_anim = "Left-Prone-Crawl"
 		wheel1.turn(false)
 		wheel2.turn(false)
 		_body(4)
@@ -611,34 +611,34 @@ func _anim_prone_crawl():
 func _anim_stun():
 	if is_right:
 		_body(1)
-		new_anim = "Right-Stun"
+#		new_anim = "Right-Stun"
 	else:
 		_body(2)
-		new_anim = "Left-Stun"
+#		new_anim = "Left-Stun"
 
 func _anim_Knock():
 	if is_right:
 		_body(1)
-		new_anim = "Right-Knock_Back"
+#		new_anim = "Right-Knock_Back"
 	else:
 		_body(2)
-		new_anim = "Left-Knock_Back"
+#		new_anim = "Left-Knock_Back"
 
 func _anim_ladder_move():
 	_body(1)
-	new_anim = "Ladder-Move"
+#	new_anim = "Ladder-Move"
 	wheel1.stop()
 	wheel2.stop()
 
 func _anim_ladder_right():
 	_body(1)
-	new_anim = "Ladder-Right"
+#	new_anim = "Ladder-Right"
 	wheel1.ladder()
 	wheel2.ladder()
 
 func _anim_ladder_left():
 	_body(2)
-	new_anim = "Ladder-Left"
+#	new_anim = "Ladder-Left"
 	wheel1.ladder()
 	wheel2.ladder()
 
@@ -725,7 +725,7 @@ func speedtimer():
 	is_speed_up = false
 	speed_power_up = 1
 
-func jumpuptimer():
+func jumptimer():
 	is_jump_up = false
 	jump_power_up = 1
 

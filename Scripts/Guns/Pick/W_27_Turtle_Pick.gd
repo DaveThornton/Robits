@@ -18,7 +18,6 @@ var damage = 1000
 var gun_num = 27
 var ammo = 1
 var is_right = false
-# warning-ignore:unused_class_variable
 var just_shot = false
 var move = 0 #0 = none #1 = Left #2 = Right #3 = Up #4 = Down
 var time = 1

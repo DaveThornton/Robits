@@ -22,10 +22,6 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	proj3.start( _owner, int(_dmg / 5))
 	proj4.start( _owner, int(_dmg / 5))
 	proj5.start( _owner, int(_dmg / 5))
-	
-
-#func _ready():
-#	pass
 
 func _on_Timer_timeout():
 	queue_free()

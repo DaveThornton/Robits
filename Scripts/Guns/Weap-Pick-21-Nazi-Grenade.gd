@@ -21,7 +21,6 @@ var time = 3.5
 var gun_num = 21
 var ammo = 1
 var is_right = false
-# warning-ignore:unused_class_variable
 var just_shot = false
 
 func _ready():
@@ -32,7 +31,6 @@ func _ready():
 		timer_boom.wait_time = time
 		timer_boom.start()
 
-#warning-ignore:unused_argument
 func _process(delta):
 	time = timer_boom.time_left
 	label.set_time(time)
@@ -55,17 +53,8 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 func _on_Timer_Boom_timeout():
 	var b = boom.instance()
 	Map_Hand.add_kid_to_map(b)
-#	self.get_tree().get_current_scene().add_child(b)
-#	b.position = self.global_position
 	b.init(player, self.global_position, my_name, 0, damage)
 	queue_free()
-
-#func _on_WeapPick20Grenade_body_exited(body):
-#	if body.get_groups().has("player"):
-#		body.stun(gun_num)
-#	else:# body.get_groups().has("map_part"):
-#		self.set_collision_layer_bit( 1, false)
-#		self.set_collision_mask_bit( 1, false)
 
 func spin(_how_much):
 	if is_right:
@@ -118,7 +107,6 @@ func set_dir(_is_right, _dir):
 func _on_Timer_timeout():
 	var s = smoke.instance()
 	Map_Hand.add_kid_to_map(s)
-#	get_tree().get_current_scene().add_child(s)
 	s.start( 0 , self.global_position, 0, 0)
 	queue_free()
 

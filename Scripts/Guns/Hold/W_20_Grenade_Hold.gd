@@ -12,9 +12,7 @@ onready var throw_cast = $POS_Gun/Raycast/RayCast2D
 var player = 1
 var gun_num = 20
 var ammo = 1
-# warning-ignore:unused_class_variable
 var take_ammo = false
-#var armed = false
 var my_name = "Grenade"
 var dmg_type = "Boom"
 var damage = 100

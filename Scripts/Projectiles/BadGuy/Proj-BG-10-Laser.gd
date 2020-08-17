@@ -16,8 +16,6 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	damage = _dmg
 	if _scale.y < 0:
 		rotation *= -1
-#	print(_pos)
-#	print(rotation) res://Scripts/Proj-10-Laser.gd
 
 func _physics_process(delta):
 	move_local_x(speed * delta)
@@ -27,7 +25,6 @@ func _on_Projectile_body_entered(body):
 		_hit()
 		body.hit(owned, my_name, damage_type, damage)
 		call_deferred("free")
-#		queue_free()
 	elif body.get_groups().has("projectile"):
 		_hit()
 		call_deferred("free")
@@ -42,10 +39,3 @@ func _hit():
 
 func _on_Timer_timeout():
 	queue_free()
-
-#func _on_Area2D_body_entered(body):
-#	if body.get_groups().has("map"):
-#		queue_free()
-#	elif body.get_groups().has("player"):
-#		body.hit(owned, my_name, damage_type, damage)
-#		queue_free()

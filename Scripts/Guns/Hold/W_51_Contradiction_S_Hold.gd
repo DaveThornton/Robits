@@ -185,7 +185,6 @@ func _drop_where(_obj):
 
 func _on_Shoot_Timer_timeout():
 	pass
-#	can_shoot = true
 
 func _on_Melee_Timer_timeout():
 	can_shoot = true

@@ -3,7 +3,6 @@ extends Node2D
 export(PackedScene) var shot_gun_pickup
 export(PackedScene) var projectile
 export(PackedScene) var shell
-#export(PackedScene) var bullet_hit
 
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
@@ -21,7 +20,6 @@ var pawn
 var gun_num = 50
 var ammo = 10
 var ammo_max = 50
-# warning-ignore:unused_class_variable
 var take_ammo = true
 var my_name = "Shot_Gun"
 var new_anim = "Un_pos"
@@ -92,7 +90,6 @@ func shoot_j():
 				just_shot = true
 				SFX.play("Sniper_Shoot")
 			else:
-#				just_shot = true
 				SFX.play("Gun_Click")
 		else:
 			anim_fire.play("Reload")
@@ -146,7 +143,6 @@ func drop():
 func _drop():
 	var t = shot_gun_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
-#	self.get_tree().get_current_scene().add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	_drop_where(t)

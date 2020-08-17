@@ -17,6 +17,9 @@ onready var anim = $AnimationPlayer
 func _ready():
 	anim.play("Idle")
 
+func init(_Player_num):
+	color(Player_Stats.get_body_color(_Player_num), Player_Stats.get_sec_color(_Player_num))
+
 func color(_pri, _sec):
 	head.self_modulate = _pri
 	face1.self_modulate = _pri

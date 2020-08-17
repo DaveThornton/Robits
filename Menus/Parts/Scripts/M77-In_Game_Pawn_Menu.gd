@@ -29,21 +29,18 @@ func go_left():
 	new_pos(pos - 1)
 
 func go_start():
-	print('m77 in game pawn menu go start')
 	return pos
 
 func start():
 	return pos
 
 func new_pos(_pos):
-	print("m77 in game pawn menu -- new pos = ", _pos)
 	if _pos > 16:
 		pos = 0
 	elif _pos < 0:
 		pos = 16
 	else:
 		pos = _pos
-	print("m77 in game pawn menu -- new pos = ", pos)
 	all_out()
 	if pos == 0:
 		pawn00.visible = true

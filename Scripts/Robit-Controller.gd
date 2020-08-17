@@ -18,11 +18,7 @@ var player_input_h = "P1_Hold_Ground"
 var player_input_start = "P1_start"
 var player_input_coin = "P1_Coin"
 var auto_respawn = true
-#var game_mode = 0
-#var in_game = false
-#var in_menu = true
 var alive = false
-#var can_start = false
 var start_equiped = 0
 
 func _ready():
@@ -137,12 +133,9 @@ func spawn_pawn():
 		my_pawn = z
 		_init_pawn()
 		Player_Stats.set_in_game(player, true)
-#		in_game = true
 		alive = true
-#		in_menu = false
 	else:
 		Player_Stats.set_in_game(player, false)
-#		in_menu = true
 
 func _init_pawn():
 	my_pawn.init(player, Map_Hand.spawn_pos(), start_equiped, play_type)
@@ -184,13 +177,11 @@ func _process(delta):
 	var hold_input = Input.is_action_pressed(player_input_h)
 	var hold_input_j = Input.is_action_just_pressed(player_input_h)
 	var start_input_j = Input.is_action_just_pressed(player_input_start)
-#	var start_input = Input.is_action_pressed(player_input_start)
 	var coin_input_j = Input.is_action_just_pressed(player_input_coin)
 
 	#delete me when done please!!!!
 	var test_button = Input.is_action_just_pressed("test_button")
 	if player == 1:
-#		print("test button still active in player 1 controller!! [see robit controller]")
 		if test_button:
 			print("test button add trama pressed in controller")
 			FX.add_trauma(1)
@@ -202,7 +193,6 @@ func _process(delta):
 
 	if !Game.over:
 		if Player_Stats.get_in_game(player):
-#			if in_game:
 			if alive:
 				if right_input && !left_input:
 					if !hold_input:
@@ -238,31 +228,22 @@ func _process(delta):
 						print("need to put a coin in or this is an error  ", Player_Stats.can_player_start(player))
 		else:
 			if start_input_j:
-#				Menu_Hand.input(player, 0)
 				HUD.input(player, 0)
 			elif up_input_j:
-#				Menu_Hand.input(player, 1)
 				HUD.input(player, 1)
 			elif left_input_j:
-#				Menu_Hand.input(player, 2)
 				HUD.input(player, 2)
 			elif right_input_j:
-#				Menu_Hand.input(player, 3)
 				HUD.input(player, 3)
 			elif down_input_j:
-#				Menu_Hand.input(player, 4)
 				HUD.input(player, 4)
-			elif jump_input_j:# || shoot_input_j ||start_input:
-#				Menu_Hand.input(player, 5)
+			elif jump_input_j:
 				HUD.input(player, 5)
 			elif shoot_input_j:
-#				Menu_Hand.input(player, 6)
 				HUD.input(player, 6)
-			elif hold_input_j:# || pick_input:
-#				Menu_Hand.input(player, 7)
+			elif hold_input_j:
 				HUD.input(player, 7)
 			elif pick_input_j:
-#				Menu_Hand.input(player, 8)
 				HUD.input(player, 8)
 	else:
 		if jump_input_j || shoot_input_j ||start_input_j:
@@ -274,6 +255,7 @@ func set_spawn_spot(_pos):
 	spawn_spot = _pos
 
 func _spawn_spot():# set up for map handler singleton
+	print("in controller spawn spot not doing anything")
 	pass
 
 func _on_RespawnTimer_timeout():
@@ -287,6 +269,4 @@ func reset():
 	print("reset called in controller")
 	Player_Stats.set_in_game(player, false)
 	Player_Stats.set_in_play(player, false)
-#	in_game = false
-#	in_menu = true
 	alive = false

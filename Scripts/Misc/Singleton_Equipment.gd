@@ -221,7 +221,6 @@ func get_pawn(_pawn_num):
 		return pawn_15
 	elif _pawn_num == 16:
 		var _pawn = (randi() % 14) + 1
-#		print(_pawn , " <----- random pawn number from pawn 16 in robit controller")
 		return get_pawn(_pawn)
 	elif _pawn_num == 0:
 		print("no pawn selected pawn number = ", _pawn_num, " you get pawn #13")

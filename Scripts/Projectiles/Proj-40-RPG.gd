@@ -27,8 +27,7 @@ func _physics_process(delta):
 	speed = speed * 1.01
 	if cast_forward.is_colliding():
 		call_deferred("_explode", position)
-#		call_deferred("_explode",cast_forward.get_collision_point())
-#warning-ignore:unused_argument
+
 func _on_Projectile_04_body_entered(body):
 	call_deferred("_explode",self.global_position)
 

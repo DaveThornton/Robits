@@ -51,10 +51,3 @@ func _hit_move():
 
 func _on_Timer_timeout():
 	call_deferred("free")
-#
-#func _on_Area2D_body_entered(body):
-#	if body.get_groups().has("map"):
-#		queue_free()
-#	elif body.get_groups().has("player"):
-#		body.hit(owned, my_name, damage_type, damage)
-#		call_deferred("free")

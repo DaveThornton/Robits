@@ -654,7 +654,7 @@ func speedtimer():
 	is_speed_up = false
 	speed_power_up = 1
 
-func jumpuptimer():
+func jumptimer():
 	is_jump_up = false
 	jump_power_up = 1
 

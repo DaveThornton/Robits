@@ -14,7 +14,6 @@ var player = 1
 var gun_num = 10
 var ammo = 150
 var ammo_max = 350
-# warning-ignore:unused_class_variable
 var take_ammo = true
 var my_name = "Pistol Blaster"
 var dmg_type = "Laser"

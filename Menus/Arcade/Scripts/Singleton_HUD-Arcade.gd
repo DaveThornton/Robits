@@ -60,7 +60,6 @@ func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
 		print("error Singleton HUD connecting to reset from world gd")
-#	start()
 	reset()
 
 func state_machine():
@@ -435,10 +434,8 @@ func set_places():
 	var _set_back = 1
 	var last_y = null
 	var last_place_y = _places.back().y
-#	print(_places, _places.size())
 	for p in _places.size():
 		var o = p
-#		print(_places[p],"<---_places.  p---->", p," -  _places.size ----->",_places.size())
 		if _places[p].y == last_place_y:
 			if _places[p].x == 1:
 				p1.set_place(8)
@@ -547,7 +544,6 @@ func get_game_over_done_count():
 
 func coin_up(_player):
 	SFX.play("Menu_Coin")
-#	print("coin up doesnt update much in hud")
 	if _player == 1:
 		p1.set_coin_count(Player_Stats.p1["credit"])
 	elif _player == 2:
@@ -599,15 +595,12 @@ func input( _player, _dir):
 			emit_signal("screen_update")
 		elif _dir != 0 && Player_Stats.can_player_start(_player):
 			set_pri(_player,3)
-#			ask_press_start(_player)
 		elif !Player_Stats.can_player_start(_player):
 			set_pri(_player,2)
-#			ask_insert_coin(_player)
 		else:
 			print("error in input HUD no parameters met 0002")
 
 	elif !Game.started && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
-#		print("player: ", _player," dir: ", _dir)
 		emit_signal("input_to_screen",_player, _dir)
 
 	elif Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
@@ -615,13 +608,10 @@ func input( _player, _dir):
 			Player_Stats.set_in_play(_player,true)
 			Player_Stats.use_credit(_player)
 			p1.pawn_menu_vis(true)
-#			in_game()
 		elif _dir != 0 && Player_Stats.can_player_start(_player):
 			set_pri(_player,3)
-#			ask_press_start(_player)
 		elif !Player_Stats.can_player_start(_player):
 			set_pri(_player,2)
-#			ask_insert_coin(_player)
 		else:
 			print("error in input HUD no parameters met 0004")
 
@@ -636,7 +626,6 @@ func input( _player, _dir):
 				Player_Stats.set_in_game(_player,true)
 				Controllers.p1.spawn_pawn()
 				p1.pawn_menu_vis(false)
-#				in_game()
 		elif _player == 2:
 			if _dir == 2:
 				p2.go_left()
@@ -647,7 +636,6 @@ func input( _player, _dir):
 				Player_Stats.set_in_game(_player,true)
 				Controllers.p2.spawn_pawn()
 				p2.pawn_menu_vis(false)
-#				in_game()
 		elif _player == 3:
 			if _dir == 2:
 				p3.go_left()
@@ -658,7 +646,6 @@ func input( _player, _dir):
 				Player_Stats.set_in_game(_player,true)
 				Controllers.p3.spawn_pawn()
 				p3.pawn_menu_vis(false)
-#				in_game()
 		elif _player == 4:
 			if _dir == 2:
 				p4.go_left()
@@ -669,7 +656,6 @@ func input( _player, _dir):
 				Player_Stats.set_in_game(_player,true)
 				Controllers.p4.spawn_pawn()
 				p4.pawn_menu_vis(false)
-#				in_game()
 		elif _player == 5:
 			if _dir == 2:
 				p5.go_left()
@@ -680,7 +666,6 @@ func input( _player, _dir):
 				Player_Stats.set_in_game(_player,true)
 				Controllers.p5.spawn_pawn()
 				p5.pawn_menu_vis(false)
-#				in_game()
 		elif _player == 6:
 			if _dir == 2:
 				p6.go_left()
@@ -691,7 +676,6 @@ func input( _player, _dir):
 				Player_Stats.set_in_game(_player,true)
 				Controllers.p6.spawn_pawn()
 				p6.pawn_menu_vis(false)
-#				in_game()
 		elif _player == 7:
 			if _dir == 2:
 				p7.go_left()
@@ -702,7 +686,6 @@ func input( _player, _dir):
 				Player_Stats.set_in_game(_player,true)
 				Controllers.p7.spawn_pawn()
 				p7.pawn_menu_vis(false)
-#				in_game()
 		elif _player == 8: 
 			if _dir == 2:
 				p8.go_left()
@@ -713,7 +696,6 @@ func input( _player, _dir):
 				Player_Stats.set_in_game(_player,true)
 				Controllers.p8.spawn_pawn()
 				p8.pawn_menu_vis(false)
-#				in_game()
 
 	elif Game.started && Player_Stats.get_in_play(_player) && Player_Stats.get_in_game(_player):
 		print("error in hud input shouldnt see this you should be playing a game 0003")

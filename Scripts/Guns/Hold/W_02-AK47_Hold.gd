@@ -15,15 +15,11 @@ onready var pos_shell = $POS_Gun/POS/Shell
 onready var pos_throw = $POS_Gun/POS/Throw
 
 var player = 1
-#var pawn = 0
-#warning-ignore:unused_class_variable
 var gun_num = 2
 var ammo = 30
 var ammo_max = 90
 var take_ammo = true
 var my_name = "AK-47"
-#var new_anim = "Un_pos"
-#var old_anim = "Un_pos"
 var dmg_type = "Bullet"
 var damage = 21
 var can_shoot = true
@@ -38,10 +34,6 @@ var time = 4.0
 signal ammo_change(player, ammo)
 
 func _ready():
-#	my_name = my_name
-#	gun_num = gun_num
-#	time = time
-#	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 02 AK-47")
@@ -70,8 +62,6 @@ func shoot():
 				Map_Hand.add_kid_to_map(new_projectile)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
-				#---------------------------------------------------------------
-#				print(is_right)
 				if is_right:
 					_sr = pos_shoot.global_rotation
 				else:

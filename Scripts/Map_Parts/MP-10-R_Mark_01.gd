@@ -32,25 +32,13 @@ func _ready():
 	else:
 		anim.play("Used")
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
 func _on_Area2D_Hit_body_entered(body):
 	if body.get_groups().has("player"):
 		hit(1, "R Mark", "Mark", 1)
-#
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
+
 func hit(owned, my_name, damage_type, damage1):
 	if !used:
 		hit_timer.start()
-#	if body.get_groups().has("player"):
-
-#func _on_Timer_Hit_timeout():
 		used = true
 		if mark == 1:
 			anim.play("Hit_R")
@@ -68,7 +56,6 @@ func hit(owned, my_name, damage_type, damage1):
 			anim.play("Hit_A")
 		elif mark == 8:
 			anim.play("Hit_Bang")
-#			anim.play("Hit")
 func _on_Timer_Hit_timeout():
 	call_deferred("_spawn_thing")
 	timer.start()

@@ -15,7 +15,6 @@ onready var pos_throw = $POS_Gun/POS/Throw
 
 var player = 1
 var pawn = 0
-#warning-ignore:unused_class_variable
 var gun_num = 7
 var ammo = 8
 var ammo_max = 16
@@ -97,7 +96,6 @@ func shoot():
 			walk += walk_amount
 			can_shoot = false
 			shoot_timer.start()
-#			anim.play("Fire")
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
@@ -129,8 +127,6 @@ func _on_Melee_Area_body_entered(body):
 func throw():
 	var t = cbow_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
-#	if shoot_pos == 6:
-#		pos_throw.position.x = 30
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
 		t.position = self.global_position

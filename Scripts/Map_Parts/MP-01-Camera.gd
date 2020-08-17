@@ -42,14 +42,12 @@ func crt_on():
 func crt_off():
 	effect.visible = false
 
-#TODO ADD all this to effect in FX singlton connect 
 func add_trauma(_amount):
 	print("trauma added ", _amount, " amount")
 	trauma += _amount * 0.2
 	trauma = clamp(trauma,0,.4)
 	print(trauma)
 
-# warning-ignore:unused_argument
 func _c_shake(delta):
 	var amount = pow(trauma,trauma_power)
 	camera.offset_h = max_c_off.x * amount * noise_gen.get_noise_2d(noise_gen.seed, noise_y)
@@ -58,13 +56,10 @@ func _c_shake(delta):
 
 func _c_rotate(_delta):
 	var amount = pow(trauma,trauma_power) * 10
-#	camera.rotation = max_c_rot * amount * noise_gen.get_noise_2d(noise_gen.seed*3, noise_y)
 	var _rot = max_c_rot * amount * noise_gen.get_noise_2d(noise_gen.seed*3, noise_y)
 	camera.rotation = clamp(_rot, -max_c_rot, max_c_rot)
-#	print(camera.rotation)
-	
-# warning-ignore:unused_argument
+
+
 func _c_static(delta):
 	var amount = pow(trauma,trauma_power) * 10 * max_c_static
-# warning-ignore:narrowing_conversion
 	static_sprite.modulate = Color8(255,255,255,clamp(amount, min_c_static ,max_c_static))

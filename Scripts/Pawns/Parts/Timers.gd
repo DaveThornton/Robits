@@ -28,15 +28,3 @@ func _on_Stun_timeout():
 
 func _on_Jump_timeout():
 	dad.jumptimer()
-
-#func shieldhittimer()
-#
-#func shielduptimer()
-#
-#func nrguptimer()
-#knockbacktimer()
-#func speedtimer()
-#
-#func jumpuptimer()
-#
-#func stuntimer()

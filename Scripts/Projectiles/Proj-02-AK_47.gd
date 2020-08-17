@@ -28,7 +28,7 @@ func _on_Projectile_body_entered(body):
 	var _hit = true
 	if body.get_groups().has("player"):
 		if body.player == owned:
-			print("hit your self")
+			print("hit your self?!?!")
 			_hit = false
 #	if body.get_groups().has("map"):
 #		call_deferred("free")
@@ -54,24 +54,6 @@ func _on_Projectile_body_entered(body):
 			_hit_move()
 			call_deferred("free")
 
-#func _hit():
-#	var x = hit.instance()
-##	if result:
-##		var _hit_thing = shoot_cast.get_collider()
-##		if _hit_thing.get_groups().has("player"):
-##			if _hit_thing.player != player:
-##				_hit_thing.hit(player, my_name, dmg_type, damage)
-##			else:
-##				print("don't Shoot Yourself")
-##			self.get_tree().get_current_scene().add_child(x)
-##			x.position = shoot_cast.get_collision_point()
-##		else:
-##			self.get_tree().get_current_scene().add_child(x)
-##			x.position = shoot_cast.get_collision_point()
-##	else:
-#	self.get_tree().get_current_scene().add_child(x)
-#	x.global_position = self.global_position
-
 func _hit_map():
 	var x = hit_anim_map.instance()
 	self.get_tree().get_current_scene().add_child(x)
@@ -84,11 +66,3 @@ func _hit_move():
 
 func _on_Timer_timeout():
 	call_deferred("free")
-
-#func _on_Area2D_body_entered(body):
-##	pass
-#	if body.get_groups().has("map"):
-#		queue_free()
-##	elif body.get_groups().has("player"):
-##		body.hit(owned, my_name, damage_type, damage)
-##		queue_free()

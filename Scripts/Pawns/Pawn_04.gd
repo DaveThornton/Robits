@@ -143,9 +143,9 @@ func _process(delta):
 		last_anim = new_anim
 	if nrg < nrg_regen_max:
 		if nrg > light_on_nrg:
-			head.play_face(3)
+			head.play_face("Off")
 		else:
-			head.play_face(1)
+			head.play_face("On")
 		nrg = clamp(nrg + (nrg_regen_rate * delta), 0, 100)
 	if nrg != last_nrg:
 		nrg_update()

@@ -14,7 +14,6 @@ var player = 1
 var gun_num = 11
 var ammo = 90
 var ammo_max = 150
-# warning-ignore:unused_class_variable
 var take_ammo = true
 var my_name = "Mega Cannon"
 var new_anim = "Un_pos"
@@ -77,7 +76,6 @@ func shoot_j():
 					print("gun 11 dont know what im hitting but no projectile spawned")
 			anim_fire.play("Shoot")
 			ammo = clamp(ammo - 1, 0, ammo_max)
-#			pos_walk.rotation_degrees -= walk
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
 			SFX.play("Mega_Shoot")

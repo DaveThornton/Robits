@@ -160,16 +160,12 @@ func _ready():
 		p7["pawn_num"] = 5
 		p8["pawn_num"] = 12
 
-func update_hud():
-	print("update hud in HUD isnt doing anything")
-#	HUD.in_game()
-
 func add_kill(_killed, _killer, _point, _by_what):
 	print(_killed," by ",_killer," for ",_point, " points with ",_by_what)
 	add_score(_killer, _point)
 	add_score(_killed,(-1 * _point))
 	add_death(_killed)
-	update_hud()
+#	update_hud()
 
 func add_death(_player):
 	if _player == 1:
@@ -529,8 +525,6 @@ func get_place_name(_place):
 		return "Almost 7ast"
 	elif _place == 7:
 		return "Last"
-	elif _place == 8:
-		return "why so Last"
 	else:
 		return "error not a valaid number"
 
@@ -569,10 +563,10 @@ func get_places():
 		var _p8score = Vector2(8, p8["score"])
 		_places.append(_p8score)
 		p_in_p += 1
-	print("places before sort : ",_places, " in player stats")
+#	print("places before sort : ",_places, " in player stats")
 #	_places.sort()
 	_places.sort_custom(self,"sort_place")
-	print("places after sort : ",_places, " in player stats")
+#	print("places after sort : ",_places, " in player stats")
 	return _places
 
 func sort_place(a, b):
