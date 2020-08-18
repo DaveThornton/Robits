@@ -2081,8 +2081,7 @@ cast_to = Vector2( 0, 3 )
 collision_mask = 28
 
 [node name="Shield_Sprite" type="Sprite" parent="."]
-position = Vector2( -5.68434e-14, -6.82121e-13 )
-rotation = -0.349066
+visible = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, -12 )
 hframes = 3
@@ -2091,27 +2090,24 @@ hframes = 3
 
 [node name="Pawn_05_Part_Body" type="Sprite" parent="."]
 self_modulate = Color( 0.631373, 0.631373, 0.631373, 1 )
-rotation = -0.349066
 texture = ExtResource( 1 )
 offset = Vector2( 0, -12 )
 hframes = 3
 
 [node name="POS_Head" type="Position2D" parent="Pawn_05_Part_Body"]
 position = Vector2( 0, -26 )
-rotation = -0.523599
 
 [node name="Pawn_05_Part_Head" parent="Pawn_05_Part_Body/POS_Head" instance=ExtResource( 3 )]
 
 [node name="POS_Arm" type="Position2D" parent="Pawn_05_Part_Body"]
 position = Vector2( 0, -22 )
-rotation = 0.785398
 
 [node name="Pawn_09_Part_Arm" parent="Pawn_05_Part_Body/POS_Arm" instance=ExtResource( 4 )]
 position = Vector2( 0, 1.90735e-06 )
 
 [node name="Pawn_05_Part_Key" parent="Pawn_05_Part_Body" instance=ExtResource( 6 )]
 show_behind_parent = true
-position = Vector2( -4, -19 )
+position = Vector2( -4, -20 )
 
 [node name="Shape_Left" type="CollisionShape2D" parent="."]
 visible = false
