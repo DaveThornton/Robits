@@ -142,8 +142,6 @@ func _process(delta):
 	if my_gun:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
-# warning-ignore:return_value_discarded
-#	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 	_set_gun_dir()
 	if _im_hit:
 		if _hit_time > 0.1:
@@ -161,17 +159,14 @@ func _process(delta):
 			_im_hit = false
 
 func _physics_process(delta):
-	move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
-#	move_and_slide(Vector2(vel.x + knocked_back.x , 0 + knocked_back.y ))#* delta))
+	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
 	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
 	if on_floor:
 		vel.y = vel.y / 1.1
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
-# warning-ignore:return_value_discarded
-#	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
-	move_and_collide(vel)
+	var _2 = move_and_collide(vel)
 
 ##-------------------------------------------------------------------[Move/jump]
 func move_x(_moving, _right):

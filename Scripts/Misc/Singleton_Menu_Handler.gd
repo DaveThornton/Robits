@@ -5,7 +5,7 @@ var splash_screen = "res://Menus/Parts/M10-Splash.tscn"
 var hud
 var screen_loaded
 
-signal input_to_screen #movement up:1 left:2 right:3 down:4 start:5 back:6
+#signal input_to_screen #movement up:1 left:2 right:3 down:4 start:5 back:6
 
 #func _ready():
 #	pass # Replace with function body.

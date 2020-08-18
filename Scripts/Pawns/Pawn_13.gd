@@ -141,13 +141,10 @@ func _physics_process(delta):
 		vel.y = vel.y / 1.1
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
-# warning-ignore:return_value_discarded
-	move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
+	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
 	var movement = Vector2(0, ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
-#	vel.x -= delta
-# warning-ignore:return_value_discarded
-	move_and_collide(vel)
+	var _2 = move_and_collide(vel)
 
 ##-------------------------------------------------------------------[Move/jump]
 func move_x(_moving, _right):
@@ -409,7 +406,7 @@ func add_ammo(_ammo):
 
 ##-------------------------------------------------------------------[Animation]
 # warning-ignore:unused_argument
-func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
+func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, _delta):
 	if can_move:
 		if !down_input && is_down:
 			is_down = false

@@ -42,8 +42,8 @@ func _physics_process(delta):
 		call_deferred("free")
 	move_local_x(speed * delta)
 
-func _on_Projectile_body_entered(body):
-	print("body hit something")
+func _on_Projectile_body_entered(_body):
+	print("body hit something proj-07-bolt")
 
 func _hit_map():
 	var x = hit_anim_map.instance()

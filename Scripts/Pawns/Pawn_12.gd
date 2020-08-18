@@ -149,14 +149,11 @@ func _physics_process(delta):
 		vel.y = vel.y / 1.1
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
-	move_and_slide(Vector2(current_x_speed + knocked_back.x, 0 + knocked_back.y ))
+	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x, 0 + knocked_back.y ))
 	var movement = Vector2(0, ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
-#	vel.x -= delta
-# warning-ignore:return_value_discarded
-
 	_jet_pack(vel.y)
-	move_and_collide(vel)
+	var _2 = move_and_collide(vel)
 
 ##-------------------------------------------------------------------[Move/jump]
 func move_x(_moving, _right):
@@ -211,7 +208,7 @@ func jump(down_input, left_input, right_input):
 		SFX.play("Move_Jump_08")
 		vel.y += 1.5
 		self.position.y += 1.5
-func jump_j(down_input, _left_input, _right_input):
+func jump_j(_down_input, _left_input, _right_input):
 	print(is_down)
 	if is_down && on_floor:
 		pass
@@ -431,7 +428,7 @@ func add_ammo(_ammo):
 			my_gun.add_ammo(_ammo)
 ##-------------------------------------------------------------------[Animation]
 
-func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
+func anim_update(left_input, right_input, up_input, down_input, _jump_input, hold_input, delta):
 	if !down_input:
 		is_down = false
 	if can_move:

@@ -43,12 +43,12 @@ func crt_off():
 	effect.visible = false
 
 func add_trauma(_amount):
-	print("trauma added ", _amount, " amount")
+	print("trauma added ", _amount, " amount in MP-01-Camera")
 	trauma += _amount * 0.2
 	trauma = clamp(trauma,0,.4)
 	print(trauma)
 
-func _c_shake(delta):
+func _c_shake(_delta):
 	var amount = pow(trauma,trauma_power)
 	camera.offset_h = max_c_off.x * amount * noise_gen.get_noise_2d(noise_gen.seed, noise_y)
 	camera.offset_v = max_c_off.y * amount * noise_gen.get_noise_2d(noise_gen.seed*2, noise_y)
@@ -60,6 +60,7 @@ func _c_rotate(_delta):
 	camera.rotation = clamp(_rot, -max_c_rot, max_c_rot)
 
 
-func _c_static(delta):
+func _c_static(_delta):
 	var amount = pow(trauma,trauma_power) * 10 * max_c_static
+# warning-ignore:narrowing_conversion
 	static_sprite.modulate = Color8(255,255,255,clamp(amount, min_c_static ,max_c_static))

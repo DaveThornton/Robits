@@ -110,18 +110,6 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 	nrg_update()
 
 func _process(delta):
-#	if lup.is_colliding() || ldown.is_colliding():
-#		print("true")
-#	else:
-#		print("false")
-#	if ladder_count.size() > 0:
-#		print("off ladder")
-#		over_ladder = true
-#		print(ladder_count.size())
-#	else:
-#		print("on ladder")
-#		over_ladder = false
-#		on_ladder = false
 	_is_on_floor()
 	_test_headroom()
 	if on_floor:
@@ -153,34 +141,14 @@ func _process(delta):
 			_im_hit = false
 
 func _physics_process(delta):
-#	if lup.is_colliding() || ldown.is_colliding():
-#		print("true")
-#	else:
-#		print("false")
-#	print("next frame")
-#	if ladder_count.size() > 0:
-#	if ladder_count.size() > 0 && ladder_counting > 0:
-#	if lup.is_colliding() || ldown.is_colliding():
-#		print("on ladder", ladder_counting)
-#		over_ladder = true
-#		print(ladder_counting)
-#		print(ladder_count.size())
-#	else:
-#		print("off ladder", ladder_counting)
-#		print(ladder_counting)
-#		over_ladder = false
-#		on_ladder = false
 	if on_floor:
 		vel.y = vel.y / 1.1
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
-# warning-ignore:return_value_discarded
-	move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
+	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
 	var movement = Vector2(0, ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
-#	vel.x -= delta
-# warning-ignore:return_value_discarded
-	move_and_collide(vel)
+	var _2 = move_and_collide(vel)
 
 ##-------------------------------------------------------------------[Move/jump]
 func move_x(_moving, _right):
@@ -192,7 +160,6 @@ func move_x(_moving, _right):
 						current_x_speed += max_x_speed /5 * speed_power_up #* delta
 					else:
 						current_x_speed += -max_x_speed /5 * speed_power_up #* delta
-#					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
 					if _right:
 						current_x_speed += max_x_speed / 5 * speed_power_up #* delta
@@ -210,7 +177,6 @@ func move_x(_moving, _right):
 						current_x_speed += max_x_speed /50 * speed_power_up / 3 #* delta
 					else:
 						current_x_speed += -max_x_speed /50 * speed_power_up / 3 #* delta
-#					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
 					if _right:
 						current_x_speed += max_x_speed / 35 * speed_power_up #* delta
@@ -860,24 +826,24 @@ func knockbacktimer():
 
 ##-------------------------------------------------------------[The in and outs]
 
-func _on_Pick_Up_Area_body_entered(body):
+func _on_Pick_Up_Area_body_entered(_body):
 	if body.get_groups().has("PickUp"):
-		wep_array.append(body)
+		wep_array.append(_body)
 
-func _on_Pick_Up_Area_body_exited(body):
+func _on_Pick_Up_Area_body_exited(_body):
 	if body.get_groups().has("PickUp"):
-		wep_array.erase(body)
+		wep_array.erase(_body)
 
-func _on_Ladder_Area_body_entered(body): 
+func _on_Ladder_Area_body_entered(_body): 
 	over_ladder = true
 	print("ladder entered")
-	ladder_count.append(body)
+	ladder_count.append(_body)
 
-func _on_Ladder_Area_body_exited(body):
+func _on_Ladder_Area_body_exited(_body):
 	over_ladder = false
 	on_ladder = false
 	print("ladder exited")
-	ladder_count.erase(body)
+	ladder_count.erase(_body)
 
 func killed_by_map(_by_who, _by_what, _damage_type, _damage):
 	hit(_by_who, _by_what, _damage_type, (nrg* 2))

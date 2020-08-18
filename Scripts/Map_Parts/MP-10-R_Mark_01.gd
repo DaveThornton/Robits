@@ -36,7 +36,7 @@ func _on_Area2D_Hit_body_entered(body):
 	if body.get_groups().has("player"):
 		hit(1, "R Mark", "Mark", 1)
 
-func hit(owned, my_name, damage_type, damage1):
+func hit(_owned, _my_name, _damage_type, _damage1):
 	if !used:
 		hit_timer.start()
 		used = true
@@ -56,6 +56,7 @@ func hit(owned, my_name, damage_type, damage1):
 			anim.play("Hit_A")
 		elif mark == 8:
 			anim.play("Hit_Bang")
+
 func _on_Timer_Hit_timeout():
 	call_deferred("_spawn_thing")
 	timer.start()

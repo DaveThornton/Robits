@@ -31,7 +31,7 @@ func _ready():
 		timer_boom.wait_time = time
 		timer_boom.start()
 
-func _process(delta):
+func _process(_delta):
 	time = timer_boom.time_left
 	label.set_time(time)
 

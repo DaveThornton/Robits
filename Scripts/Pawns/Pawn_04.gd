@@ -170,9 +170,7 @@ func _process(delta):
 			_im_hit = false
 
 func _physics_process(delta):
-	if move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y )):
-		pass
-#		print("move and slide failed pawn 06")
+	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
 	var movement = Vector2(0 , (vel.y + (grav * int(!on_floor)) * delta)* int(!on_ladder))
 	vel = movement
 	if !is_jump_pressed:
@@ -185,8 +183,7 @@ func _physics_process(delta):
 	else:
 		if jump_top:
 			vel.y = 0
-	if move_and_collide(vel):
-		pass
+	var _2 = move_and_collide(vel)
 
 ##-------------------------------------------------------------------[Move/jump]
 func move_x(_moving, _right):

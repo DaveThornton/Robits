@@ -34,9 +34,9 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if ready:
 		set_dir(is_right, dir)
 
-func _on_WeapPick51Contradiction_S_body_shape_entered(body_id, body, body_shape, local_shape):
-	if body.get_groups().has("player"):
-		body.stun(gun_num)
+func _on_WeapPick51Contradiction_S_body_shape_entered(_body_id, _body, _body_shape, _local_shape):
+	if _body.get_groups().has("player"):
+		_body.stun(gun_num)
 	else:
 		self.set_collision_mask_bit( 1, false)
 

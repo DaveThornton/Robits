@@ -30,7 +30,7 @@ func _process(_delta):
 		self.rotation_degrees = 0
 	if move == 0:#not moving maybe falling
 		if !ray_d.is_colliding():
-			move_and_collide(Vector2(0,5))
+			var _1 = move_and_collide(Vector2(0,5))
 			if anim.is_playing():
 				anim.stop(false)
 		side_hit(false)
@@ -41,9 +41,9 @@ func _process(_delta):
 	elif move == 1:#moving left
 		if ray_d.is_colliding():
 			print("going dowm turtle pick")
-			move_and_collide(Vector2(-10,-1))
+			var _2 = move_and_collide(Vector2(-10,-1))
 		else:
-			move_and_collide(Vector2(-10,2))
+			var _3 = move_and_collide(Vector2(-10,2))
 		side_hit(true)
 		top_hit(false)
 		bott_hit(false)
@@ -51,9 +51,9 @@ func _process(_delta):
 		return
 	elif move == 2:#moving right
 		if ray_d.is_colliding():
-			move_and_collide(Vector2(10,-1))
+			var _4 = move_and_collide(Vector2(10,-1))
 		else:
-			move_and_collide(Vector2(-10,2))
+			var _5 = move_and_collide(Vector2(-10,2))
 		side_hit(true)
 		top_hit(false)
 		bott_hit(false)
@@ -63,7 +63,7 @@ func _process(_delta):
 		if ray_u.is_colliding():
 			move = 4
 		else:
-			move_and_collide(Vector2(0,-10))
+			var _6 = move_and_collide(Vector2(0,-10))
 		side_hit(false)
 		top_hit(true)
 		bott_hit(true)
@@ -73,7 +73,7 @@ func _process(_delta):
 		if ray_d.is_colliding():
 			move = 0
 		else:
-			move_and_collide(Vector2(0,10))
+			var _7 = move_and_collide(Vector2(0,10))
 			side_hit(false)
 			top_hit(false)
 			bott_hit(true)
