@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://misc/line-text-small.tres" type="DynamicFont" id=1]
 [ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=2]
@@ -10,6 +10,22 @@ bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Coin_Up"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBox_Coin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false ]
+}
 
 [node name="VBox_In_Game" type="VBoxContainer"]
 margin_right = 220.0
@@ -263,6 +279,40 @@ margin_bottom = 16.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
 align = 1
+
+[node name="HBox_Coin" type="HBoxContainer" parent="VBox_Game"]
+visible = false
+margin_top = 84.0
+margin_right = 225.0
+margin_bottom = 100.0
+alignment = 1
+
+[node name="Label_Coin_Text" type="Label" parent="VBox_Game/HBox_Coin"]
+margin_left = 79.0
+margin_right = 123.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+text = "Coin ["
+align = 1
+
+[node name="Label_Coin_Count" type="Label" parent="VBox_Game/HBox_Coin"]
+margin_left = 127.0
+margin_right = 136.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+
+[node name="Label_Coin_Text2" type="Label" parent="VBox_Game/HBox_Coin"]
+margin_left = 140.0
+margin_right = 145.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+text = "]"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBox_Game"]
+anims/Coin_Up = SubResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_top = 456.0

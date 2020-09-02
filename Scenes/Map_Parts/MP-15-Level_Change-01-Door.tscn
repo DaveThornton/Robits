@@ -69,7 +69,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 10, 2.2081 )
+extents = Vector2( 10, 17.5 )
 
 [node name="MP-15-Level_Change-01-Door" type="Node2D"]
 pause_mode = 2
@@ -93,7 +93,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, -2.5 )
+position = Vector2( 0, -17.5 )
 shape = SubResource( 4 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

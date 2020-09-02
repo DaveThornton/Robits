@@ -1,7 +1,108 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menus/Arcade/Scripts/HUD_01_VBox_In_Menu.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "CoinToReady"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBox_Coin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label_Ready:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true, false, true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "CoinToSelect"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBox_Coin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HBox_Select:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true, false, true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "CoinToStart"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBox_Coin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label_Press_Start:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true, false, true, false, true, false, true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "CoinUp"
+length = 2.4
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("HBox_Coin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true, false, true ]
+}
 
 [node name="VBox_In_Menu" type="VBoxContainer"]
 margin_right = 225.0
@@ -90,6 +191,7 @@ text = "]"
 align = 1
 
 [node name="Label_Ready" type="Label" parent="."]
+visible = false
 margin_top = 164.0
 margin_right = 225.0
 margin_bottom = 201.0
@@ -98,9 +200,9 @@ text = "Ready !"
 align = 1
 
 [node name="HBox_Coin" type="HBoxContainer" parent="."]
-margin_top = 205.0
+margin_top = 164.0
 margin_right = 225.0
-margin_bottom = 242.0
+margin_bottom = 201.0
 alignment = 1
 
 [node name="Label_Coin_Text_1" type="Label" parent="HBox_Coin"]
@@ -128,10 +230,14 @@ text = "]"
 align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_top = 246.0
+margin_top = 205.0
 margin_right = 225.0
 margin_bottom = 246.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/CoinToReady = SubResource( 1 )
+anims/CoinToSelect = SubResource( 2 )
+anims/CoinToStart = SubResource( 3 )
+anims/CoinUp = SubResource( 4 )

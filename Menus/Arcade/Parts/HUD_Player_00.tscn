@@ -21,8 +21,8 @@ margin_bottom = 456.0
 
 [node name="VBox_In_Menu" parent="." instance=ExtResource( 4 )]
 margin_top = 460.0
-margin_bottom = 706.0
+margin_bottom = 665.0
 
 [node name="VBox_Game_Over" parent="." instance=ExtResource( 3 )]
-margin_top = 710.0
-margin_bottom = 1469.0
+margin_top = 669.0
+margin_bottom = 1428.0

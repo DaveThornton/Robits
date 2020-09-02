@@ -237,14 +237,17 @@ func jump_rel():
 ##-----------------------------------------------------------------------[Shoot]
 func shoot_j():
 	if my_gun:
+		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_j()
 func shoot():
 	if my_gun:
+		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot()
 func shoot_r():
 	if my_gun:
+		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_r()
 

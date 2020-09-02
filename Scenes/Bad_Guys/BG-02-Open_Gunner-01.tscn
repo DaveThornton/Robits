@@ -171,12 +171,12 @@ tracks/0/keys = {
 }
 
 [node name="BG-02-Open_Gunner-01" type="KinematicBody2D" groups=[
-"hittable",
 "badguy",
+"hittable",
 ]]
 pause_mode = 1
 collision_layer = 2048
-collision_mask = 264734
+collision_mask = 264714
 script = ExtResource( 1 )
 projectile = ExtResource( 2 )
 explode = ExtResource( 3 )
@@ -190,7 +190,6 @@ shape = SubResource( 1 )
 autostart = true
 
 [node name="Casts" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="RayCast2D_Down" type="RayCast2D" parent="Casts"]
 position = Vector2( 0, -1 )
@@ -199,7 +198,6 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 28
 
 [node name="Shoot_Casts" type="Node2D" parent="Casts"]
-editor/display_folded = true
 position = Vector2( 0, -31 )
 
 [node name="Shoot-Right-RayCast2D" type="RayCast2D" parent="Casts/Shoot_Casts"]
@@ -284,7 +282,6 @@ position = Vector2( -10, 0 )
 rotation = -3.14159
 
 [node name="BG_Casts" type="Node2D" parent="Casts"]
-editor/display_folded = true
 visible = false
 
 [node name="RayCast2D-Down" type="RayCast2D" parent="Casts/BG_Casts"]
@@ -317,7 +314,6 @@ cast_to = Vector2( -30, 0 )
 collision_mask = 2048
 
 [node name="Area2D-On_Ladder" type="Area2D" parent="."]
-editor/display_folded = true
 collision_layer = 32768
 collision_mask = 32
 

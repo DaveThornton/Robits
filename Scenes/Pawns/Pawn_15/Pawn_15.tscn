@@ -2070,6 +2070,7 @@ cast_to = Vector2( 0, -5 )
 collision_mask = 8
 
 [node name="Pawn_15_Leg_B_Shield" type="Sprite" parent="."]
+visible = false
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 1, 16 )
 scale = Vector2( -1, 1 )
@@ -2078,6 +2079,7 @@ hframes = 33
 frame = 15
 
 [node name="Pawn_15_Leg_F_Shield" type="Sprite" parent="."]
+visible = false
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, 16 )
 scale = Vector2( -1, 1 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Sprites/Bad_Guys/Parts/BG-03/BG-03-Open-Gunner-gun-01.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Bad_Guys/Parts/BG-03/BG-03-Open-Gunner-body-01.png" type="Texture" id=2]
@@ -71,7 +71,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 resource_name = "Hang-Down"
 length = 0.1
 tracks/0/type = "value"
@@ -135,7 +135,7 @@ tracks/4/keys = {
 "values": [ 90.0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=3]
 resource_name = "Hang-Down-Side"
 length = 0.1
 tracks/0/type = "value"
@@ -199,8 +199,7 @@ tracks/4/keys = {
 "values": [ 62 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Hang-Move"
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -264,7 +263,7 @@ tracks/4/keys = {
 "values": [ -90.0 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=5]
 resource_name = "Hang-Side"
 length = 0.1
 tracks/0/type = "value"
@@ -328,7 +327,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=6]
 resource_name = "Hang-Up"
 length = 0.1
 tracks/0/type = "value"
@@ -392,7 +391,7 @@ tracks/4/keys = {
 "values": [ -90.0 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=7]
 resource_name = "Hang-Up-Side"
 length = 0.1
 tracks/0/type = "value"
@@ -456,7 +455,7 @@ tracks/4/keys = {
 "values": [ -45.0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=8]
 length = 6.0
 loop = true
 tracks/0/type = "value"
@@ -502,10 +501,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 28, -1 ) ]
+"values": [ Vector2( 28, -1 ), Vector2( 28, -1 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Sprite_Shoot:rotation_degrees")
@@ -514,13 +513,13 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 0.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=9]
 resource_name = "Jump-Down"
 length = 0.1
 tracks/0/type = "value"
@@ -584,7 +583,7 @@ tracks/4/keys = {
 "values": [ 90.0 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=10]
 resource_name = "Jump-Down-Side"
 length = 0.1
 tracks/0/type = "value"
@@ -648,7 +647,7 @@ tracks/4/keys = {
 "values": [ 25.0 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=11]
 resource_name = "Jump-Side"
 length = 0.1
 tracks/0/type = "value"
@@ -712,7 +711,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=12]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Body:frame")
@@ -775,7 +774,7 @@ tracks/4/keys = {
 "values": [ -90.0 ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=13]
 resource_name = "Jump-Up-Side"
 length = 0.1
 tracks/0/type = "value"
@@ -839,8 +838,7 @@ tracks/4/keys = {
 "values": [ -25.0 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Ladder"
+[sub_resource type="Animation" id=14]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -904,8 +902,71 @@ tracks/4/keys = {
 "values": [ -90.0 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Roll"
+[sub_resource type="Animation" id=27]
+resource_name = "Prone"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite_Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 41, 42, 43, 44, 45 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite_Gun:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 41, 42, 43, 44, 45 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite_Accent:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 41, 42, 43, 44, 45 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite_Shoot:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 39, 23 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite_Shoot:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=15]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -969,7 +1030,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=16]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Body:frame")
@@ -1032,7 +1093,7 @@ tracks/4/keys = {
 "values": [ 30.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=17]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -1096,7 +1157,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=18]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Body:frame")
@@ -1159,7 +1220,7 @@ tracks/4/keys = {
 "values": [ -30.0 ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=19]
 resource_name = "Shoot-Down"
 length = 0.1
 tracks/0/type = "value"
@@ -1223,7 +1284,7 @@ tracks/4/keys = {
 "values": [ 90.0 ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=20]
 resource_name = "Shoot-Down-Side"
 length = 0.1
 tracks/0/type = "value"
@@ -1287,8 +1348,7 @@ tracks/4/keys = {
 "values": [ 45.0 ]
 }
 
-[sub_resource type="Animation" id=15]
-resource_name = "Shoot-Side"
+[sub_resource type="Animation" id=21]
 length = 0.1
 loop = true
 step = 0.05
@@ -1347,10 +1407,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 28, -1 ) ]
+"values": [ Vector2( 28, -1 ), Vector2( 28, -1 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Sprite_Shoot:rotation_degrees")
@@ -1359,10 +1419,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ 0.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=22]
@@ -1624,7 +1684,6 @@ tracks/4/keys = {
 [sub_resource type="Animation" id=26]
 resource_name = "Shoot"
 length = 0.4
-loop = true
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Shoot:frame")
@@ -1643,7 +1702,7 @@ tracks/1/path = NodePath("Sprite_Shoot:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -1655,7 +1714,7 @@ tracks/2/path = NodePath("Sprite_Shoot:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
@@ -1667,59 +1726,55 @@ tracks/2/keys = {
 script = ExtResource( 4 )
 
 [node name="Sprite_Body" type="Sprite" parent="."]
-self_modulate = Color( 0.678431, 0.627451, 1, 1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 20
-frame = 33
+frame = 41
 
 [node name="Sprite_Gun" type="Sprite" parent="."]
-self_modulate = Color( 0.858824, 0.858824, 0.858824, 1 )
 texture = ExtResource( 1 )
 vframes = 4
 hframes = 20
-frame = 33
+frame = 41
 
 [node name="Sprite_Accent" type="Sprite" parent="."]
-self_modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 3 )
 vframes = 4
 hframes = 20
-frame = 33
+frame = 41
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crawl = SubResource( 1 )
-anims/Hang-Down = SubResource( 10 )
-anims/Hang-Down-Side = SubResource( 11 )
-anims/Hang-Move = SubResource( 2 )
-anims/Hang-Side = SubResource( 12 )
-anims/Hang-Up = SubResource( 13 )
-anims/Hang-Up-Side = SubResource( 14 )
-anims/Idle = SubResource( 3 )
-anims/Jump-Down = SubResource( 16 )
-anims/Jump-Down-Side = SubResource( 17 )
-anims/Jump-Side = SubResource( 18 )
-anims/Jump-Up = SubResource( 4 )
-anims/Jump-Up-Side = SubResource( 19 )
-anims/Ladder = SubResource( 5 )
-anims/Roll = SubResource( 6 )
-anims/Run-Down = SubResource( 7 )
-anims/Run-Mid = SubResource( 8 )
-anims/Run-Up = SubResource( 9 )
-anims/Shoot-Down = SubResource( 20 )
-anims/Shoot-Down-Side = SubResource( 21 )
-anims/Shoot-Side = SubResource( 15 )
+anims/Hang-Down = SubResource( 2 )
+anims/Hang-Down-Side = SubResource( 3 )
+anims/Hang-Move = SubResource( 4 )
+anims/Hang-Side = SubResource( 5 )
+anims/Hang-Up = SubResource( 6 )
+anims/Hang-Up-Side = SubResource( 7 )
+anims/Idle = SubResource( 8 )
+anims/Jump-Down = SubResource( 9 )
+anims/Jump-Down-Side = SubResource( 10 )
+anims/Jump-Side = SubResource( 11 )
+anims/Jump-Up = SubResource( 12 )
+anims/Jump-Up-Side = SubResource( 13 )
+anims/Ladder = SubResource( 14 )
+anims/Prone = SubResource( 27 )
+anims/Roll = SubResource( 15 )
+anims/Run-Down = SubResource( 16 )
+anims/Run-Mid = SubResource( 17 )
+anims/Run-Up = SubResource( 18 )
+anims/Shoot-Down = SubResource( 19 )
+anims/Shoot-Down-Side = SubResource( 20 )
+anims/Shoot-Side = SubResource( 21 )
 anims/Shoot-Side-Crawl = SubResource( 22 )
 anims/Shoot-Side-Knee = SubResource( 23 )
 anims/Shoot-Up = SubResource( 24 )
 anims/Shoot-Up-Side = SubResource( 25 )
 
 [node name="Sprite_Shoot" type="Sprite" parent="."]
-position = Vector2( 20, -26 )
-rotation = -0.785398
+position = Vector2( 39, 23 )
 texture = ExtResource( 5 )
 hframes = 5
-frame = 2
 
 [node name="AnimationPlayer_Shoot" type="AnimationPlayer" parent="."]
 anims/Shoot = SubResource( 26 )

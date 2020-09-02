@@ -21,11 +21,15 @@ onready var igb_10_game_box_nrg_box = $VBox_Game/HBox_for_NRG
 onready var igb_10_game_box_nrg_bar = $VBox_Game/HBox_for_NRG/NRG_Bar
 onready var igb_10_game_box_ammo = $VBox_Game/HBox_Ammo
 onready var igb_10_game_box_ammo_count = $VBox_Game/HBox_Ammo/Label_Ammo_Count
+onready var igb_10_game_box_coin = $VBox_Game/HBox_Coin/Label_Coin_Text
+onready var igb_10_game_box_coin_count = $VBox_Game/HBox_Coin/Label_Coin_Count
+onready var igb_10_game_box_coin2 = $VBox_Game/HBox_Coin/Label_Coin_Text2
 onready var anim = $AnimationPlayer
+onready var anim_game_box = $VBox_Game/AnimationPlayer
 
 var pri = 1
 var sec = 0
-
+var state = 0
 func _ready():
 	pass # Replace with function body.
 
@@ -51,6 +55,8 @@ func ammo_update(_ammo:int):
 
 func coin_count_update(_num:int):
 	igb_06_coin_count.text = str(_num)
+	igb_10_game_box_coin_count.text = str(_num)
+	anim_game_box.play("Coin_Up")
 
 func score_update(_num:int):
 	igb_10_game_box_score_count.text = str(_num)
@@ -59,32 +65,32 @@ func nrg_update(_num:int):
 	igb_10_game_box_nrg_bar.value = _num
 
 func update_state(_state:int):
-	var state = _state
 	all_out()
-	if state != 10:
+	if _state != 10:
 		igb_01_player.visible = true
-		if state == 2:
+		if _state == 2:
 			igb_02_insert.visible = true
-		elif state == 3:
+		elif _state == 3:
 			igb_03_press.visible = true
-		elif state == 4:
+		elif _state == 4:
 			igb_04_select.visible = true
-		elif state == 5:
+		elif _state == 5:
 			igb_05_ready.visible = true
-		elif state == 6:
+		elif _state == 6:
 			igb_06_coin.visible = true
-		elif state == 7:
+		elif _state == 7:
 			igb_07_dead.visible = true
-		elif state == 8:
+		elif _state == 8:
 			igb_08_continue.visible = true
-		elif state == 9:
+		elif _state == 9:
 			igb_09_pawn_menu.visible = true
-		elif state == 0:
+		elif _state == 0:
 			pass
 		else:
 			print("invalid state in hud_02 update state. State = ", state)
 	else:
 		igb_10_game_box.visible = true
+	state = _state
 	
 func all_out():
 	igb_01_player.visible = false

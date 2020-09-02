@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 onready var head = $Body/POS_Head/Pawn_01_Head
-onready var body = $Body
+onready var my_body = $Body
 onready var arm = $Body/POS_Arm/Pawn_05_Part_Arm
 onready var legf = $"Pawn_01-Legs_F"
 onready var legb = $"Pawn_01-Legs_B"
@@ -196,7 +196,11 @@ func move_x(_moving, _right):
 			current_x_speed -= current_x_speed / 10
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
+##------------------------------------------------------------------------[Jump]
 func jump(down_input, left_input, right_input):
+	pass
+
+func jump_j(down_input, left_input, right_input):
 	if down_input && on_floor && !left_input && !right_input:
 		SFX.play("Move_Jump_08")
 		vel.y += 1.5
@@ -210,9 +214,6 @@ func jump(down_input, left_input, right_input):
 		is_jump_pressed = true
 	on_ladder = false
 
-func jump_j(_down_input, _left_input, _right_input):
-	pass
-
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
 		vel.y = -min_air_jump_power
@@ -223,14 +224,17 @@ func jump_rel():
 ##-----------------------------------------------------------------------[Shoot]
 func shoot_j():
 	if my_gun:
+		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_j()
 func shoot():
 	if my_gun:
+		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot()
 func shoot_r():
 	if my_gun:
+		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_r()
 
@@ -362,6 +366,7 @@ func _test_headroom():
 		head_room = 0
 
 func _is_on_floor():
+#	if !is_jump_pressed:
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
 		on_floor = true
 #		if !on_floor && !is_jump_pressed:
@@ -414,7 +419,7 @@ func add_ammo(_ammo):
 
 ##-------------------------------------------------------------------[Animation]
 # warning-ignore:unused_argument
-func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, _delta):
+func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
 	if can_move:
 		if !down_input && is_down:
 			is_down = false
@@ -459,8 +464,13 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			else:
 				if on_floor:
 					if down_input && !left_input && !right_input && !on_ladder:
-						_anim_prone_idle()
-						is_down = true
+						if over_ladder || on_ladder:
+							on_ladder = true
+							self.position.y += ladder_speed * delta
+							_anim_ladder_move()
+						else:
+							_anim_prone_idle()
+							is_down = true
 					elif !down_input && !left_input && right_input:
 						_anim_run()
 						if up_input:
@@ -489,28 +499,82 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 						_anim_idle()
 						shoot_spot = 3
 					elif up_input && !down_input && !left_input && !right_input:
-						_anim_idle()
-						shoot_spot = 1
+						if over_ladder || on_ladder:
+							on_ladder = true
+							self.position.y -= ladder_speed * delta
+							_anim_ladder_move()
+						else:
+							_anim_idle()
+							shoot_spot = 1
 				else:# not on floor
-					_anim_jump()
 					if !up_input && !down_input && !left_input && !right_input:
+						if on_ladder:
+							if is_right:
+								_anim_ladder_right()
+							else:
+								_anim_ladder_left()
+						else:
+							_anim_jump()
 						shoot_spot = 3
 					elif up_input && !down_input && !left_input && !right_input:
-						shoot_spot = 1
+						if over_ladder || on_ladder:
+							on_ladder = true
+							self.position.y -= ladder_speed * delta
+							_anim_ladder_move()
+						else:
+							shoot_spot = 1
+							_anim_jump()
 					elif !up_input && down_input && !left_input && !right_input:
-						shoot_spot = 5
+						if over_ladder || on_ladder:
+							on_ladder = true
+							self.position.y += ladder_speed * delta
+							_anim_ladder_move()
+						else:
+							shoot_spot = 5
+							_anim_jump()
 					elif !up_input && !down_input && left_input && !right_input:
 						shoot_spot = 3
+						if !on_ladder:
+							_anim_jump()
 					elif !up_input && !down_input && !left_input && right_input:
 						shoot_spot = 3
+						if !on_ladder:
+							_anim_jump()
 					elif up_input && !down_input && left_input && !right_input:
 						shoot_spot = 2
+						if !on_ladder:
+							_anim_jump()
 					elif up_input && !down_input && !left_input && right_input:
 						shoot_spot = 2
+						if !on_ladder:
+							_anim_jump()
 					elif !up_input && down_input && left_input && !right_input:
 						shoot_spot = 4
+						if !on_ladder:
+							_anim_jump()
 					elif !up_input && down_input && !left_input && right_input:
 						shoot_spot = 4
+						if !on_ladder:
+							_anim_jump()
+#					_anim_jump()
+#					if !up_input && !down_input && !left_input && !right_input:
+#						shoot_spot = 3
+#					elif up_input && !down_input && !left_input && !right_input:
+#						shoot_spot = 1
+#					elif !up_input && down_input && !left_input && !right_input:
+#						shoot_spot = 5
+#					elif !up_input && !down_input && left_input && !right_input:
+#						shoot_spot = 3
+#					elif !up_input && !down_input && !left_input && right_input:
+#						shoot_spot = 3
+#					elif up_input && !down_input && left_input && !right_input:
+#						shoot_spot = 2
+#					elif up_input && !down_input && !left_input && right_input:
+#						shoot_spot = 2
+#					elif !up_input && down_input && left_input && !right_input:
+#						shoot_spot = 4
+#					elif !up_input && down_input && !left_input && right_input:
+#						shoot_spot = 4
 
 func _anim_idle():
 	new_anim = "Stand"
@@ -524,10 +588,9 @@ func _anim_run():
 
 func _anim_jump():
 	if vel.y < 0:
-		print("add jump animation pawn 01")
+		new_anim = "Jump"
 	elif vel.y > 0:
-		print("add fall animation pawn 01")
-	new_anim = "Run"
+		new_anim = "Fall"
 	_body(1)
 	legs_right(is_right)
 
@@ -566,19 +629,19 @@ func _anim_Knock():
 func _anim_ladder_move():
 	print("make ladder animation pawn 01")
 	_body(1)
-	new_anim = "Ladder-Move"
+	new_anim = "Ladder_Move"
 
 func _anim_ladder_right():
-	print("make ladder animation pawn 01")
+#	print("make ladder animation pawn 01")
 	_body(1)
 #	hip.stop()
-	new_anim = "Ladder-Right"
+	new_anim = "Ladder_Right"
 
 func _anim_ladder_left():
-	print("make ladder animation pawn 01")
+#	print("make ladder animation pawn 01")
 	_body(1)
 #	hip.stop()
-	new_anim = "Ladder-Left"
+	new_anim = "Ladder_Left"
 
 func _set_gun_dir():
 	arm.is_right(is_right)
@@ -676,7 +739,7 @@ func _set_new_color(_pri, _sec):
 	legbs.self_modulate = _sec
 	hip.self_modulate = _sec
 	arm.color(_pri, _sec)
-	body.self_modulate = _pri
+	my_body.self_modulate = _pri
 	shield.self_modulate = _sec
 ##--------------------------------------------------------------------[Time Out]
 
@@ -691,7 +754,7 @@ func speedtimer():
 	is_speed_up = false
 	speed_power_up = 1
 
-func jumptimer():
+func jumpuptimer():
 	is_jump_up = false
 	jump_power_up = 1
 
@@ -707,19 +770,19 @@ func knockbacktimer():
 
 ##-------------------------------------------------------------[The in and outs]
 
-func _on_Pick_Up_Area_body_entered(_body):
+func _on_Pick_Up_Area_body_entered(body):
 	if body.get_groups().has("PickUp"):
-		wep_array.append(_body)
+		wep_array.append(body)
 
-func _on_Pick_Up_Area_body_exited(_body):
+func _on_Pick_Up_Area_body_exited(body):
 	if body.get_groups().has("PickUp"):
-		wep_array.erase(_body)
+		wep_array.erase(body)
 
-func _on_Ladder_Area_body_entered(_body):
-	ladder_count.append(_body)
+func _on_Ladder_Area_body_entered(body):
+	ladder_count.append(body)
 
-func _on_Ladder_Area_body_exited(_body):
-	ladder_count.erase(_body)
+func _on_Ladder_Area_body_exited(body):
+	ladder_count.erase(body)
 
 func killed_by_map(_by_who, _by_what, _damage_type, _damage):
 	hit(_by_who, _by_what, _damage_type, (nrg* 2))

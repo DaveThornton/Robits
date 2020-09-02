@@ -1,22 +1,164 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Bad_Guys/Parts/BG-03-Anim.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Bad_Guys/BG-03.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Explosions/Ex-07-BG-OG.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 15.4086
-height = 15.9331
+radius = 15.0
+height = 15.0
 
-[node name="BG-03" type="KinematicBody2D"]
+[node name="BG-03" type="KinematicBody2D" groups=[
+"badguy",
+"hittable",
+]]
 z_index = 19
-collision_layer = 2056
-collision_mask = 2056
+collision_layer = 2048
+collision_mask = 3614
 script = ExtResource( 2 )
+projectile = ExtResource( 3 )
+explode = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.711967, 6.835 )
+position = Vector2( 0, -23 )
 shape = SubResource( 1 )
 
 [node name="Anim_BG_03" parent="." instance=ExtResource( 1 )]
-gun_color = Color( 0, 0, 0, 1 )
-accent_color = Color( 0.564706, 0.564706, 0.564706, 1 )
+position = Vector2( 0, -30 )
+gun_color = Color( 0, 1, 0.976471, 1 )
+accent_color = Color( 1, 0.447059, 0.447059, 1 )
+
+[node name="Raycasts" type="Node2D" parent="."]
+position = Vector2( 0, -31 )
+
+[node name="Right_Edge" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 46, 0 )
+enabled = true
+cast_to = Vector2( 0, 35 )
+collision_mask = 28
+
+[node name="Left_Edge" type="RayCast2D" parent="Raycasts"]
+position = Vector2( -46, 0 )
+enabled = true
+cast_to = Vector2( 0, 35 )
+collision_mask = 28
+
+[node name="Right" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 16, 0 )
+enabled = true
+cast_to = Vector2( 30, 0 )
+collision_mask = 3080
+
+[node name="Down_Right" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 12, 26 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+collision_mask = 3080
+
+[node name="Down_Left" type="RayCast2D" parent="Raycasts"]
+position = Vector2( -12, 26 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+collision_mask = 3080
+
+[node name="Left" type="RayCast2D" parent="Raycasts"]
+position = Vector2( -16, 0 )
+enabled = true
+cast_to = Vector2( -30, 0 )
+collision_mask = 3080
+
+[node name="Shoot_Right" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( 250, 0 )
+collision_mask = 1034
+
+[node name="Shoot_Right_Prone" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 0, 26 )
+enabled = true
+cast_to = Vector2( 250, 0 )
+collision_mask = 1034
+
+[node name="Shoot_Left" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( -250, 0 )
+collision_mask = 1034
+
+[node name="Shoot_Left_Prone" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 0, 26 )
+enabled = true
+cast_to = Vector2( -250, 0 )
+collision_mask = 1034
+
+[node name="Shoot_Down" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( 0, 250 )
+collision_mask = 1034
+
+[node name="Shoot_Up" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( 0, -250 )
+collision_mask = 2147484682
+
+[node name="Shoot_Right_Up" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( 175, -175 )
+collision_mask = 2147484682
+
+[node name="Shoot_Right_Down" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( 175, 175 )
+collision_mask = 2147484682
+
+[node name="Shoot_Left_Up" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( -175, -175 )
+collision_mask = 1034
+
+[node name="Shoot_Left_Down" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( -175, 175 )
+collision_mask = 1034
+
+[node name="Shoot_Pos" type="Node2D" parent="."]
+
+[node name="Down" type="Position2D" parent="Shoot_Pos"]
+position = Vector2( 0, 5 )
+rotation = 1.5708
+
+[node name="Up" type="Position2D" parent="Shoot_Pos"]
+position = Vector2( 0, -54 )
+rotation = -1.5708
+
+[node name="Right" type="Position2D" parent="Shoot_Pos"]
+position = Vector2( 20, -31 )
+
+[node name="Right_Prone" type="Position2D" parent="Shoot_Pos"]
+position = Vector2( 20, -7 )
+
+[node name="Right_Up" type="Position2D" parent="Shoot_Pos"]
+position = Vector2( 15, -46 )
+rotation = -0.785398
+
+[node name="Right_Down" type="Position2D" parent="Shoot_Pos"]
+position = Vector2( 20, -11 )
+rotation = 0.785398
+
+[node name="Left" type="Position2D" parent="Shoot_Pos"]
+position = Vector2( -20, -31 )
+rotation = 3.14159
+
+[node name="Left_Prone" type="Position2D" parent="Shoot_Pos"]
+position = Vector2( -20, -8 )
+rotation = 3.14159
+
+[node name="Left_Up" type="Position2D" parent="Shoot_Pos"]
+position = Vector2( -15, -46 )
+rotation = 3.92699
+
+[node name="Left_Down" type="Position2D" parent="Shoot_Pos"]
+position = Vector2( -20, -11 )
+rotation = 2.35619
+
+[node name="Timer_Shoot" type="Timer" parent="."]
+[connection signal="timeout" from="Timer_Shoot" to="." method="_on_Timer_Shoot_timeout"]

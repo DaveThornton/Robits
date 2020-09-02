@@ -57,10 +57,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 7, 8 ]
+"values": [ 7 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Pawn_01-Legs_B:frame")
@@ -69,10 +69,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.4 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 8 ]
+"values": [ 2 ]
 }
 
 [node name="Pawn_01_Pic" type="Node2D"]
@@ -81,13 +81,13 @@ script = ExtResource( 9 )
 [node name="Pawn_01-Legs_B" type="Sprite" parent="."]
 position = Vector2( 1, -13 )
 texture = ExtResource( 3 )
-hframes = 31
-frame = 8
+hframes = 37
+frame = 2
 
 [node name="Pawn_01-Head" type="Sprite" parent="."]
 position = Vector2( 0, -47 )
 texture = ExtResource( 5 )
-hframes = 2
+hframes = 3
 
 [node name="Pawn_01-Head_Face" type="Sprite" parent="Pawn_01-Head"]
 texture = ExtResource( 6 )
@@ -95,8 +95,8 @@ hframes = 10
 
 [node name="Pawn_01-Head_Hair" type="Sprite" parent="Pawn_01-Head"]
 texture = ExtResource( 4 )
-hframes = 16
-frame = 2
+hframes = 17
+frame = 8
 
 [node name="Pawn_01-Body" type="Sprite" parent="."]
 position = Vector2( 0, -31 )
@@ -105,18 +105,18 @@ texture = ExtResource( 7 )
 [node name="Pawn_01-Legs_F" type="Sprite" parent="."]
 position = Vector2( -1, -13 )
 texture = ExtResource( 2 )
-hframes = 31
+hframes = 37
 frame = 7
 
 [node name="Pawn_01-Legs_Hip" type="Sprite" parent="."]
 position = Vector2( 0, -13 )
 texture = ExtResource( 1 )
-hframes = 31
+hframes = 37
 frame = 2
 
 [node name="Pawn_01_Part_Arm" type="Sprite" parent="."]
 position = Vector2( 0, -34 )
-rotation = 1.56556
+rotation = 1.49503
 texture = ExtResource( 8 )
 offset = Vector2( 12, 4 )
 hframes = 3

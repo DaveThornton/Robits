@@ -237,14 +237,17 @@ func jump_rel():
 ##-----------------------------------------------------------------------[Shoot]
 func shoot_j():
 	if my_gun:
+		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_j()
 func shoot():
 	if my_gun:
+		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot()
 func shoot_r():
 	if my_gun:
+		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_r()
 
@@ -612,7 +615,7 @@ func _set_gun_dir():
 			arm.bend(2)
 		elif shoot_spot == 1:
 			arm.rotation_degrees = -85
-			arm.bend(1)
+			arm.bend(3)
 		elif shoot_spot == 2:
 			arm.rotation_degrees = -45
 			arm.bend(2)
@@ -630,7 +633,7 @@ func _set_gun_dir():
 			arm.bend(2)
 		elif shoot_spot == 1:
 			arm.rotation_degrees = 85
-			arm.bend(1)
+			arm.bend(3)
 		elif shoot_spot == 2:
 			arm.rotation_degrees = 45
 			arm.bend(2)

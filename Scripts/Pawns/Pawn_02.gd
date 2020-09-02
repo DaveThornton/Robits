@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 onready var head = $Body/Pawn_02_Head
-onready var body = $Body
+onready var my_body = $Body
 onready var arm = $Body/POS_Arm/Pawn_02_Part_Arm
 onready var gun_pos = $Body/POS_Arm/Pawn_02_Part_Arm/POS_Gun
 onready var shield = $Body/Shield
@@ -221,14 +221,17 @@ func jump_rel():
 ##-----------------------------------------------------------------------[Shoot]
 func shoot_j():
 	if my_gun:
+		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_j()
 func shoot():
 	if my_gun:
+		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot()
 func shoot_r():
 	if my_gun:
+		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_r()
 
@@ -795,7 +798,7 @@ func _set_new_color(_pri, _sec):
 	legbf.color(_pri, _sec)
 	legbb.color(_pri, _sec)
 	arm.color(_pri, _sec)
-	body.self_modulate = _pri
+	my_body.self_modulate = _pri
 	shield.self_modulate = _sec
 ##--------------------------------------------------------------------[Time Out]
 
@@ -826,24 +829,24 @@ func knockbacktimer():
 
 ##-------------------------------------------------------------[The in and outs]
 
-func _on_Pick_Up_Area_body_entered(_body):
+func _on_Pick_Up_Area_body_entered(body):
 	if body.get_groups().has("PickUp"):
-		wep_array.append(_body)
+		wep_array.append(body)
 
-func _on_Pick_Up_Area_body_exited(_body):
+func _on_Pick_Up_Area_body_exited(body):
 	if body.get_groups().has("PickUp"):
-		wep_array.erase(_body)
+		wep_array.erase(body)
 
-func _on_Ladder_Area_body_entered(_body): 
+func _on_Ladder_Area_body_entered(body): 
 	over_ladder = true
 	print("ladder entered")
-	ladder_count.append(_body)
+	ladder_count.append(body)
 
-func _on_Ladder_Area_body_exited(_body):
+func _on_Ladder_Area_body_exited(body):
 	over_ladder = false
 	on_ladder = false
 	print("ladder exited")
-	ladder_count.erase(_body)
+	ladder_count.erase(body)
 
 func killed_by_map(_by_who, _by_what, _damage_type, _damage):
 	hit(_by_who, _by_what, _damage_type, (nrg* 2))

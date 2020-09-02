@@ -14,6 +14,7 @@ onready var anim = $AnimationPlayer
 
 var pri = 1
 var sec = 0
+var state = 0
 
 func _ready():
 	pass # Replace with function body.
@@ -35,26 +36,28 @@ func player_num_update(_num:int):
 
 func coin_count_update(_num:int):
 	imb_06_coin_count.text = str(_num)
+	update_state(6)
 
 func update_state(_state:int):
-	var state = _state
-#	print(state)
+	print("update state called in hud 01 vbox in menu")
+#	anim.stop()
 	all_out()
 	imb_01_player.visible = true
-	if state == 2:
+	if _state == 2:
 		imb_02_insert.visible = true
-	elif state == 3:
+	elif _state == 3:
 		imb_03_press.visible = true
-	elif state == 4:
+	elif _state == 4:
 		imb_04_select.visible = true
-	elif state == 5:
+	elif _state == 5:
 		imb_05_ready.visible = true
-	elif state == 6:
-		imb_06_coin.visible = true
-	elif state == 0:
+	elif _state == 6:
+		anim.play("CoinUp")
+	elif _state == 0:
 		pass
 	else:
-		print("invalid state in hud_01 update state. State = ", state)
+		print("invalid state in hud_01 update state. State = ", _state)
+	state = _state
 
 func all_out():
 	imb_01_player.visible = false
@@ -62,4 +65,4 @@ func all_out():
 	imb_03_press.visible = false
 	imb_04_select.visible = false
 	imb_05_ready.visible = false
-	imb_06_coin.visible = false
+#	imb_06_coin.visible = false
