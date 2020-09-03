@@ -9,7 +9,7 @@
 radius = 15.0
 height = 15.0
 
-[node name="BG-03" type="KinematicBody2D" groups=[
+[node name="BG-03-01" type="KinematicBody2D" groups=[
 "badguy",
 "hittable",
 ]]

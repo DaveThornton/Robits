@@ -14,8 +14,8 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-13-Spike_block.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_20x80-01.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Map_Parts/MP-15-Level_Change-01-Door.tscn" type="PackedScene" id=14]
-[ext_resource path="res://map/Campaign-mode/Old-Map-C-02-B-Level.tscn" type="PackedScene" id=15]
-[ext_resource path="res://map/Campaign-mode/Old-Map-C-02-A-Level.tscn" type="PackedScene" id=16]
+[ext_resource path="res://map/Campaign-mode/old/Old-Map-C-02-B-Level.tscn" type="PackedScene" id=15]
+[ext_resource path="res://map/Campaign-mode/old/Old-Map-C-02-A-Level.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Map_Parts/MP-33-Belt-9.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Map_Parts/MP-33-Belt-3.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=19]
@@ -34,6 +34,8 @@
 [ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Bad_Guys/BG-23-Turret-Ground.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Tilesets/TS-05-Grey_Bars.tres" type="TileSet" id=34]
+
+
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )

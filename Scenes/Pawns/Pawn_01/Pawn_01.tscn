@@ -12,8 +12,8 @@
 [ext_resource path="res://Scripts/Pawns/Pawn_01.gd" type="Script" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 6.0
-height = 36.0
+radius = 7.99994
+height = 30.0001
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 25.0
@@ -465,7 +465,7 @@ tracks/17/keys = {
 "values": [ 10, 11, 12, 13, 14 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=6]
 resource_name = "Fall"
 length = 0.1
 tracks/0/type = "value"
@@ -673,8 +673,7 @@ tracks/16/keys = {
 "values": [ 24 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Jump"
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_01-Legs_F:frame")
@@ -881,8 +880,7 @@ tracks/16/keys = {
 "values": [ 7 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Ladder_Left"
+[sub_resource type="Animation" id=8]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -1090,7 +1088,7 @@ tracks/16/keys = {
 "values": [ 32, 34, 35, 36, 35, 34, 33, 32, 33 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.25
 loop = true
 step = 0.05
@@ -1299,8 +1297,7 @@ tracks/16/keys = {
 "values": [ 32, 33, 34, 35, 36, 35, 34, 33, 32 ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "Ladder_Right"
+[sub_resource type="Animation" id=10]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -1508,7 +1505,7 @@ tracks/16/keys = {
 "values": [ 32, 34, 35, 36, 35, 34, 33, 32, 33 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 1.5
 loop = true
 tracks/0/type = "value"
@@ -1728,7 +1725,7 @@ tracks/17/keys = {
 "values": [ 14 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 1.5
 loop = true
 tracks/0/type = "value"
@@ -1948,7 +1945,7 @@ tracks/17/keys = {
 "values": [ 10, 11 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -2131,8 +2128,20 @@ tracks/14/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
+tracks/15/type = "value"
+tracks/15/path = NodePath("Raycasts/Up:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -20 ) ]
+}
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_01-Legs_F:frame")
@@ -2353,47 +2362,49 @@ script = ExtResource( 11 )
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 5, 27 )
+position = Vector2( 23, 27 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 collision_mask = 30
 
 [node name="Down_L" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -5, 27 )
+position = Vector2( -23, 27 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 collision_mask = 30
 
 [node name="Up" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 13, 10 )
+position = Vector2( 0, -20 )
 enabled = true
 cast_to = Vector2( 0, -5 )
 collision_mask = 10
 
 [node name="Pawn_01-Legs_B_Shield" type="Sprite" parent="."]
 visible = false
-position = Vector2( 0, 16 )
+position = Vector2( 14, 16 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 6 )
 hframes = 37
-frame = 6
+frame = 14
 
 [node name="Pawn_01-Legs_F_Shield" type="Sprite" parent="."]
 visible = false
-position = Vector2( 0, 16 )
+position = Vector2( 13, 17 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 7 )
 hframes = 37
-frame = 6
+frame = 10
 
 [node name="Pawn_01-Legs_B" type="Sprite" parent="."]
-position = Vector2( 0, 16 )
+position = Vector2( 13, 16 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 5 )
 hframes = 37
-frame = 6
+frame = 14
 
 [node name="Body" type="Sprite" parent="."]
+position = Vector2( -8, 23 )
+rotation = -1.5708
 texture = ExtResource( 2 )
 
 [node name="POS_Head" type="Position2D" parent="Body"]
@@ -2403,6 +2414,7 @@ position = Vector2( 0, -8 )
 
 [node name="POS_Arm" type="Position2D" parent="Body"]
 position = Vector2( 0, -5 )
+rotation = 1.5708
 
 [node name="Pawn_05_Part_Arm" parent="Body/POS_Arm" instance=ExtResource( 9 )]
 
@@ -2414,18 +2426,18 @@ scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 2 )
 
 [node name="Pawn_01-Legs_F" type="Sprite" parent="."]
-position = Vector2( 0, 16 )
+position = Vector2( 13, 16 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 3 )
 hframes = 37
-frame = 6
+frame = 10
 
 [node name="Pawn_01-Legs_Hip" type="Sprite" parent="."]
-position = Vector2( 0, 16 )
+position = Vector2( 13, 16 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 4 )
 hframes = 37
-frame = 6
+frame = 10
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
 visible = false
@@ -2433,8 +2445,7 @@ position = Vector2( 0, 5 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, 23 )
+position = Vector2( 0, 21 )
 rotation = 1.5708
 shape = SubResource( 1 )
 disabled = true
@@ -2450,6 +2461,7 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 32
 
@@ -2460,15 +2472,15 @@ shape = SubResource( 3 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crawl-Left = SubResource( 4 )
 anims/Crawl-Right = SubResource( 5 )
-anims/Fall = SubResource( 14 )
-anims/Jump = SubResource( 6 )
-anims/Ladder_Left = SubResource( 7 )
-anims/Ladder_Move = SubResource( 8 )
-anims/Ladder_Right = SubResource( 9 )
-anims/Prone-Left-Idle = SubResource( 10 )
-anims/Prone-Right-Idle = SubResource( 11 )
-anims/Run = SubResource( 12 )
-anims/Stand = SubResource( 13 )
+anims/Fall = SubResource( 6 )
+anims/Jump = SubResource( 7 )
+anims/Ladder_Left = SubResource( 8 )
+anims/Ladder_Move = SubResource( 9 )
+anims/Ladder_Right = SubResource( 10 )
+anims/Prone-Left-Idle = SubResource( 11 )
+anims/Prone-Right-Idle = SubResource( 12 )
+anims/Run = SubResource( 13 )
+anims/Stand = SubResource( 14 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]
