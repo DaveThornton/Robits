@@ -1,6 +1,6 @@
 extends Node2D
 
-#export(PackedScene) var game
+export(PackedScene) var player_select_vs
 export(PackedScene) var map
 export(PackedScene) var map_01
 export(PackedScene) var map_02
@@ -63,8 +63,10 @@ func _next_screen():
 	rng.randomize()
 	var map_num_to_load = rng.randi_range(0,(map_array.size() - 1))
 	var _map_to_load = map_array[map_num_to_load]
-	Map_Hand.load_map(_map_to_load)
-	HUD.mode = 2
+	Map_Hand.set_next_map(_map_to_load)
+	HUD.load_screen(player_select_vs)
+#	Map_Hand.load_map(_map_to_load)
+#	HUD.mode = 2
 	call_deferred("free")
 
 func movement(_player, _dir):

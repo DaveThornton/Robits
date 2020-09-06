@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Menus/Arcade/Scripts/M02-Arcade-Mode-Select.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/M05-Arcade-Player-Select-Camp.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Menus/Arcade/M03-Arcade-Player-Select-VS.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menus/Arcade/M04-Arcade-Map-Select-VS.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menus/Grids/menu_1X3_01.tscn" type="PackedScene" id=4]
 [ext_resource path="res://misc/line-text-big.tres" type="DynamicFont" id=5]
 

@@ -1,7 +1,7 @@
 extends Node
 onready var splash_scn = $"M10-Splash"
 var map
-
+var next_map
 onready var clearing_house = $clearing_house
 
 var level
@@ -30,6 +30,15 @@ func add_kid_to_map(_obj):
 	else:
 #		map.add_child(_obj)
 		clearing_house.add_child(_obj)
+
+func set_next_map(_map):
+	next_map = _map
+
+func load_next_map():
+	if next_map:
+		load_map(next_map)
+	else:
+		print("error in map handler load next map - no next map")
 
 func clear_map():
 	map.call_deferred("free")

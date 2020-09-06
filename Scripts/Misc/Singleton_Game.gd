@@ -2,6 +2,7 @@ extends Node2D
 export(PackedScene) var start_screen
 onready var timer = $Timer
 var started = false
+var mode_vs = true
 var over = false
 var end_game_score = 3
 

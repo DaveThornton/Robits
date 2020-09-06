@@ -74,7 +74,9 @@ func _next_screen():
 		Player_Stats.p7["pawn_num"] = p7_menu.pos
 	if Player_Stats.p8["in_play"]:
 		Player_Stats.p8["pawn_num"] = p8_menu.pos
-	HUD.load_screen(vs_map_select)
+	Map_Hand.load_next_map()
+	HUD.mode = 2
+#	HUD.load_screen(vs_map_select)
 	self.call_deferred("free")
 
 func movement(_player, _dir):

@@ -5,6 +5,7 @@ var p1 = {
 	in_game = false,
 	exist = false,
 	credit = 0,
+	lives = 0,
 	kill = 0,
 	death = 0,
 	score = 0,
@@ -23,6 +24,7 @@ var p2 = {
 	in_game = false,
 	exist = false,
 	credit = 0,
+	lives = 0,
 	kill = 0,
 	death = 0,
 	score = 0,
@@ -41,6 +43,7 @@ var p3 = {
 	in_game = false,
 	exist = false,
 	credit = 0,
+	lives = 0,
 	kill = 0,
 	death = 0,
 	score = 0,
@@ -59,6 +62,7 @@ var p4 = {
 	in_game = false,
 	exist = false,
 	credit = 0,
+	lives = 0,
 	kill = 0,
 	death = 0,
 	score = 0,
@@ -77,6 +81,7 @@ var p5 = {
 	in_game = false,
 	exist = false,
 	credit = 0,
+	lives = 0,
 	kill = 0,
 	death = 0,
 	score = 0,
@@ -95,6 +100,7 @@ var p6 = {
 	in_game = false,
 	exist = false,
 	credit = 0,
+	lives = 0,
 	kill = 0,
 	death = 0,
 	score = 0,
@@ -113,6 +119,7 @@ var p7 = {
 	in_game = false,
 	exist = false,
 	credit = 0,
+	lives = 0,
 	kill = 0,
 	death = 0,
 	score = 0,
@@ -131,6 +138,7 @@ var p8 = {
 	in_game = false,
 	exist = false,
 	credit = 0,
+	lives = 0,
 	kill = 0,
 	death = 0,
 	score = 0,
@@ -272,6 +280,7 @@ func coin_insert( _player):
 	HUD.coin_up(_player)
 
 func use_credit( _player):
+	set_lives_up(_player)
 	if _player == 1:
 		p1["credit"] -= 1
 		p1["in_play"] = true
@@ -299,7 +308,6 @@ func use_credit( _player):
 	else:
 		print("invalid player in player stats use credit... _player --> ", _player)
 	HUD.state_machine()
-#	HUD.use_credit(_player)
 
 func nrg_update(_player, _nrg, _nrg_max):
 	var _current_nrg = int((float(_nrg) / _nrg_max)* 100)
@@ -345,6 +353,42 @@ func set_in_game(_player,_in_game):
 		p7["in_game"] = _in_game
 	elif _player == 8:
 		p8["in_game"] = _in_game
+
+func set_lives_up(_player):
+	if _player == 1:
+		p1["lives"] += Settings.lives_per_credit
+	elif _player == 2:
+		p2["lives"] += Settings.lives_per_credit
+	elif _player == 3:
+		p3["lives"] += Settings.lives_per_credit
+	elif _player == 4:
+		p4["lives"] += Settings.lives_per_credit
+	elif _player == 5:
+		p5["lives"] += Settings.lives_per_credit
+	elif _player == 6:
+		p6["lives"] += Settings.lives_per_credit
+	elif _player == 7:
+		p7["lives"] += Settings.lives_per_credit
+	elif _player == 8:
+		p8["lives"] += Settings.lives_per_credit
+
+func set_lives_to(_player,_amount):
+	if _player == 1:
+		p1["lives"] = _amount
+	elif _player == 2:
+		p2["lives"] = _amount
+	elif _player == 3:
+		p3["lives"] = _amount
+	elif _player == 4:
+		p4["lives"] = _amount
+	elif _player == 5:
+		p5["lives"] = _amount
+	elif _player == 6:
+		p6["lives"] = _amount
+	elif _player == 7:
+		p7["lives"] = _amount
+	elif _player == 8:
+		p8["lives"] = _amount
 
 func set_in_play(_player,_in_play):
 	if _player == 1:
@@ -488,6 +532,26 @@ func get_pawn_num(_player):
 	else:
 		print("invalid player number in get pawn num in player stats --> ", _player )
 
+func get_lives_left(_player):
+	if _player == 1:
+		return p1["lives"]
+	elif _player == 2:
+		return p2["lives"]
+	elif _player == 3:
+		return p3["lives"]
+	elif _player == 4:
+		return p4["lives"]
+	elif _player == 5:
+		return p5["lives"]
+	elif _player == 6:
+		return p6["lives"]
+	elif _player == 7:
+		return p7["lives"]
+	elif _player == 8:
+		return p8["lives"]
+	else:
+		print("invalid player number in get lives left in player stats --> ", _player )
+
 func get_player_stats(_num):
 	if _num == 1:
 		return p1
@@ -576,6 +640,7 @@ func sort_place(a, b):
 
 func reset():
 	p1["kill"] = 0
+	p1["lives"] = 0
 	p1["death"] = 0
 	p1["score"] = 0
 	p1["shot"] = 0
@@ -583,6 +648,7 @@ func reset():
 	p1["in_play"] = false
 
 	p2["kill"] = 0
+	p2["lives"] = 0
 	p2["death"] = 0
 	p2["score"] = 0
 	p2["shot"] = 0
@@ -590,6 +656,7 @@ func reset():
 	p2["in_play"] = false
 	
 	p3["kill"] = 0
+	p3["lives"] = 0
 	p3["death"] = 0
 	p3["score"] = 0
 	p3["shot"] = 0
@@ -597,6 +664,7 @@ func reset():
 	p3["in_play"] = false
 	
 	p4["kill"] = 0
+	p4["lives"] = 0
 	p4["death"] = 0
 	p4["score"] = 0
 	p4["shot"] = 0
@@ -604,6 +672,7 @@ func reset():
 	p4["in_play"] = false
 	
 	p5["kill"] = 0
+	p5["lives"] = 0
 	p5["death"] = 0
 	p5["score"] = 0
 	p5["shot"] = 0
@@ -611,6 +680,7 @@ func reset():
 	p5["in_play"] = false
 	
 	p6["kill"] = 0
+	p6["lives"] = 0
 	p6["death"] = 0
 	p6["score"] = 0
 	p6["shot"] = 0
@@ -618,6 +688,7 @@ func reset():
 	p6["in_play"] = false
 	
 	p7["kill"] = 0
+	p7["lives"] = 0
 	p7["death"] = 0
 	p7["score"] = 0
 	p7["shot"] = 0
@@ -625,6 +696,7 @@ func reset():
 	p7["in_play"] = false
 	
 	p8["kill"] = 0
+	p8["lives"] = 0
 	p8["death"] = 0
 	p8["score"] = 0
 	p8["shot"] = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Menus/Arcade/Scripts/M04-Arcade-Map-Select-VS.gd" type="Script" id=1]
 [ext_resource path="res://map/VS_Mode/Map-02-Refuted.tscn" type="PackedScene" id=2]
@@ -9,9 +9,12 @@
 [ext_resource path="res://Sprites/Menu/Map_Select_8x4.png" type="Texture" id=7]
 [ext_resource path="res://map/VS_Mode/Map-09-Red_Eye.tscn" type="PackedScene" id=8]
 [ext_resource path="res://map/VS_Mode/Map-05-Fun_Guy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Menus/Arcade/M03-Arcade-Player-Select-VS.tscn" type="PackedScene" id=10]
 
 [node name="M04-Arcade-Map-Select-VS" type="Node2D"]
+position = Vector2( 0, 90 )
 script = ExtResource( 1 )
+player_select_vs = ExtResource( 10 )
 map = ExtResource( 2 )
 map_01 = ExtResource( 3 )
 map_02 = ExtResource( 2 )
@@ -29,54 +32,54 @@ map_13 = ExtResource( 8 )
 map_14 = ExtResource( 8 )
 map_15 = ExtResource( 8 )
 
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 960, 509 )
+texture = ExtResource( 7 )
+
 [node name="Menu_8x4_01" parent="." instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 960, 578 )
+position = Vector2( 960, 509 )
 
 [node name="Menu_8x4_02" parent="." instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 960, 578 )
+position = Vector2( 960, 509 )
 player = 2
 pos = 2
 
 [node name="Menu_8x4_03" parent="." instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 960, 578 )
+position = Vector2( 960, 509 )
 player = 3
 pos = 4
 
 [node name="Menu_8x4_04" parent="." instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 960, 578 )
+position = Vector2( 960, 509 )
 player = 4
 pos = 6
 
 [node name="Menu_8x4_05" parent="." instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 960, 578 )
+position = Vector2( 960, 509 )
 player = 5
 pos = 32
 
 [node name="Menu_8x4_06" parent="." instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 960, 578 )
+position = Vector2( 960, 509 )
 player = 6
 pos = 6
 
 [node name="Menu_8x4_07" parent="." instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 960, 578 )
+position = Vector2( 960, 509 )
 player = 7
 pos = 7
 
 [node name="Menu_8x4_08" parent="." instance=ExtResource( 6 )]
 visible = false
-position = Vector2( 960, 578 )
+position = Vector2( 960, 509 )
 player = 8
 pos = 32
 
 [node name="Timer" type="Timer" parent="."]
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 960, 578 )
-texture = ExtResource( 7 )
