@@ -15,6 +15,7 @@ func turn(right:bool):
 
 func ladder():
 	anim.play("Up")
+	print("pawn 03 needs ladder moves in wheel")
 
 func stop():
 	anim.stop(false)

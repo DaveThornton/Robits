@@ -14,8 +14,8 @@ var p1 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
-	color_2 = Color8(255, 0, 0, 255),
-	color_1 = Color8(145, 145, 145, 255),
+	color_2 = Color8(76, 255, 142, 255),
+	color_1 = Color8(232, 32, 75, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
@@ -33,8 +33,8 @@ var p2 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
-	color_2 = Color8(0, 255, 255, 255),
-	color_1 = Color8(255, 0, 255, 255),
+	color_2 = Color8(255, 0, 195, 255),
+	color_1 = Color8(94, 255, 170, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
@@ -52,8 +52,8 @@ var p3 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
-	color_2 = Color8(255, 255, 0, 255),
-	color_1 = Color8(255, 0, 0, 255),
+	color_2 = Color8(255, 151, 15, 255),
+	color_1 = Color8(25, 145, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
@@ -71,8 +71,8 @@ var p4 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
-	color_2 = Color8(255, 255, 0, 255),
-	color_1 = Color8(0, 0, 255, 255),
+	color_2 = Color8(82, 235, 0, 255),
+	color_1 = Color8(255, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
@@ -90,8 +90,8 @@ var p5 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
-	color_2 = Color8(255, 0, 0, 255),
-	color_1 = Color8(255, 255, 0, 255),
+	color_2 = Color8(255, 232, 0, 255),
+	color_1 = Color8(119, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
@@ -109,8 +109,8 @@ var p6 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
-	color_2 = Color8(255, 0, 0, 255),
-	color_1 = Color8(123, 0, 255, 255),
+	color_2 = Color8(225, 98, 15, 255),
+	color_1 = Color8(0, 255, 244, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
@@ -128,8 +128,8 @@ var p7 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
-	color_2 = Color8(255, 0, 0, 255),
-	color_1 = Color8(0, 255, 255, 255),
+	color_2 = Color8(0, 30, 255, 255),
+	color_1 = Color8(255, 255, 0, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
@@ -147,8 +147,8 @@ var p8 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
-	color_2 = Color8(255, 0, 0, 255),
-	color_1 = Color8(0, 255, 0, 255),
+	color_2 = Color8(20, 255, 254, 255),
+	color_1 = Color8(255, 95, 0, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
@@ -274,6 +274,15 @@ func coin_insert( _player):
 	elif _player == 7:
 		p7["credit"] += 1
 	elif _player == 8:
+		p8["credit"] += 1
+	elif  _player == -1:
+		p1["credit"] += 1
+		p2["credit"] += 1
+		p3["credit"] += 1
+		p4["credit"] += 1
+		p5["credit"] += 1
+		p6["credit"] += 1
+		p7["credit"] += 1
 		p8["credit"] += 1
 	else:
 		print("invalid player in player stats coin insert ... _player --> ", _player)
