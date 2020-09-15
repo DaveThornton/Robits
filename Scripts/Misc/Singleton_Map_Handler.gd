@@ -65,8 +65,8 @@ func _load_map_cam(_level):
 	if test != 0:
 		print("error Singleton Map Handler connecting (map in cam) to reset from world gd")
 
-	for x in get_tree().get_current_scene().pawns.get_child_count():
-		pass
+#	for x in get_tree().get_current_scene().pawns.get_child_count():
+#		pass
 
 	for p in get_tree().get_current_scene().pawns.get_children():
 		p.position = m.player_spawns.get_child(m.next_spawn_spot).position

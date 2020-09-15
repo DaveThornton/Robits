@@ -25,4 +25,4 @@ func shield_down():
 func color(_pri: Color, _sec: Color):
 	head.self_modulate = _pri
 	shield.self_modulate = _sec
-	face.modulate = _sec
+	face.self_modulate = _sec

@@ -61,6 +61,20 @@ func sit_up(_right):
 		self.scale.x = -1
 	anim.play_backwards("Sit")
 
+func ladder_move(_right):
+	if _right:
+		self.scale.x = 1
+	else:
+		self.scale.x = -1
+	anim.play("Ladder")
+
+func ladder(_right):
+	if _right:
+		self.scale.x = 1
+	else:
+		self.scale.x = -1
+	anim.stop()
+
 func shield_up():
 	shield.visible = true
 

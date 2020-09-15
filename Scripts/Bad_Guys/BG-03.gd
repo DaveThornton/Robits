@@ -3,6 +3,7 @@ extends KinematicBody2D
 export(PackedScene) var projectile
 export(PackedScene) var explode
 export var right = true
+export var idle = false
 export var speed = 6500
 export var damage = 20
 export var health = 55
@@ -49,14 +50,19 @@ var can_shoot = true
 var player = -1
 
 func _ready():
-	pass
+	if right:
+		grfx.scale.x = 1
+	else:
+		grfx.scale.x = -1
+
 func _physics_process(delta):
 	_on_floor()
 	if can_shoot:
 		_shoot()
 	if !go_off_edge:
 		_on_edge()
-	_move_x(delta)
+	if !idle:
+		_move_x(delta)
 	vel += Vector2(0 , (grav * int(!on_floor) * delta))
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
@@ -65,6 +71,66 @@ func _physics_process(delta):
 	move_and_collide(Vector2(0,vel.y))
 
 func _shoot():
+	if ray_shoot_right_prone.is_colliding():
+		var body = ray_shoot_right_prone.get_collider()
+		if is_instance_valid(body):
+			if body.get_groups().has("player"):
+				right = true
+				grfx.scale.x = 1
+				shoot_spot = pos_right_prone
+				shoot_num = 6
+	if ray_shoot_left_prone.is_colliding():
+		var body = ray_shoot_left_prone.get_collider()
+		if is_instance_valid(body):
+			if body.get_groups().has("player"):
+				right = false
+				grfx.scale.x = -1
+				shoot_spot = pos_left_prone
+				shoot_num = 6
+	if ray_shoot_up.is_colliding():
+		var body = ray_shoot_up.get_collider()
+		if is_instance_valid(body):
+			if body.get_groups().has("player"):
+				shoot_spot = pos_up
+				shoot_num = 1
+	if ray_shoot_up_right.is_colliding():
+		var body = ray_shoot_up_right.get_collider()
+		if is_instance_valid(body):
+			if body.get_groups().has("player"):
+				right = true
+				grfx.scale.x = 1
+				shoot_spot = pos_up_right
+				shoot_num = 2
+	if ray_shoot_up_left.is_colliding():
+		var body = ray_shoot_up_left.get_collider()
+		if is_instance_valid(body):
+			if body.get_groups().has("player"):
+				right = false
+				grfx.scale.x = -1
+				shoot_spot = pos_up_left
+				shoot_num = 2
+	if ray_shoot_down_right.is_colliding():
+		var body = ray_shoot_down_right.get_collider()
+		if is_instance_valid(body):
+			if body.get_groups().has("player"):
+				right = true
+				grfx.scale.x = 1
+				shoot_spot = pos_down_right
+				shoot_num = 4
+	if ray_shoot_down_left.is_colliding():
+		var body = ray_shoot_down_left.get_collider()
+		if is_instance_valid(body):
+			if body.get_groups().has("player"):
+				right = false
+				grfx.scale.x = -1
+				shoot_spot = pos_down_left
+				shoot_num = 4
+	if ray_shoot_down.is_colliding():
+		var body = ray_shoot_down.get_collider()
+		if is_instance_valid(body):
+			if body.get_groups().has("player"):
+				shoot_spot = pos_down
+				shoot_num = 5
 	if ray_shoot_right.is_colliding():
 		var body = ray_shoot_right.get_collider()
 		if is_instance_valid(body):
@@ -73,7 +139,7 @@ func _shoot():
 				grfx.scale.x = 1
 				shoot_spot = pos_right
 				shoot_num = 3
-	elif ray_shoot_left.is_colliding():
+	if ray_shoot_left.is_colliding():
 		var body = ray_shoot_left.get_collider()
 		if is_instance_valid(body):
 			if body.get_groups().has("player"):
@@ -81,66 +147,6 @@ func _shoot():
 				grfx.scale.x = -1
 				shoot_spot = pos_left
 				shoot_num = 3
-	elif ray_shoot_right_prone.is_colliding():
-		var body = ray_shoot_right_prone.get_collider()
-		if is_instance_valid(body):
-			if body.get_groups().has("player"):
-				right = true
-				grfx.scale.x = 1
-				shoot_spot = pos_right_prone
-				shoot_num = 6
-	elif ray_shoot_left_prone.is_colliding():
-		var body = ray_shoot_left_prone.get_collider()
-		if is_instance_valid(body):
-			if body.get_groups().has("player"):
-				right = false
-				grfx.scale.x = -1
-				shoot_spot = pos_left_prone
-				shoot_num = 6
-	elif ray_shoot_up.is_colliding():
-		var body = ray_shoot_up.get_collider()
-		if is_instance_valid(body):
-			if body.get_groups().has("player"):
-				shoot_spot = pos_up
-				shoot_num = 1
-	elif ray_shoot_up_right.is_colliding():
-		var body = ray_shoot_up_right.get_collider()
-		if is_instance_valid(body):
-			if body.get_groups().has("player"):
-				right = true
-				grfx.scale.x = 1
-				shoot_spot = pos_up_right
-				shoot_num = 2
-	elif ray_shoot_up_left.is_colliding():
-		var body = ray_shoot_up_left.get_collider()
-		if is_instance_valid(body):
-			if body.get_groups().has("player"):
-				right = false
-				grfx.scale.x = -1
-				shoot_spot = pos_up_left
-				shoot_num = 2
-	elif ray_shoot_down_right.is_colliding():
-		var body = ray_shoot_down_right.get_collider()
-		if is_instance_valid(body):
-			if body.get_groups().has("player"):
-				right = true
-				grfx.scale.x = 1
-				shoot_spot = pos_down_right
-				shoot_num = 4
-	elif ray_shoot_down_left.is_colliding():
-		var body = ray_shoot_down_left.get_collider()
-		if is_instance_valid(body):
-			if body.get_groups().has("player"):
-				right = false
-				grfx.scale.x = -1
-				shoot_spot = pos_down_left
-				shoot_num = 4
-	elif ray_shoot_down.is_colliding():
-		var body = ray_shoot_down.get_collider()
-		if is_instance_valid(body):
-			if body.get_groups().has("player"):
-				shoot_spot = pos_down
-				shoot_num = 5
 	if shoot_spot:
 		if can_shoot:
 			grfx.play_anim("shoot", shoot_num)
@@ -155,6 +161,7 @@ func _shoot():
 			SFX.play("Laser_Shoot")
 			shoot_timer.start()
 			print("shoot")
+			idle = false
 			can_shoot = false
 			shoot_spot = null
 

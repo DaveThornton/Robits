@@ -38,5 +38,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 				_load_level(level_to_load_2, text_title_2, text_body_2, splash_time_2, show_splash_2)
 
 func _load_level(_level_to_load,_text_title, _text_body, _splash_time, _show):
-#	self.get_tree().get_current_scene().level_loader.load_level(_level_to_load,_text_title, _text_body, _splash_time, _show)
 	Map_Hand.load_map_cam(_level_to_load, _text_title, _text_body, _splash_time, _show)

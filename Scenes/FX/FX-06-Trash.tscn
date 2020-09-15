@@ -120,7 +120,7 @@ disabled = true
 
 [node name="col_2d_07" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( 7.62939e-006, 0.314022 )
+position = Vector2( 7.62939e-06, 0.314022 )
 shape = SubResource( 8 )
 disabled = true
 

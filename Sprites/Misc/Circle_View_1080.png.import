@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TS-G-06-Fence-2.png-955a1578f5ef9910ada641baf8921ea2.stex"
+path="res://.import/Circle_View_1080.png-92ccd561398e2301be6f1b0c05b0c3f5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilesets/TS-G-06-Fence-2.png"
-dest_files=[ "res://.import/TS-G-06-Fence-2.png-955a1578f5ef9910ada641baf8921ea2.stex" ]
+source_file="res://Sprites/Misc/Circle_View_1080.png"
+dest_files=[ "res://.import/Circle_View_1080.png-92ccd561398e2301be6f1b0c05b0c3f5.stex" ]
 
 [params]
 

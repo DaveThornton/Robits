@@ -22,7 +22,7 @@ height = 50.0
 radius = 4.0
 height = 40.0
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=5]
 resource_name = "Ladder-Move"
 length = 0.6
 loop = true
@@ -147,7 +147,7 @@ tracks/9/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=6]
 resource_name = "Ladder-Stand"
 length = 0.1
 loop = true
@@ -272,7 +272,7 @@ tracks/9/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=7]
 resource_name = "Left-Fall"
 length = 0.1
 loop = true
@@ -397,7 +397,7 @@ tracks/9/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=8]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Legs:frame")
@@ -508,7 +508,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=9]
 resource_name = "Left-Jump"
 length = 0.6
 loop = true
@@ -621,7 +621,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=10]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -733,7 +733,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=11]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -845,7 +845,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=12]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -957,7 +957,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=13]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Legs:frame")
 tracks/0/interp = 0
@@ -1067,7 +1067,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=14]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Legs:frame")
@@ -1154,7 +1154,7 @@ tracks/6/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=15]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Legs:frame")
@@ -1241,7 +1241,7 @@ tracks/6/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=16]
 resource_name = "Right-Fall"
 length = 0.1
 loop = true
@@ -1366,7 +1366,7 @@ tracks/9/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=17]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Legs:frame")
@@ -1477,7 +1477,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=18]
 resource_name = "Right-Jump"
 length = 0.6
 loop = true
@@ -1590,7 +1590,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=19]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -1702,7 +1702,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=20]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -1814,7 +1814,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=21]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -1926,7 +1926,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=22]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Legs:frame")
 tracks/0/interp = 0
@@ -2036,7 +2036,7 @@ tracks/8/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=23]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Legs:frame")
@@ -2137,7 +2137,7 @@ tracks/7/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=24]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Legs:frame")
@@ -2297,6 +2297,7 @@ position = Vector2( 0, 10 )
 shape = SubResource( 2 )
 
 [node name="Shield" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, 4 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 5 )
@@ -2343,26 +2344,26 @@ collision_mask = 32
 shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Ladder-Move = SubResource( 23 )
-anims/Ladder-Stand = SubResource( 24 )
-anims/Left-Fall = SubResource( 19 )
-anims/Left-Idle = SubResource( 5 )
-anims/Left-Jump = SubResource( 20 )
-anims/Left-Prone-Crawl = SubResource( 6 )
-anims/Left-Prone-Idle = SubResource( 7 )
-anims/Left-Run = SubResource( 8 )
-anims/Left-Stun = SubResource( 9 )
-anims/Left_Kick = SubResource( 10 )
-anims/Left_Wall = SubResource( 11 )
-anims/Right-Fall = SubResource( 21 )
-anims/Right-Idle = SubResource( 12 )
-anims/Right-Jump = SubResource( 22 )
-anims/Right-Prone-Crawl = SubResource( 13 )
-anims/Right-Prone-Idle = SubResource( 14 )
-anims/Right-Run = SubResource( 15 )
-anims/Right-Stun = SubResource( 16 )
-anims/Right_Kick = SubResource( 17 )
-anims/Right_Wall = SubResource( 18 )
+anims/Ladder-Move = SubResource( 5 )
+anims/Ladder-Stand = SubResource( 6 )
+anims/Left-Fall = SubResource( 7 )
+anims/Left-Idle = SubResource( 8 )
+anims/Left-Jump = SubResource( 9 )
+anims/Left-Prone-Crawl = SubResource( 10 )
+anims/Left-Prone-Idle = SubResource( 11 )
+anims/Left-Run = SubResource( 12 )
+anims/Left-Stun = SubResource( 13 )
+anims/Left_Kick = SubResource( 14 )
+anims/Left_Wall = SubResource( 15 )
+anims/Right-Fall = SubResource( 16 )
+anims/Right-Idle = SubResource( 17 )
+anims/Right-Jump = SubResource( 18 )
+anims/Right-Prone-Crawl = SubResource( 19 )
+anims/Right-Prone-Idle = SubResource( 20 )
+anims/Right-Run = SubResource( 21 )
+anims/Right-Stun = SubResource( 22 )
+anims/Right_Kick = SubResource( 23 )
+anims/Right_Wall = SubResource( 24 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

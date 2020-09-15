@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_03/Pawn_03_Part_Small_Wheel_02.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_03/Pawn_03_Part_Small_Wheel_01.png" type="Texture" id=2]
@@ -20,6 +20,47 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Wheel:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Up"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Teeth:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Wheel:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
 
 [node name="Pawn_03_Part_Small_Wheel" type="Node2D"]
 script = ExtResource( 3 )
@@ -28,15 +69,16 @@ script = ExtResource( 3 )
 visible = false
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
-hframes = 3
+hframes = 6
 
 [node name="Wheel" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-hframes = 3
+hframes = 6
 
 [node name="Teeth" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-hframes = 3
+hframes = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Right = SubResource( 1 )
+anims/Up = SubResource( 2 )

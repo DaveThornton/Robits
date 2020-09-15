@@ -1,6 +1,7 @@
 extends RigidBody2D
 
-#export var time_out = 30.0
+export var set_trash = false
+export var number_set = 0
 
 onready var sprite = $Sprite
 onready var timer = $Timer
@@ -26,8 +27,10 @@ onready var cs18 = $col_2d_18
 onready var cs19 = $col_2d_19
 onready var cs20 = $col_2d_20
 
-#func _ready():
-#	timer.wait_time = time_out
+func _ready():
+	if set_trash:
+		sprite.frame = number_set
+		set_num(number_set)
 
 func init(_num, _pos, _impulse, _time_out):
 	timer.wait_time = _time_out
@@ -35,9 +38,9 @@ func init(_num, _pos, _impulse, _time_out):
 	timer.start()
 	position = _pos
 	apply_impulse(Vector2(),_impulse)
-	
-	
-	
+	set_num(_num)
+
+func set_num(_num):
 	if _num == 00:
 		cs00.disabled = false
 	elif _num == 01:
@@ -80,10 +83,6 @@ func init(_num, _pos, _impulse, _time_out):
 		cs19.disabled = false
 	elif _num == 20:
 		cs20.disabled = false
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 
 func _on_Timer_timeout():
 	call_deferred("free")

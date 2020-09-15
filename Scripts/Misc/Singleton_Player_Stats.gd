@@ -34,7 +34,7 @@ var p2 = {
 	nrg = 100,
 	pawn_num = -1,
 	color_2 = Color8(255, 0, 195, 255),
-	color_1 = Color8(94, 255, 170, 255),
+	color_1 = Color8(103, 255, 85, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
@@ -129,7 +129,7 @@ var p7 = {
 	nrg = 100,
 	pawn_num = -1,
 	color_2 = Color8(0, 30, 255, 255),
-	color_1 = Color8(255, 255, 0, 255),
+	color_1 = Color8(255, 220, 72, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
@@ -148,7 +148,7 @@ var p8 = {
 	nrg = 100,
 	pawn_num = -1,
 	color_2 = Color8(20, 255, 254, 255),
-	color_1 = Color8(255, 95, 0, 255),
+	color_1 = Color8(255, 105, 45, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
@@ -173,7 +173,6 @@ func add_kill(_killed, _killer, _point, _by_what):
 	add_score(_killer, _point)
 	add_score(_killed,(-1 * _point))
 	add_death(_killed)
-#	update_hud()
 
 func add_death(_player):
 	if _player == 1:

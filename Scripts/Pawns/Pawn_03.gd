@@ -74,6 +74,7 @@ var light_on_nrg = 20
 
 var can_move = true
 var is_right = true
+var body_state = 3
 var is_down = false
 var on_floor = false
 var on_wall = false
@@ -405,12 +406,15 @@ func _body_(_num: int):
 		body_shape_04.disabled = false
 	else:
 		print("error in _body pawn 03 invalid body number")
-	if is_right:
+	if body_state == 3:
 		body_sprite.frame = 0
 		wheel2.position.x = 20
-	else:
+	elif body_state == 1:
 		body_sprite.frame = 1
 		wheel2.position.x = -20
+	elif body_state == 2:
+		body_sprite.frame = 2
+		wheel2.position.x = 0
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
 	if ray_up.is_colliding():
@@ -422,12 +426,9 @@ func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
 		if !on_floor && !is_jump_pressed:
 			on_floor = true
-#			wheel.on_floor = true
 			SFX.play("Move_Jump_19_Land")
 	else :
 		on_floor = false
-#		wheel.on_floor = false
-		
 
 ##----------------------------------------------------------------[Stun / Knock]
 func stun(_gun_num):
@@ -558,89 +559,89 @@ func _anim_idle():
 	wheel1.stop()
 	wheel2.stop()
 	if is_right:
+		body_state = 3
 		_body(1)
-#		new_anim = "Right-Idle"
 	else:
+		body_state = 1
 		_body(2)
-#		new_anim = "Left-Idle"
 
 func _anim_run():
 	if is_right:
-#		new_anim = "Right-Run"
 		wheel1.turn(true)
 		wheel2.turn(true)
+		body_state = 3
 		_body(1)
 	else:
-#		new_anim = "Left-Run"
 		wheel1.turn(false)
 		wheel2.turn(false)
+		body_state = 1
 		_body(2)
 
 func _anim_jump():
 	if is_right:
-#		new_anim = "Right-Run"
 		wheel1.turn(true)
 		wheel2.turn(true)
+		body_state = 3
 		_body(1)
 	else:
-#		new_anim = "Left-Run"
 		wheel1.turn(false)
 		wheel2.turn(false)
+		body_state = 1
 		_body(2)
 
 func _anim_prone_idle():
 	wheel1.stop()
 	wheel2.stop()
 	if is_right:
+		body_state = 3
 		_body(3)
-#		new_anim = "Right-Prone-Idle"
 	else:
-#		new_anim = "Left-Prone-Idle"
+		body_state = 1
 		_body(4)
 
 func _anim_prone_crawl():
 	if is_right:
-#		new_anim = "Right-Prone-Crawl"
 		wheel1.turn(true)
 		wheel2.turn(true)
+		body_state = 3
 		_body(3)
 	else:
-#		new_anim = "Left-Prone-Crawl"
 		wheel1.turn(false)
 		wheel2.turn(false)
+		body_state = 1
 		_body(4)
 
 func _anim_stun():
 	if is_right:
+		body_state = 3
 		_body(1)
-#		new_anim = "Right-Stun"
 	else:
+		body_state = 1
 		_body(2)
-#		new_anim = "Left-Stun"
 
 func _anim_Knock():
 	if is_right:
+		body_state = 3
 		_body(1)
-#		new_anim = "Right-Knock_Back"
 	else:
+		body_state = 1
 		_body(2)
-#		new_anim = "Left-Knock_Back"
 
 func _anim_ladder_move():
+	body_state = 2
 	_body(1)
-#	new_anim = "Ladder-Move"
 	wheel1.stop()
 	wheel2.stop()
 
 func _anim_ladder_right():
+	body_state = 2
 	_body(1)
-#	new_anim = "Ladder-Right"
 	wheel1.ladder()
 	wheel2.ladder()
 
 func _anim_ladder_left():
+	body_state = 2
 	_body(2)
-#	new_anim = "Ladder-Left"
 	wheel1.ladder()
 	wheel2.ladder()
 
@@ -760,4 +761,3 @@ func killed_by_map(_by_who, _by_what, _damage_type, _damage):
 func start_next_level():
 	if !my_gun && start_equiped > 0:
 		equip_start_weap()
- 

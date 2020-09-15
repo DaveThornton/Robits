@@ -559,25 +559,6 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 						shoot_spot = 4
 						if !on_ladder:
 							_anim_jump()
-#					_anim_jump()
-#					if !up_input && !down_input && !left_input && !right_input:
-#						shoot_spot = 3
-#					elif up_input && !down_input && !left_input && !right_input:
-#						shoot_spot = 1
-#					elif !up_input && down_input && !left_input && !right_input:
-#						shoot_spot = 5
-#					elif !up_input && !down_input && left_input && !right_input:
-#						shoot_spot = 3
-#					elif !up_input && !down_input && !left_input && right_input:
-#						shoot_spot = 3
-#					elif up_input && !down_input && left_input && !right_input:
-#						shoot_spot = 2
-#					elif up_input && !down_input && !left_input && right_input:
-#						shoot_spot = 2
-#					elif !up_input && down_input && left_input && !right_input:
-#						shoot_spot = 4
-#					elif !up_input && down_input && !left_input && right_input:
-#						shoot_spot = 4
 
 func _anim_idle():
 	new_anim = "Stand"

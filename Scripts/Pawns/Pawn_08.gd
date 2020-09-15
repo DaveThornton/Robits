@@ -240,10 +240,7 @@ func jump(down_input, left_input, right_input):
 
 # Wall Jump can jump
 # -1 = left -- 1 = right -- 0 = both
-# warning-ignore:unused_argument
-# warning-ignore:unused_argument
-# warning-ignore:unused_argument
-func jump_j(down_input, left_input, right_input):
+func jump_j(_down_input, _left_input, _right_input):
 	print(on_wall)
 	if on_wall == 0:
 		return
@@ -765,6 +762,7 @@ func _set_color():
 func _set_new_color(_pri, _sec):
 	body_head.color(_pri, _sec)
 	hip.color(_pri, _sec)
+	arm.color(_pri, _sec)
 	legs.self_modulate = _pri
 	shield.self_modulate = _sec
 

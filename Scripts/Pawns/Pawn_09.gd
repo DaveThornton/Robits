@@ -163,12 +163,7 @@ func move_x(_moving, _right):
 						current_x_speed -= max_x_speed / 5 * speed_power_up #* delta
 			else:
 				current_x_speed = 0
-#				if current_x_speed < 20 && current_x_speed > -20 || on_ladder:
-#					current_x_speed = 0
-#				else:
-#					current_x_speed -= current_x_speed / 2
 		else:
-			print("pawn 05 not on floor")
 			if _moving:
 				if is_down:
 					if _right:
@@ -414,7 +409,7 @@ func add_ammo(_ammo):
 
 ##-------------------------------------------------------------------[Animation]
 # warning-ignore:unused_argument
-func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, _delta):
+func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
 	if can_move:
 		if !down_input && is_down:
 			is_down = false
@@ -459,8 +454,13 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			else:
 				if on_floor:
 					if down_input && !left_input && !right_input && !on_ladder:
-						_anim_prone_idle()
-						is_down = true
+						if over_ladder || on_ladder:
+							on_ladder = true
+							self.position.y += ladder_speed * delta
+							_anim_ladder_move()
+						else:
+							_anim_prone_idle()
+							is_down = true
 					elif !down_input && !left_input && right_input:
 						_anim_run()
 						if up_input:
@@ -489,28 +489,65 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 						_anim_idle()
 						shoot_spot = 3
 					elif up_input && !down_input && !left_input && !right_input:
-						_anim_idle()
-						shoot_spot = 1
+						if over_ladder || on_ladder:
+							on_ladder = true
+							self.position.y -= ladder_speed * delta
+							_anim_ladder_move()
+						else:
+							_anim_idle()
+							shoot_spot = 1
 				else:# not on floor
-					_anim_jump()
 					if !up_input && !down_input && !left_input && !right_input:
+						if on_ladder:
+							if is_right:
+								_anim_ladder_right()
+							else:
+								_anim_ladder_left()
+						else:
+							_anim_jump()
 						shoot_spot = 3
 					elif up_input && !down_input && !left_input && !right_input:
-						shoot_spot = 1
+						if over_ladder || on_ladder:
+							on_ladder = true
+							self.position.y -= ladder_speed * delta
+							_anim_ladder_move()
+							shoot_spot = 1
+						else:
+							shoot_spot = 1
+							_anim_jump()
 					elif !up_input && down_input && !left_input && !right_input:
-						shoot_spot = 5
+						if over_ladder || on_ladder:
+							on_ladder = true
+							self.position.y += ladder_speed * delta
+							_anim_ladder_move()
+						else:
+							shoot_spot = 5
+							_anim_jump()
 					elif !up_input && !down_input && left_input && !right_input:
 						shoot_spot = 3
+						if !on_ladder:
+							_anim_jump()
 					elif !up_input && !down_input && !left_input && right_input:
 						shoot_spot = 3
+						if !on_ladder:
+							_anim_jump()
 					elif up_input && !down_input && left_input && !right_input:
 						shoot_spot = 2
+						if !on_ladder:
+							_anim_jump()
 					elif up_input && !down_input && !left_input && right_input:
 						shoot_spot = 2
+						if !on_ladder:
+							_anim_jump()
 					elif !up_input && down_input && left_input && !right_input:
 						shoot_spot = 4
+						if !on_ladder:
+							_anim_jump()
 					elif !up_input && down_input && !left_input && right_input:
 						shoot_spot = 4
+						if !on_ladder:
+							_anim_jump()
+
 
 func _anim_idle():
 	legs.idle(is_right)
@@ -578,17 +615,15 @@ func _anim_Knock():
 
 func _anim_ladder_move():
 	_body(1)
-	new_anim = "Ladder-Move"
+	legs.ladder_up()
 
 func _anim_ladder_right():
 	_body(1)
-#	hip.stop()
-	new_anim = "Ladder-Right"
+	legs.ladder(true)
 
 func _anim_ladder_left():
 	_body(1)
-#	hip.stop()
-	new_anim = "Ladder-Left"
+	legs.ladder(false)
 
 func _set_gun_dir():
 	arm.is_right(is_right)
@@ -744,3 +779,4 @@ func killed_by_map(_by_who, _by_what, _damage_type, _damage):
 func start_next_level():
 	if !my_gun && start_equiped > 0:
 		equip_start_weap()
+

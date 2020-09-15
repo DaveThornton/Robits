@@ -72,26 +72,26 @@ script = ExtResource( 10 )
 [node name="Pawn_03_Part_Big_Wheel_01" type="Sprite" parent="."]
 position = Vector2( 0, -15 )
 texture = ExtResource( 8 )
-hframes = 5
+hframes = 10
 
 [node name="Pawn_03_Part_Big_Wheel_02" type="Sprite" parent="Pawn_03_Part_Big_Wheel_01"]
 texture = ExtResource( 6 )
-hframes = 5
+hframes = 10
 frame = 2
 
 [node name="Pawn_03_Part_Big_Wheel_03" type="Sprite" parent="Pawn_03_Part_Big_Wheel_01"]
 texture = ExtResource( 9 )
-hframes = 5
+hframes = 10
 frame = 2
 
 [node name="Pawn_03_Part_Small_Wheel_02" type="Sprite" parent="."]
 position = Vector2( 21, -6 )
 texture = ExtResource( 3 )
-hframes = 3
+hframes = 6
 
 [node name="Pawn_03_Part_Small_Wheel_01" type="Sprite" parent="Pawn_03_Part_Small_Wheel_02"]
 texture = ExtResource( 4 )
-hframes = 3
+hframes = 6
 
 [node name="Pawn_03_Part_Body" type="Sprite" parent="."]
 position = Vector2( 1, -17.097 )

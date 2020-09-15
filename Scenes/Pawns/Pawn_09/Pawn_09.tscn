@@ -101,6 +101,18 @@ tracks/6/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Ladder_Area/CollisionShape2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8, 1 ) ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Left_Prone"
@@ -173,6 +185,18 @@ tracks/5/enabled = true
 tracks/5/keys = {
 "points": PoolRealArray( -90, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Ladder_Area/CollisionShape2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8, 1 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -254,6 +278,18 @@ tracks/6/keys = {
 "points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("Ladder_Area/CollisionShape2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 tracks/0/type = "value"
@@ -328,6 +364,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ 90.0 ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("Ladder_Area/CollisionShape2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8, 1 ) ]
+}
 
 [node name="Pawn_09" type="KinematicBody2D" groups=[
 "hittable",
@@ -382,7 +430,7 @@ disabled = true
 [node name="Shield" type="Sprite" parent="."]
 
 [node name="POS_Body" type="Position2D" parent="."]
-position = Vector2( 7, 5 )
+position = Vector2( -7, 5 )
 
 [node name="Body" type="Sprite" parent="POS_Body"]
 self_modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
@@ -412,11 +460,11 @@ rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
-visible = false
 collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
+position = Vector2( -8, 1 )
 shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -426,3 +474,5 @@ anims/Right = SubResource( 7 )
 anims/Right_Prone = SubResource( 8 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
+[connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]
+[connection signal="body_exited" from="Ladder_Area" to="." method="_on_Ladder_Area_body_exited"]
