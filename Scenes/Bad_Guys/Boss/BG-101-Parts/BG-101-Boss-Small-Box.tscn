@@ -1,0 +1,116 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Sprites/Bad_Guys/Boss/BG-101-Boss/BG-101-Boss-Small-Box-Light.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Bad_Guys/Boss/BG-101-Boss/BG-101-Boss-Small-Box-Back.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Bad_Guys/Boss/Boss-01/BG-101-Boss-Small-Box.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Bad_Guys/Boss/Boss-01/BG-101-Boss-Small-Box-HitBox.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30, 30 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Open_Can_Shoot"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG-101-Boss-Small-Box-Back:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 1.2, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 3, 1, 3, 0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.7, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_open"
+}, {
+"args": [  ],
+"method": "shoot"
+}, {
+"args": [ false ],
+"method": "set_open"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Open_Cant_Shoot"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG-101-Boss-Small-Box-Back:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 3, 2 ]
+}
+
+[node name="BG-101-Boss-Small-Box" type="Node2D" groups=[
+"badguy",
+"hittable",
+"map",
+]]
+script = ExtResource( 3 )
+projectile = ExtResource( 6 )
+explode = ExtResource( 5 )
+light_color = Color( 1, 0, 0, 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+"badguy",
+"hittable",
+"map",
+]]
+collision_layer = 2052
+collision_mask = 3598
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="BG-101-Boss-Small-Box-Back" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 4
+
+[node name="BG-101-Boss-Small-Box-Light" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Open_Can_Shoot = SubResource( 2 )
+anims/Open_Cant_Shoot = SubResource( 3 )
+
+[node name="Shoot_Spots" type="Node2D" parent="."]
+
+[node name="Pos_Shoot_01" type="Position2D" parent="Shoot_Spots"]
+position = Vector2( -20, 18 )
+rotation = 2.35619
+
+[node name="Pos_Shoot_02" type="Position2D" parent="Shoot_Spots"]
+position = Vector2( 0, 18 )
+rotation = 1.5708
+
+[node name="Pos_Shoot_03" type="Position2D" parent="Shoot_Spots"]
+position = Vector2( 20, 18 )
+rotation = 0.785398
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.4
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

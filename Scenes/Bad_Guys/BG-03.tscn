@@ -13,7 +13,7 @@ height = 15.0
 "badguy",
 "hittable",
 ]]
-z_index = 19
+z_index = -1
 collision_layer = 2048
 collision_mask = 3614
 script = ExtResource( 2 )

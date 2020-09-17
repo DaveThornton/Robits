@@ -45,8 +45,8 @@ tracks/0/keys = {
 }
 
 [node name="BG-22-Turret-Ceiling" type="StaticBody2D" groups=[
-"hittable",
 "badguy",
+"hittable",
 ]]
 position = Vector2( 0, 14 )
 collision_mask = 131594

@@ -2094,7 +2094,7 @@ height = 30.0
 "player",
 ]]
 collision_layer = 2
-collision_mask = 67102
+collision_mask = 67230
 script = ExtResource( 5 )
 
 [node name="Timers" parent="." instance=ExtResource( 9 )]

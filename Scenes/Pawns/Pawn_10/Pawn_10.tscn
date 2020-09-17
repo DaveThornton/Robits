@@ -1333,7 +1333,7 @@ tracks/7/keys = {
 "player",
 ]]
 collision_layer = 2147483650
-collision_mask = 2147549726
+collision_mask = 2147549854
 script = ExtResource( 4 )
 
 [node name="Timers" parent="." instance=ExtResource( 7 )]

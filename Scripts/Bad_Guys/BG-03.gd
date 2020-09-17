@@ -3,7 +3,7 @@ extends KinematicBody2D
 export(PackedScene) var projectile
 export(PackedScene) var explode
 export var right = true
-export var idle = false
+export var idle = true
 export var speed = 6500
 export var damage = 20
 export var health = 55
@@ -184,6 +184,12 @@ func _explode():
 	var e = explode.instance()
 	Map_Hand.add_kid_to_map(e)
 	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
+
+func stop():
+	idle = true
+	
+func go():
+	idle = false
 
 func _move_x(delta):
 	if can_shoot:

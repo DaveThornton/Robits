@@ -6,9 +6,10 @@ var owned = 1
 var my_name = "Basic Projectile"
 var damage = 29
 var damage_type = "laser"
+var started = false
 
 func start(_rot, _pos, _scale, _owner, _dmg):
-	timer.start()
+#	timer.start()
 	rotation = _rot + rand_range(-.02, .02)
 	position = _pos
 	scale = _scale
@@ -18,9 +19,15 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 		rotation *= -1
 
 func _physics_process(delta):
+	if !started:
+		timer.start()
+		started = true
 	move_local_x(speed * delta)
 
 func _on_Projectile_body_entered(body):
+	entered(body)
+
+func entered(body):
 	if body.get_groups().has("hittable") && !body.get_groups().has("badguy"):
 		_hit()
 		body.hit(owned, my_name, damage_type, damage)
@@ -39,3 +46,7 @@ func _hit():
 
 func _on_Timer_timeout():
 	queue_free()
+
+
+func _on_Projectile_area_entered(area):
+	entered(area)
