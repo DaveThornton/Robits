@@ -24,7 +24,13 @@ func _physics_process(delta):
 	self.scale += Vector2(delta * 5, delta * 5)
 	move_local_x(speed * delta)
 
+func _on_Proj51Contradiction_S_01_area_entered(area):
+	entered(area)
+
 func _on_Proj51Contradiction_S_01_body_entered(body):
+	entered(body)
+
+func entered(body):
 	var _hit = true
 	if body.get_groups().has("player"):
 		if body.player == owned:

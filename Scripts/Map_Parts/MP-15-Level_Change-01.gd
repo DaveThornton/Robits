@@ -13,8 +13,16 @@ export var show_splash_2 = true
 export var text_title_2 = "Level Title  2"
 export var text_body_2 = "Body of text discribing the next level 2"
 export var splash_time_2 = 3
-
+onready var exit_shape = $Area2D/CollisionShape2D
 onready var anim = $AnimationPlayer
+
+func off():
+	exit_shape.disabled = true
+#	print("--------------------------------exitshape --->",exit_shape.disabled)
+
+func on():
+	exit_shape.disabled = false
+#	print("--------------------------------exitshape --->",exit_shape.disabled)
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):

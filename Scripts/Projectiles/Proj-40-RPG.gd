@@ -28,7 +28,13 @@ func _physics_process(delta):
 	if cast_forward.is_colliding():
 		call_deferred("_explode", position)
 
-func _on_Projectile_04_body_entered(_body):
+func _on_Projectile_04_area_entered(area):
+	entered(area)
+
+func _on_Projectile_04_body_entered(body):
+	entered(body)
+
+func entered(body):
 	call_deferred("_explode",self.global_position)
 
 func _on_Timer_timeout():

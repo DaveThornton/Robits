@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menus/Arcade/Scripts/M05-Arcade-Player-Select-Camp.gd" type="Script" id=1]
-[ext_resource path="res://map/Campaign-mode/Map-C-04A-Boss.tscn" type="PackedScene" id=2]
+[ext_resource path="res://map/Campaign-mode/Map-C-W02-L01-Jungle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menus/Grids/menu_8x2_01.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Menu/Player_Select_8x2.png" type="Texture" id=4]
 [ext_resource path="res://Menus/Parts/M20-Robit_Preview_01.tscn" type="PackedScene" id=5]

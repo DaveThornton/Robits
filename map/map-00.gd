@@ -14,7 +14,7 @@ func _ready():
 		print("map nav system found")
 	else:
 		print("map has no navigation")
-
+	FX.camera_move(false)
 	if splash:
 		HUD.splash(top_text, body_text, 1.5, true)
 

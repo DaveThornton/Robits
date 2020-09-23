@@ -4,9 +4,10 @@ export(PackedScene) var projectile
 export(PackedScene) var explode
 export var right = true
 export var idle = true
+export var just_stand = false
 export var speed = 6500
 export var damage = 20
-export var health = 55
+export var health = 5
 export var armor = 3
 export var go_off_edge = true
 
@@ -61,8 +62,9 @@ func _physics_process(delta):
 		_shoot()
 	if !go_off_edge:
 		_on_edge()
-	if !idle:
-		_move_x(delta)
+	if !just_stand:
+		if !idle:
+			_move_x(delta)
 	vel += Vector2(0 , (grav * int(!on_floor) * delta))
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel

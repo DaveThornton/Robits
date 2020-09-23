@@ -97,7 +97,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 
 func _explode():
 	var x = explode.instance()
-	get_tree().get_current_scene().map.add_child(x)
+	Map_Hand.add_kid_to_map(x)
 	x.init(player, self.position, str("player ", x, "'s destruct system"), player, ex_dmg)
 
 func sort_distance(_a, _b):
@@ -118,7 +118,5 @@ func _on_Timer_Shoot_timeout():
 func remove_dead():
 	var h_size = (bodies_in_range.size() - 1)
 	for h in  bodies_in_range.size():
-#		print(h, h_size, hunted.size())
 		if !is_instance_valid( bodies_in_range[h_size - h]):
 			 bodies_in_range.remove(h_size - h)
-#	print(hunted.size())

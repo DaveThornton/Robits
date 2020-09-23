@@ -56,7 +56,7 @@ var max_air_jump_count = 1
 var max_air_jump_power = 5
 var min_air_jump_power = 1.5
 var air_jump_count = 0
-var max_jump_power = 7.25
+var max_jump_power = 6.75
 var min_jump_power = 1.5
 var head_room = 0
 

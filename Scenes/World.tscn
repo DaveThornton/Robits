@@ -16,6 +16,7 @@ arcade_start = ExtResource( 2 )
 demo_map = ExtResource( 3 )
 
 [node name="Black_Side_Pannel" type="Sprite" parent="."]
+visible = false
 position = Vector2( 953, 552 )
 scale = Vector2( 6, 1.2 )
 z_index = -40

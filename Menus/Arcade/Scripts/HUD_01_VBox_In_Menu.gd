@@ -39,7 +39,7 @@ func coin_count_update(_num:int):
 	update_state(6)
 
 func update_state(_state:int):
-	print("update state called in hud 01 vbox in menu")
+#	print("update state called in hud 01 vbox in menu")
 #	anim.stop()
 	all_out()
 	imb_01_player.visible = true

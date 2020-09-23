@@ -24,22 +24,18 @@ func start(_rot, _pos, _scale, _owner, dmg):
 func _physics_process(delta):
 	move_local_x(speed * delta)
 
+func _on_Projectile_area_entered(area):
+	entered(area)
+
 func _on_Projectile_body_entered(body):
+	entered(body)
+
+func entered(body):
 	var _hit = true
 	if body.get_groups().has("player"):
 		if body.player == owned:
 			print("hit your self?!?!")
 			_hit = false
-#	if body.get_groups().has("map"):
-#		call_deferred("free")
-#	elif body.get_groups().has("player"):
-#		_hit()
-#		body.hit(owned, my_name, damage_type, damage)
-#		queue_free()
-#	elif body.get_groups().has("BadGuy"):
-#		_hit()
-#		body.hit(owned, my_name, damage_type, damage)
-#		queue_free()
 	if _hit:
 		if body.get_groups().has("hittable"):
 			Player_Stats.add_hit(owned, 1)

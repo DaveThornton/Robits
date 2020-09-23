@@ -26,7 +26,13 @@ func start(_rot, _pos, _scale, _owner, dmg):
 func _physics_process(delta):
 	move_local_x(speed * delta)
 
+func _on_Projectile_area_entered(area):
+	entered(area)
+
 func _on_Projectile_body_entered(body):
+	entered(body)
+
+func entered(body):
 	if body.get_groups().has("hittable"):
 		Player_Stats.add_hit(owned, 1)
 		_hit_move()

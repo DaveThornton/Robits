@@ -43,15 +43,15 @@ var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
 
-var max_x_speed = 290
+var max_x_speed = 160
 var current_x_speed = 0
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed = false
 var max_air_jump_count = 1
-var max_air_jump_power = 10
+var max_air_jump_power = 8
 var min_air_jump_power = 1.5
 var air_jump_count = 0
-var max_jump_power = 7.5
+var max_jump_power = 6
 var min_jump_power = 1.5
 var head_room = 0
 var last_vel = 0.0

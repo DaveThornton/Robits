@@ -30,4 +30,5 @@ scale = Vector2( 1.5, 1 )
 texture = ExtResource( 4 )
 hframes = 12
 frame = 1
+[connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]

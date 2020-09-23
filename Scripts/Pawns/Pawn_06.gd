@@ -58,11 +58,11 @@ var can_jump = true
 var jump_top_pos = 0.0
 var jump_top = false
 var jump_height = 180
-var max_air_jump_count = 5
-var max_air_jump_power = 4
+var max_air_jump_count = 1
+var max_air_jump_power = 3
 var min_air_jump_power = 1.5
 var air_jump_count = 0
-var max_jump_power = 8
+var max_jump_power = 7.5
 var min_jump_power = 1.5
 
 var move_step = 0

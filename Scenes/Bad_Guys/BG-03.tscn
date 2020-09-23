@@ -15,7 +15,7 @@ height = 15.0
 ]]
 z_index = -1
 collision_layer = 2048
-collision_mask = 3614
+collision_mask = 3612
 script = ExtResource( 2 )
 projectile = ExtResource( 3 )
 explode = ExtResource( 4 )

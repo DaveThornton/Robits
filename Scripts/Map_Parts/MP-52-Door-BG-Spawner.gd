@@ -5,11 +5,12 @@ export(PackedScene) var explode
 export var right = true
 export var delayed_start = true
 export var delay = 3.0
-export var health = 5
+export var health = 150
 export var armor = 5
 
 onready var spawn_spot = $Position2D
 onready var anim = $AnimationPlayer
+onready var shape = $CollisionShape2D
 onready var timer = $Timer
 
 var activated = false
@@ -27,6 +28,7 @@ func _ready():
 func activate(_num, _player):
 	if !activated:
 		activated = true
+		shape.disabled = false
 		if delayed_start:
 			timer.start()
 		else:
@@ -41,6 +43,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		health -= (_damage - armor)
 		if health <= 0:
 			print("mp 52 dead")
+			shape.disabled = true
 			call_deferred("_explode")
 			anim.play("Broke")
 			timer.stop()
@@ -58,9 +61,11 @@ func spawn():
 	cbg.global_position = spawn_spot.global_position
 
 func pause():
-	cbg.stop()
+	if cbg:
+		cbg.stop()
 func unpause():
-	cbg.go()
+	if cbg:
+		cbg.go()
 
 func _on_Timer_timeout():
 	if !dead:

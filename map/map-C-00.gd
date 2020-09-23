@@ -1,5 +1,6 @@
 extends Node2D
 
+export var camera_move = false
 export var show_splash = false
 export var title_text = "Title"
 export var body_text = "Body"
@@ -22,6 +23,7 @@ func _ready():
 		print("map nav system found")
 	else:
 		print("map has no navigation")
+	FX.camera_move(camera_move)
 	var e = self.connect("reset",get_tree().get_current_scene(),"reset")
 	if !e:
 		print("error in map ready: error connecting reset")

@@ -32,9 +32,9 @@ func entered(body):
 		_hit()
 		body.hit(owned, my_name, damage_type, damage)
 		call_deferred("free")
-	elif body.get_groups().has("projectile"):
-		_hit()
-		call_deferred("free")
+#	elif body.get_groups().has("projectile"):
+#		_hit()
+#		call_deferred("free")
 	elif body.get_groups().has("map"):
 		_hit()
 		call_deferred("free")

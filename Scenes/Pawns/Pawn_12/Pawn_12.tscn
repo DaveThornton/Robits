@@ -3064,8 +3064,7 @@ shape = SubResource( 2 )
 
 [node name="Shield" type="Sprite" parent="."]
 visible = false
-position = Vector2( 0, 1 )
-scale = Vector2( -1, 1 )
+position = Vector2( 1, 0 )
 texture = ExtResource( 9 )
 
 [node name="Shield_Leg_B" type="Sprite" parent="Shield"]
@@ -3079,23 +3078,21 @@ position = Vector2( 0, 6 )
 texture = ExtResource( 10 )
 offset = Vector2( 0, 10 )
 hframes = 31
-frame = 21
+frame = 7
 
 [node name="Pawn_12_Part_Legs_B" type="Sprite" parent="."]
 position = Vector2( 1, 6 )
-scale = Vector2( -1, 1 )
 texture = ExtResource( 4 )
 offset = Vector2( 0, 10 )
 hframes = 31
-frame = 28
+frame = 7
 
 [node name="Pawn_12_Part_Body" type="Sprite" parent="."]
-position = Vector2( 0, 2 )
 texture = ExtResource( 5 )
 hframes = 2
 
 [node name="Pawn_12_Part_Arm" parent="Pawn_12_Part_Body" instance=ExtResource( 1 )]
-position = Vector2( 9, -4 )
+position = Vector2( 0, -4 )
 
 [node name="Pawn_12_Part_Head" parent="Pawn_12_Part_Body" instance=ExtResource( 2 )]
 show_behind_parent = true
@@ -3105,15 +3102,13 @@ position = Vector2( 1, -7 )
 
 [node name="Pawn_12_Part_Legs_F" type="Sprite" parent="."]
 position = Vector2( 1, 6 )
-scale = Vector2( -1, 1 )
 texture = ExtResource( 6 )
 offset = Vector2( 0, 10 )
 hframes = 31
-frame = 28
+frame = 7
 
 [node name="Pawn_12_Part_Hip" parent="." instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 0, 6 )
+position = Vector2( 0, 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Ladder-Move = SubResource( 3 )

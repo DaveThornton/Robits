@@ -33,7 +33,7 @@ onready var body_shape_02 = $Shape_Crouch
 var player = 1
 var play_type = 2
 var start_equiped = 0
-var armor = 1
+var armor = 0
 
 var my_gun
 var take_ammo = false
@@ -49,7 +49,7 @@ var current_x_speed = 0
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed: = false
 var can_jump = true
-var max_air_jump_power = 11
+var max_air_jump_power = 8
 var min_air_jump_power = 5
 var air_jump_count = 0
 var max_jump_power = 5
@@ -64,8 +64,8 @@ var nrg_max = 90
 var nrg = 90
 var last_nrg = 90
 var nrg_regen_rate = 5
-var nrg_regen_max = 40
-var nrg_default_regen_rate = 4
+var nrg_regen_max = 30
+var nrg_default_regen_rate = 3
 var nrg_default_regen_max = 40
 var light_on_nrg = 39
 
