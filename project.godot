@@ -37,6 +37,7 @@ Net_play="*res://Scripts/Misc/Singleton_Network_play.gd"
 [debug]
 
 settings/fps/force_fps=60
+settings/stdout/print_fps=true
 
 [display]
 
@@ -645,15 +646,21 @@ test_button={
 2d_physics/layer_4="Maps Solids Only"
 2d_physics/layer_5="Moving Platform"
 2d_physics/layer_6="Ladders"
+2d_physics/layer_7="Player Spawn area"
 2d_physics/layer_8="Bullets NPC"
 2d_physics/layer_9="Block Exp"
 2d_physics/layer_10="Bullets Player"
 2d_physics/layer_11="Just Players nothin else -- Campaign only"
 2d_physics/layer_12="Bad Guys nothin else"
+2d_physics/layer_13="Camera_Trigger"
 2d_physics/layer_17="Power Ups"
 2d_physics/layer_18="Obj For FX!"
 2d_physics/layer_19="Area interaction"
 2d_physics/layer_20="Obj to be picked up"
+
+[memory]
+
+limits/message_queue/max_size_kb=2048
 
 [rendering]
 

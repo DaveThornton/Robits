@@ -259,7 +259,8 @@ func _spawn_spot():# set up for map handler singleton
 	pass
 
 func _on_RespawnTimer_timeout():
-	spawn_pawn()
+	if !Game.over:
+		spawn_pawn()
 
 func get_pawn():
 	if my_pawn:

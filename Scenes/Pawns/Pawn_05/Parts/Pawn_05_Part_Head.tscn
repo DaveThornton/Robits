@@ -1,9 +1,28 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_05/Pawn_05_Part_Face.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_05/Pawn_05_Part_Head.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Ant.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Pawns/Pawn_05_Parts/Pawn_05_Part_Head.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "flash"
+length = 0.4
+loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "light_up"
+} ]
+}
 
 [node name="Pawn_05_Part_Head" type="Node2D"]
 script = ExtResource( 4 )
@@ -27,3 +46,6 @@ position = Vector2( 0, -7 )
 
 [node name="Pawn_05_Part_Ant" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/flash = SubResource( 1 )

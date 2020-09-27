@@ -99,3 +99,6 @@ func arcade_reset():
 
 func _on_Timer_timeout():
 	emit_signal("second")
+
+func get_pawns():
+	return pawns

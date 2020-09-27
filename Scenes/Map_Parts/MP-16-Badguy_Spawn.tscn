@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Map_Parts/MP-16-Badguy_Spawn.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Map_Parts/MP-16-Badguy_Spawn.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 2 )
+
+[node name="MP-16-Badguy_Spawn-01" type="Area2D" groups=[
+"trigger",
+]]
+collision_layer = 2147487744
+collision_mask = 4096
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -18 )
+texture = ExtResource( 1 )

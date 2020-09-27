@@ -6,8 +6,10 @@ export var title_text = "Title"
 export var body_text = "Body"
 export var splash_time = 1.5
 
-onready var player_spawns = $Player_spawns
+onready var player_spawns = $Player_Spawns
+onready var player_spawns_out = $Player_Spawns_Out
 onready var parts = $Map_parts
+onready var badguys = $BadGuys
 #onready var splash_screen = $"Splash/Level_Load_Screen"
 
 var next_spawn_spot = 0
@@ -33,6 +35,28 @@ func next_spawn_pos():
 	if next_spawn_spot > player_spawns.get_child_count() - 1:
 		next_spawn_spot = 0
 	return player_spawns.get_child(next_spawn_spot).position
+	
+
+func add_spot(_spot):
+	call_deferred("_remove", _spot)
+	call_deferred("_add", player_spawns_out, _spot)
+#	call_deferred("player_spawns_out.remove_child",_spot)
+#	call_deferred("player_spawns.add_child",_spot)
+func remove_spot(_spot):
+	call_deferred("_remove", _spot)
+	call_deferred("_add", player_spawns_out, _spot)
+#	call_deferred("player_spawns.remove_child",_spot)
+#	call_deferred("player_spawns_out.add_child",_spot)
+
+
+func _add(_parrent, _spot):
+	print("adding in map")
+	_parrent.add_child(_spot)
+
+func _remove(_spot):
+	var r = _spot.get_parent()
+	print("removing in map")
+	r.remove_child(_spot)
 
 func remove_map():
 	reset()
