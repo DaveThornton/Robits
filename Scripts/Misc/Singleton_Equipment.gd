@@ -1,4 +1,6 @@
 extends Node2D
+
+export(PackedScene) var gun_hold_00
 export(PackedScene) var gun_hold_01
 export(PackedScene) var gun_hold_02
 export(PackedScene) var gun_hold_03
@@ -103,6 +105,8 @@ export(PackedScene) var pawn_15
 #export(PackedScene) var pawn_16
 
 func get_weap_hold(_weap):
+	if _weap == 0:
+		return gun_hold_00
 	if _weap == 1:
 		return gun_hold_01
 	elif _weap == 2:

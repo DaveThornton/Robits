@@ -11,13 +11,14 @@ onready var player_spawns_out = $Player_Spawns_Out
 onready var parts = $Map_parts
 onready var badguys = $BadGuys
 #onready var splash_screen = $"Splash/Level_Load_Screen"
-
+var spots_in_range = []
 var next_spawn_spot = 0
 var nav_system
 
 signal activate(_num, _player)
 
 func _ready():
+	Game.mode_vs = false
 	if show_splash:
 		HUD.splash(title_text, body_text, splash_time, true)
 	if $"MP-04-Nav2D":
@@ -29,34 +30,37 @@ func _ready():
 	var e = self.connect("reset",get_tree().get_current_scene(),"reset")
 	if !e:
 		print("error in map ready: error connecting reset")
+	for s in 8:
+		spots_in_range.append(player_spawns.get_child(s))
+
+func add_pos(_spot):
+	if spots_in_range.find(_spot) < 0:
+		next_spawn_spot = 0
+		spots_in_range.insert(0, _spot)
+		if (FX.CAMERA.global_position.x - spots_in_range.back().global_position.x) >= 1920:
+			spots_in_range.pop_back()
+			#shouldnt have to do this the remove shouldt leave more than one 
+			if (FX.CAMERA.global_position.x - spots_in_range.back().global_position.x) >= 1920:
+				spots_in_range.pop_back()
+	print("adding a spot ", _spot, "      spots in range count ---> ", spots_in_range.size())
+
+func remove_pos(_spot):
+	if spots_in_range.find(_spot) >= 0 && spots_in_range.size() > 0:
+		next_spawn_spot = 0
+		spots_in_range.erase(_spot)
+	print("removing a spot ", _spot, "      spots in range count ---> ", spots_in_range.size())
 
 func next_spawn_pos():
-	next_spawn_spot += 1
-	if next_spawn_spot > player_spawns.get_child_count() - 1:
+	if spots_in_range.size()-1 == next_spawn_spot:
 		next_spawn_spot = 0
-	return player_spawns.get_child(next_spawn_spot).position
-	
-
-func add_spot(_spot):
-	call_deferred("_remove", _spot)
-	call_deferred("_add", player_spawns_out, _spot)
-#	call_deferred("player_spawns_out.remove_child",_spot)
-#	call_deferred("player_spawns.add_child",_spot)
-func remove_spot(_spot):
-	call_deferred("_remove", _spot)
-	call_deferred("_add", player_spawns_out, _spot)
-#	call_deferred("player_spawns.remove_child",_spot)
-#	call_deferred("player_spawns_out.add_child",_spot)
-
-
-func _add(_parrent, _spot):
-	print("adding in map")
-	_parrent.add_child(_spot)
-
-func _remove(_spot):
-	var r = _spot.get_parent()
-	print("removing in map")
-	r.remove_child(_spot)
+	next_spawn_spot += 1
+#	spots_in_range.sort_custom(MyCustomSorter,"sort_distance")
+	return spots_in_range[0 + next_spawn_spot - 1].position
+#	return spots_in_range[spots_in_range.size() - next_spawn_spot].position
+#	next_spawn_spot += 1
+#	if next_spawn_spot > player_spawns.get_child_count() - 1:
+#		next_spawn_spot = 0
+#	return player_spawns.get_child(next_spawn_spot).position
 
 func remove_map():
 	reset()
@@ -70,3 +74,9 @@ func activate_BG(_num, _player):
 
 func _on_Start_Timer_timeout():
 	parts.propagate_call("start")
+
+class MyCustomSorter:
+	static func sort_distance(a,b):
+		if abs(a.position) > abs(b.position):
+			return true
+		return false

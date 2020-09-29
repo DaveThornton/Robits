@@ -40,7 +40,7 @@ func dead_box():
 	if dead_boxes == boxes.get_child_count():
 		top.activate()
 		for i in turrets.get_child_count():
-			turrets.get_child(i).activate()
+			turrets.get_child(i).activate(0,0)
 #			turrets.get_child(i).connect("dead", self, "dead_box")
 #		print("Activate the turrets !!!! BG 101 Boss")
 

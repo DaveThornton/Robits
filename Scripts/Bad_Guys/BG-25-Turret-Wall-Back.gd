@@ -2,6 +2,7 @@ extends StaticBody2D
 
 export(PackedScene) var projectile
 export(PackedScene) var explode
+export var activation_number = 0
 export var armor = 0
 
 onready var area = $Area2D/CollisionShape2D
@@ -24,8 +25,8 @@ var current_look_time = 0
 var look_time = .15
 var hit_time = 0
 
-#func _ready():
-#	pass # Replace with function body.
+func _ready():
+	Map_Hand.map.connect("activate", self, "activate")
 
 func _process(delta):
 	if hit_time > 0:
@@ -49,14 +50,12 @@ func _process(delta):
 						if shoot_cast.get_collider().get_groups().has("player"):
 							_shoot(gun_arm)
 
-func activate():
-	if !activated:
-		activated = true
-#	if !can_shoot:
-		anim_door.play("Open")
-		can_shoot = true
-		
-#		gun_arm.visible = true
+func activate(activation_num, body):
+	if activation_number == activation_num:
+		if !activated:
+			activated = true
+			anim_door.play("Open")
+			can_shoot = true
 
 func self_destruct():
 	call_deferred("_explode")

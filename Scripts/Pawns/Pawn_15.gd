@@ -32,10 +32,11 @@ onready var body_shape_02 = $CollisionShape2D_Prone
 
 var player = 1
 var play_type = 2
-var start_equiped = 0
+var start_equiped = false
 var armor = 1
 
 var my_gun
+var my_start_gun
 var take_ammo = false
 var shoot_spot = 3
 
@@ -104,6 +105,9 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
 	play_type = _play_type
 	_set_color()
+	start_equiped = !Game.mode_vs
+	if start_equiped:
+		equip_start_weap()
 	change_pos(_pos)
 	nrg_update()
 
@@ -127,7 +131,14 @@ func _process(delta):
 	if nrg != last_nrg:
 		nrg_update()
 		last_nrg = nrg
-	
+	if my_gun:
+		my_gun.is_right = is_right
+		my_gun.shoot_pos = shoot_spot
+		
+	elif start_equiped:
+		my_start_gun.is_right = is_right
+		my_start_gun.shoot_pos = shoot_spot
+		
 	_set_gun_dir()
 	if _im_hit:
 		if _hit_time > 0.1:
@@ -240,16 +251,28 @@ func shoot_j():
 		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_j()
+	elif my_start_gun && start_equiped:
+		my_start_gun.shoot_pos = shoot_spot
+		my_start_gun.is_right = is_right
+		my_start_gun.shoot_j()
 func shoot():
 	if my_gun:
 		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot()
+	elif my_start_gun && start_equiped:
+		my_start_gun.shoot_pos = shoot_spot
+		my_start_gun.is_right = is_right
+		my_start_gun.shoot()
 func shoot_r():
 	if my_gun:
 		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_r()
+	elif my_start_gun && start_equiped:
+		my_start_gun.shoot_pos = shoot_spot
+		my_start_gun.is_right = is_right
+		my_start_gun.shoot_r()
 
 ##-----------------------------------------------------------------------[Throw]
 func pick_throw( left_input, right_input, up_input, down_input, hold_input):
@@ -265,8 +288,12 @@ func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 			SFX.play("Blip_06")
 			my_gun.throw()
 		my_gun = null
+		if my_start_gun && start_equiped:
+			my_start_gun.visible = true
 	elif wep_array.size() > 0:
 		pick_up()
+		if my_start_gun && start_equiped:
+			my_start_gun.visible = false
 
 func let_go():
 	if is_holding == true:
@@ -302,7 +329,10 @@ func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
 	is_holding = true
 
 func equip_start_weap():
-	equip_weap(start_equiped, 200, 5.0, false)
+	var g = Equipment.get_weap_hold(0).instance()
+	gun_pos.add_child(g)
+	g.init(false, player, 0, false)
+	my_start_gun = g
 
 ##-------------------------------------------------------------------------[HIT]
 func hit(_by_who, _by_what, _damage_type, _damage):

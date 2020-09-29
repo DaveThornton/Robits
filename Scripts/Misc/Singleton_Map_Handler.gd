@@ -32,9 +32,11 @@ func add_kid_to_map(_obj):
 		clearing_house.add_child(_obj)
 
 func add_bg_to_map(_obj):
+	call_deferred("_add_bg_to_map",_obj)
+func _add_bg_to_map(_obj):
 	if is_instance_valid(map):
 #		Map_Hand.clearing_house.add_child(_obj)
-		map.badguys.add_child(_obj) #weird error
+		map.badguys.add_child(_obj)#weird error
 	else:
 #		map.add_child(_obj)
 		clearing_house.add_child(_obj)

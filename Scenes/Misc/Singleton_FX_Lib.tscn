@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-01-Camera-C.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 620, 549 )
+extents = Vector2( 400, 549 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 30, 550 )
@@ -43,7 +43,7 @@ collision_layer = 64
 collision_mask = 2147483712
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MP-01-Camera/Area2D_Respawn"]
-position = Vector2( 710, 540 )
+position = Vector2( 790, 540 )
 shape = SubResource( 1 )
 
 [node name="Area2D_Trigger" type="Area2D" parent="MP-01-Camera"]

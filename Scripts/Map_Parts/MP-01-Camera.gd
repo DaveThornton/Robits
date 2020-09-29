@@ -50,6 +50,7 @@ func _process(delta):
 				position = cal_center(camera_rect)
 #				draw_rect(camera_rect,Color8(255,255,255,255),false)
 #				zoom = cal_zoom(camera_rect,viewport_rect.size)
+		if position.x < 0: self.position.x = 0
 		HUD.set_position(self.position)
 		
 	if trauma > 0.0:

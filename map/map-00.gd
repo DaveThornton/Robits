@@ -9,6 +9,7 @@ var next_spawn_spot = 0
 var nav_system
 
 func _ready():
+	Game.mode_vs = true
 	if $"MP-04-Nav2D":
 		nav_system = $"MP-04-Nav2D"
 		print("map nav system found")
