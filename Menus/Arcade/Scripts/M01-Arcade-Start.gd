@@ -19,6 +19,7 @@ func _ready():
 	if test2 != 0:
 		print("error M01 Arcade Start  connecting next_screen")
 	HUD.menu_state()
+	FX.set_back(0)
 
 func movement(_player, _dir):
 	if _player == 1:

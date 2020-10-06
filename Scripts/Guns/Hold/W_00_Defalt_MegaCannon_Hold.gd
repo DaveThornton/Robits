@@ -4,11 +4,8 @@ export(PackedScene) var mega_cannon
 export(PackedScene) var projectile
 
 onready var anim_fire = $AnimationPlayer
-#onready var shoot_timer = $Shoot_Timer
 onready var pos_shoot = $POS_Gun/POS/Shoot
-#onready var pos_throw = $POS_Gun/POS/Throw
 onready var shoot_cast = $POS_Gun/Raycast/Shoot
-onready var throw_cast = $POS_Gun/Raycast/Throw
 
 var player = 1
 var gun_num = 0

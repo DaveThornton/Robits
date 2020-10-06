@@ -37,7 +37,6 @@ Net_play="*res://Scripts/Misc/Singleton_Network_play.gd"
 [debug]
 
 settings/fps/force_fps=60
-settings/stdout/print_fps=true
 
 [display]
 

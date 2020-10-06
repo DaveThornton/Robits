@@ -18,6 +18,7 @@ collision_mask = 2147484160
 script = ExtResource( 1 )
 hit_anim_map = ExtResource( 2 )
 hit_anim_move = ExtResource( 3 )
+life_length = 0.85
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -1.55766e-06 )

@@ -19,7 +19,8 @@ var max_c_static: = 200
 var min_c_static: = 3
 var can_go_forward = true
 var can_go_backward = true
-
+var max_right = 0
+var max_left = 0
 var camera_rect : = Rect2()
 var viewport_rect : = Rect2()
 var pawns
@@ -28,7 +29,6 @@ func _ready():
 	viewport_rect = get_viewport_rect()
 	pawns  = get_tree().get_current_scene().get_pawns()
 	print(pawns)
-#	set_process()
 	randomize()
 	noise_gen.seed = randi()
 	noise_gen.period = 4
@@ -36,21 +36,25 @@ func _ready():
 
 func _process(delta):
 	if can_move:
+		var all_player_pos = 0.0
 		if !pawns:
 			pawns  = get_tree().get_current_scene().get_pawns()
 		else:
 			if pawns.get_child_count() > 0 :
-				camera_rect = Rect2(pawns.get_child(0).global_position + Vector2(50,0), Vector2())
-				for index in pawns.get_child_count():
-#					print(pawns.get_child(index))
-#					if index ==0:
-#						continue
-					camera_rect = camera_rect.expand(pawns.get_child(index).global_position)# + Vector2(-1960,0))
-		#		print(pawns.get_child_count())
-				position = cal_center(camera_rect)
+				for p in pawns.get_child_count():
+					all_player_pos += pawns.get_child(p).position.x
+				var new_pos = (all_player_pos / pawns.get_child_count()) - 960
+				position.x += (new_pos - position.x) / 4
+#			if false:
+#				camera_rect = Rect2(pawns.get_child(0).global_position + Vector2(50,0), Vector2())
+#				for index in pawns.get_child_count():
+#					camera_rect = camera_rect.expand(pawns.get_child(index).global_position)# + Vector2(-1960,0))
+#				var new_pos = cal_center(camera_rect)
+#				position.x = new_pos.x
 #				draw_rect(camera_rect,Color8(255,255,255,255),false)
 #				zoom = cal_zoom(camera_rect,viewport_rect.size)
-		if position.x < 0: self.position.x = 0
+		if position.x < max_left: position.x = max_left # keep camera from going to far left
+		elif position.x > max_right: position.x = max_right
 		HUD.set_position(self.position)
 		
 	if trauma > 0.0:
@@ -60,19 +64,19 @@ func _process(delta):
 		_c_static(delta)
 		trauma = max(trauma - trauma_depletion * delta,0)
 
-func _draw():
-	draw_rect(camera_rect,Color8(255,255,255,255),false)
-
-func cal_center(rect: Rect2) -> Vector2:
-	return Vector2(
-		rect.position.x + rect.size.x + -rect_offset / 2,0)
+#func _draw():
+#	draw_rect(camera_rect,Color8(255,255,255,255),false)
+#
+#func cal_center(rect: Rect2) -> Vector2:
+#	return Vector2(
+#		rect.position.x + rect.size.x + -rect_offset / 2,
 #		rect.position.y + rect.size.y / 2)
-
-func cal_zoom(rect: Rect2, viewport_size:Vector2) -> Vector2:
-	var max_zoom = max(
-		max(1,rect.size.x / viewport_size.x + zoom_offset),
-		max(1,rect.size.y / viewport_size.y + zoom_offset))
-	return Vector2(max_zoom, max_zoom)
+#
+#func cal_zoom(rect: Rect2, viewport_size:Vector2) -> Vector2:
+#	var max_zoom = max(
+#		max(1,rect.size.x / viewport_size.x + zoom_offset),
+#		max(1,rect.size.y / viewport_size.y + zoom_offset))
+#	return Vector2(max_zoom, max_zoom)
 
 func static_on():
 	static_sprite.visible = true

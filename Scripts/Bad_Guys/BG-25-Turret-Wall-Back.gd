@@ -50,7 +50,7 @@ func _process(delta):
 						if shoot_cast.get_collider().get_groups().has("player"):
 							_shoot(gun_arm)
 
-func activate(activation_num, body):
+func activate(activation_num, _body):
 	if activation_number == activation_num:
 		if !activated:
 			activated = true

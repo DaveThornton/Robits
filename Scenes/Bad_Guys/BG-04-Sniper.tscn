@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Bad_Guys/Parts/BG-03-Anim.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Bad_Guys/BG-03.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-04-Sniper-Laser.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Explosions/Ex-07-BG-OG.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]

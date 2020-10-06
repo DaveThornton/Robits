@@ -1,0 +1,154 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/Bad_Guys/Boss/BG-103-Boss/BG-103-Big-Barrel.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Bad_Guys/Boss/Boss-103/BG-103-Boss-Big-Barrel.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-103-Cannon_Ball.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 9.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "Shoot"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG-103-Big-Barrel:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.35, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG-103-Big-Barrel_Shoot:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG-103-Big-Barrel_Shoot:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Dead"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG-103-Big-Barrel_Hit:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG-103-Big-Barrel_Hit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 5 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("BG-103-Big-Barrel_Hit:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG-103-Big-Barrel_Hit:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[node name="BG-103-Big-Barrel" type="KinematicBody2D" groups=[
+"badguy",
+"hittable",
+]]
+collision_layer = 0
+collision_mask = 512
+script = ExtResource( 2 )
+projectile = ExtResource( 4 )
+explode = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="BG-103-Big-Barrel" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 6
+
+[node name="BG-103-Big-Barrel_Shoot" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -2, 0 )
+texture = ExtResource( 1 )
+hframes = 6
+frame = 3
+
+[node name="BG-103-Big-Barrel_Hit" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 1 )
+hframes = 6
+frame = 4
+
+[node name="Anim_Shoot" type="AnimationPlayer" parent="."]
+anims/Shoot = SubResource( 2 )
+
+[node name="Anim_Hit" type="AnimationPlayer" parent="."]
+anims/Dead = SubResource( 3 )
+anims/Hit = SubResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -13, 0 )
+rotation = 3.14159
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

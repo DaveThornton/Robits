@@ -1,12 +1,20 @@
 extends Node2D
 
 onready var CAMERA = $"MP-01-Camera"
-
+onready var backs = $"MP-01-Camera/Back"
 var spot_to_add = []
 var spot_to_remove = []
 
 func add_trauma(_amount):
 	CAMERA.add_trauma(_amount)
+
+func set_back(_num):
+	back_blank()
+	backs.get_child(_num).visible = true
+
+func back_blank():
+	for b in backs.get_child_count():
+		backs.get_child(b).visible = false
 
 func camera_move(_move):
 	CAMERA.can_move = _move

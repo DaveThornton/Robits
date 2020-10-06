@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://Scenes/Backgrounds/Back_03_Space.tscn" type="PackedScene" id=1]
 [ext_resource path="res://misc/CRT-Shader/crt_material.tres" type="Material" id=2]
@@ -64,6 +64,7 @@
 [ext_resource path="res://Sprites/FX/Static/Real/scene00006.png" type="Texture" id=62]
 [ext_resource path="res://Scripts/Map_Parts/MP-01-Camera.gd" type="Script" id=63]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=64]
+[ext_resource path="res://Sprites/Background/Back_02_Blue_Sky_Tile.png" type="Texture" id=65]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -116,11 +117,12 @@ position = Vector2( 960, 543 )
 scale = Vector2( 0.989583, 0.987132 )
 frames = SubResource( 1 )
 animation = "Real"
-frame = 21
+frame = 37
 speed_scale = 7.0
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -137,6 +139,7 @@ visible = false
 z_index = -100
 
 [node name="Background" parent="Backs" instance=ExtResource( 1 )]
+visible = false
 position = Vector2( -10, 0 )
 z_index = -100
 moving = false
@@ -145,6 +148,12 @@ moving = false
 visible = false
 z_index = -100
 moving = false
+
+[node name="Back_02_Blue_Sky_Tile" type="Sprite" parent="Backs"]
+position = Vector2( 960, 540 )
+scale = Vector2( 0.78125, 0.445312 )
+z_index = -100
+texture = ExtResource( 65 )
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false

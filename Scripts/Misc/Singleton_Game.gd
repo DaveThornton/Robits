@@ -4,7 +4,7 @@ onready var timer = $Timer
 var started = false
 var mode_vs = true
 var over = false
-var end_game_score = 3
+var end_game_score = 10
 
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")

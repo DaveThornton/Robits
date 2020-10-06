@@ -23,4 +23,4 @@ func triggered():
 		var new_bg = badguy.instance()
 		Map_Hand.add_bg_to_map(new_bg)
 		new_bg.global_position = self.global_position
-	print("Triggered by camera to spawn a bad guy")
+#	print("Triggered by camera to spawn a bad guy")

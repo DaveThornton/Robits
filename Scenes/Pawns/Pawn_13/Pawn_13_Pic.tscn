@@ -72,7 +72,7 @@ hframes = 2
 
 [node name="Sprite_Arm" type="Sprite" parent="Sprite_Body"]
 position = Vector2( 0, -4 )
-rotation = 0.98647
+rotation = 1.03826
 texture = ExtResource( 1 )
 offset = Vector2( 12, 4 )
 hframes = 3
@@ -85,18 +85,18 @@ hframes = 29
 
 [node name="Sprite_Legs_F" type="Sprite" parent="Sprite_Body/Sprite_H_Body"]
 texture = ExtResource( 8 )
-hframes = 29
+hframes = 34
 frame = 26
 
 [node name="Sprite_Legs_B" type="Sprite" parent="Sprite_Body/Sprite_H_Body"]
 show_behind_parent = true
 position = Vector2( 0, -1 )
 texture = ExtResource( 2 )
-hframes = 29
-frame = 26
+hframes = 34
+frame = 27
 
 [node name="Sprite_Head" type="Sprite" parent="Sprite_Body"]
-position = Vector2( 0, -16.3477 )
+position = Vector2( 0, -16.7276 )
 texture = ExtResource( 4 )
 
 [node name="Sprite_Face_B" type="Sprite" parent="Sprite_Body/Sprite_Head"]

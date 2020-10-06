@@ -71,9 +71,9 @@ func _load_map_cam(_level):
 		map.queue_free()
 	map = m
 	add_child(m)
-	var test = get_tree().get_current_scene().connect("reset", m, "reset")
-	if test != 0:
-		print("error Singleton Map Handler connecting (map in cam) to reset from world gd")
+#	var test = get_tree().get_current_scene().connect("reset", m, "reset")
+#	if test != 0:
+#		print("error Singleton Map Handler connecting (map in cam) to reset from world gd")
 #	map.global_position += Vector2(0,540)
 
 #	for x in get_tree().get_current_scene().pawns.get_child_count():

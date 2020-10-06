@@ -45,8 +45,8 @@ tracks/0/keys = {
 }
 
 [node name="BG-23-Turret-Ground" type="StaticBody2D" groups=[
-"hittable",
 "badguy",
+"hittable",
 ]]
 rotation = 3.14159
 collision_layer = 2048

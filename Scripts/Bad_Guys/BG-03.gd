@@ -162,7 +162,7 @@ func _shoot():
 			new_projectile.start(_sr , _ss, _sss, 0, damage)
 			SFX.play("Laser_Shoot")
 			shoot_timer.start()
-			print("shoot")
+#			print("shoot")
 			idle = false
 			can_shoot = false
 			shoot_spot = null

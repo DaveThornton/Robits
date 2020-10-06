@@ -53,7 +53,7 @@ tracks/2/keys = {
 script = ExtResource( 7 )
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( 7, -35.1542 )
+position = Vector2( 7, -35.0934 )
 texture = ExtResource( 2 )
 hframes = 2
 
@@ -67,7 +67,7 @@ texture = ExtResource( 4 )
 hframes = 2
 
 [node name="Pawn_09_Part_Hat" type="Sprite" parent="Body/Head"]
-position = Vector2( 0, -1.53751 )
+position = Vector2( 0, -1.71994 )
 texture = ExtResource( 6 )
 hframes = 2
 
@@ -79,7 +79,7 @@ hframes = 3
 [node name="Horse_Legs" type="Sprite" parent="Body"]
 position = Vector2( -6, 7 )
 texture = ExtResource( 3 )
-hframes = 29
+hframes = 34
 frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

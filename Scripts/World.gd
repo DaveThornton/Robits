@@ -8,7 +8,7 @@ export var game_mode = 1
 
 onready var pawns = $Pawns
 onready var clearing_house = $Clearing_House
-
+onready var players = $players
 onready var line = $Line2D
 
 var screen_loaded

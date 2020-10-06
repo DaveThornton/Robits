@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 90, 60 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Broken"
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG-101-Boss-Top-Frame:frame")
@@ -25,8 +25,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Static"
+[sub_resource type="Animation" id=3]
 length = 0.25
 loop = true
 step = 0.05
@@ -90,5 +89,5 @@ texture = ExtResource( 1 )
 hframes = 5
 
 [node name="AnimationPlayer_Static" type="AnimationPlayer" parent="."]
-anims/Broken = SubResource( 3 )
-anims/Static = SubResource( 2 )
+anims/Broken = SubResource( 2 )
+anims/Static = SubResource( 3 )

@@ -2,7 +2,7 @@ extends Area2D
 #export(PackedScene) var hit
 export(PackedScene) var hit_anim_map
 export(PackedScene) var hit_anim_move
-
+export var life_length = 1.25
 #onready var hit_pos = $"Pos-Hit"
 onready var timer = $Timer
 
@@ -13,6 +13,7 @@ var damage = 0
 var damage_type = "laser"
 
 func start(_rot, _pos, _scale, _owner, _dmg):
+	timer.wait_time = life_length
 	timer.start()
 	rotation = _rot
 	position = _pos

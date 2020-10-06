@@ -1,7 +1,11 @@
 extends Area2D
 export(PackedScene) var hit
+export var speed = 1200
+#export var life_time = 0.25
+#export var fall_speed = 0
+
 onready var timer = $Timer
-var speed = 1800
+
 var owned = 1
 var my_name = "Basic Projectile"
 var damage = 29
@@ -22,6 +26,8 @@ func _physics_process(delta):
 	if !started:
 		timer.start()
 		started = true
+#	fall_speed = fall_speed * 1.1
+#	move_local_y(fall_speed *delta)
 	move_local_x(speed * delta)
 
 func _on_Projectile_body_entered(body):
@@ -46,7 +52,6 @@ func _hit():
 
 func _on_Timer_timeout():
 	queue_free()
-
 
 func _on_Projectile_area_entered(area):
 	entered(area)
