@@ -51,4 +51,4 @@ func move(_right):
 			else:
 				anim.play_backwards("Left")
 func stop():
-	anim.stop()
+	anim.stop(false)

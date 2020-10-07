@@ -3,7 +3,7 @@ extends StaticBody2D
 
 export(PackedScene) var projectile
 export(PackedScene) var explode
-
+export(PackedScene) var debris
 onready var anim_hit = $AnimationPlayer_Hit
 onready var anim_shoot = $AnimationPlayer_Shoot
 onready var shape = $CollisionShape2D
@@ -17,21 +17,27 @@ var ex_dmg = 25
 var player = -1
 var bodies_in_range = []
 var current_look_time = 0
-var look_time = .25
-var time = 0.0
+var look_time = .1
+var time: = 0.0
+var last_rotation: = 0.0
+
 signal hit_turret
 signal dead_turret
 
 func _ready():
+	last_rotation = rotation_degrees
 #	connect("hit_turret", get_parent(), "hit_turret")
 	pass # Replace with function body.
 
 func _process(delta):
 	if get_tree().get_current_scene().pawns.get_child_count() > 0:
 		look_at(get_tree().get_current_scene().pawns.get_child(0).position)
-		rotation_degrees += 180
-#	else:
-#		print("no pawns?")
+#		print(rotation_degrees)
+		self.rotation_degrees = clamp(self.rotation_degrees,175.0, 300.0)
+		rotation_degrees = ((rotation_degrees - last_rotation) / 40) + last_rotation
+#		print(rotation_degrees - last_rotation)
+		last_rotation = rotation_degrees
+#		print(rotation_degrees - last_rotation)
 	
 	
 func move(_right):
@@ -43,6 +49,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 #		anim_hit.play("Hit")
 		health -= (_damage - armor)
 		if health <= 0:
+			dead = true
 			print("BG-103-Dead")
 			call_deferred("_explode")
 

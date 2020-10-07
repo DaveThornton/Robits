@@ -89,6 +89,7 @@ scale_amount_random = 1.0
 [node name="BG-103-Turret" parent="BG-103-Body" instance=ExtResource( 6 )]
 show_behind_parent = true
 position = Vector2( 0, -4 )
+rotation = 3.14159
 
 [node name="BG-103-Body-Under" type="Sprite" parent="BG-103-Body"]
 self_modulate = Color( 0.4, 0.552941, 0.243137, 1 )
@@ -114,6 +115,8 @@ scale = Vector2( -1, 1 )
 front = false
 
 [node name="Cannons" type="Node2D" parent="BG-103-Body"]
+
+[node name="Debris" type="Node2D" parent="BG-103-Body"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

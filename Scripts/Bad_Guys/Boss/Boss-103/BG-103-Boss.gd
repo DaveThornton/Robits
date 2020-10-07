@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 export var speed = 1500
-export var from_left = 1400
-export var from_right = 200
+export var from_left = 1600
+export var from_right = -500
 onready var tracks = $"BG-103-Body/Tracks"
 onready var cannons = $"BG-103-Body/Cannons"
 onready var turret = $"BG-103-Body/BG-103-Turret"
@@ -11,7 +11,7 @@ onready var anim_hit = $AnimationPlayer_Hit
 
 var deadtrack_count = 0
 var deadcannon_count = 0
-
+var gravity = 10000
 func _ready():
 	turret.connect("hit_turret",self, "hit_turret")
 	turret.connect("dead_turret",self, "dead_turret")
@@ -36,13 +36,16 @@ func _process(delta):
 	pass
 func _physics_process(delta):
 	var campos = FX.CAMERA.global_position.x
-	var vel = Vector2(0,-10000 * delta)
+	var vel = Vector2(0,-gravity * -delta)
+#	print(campos, "  <------campos     tank--------->", position.x)
 	if campos + from_left < self.position.x:
-		vel = Vector2( -speed * delta, -10000 * -delta)
+		vel = Vector2( -speed * delta, -gravity * -delta)
 		move_tracks(false)
-	if campos + from_left > self.position.x + - from_right:
-		vel = Vector2( speed * delta, -10000 * -delta)
+#		print("go left")
+	elif campos + from_left > self.position.x + -from_right:
+		vel = Vector2( speed * delta, -gravity * -delta)
 		move_tracks(true)
+#		print("go right")
 	else:
 		stop_tracks()
 	move_and_slide(vel)
