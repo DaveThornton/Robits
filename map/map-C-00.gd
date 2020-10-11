@@ -20,9 +20,10 @@ var nav_system
 signal activate(_num, _player)
 
 func _ready():
-	Game.mode_vs = false
+#	print(Game.mode)
 	FX.set_back(background)
 	FX.CAMERA.max_right = camera_max_right
+	Game.use_lives()
 	if show_splash:
 		HUD.splash(title_text, body_text, splash_time, true)
 	if $"MP-04-Nav2D":
@@ -36,9 +37,9 @@ func _ready():
 	var e = get_tree().get_current_scene().connect("reset",self,"reset")
 	if !e:
 		print("error in map ready: error connecting reset")
-	
-	for s in 8:
-		spots_in_range.append(player_spawns.get_child(s))
+	if camera_move:
+		for s in 8:
+			spots_in_range.append(player_spawns.get_child(s))
 
 func add_pos(_spot):
 	if spots_in_range.find(_spot) < 0:
@@ -58,16 +59,18 @@ func remove_pos(_spot):
 #	print("removing a spot ", _spot, "      spots in range count ---> ", spots_in_range.size())
 
 func next_spawn_pos():
-	if spots_in_range.size()-1 == next_spawn_spot:
-		next_spawn_spot = 0
-	next_spawn_spot += 1
-#	spots_in_range.sort_custom(MyCustomSorter,"sort_distance")
-	return spots_in_range[0 + next_spawn_spot - 1].position
+	if camera_move:
+		if spots_in_range.size()-1 == next_spawn_spot:
+			next_spawn_spot = 0
+		next_spawn_spot += 1
+	#	spots_in_range.sort_custom(MyCustomSorter,"sort_distance")
+		return spots_in_range[0 + next_spawn_spot - 1].position
 #	return spots_in_range[spots_in_range.size() - next_spawn_spot].position
-#	next_spawn_spot += 1
-#	if next_spawn_spot > player_spawns.get_child_count() - 1:
-#		next_spawn_spot = 0
-#	return player_spawns.get_child(next_spawn_spot).position
+	else:
+		next_spawn_spot += 1
+		if next_spawn_spot > player_spawns.get_child_count() - 1:
+			next_spawn_spot = 0
+		return player_spawns.get_child(next_spawn_spot).position
 
 func remove_map():
 	reset()

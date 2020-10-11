@@ -7,11 +7,9 @@ onready var pawn_menu=$VBox_In_Game/Pawn_Menu
 export var player_num = 0
 
 
-func _ready():
-	set_player_num(player_num)
+func _ready(): set_player_num(player_num)
 
-func reset():
-	in_menu()
+func reset(): in_menu()
  
 func update_state(_state):
 	var mode = get_parent().mode
@@ -42,45 +40,42 @@ func in_game():
 	in_menu_box.visible = false
 	in_game_box.visible = true
 
-func set_player_num(_num):
+func set_player_num(_num:int):
 	in_game_box.player_num_update(_num)
 	in_menu_box.player_num_update(_num)
 	in_game_over_box.player_num_update(_num)
 
-func set_ammo_count(_amount):
+func set_ammo_count(_amount:int):
 	in_game_box.ammo_update(_amount)
 
-func set_coin_count(_amount):
+func set_coin_count(_amount:int):
 	in_game_box.coin_count_update(_amount)
 	in_menu_box.coin_count_update(_amount)
 
-func set_score_count(_amount):
-	in_game_box.score_update(_amount)
+func set_lives(_amount:int): in_game_box.lives_update()
 
-func set_nrg_bar(_amount):
-	in_game_box.nrg_update(_amount)
+func set_score_count(_amount:int): in_game_box.score_update(_amount)
 
-func set_place(_place):
-	in_game_over_box.set_place(_place)
+func set_nrg_bar(_amount:int): in_game_box.nrg_update(_amount)
 
-func parent_in_game():
-	get_parent().in_game_player(player_num)
+func set_place(_place): in_game_over_box.set_place(_place)
 
-func go_left():
-	pawn_menu.go_left()
+func show_lives(_show:bool): in_game_box.show_lives(_show)
 
-func go_right():
-	pawn_menu.go_right()
+func set_continue(_continue:bool): in_game_box.set_continue(_continue)
+
+func parent_in_game(): get_parent().in_game_player(player_num)
+
+func go_left(): pawn_menu.go_left()
+
+func go_right(): pawn_menu.go_right()
 
 func go_start():
 	pawn_menu.go_start()
 	return pawn_menu.pos
 
-func game_over_done():
-	in_game_over_box.game_over_done()
+func game_over_done(): in_game_over_box.game_over_done()
 
-func game_over_not_done():
-	in_game_over_box.game_over_not_done()
+func game_over_not_done(): in_game_over_box.game_over_not_done()
 
-func pawn_menu_vis(_vis):
-	pawn_menu.visible = _vis
+func pawn_menu_vis(_vis): pawn_menu.visible = _vis

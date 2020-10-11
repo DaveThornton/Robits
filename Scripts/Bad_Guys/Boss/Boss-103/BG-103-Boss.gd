@@ -1,10 +1,16 @@
 extends KinematicBody2D
 
+export(PackedScene) var explode
+export(PackedScene) var debris_scene
+
 export var speed = 1500
 export var from_left = 1600
 export var from_right = -500
-onready var tracks = $"BG-103-Body/Tracks"
+
+onready var tankbody = $"BG-103-Body"
+onready var tracks = $Tracks
 onready var cannons = $"BG-103-Body/Cannons"
+onready var debris = $"BG-103-Body/Debris"
 onready var turret = $"BG-103-Body/BG-103-Turret"
 onready var anim = $AnimationPlayer
 onready var anim_hit = $AnimationPlayer_Hit
@@ -63,8 +69,20 @@ func stop_tracks():
 func hit_turret():
 	anim_hit.play("Hit")
 
-func dead_turret ():
-	print("dead turret BG 103")
+func dead_turret():
+	call_deferred("_dead_turret")
+func _dead_turret():
+	for d in debris.get_child_count():
+		debris.get_child(d).position
+		var deb = debris_scene.instance()
+		FX.add_kid(deb)
+		deb.init(tankbody.self_modulate, d, true, debris.get_child(d).global_position, Vector2(0,0))
+#		debris.get_child(d).init(tankbody.self_modulate, d, true, , _impulse)
+	var e = explode.instance()
+	Map_Hand.add_kid_to_map(e)
+	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
+#	print("dead turret BG 103,   BG-103-Dead")
+	call_deferred("free")
 
 func dead_track():
 	deadtrack_count += 1

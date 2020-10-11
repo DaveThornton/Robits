@@ -427,11 +427,10 @@ position = Vector2( -33, 0 )
 texture = ExtResource( 2 )
 
 [node name="BG-103-Barrel-Ring" type="Sprite" parent="BG-103-Barrel"]
-modulate = Color( 1, 0.18353, 0.18353, 1 )
-position = Vector2( -10.8, 0 )
+modulate = Color( 1, 0.458824, 0.458824, 1 )
+position = Vector2( 15, 0 )
 texture = ExtResource( 1 )
 hframes = 2
-frame = 1
 
 [node name="BG-103-Barrel-Ring2" type="Sprite" parent="BG-103-Barrel"]
 modulate = Color( 1, 0.458824, 0.458824, 1 )

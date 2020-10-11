@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://map/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_51_Contradiction_S_Pick.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-02-Ak-47.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-11-Mega-Cannon.tscn" type="PackedScene" id=22]
+[ext_resource path="res://map/Campaign-mode/World_02/Map-C-W02-L01-Jungle.tscn" type="PackedScene" id=23]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 30.0984
@@ -123,30 +124,30 @@ cell_size = Vector2( 1, 1 )
 format = 1
 tile_data = PoolIntArray( 69469301, 2, 0, 69469302, 2, 0, 69469303, 2, 0, 69469304, 2, 0, 69469305, 2, 0, 69469306, 2, 0, 69469307, 2, 0, 69469308, 2, 0, 69469309, 2, 0, 69469310, 2, 0, 69469311, 2, 0, 69469312, 2, 0, 69469313, 2, 0, 69469314, 2, 0, 69469315, 2, 0, 69469316, 2, 0, 69469317, 2, 0, 69469318, 2, 0, 69469319, 2, 0, 69469320, 2, 0, 69469321, 2, 0, 69469322, 2, 0, 69469323, 2, 0, 69469324, 2, 0, 69469325, 2, 0, 69469326, 2, 0, 69469327, 2, 0, 69469328, 2, 0, 69469329, 2, 0, 69469330, 2, 0, 69469331, 2, 0, 69469332, 2, 0, 69469333, 2, 0 )
 
-[node name="Player_spawns" type="Node2D" parent="."]
+[node name="Player_Spawns" type="Node2D" parent="."]
 
-[node name="Position2D20" type="Position2D" parent="Player_spawns"]
+[node name="Position2D20" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 360, 750 )
 
-[node name="Position2D21" type="Position2D" parent="Player_spawns"]
+[node name="Position2D21" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 390, 750 )
 
-[node name="Position2D22" type="Position2D" parent="Player_spawns"]
+[node name="Position2D22" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 180, 750 )
 
-[node name="Position2D23" type="Position2D" parent="Player_spawns"]
+[node name="Position2D23" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 210, 750 )
 
-[node name="Position2D24" type="Position2D" parent="Player_spawns"]
+[node name="Position2D24" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 330, 750 )
 
-[node name="Position2D25" type="Position2D" parent="Player_spawns"]
+[node name="Position2D25" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 300, 750 )
 
-[node name="Position2D26" type="Position2D" parent="Player_spawns"]
+[node name="Position2D26" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 270, 750 )
 
-[node name="Position2D27" type="Position2D" parent="Player_spawns"]
+[node name="Position2D27" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 240, 750 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
@@ -210,6 +211,7 @@ open_on_right = false
 [node name="BG-101-Boss" parent="BadGuys" instance=ExtResource( 13 )]
 position = Vector2( 960, 820 )
 z_index = -5
+level_to_load = ExtResource( 23 )
 
 [node name="MP-52-BG-3-Spawner" parent="." instance=ExtResource( 19 )]
 position = Vector2( 550, 540 )

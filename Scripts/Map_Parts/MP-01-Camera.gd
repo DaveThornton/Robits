@@ -26,6 +26,9 @@ var viewport_rect : = Rect2()
 var pawns
 
 func _ready():
+	var test = get_tree().get_current_scene().connect("reset", self, "reset")
+	if test != 0:
+		print("error camera connecting to reset from world gd")
 	viewport_rect = get_viewport_rect()
 	pawns  = get_tree().get_current_scene().get_pawns()
 	print(pawns)
@@ -111,3 +114,6 @@ func _c_static(_delta):
 	var amount = pow(trauma,trauma_power) * 10 * max_c_static
 # warning-ignore:narrowing_conversion
 	static_sprite.modulate = Color8(255,255,255,clamp(amount, min_c_static ,max_c_static))
+
+func reset():
+	position.x = 0

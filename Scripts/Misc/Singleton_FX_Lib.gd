@@ -19,6 +19,8 @@ func back_blank():
 func camera_move(_move):
 	CAMERA.can_move = _move
 
+func add_kid(_kid):
+	self.add_child(_kid)
 #func _process(delta):
 #	if spot_to_add.size() > 0:
 #		for i in spot_to_add.size():

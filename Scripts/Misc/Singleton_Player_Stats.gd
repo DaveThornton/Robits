@@ -1,6 +1,8 @@
 extends Node
 
 var p1 = {
+	continuing = false,
+	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
@@ -20,6 +22,8 @@ var p1 = {
 }
 
 var p2 = {
+	continuing = false,
+	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
@@ -39,6 +43,8 @@ var p2 = {
 }
 
 var p3 = {
+	continuing = false,
+	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
@@ -58,6 +64,8 @@ var p3 = {
 }
 
 var p4 = {
+	continuing = false,
+	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
@@ -77,6 +85,8 @@ var p4 = {
 }
 
 var p5 = {
+	continuing = false,
+	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
@@ -96,6 +106,8 @@ var p5 = {
 }
 
 var p6 = {
+	continuing = false,
+	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
@@ -115,6 +127,8 @@ var p6 = {
 }
 
 var p7 = {
+	continuing = false,
+	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
@@ -134,6 +148,8 @@ var p7 = {
 }
 
 var p8 = {
+	continuing = false,
+	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
@@ -193,6 +209,41 @@ func add_death(_player):
 		p8["death"] += 1
 	else:
 		print("Error in Singleton_Player_Stats add_death function invalid player number. ", _player)
+	if Game.use_lives():
+		if _player == 1:
+			p1["lives"] -= 1
+			if p1["lives"] == 0:
+				HUD.set_continue(1, true)
+		elif _player == 2:
+			p2["lives"] -= 1
+			if p2["lives"] == 0:
+				HUD.set_continue(2, true)
+		elif _player == 3:
+			p3["lives"] -= 1
+			if p3["lives"] == 0:
+				HUD.set_continue(3, true)
+		elif _player == 4:
+			p4["lives"] -= 1
+			if p4["lives"] == 0:
+				HUD.set_continue(4, true)
+		elif _player == 5:
+			p5["lives"] -= 1
+			if p5["lives"] == 0:
+				HUD.set_continue(5, true)
+		elif _player == 6:
+			p6["lives"] -= 1
+			if p6["lives"] == 0:
+				HUD.set_continue(6, true)
+		elif _player == 7:
+			p7["lives"] -= 1
+			if p7["lives"] == 0:
+				HUD.set_continue(7, true)
+		elif _player == 8:
+			p8["lives"] -= 1
+			if p8["lives"] == 0:
+				HUD.set_continue(8, true)
+#		check_lives()
+#		Game.check_over()
 
 func add_score(_player, _score_amount):
 	if _player == 1:
@@ -315,7 +366,9 @@ func use_credit( _player):
 		p8["in_play"] = true
 	else:
 		print("invalid player in player stats use credit... _player --> ", _player)
-	HUD.state_machine()
+	print(p1["credit"])
+	HUD.coin_update(_player)
+#	HUD.state_machine()
 
 func nrg_update(_player, _nrg, _nrg_max):
 	var _current_nrg = int((float(_nrg) / _nrg_max)* 100)
@@ -343,6 +396,24 @@ func can_player_start(_player):
 		return true
 	else:
 		return false
+
+#func can_spawn(_player):
+#	if _player == 1:
+#		return p1["can_spawn"]
+#	elif _player == 2:
+#		return p2["can_spawn"]
+#	elif _player == 3:
+#		return p3["can_spawn"]
+#	elif _player == 4:
+#		return p4["can_spawn"]
+#	elif _player == 5:
+#		return p5["can_spawn"]
+#	elif _player == 6:
+#		return p6["can_spawn"]
+#	elif _player == 7:
+#		return p7["can_spawn"]
+#	elif _player == 8:
+#		return p8["can_spawn"]
 
 func set_in_game(_player,_in_game):
 	if _player == 1:
@@ -380,6 +451,24 @@ func set_lives_up(_player):
 	elif _player == 8:
 		p8["lives"] += Settings.lives_per_credit
 
+func add_lives(_player,_amount):
+	if _player == 1:
+		p1["lives"] += _amount
+	elif _player == 2:
+		p2["lives"] += _amount
+	elif _player == 3:
+		p3["lives"] += _amount
+	elif _player == 4:
+		p4["lives"] += _amount
+	elif _player == 5:
+		p5["lives"] += _amount
+	elif _player == 6:
+		p6["lives"] += _amount
+	elif _player == 7:
+		p7["lives"] += _amount
+	elif _player == 8:
+		p8["lives"] += _amount
+
 func set_lives_to(_player,_amount):
 	if _player == 1:
 		p1["lives"] = _amount
@@ -398,6 +487,33 @@ func set_lives_to(_player,_amount):
 	elif _player == 8:
 		p8["lives"] = _amount
 
+func check_lives():
+	if p1["lives"] == 0:
+		p1["in_play"] = false
+		p1["in_game"] = false
+	if p2["lives"] == 0:
+		p2["in_play"] = false
+		p2["in_game"] = false
+	if p3["lives"] == 0:
+		p3["in_play"] = false
+		p3["in_game"] = false
+	if p4["lives"] == 0:
+		p4["in_play"] = false
+		p4["in_game"] = false
+	if p5["lives"] == 0:
+		p5["in_play"] = false
+		p5["in_game"] = false
+	if p6["lives"] == 0:
+		p6["in_play"] = false
+		p6["in_game"] = false
+	if p7["lives"] == 0:
+		p7["in_play"] = false
+		p7["in_game"] = false
+	if p8["lives"] == 0:
+		p8["in_play"] = false
+		p8["in_game"] = false
+	HUD.state_machine()
+
 func set_in_play(_player,_in_play):
 	if _player == 1:
 		p1["in_play"] = _in_play
@@ -415,6 +531,60 @@ func set_in_play(_player,_in_play):
 		p7["in_play"] = _in_play
 	elif _player == 8:
 		p8["in_play"] = _in_play
+
+#func set_can_spawn(_player, _spawn):
+#	if _player == 1:
+#		p1["can_spawn"] = _spawn
+#	elif _player == 2:
+#		p2["can_spawn"] = _spawn
+#	elif _player == 3:
+#		p3["can_spawn"] = _spawn
+#	elif _player == 4:
+#		p4["can_spawn"] = _spawn
+#	elif _player == 5:
+#		p5["can_spawn"] = _spawn
+#	elif _player == 6:
+#		p6["can_spawn"] = _spawn
+#	elif _player == 7:
+#		p7["can_spawn"] = _spawn
+#	elif _player == 8:
+#		p8["can_spawn"] = _spawn
+
+func set_continuing(_player, _continue):
+	if _player == 1:
+		p1["continuing"] = _continue
+	elif _player == 2:
+		p2["continuing"] = _continue
+	elif _player == 3:
+		p3["continuing"] = _continue
+	elif _player == 4:
+		p4["continuing"] = _continue
+	elif _player == 5:
+		p5["continuing"] = _continue
+	elif _player == 6:
+		p6["continuing"] = _continue
+	elif _player == 7:
+		p7["continuing"] = _continue
+	elif _player == 8:
+		p8["continuing"] = _continue
+
+func get_continuing(_player):
+	if _player == 1:
+		return p1["continuing"]
+	elif _player == 2:
+		return p2["continuing"]
+	elif _player == 3:
+		return p3["continuing"]
+	elif _player == 4:
+		return p4["continuing"]
+	elif _player == 5:
+		return p5["continuing"]
+	elif _player == 6:
+		return p6["continuing"]
+	elif _player == 7:
+		return p7["continuing"]
+	elif _player == 8:
+		return p8["continuing"]
 
 func get_in_game(_player):
 	if _player == 1:
@@ -647,66 +817,42 @@ func sort_place(a, b):
 	return true
 
 func reset():
-	p1["kill"] = 0
-	p1["lives"] = 0
-	p1["death"] = 0
-	p1["score"] = 0
-	p1["shot"] = 0
-	p1["hit"] = 0
-	p1["in_play"] = false
+	reset_player(1)
+	reset_player(2)
+	reset_player(3)
+	reset_player(4)
+	reset_player(5)
+	reset_player(6)
+	reset_player(7)
+	reset_player(8)
 
-	p2["kill"] = 0
-	p2["lives"] = 0
-	p2["death"] = 0
-	p2["score"] = 0
-	p2["shot"] = 0
-	p2["hit"] = 0
-	p2["in_play"] = false
+func reset_player(_player):
+	get_player_stats(_player)["continuing"] = false
+	get_player_stats(_player)["can_spawn"]= true
+	get_player_stats(_player)["in_play"] = false
+	get_player_stats(_player)["in_game"] = false
+	get_player_stats(_player)["exist"] = false
+	get_player_stats(_player)["kill"] = 0
+	get_player_stats(_player)["lives"] = 0
+	get_player_stats(_player)["death"] = 0
+	get_player_stats(_player)["score"] = 0
+	get_player_stats(_player)["shot"] = 0
+	get_player_stats(_player)["hit"] = 0
+	get_player_stats(_player)["ammo"] = 0
+	get_player_stats(_player)["nrg"] = 100
+	get_player_stats(_player)["pawn_num"] = -1
 	
-	p3["kill"] = 0
-	p3["lives"] = 0
-	p3["death"] = 0
-	p3["score"] = 0
-	p3["shot"] = 0
-	p3["hit"] = 0
-	p3["in_play"] = false
-	
-	p4["kill"] = 0
-	p4["lives"] = 0
-	p4["death"] = 0
-	p4["score"] = 0
-	p4["shot"] = 0
-	p4["hit"] = 0
-	p4["in_play"] = false
-	
-	p5["kill"] = 0
-	p5["lives"] = 0
-	p5["death"] = 0
-	p5["score"] = 0
-	p5["shot"] = 0
-	p5["hit"] = 0
-	p5["in_play"] = false
-	
-	p6["kill"] = 0
-	p6["lives"] = 0
-	p6["death"] = 0
-	p6["score"] = 0
-	p6["shot"] = 0
-	p6["hit"] = 0
-	p6["in_play"] = false
-	
-	p7["kill"] = 0
-	p7["lives"] = 0
-	p7["death"] = 0
-	p7["score"] = 0
-	p7["shot"] = 0
-	p7["hit"] = 0
-	p7["in_play"] = false
-	
-	p8["kill"] = 0
-	p8["lives"] = 0
-	p8["death"] = 0
-	p8["score"] = 0
-	p8["shot"] = 0
-	p8["hit"] = 0
-	p8["in_play"] = false
+func reset_player_not_score(_player):
+	get_player_stats(_player)["continuing"] = false
+	get_player_stats(_player)["can_spawn"]= true
+	get_player_stats(_player)["in_play"] = false
+	get_player_stats(_player)["in_game"] = false
+	get_player_stats(_player)["exist"] = false
+	get_player_stats(_player)["kill"] = 0
+	get_player_stats(_player)["lives"] = 0
+	get_player_stats(_player)["death"] = 0
+	get_player_stats(_player)["shot"] = 0
+	get_player_stats(_player)["hit"] = 0
+	get_player_stats(_player)["ammo"] = 0
+	get_player_stats(_player)["nrg"] = 100
+	get_player_stats(_player)["pawn_num"] = -1

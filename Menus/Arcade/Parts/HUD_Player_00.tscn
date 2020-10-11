@@ -17,12 +17,12 @@ __meta__ = {
 
 [node name="VBox_In_Game" parent="." instance=ExtResource( 2 )]
 margin_right = 225.0
-margin_bottom = 456.0
+margin_bottom = 476.0
 
 [node name="VBox_In_Menu" parent="." instance=ExtResource( 4 )]
-margin_top = 460.0
-margin_bottom = 665.0
+margin_top = 480.0
+margin_bottom = 685.0
 
 [node name="VBox_Game_Over" parent="." instance=ExtResource( 3 )]
-margin_top = 669.0
-margin_bottom = 1428.0
+margin_top = 689.0
+margin_bottom = 1448.0

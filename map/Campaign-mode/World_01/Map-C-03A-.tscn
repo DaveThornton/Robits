@@ -117,30 +117,30 @@ cell_size = Vector2( 1, 1 )
 format = 1
 tile_data = PoolIntArray( 69469301, 2, 0, 69469302, 2, 0, 69469303, 2, 0, 69469304, 2, 0, 69469305, 2, 0, 69469306, 2, 0, 69469307, 2, 0, 69469308, 2, 0, 69469309, 2, 0, 69469310, 2, 0, 69469311, 2, 0, 69469312, 2, 0, 69469313, 2, 0, 69469314, 2, 0, 69469315, 2, 0, 69469316, 2, 0, 69469317, 2, 0, 69469318, 2, 0, 69469319, 2, 0, 69469320, 2, 0, 69469321, 2, 0, 69469322, 2, 0, 69469323, 2, 0, 69469324, 2, 0, 69469325, 2, 0, 69469326, 2, 0, 69469327, 2, 0, 69469328, 2, 0, 69469329, 2, 0, 69469330, 2, 0, 69469331, 2, 0, 69469332, 2, 0, 69469333, 2, 0 )
 
-[node name="Player_spawns" type="Node2D" parent="."]
+[node name="Player_Spawns" type="Node2D" parent="."]
 
-[node name="Position2D20" type="Position2D" parent="Player_spawns"]
+[node name="Position2D20" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 160, 620 )
 
-[node name="Position2D21" type="Position2D" parent="Player_spawns"]
+[node name="Position2D21" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 200, 620 )
 
-[node name="Position2D22" type="Position2D" parent="Player_spawns"]
+[node name="Position2D22" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 240, 620 )
 
-[node name="Position2D23" type="Position2D" parent="Player_spawns"]
+[node name="Position2D23" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 290, 620 )
 
-[node name="Position2D24" type="Position2D" parent="Player_spawns"]
+[node name="Position2D24" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 320, 620 )
 
-[node name="Position2D25" type="Position2D" parent="Player_spawns"]
+[node name="Position2D25" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 350, 620 )
 
-[node name="Position2D26" type="Position2D" parent="Player_spawns"]
+[node name="Position2D26" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 380, 620 )
 
-[node name="Position2D27" type="Position2D" parent="Player_spawns"]
+[node name="Position2D27" type="Position2D" parent="Player_Spawns"]
 position = Vector2( 410, 620 )
 
 [node name="Power_Ups" type="Node2D" parent="."]

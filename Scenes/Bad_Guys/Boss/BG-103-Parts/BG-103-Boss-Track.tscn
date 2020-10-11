@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/Bad_Guys/Boss/BG-103-Boss/BG-103-Track-Back.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Bad_Guys/Boss/BG-103-Boss/BG-103-Track.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sprites/Bad_Guys/Boss/BG-103-Boss/BG-103-Track-Hit-Spot.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/Bad_Guys/Boss/Boss-103/BG-103-Boss-Track.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/FX/FX-103-Boss-Tank-Debris.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 14.0357
@@ -102,6 +103,42 @@ tracks/3/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("BG-103-Wheel2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BG-103-Wheel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BG-103-Wheel3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Hit"
@@ -154,6 +191,42 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("BG-103-Wheel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BG-103-Wheel2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BG-103-Wheel3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="BG-103-Boss-Track" type="StaticBody2D" groups=[
 "badguy",
@@ -163,6 +236,7 @@ collision_layer = 0
 collision_mask = 2560
 script = ExtResource( 6 )
 explode = ExtResource( 7 )
+debris_scene = ExtResource( 8 )
 
 [node name="BG-103-Track-Back" type="Sprite" parent="."]
 self_modulate = Color( 0.380392, 0.509804, 0.235294, 1 )
@@ -216,3 +290,11 @@ anims/Left = SubResource( 2 )
 [node name="AnimationPlayer_Hit" type="AnimationPlayer" parent="."]
 anims/Dead = SubResource( 4 )
 anims/Hit = SubResource( 3 )
+
+[node name="Debris" type="Node2D" parent="."]
+
+[node name="Position2D" type="Position2D" parent="Debris"]
+position = Vector2( -29, -11 )
+
+[node name="Position2D2" type="Position2D" parent="Debris"]
+position = Vector2( 29, -11 )

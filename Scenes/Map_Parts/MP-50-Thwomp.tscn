@@ -30,7 +30,6 @@ shape = SubResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="Area2D-Thuwmp" type="Area2D" parent="KinematicBody2D"]
-editor/display_folded = true
 collision_layer = 8
 collision_mask = 3074
 

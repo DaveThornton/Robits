@@ -1,10 +1,14 @@
 extends Node2D
+
+
 export(PackedScene) var start_screen
 onready var timer = $Timer
 var started = false
-var mode_vs = true
+var start_eq = false
+#var mode_vs = true
+var mode = 0 # 0 campaign | 1 lives | 2 score | 3 time
 var over = false
-var end_game_score = 10
+var end_game_score = 1
 
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
@@ -36,33 +40,53 @@ func spawn_started():
 
 func set_game_over(_over):
 	over = _over
-	if over:
+	if over && mode > 0:
 		Map_Hand.clear_map()
 		HUD.state_machine()
 		timer.start()
+	elif over && mode == 0:
+		print("game over in game for campaign and nothing?")
 
 func check_over():
-	if Player_Stats.p1["score"] >= end_game_score:
-		set_game_over(true)
-	elif Player_Stats.p2["score"] >= end_game_score:
-		set_game_over(true)
-	elif Player_Stats.p3["score"] >= end_game_score:
-		set_game_over(true)
-	elif Player_Stats.p4["score"] >= end_game_score:
-		set_game_over(true)
-	elif Player_Stats.p5["score"] >= end_game_score:
-		set_game_over(true)
-	elif Player_Stats.p6["score"] >= end_game_score:
-		set_game_over(true)
-	elif Player_Stats.p7["score"] >= end_game_score:
-		set_game_over(true)
-	elif Player_Stats.p8["score"] >= end_game_score:
-		set_game_over(true)
+	if mode == 2 :
+		print("check over mode 2 in game singleton")
+		if Player_Stats.p1["score"] >= end_game_score:
+			set_game_over(true)
+		elif Player_Stats.p2["score"] >= end_game_score:
+			set_game_over(true)
+		elif Player_Stats.p3["score"] >= end_game_score:
+			set_game_over(true)
+		elif Player_Stats.p4["score"] >= end_game_score:
+			set_game_over(true)
+		elif Player_Stats.p5["score"] >= end_game_score:
+			set_game_over(true)
+		elif Player_Stats.p6["score"] >= end_game_score:
+			set_game_over(true)
+		elif Player_Stats.p7["score"] >= end_game_score:
+			set_game_over(true)
+		elif Player_Stats.p8["score"] >= end_game_score:
+			set_game_over(true)
+	elif mode == 0:
+		print("check over mode 0 in game singleton")
+#		var num_in_play = Player_Stats.get_num_in_play()
+		if Player_Stats.get_num_in_play() == 0:
+			set_game_over(true)
+	else:
+		print("check over mode wrong in game singleton havent made game type ", mode)
+
+func use_lives():
+	if mode < 1:
+		HUD.show_lives(true)
+		return true
+	else:
+		HUD.show_lives(false)
+		return false
 
 func get_start_screen():
 	return start_screen
 
 func reset():
+	FX.CAMERA
 	started = false
 	set_game_over(false)
 

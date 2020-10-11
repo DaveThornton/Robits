@@ -25,14 +25,16 @@ func _ready():
 func _start(_player):
 	if menu_pos == 1:
 		SFX.play("Menu_Select_02")
-		Game.mode_vs = false
+		Game.mode = 0
+		Game.start_eq = true
 		HUD.load_screen(campaign)
 		call_deferred("free")
 	elif menu_pos == 2:
 		SFX.play("Menu_Error_02")
 	elif menu_pos == 3:
 		SFX.play("Menu_Select_02")
-		Game.mode_vs = true
+		Game.mode = 2
+		Game.start_eq = false
 		HUD.load_screen(vs_mode)
 		call_deferred("free")
 

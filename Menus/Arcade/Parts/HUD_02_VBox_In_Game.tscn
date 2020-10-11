@@ -173,7 +173,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "Continue ["
 align = 1
 
-[node name="Label_Coin_Count" type="Label" parent="HBox_Continue"]
+[node name="Label_Continue_Count" type="Label" parent="HBox_Continue"]
 margin_left = 186.0
 margin_right = 206.0
 margin_bottom = 37.0
@@ -181,7 +181,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "0"
 align = 1
 
-[node name="Label_Coin_Text_2" type="Label" parent="HBox_Continue"]
+[node name="Label_Continue_Text_2" type="Label" parent="HBox_Continue"]
 margin_left = 210.0
 margin_right = 221.0
 margin_bottom = 37.0
@@ -197,7 +197,7 @@ margin_bottom = 368.0
 [node name="VBox_Game" type="VBoxContainer" parent="."]
 margin_top = 372.0
 margin_right = 225.0
-margin_bottom = 452.0
+margin_bottom = 472.0
 
 [node name="HBox_Player" type="HBoxContainer" parent="VBox_Game"]
 margin_right = 225.0
@@ -220,10 +220,32 @@ custom_fonts/font = ExtResource( 1 )
 text = "0"
 align = 1
 
-[node name="HBox_Score" type="HBoxContainer" parent="VBox_Game"]
+[node name="HBox_Lives" type="HBoxContainer" parent="VBox_Game"]
 margin_top = 20.0
 margin_right = 225.0
 margin_bottom = 36.0
+alignment = 1
+
+[node name="Label_Lives_Text" type="Label" parent="VBox_Game/HBox_Lives"]
+margin_left = 76.0
+margin_right = 136.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+text = "Lives : "
+align = 1
+
+[node name="Label_Lives_Count" type="Label" parent="VBox_Game/HBox_Lives"]
+margin_left = 140.0
+margin_right = 149.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+
+[node name="HBox_Score" type="HBoxContainer" parent="VBox_Game"]
+margin_top = 40.0
+margin_right = 225.0
+margin_bottom = 56.0
 alignment = 1
 
 [node name="Label_Score_Text" type="Label" parent="VBox_Game/HBox_Score"]
@@ -243,9 +265,9 @@ text = "0"
 align = 1
 
 [node name="HBox_for_NRG" type="HBoxContainer" parent="VBox_Game"]
-margin_top = 40.0
+margin_top = 60.0
 margin_right = 225.0
-margin_bottom = 60.0
+margin_bottom = 80.0
 alignment = 1
 
 [node name="NRG_Bar" type="ProgressBar" parent="VBox_Game/HBox_for_NRG"]
@@ -259,9 +281,9 @@ value = 50.0
 percent_visible = false
 
 [node name="HBox_Ammo" type="HBoxContainer" parent="VBox_Game"]
-margin_top = 64.0
+margin_top = 84.0
 margin_right = 225.0
-margin_bottom = 80.0
+margin_bottom = 100.0
 alignment = 1
 
 [node name="Label_Ammo_Text" type="Label" parent="VBox_Game/HBox_Ammo"]
@@ -315,9 +337,9 @@ align = 1
 anims/Coin_Up = SubResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_top = 456.0
+margin_top = 476.0
 margin_right = 225.0
-margin_bottom = 456.0
+margin_bottom = 476.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 

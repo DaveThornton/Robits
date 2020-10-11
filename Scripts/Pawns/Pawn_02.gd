@@ -107,7 +107,7 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
 	play_type = _play_type
 	_set_color()
-	start_equiped = !Game.mode_vs
+	start_equiped = _start_equiped
 	if start_equiped:
 		equip_start_weap()
 	change_pos(_pos)

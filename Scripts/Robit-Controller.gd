@@ -125,7 +125,9 @@ func init(_player_num):
 	else: print("Error in Robit controller init player number invald")
 
 func spawn_pawn():
-	if !Game.over:
+	if !Game.over && !Player_Stats.get_continuing(player):
+		if my_pawn:
+			my_pawn.queue_free()
 		print("spawning pawn bc game is not over in robit controller")
 		var z = Equipment.get_pawn(Player_Stats.get_pawn_num(player)).instance()
 		get_tree().get_current_scene().pawns.add_child(z)
@@ -134,11 +136,15 @@ func spawn_pawn():
 		_init_pawn()
 		Player_Stats.set_in_game(player, true)
 		alive = true
+	
+	elif !Game.over && Player_Stats.get_continuing(player):
+		print("robit controller not working when tring to spawn maybe try to spawn again")
+	
 	else:
 		Player_Stats.set_in_game(player, false)
 
 func _init_pawn():
-	my_pawn.init(player, Map_Hand.spawn_pos(), start_equiped, play_type)
+	my_pawn.init(player, Map_Hand.spawn_pos(), Game.start_eq, play_type)
 
 func explode_pawn(_player, _pos, _by_who, _by_what):
 	call_deferred("_explode_pawn",_player, _pos, _by_who, _by_what)

@@ -418,6 +418,17 @@ func set_nrg(_player, _amount):
 	elif _player == 8: p8.set_nrg_bar(_amount)
 	else: print("error in nrg_update player number not valid. player : ",_player, ". amount :", _amount)
 
+func set_lives(_player, _amount):
+	if _player == 1: p1.set_lives(_amount)
+	elif _player == 2: p2.set_lives(_amount)
+	elif _player == 3: p3.set_lives(_amount)
+	elif _player == 4: p4.set_lives(_amount)
+	elif _player == 5: p5.set_lives(_amount)
+	elif _player == 6: p6.set_lives(_amount)
+	elif _player == 7: p7.set_lives(_amount)
+	elif _player == 8: p8.set_lives(_amount)
+	else: print("error in set_lives player number not valid. player : ",_player, ". amount :", _amount)
+
 func set_ammo(_player, _amount):
 	if _player == 1: p1.set_ammo_count(_amount)
 	elif _player == 2: p2.set_ammo_count(_amount)
@@ -476,6 +487,16 @@ func set_places():
 				p7.set_place(o)
 			elif _places[p].x == 8:
 				p8.set_place(o)
+
+func show_lives(_show:bool):
+	p1.show_lives(_show)
+	p2.show_lives(_show)
+	p3.show_lives(_show)
+	p4.show_lives(_show)
+	p5.show_lives(_show)
+	p6.show_lives(_show)
+	p7.show_lives(_show)
+	p8.show_lives(_show)
 
 func game_over():
 	print("game over doesnt do much in hud so fun!")
@@ -544,6 +565,9 @@ func get_game_over_done_count():
 
 func coin_up(_player):
 	SFX.play("Menu_Coin")
+	coin_update(_player)
+	
+func coin_update(_player):
 	if _player == 1:
 		p1.set_coin_count(Player_Stats.p1["credit"])
 	elif _player == 2:
@@ -560,7 +584,28 @@ func coin_up(_player):
 		p7.set_coin_count(Player_Stats.p7["credit"])
 	elif _player == 8:
 		p8.set_coin_count(Player_Stats.p8["credit"])
+	elif _player == 1:
+		p1.set_coin_count(Player_Stats.p1["credit"])
+		p2.set_coin_count(Player_Stats.p2["credit"])
+		p3.set_coin_count(Player_Stats.p3["credit"])
+		p4.set_coin_count(Player_Stats.p4["credit"])
+		p5.set_coin_count(Player_Stats.p5["credit"])
+		p6.set_coin_count(Player_Stats.p6["credit"])
+		p7.set_coin_count(Player_Stats.p7["credit"])
+		p8.set_coin_count(Player_Stats.p8["credit"])
 	state_machine()
+
+func set_continue(_player, _continue):
+	if _player == 1: p1.set_continue(_continue)
+	elif _player == 2: p2.set_continue(_continue)
+	elif _player == 3: p3.set_continue(_continue)
+	elif _player == 4: p4.set_continue(_continue)
+	elif _player == 5: p5.set_continue(_continue)
+	elif _player == 6: p6.set_continue(_continue)
+	elif _player == 7: p7.set_continue(_continue)
+	elif _player == 8: p8.set_continue(_continue)
+	else: print("error in set score player number not valid. player : ",_player)
+	pass
 
 func reset():
 	start()
@@ -614,6 +659,16 @@ func input( _player, _dir):
 			set_pri(_player,2)
 		else:
 			print("error in input HUD no parameters met 0004")
+
+	elif Game.started && Player_Stats.get_continuing(_player):
+		print("trying to continue hud arcade")#----------------------------------------------------------------------------
+		Player_Stats.reset_player_not_score(_player)
+		Player_Stats.set_in_play(_player,true)
+		Player_Stats.use_credit(_player)
+		set_continue(_player,false)
+		p1.pawn_menu_vis(true)
+#		Controllers.get_controller(_player).spawn_pawn()
+#		start a new spwan like i just started the game but dont reset the score i don tyet anyways
 
 	elif Game.started && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
 		if _player == 1: 

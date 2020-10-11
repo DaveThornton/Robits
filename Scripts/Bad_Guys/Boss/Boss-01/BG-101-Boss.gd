@@ -1,4 +1,5 @@
 extends Node2D
+export (PackedScene) var level_to_load
 
 onready var top = $"Tops/BG-101-Boss-Top"
 onready var boxes = $Boxes
@@ -15,6 +16,7 @@ var dead_boxes = 0
 
 func _ready():
 	map = Map_Hand.map
+	exit_door.level_to_load_1 = level_to_load
 #	exit_door.off()
 	if !map:
 		print("no Map")

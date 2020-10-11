@@ -2,8 +2,8 @@
 extends StaticBody2D
 
 export(PackedScene) var projectile
-export(PackedScene) var explode
-export(PackedScene) var debris
+#export(PackedScene) var explode
+#export(PackedScene) var debris
 onready var anim_hit = $AnimationPlayer_Hit
 onready var anim_shoot = $AnimationPlayer_Shoot
 onready var shape = $CollisionShape2D
@@ -49,17 +49,16 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 #		anim_hit.play("Hit")
 		health -= (_damage - armor)
 		if health <= 0:
-			dead = true
-			print("BG-103-Dead")
+			dead = true	
+			emit_signal("dead_turret")
 			call_deferred("_explode")
 
 func _explode():
 	dead = true
-	emit_signal("dead_turret")
-	var e = explode.instance()
+#	var e = explode.instance()
 	shape.disabled = false
-	Map_Hand.add_kid_to_map(e)
-	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
+#	Map_Hand.add_kid_to_map(e)
+#	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
 	anim_hit.play("Dead")
 
 func sort_distance(_a, _b):

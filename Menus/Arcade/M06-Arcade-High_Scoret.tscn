@@ -1,0 +1,360 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Menu/Console_PC-Screen.png" type="Texture" id=3]
+[ext_resource path="res://misc/line-text-64.tres" type="DynamicFont" id=4]
+[ext_resource path="res://misc/line-text-96.tres" type="DynamicFont" id=5]
+
+[node name="M01-Arcade-Start" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 957.881, 272.318 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 563.0
+margin_top = 319.0
+margin_right = 1358.0
+margin_bottom = 1096.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 795.0
+margin_bottom = 777.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_right = 148.0
+margin_bottom = 777.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 148.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "1."
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 71.0
+margin_right = 148.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "2."
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 142.0
+margin_right = 148.0
+margin_bottom = 209.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "3."
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 213.0
+margin_right = 148.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "4."
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 284.0
+margin_right = 148.0
+margin_bottom = 351.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "5."
+
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 355.0
+margin_right = 148.0
+margin_bottom = 422.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "6."
+
+[node name="Label7" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 426.0
+margin_right = 148.0
+margin_bottom = 493.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "7."
+
+[node name="Label8" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 497.0
+margin_right = 148.0
+margin_bottom = 564.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "8."
+
+[node name="Label9" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 568.0
+margin_right = 148.0
+margin_bottom = 635.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "9."
+
+[node name="Label10" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 639.0
+margin_right = 148.0
+margin_bottom = 706.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "10. "
+
+[node name="Label11" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 710.0
+margin_right = 148.0
+margin_bottom = 777.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "    "
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 152.0
+margin_right = 374.0
+margin_bottom = 777.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 222.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Dave"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 71.0
+margin_right = 222.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Dave"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 142.0
+margin_right = 222.0
+margin_bottom = 209.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Dave"
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 213.0
+margin_right = 222.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Dave"
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 284.0
+margin_right = 222.0
+margin_bottom = 351.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Dave"
+
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 355.0
+margin_right = 222.0
+margin_bottom = 422.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Dave"
+
+[node name="Label7" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 426.0
+margin_right = 222.0
+margin_bottom = 493.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Dave"
+
+[node name="Label8" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 497.0
+margin_right = 222.0
+margin_bottom = 564.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Dave"
+
+[node name="Label9" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 568.0
+margin_right = 222.0
+margin_bottom = 635.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Dave"
+
+[node name="Label10" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 639.0
+margin_right = 222.0
+margin_bottom = 706.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "Dave"
+
+[node name="Label11" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 710.0
+margin_right = 222.0
+margin_bottom = 777.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "      "
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 378.0
+margin_right = 785.0
+margin_bottom = 777.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_right = 407.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "749"
+align = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 71.0
+margin_right = 407.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "748"
+align = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 142.0
+margin_right = 407.0
+margin_bottom = 209.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "747"
+align = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 213.0
+margin_right = 407.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "746"
+align = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 284.0
+margin_right = 407.0
+margin_bottom = 351.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "745"
+align = 2
+
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 355.0
+margin_right = 407.0
+margin_bottom = 422.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "744"
+align = 2
+
+[node name="Label7" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 426.0
+margin_right = 407.0
+margin_bottom = 493.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "743"
+align = 2
+
+[node name="Label8" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 497.0
+margin_right = 407.0
+margin_bottom = 564.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "742"
+align = 2
+
+[node name="Label9" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 568.0
+margin_right = 407.0
+margin_bottom = 635.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "741"
+align = 2
+
+[node name="Label10" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 639.0
+margin_right = 407.0
+margin_bottom = 706.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "740"
+align = 2
+
+[node name="Label11" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3"]
+margin_top = 710.0
+margin_right = 407.0
+margin_bottom = 777.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "           "
+
+[node name="Label" type="Label" parent="."]
+margin_left = 652.217
+margin_top = 200.568
+margin_right = 1269.22
+margin_bottom = 301.568
+custom_fonts/font = ExtResource( 5 )
+text = "HIGH SCOREs"
+__meta__ = {
+"_edit_use_anchors_": false
+}
