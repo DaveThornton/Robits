@@ -1,11 +1,13 @@
 extends Node
 
 var p1 = {
+	my_name = "!!!!", 
 	continuing = false,
 	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
+	done = true,
 	credit = 0,
 	lives = 0,
 	kill = 0,
@@ -22,11 +24,13 @@ var p1 = {
 }
 
 var p2 = {
+	my_name = "!!!!", 
 	continuing = false,
 	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
+	done = true,
 	credit = 0,
 	lives = 0,
 	kill = 0,
@@ -43,11 +47,13 @@ var p2 = {
 }
 
 var p3 = {
+	my_name = "!!!!", 
 	continuing = false,
 	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
+	done = true,
 	credit = 0,
 	lives = 0,
 	kill = 0,
@@ -64,11 +70,13 @@ var p3 = {
 }
 
 var p4 = {
+	my_name = "!!!!", 
 	continuing = false,
 	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
+	done = true,
 	credit = 0,
 	lives = 0,
 	kill = 0,
@@ -85,11 +93,13 @@ var p4 = {
 }
 
 var p5 = {
+	my_name = "!!!!",
 	continuing = false,
 	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
+	done = true,
 	credit = 0,
 	lives = 0,
 	kill = 0,
@@ -106,11 +116,13 @@ var p5 = {
 }
 
 var p6 = {
+	my_name = "!!!!",
 	continuing = false,
 	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
+	done = true,
 	credit = 0,
 	lives = 0,
 	kill = 0,
@@ -127,11 +139,13 @@ var p6 = {
 }
 
 var p7 = {
+	my_name = "!!!!",
 	continuing = false,
 	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
+	done = true,
 	credit = 0,
 	lives = 0,
 	kill = 0,
@@ -148,11 +162,13 @@ var p7 = {
 }
 
 var p8 = {
+	my_name = "!!!!",
 	continuing = false,
 	can_spawn = true,
 	in_play = false,
 	in_game = false,
 	exist = false,
+	done = true,
 	credit = 0,
 	lives = 0,
 	kill = 0,
@@ -343,27 +359,35 @@ func use_credit( _player):
 	if _player == 1:
 		p1["credit"] -= 1
 		p1["in_play"] = true
+		p1["done"] = false
 	elif _player == 2:
 		p2["credit"] -= 1
 		p2["in_play"] = true
+		p2["done"] = false
 	elif _player == 3:
 		p3["credit"] -= 1
 		p3["in_play"] = true
+		p3["done"] = false
 	elif _player == 4:
 		p4["credit"] -= 1
 		p4["in_play"] = true
+		p4["done"] = false
 	elif _player == 5:
 		p5["credit"] -= 1
 		p5["in_play"] = true
+		p5["done"] = false
 	elif _player == 6:
 		p6["credit"] -= 1
 		p6["in_play"] = true
+		p6["done"] = false
 	elif _player == 7:
 		p7["credit"] -= 1
 		p7["in_play"] = true
+		p7["done"] = false
 	elif _player == 8:
 		p8["credit"] -= 1
 		p8["in_play"] = true
+		p8["done"] = false
 	else:
 		print("invalid player in player stats use credit... _player --> ", _player)
 	print(p1["credit"])
@@ -532,6 +556,24 @@ func set_in_play(_player,_in_play):
 	elif _player == 8:
 		p8["in_play"] = _in_play
 
+func set_donr(_player,_done):
+	if _player == 1:
+		p1["done"] = _done
+	elif _player == 2:
+		p2["done"] = _done
+	elif _player == 3:
+		p3["done"] = _done
+	elif _player == 4:
+		p4["done"] = _done
+	elif _player == 5:
+		p5["done"] = _done
+	elif _player == 6:
+		p6["done"] = _done
+	elif _player == 7:
+		p7["done"] = _done
+	elif _player == 8:
+		p8["done"] = _done
+
 #func set_can_spawn(_player, _spawn):
 #	if _player == 1:
 #		p1["can_spawn"] = _spawn
@@ -607,6 +649,26 @@ func get_in_game(_player):
 		print("invalid player number in player stats , get in_game so ill return false")
 		return false
 
+func get_num_in_game():
+	var _num_in_game = 0
+	if p1["in_game"]:
+		_num_in_game += 1
+	if p2["in_game"]:
+		_num_in_game += 1
+	if p3["in_game"]:
+		_num_in_game += 1
+	if p4["in_game"]:
+		_num_in_game += 1
+	if p5["in_game"]:
+		_num_in_game += 1
+	if p6["in_game"]:
+		_num_in_game += 1
+	if p7["in_game"]:
+		_num_in_game += 1
+	if p8["in_game"]:
+		_num_in_game += 1
+	return _num_in_game
+
 func get_in_play(_player):
 	if _player == 1:
 		return p1["in_play"]
@@ -647,6 +709,27 @@ func get_num_in_play():
 	if p8["in_play"]:
 		_num_in_play += 1
 	return _num_in_play
+
+func get_done(_player):
+	if _player == 1:
+		return p1["done"]
+	elif _player == 2:
+		return p2["done"]
+	elif _player == 3:
+		return p3["done"]
+	elif _player == 4:
+		return p4["done"]
+	elif _player == 5:
+		return p5["done"]
+	elif _player == 6:
+		return p6["done"]
+	elif _player == 7:
+		return p7["done"]
+	elif _player == 8:
+		return p8["done"]
+	else:
+		print("invalid player number in player stats , get done so ill return true")
+		return true
 
 func get_body_color(_player):
 	if _player == 1:
@@ -827,6 +910,7 @@ func reset():
 	reset_player(8)
 
 func reset_player(_player):
+	get_player_stats(_player)["name"] = "!!!!"
 	get_player_stats(_player)["continuing"] = false
 	get_player_stats(_player)["can_spawn"]= true
 	get_player_stats(_player)["in_play"] = false
@@ -842,7 +926,7 @@ func reset_player(_player):
 	get_player_stats(_player)["nrg"] = 100
 	get_player_stats(_player)["pawn_num"] = -1
 	
-func reset_player_not_score(_player):
+func reset_player_not_score(_player):# or name
 	get_player_stats(_player)["continuing"] = false
 	get_player_stats(_player)["can_spawn"]= true
 	get_player_stats(_player)["in_play"] = false

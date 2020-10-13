@@ -503,53 +503,57 @@ func game_over():
 	pass
 
 func game_over_input(_player, _input):
-	if _player == 1:
-		if _input == 5:
-			p1.game_over_done()
-		elif _input ==6:
-			p1.game_over_not_done()
-	elif _player == 2:
-		if _input == 5:
-			p2.game_over_done()
-		elif _input ==6:
-			p2.game_over_not_done()
-	elif _player == 3:
-		if _input == 5:
-			p3.game_over_done()
-		elif _input ==6:
-			p3.game_over_not_done()
-	elif _player == 4:
-		if _input == 5:
-			p4.game_over_done()
-		elif _input ==6:
-			p4.game_over_not_done()
-	elif _player == 5:
-		if _input == 5:
-			p5.game_over_done()
-		elif _input ==6:
-			p5.game_over_not_done()
-	elif _player == 6:
-		if _input == 5:
-			p6.game_over_done()
-		elif _input ==6:
-			p6.game_over_not_done()
-	elif _player == 7:
-		if _input == 5:
-			p7.game_over_done()
-		elif _input ==6:
-			p7.game_over_not_done()
-	elif _player == 8:
-		if _input == 5:
-			p8.game_over_done()
-		elif _input ==6:
-			p8.game_over_not_done()
-	else:
-		print("error game over input player number not valid. player : ",_player, ". input :", _input)
-	var _in_play = Player_Stats.get_num_in_play()
-	var _done = get_game_over_done_count()
+	if Game.mode < 0:
+		if _player == 1:
+			if _input == 5:
+				p1.game_over_done()
+			elif _input ==6:
+				p1.game_over_not_done()
+		elif _player == 2:
+			if _input == 5:
+				p2.game_over_done()
+			elif _input ==6:
+				p2.game_over_not_done()
+		elif _player == 3:
+			if _input == 5:
+				p3.game_over_done()
+			elif _input ==6:
+				p3.game_over_not_done()
+		elif _player == 4:
+			if _input == 5:
+				p4.game_over_done()
+			elif _input ==6:
+				p4.game_over_not_done()
+		elif _player == 5:
+			if _input == 5:
+				p5.game_over_done()
+			elif _input ==6:
+				p5.game_over_not_done()
+		elif _player == 6:
+			if _input == 5:
+				p6.game_over_done()
+			elif _input ==6:
+				p6.game_over_not_done()
+		elif _player == 7:
+			if _input == 5:
+				p7.game_over_done()
+			elif _input ==6:
+				p7.game_over_not_done()
+		elif _player == 8:
+			if _input == 5:
+				p8.game_over_done()
+			elif _input ==6:
+				p8.game_over_not_done()
+		else:
+			print("error game over input player number not valid. player : ",_player, ". input :", _input)
+		var _in_play = Player_Stats.get_num_in_play()
+		var _done = get_game_over_done_count()
+		if _in_play == _done && Game.mode < 0:
+			get_tree().get_current_scene().arcade_reset()
 	
-	if _in_play == _done:
-		get_tree().get_current_scene().arcade_reset()
+	elif Game.mode == 0 && !Player_Stats.get_done(_player):
+		High_Score.player_input(_player, _input)
+		print("game over input in hud game mode 0 no screen loaded aka no high score screen loaded")
 
 func get_game_over_done_count():
 	var _done = 0
@@ -605,7 +609,6 @@ func set_continue(_player, _continue):
 	elif _player == 7: p7.set_continue(_continue)
 	elif _player == 8: p8.set_continue(_continue)
 	else: print("error in set score player number not valid. player : ",_player)
-	pass
 
 func reset():
 	start()
@@ -630,14 +633,16 @@ func splash(_top, _body, _time, _pause):
 	add_child(s)
 	s.init(_top, _body, _time, _pause)
 
-func input( _player, _dir):
-	if !Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
+func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
+#	print(_player, Game.started,"   ",!Player_Stats.get_in_play(_player),"   ", Player_Stats.get_in_game(_player),"  ",Player_Stats.get_continuing(_player))
+	if !Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):
 		if _dir == 0 && Player_Stats.can_player_start(_player):
 			Player_Stats.set_in_play(_player,true)
 			Player_Stats.use_credit(_player)
 			set_pri(_player,3)
 			update_player(_player)
 			emit_signal("screen_update")
+			Player_Stats.reset_player(_player)
 		elif _dir != 0 && Player_Stats.can_player_start(_player):
 			set_pri(_player,3)
 		elif !Player_Stats.can_player_start(_player):
@@ -648,7 +653,24 @@ func input( _player, _dir):
 	elif !Game.started && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
 		emit_signal("input_to_screen",_player, _dir)
 
-	elif Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
+	elif Player_Stats.get_continuing(_player) && !Player_Stats.can_player_start(_player): print("Hud no credit  tring to continue error 0007")
+
+	elif Player_Stats.get_continuing(_player) && Player_Stats.can_player_start(_player):
+		print("continuing?")
+		if _dir == 0 && Player_Stats.can_player_start(_player):
+			set_continue(_player, false)
+			Player_Stats.reset_player_not_score(_player)
+			Player_Stats.set_in_play(_player,true)
+			Player_Stats.use_credit(_player)
+			p1.pawn_menu_vis(true)
+#		elif _dir != 0 && Player_Stats.can_player_start(_player):
+#			set_pri(_player,3)
+#		elif !Player_Stats.can_player_start(_player):
+#			set_pri(_player,2)
+#		else:
+#			print("error in input HUD no parameters met 0005")
+
+	elif Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):
 		if _dir == 0 && Player_Stats.can_player_start(_player):
 			Player_Stats.set_in_play(_player,true)
 			Player_Stats.use_credit(_player)
@@ -660,17 +682,7 @@ func input( _player, _dir):
 		else:
 			print("error in input HUD no parameters met 0004")
 
-	elif Game.started && Player_Stats.get_continuing(_player):
-		print("trying to continue hud arcade")#----------------------------------------------------------------------------
-		Player_Stats.reset_player_not_score(_player)
-		Player_Stats.set_in_play(_player,true)
-		Player_Stats.use_credit(_player)
-		set_continue(_player,false)
-		p1.pawn_menu_vis(true)
-#		Controllers.get_controller(_player).spawn_pawn()
-#		start a new spwan like i just started the game but dont reset the score i don tyet anyways
-
-	elif Game.started && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
+	elif Game.started && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player)&& !Player_Stats.get_continuing(_player):
 		if _player == 1: 
 			if _dir == 2:
 				p1.go_left()

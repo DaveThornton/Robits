@@ -140,8 +140,8 @@ func spawn_pawn():
 	elif !Game.over && Player_Stats.get_continuing(player):
 		print("robit controller not working when tring to spawn maybe try to spawn again")
 	
-	else:
-		Player_Stats.set_in_game(player, false)
+#	else:
+#		Player_Stats.set_in_game(player, false)
 
 func _init_pawn():
 	my_pawn.init(player, Map_Hand.spawn_pos(), Game.start_eq, play_type)

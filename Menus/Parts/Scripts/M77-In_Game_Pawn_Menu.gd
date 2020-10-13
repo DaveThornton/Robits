@@ -1,5 +1,4 @@
 extends HBoxContainer
-onready var pawn00 = $Pawn00
 onready var pawn01 = $Pawn01
 onready var pawn02 = $Pawn02
 onready var pawn03 = $Pawn03
@@ -36,15 +35,15 @@ func start():
 
 func new_pos(_pos):
 	if _pos > 16:
-		pos = 0
-	elif _pos < 0:
+		pos = 1
+	elif _pos < 1:
 		pos = 16
 	else:
 		pos = _pos
 	all_out()
-	if pos == 0:
-		pawn00.visible = true
-	elif pos == 1:
+#	if pos == 0:
+#		pawn00.visible = true
+	if pos == 1:
 		pawn01.visible = true
 	elif pos == 2:
 		pawn02.visible = true
@@ -78,7 +77,7 @@ func new_pos(_pos):
 		pawn16.visible = true
 
 func all_out():
-	pawn00.visible = false
+#	pawn00.visible = false
 	pawn01.visible = false
 	pawn02.visible = false
 	pawn03.visible = false

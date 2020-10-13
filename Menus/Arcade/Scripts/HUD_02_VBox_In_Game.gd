@@ -79,10 +79,12 @@ func show_lives(_show:bool): igb_10_game_box_lives.visible = _show
 func set_continue(_continue):
 	if _continue:
 		continue_started = true
+		Player_Stats.set_in_game(player, false)
+#		Controllers.get_controller(player)
 #		continue_count()
 	else:
 		continue_started = false
-		update_state(10)
+#		update_state(10)
 		continue_count_num = 10
 		print("dont know set_continue false in hud 02 in game")
 
@@ -92,47 +94,50 @@ func continue_count():
 		update_state(8)
 		Player_Stats.set_continuing(player, true)
 #		Player_Stats.set_can_spawn(player, false)
-		if continue_count_num > 0 && continue_started:
+		if continue_count_num > 0:
 			continue_count_num -= 1
 			igb_08_continue_count.text = str(continue_count_num)
-		elif continue_count_num <= 0 && continue_started:
+		elif continue_count_num <= 0:
 			continue_started = false
-			Player_Stats.set_in_play(player,false)
+			print(Player_Stats.get_in_play(player), "<------in play --- in game------>",Player_Stats.get_in_game(player))
+			Player_Stats.set_in_play(player,false) 
 			Player_Stats.set_continuing(player, false)
 #			Player_Stats.set_can_spawn(player, true)
 			Game.check_over()
-			Player_Stats.reset_player(player)
+			if !Game.over:
+				Player_Stats.reset_player(player)
 			continue_count_num = 10
 			print("need to do somthing when continue runs out hud 02 vbox in game")
 			
 
 func update_state(_state:int):
-	all_out()
-	if _state != 10:
-		igb_01_player.visible = true
-		if _state == 2:
-			igb_02_insert.visible = true
-		elif _state == 3:
-			igb_03_press.visible = true
-		elif _state == 4:
-			igb_04_select.visible = true
-		elif _state == 5:
-			igb_05_ready.visible = true
-		elif _state == 6:
-			igb_06_coin.visible = true
-		elif _state == 7:
-			igb_07_dead.visible = true
-		elif _state == 8:
-			igb_08_continue.visible = true
-		elif _state == 9:
-			igb_09_pawn_menu.visible = true
-		elif _state == 0:
-			pass
+	if !continue_count_num < 10:
+		all_out()
+		if _state != 10:
+			igb_01_player.visible = true
+			if _state == 2:
+				igb_02_insert.visible = true
+			elif _state == 3:
+				igb_03_press.visible = true
+			elif _state == 4:
+				igb_04_select.visible = true
+			elif _state == 5:
+				igb_05_ready.visible = true
+			elif _state == 6:
+				igb_06_coin.visible = true
+			elif _state == 7:
+				igb_07_dead.visible = true
+			elif _state == 8:
+				igb_08_continue.visible = true
+			elif _state == 9:
+				igb_09_pawn_menu.visible = true
+			elif _state == 0:
+				pass
+			else:
+				print("invalid state in hud_02 update state. State = ", state)
 		else:
-			print("invalid state in hud_02 update state. State = ", state)
-	else:
-		igb_10_game_box.visible = true
-	state = _state
+			igb_10_game_box.visible = true
+		state = _state
 	
 func all_out():
 	igb_01_player.visible = false

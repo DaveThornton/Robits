@@ -13,119 +13,119 @@ __meta__ = {
 }
 
 [node name="Blank_09" type="Label" parent="."]
-margin_top = 717.0
-margin_right = 6.0
-margin_bottom = 731.0
+margin_top = 715.0
+margin_right = 10.0
+margin_bottom = 729.0
 size_flags_horizontal = 3
 
 [node name="VBox_Player_07" parent="." instance=ExtResource( 2 )]
-margin_left = 10.0
+margin_left = 14.0
 margin_top = 0.0
-margin_right = 235.0
-margin_bottom = 1448.0
+margin_right = 234.0
+margin_bottom = 1445.0
 player_num = 7
 
 [node name="Blank_07" type="Label" parent="."]
-margin_left = 239.0
-margin_top = 717.0
-margin_right = 245.0
-margin_bottom = 731.0
+margin_left = 238.0
+margin_top = 715.0
+margin_right = 248.0
+margin_bottom = 729.0
 size_flags_horizontal = 3
 
 [node name="VBox_Player_05" parent="." instance=ExtResource( 2 )]
-margin_left = 249.0
+margin_left = 252.0
 margin_top = 0.0
-margin_right = 474.0
-margin_bottom = 1448.0
+margin_right = 472.0
+margin_bottom = 1445.0
 player_num = 5
 
 [node name="Blank_05" type="Label" parent="."]
-margin_left = 478.0
-margin_top = 717.0
-margin_right = 484.0
-margin_bottom = 731.0
+margin_left = 476.0
+margin_top = 715.0
+margin_right = 487.0
+margin_bottom = 729.0
 size_flags_horizontal = 3
 
 [node name="VBox_Player_03" parent="." instance=ExtResource( 2 )]
-margin_left = 488.0
+margin_left = 491.0
 margin_top = 0.0
-margin_right = 713.0
-margin_bottom = 1448.0
+margin_right = 711.0
+margin_bottom = 1445.0
 player_num = 3
 
 [node name="Blank_03" type="Label" parent="."]
-margin_left = 717.0
-margin_top = 717.0
-margin_right = 723.0
-margin_bottom = 731.0
+margin_left = 715.0
+margin_top = 715.0
+margin_right = 725.0
+margin_bottom = 729.0
 size_flags_horizontal = 3
 
 [node name="VBox_Player_01" parent="." instance=ExtResource( 2 )]
-margin_left = 727.0
+margin_left = 729.0
 margin_top = 0.0
-margin_right = 952.0
-margin_bottom = 1448.0
+margin_right = 949.0
+margin_bottom = 1445.0
 player_num = 1
 
 [node name="Blank_01" type="Label" parent="."]
-margin_left = 956.0
-margin_top = 717.0
-margin_right = 962.0
-margin_bottom = 731.0
+margin_left = 953.0
+margin_top = 715.0
+margin_right = 964.0
+margin_bottom = 729.0
 size_flags_horizontal = 3
 
 [node name="VBox_Player_02" parent="." instance=ExtResource( 2 )]
-margin_left = 966.0
+margin_left = 968.0
 margin_top = 0.0
-margin_right = 1191.0
-margin_bottom = 1448.0
+margin_right = 1188.0
+margin_bottom = 1445.0
 player_num = 2
 
 [node name="Blank_02" type="Label" parent="."]
-margin_left = 1195.0
-margin_top = 717.0
-margin_right = 1201.0
-margin_bottom = 731.0
+margin_left = 1192.0
+margin_top = 715.0
+margin_right = 1202.0
+margin_bottom = 729.0
 size_flags_horizontal = 3
 
 [node name="VBox_Player_04" parent="." instance=ExtResource( 2 )]
-margin_left = 1205.0
+margin_left = 1206.0
 margin_top = 0.0
-margin_right = 1430.0
-margin_bottom = 1448.0
+margin_right = 1426.0
+margin_bottom = 1445.0
 player_num = 4
 
 [node name="Blank_04" type="Label" parent="."]
-margin_left = 1434.0
-margin_top = 717.0
-margin_right = 1440.0
-margin_bottom = 731.0
+margin_left = 1430.0
+margin_top = 715.0
+margin_right = 1441.0
+margin_bottom = 729.0
 size_flags_horizontal = 3
 
 [node name="VBox_Player_06" parent="." instance=ExtResource( 2 )]
-margin_left = 1444.0
+margin_left = 1445.0
 margin_top = 0.0
-margin_right = 1669.0
-margin_bottom = 1448.0
+margin_right = 1665.0
+margin_bottom = 1445.0
 player_num = 6
 
 [node name="Blank_06" type="Label" parent="."]
-margin_left = 1673.0
-margin_top = 717.0
+margin_left = 1669.0
+margin_top = 715.0
 margin_right = 1679.0
-margin_bottom = 731.0
+margin_bottom = 729.0
 size_flags_horizontal = 3
 
 [node name="VBox_Player_08" parent="." instance=ExtResource( 2 )]
 margin_left = 1683.0
 margin_top = 0.0
-margin_right = 1908.0
-margin_bottom = 1448.0
+margin_right = 1903.0
+margin_bottom = 1445.0
 player_num = 8
 
 [node name="Blank_08" type="Label" parent="."]
-margin_left = 1912.0
-margin_top = 717.0
+margin_left = 1907.0
+margin_top = 715.0
 margin_right = 1918.0
-margin_bottom = 731.0
+margin_bottom = 729.0
 size_flags_horizontal = 3

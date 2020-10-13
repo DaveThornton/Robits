@@ -17,6 +17,8 @@ func update_state(_state):
 	var sec = _state["sec"]
 	if mode == 0:
 		game_over()
+		if Game.mode == 0:
+			HUD.load_high_scores()
 	elif mode == 1:
 		in_menu()
 		in_menu_box.set_state(pri, sec)

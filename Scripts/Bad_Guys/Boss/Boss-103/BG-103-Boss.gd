@@ -38,8 +38,8 @@ func _ready():
 		else:
 			print("connect worked dead cannon in BG-103")
 
-func _process(delta):
-	pass
+#func _process(delta):
+#	pass
 func _physics_process(delta):
 	var campos = FX.CAMERA.global_position.x
 	var vel = Vector2(0,-gravity * -delta)
@@ -73,7 +73,7 @@ func dead_turret():
 	call_deferred("_dead_turret")
 func _dead_turret():
 	for d in debris.get_child_count():
-		debris.get_child(d).position
+#		debris.get_child(d).position
 		var deb = debris_scene.instance()
 		FX.add_kid(deb)
 		deb.init(tankbody.self_modulate, d, true, debris.get_child(d).global_position, Vector2(0,0))

@@ -34,7 +34,7 @@ func _on_Projectile_04_area_entered(area):
 func _on_Projectile_04_body_entered(body):
 	entered(body)
 
-func entered(body):
+func entered(_body):
 	call_deferred("_explode",self.global_position)
 
 func _on_Timer_timeout():

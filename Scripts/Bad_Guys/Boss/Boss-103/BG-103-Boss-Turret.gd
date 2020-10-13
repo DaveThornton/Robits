@@ -29,7 +29,7 @@ func _ready():
 #	connect("hit_turret", get_parent(), "hit_turret")
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	if get_tree().get_current_scene().pawns.get_child_count() > 0:
 		look_at(get_tree().get_current_scene().pawns.get_child(0).position)
 #		print(rotation_degrees)

@@ -28,7 +28,7 @@ func shoot():
 	shoot_timer.start()
 	print("BG 103 barrel shoot: BANG!!!!")
 
-func _process(delta):
+func _process(_delta):
 	if can_shoot:
 		if raycast.is_colliding():
 			if ring_count >= 3:

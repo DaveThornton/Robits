@@ -1,23 +1,7 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn01.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn02.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn17.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn03.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn04.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn05.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn07.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn06.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn08.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn12.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn11.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn10.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn09.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn13.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn15.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn14.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Menu/in_game_pawn_select/pawn16.png" type="Texture" id=17]
 [ext_resource path="res://Menus/Parts/Scripts/M77-In_Game_Pawn_Menu.gd" type="Script" id=18]
+[ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=19]
 
 [node name="Pawn_Menu" type="HBoxContainer"]
 grow_vertical = 2
@@ -26,114 +10,135 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Pawn00" type="TextureRect" parent="."]
+[node name="Pawn01" type="Label" parent="."]
 visible = false
-margin_right = 225.0
-margin_bottom = 40.0
-texture = ExtResource( 3 )
+margin_right = 100.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "au-do"
+align = 1
 
-[node name="Pawn01" type="TextureRect" parent="."]
+[node name="Pawn02" type="Label" parent="."]
 visible = false
-margin_right = 225.0
-margin_bottom = 40.0
-texture = ExtResource( 1 )
+margin_right = 100.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "C-ANT"
+align = 1
 
-[node name="Pawn02" type="TextureRect" parent="."]
+[node name="Pawn03" type="Label" parent="."]
 visible = false
-margin_left = 229.0
-margin_right = 454.0
-margin_bottom = 40.0
-texture = ExtResource( 2 )
+margin_right = 120.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "Torque"
+align = 1
 
-[node name="Pawn03" type="TextureRect" parent="."]
+[node name="Pawn04" type="Label" parent="."]
 visible = false
-margin_left = 458.0
-margin_right = 683.0
-margin_bottom = 40.0
-texture = ExtResource( 4 )
+margin_right = 83.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "AMOX"
+align = 1
 
-[node name="Pawn04" type="TextureRect" parent="."]
+[node name="Pawn05" type="Label" parent="."]
 visible = false
-margin_left = 687.0
-margin_right = 912.0
-margin_bottom = 40.0
-texture = ExtResource( 5 )
+margin_right = 148.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "Robit 05"
+align = 1
 
-[node name="Pawn05" type="TextureRect" parent="."]
+[node name="Pawn06" type="Label" parent="."]
 visible = false
-margin_left = 916.0
-margin_right = 1141.0
-margin_bottom = 40.0
-texture = ExtResource( 6 )
+margin_right = 120.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "FLYBIT"
+align = 1
 
-[node name="Pawn06" type="TextureRect" parent="."]
+[node name="Pawn07" type="Label" parent="."]
 visible = false
-margin_left = 1145.0
-margin_right = 1370.0
-margin_bottom = 40.0
-texture = ExtResource( 8 )
+margin_left = 900.0
+margin_right = 1048.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "BULK"
+align = 1
 
-[node name="Pawn07" type="TextureRect" parent="."]
+[node name="Pawn08" type="Label" parent="."]
 visible = false
-margin_left = 1374.0
-margin_right = 1599.0
-margin_bottom = 40.0
-texture = ExtResource( 7 )
+margin_left = 1052.0
+margin_right = 1200.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "Robit 08"
+align = 1
 
-[node name="Pawn08" type="TextureRect" parent="."]
+[node name="Pawn09" type="Label" parent="."]
+margin_right = 114.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "Cowbit"
+align = 1
+
+[node name="Pawn10" type="Label" parent="."]
 visible = false
-margin_left = 1603.0
-margin_right = 1828.0
-margin_bottom = 40.0
-texture = ExtResource( 9 )
+margin_left = 118.0
+margin_right = 306.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "Rusty Nail"
+align = 1
 
-[node name="Pawn09" type="TextureRect" parent="."]
-margin_right = 225.0
-margin_bottom = 40.0
-texture = ExtResource( 13 )
-
-[node name="Pawn10" type="TextureRect" parent="."]
+[node name="Pawn11" type="Label" parent="."]
 visible = false
-margin_right = 225.0
-margin_bottom = 40.0
-texture = ExtResource( 12 )
+margin_left = 192.0
+margin_right = 292.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "KT-K8"
+align = 1
 
-[node name="Pawn11" type="TextureRect" parent="."]
+[node name="Pawn12" type="Label" parent="."]
 visible = false
-margin_right = 225.0
-margin_bottom = 40.0
-texture = ExtResource( 11 )
+margin_right = 136.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "TITAN"
+align = 1
 
-[node name="Pawn12" type="TextureRect" parent="."]
+[node name="Pawn13" type="Label" parent="."]
 visible = false
-margin_right = 225.0
-margin_bottom = 40.0
-texture = ExtResource( 10 )
+margin_right = 100.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "N.1.7.3."
+align = 1
 
-[node name="Pawn13" type="TextureRect" parent="."]
+[node name="Pawn14" type="Label" parent="."]
 visible = false
-margin_left = 229.0
-margin_right = 454.0
-margin_bottom = 40.0
-texture = ExtResource( 14 )
+margin_right = 200.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "CRUSHIN-8r"
+align = 1
 
-[node name="Pawn14" type="TextureRect" parent="."]
+[node name="Pawn15" type="Label" parent="."]
 visible = false
-margin_left = 458.0
-margin_right = 683.0
-margin_bottom = 40.0
-texture = ExtResource( 16 )
+margin_left = 72.0
+margin_right = 172.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "ZR-77"
+align = 1
 
-[node name="Pawn15" type="TextureRect" parent="."]
+[node name="Pawn16" type="Label" parent="."]
 visible = false
-margin_left = 687.0
-margin_right = 912.0
-margin_bottom = 40.0
-texture = ExtResource( 15 )
-
-[node name="Pawn16" type="TextureRect" parent="."]
-visible = false
-margin_left = 916.0
-margin_right = 1141.0
-margin_bottom = 40.0
-texture = ExtResource( 17 )
+margin_left = 2184.0
+margin_right = 2320.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 19 )
+text = "Robit ??"
+align = 1

@@ -36,21 +36,21 @@ __meta__ = {
 }
 
 [node name="HBox_Player" type="HBoxContainer" parent="."]
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 37.0
 alignment = 1
 
 [node name="Label_Player_Text" type="Label" parent="HBox_Player"]
-margin_left = 30.0
-margin_right = 170.0
+margin_left = 28.0
+margin_right = 168.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 2 )
 text = "Player "
 align = 1
 
 [node name="Label_Player_Count" type="Label" parent="HBox_Player"]
-margin_left = 174.0
-margin_right = 194.0
+margin_left = 172.0
+margin_right = 192.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 2 )
 text = "0"
@@ -58,7 +58,7 @@ align = 1
 
 [node name="Label_Insert_Coin" type="Label" parent="."]
 margin_top = 41.0
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 78.0
 custom_fonts/font = ExtResource( 2 )
 text = "insert coin"
@@ -66,7 +66,7 @@ align = 1
 
 [node name="Label_Press_Start" type="Label" parent="."]
 margin_top = 82.0
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 119.0
 custom_fonts/font = ExtResource( 2 )
 text = "Press Start"
@@ -74,13 +74,13 @@ align = 1
 
 [node name="HBox_Select" type="HBoxContainer" parent="."]
 margin_top = 123.0
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 160.0
 alignment = 1
 
 [node name="Label_Select_Text_1" type="Label" parent="HBox_Select"]
-margin_left = 42.0
-margin_right = 182.0
+margin_left = 40.0
+margin_right = 180.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 2 )
 text = "Select "
@@ -115,7 +115,7 @@ align = 1
 
 [node name="Label_Ready" type="Label" parent="."]
 margin_top = 164.0
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 201.0
 custom_fonts/font = ExtResource( 2 )
 text = "Ready !"
@@ -123,29 +123,29 @@ align = 1
 
 [node name="HBox_Coin" type="HBoxContainer" parent="."]
 margin_top = 205.0
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 242.0
 alignment = 1
 
 [node name="Label_Coin_Text_1" type="Label" parent="HBox_Coin"]
-margin_left = 43.0
-margin_right = 142.0
+margin_left = 41.0
+margin_right = 140.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 2 )
 text = "Coin ["
 align = 1
 
 [node name="Label_Coin_Count" type="Label" parent="HBox_Coin"]
-margin_left = 146.0
-margin_right = 166.0
+margin_left = 144.0
+margin_right = 164.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 2 )
 text = "0"
 align = 1
 
 [node name="Label_Coin_Text_2" type="Label" parent="HBox_Coin"]
-margin_left = 170.0
-margin_right = 181.0
+margin_left = 168.0
+margin_right = 179.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 2 )
 text = "]"
@@ -153,7 +153,7 @@ align = 1
 
 [node name="Label_Dead" type="Label" parent="."]
 margin_top = 246.0
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 283.0
 custom_fonts/font = ExtResource( 2 )
 text = "DEAD"
@@ -161,29 +161,29 @@ align = 1
 
 [node name="HBox_Continue" type="HBoxContainer" parent="."]
 margin_top = 287.0
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 324.0
 alignment = 1
 
 [node name="Label_Continue_Text_1" type="Label" parent="HBox_Continue"]
-margin_left = 3.0
-margin_right = 182.0
+margin_left = 1.0
+margin_right = 180.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 2 )
 text = "Continue ["
 align = 1
 
 [node name="Label_Continue_Count" type="Label" parent="HBox_Continue"]
-margin_left = 186.0
-margin_right = 206.0
+margin_left = 184.0
+margin_right = 204.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 2 )
 text = "0"
 align = 1
 
 [node name="Label_Continue_Text_2" type="Label" parent="HBox_Continue"]
-margin_left = 210.0
-margin_right = 221.0
+margin_left = 208.0
+margin_right = 219.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 2 )
 text = "]"
@@ -191,30 +191,31 @@ align = 1
 
 [node name="Pawn_Menu" parent="." instance=ExtResource( 3 )]
 margin_top = 328.0
-margin_right = 225.0
-margin_bottom = 368.0
+margin_right = 220.0
+margin_bottom = 365.0
+alignment = 1
 
 [node name="VBox_Game" type="VBoxContainer" parent="."]
-margin_top = 372.0
-margin_right = 225.0
-margin_bottom = 472.0
+margin_top = 369.0
+margin_right = 220.0
+margin_bottom = 469.0
 
 [node name="HBox_Player" type="HBoxContainer" parent="VBox_Game"]
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 16.0
 alignment = 1
 
 [node name="Label_Player_Text" type="Label" parent="VBox_Game/HBox_Player"]
-margin_left = 74.0
-margin_right = 137.0
+margin_left = 72.0
+margin_right = 135.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 1 )
 text = "Player "
 align = 1
 
 [node name="Label_Player_Count" type="Label" parent="VBox_Game/HBox_Player"]
-margin_left = 141.0
-margin_right = 150.0
+margin_left = 139.0
+margin_right = 148.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
@@ -222,21 +223,21 @@ align = 1
 
 [node name="HBox_Lives" type="HBoxContainer" parent="VBox_Game"]
 margin_top = 20.0
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 36.0
 alignment = 1
 
 [node name="Label_Lives_Text" type="Label" parent="VBox_Game/HBox_Lives"]
-margin_left = 76.0
-margin_right = 136.0
+margin_left = 73.0
+margin_right = 133.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 1 )
 text = "Lives : "
 align = 1
 
 [node name="Label_Lives_Count" type="Label" parent="VBox_Game/HBox_Lives"]
-margin_left = 140.0
-margin_right = 149.0
+margin_left = 137.0
+margin_right = 146.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
@@ -244,21 +245,21 @@ align = 1
 
 [node name="HBox_Score" type="HBoxContainer" parent="VBox_Game"]
 margin_top = 40.0
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 56.0
 alignment = 1
 
 [node name="Label_Score_Text" type="Label" parent="VBox_Game/HBox_Score"]
-margin_left = 73.0
-margin_right = 139.0
+margin_left = 70.0
+margin_right = 136.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 1 )
 text = "Score : "
 align = 1
 
 [node name="Label_Score_Count" type="Label" parent="VBox_Game/HBox_Score"]
-margin_left = 143.0
-margin_right = 152.0
+margin_left = 140.0
+margin_right = 149.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
@@ -266,13 +267,13 @@ align = 1
 
 [node name="HBox_for_NRG" type="HBoxContainer" parent="VBox_Game"]
 margin_top = 60.0
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 80.0
 alignment = 1
 
 [node name="NRG_Bar" type="ProgressBar" parent="VBox_Game/HBox_for_NRG"]
-margin_left = 62.0
-margin_right = 162.0
+margin_left = 60.0
+margin_right = 160.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 100, 20 )
 custom_styles/fg = SubResource( 1 )
@@ -282,21 +283,21 @@ percent_visible = false
 
 [node name="HBox_Ammo" type="HBoxContainer" parent="VBox_Game"]
 margin_top = 84.0
-margin_right = 225.0
+margin_right = 220.0
 margin_bottom = 100.0
 alignment = 1
 
 [node name="Label_Ammo_Text" type="Label" parent="VBox_Game/HBox_Ammo"]
-margin_left = 75.0
-margin_right = 136.0
+margin_left = 73.0
+margin_right = 134.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 1 )
 text = "Ammo : "
 align = 1
 
 [node name="Label_Ammo_Count" type="Label" parent="VBox_Game/HBox_Ammo"]
-margin_left = 140.0
-margin_right = 149.0
+margin_left = 138.0
+margin_right = 147.0
 margin_bottom = 16.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
@@ -337,9 +338,9 @@ align = 1
 anims/Coin_Up = SubResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_top = 476.0
-margin_right = 225.0
-margin_bottom = 476.0
+margin_top = 473.0
+margin_right = 220.0
+margin_bottom = 473.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 

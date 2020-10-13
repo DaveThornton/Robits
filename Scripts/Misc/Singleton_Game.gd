@@ -1,8 +1,10 @@
 extends Node2D
 
-
 export(PackedScene) var start_screen
+export(PackedScene) var high_scores
+
 onready var timer = $Timer
+
 var started = false
 var start_eq = false
 #var mode_vs = true
@@ -46,6 +48,7 @@ func set_game_over(_over):
 		timer.start()
 	elif over && mode == 0:
 		print("game over in game for campaign and nothing?")
+		timer.start()
 
 func check_over():
 	if mode == 2 :
@@ -69,7 +72,7 @@ func check_over():
 	elif mode == 0:
 		print("check over mode 0 in game singleton")
 #		var num_in_play = Player_Stats.get_num_in_play()
-		if Player_Stats.get_num_in_play() == 0:
+		if Player_Stats.get_num_in_game() == 0:
 			set_game_over(true)
 	else:
 		print("check over mode wrong in game singleton havent made game type ", mode)
@@ -91,5 +94,8 @@ func reset():
 	set_game_over(false)
 
 func _on_Timer_timeout():
-	if over:
+	if mode == 0 && over:
+		print("timer out in game for mode 0 and over")
+		
+	elif mode > 0 && over:
 		get_tree().get_current_scene().arcade_reset()

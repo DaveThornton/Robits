@@ -36,7 +36,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 
 func _explode():
 	for d in debris.get_child_count():
-		debris.get_child(d).position
+#		debris.get_child(d).position
 		var deb = debris_scene.instance()
 		FX.add_kid(deb)
 		deb.init(Color8(255,255,255,255), 5, true, debris.get_child(d).global_position, Vector2(0,0))
