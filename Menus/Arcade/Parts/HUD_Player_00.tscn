@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Menus/Arcade/Parts/HUD_Player_00.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/Parts/HUD_02_VBox_In_Game.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menus/Arcade/Parts/HUD_00_VBox_In_Game_Over.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menus/Arcade/Parts/HUD_01_VBox_In_Menu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Menus/Arcade/Parts/HUD_03_VBox_In_Score.tscn" type="PackedScene" id=5]
 
 [node name="VBox_Player_01" type="VBoxContainer"]
 margin_top = -1.29236
@@ -16,14 +17,20 @@ __meta__ = {
 }
 
 [node name="VBox_In_Game" parent="." instance=ExtResource( 2 )]
-margin_bottom = 473.0
+margin_bottom = 432.0
 
 [node name="VBox_In_Menu" parent="." instance=ExtResource( 4 )]
-margin_top = 477.0
+margin_top = 436.0
 margin_right = 220.0
-margin_bottom = 682.0
+margin_bottom = 641.0
 
 [node name="VBox_Game_Over" parent="." instance=ExtResource( 3 )]
-margin_top = 686.0
+margin_top = 645.0
 margin_right = 220.0
-margin_bottom = 1445.0
+margin_bottom = 1404.0
+
+[node name="VBox_In_Score" parent="." instance=ExtResource( 5 )]
+margin_left = 0.0
+margin_top = 1408.0
+margin_right = 220.0
+margin_bottom = 1527.0

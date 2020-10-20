@@ -156,7 +156,8 @@ func _explode_pawn(_player, _pos, _by_who, _by_what):
 	x.init(_player, _pos, str("player ", player, "'s destruct system"), Player_Stats.get_pawn_num(player), 2)
 	if !Game.over:
 		Player_Stats.add_kill(player, _by_who , 1, _by_what)
-		Game.check_over()
+		if Game.mode != 0:
+			Game.check_over()
 		if auto_respawn:
 			if Player_Stats.get_in_game(player):
 				r_timer.start()
@@ -252,7 +253,17 @@ func _process(delta):
 			elif pick_input_j:
 				HUD.input(player, 8)
 	else:
-		if jump_input_j || shoot_input_j ||start_input_j:
+		if start_input_j:
+			HUD.game_over_input(player, 0)
+		elif up_input_j:
+			HUD.game_over_input(player, 1)
+		elif left_input_j:
+			HUD.game_over_input(player, 2)
+		elif right_input_j:
+			HUD.game_over_input(player, 3)
+		elif down_input_j:
+			HUD.game_over_input(player, 4)
+		elif jump_input_j || shoot_input_j:
 			HUD.game_over_input(player, 5)
 		elif hold_input_j || pick_input_j:
 			HUD.game_over_input(player, 6)

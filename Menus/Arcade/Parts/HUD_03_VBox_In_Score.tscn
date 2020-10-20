@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menus/Arcade/Scripts/HUD_03_VBox_In_Score.gd" type="Script" id=2]
+[ext_resource path="res://Menus/Arcade/Parts/HUD_19_Name_Select.tscn" type="PackedScene" id=3]
+
+[node name="VBox_In_Score" type="VBoxContainer"]
+margin_left = -3.0
+margin_top = -4.0
+margin_right = 222.0
+margin_bottom = 115.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox_Player" type="HBoxContainer" parent="."]
+margin_right = 225.0
+margin_bottom = 37.0
+alignment = 1
+
+[node name="Label_Player_Text" type="Label" parent="HBox_Player"]
+margin_left = 30.0
+margin_right = 170.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "Player "
+align = 1
+
+[node name="Label_Player_Count" type="Label" parent="HBox_Player"]
+margin_left = 174.0
+margin_right = 194.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+
+[node name="HUD_19_Name_Select" parent="." instance=ExtResource( 3 )]
+margin_top = 41.0
+margin_right = 225.0
+margin_bottom = 78.0
+
+[node name="Label" type="Label" parent="."]
+margin_top = 82.0
+margin_right = 225.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 1 )
+text = "000"
+align = 1
+[connection signal="visibility_changed" from="." to="." method="_on_VBox_In_Score_visibility_changed"]

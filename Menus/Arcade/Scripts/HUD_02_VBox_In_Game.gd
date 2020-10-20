@@ -27,6 +27,11 @@ onready var igb_10_game_box_ammo_count = $VBox_Game/HBox_Ammo/Label_Ammo_Count
 onready var igb_10_game_box_coin = $VBox_Game/HBox_Coin/Label_Coin_Text
 onready var igb_10_game_box_coin_count = $VBox_Game/HBox_Coin/Label_Coin_Count
 onready var igb_10_game_box_coin2 = $VBox_Game/HBox_Coin/Label_Coin_Text2
+
+onready var igb_11_name_box = $VBox_Name 
+onready var igb_11_name_box_select = $VBox_Name
+onready var igb_11_name_box_score = $VBox_Name
+
 onready var anim = $AnimationPlayer
 onready var anim_game_box = $VBox_Game/AnimationPlayer
 
@@ -77,37 +82,48 @@ func continue_update(_num:int): igb_08_continue_count.text = str(_num)
 func show_lives(_show:bool): igb_10_game_box_lives.visible = _show
 
 func set_continue(_continue):
+	continue_started = _continue
 	if _continue:
-		continue_started = true
+		Player_Stats.set_continuing(player, true)
 		Player_Stats.set_in_game(player, false)
 #		Controllers.get_controller(player)
 #		continue_count()
 	else:
-		continue_started = false
 #		update_state(10)
 		continue_count_num = 10
 		print("dont know set_continue false in hud 02 in game")
 
 func continue_count():
-#	print(continue_count_num)
 	if continue_started:
 		update_state(8)
-		Player_Stats.set_continuing(player, true)
-#		Player_Stats.set_can_spawn(player, false)
+#		Player_Stats.set_continuing(player, true)
 		if continue_count_num > 0:
 			continue_count_num -= 1
 			igb_08_continue_count.text = str(continue_count_num)
 		elif continue_count_num <= 0:
 			continue_started = false
-			print(Player_Stats.get_in_play(player), "<------in play --- in game------>",Player_Stats.get_in_game(player))
+#			print(Player_Stats.get_in_play(player), "<------in play --- in game------>",Player_Stats.get_in_game(player))
 			Player_Stats.set_in_play(player,false) 
 			Player_Stats.set_continuing(player, false)
+#			Player_Stats.reset_player(player)
 #			Player_Stats.set_can_spawn(player, true)
 			Game.check_over()
+			print("end continue if game over?  ", Game.over)
 			if !Game.over:
-				Player_Stats.reset_player(player)
+				if High_Score.is_score_high(Player_Stats.get_score(player)):
+					print("trying to add name to high scores in game lets see")
+					
+					
+					
+					
+					pass
+				else:
+					Player_Stats.reset_player(player)
+			else:
+#				print("call high scores in hud after continue runs out")
+				High_Score.set_visible(true)
 			continue_count_num = 10
-			print("need to do somthing when continue runs out hud 02 vbox in game")
+#			print("need to do somthing when continue runs out hud 02 vbox in game")
 			
 
 func update_state(_state:int):

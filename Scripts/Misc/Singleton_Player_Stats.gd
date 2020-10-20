@@ -421,23 +421,23 @@ func can_player_start(_player):
 	else:
 		return false
 
-#func can_spawn(_player):
-#	if _player == 1:
-#		return p1["can_spawn"]
-#	elif _player == 2:
-#		return p2["can_spawn"]
-#	elif _player == 3:
-#		return p3["can_spawn"]
-#	elif _player == 4:
-#		return p4["can_spawn"]
-#	elif _player == 5:
-#		return p5["can_spawn"]
-#	elif _player == 6:
-#		return p6["can_spawn"]
-#	elif _player == 7:
-#		return p7["can_spawn"]
-#	elif _player == 8:
-#		return p8["can_spawn"]
+func can_spawn(_player):#maybe do away with
+	if _player == 1:
+		return p1["can_spawn"]
+	elif _player == 2:
+		return p2["can_spawn"]
+	elif _player == 3:
+		return p3["can_spawn"]
+	elif _player == 4:
+		return p4["can_spawn"]
+	elif _player == 5:
+		return p5["can_spawn"]
+	elif _player == 6:
+		return p6["can_spawn"]
+	elif _player == 7:
+		return p7["can_spawn"]
+	elif _player == 8:
+		return p8["can_spawn"]
 
 func set_in_game(_player,_in_game):
 	if _player == 1:
@@ -538,7 +538,7 @@ func check_lives():
 		p8["in_game"] = false
 	HUD.state_machine()
 
-func set_in_play(_player,_in_play):
+func set_in_play(_player, _in_play):
 	if _player == 1:
 		p1["in_play"] = _in_play
 	elif _player == 2:
@@ -556,7 +556,7 @@ func set_in_play(_player,_in_play):
 	elif _player == 8:
 		p8["in_play"] = _in_play
 
-func set_donr(_player,_done):
+func set_done(_player,_done):
 	if _player == 1:
 		p1["done"] = _done
 	elif _player == 2:
@@ -574,23 +574,23 @@ func set_donr(_player,_done):
 	elif _player == 8:
 		p8["done"] = _done
 
-#func set_can_spawn(_player, _spawn):
-#	if _player == 1:
-#		p1["can_spawn"] = _spawn
-#	elif _player == 2:
-#		p2["can_spawn"] = _spawn
-#	elif _player == 3:
-#		p3["can_spawn"] = _spawn
-#	elif _player == 4:
-#		p4["can_spawn"] = _spawn
-#	elif _player == 5:
-#		p5["can_spawn"] = _spawn
-#	elif _player == 6:
-#		p6["can_spawn"] = _spawn
-#	elif _player == 7:
-#		p7["can_spawn"] = _spawn
-#	elif _player == 8:
-#		p8["can_spawn"] = _spawn
+func set_can_spawn(_player, _spawn): #maybe do away with
+	if _player == 1:
+		p1["can_spawn"] = _spawn
+	elif _player == 2:
+		p2["can_spawn"] = _spawn
+	elif _player == 3:
+		p3["can_spawn"] = _spawn
+	elif _player == 4:
+		p4["can_spawn"] = _spawn
+	elif _player == 5:
+		p5["can_spawn"] = _spawn
+	elif _player == 6:
+		p6["can_spawn"] = _spawn
+	elif _player == 7:
+		p7["can_spawn"] = _spawn
+	elif _player == 8:
+		p8["can_spawn"] = _spawn
 
 func set_continuing(_player, _continue):
 	if _player == 1:
@@ -731,6 +731,12 @@ func get_done(_player):
 		print("invalid player number in player stats , get done so ill return true")
 		return true
 
+func get_all_done():
+	if p1["done"] && p2["done"] && p3["done"] && p4["done"] && p5["done"] && p6["done"] && p7["done"] && p8["done"]:
+		return true
+	else:
+		return false
+
 func get_body_color(_player):
 	if _player == 1:
 		return p1["color_1"]
@@ -812,6 +818,26 @@ func get_lives_left(_player):
 		return p8["lives"]
 	else:
 		print("invalid player number in get lives left in player stats --> ", _player )
+
+func get_score(_player):
+	if _player == 1:
+		return p1["score"]
+	elif _player == 2:
+		return p2["score"]
+	elif _player == 3:
+		return p3["score"]
+	elif _player == 4:
+		return p4["score"]
+	elif _player == 5:
+		return p5["score"]
+	elif _player == 6:
+		return p6["score"]
+	elif _player == 7:
+		return p7["score"]
+	elif _player == 8:
+		return p8["score"]
+	else:
+		print("invalid player number in get score. in player stats --> ", _player )
 
 func get_player_stats(_num):
 	if _num == 1:
@@ -915,6 +941,7 @@ func reset_player(_player):
 	get_player_stats(_player)["can_spawn"]= true
 	get_player_stats(_player)["in_play"] = false
 	get_player_stats(_player)["in_game"] = false
+	get_player_stats(_player)["done"] = true
 	get_player_stats(_player)["exist"] = false
 	get_player_stats(_player)["kill"] = 0
 	get_player_stats(_player)["lives"] = 0
@@ -931,6 +958,7 @@ func reset_player_not_score(_player):# or name
 	get_player_stats(_player)["can_spawn"]= true
 	get_player_stats(_player)["in_play"] = false
 	get_player_stats(_player)["in_game"] = false
+	get_player_stats(_player)["done"] = true
 	get_player_stats(_player)["exist"] = false
 	get_player_stats(_player)["kill"] = 0
 	get_player_stats(_player)["lives"] = 0

@@ -464,3 +464,15 @@ just_stand = true
 [node name="BG-03-04" parent="BadGuys" instance=ExtResource( 4 )]
 position = Vector2( 4230, 414 )
 just_stand = true
+
+[node name="BG-03-05" parent="BadGuys" instance=ExtResource( 15 )]
+position = Vector2( 218, 820 )
+
+[node name="BG-03-06" parent="BadGuys" instance=ExtResource( 15 )]
+position = Vector2( 340, 826 )
+
+[node name="BG-03-07" parent="BadGuys" instance=ExtResource( 15 )]
+position = Vector2( 570, 820 )
+
+[node name="BG-03-08" parent="BadGuys" instance=ExtResource( 15 )]
+position = Vector2( 694, 840 )

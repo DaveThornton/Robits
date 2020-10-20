@@ -1,0 +1,340 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menus/Arcade/Parts/HUD_20_Letter_Select.gd" type="Script" id=2]
+
+[node name="HUD_20_Letter_Select" type="VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label0" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = " "
+align = 1
+
+[node name="Label1" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "A"
+align = 1
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "B"
+align = 1
+
+[node name="Label3" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "C"
+align = 1
+
+[node name="Label4" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "D"
+align = 1
+
+[node name="Label5" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "E"
+align = 1
+
+[node name="Label6" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "F"
+align = 1
+
+[node name="Label7" type="Label" parent="."]
+visible = false
+margin_top = 41.0
+margin_right = 40.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "G"
+align = 1
+
+[node name="Label8" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "H"
+align = 1
+
+[node name="Label9" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "I"
+align = 1
+
+[node name="Label10" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "J"
+align = 1
+
+[node name="Label11" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "K"
+align = 1
+
+[node name="Label12" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "L"
+align = 1
+
+[node name="Label13" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "M"
+align = 1
+
+[node name="Label14" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "N"
+align = 1
+
+[node name="Label15" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "O"
+align = 1
+
+[node name="Label16" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "P"
+align = 1
+
+[node name="Label17" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "Q"
+align = 1
+
+[node name="Label18" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "R"
+align = 1
+
+[node name="Label19" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "S"
+align = 1
+
+[node name="Label20" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "T"
+align = 1
+
+[node name="Label21" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "U"
+align = 1
+
+[node name="Label22" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "V"
+align = 1
+
+[node name="Label23" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "W"
+align = 1
+
+[node name="Label24" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "X"
+align = 1
+
+[node name="Label25" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "Y"
+align = 1
+
+[node name="Label26" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "Z"
+align = 1
+
+[node name="Label27" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "*"
+align = 1
+
+[node name="Label28" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "!"
+align = 1
+
+[node name="Label29" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "#"
+align = 1
+
+[node name="Label30" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "%"
+align = 1
+
+[node name="Label31" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+align = 1
+
+[node name="Label32" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "2"
+align = 1
+
+[node name="Label33" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "3"
+align = 1
+
+[node name="Label34" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "4"
+align = 1
+
+[node name="Label35" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "5"
+align = 1
+
+[node name="Label36" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "6"
+align = 1
+
+[node name="Label37" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "7"
+align = 1
+
+[node name="Label38" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "8"
+align = 1
+
+[node name="Label39" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "9"
+align = 1
+
+[node name="Label40" type="Label" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1

@@ -5,6 +5,7 @@ export(PackedScene) var explode
 export(PackedScene) var debris_scene
 
 export var front = true
+export var points = 17
 
 onready var anim = $AnimationPlayer
 onready var anim_hit = $AnimationPlayer_Hit
@@ -27,6 +28,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		anim_hit.play("Hit")
 		health -= (_damage - armor)
 		if health <= 0:
+			Player_Stats.add_score(_by_who, points)
 			if front:
 				print("BG-103-Front-Track-Dead")
 			else:

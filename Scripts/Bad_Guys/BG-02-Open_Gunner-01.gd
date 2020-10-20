@@ -6,6 +6,7 @@ export var armor = 0
 export var active = true
 export var active_number = 1
 export var find_all = false
+export var points = 3
 
 onready var anim = $AnimationPlayer3
 onready var sprite = $Sprite
@@ -301,6 +302,7 @@ func _go_no_where(_s):
 	current_speed_x = 0
 
 func hit(_by_who, _by_what, _damage_type, _damage):
+	Player_Stats.add_score(_by_who, points)
 	health -= (_damage - armor)
 	if health <= 0:
 		print("Open Gunner dead")

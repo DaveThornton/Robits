@@ -4,6 +4,8 @@ extends StaticBody2D
 export(PackedScene) var projectile
 #export(PackedScene) var explode
 #export(PackedScene) var debris
+export var points = 23
+
 onready var anim_hit = $AnimationPlayer_Hit
 onready var anim_shoot = $AnimationPlayer_Shoot
 onready var shape = $CollisionShape2D
@@ -49,6 +51,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 #		anim_hit.play("Hit")
 		health -= (_damage - armor)
 		if health <= 0:
+			Player_Stats.add_score(_by_who, points)
 			dead = true	
 			emit_signal("dead_turret")
 			call_deferred("_explode")

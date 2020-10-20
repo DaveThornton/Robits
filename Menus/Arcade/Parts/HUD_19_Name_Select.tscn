@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Menus/Arcade/Parts/HUD_20_Letter_Select.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Menus/Arcade/Parts/HUD_19_Name_Select.gd" type="Script" id=2]
+
+[node name="HUD_19_Name_Select" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+alignment = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HUD_20_Letter_Select1" parent="." instance=ExtResource( 1 )]
+margin_left = 10.0
+margin_right = 30.0
+
+[node name="HUD_20_Letter_Select2" parent="." instance=ExtResource( 1 )]
+visible = false
+margin_left = 48.0
+margin_right = 68.0
+
+[node name="HUD_20_Letter_Select3" parent="." instance=ExtResource( 1 )]
+visible = false
+margin_left = 60.0
+margin_right = 80.0
+
+[node name="HUD_20_Letter_Select4" parent="." instance=ExtResource( 1 )]
+visible = false
+margin_left = 72.0
+margin_right = 92.0

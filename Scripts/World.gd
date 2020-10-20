@@ -94,6 +94,7 @@ func _clean_house():
 		child.call_deferred("free")
 
 func arcade_reset():
+	High_Score.set_visible(false)
 	print("reset called in world")
 	emit_signal("reset")
 	HUD.load_screen(arcade_start)

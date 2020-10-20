@@ -70,8 +70,12 @@ func state_machine():
 		mode = 1
 		menu_state()
 	elif Game.started && Game.over:
-		print("game mode is set to 0 in hud")
-		mode = 0
+		if Game.mode > 0:
+			print("game mode is set to not 0 in hud")
+			mode = 0
+		elif Game.mode == 0:
+			print("game mode is set to 0 in hud")
+			mode = 3
 		game_over_state()
 	else:
 		print("error in state machine hud values not met")
@@ -148,6 +152,8 @@ func update_players():
 	p7.update_state(p7state)
 	p8.update_state(p8state)
 
+func set_mode(_mode): mode = _mode
+
 func set_pri(_player, _pri):
 	if _player == 1:
 		p1state["pri"] = _pri
@@ -168,7 +174,7 @@ func set_pri(_player, _pri):
 	update_player(_player)
 
 func game_over_state():
-	if mode == 0:
+	if mode == 0 && Game.mode > 0:
 		p1state["pri"] = 11
 		p2state["pri"] = 11
 		p3state["pri"] = 11
@@ -178,6 +184,10 @@ func game_over_state():
 		p7state["pri"] = 11
 		p8state["pri"] = 11
 		update_players()
+	elif mode == 3 && Game.mode == 0:
+		print("gameover state mode")
+		update_players()
+		
 
 func menu_state():
 	if mode == 1:
@@ -503,6 +513,8 @@ func game_over():
 	pass
 
 func game_over_input(_player, _input):
+#	print("game over input")
+#	print(Game.over,"  ",Game.mode, "  ",_player,"   in gameover input hud")
 	if Game.mode < 0:
 		if _player == 1:
 			if _input == 5:
@@ -552,8 +564,78 @@ func game_over_input(_player, _input):
 			get_tree().get_current_scene().arcade_reset()
 	
 	elif Game.mode == 0 && !Player_Stats.get_done(_player):
-		High_Score.player_input(_player, _input)
-		print("game over input in hud game mode 0 no screen loaded aka no high score screen loaded")
+		if _player == 1:
+			if _input == 1:
+				p1.go_up()
+			elif _input == 4:
+				p1.go_down()
+			elif _input == 5:
+				p1.go_select()
+			elif _input == 6:
+				p1.go_back()
+		elif _player == 2:
+			if _input == 1:
+				p2.go_up()
+			elif _input == 4:
+				p2.go_down()
+			elif _input == 5:
+				p2.go_select()
+			elif _input == 6:
+				p2.go_back()
+		elif _player == 3:
+			if _input == 1:
+				p3.go_up()
+			elif _input == 4:
+				p3.go_down()
+			elif _input == 5:
+				p3.go_select()
+			elif _input == 6:
+				p3.go_back()
+		elif _player == 4:
+			if _input == 1:
+				p4.go_up()
+			elif _input == 4:
+				p4.go_down()
+			elif _input == 5:
+				p4.go_select()
+			elif _input == 6:
+				p4.go_back()
+		elif _player == 5:
+			if _input == 1:
+				p5.go_up()
+			elif _input == 4:
+				p5.go_down()
+			elif _input == 5:
+				p5.go_select()
+			elif _input == 6:
+				p5.go_back()
+		elif _player == 6:
+			if _input == 1:
+				p6.go_up()
+			elif _input == 4:
+				p6.go_down()
+			elif _input == 5:
+				p6.go_select()
+			elif _input == 6:
+				p6.go_back()
+		elif _player == 7:
+			if _input == 1:
+				p7.go_up()
+			elif _input == 4:
+				p7.go_down()
+			elif _input == 5:
+				p7.go_select()
+			elif _input == 6:
+				p7.go_back()
+		elif _player == 8:
+			if _input == 1:
+				p8.go_up()
+			elif _input == 4:
+				p8.go_down()
+			elif _input == 5:
+				p8.go_select()
+			elif _input == 6:
+				p8.go_back()
 
 func get_game_over_done_count():
 	var _done = 0
@@ -634,15 +716,14 @@ func splash(_top, _body, _time, _pause):
 	s.init(_top, _body, _time, _pause)
 
 func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
-#	print(_player, Game.started,"   ",!Player_Stats.get_in_play(_player),"   ", Player_Stats.get_in_game(_player),"  ",Player_Stats.get_continuing(_player))
+	print(_player, Game.started,"   ",Player_Stats.get_in_play(_player),"   ", Player_Stats.get_in_game(_player),"  ",Player_Stats.get_continuing(_player))
 	if !Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):
 		if _dir == 0 && Player_Stats.can_player_start(_player):
-			Player_Stats.set_in_play(_player,true)
+			Player_Stats.reset_player(_player)
 			Player_Stats.use_credit(_player)
 			set_pri(_player,3)
 			update_player(_player)
 			emit_signal("screen_update")
-			Player_Stats.reset_player(_player)
 		elif _dir != 0 && Player_Stats.can_player_start(_player):
 			set_pri(_player,3)
 		elif !Player_Stats.can_player_start(_player):
@@ -650,7 +731,8 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 		else:
 			print("error in input HUD no parameters met 0002")
 
-	elif !Game.started && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
+	elif !Player_Stats.get_continuing(_player) && !Game.started && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
+		print("input to screen hud")
 		emit_signal("input_to_screen",_player, _dir)
 
 	elif Player_Stats.get_continuing(_player) && !Player_Stats.can_player_start(_player): print("Hud no credit  tring to continue error 0007")
@@ -682,6 +764,7 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 		else:
 			print("error in input HUD no parameters met 0004")
 
+#pawn menu in game
 	elif Game.started && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player)&& !Player_Stats.get_continuing(_player):
 		if _player == 1: 
 			if _dir == 2:

@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menus/Arcade/Parts/HUD_18_Continue.gd" type="Script" id=2]
+
+[node name="HBox_Continue" type="HBoxContainer"]
+margin_top = -0.788239
+margin_right = 220.0
+margin_bottom = 36.2118
+alignment = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_Continue_Text_1" type="Label" parent="."]
+margin_left = 1.0
+margin_right = 180.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "Continue ["
+align = 1
+
+[node name="Label_Continue_Count" type="Label" parent="."]
+margin_left = 184.0
+margin_right = 204.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+align = 1
+
+[node name="Label_Continue_Text_2" type="Label" parent="."]
+margin_left = 208.0
+margin_right = 219.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+text = "]"
+align = 1

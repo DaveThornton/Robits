@@ -10,6 +10,7 @@ export var damage = 20
 export var health = 5
 export var armor = 3
 export var go_off_edge = true
+export var points = 2
 
 onready var grfx = $Anim_BG_03
 onready var ray_down_r = $Raycasts/Down_Right
@@ -170,6 +171,7 @@ func _shoot():
 func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	if health <= 0:
+		Player_Stats.add_score(_by_who, points)
 		print("Open Gunner dead BG-03")
 		call_deferred("_explode")
 		call_deferred("free")

@@ -1,0 +1,291 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://misc/line-text-96.tres" type="DynamicFont" id=1]
+[ext_resource path="res://misc/line-text-64.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/Misc/Parts/Singleton_Scores-Scores.gd" type="Script" id=3]
+
+[node name="Scores" type="Node2D"]
+z_index = 100
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 655.235
+margin_top = 164.452
+margin_right = 1237.24
+margin_bottom = 265.452
+custom_fonts/font = ExtResource( 1 )
+text = "High Scores"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 571.451
+margin_top = 289.005
+margin_right = 1319.45
+margin_bottom = 1066.01
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox_Places" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 148.0
+margin_bottom = 777.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HBoxContainer/VBox_Places"]
+margin_right = 148.0
+margin_bottom = 67.0
+custom_fonts/font = ExtResource( 2 )
+text = "01."
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBox_Places"]
+margin_top = 71.0
+margin_right = 148.0
+margin_bottom = 138.0
+custom_fonts/font = ExtResource( 2 )
+text = "02."
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBox_Places"]
+margin_top = 142.0
+margin_right = 148.0
+margin_bottom = 209.0
+custom_fonts/font = ExtResource( 2 )
+text = "03."
+
+[node name="Label4" type="Label" parent="HBoxContainer/VBox_Places"]
+margin_top = 213.0
+margin_right = 148.0
+margin_bottom = 280.0
+custom_fonts/font = ExtResource( 2 )
+text = "04."
+
+[node name="Label5" type="Label" parent="HBoxContainer/VBox_Places"]
+margin_top = 284.0
+margin_right = 148.0
+margin_bottom = 351.0
+custom_fonts/font = ExtResource( 2 )
+text = "05."
+
+[node name="Label6" type="Label" parent="HBoxContainer/VBox_Places"]
+margin_top = 355.0
+margin_right = 148.0
+margin_bottom = 422.0
+custom_fonts/font = ExtResource( 2 )
+text = "06."
+
+[node name="Label7" type="Label" parent="HBoxContainer/VBox_Places"]
+margin_top = 426.0
+margin_right = 148.0
+margin_bottom = 493.0
+custom_fonts/font = ExtResource( 2 )
+text = "07."
+
+[node name="Label8" type="Label" parent="HBoxContainer/VBox_Places"]
+margin_top = 497.0
+margin_right = 148.0
+margin_bottom = 564.0
+custom_fonts/font = ExtResource( 2 )
+text = "08."
+
+[node name="Label9" type="Label" parent="HBoxContainer/VBox_Places"]
+margin_top = 568.0
+margin_right = 148.0
+margin_bottom = 635.0
+custom_fonts/font = ExtResource( 2 )
+text = "09."
+
+[node name="Label10" type="Label" parent="HBoxContainer/VBox_Places"]
+margin_top = 639.0
+margin_right = 148.0
+margin_bottom = 706.0
+custom_fonts/font = ExtResource( 2 )
+text = "10."
+
+[node name="Label11" type="Label" parent="HBoxContainer/VBox_Places"]
+margin_top = 710.0
+margin_right = 148.0
+margin_bottom = 777.0
+custom_fonts/font = ExtResource( 2 )
+text = "    "
+
+[node name="VBox_Names" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 152.0
+margin_right = 374.0
+margin_bottom = 777.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name1" type="Label" parent="HBoxContainer/VBox_Names"]
+margin_right = 222.0
+margin_bottom = 67.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dave"
+
+[node name="Name2" type="Label" parent="HBoxContainer/VBox_Names"]
+margin_top = 71.0
+margin_right = 222.0
+margin_bottom = 138.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dave"
+
+[node name="Name3" type="Label" parent="HBoxContainer/VBox_Names"]
+margin_top = 142.0
+margin_right = 222.0
+margin_bottom = 209.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dave"
+
+[node name="Name4" type="Label" parent="HBoxContainer/VBox_Names"]
+margin_top = 213.0
+margin_right = 222.0
+margin_bottom = 280.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dave"
+
+[node name="Name5" type="Label" parent="HBoxContainer/VBox_Names"]
+margin_top = 284.0
+margin_right = 222.0
+margin_bottom = 351.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dave"
+
+[node name="Name6" type="Label" parent="HBoxContainer/VBox_Names"]
+margin_top = 355.0
+margin_right = 222.0
+margin_bottom = 422.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dave"
+
+[node name="Name7" type="Label" parent="HBoxContainer/VBox_Names"]
+margin_top = 426.0
+margin_right = 222.0
+margin_bottom = 493.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dave"
+
+[node name="Name8" type="Label" parent="HBoxContainer/VBox_Names"]
+margin_top = 497.0
+margin_right = 222.0
+margin_bottom = 564.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dave"
+
+[node name="Name9" type="Label" parent="HBoxContainer/VBox_Names"]
+margin_top = 568.0
+margin_right = 222.0
+margin_bottom = 635.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dave"
+
+[node name="Name10" type="Label" parent="HBoxContainer/VBox_Names"]
+margin_top = 639.0
+margin_right = 222.0
+margin_bottom = 706.0
+custom_fonts/font = ExtResource( 2 )
+text = "Dave"
+
+[node name="Name11" type="Label" parent="HBoxContainer/VBox_Names"]
+margin_top = 710.0
+margin_right = 222.0
+margin_bottom = 777.0
+custom_fonts/font = ExtResource( 2 )
+text = "      "
+
+[node name="VBox_Scores" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 378.0
+margin_right = 748.0
+margin_bottom = 777.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score1" type="Label" parent="HBoxContainer/VBox_Scores"]
+margin_right = 370.0
+margin_bottom = 67.0
+custom_fonts/font = ExtResource( 2 )
+text = "500"
+align = 2
+
+[node name="Score2" type="Label" parent="HBoxContainer/VBox_Scores"]
+margin_top = 71.0
+margin_right = 370.0
+margin_bottom = 138.0
+custom_fonts/font = ExtResource( 2 )
+text = "500"
+align = 2
+
+[node name="Score3" type="Label" parent="HBoxContainer/VBox_Scores"]
+margin_top = 142.0
+margin_right = 370.0
+margin_bottom = 209.0
+custom_fonts/font = ExtResource( 2 )
+text = "500"
+align = 2
+
+[node name="Score4" type="Label" parent="HBoxContainer/VBox_Scores"]
+margin_top = 213.0
+margin_right = 370.0
+margin_bottom = 280.0
+custom_fonts/font = ExtResource( 2 )
+text = "500"
+align = 2
+
+[node name="Score5" type="Label" parent="HBoxContainer/VBox_Scores"]
+margin_top = 284.0
+margin_right = 370.0
+margin_bottom = 351.0
+custom_fonts/font = ExtResource( 2 )
+text = "500"
+align = 2
+
+[node name="Score6" type="Label" parent="HBoxContainer/VBox_Scores"]
+margin_top = 355.0
+margin_right = 370.0
+margin_bottom = 422.0
+custom_fonts/font = ExtResource( 2 )
+text = "500"
+align = 2
+
+[node name="Score7" type="Label" parent="HBoxContainer/VBox_Scores"]
+margin_top = 426.0
+margin_right = 370.0
+margin_bottom = 493.0
+custom_fonts/font = ExtResource( 2 )
+text = "500"
+align = 2
+
+[node name="Score8" type="Label" parent="HBoxContainer/VBox_Scores"]
+margin_top = 497.0
+margin_right = 370.0
+margin_bottom = 564.0
+custom_fonts/font = ExtResource( 2 )
+text = "500"
+align = 2
+
+[node name="Score9" type="Label" parent="HBoxContainer/VBox_Scores"]
+margin_top = 568.0
+margin_right = 370.0
+margin_bottom = 635.0
+custom_fonts/font = ExtResource( 2 )
+text = "500"
+align = 2
+
+[node name="Score10" type="Label" parent="HBoxContainer/VBox_Scores"]
+margin_top = 639.0
+margin_right = 370.0
+margin_bottom = 706.0
+custom_fonts/font = ExtResource( 2 )
+text = "500"
+align = 2
+
+[node name="Score11" type="Label" parent="HBoxContainer/VBox_Scores"]
+margin_top = 710.0
+margin_right = 370.0
+margin_bottom = 777.0
+custom_fonts/font = ExtResource( 2 )
+text = "          "
+align = 2
