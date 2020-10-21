@@ -17,7 +17,6 @@ func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
 		print("error name select in sore hud connecting to reset from world gd")
-	pass # Replace with function body.
 
 func up():
 	if letter_count == 1: get_child(0).up()

@@ -91,7 +91,7 @@ func get_start_screen():
 	return start_screen
 
 func reset():
-	FX.CAMERA
+	FX.CAMERA.reset()
 	started = false
 	set_game_over(false)
 

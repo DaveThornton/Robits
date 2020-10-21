@@ -162,7 +162,6 @@ text = "DEAD"
 align = 1
 
 [node name="HBox_Continue" type="HBoxContainer" parent="."]
-visible = false
 margin_top = 287.0
 margin_right = 220.0
 margin_bottom = 324.0
@@ -198,15 +197,15 @@ margin_top = 287.0
 margin_bottom = 324.0
 
 [node name="VBox_Name" type="VBoxContainer" parent="."]
-margin_top = 287.0
+margin_top = 328.0
 margin_right = 220.0
-margin_bottom = 365.0
+margin_bottom = 406.0
 
 [node name="HUD_19_Name_Select" parent="VBox_Name" instance=ExtResource( 6 )]
 margin_right = 220.0
 margin_bottom = 37.0
 
-[node name="Label" type="Label" parent="VBox_Name"]
+[node name="Score" type="Label" parent="VBox_Name"]
 margin_top = 41.0
 margin_right = 220.0
 margin_bottom = 78.0
@@ -215,15 +214,15 @@ text = "0000"
 align = 1
 
 [node name="Pawn_Menu" parent="." instance=ExtResource( 3 )]
-margin_top = 369.0
+margin_top = 410.0
 margin_right = 220.0
-margin_bottom = 406.0
+margin_bottom = 447.0
 alignment = 1
 
 [node name="VBox_Game" type="VBoxContainer" parent="."]
-margin_top = 410.0
+margin_top = 451.0
 margin_right = 220.0
-margin_bottom = 510.0
+margin_bottom = 551.0
 
 [node name="HBox_Player" type="HBoxContainer" parent="VBox_Game"]
 margin_right = 220.0
@@ -363,9 +362,9 @@ align = 1
 anims/Coin_Up = SubResource( 3 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_top = 514.0
+margin_top = 555.0
 margin_right = 220.0
-margin_bottom = 514.0
+margin_bottom = 555.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 

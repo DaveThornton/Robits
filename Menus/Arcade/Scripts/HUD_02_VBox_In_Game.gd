@@ -29,8 +29,8 @@ onready var igb_10_game_box_coin_count = $VBox_Game/HBox_Coin/Label_Coin_Count
 onready var igb_10_game_box_coin2 = $VBox_Game/HBox_Coin/Label_Coin_Text2
 
 onready var igb_11_name_box = $VBox_Name 
-onready var igb_11_name_box_select = $VBox_Name
-onready var igb_11_name_box_score = $VBox_Name
+onready var igb_11_name_box_select = $VBox_Name/HUD_19_Name_Select
+onready var igb_11_name_box_score = $VBox_Name/Score
 
 onready var anim = $AnimationPlayer
 onready var anim_game_box = $VBox_Game/AnimationPlayer
@@ -86,17 +86,13 @@ func set_continue(_continue):
 	if _continue:
 		Player_Stats.set_continuing(player, true)
 		Player_Stats.set_in_game(player, false)
-#		Controllers.get_controller(player)
-#		continue_count()
 	else:
-#		update_state(10)
 		continue_count_num = 10
 		print("dont know set_continue false in hud 02 in game")
 
 func continue_count():
 	if continue_started:
-		update_state(8)
-#		Player_Stats.set_continuing(player, true)
+		set_state(8,0)
 		if continue_count_num > 0:
 			continue_count_num -= 1
 			igb_08_continue_count.text = str(continue_count_num)
@@ -111,25 +107,59 @@ func continue_count():
 			print("end continue if game over?  ", Game.over)
 			if !Game.over:
 				if High_Score.is_score_high(Player_Stats.get_score(player)):
-					print("trying to add name to high scores in game lets see")
-					
-					
-					
-					
-					pass
+					print("trying to add name to high scores in game lets see   ", High_Score.is_score_high(Player_Stats.get_score(player)), "     score: ", Player_Stats.get_score(player))
+					HUD.set_pri(player, 11)
+					igb_11_name_box_score.text = str(Player_Stats.get_score(player))
 				else:
+#					Player_Stats.set_continuing(player, false)
 					Player_Stats.reset_player(player)
+					set_state(0,0)
+					continue_count_num = 10
 			else:
+#				Player_Stats.set_continuing(player, false)
 #				print("call high scores in hud after continue runs out")
 				High_Score.set_visible(true)
-			continue_count_num = 10
+				continue_count_num = 10
 #			print("need to do somthing when continue runs out hud 02 vbox in game")
-			
+
+func up(): if igb_11_name_box_select.visible: igb_11_name_box_select.up()
+func down():
+	print("down in hud in game")
+	if igb_11_name_box_select.visible: 
+		print("name box vis in hud in game")
+		igb_11_name_box_select.down()
+func select():
+	print("select")
+	if igb_11_name_box_select.visible:
+		print("name box visable = ", igb_11_name_box_select.visible)
+		if igb_11_name_box_select.letter_count < 5:
+			var my_name = igb_11_name_box_select.select()
+			if igb_11_name_box_select.letter_count == 5:
+				submit_score(my_name)
+func back(): if igb_11_name_box_select.visible: igb_11_name_box_select.back()
+
+func submit_score(_my_name):
+	Player_Stats.set_continuing(player, false)
+	igb_11_name_box_select.reset()
+	print("submiting score in hud in game")
+	igb_11_name_box_select.letter_count += 1
+	Player_Stats.set_done(player,true)
+	High_Score.add_score(player, _my_name)
+	Player_Stats.reset_player(player)
+	continue_count_num = 10
+	igb_11_name_box_select.reset()
+	update_state(0)
 
 func update_state(_state:int):
-	if !continue_count_num < 10:
+	print(_state , " in update state in game hud")
+	if _state == 11:
+		all_out()
+		igb_11_name_box.visible = true
+	elif !continue_count_num < 10:
+#		print("passed the 10 1st")
 		all_out()
 		if _state != 10:
+			print("passed the 10 2nd for ", player)
 			igb_01_player.visible = true
 			if _state == 2:
 				igb_02_insert.visible = true
@@ -166,3 +196,4 @@ func all_out():
 	igb_08_continue.visible = false
 	igb_09_pawn_menu.visible = false
 	igb_10_game_box.visible = false
+	igb_11_name_box.visible = false

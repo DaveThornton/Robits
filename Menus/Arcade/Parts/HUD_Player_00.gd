@@ -6,14 +6,14 @@ onready var in_game_box = $VBox_In_Game#        mode 2
 onready var in_score_box = $VBox_In_Score#      mode 3
 onready var pawn_menu = $VBox_In_Game/Pawn_Menu
 export var player_num = 0
-
+var mode = 0
 
 func _ready(): set_player_num(player_num)
 
 func reset(): in_menu()
  
 func update_state(_state):
-	var mode = get_parent().mode
+	mode = get_parent().mode
 	var pri = _state["pri"]
 	var sec = _state["sec"]
 	if mode == 0:
@@ -82,13 +82,26 @@ func set_continue(_continue:bool): in_game_box.set_continue(_continue)
 
 func parent_in_game(): get_parent().in_game_player(player_num)
 
-func go_up(): in_score_box.up()
+func go_up(): 
+	if mode == 3:
+		in_score_box.up()
+	elif mode == 2:
+		in_game_box.up()
 
-func go_down(): in_score_box.down()
+func go_down():
+	print("down in hud player 00")
+	if mode == 3:
+		in_score_box.down()
+	elif mode == 2:
+		in_game_box.down()
 
 func go_back(): in_score_box.back()
 
-func go_select(): in_score_box.select()
+func go_select():
+	if mode == 3:
+		in_score_box.select()
+	elif mode == 2:
+		in_game_box.select()
 
 func go_left(): pawn_menu.go_left()
 

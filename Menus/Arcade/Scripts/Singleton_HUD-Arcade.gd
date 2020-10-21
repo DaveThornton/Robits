@@ -715,6 +715,24 @@ func splash(_top, _body, _time, _pause):
 	add_child(s)
 	s.init(_top, _body, _time, _pause)
 
+func get_player_hud(_player):
+	if _player == 1:
+		return p1
+	elif _player == 2:
+		return p2
+	elif _player == 3:
+		return p3
+	elif _player == 4:
+		return p4
+	elif _player == 5:
+		return p5
+	elif _player == 6:
+		return p6
+	elif _player == 7:
+		return p7
+	elif _player == 8:
+		return p8
+
 func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 	print(_player, Game.started,"   ",Player_Stats.get_in_play(_player),"   ", Player_Stats.get_in_game(_player),"  ",Player_Stats.get_continuing(_player))
 	if !Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):
@@ -735,7 +753,7 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 		print("input to screen hud")
 		emit_signal("input_to_screen",_player, _dir)
 
-	elif Player_Stats.get_continuing(_player) && !Player_Stats.can_player_start(_player): print("Hud no credit  tring to continue error 0007")
+#	elif Player_Stats.get_continuing(_player) && !Player_Stats.can_player_start(_player): print("Hud no credit  tring to continue error 0007")
 
 	elif Player_Stats.get_continuing(_player) && Player_Stats.can_player_start(_player):
 		print("continuing?")
@@ -752,6 +770,17 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 #		else:
 #			print("error in input HUD no parameters met 0005")
 
+	elif Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_done(_player):#movement up:1 left:2 right:3 down:4 start:5 back:6
+		print("trying to send up down select signal to hud for in game high score (in hud arcade input)")
+		if _dir == 1:
+			get_player_hud(_player).go_up()
+		elif _dir == 4:
+			get_player_hud(_player).go_down()
+		elif _dir == 5:
+			get_player_hud(_player).go_select()
+		elif _dir == 6:
+			get_player_hud(_player).go_back()
+
 	elif Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):
 		if _dir == 0 && Player_Stats.can_player_start(_player):
 			Player_Stats.set_in_play(_player,true)
@@ -760,6 +789,7 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 		elif _dir != 0 && Player_Stats.can_player_start(_player):
 			set_pri(_player,3)
 		elif !Player_Stats.can_player_start(_player):
+			print("cant start in hud arcade")
 			set_pri(_player,2)
 		else:
 			print("error in input HUD no parameters met 0004")

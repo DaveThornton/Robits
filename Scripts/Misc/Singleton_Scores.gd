@@ -6,11 +6,11 @@ var score_file = "user://score.save"
 var top10 = []
 var place = ["DAVE", 10]
 var last_place = 20
-
-signal up
-signal down
-signal select
-signal back
+#
+#signal up
+#signal down
+#signal select
+#signal back
 
 
 func _ready():
