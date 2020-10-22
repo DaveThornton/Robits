@@ -43,7 +43,6 @@ text = "AMOX"
 align = 1
 
 [node name="Pawn05" type="Label" parent="."]
-visible = false
 margin_right = 148.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
@@ -60,8 +59,7 @@ align = 1
 
 [node name="Pawn07" type="Label" parent="."]
 visible = false
-margin_left = 900.0
-margin_right = 1048.0
+margin_right = 80.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
 text = "BULK"
@@ -69,14 +67,14 @@ align = 1
 
 [node name="Pawn08" type="Label" parent="."]
 visible = false
-margin_left = 1052.0
-margin_right = 1200.0
+margin_right = 100.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
-text = "Robit 08"
+text = "Atlas"
 align = 1
 
 [node name="Pawn09" type="Label" parent="."]
+visible = false
 margin_right = 114.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )

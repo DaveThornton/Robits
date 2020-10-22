@@ -33,10 +33,12 @@ func game_over_done():
 	player_done_go.visible = true
 	player_num_go.visible = true
 	game_over_stats.visible = false
+	Player_Stats.set_done(player,true)
 	game_done = true
 
 func game_over_not_done():
 	player_done_go.visible = false
 	player_num_go.visible = false
 	game_over_stats.visible = true
+	Player_Stats.set_done(player,false)
 	game_done = false
