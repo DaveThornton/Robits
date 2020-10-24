@@ -85,20 +85,20 @@ func state_machine():
 func start():
 	p1state["mode"] = 1
 	p1state["sec"] = 0
-	p1state["mode"] = 1
-	p1state["sec"] = 0
-	p1state["mode"] = 1
-	p1state["sec"] = 0
-	p1state["mode"] = 1
-	p1state["sec"] = 0
-	p1state["mode"] = 1
-	p1state["sec"] = 0
-	p1state["mode"] = 1
-	p1state["sec"] = 0
-	p1state["mode"] = 1
-	p1state["sec"] = 0
-	p1state["mode"] = 1
-	p1state["sec"] = 0
+	p2state["mode"] = 1
+	p2state["sec"] = 0
+	p3state["mode"] = 1
+	p3state["sec"] = 0
+	p4state["mode"] = 1
+	p4state["sec"] = 0
+	p5state["mode"] = 1
+	p5state["sec"] = 0
+	p6state["mode"] = 1
+	p6state["sec"] = 0
+	p7state["mode"] = 1
+	p7state["sec"] = 0
+	p8state["mode"] = 1
+	p8state["sec"] = 0
 	if Player_Stats.can_player_start(1): p1state["pri"] = 3
 	else: p1state["pri"] = 2
 	if Player_Stats.can_player_start(2): p2state["pri"] = 3
@@ -115,62 +115,18 @@ func start():
 	else: p7state["pri"] = 2
 	if Player_Stats.can_player_start(8): p8state["pri"] = 3
 	else: p8state["pri"] = 2
-	p1.update_state(p1state)
-	p2.update_state(p2state)
-	p3.update_state(p3state)
-	p4.update_state(p4state)
-	p5.update_state(p5state)
-	p6.update_state(p6state)
-	p7.update_state(p7state)
-	p8.update_state(p8state)
+	update_players()
 
-func update_player(_player):
-	if _player == 1:
-		p1.update_state(p1state)
-	elif _player == 2:
-		p2.update_state(p2state)
-	elif _player == 3:
-		p3.update_state(p3state)
-	elif _player == 4:
-		p4.update_state(p4state)
-	elif _player == 5:
-		p5.update_state(p5state)
-	elif _player == 6:
-		p6.update_state(p6state)
-	elif _player == 7:
-		p7.update_state(p7state)
-	elif _player == 8:
-		p8.update_state(p8state)
+func update_player(_player): get_player_hud(_player).update_state(get_player_state(_player))
 
 func update_players():
-	p1.update_state(p1state)
-	p2.update_state(p2state)
-	p3.update_state(p3state)
-	p4.update_state(p4state)
-	p5.update_state(p5state)
-	p6.update_state(p6state)
-	p7.update_state(p7state)
-	p8.update_state(p8state)
+	for p in 8:
+		get_player_hud(p + 1).update_state(get_player_state(p + 1))
 
 func set_mode(_mode): mode = _mode
 
 func set_pri(_player, _pri):
-	if _player == 1:
-		p1state["pri"] = _pri
-	elif _player == 2:
-		p2state["pri"] = _pri
-	elif _player == 3:
-		p3state["pri"] = _pri
-	elif _player == 4:
-		p4state["pri"] = _pri
-	elif _player == 5:
-		p5state["pri"] = _pri
-	elif _player == 6:
-		p6state["pri"] = _pri
-	elif _player == 7:
-		p7state["pri"] = _pri
-	elif _player == 8:
-		p8state["pri"] = _pri
+	get_player_state(_player)["pri"] = _pri
 	update_player(_player)
 
 func game_over_state():
@@ -405,49 +361,13 @@ func check_in_game(_num):
 		if Player_Stats.p8["in_play"]: p8.in_play()
 		else: p8.in_game()
 
-func set_score(_player):
-	if _player == 1: p1.set_score_count(Player_Stats.p1["score"])
-	elif _player == 2: p2.set_score_count(Player_Stats.p2["score"])
-	elif _player == 3: p3.set_score_count(Player_Stats.p3["score"])
-	elif _player == 4: p4.set_score_count(Player_Stats.p4["score"])
-	elif _player == 5: p5.set_score_count(Player_Stats.p5["score"])
-	elif _player == 6: p6.set_score_count(Player_Stats.p6["score"])
-	elif _player == 7: p7.set_score_count(Player_Stats.p7["score"])
-	elif _player == 8: p8.set_score_count(Player_Stats.p8["score"])
-	else: print("error in set score player number not valid. player : ",_player)
+func set_score(_player): get_player_hud(_player).set_score_count(Player_Stats.get_score(_player))
 
-func set_nrg(_player, _amount):
-	if _player == 1: p1.set_nrg_bar(_amount)
-	elif _player == 2: p2.set_nrg_bar(_amount)
-	elif _player == 3: p3.set_nrg_bar(_amount)
-	elif _player == 4: p4.set_nrg_bar(_amount)
-	elif _player == 5: p5.set_nrg_bar(_amount)
-	elif _player == 6: p6.set_nrg_bar(_amount)
-	elif _player == 7: p7.set_nrg_bar(_amount)
-	elif _player == 8: p8.set_nrg_bar(_amount)
-	else: print("error in nrg_update player number not valid. player : ",_player, ". amount :", _amount)
+func set_nrg(_player, _amount): get_player_hud(_player).set_nrg_bar(_amount)
 
-func set_lives(_player, _amount):
-	if _player == 1: p1.set_lives(_amount)
-	elif _player == 2: p2.set_lives(_amount)
-	elif _player == 3: p3.set_lives(_amount)
-	elif _player == 4: p4.set_lives(_amount)
-	elif _player == 5: p5.set_lives(_amount)
-	elif _player == 6: p6.set_lives(_amount)
-	elif _player == 7: p7.set_lives(_amount)
-	elif _player == 8: p8.set_lives(_amount)
-	else: print("error in set_lives player number not valid. player : ",_player, ". amount :", _amount)
+func set_lives(_player, _amount): get_player_hud(_player).set_lives(_amount)
 
-func set_ammo(_player, _amount):
-	if _player == 1: p1.set_ammo_count(_amount)
-	elif _player == 2: p2.set_ammo_count(_amount)
-	elif _player == 3: p3.set_ammo_count(_amount)
-	elif _player == 4: p4.set_ammo_count(_amount)
-	elif _player == 5: p5.set_ammo_count(_amount)
-	elif _player == 6: p6.set_ammo_count(_amount)
-	elif _player == 7: p7.set_ammo_count(_amount)
-	elif _player == 8: p8.set_ammo_count(_amount)
-	else: print("error in set_ammo player number not valid. player : ",_player, ". amount :", _amount)
+func set_ammo(_player, _amount): get_player_hud(_player).set_ammo_count(_amount)
 
 func set_places():
 	var _places = Player_Stats.get_places()
@@ -507,9 +427,7 @@ func show_lives(_show:bool):
 	p7.show_lives(_show)
 	p8.show_lives(_show)
 
-func game_over():
-	print("game over doesnt do much in hud so fun!")
-	pass
+func game_over(): print("game over doesnt do much in hud so fun!")
 
 func game_over_input(_player, _input):
 	if Game.mode > 0:
@@ -523,7 +441,6 @@ func game_over_input(_player, _input):
 			get_tree().get_current_scene().arcade_reset()
 
 	elif Game.mode == 0 && !Player_Stats.get_done(_player):
-#		if _player == 1:
 		if _input == 1:
 			get_player_hud(_player).go_up()
 		elif _input == 4:
@@ -550,23 +467,9 @@ func coin_up(_player):
 	coin_update(_player)
 	
 func coin_update(_player):
-	if _player == 1:
-		p1.set_coin_count(Player_Stats.p1["credit"])
-	elif _player == 2:
-		p2.set_coin_count(Player_Stats.p2["credit"])
-	elif _player == 3:
-		p3.set_coin_count(Player_Stats.p3["credit"])
-	elif _player == 4:
-		p4.set_coin_count(Player_Stats.p4["credit"])
-	elif _player == 5:
-		p5.set_coin_count(Player_Stats.p5["credit"])
-	elif _player == 6:
-		p6.set_coin_count(Player_Stats.p6["credit"])
-	elif _player == 7:
-		p7.set_coin_count(Player_Stats.p7["credit"])
-	elif _player == 8:
-		p8.set_coin_count(Player_Stats.p8["credit"])
-	elif _player == 1:
+	if _player > 0:
+		get_player_hud(_player).set_coin_count(Player_Stats.get_credit(_player))
+	else:
 		p1.set_coin_count(Player_Stats.p1["credit"])
 		p2.set_coin_count(Player_Stats.p2["credit"])
 		p3.set_coin_count(Player_Stats.p3["credit"])
@@ -577,16 +480,7 @@ func coin_update(_player):
 		p8.set_coin_count(Player_Stats.p8["credit"])
 	state_machine()
 
-func set_continue(_player, _continue):
-	if _player == 1: p1.set_continue(_continue)
-	elif _player == 2: p2.set_continue(_continue)
-	elif _player == 3: p3.set_continue(_continue)
-	elif _player == 4: p4.set_continue(_continue)
-	elif _player == 5: p5.set_continue(_continue)
-	elif _player == 6: p6.set_continue(_continue)
-	elif _player == 7: p7.set_continue(_continue)
-	elif _player == 8: p8.set_continue(_continue)
-	else: print("error in set score player number not valid. player : ",_player)
+func set_continue(_player, _continue): get_player_hud(_player).set_continue(_continue)
 
 func reset():
 	start()
@@ -611,6 +505,26 @@ func splash(_top, _body, _time, _pause):
 	add_child(s)
 	s.init(_top, _body, _time, _pause)
 
+func get_player_state(_player):
+	if _player == 1:
+		return p1state
+	elif _player == 2:
+		return p2state
+	elif _player == 3:
+		return p3state
+	elif _player == 4:
+		return p4state
+	elif _player == 5:
+		return p5state
+	elif _player == 6:
+		return p6state
+	elif _player == 7:
+		return p7state
+	elif _player == 8:
+		return p8state
+	else:
+		print("get player state error invaild player in hud")
+
 func get_player_hud(_player):
 	if _player == 1:
 		return p1
@@ -628,6 +542,8 @@ func get_player_hud(_player):
 		return p7
 	elif _player == 8:
 		return p8
+	else:
+		print("get player hud error invaild player in hud")
 
 func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 	print(_player, Game.started,"   ",Player_Stats.get_in_play(_player),"   ", Player_Stats.get_in_game(_player),"  ",Player_Stats.get_continuing(_player))

@@ -17,8 +17,8 @@ func _ready():
 	for i in 10:
 		top10.append(place)
 #	print(top10)
-	save_to_file()
-#	load_from_file()
+#	save_to_file()
+	load_from_file()
 #	print(top10)
 	list.update_scores(top10)
 

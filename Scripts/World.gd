@@ -4,7 +4,7 @@ export(PackedScene) var arcade_start
 export(PackedScene) var console_start
 export(PackedScene) var demo_map
 
-export var game_mode = 1
+export var game_mode = 1 #     1 arcade       2 console       3 demo
 
 onready var pawns = $Pawns
 onready var clearing_house = $Clearing_House

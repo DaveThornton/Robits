@@ -68,7 +68,7 @@ func set_coin_count(_amount:int):
 	in_game_box.coin_count_update(_amount)
 	in_menu_box.coin_count_update(_amount)
 
-func set_lives(_amount:int): in_game_box.lives_update()
+func set_lives(_amount:int): in_game_box.lives_update(_amount)
 
 func set_score_count(_amount:int): in_game_box.score_update(_amount)
 
