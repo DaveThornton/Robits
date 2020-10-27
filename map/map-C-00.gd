@@ -1,11 +1,11 @@
 extends Node2D
 
-export var camera_move = false
-export var camera_max_left = 0
-export var camera_max_right = 12000
 export var show_splash = false
 export var title_text = "Title"
 export var body_text = "Body"
+export var camera_move = false
+export var camera_max_left = 0
+export var camera_max_right = 12000
 export var splash_time = 1.5
 export var background = 1
 onready var player_spawns = $Player_Spawns

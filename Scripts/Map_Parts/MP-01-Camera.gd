@@ -6,6 +6,8 @@ export var rect_offset = 960
 onready var static_sprite = $SpriteStatic
 onready var effect = $CRT/ColorRect
 onready var noise_gen = OpenSimplexNoise.new()
+onready var edge_left = $StaticBody2D/CollisionShape2D_Left
+onready var edge_right = $StaticBody2D/CollisionShape2D_Right
 
 var speed = 0
 var max_speed = 6
@@ -67,6 +69,13 @@ func _process(delta):
 		_c_static(delta)
 		trauma = max(trauma - trauma_depletion * delta,0)
 
+
+func move(_move):
+	print("camera move ",!_move)
+	can_move = _move
+	edge_left.disabled = !_move
+	edge_right.disabled = !_move
+	
 #func _draw():
 #	draw_rect(camera_rect,Color8(255,255,255,255),false)
 #

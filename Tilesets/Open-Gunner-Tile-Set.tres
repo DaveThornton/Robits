@@ -72,6 +72,11 @@ extents = Vector2( 25, 25 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 25, 25 )
 0/navigation_offset = Vector2( 25, 25 )
+0/shape_offset = Vector2( 25, 25 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -88,6 +93,11 @@ extents = Vector2( 25, 25 )
 1/tile_mode = 0
 1/occluder_offset = Vector2( 25, 25 )
 1/navigation_offset = Vector2( 25, 25 )
+1/shape_offset = Vector2( 25, 25 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+1/shape = SubResource( 2 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -104,6 +114,11 @@ extents = Vector2( 25, 25 )
 2/tile_mode = 0
 2/occluder_offset = Vector2( 25, 25 )
 2/navigation_offset = Vector2( 25, 25 )
+2/shape_offset = Vector2( 25, 25 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+2/shape = SubResource( 4 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -120,6 +135,11 @@ extents = Vector2( 25, 25 )
 3/tile_mode = 0
 3/occluder_offset = Vector2( 25, 25 )
 3/navigation_offset = Vector2( 25, 25 )
+3/shape_offset = Vector2( 25, 25 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+3/shape = SubResource( 7 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
 3/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -136,6 +156,11 @@ extents = Vector2( 25, 25 )
 4/tile_mode = 0
 4/occluder_offset = Vector2( 25, 25 )
 4/navigation_offset = Vector2( 25, 25 )
+4/shape_offset = Vector2( 25, 25 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+4/shape = SubResource( 15 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
 4/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -152,6 +177,11 @@ extents = Vector2( 25, 25 )
 5/tile_mode = 0
 5/occluder_offset = Vector2( 25, 25 )
 5/navigation_offset = Vector2( 25, 25 )
+5/shape_offset = Vector2( 25, 25 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+5/shape = SubResource( 17 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -168,6 +198,11 @@ extents = Vector2( 25, 25 )
 6/tile_mode = 0
 6/occluder_offset = Vector2( 25, 25 )
 6/navigation_offset = Vector2( 25, 25 )
+6/shape_offset = Vector2( 25, 25 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+6/shape = SubResource( 18 )
+6/shape_one_way = false
+6/shape_one_way_margin = 1.0
 6/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -184,6 +219,11 @@ extents = Vector2( 25, 25 )
 7/tile_mode = 0
 7/occluder_offset = Vector2( 25, 25 )
 7/navigation_offset = Vector2( 25, 25 )
+7/shape_offset = Vector2( 25, 25 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+7/shape = SubResource( 20 )
+7/shape_one_way = false
+7/shape_one_way_margin = 1.0
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -200,6 +240,11 @@ extents = Vector2( 25, 25 )
 8/tile_mode = 0
 8/occluder_offset = Vector2( 25, 25 )
 8/navigation_offset = Vector2( 25, 25 )
+8/shape_offset = Vector2( 25, 25 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+8/shape = SubResource( 3 )
+8/shape_one_way = false
+8/shape_one_way_margin = 1.0
 8/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -216,6 +261,11 @@ extents = Vector2( 25, 25 )
 9/tile_mode = 0
 9/occluder_offset = Vector2( 25, 25 )
 9/navigation_offset = Vector2( 25, 25 )
+9/shape_offset = Vector2( 25, 25 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+9/shape = SubResource( 3 )
+9/shape_one_way = false
+9/shape_one_way_margin = 1.0
 9/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -232,6 +282,11 @@ extents = Vector2( 25, 25 )
 10/tile_mode = 0
 10/occluder_offset = Vector2( 25, 25 )
 10/navigation_offset = Vector2( 25, 25 )
+10/shape_offset = Vector2( 25, 25 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+10/shape = SubResource( 3 )
+10/shape_one_way = false
+10/shape_one_way_margin = 1.0
 10/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -248,6 +303,11 @@ extents = Vector2( 25, 25 )
 11/tile_mode = 0
 11/occluder_offset = Vector2( 25, 25 )
 11/navigation_offset = Vector2( 25, 25 )
+11/shape_offset = Vector2( 25, 25 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+11/shape = SubResource( 3 )
+11/shape_one_way = false
+11/shape_one_way_margin = 1.0
 11/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -264,6 +324,11 @@ extents = Vector2( 25, 25 )
 12/tile_mode = 0
 12/occluder_offset = Vector2( 25, 25 )
 12/navigation_offset = Vector2( 25, 25 )
+12/shape_offset = Vector2( 25, 25 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+12/shape = SubResource( 3 )
+12/shape_one_way = false
+12/shape_one_way_margin = 1.0
 12/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -280,6 +345,11 @@ extents = Vector2( 25, 25 )
 13/tile_mode = 0
 13/occluder_offset = Vector2( 25, 25 )
 13/navigation_offset = Vector2( 25, 25 )
+13/shape_offset = Vector2( 25, 25 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+13/shape = SubResource( 3 )
+13/shape_one_way = false
+13/shape_one_way_margin = 1.0
 13/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -296,6 +366,11 @@ extents = Vector2( 25, 25 )
 14/tile_mode = 0
 14/occluder_offset = Vector2( 25, 25 )
 14/navigation_offset = Vector2( 25, 25 )
+14/shape_offset = Vector2( 25, 25 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+14/shape = SubResource( 3 )
+14/shape_one_way = false
+14/shape_one_way_margin = 1.0
 14/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -312,6 +387,11 @@ extents = Vector2( 25, 25 )
 15/tile_mode = 0
 15/occluder_offset = Vector2( 25, 25 )
 15/navigation_offset = Vector2( 25, 25 )
+15/shape_offset = Vector2( 25, 25 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+15/shape = SubResource( 3 )
+15/shape_one_way = false
+15/shape_one_way_margin = 1.0
 15/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -328,6 +408,11 @@ extents = Vector2( 25, 25 )
 16/tile_mode = 0
 16/occluder_offset = Vector2( 25, 25 )
 16/navigation_offset = Vector2( 25, 25 )
+16/shape_offset = Vector2( 25, 25 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+16/shape = SubResource( 3 )
+16/shape_one_way = false
+16/shape_one_way_margin = 1.0
 16/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -344,6 +429,11 @@ extents = Vector2( 25, 25 )
 17/tile_mode = 0
 17/occluder_offset = Vector2( 25, 25 )
 17/navigation_offset = Vector2( 25, 25 )
+17/shape_offset = Vector2( 25, 25 )
+17/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+17/shape = SubResource( 3 )
+17/shape_one_way = false
+17/shape_one_way_margin = 1.0
 17/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -360,6 +450,10 @@ extents = Vector2( 25, 25 )
 18/tile_mode = 0
 18/occluder_offset = Vector2( 25, 25 )
 18/navigation_offset = Vector2( 25, 25 )
+18/shape_offset = Vector2( 0, 0 )
+18/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+18/shape_one_way = false
+18/shape_one_way_margin = 0.0
 18/shapes = [  ]
 18/z_index = 0
 19/name = "Backround_Blue_02"
@@ -370,6 +464,10 @@ extents = Vector2( 25, 25 )
 19/tile_mode = 0
 19/occluder_offset = Vector2( 25, 25 )
 19/navigation_offset = Vector2( 25, 25 )
+19/shape_offset = Vector2( 0, 0 )
+19/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+19/shape_one_way = false
+19/shape_one_way_margin = 0.0
 19/shapes = [  ]
 19/z_index = 0
 20/name = "Backround_Blue_03"
@@ -380,6 +478,10 @@ extents = Vector2( 25, 25 )
 20/tile_mode = 0
 20/occluder_offset = Vector2( 25, 25 )
 20/navigation_offset = Vector2( 25, 25 )
+20/shape_offset = Vector2( 0, 0 )
+20/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+20/shape_one_way = false
+20/shape_one_way_margin = 0.0
 20/shapes = [  ]
 20/z_index = 0
 21/name = "Backround_Blue_04"
@@ -390,6 +492,10 @@ extents = Vector2( 25, 25 )
 21/tile_mode = 0
 21/occluder_offset = Vector2( 25, 25 )
 21/navigation_offset = Vector2( 25, 25 )
+21/shape_offset = Vector2( 0, 0 )
+21/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+21/shape_one_way = false
+21/shape_one_way_margin = 0.0
 21/shapes = [  ]
 21/z_index = 0
 22/name = "Backround_Blue_05"
@@ -400,6 +506,10 @@ extents = Vector2( 25, 25 )
 22/tile_mode = 0
 22/occluder_offset = Vector2( 25, 25 )
 22/navigation_offset = Vector2( 25, 25 )
+22/shape_offset = Vector2( 0, 0 )
+22/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+22/shape_one_way = false
+22/shape_one_way_margin = 0.0
 22/shapes = [  ]
 22/z_index = 0
 23/name = "Backround_Blue_06"
@@ -410,6 +520,10 @@ extents = Vector2( 25, 25 )
 23/tile_mode = 0
 23/occluder_offset = Vector2( 25, 25 )
 23/navigation_offset = Vector2( 25, 25 )
+23/shape_offset = Vector2( 0, 0 )
+23/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+23/shape_one_way = false
+23/shape_one_way_margin = 0.0
 23/shapes = [  ]
 23/z_index = 0
 24/name = "Backround_Blue_07"
@@ -420,6 +534,10 @@ extents = Vector2( 25, 25 )
 24/tile_mode = 0
 24/occluder_offset = Vector2( 25, 25 )
 24/navigation_offset = Vector2( 25, 25 )
+24/shape_offset = Vector2( 0, 0 )
+24/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+24/shape_one_way = false
+24/shape_one_way_margin = 0.0
 24/shapes = [  ]
 24/z_index = 0
 25/name = "Backround_Blue_08"
@@ -430,6 +548,10 @@ extents = Vector2( 25, 25 )
 25/tile_mode = 0
 25/occluder_offset = Vector2( 25, 25 )
 25/navigation_offset = Vector2( 25, 25 )
+25/shape_offset = Vector2( 0, 0 )
+25/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+25/shape_one_way = false
+25/shape_one_way_margin = 0.0
 25/shapes = [  ]
 25/z_index = 0
 26/name = "Backround_Blue_09"
@@ -440,6 +562,10 @@ extents = Vector2( 25, 25 )
 26/tile_mode = 0
 26/occluder_offset = Vector2( 25, 25 )
 26/navigation_offset = Vector2( 25, 25 )
+26/shape_offset = Vector2( 0, 0 )
+26/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+26/shape_one_way = false
+26/shape_one_way_margin = 0.0
 26/shapes = [  ]
 26/z_index = 0
 27/name = "Platform_Blue_01"
@@ -450,6 +576,11 @@ extents = Vector2( 25, 25 )
 27/tile_mode = 0
 27/occluder_offset = Vector2( 25, 25 )
 27/navigation_offset = Vector2( 25, 25 )
+27/shape_offset = Vector2( 25, 13 )
+27/shape_transform = Transform2D( 1, 0, 0, 1, 25, 13 )
+27/shape = SubResource( 5 )
+27/shape_one_way = true
+27/shape_one_way_margin = 1.0
 27/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": true,
@@ -466,6 +597,11 @@ extents = Vector2( 25, 25 )
 28/tile_mode = 0
 28/occluder_offset = Vector2( 25, 25 )
 28/navigation_offset = Vector2( 25, 25 )
+28/shape_offset = Vector2( 25, 13 )
+28/shape_transform = Transform2D( 1, 0, 0, 1, 25, 13 )
+28/shape = SubResource( 5 )
+28/shape_one_way = true
+28/shape_one_way_margin = 1.0
 28/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": true,
@@ -482,6 +618,11 @@ extents = Vector2( 25, 25 )
 29/tile_mode = 0
 29/occluder_offset = Vector2( 25, 25 )
 29/navigation_offset = Vector2( 25, 25 )
+29/shape_offset = Vector2( 25, 25 )
+29/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+29/shape = SubResource( 6 )
+29/shape_one_way = false
+29/shape_one_way_margin = 1.0
 29/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -498,6 +639,11 @@ extents = Vector2( 25, 25 )
 30/tile_mode = 0
 30/occluder_offset = Vector2( 25, 25 )
 30/navigation_offset = Vector2( 25, 25 )
+30/shape_offset = Vector2( 25, 25 )
+30/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+30/shape = SubResource( 8 )
+30/shape_one_way = false
+30/shape_one_way_margin = 1.0
 30/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -514,6 +660,11 @@ extents = Vector2( 25, 25 )
 31/tile_mode = 0
 31/occluder_offset = Vector2( 25, 25 )
 31/navigation_offset = Vector2( 25, 25 )
+31/shape_offset = Vector2( 25, 25 )
+31/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+31/shape = SubResource( 9 )
+31/shape_one_way = false
+31/shape_one_way_margin = 1.0
 31/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -530,6 +681,11 @@ extents = Vector2( 25, 25 )
 32/tile_mode = 0
 32/occluder_offset = Vector2( 25, 25 )
 32/navigation_offset = Vector2( 25, 25 )
+32/shape_offset = Vector2( 25, 25 )
+32/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+32/shape = SubResource( 10 )
+32/shape_one_way = false
+32/shape_one_way_margin = 1.0
 32/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -546,6 +702,11 @@ extents = Vector2( 25, 25 )
 33/tile_mode = 0
 33/occluder_offset = Vector2( 25, 25 )
 33/navigation_offset = Vector2( 25, 25 )
+33/shape_offset = Vector2( 25, 25 )
+33/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+33/shape = SubResource( 11 )
+33/shape_one_way = false
+33/shape_one_way_margin = 1.0
 33/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -562,6 +723,11 @@ extents = Vector2( 25, 25 )
 34/tile_mode = 0
 34/occluder_offset = Vector2( 25, 25 )
 34/navigation_offset = Vector2( 25, 25 )
+34/shape_offset = Vector2( 25, 25 )
+34/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+34/shape = SubResource( 12 )
+34/shape_one_way = false
+34/shape_one_way_margin = 1.0
 34/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -578,6 +744,11 @@ extents = Vector2( 25, 25 )
 35/tile_mode = 0
 35/occluder_offset = Vector2( 25, 25 )
 35/navigation_offset = Vector2( 25, 25 )
+35/shape_offset = Vector2( 25, 25 )
+35/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+35/shape = SubResource( 13 )
+35/shape_one_way = false
+35/shape_one_way_margin = 1.0
 35/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -594,6 +765,11 @@ extents = Vector2( 25, 25 )
 36/tile_mode = 0
 36/occluder_offset = Vector2( 25, 25 )
 36/navigation_offset = Vector2( 25, 25 )
+36/shape_offset = Vector2( 25, 25 )
+36/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+36/shape = SubResource( 14 )
+36/shape_one_way = false
+36/shape_one_way_margin = 1.0
 36/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -610,6 +786,11 @@ extents = Vector2( 25, 25 )
 37/tile_mode = 0
 37/occluder_offset = Vector2( 25, 25 )
 37/navigation_offset = Vector2( 25, 25 )
+37/shape_offset = Vector2( 25, 25 )
+37/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+37/shape = SubResource( 13 )
+37/shape_one_way = false
+37/shape_one_way_margin = 1.0
 37/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -626,6 +807,11 @@ extents = Vector2( 25, 25 )
 38/tile_mode = 0
 38/occluder_offset = Vector2( 25, 25 )
 38/navigation_offset = Vector2( 25, 25 )
+38/shape_offset = Vector2( 25, 13 )
+38/shape_transform = Transform2D( 1, 0, 0, 1, 25, 13 )
+38/shape = SubResource( 5 )
+38/shape_one_way = true
+38/shape_one_way_margin = 1.0
 38/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": true,
@@ -642,6 +828,11 @@ extents = Vector2( 25, 25 )
 39/tile_mode = 0
 39/occluder_offset = Vector2( 25, 25 )
 39/navigation_offset = Vector2( 25, 25 )
+39/shape_offset = Vector2( 25, 13 )
+39/shape_transform = Transform2D( 1, 0, 0, 1, 25, 13 )
+39/shape = SubResource( 5 )
+39/shape_one_way = true
+39/shape_one_way_margin = 1.0
 39/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": true,
@@ -658,6 +849,11 @@ extents = Vector2( 25, 25 )
 40/tile_mode = 0
 40/occluder_offset = Vector2( 25, 25 )
 40/navigation_offset = Vector2( 25, 25 )
+40/shape_offset = Vector2( 25, 25 )
+40/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+40/shape = SubResource( 16 )
+40/shape_one_way = false
+40/shape_one_way_margin = 1.0
 40/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -674,6 +870,11 @@ extents = Vector2( 25, 25 )
 41/tile_mode = 0
 41/occluder_offset = Vector2( 25, 25 )
 41/navigation_offset = Vector2( 25, 25 )
+41/shape_offset = Vector2( 25, 25 )
+41/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+41/shape = SubResource( 13 )
+41/shape_one_way = false
+41/shape_one_way_margin = 1.0
 41/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -690,6 +891,11 @@ extents = Vector2( 25, 25 )
 42/tile_mode = 0
 42/occluder_offset = Vector2( 25, 25 )
 42/navigation_offset = Vector2( 25, 25 )
+42/shape_offset = Vector2( 25, 25 )
+42/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+42/shape = SubResource( 13 )
+42/shape_one_way = false
+42/shape_one_way_margin = 1.0
 42/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -706,6 +912,11 @@ extents = Vector2( 25, 25 )
 43/tile_mode = 0
 43/occluder_offset = Vector2( 25, 25 )
 43/navigation_offset = Vector2( 25, 25 )
+43/shape_offset = Vector2( 25, 25 )
+43/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+43/shape = SubResource( 13 )
+43/shape_one_way = false
+43/shape_one_way_margin = 1.0
 43/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -722,6 +933,11 @@ extents = Vector2( 25, 25 )
 44/tile_mode = 0
 44/occluder_offset = Vector2( 25, 25 )
 44/navigation_offset = Vector2( 25, 25 )
+44/shape_offset = Vector2( 25, 25 )
+44/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+44/shape = SubResource( 13 )
+44/shape_one_way = false
+44/shape_one_way_margin = 1.0
 44/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -738,6 +954,11 @@ extents = Vector2( 25, 25 )
 45/tile_mode = 0
 45/occluder_offset = Vector2( 25, 25 )
 45/navigation_offset = Vector2( 25, 25 )
+45/shape_offset = Vector2( 25, 25 )
+45/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+45/shape = SubResource( 13 )
+45/shape_one_way = false
+45/shape_one_way_margin = 1.0
 45/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -754,6 +975,11 @@ extents = Vector2( 25, 25 )
 46/tile_mode = 0
 46/occluder_offset = Vector2( 25, 25 )
 46/navigation_offset = Vector2( 25, 25 )
+46/shape_offset = Vector2( 25, 25 )
+46/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+46/shape = SubResource( 13 )
+46/shape_one_way = false
+46/shape_one_way_margin = 1.0
 46/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -770,6 +996,11 @@ extents = Vector2( 25, 25 )
 47/tile_mode = 0
 47/occluder_offset = Vector2( 25, 25 )
 47/navigation_offset = Vector2( 25, 25 )
+47/shape_offset = Vector2( 25, 25 )
+47/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+47/shape = SubResource( 13 )
+47/shape_one_way = false
+47/shape_one_way_margin = 1.0
 47/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -786,6 +1017,11 @@ extents = Vector2( 25, 25 )
 48/tile_mode = 0
 48/occluder_offset = Vector2( 25, 25 )
 48/navigation_offset = Vector2( 25, 25 )
+48/shape_offset = Vector2( 25, 25 )
+48/shape_transform = Transform2D( 1, 0, 0, 1, 25, 25 )
+48/shape = SubResource( 13 )
+48/shape_one_way = false
+48/shape_one_way_margin = 1.0
 48/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -802,6 +1038,10 @@ extents = Vector2( 25, 25 )
 49/tile_mode = 0
 49/occluder_offset = Vector2( 25, 25 )
 49/navigation_offset = Vector2( 25, 25 )
+49/shape_offset = Vector2( 0, 0 )
+49/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+49/shape_one_way = false
+49/shape_one_way_margin = 0.0
 49/shapes = [  ]
 49/z_index = 0
 50/name = "Backround_Green_02"
@@ -812,6 +1052,10 @@ extents = Vector2( 25, 25 )
 50/tile_mode = 0
 50/occluder_offset = Vector2( 25, 25 )
 50/navigation_offset = Vector2( 25, 25 )
+50/shape_offset = Vector2( 0, 0 )
+50/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+50/shape_one_way = false
+50/shape_one_way_margin = 0.0
 50/shapes = [  ]
 50/z_index = 0
 51/name = "Backround_Green_03"
@@ -822,6 +1066,10 @@ extents = Vector2( 25, 25 )
 51/tile_mode = 0
 51/occluder_offset = Vector2( 25, 25 )
 51/navigation_offset = Vector2( 25, 25 )
+51/shape_offset = Vector2( 0, 0 )
+51/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+51/shape_one_way = false
+51/shape_one_way_margin = 0.0
 51/shapes = [  ]
 51/z_index = 0
 52/name = "Backround_Green_04"
@@ -832,6 +1080,10 @@ extents = Vector2( 25, 25 )
 52/tile_mode = 0
 52/occluder_offset = Vector2( 25, 25 )
 52/navigation_offset = Vector2( 25, 25 )
+52/shape_offset = Vector2( 0, 0 )
+52/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+52/shape_one_way = false
+52/shape_one_way_margin = 0.0
 52/shapes = [  ]
 52/z_index = 0
 53/name = "Backround_Green_05"
@@ -842,6 +1094,10 @@ extents = Vector2( 25, 25 )
 53/tile_mode = 0
 53/occluder_offset = Vector2( 25, 25 )
 53/navigation_offset = Vector2( 25, 25 )
+53/shape_offset = Vector2( 0, 0 )
+53/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+53/shape_one_way = false
+53/shape_one_way_margin = 0.0
 53/shapes = [  ]
 53/z_index = 0
 54/name = "Backround_Green_06"
@@ -852,6 +1108,10 @@ extents = Vector2( 25, 25 )
 54/tile_mode = 0
 54/occluder_offset = Vector2( 25, 25 )
 54/navigation_offset = Vector2( 25, 25 )
+54/shape_offset = Vector2( 0, 0 )
+54/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+54/shape_one_way = false
+54/shape_one_way_margin = 0.0
 54/shapes = [  ]
 54/z_index = 0
 55/name = "Backround_Green_07"
@@ -862,6 +1122,10 @@ extents = Vector2( 25, 25 )
 55/tile_mode = 0
 55/occluder_offset = Vector2( 25, 25 )
 55/navigation_offset = Vector2( 25, 25 )
+55/shape_offset = Vector2( 0, 0 )
+55/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+55/shape_one_way = false
+55/shape_one_way_margin = 0.0
 55/shapes = [  ]
 55/z_index = 0
 56/name = "Backround_Green_08"
@@ -872,6 +1136,10 @@ extents = Vector2( 25, 25 )
 56/tile_mode = 0
 56/occluder_offset = Vector2( 25, 25 )
 56/navigation_offset = Vector2( 25, 25 )
+56/shape_offset = Vector2( 0, 0 )
+56/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+56/shape_one_way = false
+56/shape_one_way_margin = 0.0
 56/shapes = [  ]
 56/z_index = 0
 57/name = "Backround_Green_09"
@@ -882,6 +1150,10 @@ extents = Vector2( 25, 25 )
 57/tile_mode = 0
 57/occluder_offset = Vector2( 25, 25 )
 57/navigation_offset = Vector2( 25, 25 )
+57/shape_offset = Vector2( 0, 0 )
+57/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+57/shape_one_way = false
+57/shape_one_way_margin = 0.0
 57/shapes = [  ]
 57/z_index = 0
 58/name = "Corner_Green"
@@ -892,6 +1164,10 @@ extents = Vector2( 25, 25 )
 58/tile_mode = 0
 58/occluder_offset = Vector2( 25, 25 )
 58/navigation_offset = Vector2( 25, 25 )
+58/shape_offset = Vector2( 0, 0 )
+58/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+58/shape_one_way = false
+58/shape_one_way_margin = 0.0
 58/shapes = [  ]
 58/z_index = 0
 59/name = "Corner_2_Green"
@@ -902,6 +1178,10 @@ extents = Vector2( 25, 25 )
 59/tile_mode = 0
 59/occluder_offset = Vector2( 25, 25 )
 59/navigation_offset = Vector2( 25, 25 )
+59/shape_offset = Vector2( 0, 0 )
+59/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+59/shape_one_way = false
+59/shape_one_way_margin = 0.0
 59/shapes = [  ]
 59/z_index = 0
 60/name = "Top_Green"
@@ -912,6 +1192,10 @@ extents = Vector2( 25, 25 )
 60/tile_mode = 0
 60/occluder_offset = Vector2( 25, 25 )
 60/navigation_offset = Vector2( 25, 25 )
+60/shape_offset = Vector2( 0, 0 )
+60/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+60/shape_one_way = false
+60/shape_one_way_margin = 0.0
 60/shapes = [  ]
 60/z_index = 0
 61/name = "Bottom_Green"
@@ -922,6 +1206,10 @@ extents = Vector2( 25, 25 )
 61/tile_mode = 0
 61/occluder_offset = Vector2( 25, 25 )
 61/navigation_offset = Vector2( 25, 25 )
+61/shape_offset = Vector2( 0, 0 )
+61/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+61/shape_one_way = false
+61/shape_one_way_margin = 0.0
 61/shapes = [  ]
 61/z_index = 0
 62/name = "Corner_Blue"
@@ -932,6 +1220,10 @@ extents = Vector2( 25, 25 )
 62/tile_mode = 0
 62/occluder_offset = Vector2( 25, 25 )
 62/navigation_offset = Vector2( 25, 25 )
+62/shape_offset = Vector2( 0, 0 )
+62/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+62/shape_one_way = false
+62/shape_one_way_margin = 0.0
 62/shapes = [  ]
 62/z_index = 0
 63/name = "Corner_2_Blue"
@@ -942,6 +1234,10 @@ extents = Vector2( 25, 25 )
 63/tile_mode = 0
 63/occluder_offset = Vector2( 25, 25 )
 63/navigation_offset = Vector2( 25, 25 )
+63/shape_offset = Vector2( 0, 0 )
+63/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+63/shape_one_way = false
+63/shape_one_way_margin = 0.0
 63/shapes = [  ]
 63/z_index = 0
 64/name = "Top_Blue"
@@ -952,6 +1248,10 @@ extents = Vector2( 25, 25 )
 64/tile_mode = 0
 64/occluder_offset = Vector2( 25, 25 )
 64/navigation_offset = Vector2( 25, 25 )
+64/shape_offset = Vector2( 0, 0 )
+64/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+64/shape_one_way = false
+64/shape_one_way_margin = 0.0
 64/shapes = [  ]
 64/z_index = 0
 65/name = "Bottom_Blue"
@@ -962,6 +1262,10 @@ extents = Vector2( 25, 25 )
 65/tile_mode = 0
 65/occluder_offset = Vector2( 25, 25 )
 65/navigation_offset = Vector2( 25, 25 )
+65/shape_offset = Vector2( 0, 0 )
+65/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+65/shape_one_way = false
+65/shape_one_way_margin = 0.0
 65/shapes = [  ]
 65/z_index = 0
 66/name = "Platform_Green_03"
@@ -972,6 +1276,11 @@ extents = Vector2( 25, 25 )
 66/tile_mode = 0
 66/occluder_offset = Vector2( 25, 25 )
 66/navigation_offset = Vector2( 25, 25 )
+66/shape_offset = Vector2( 25, 36.4639 )
+66/shape_transform = Transform2D( 1, 0, 0, 0.842207, 25, 36.4639 )
+66/shape = SubResource( 19 )
+66/shape_one_way = true
+66/shape_one_way_margin = 1.0
 66/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": true,
@@ -988,6 +1297,11 @@ extents = Vector2( 25, 25 )
 67/tile_mode = 0
 67/occluder_offset = Vector2( 25, 25 )
 67/navigation_offset = Vector2( 25, 25 )
+67/shape_offset = Vector2( 25, 36.4639 )
+67/shape_transform = Transform2D( 1, 0, 0, 0.842207, 25, 36.4639 )
+67/shape = SubResource( 19 )
+67/shape_one_way = true
+67/shape_one_way_margin = 1.0
 67/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": true,

@@ -3,6 +3,9 @@ extends Node2D
 export var splash = false
 export var top_text = "top_text"
 export var body_text = "body_text testing levely stuff blah blah ... blah!!!"
+export var camera_move = false
+export var camera_max_right = 1920
+export var background = 1
 onready var player_spawns = $Player_spawns
 onready var parts = $Map_parts
 var next_spawn_spot = 0
@@ -16,7 +19,9 @@ func _ready():
 		print("map nav system found")
 	else:
 		print("map has no navigation")
-	FX.camera_move(false)
+	FX.set_back(background)
+	FX.CAMERA.max_right = camera_max_right
+	FX.camera_move(camera_move)
 	if splash:
 		HUD.splash(top_text, body_text, 1.5, true)
 
