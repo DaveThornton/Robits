@@ -205,7 +205,10 @@ func move_x(_moving, _right):
 			current_x_speed -= current_x_speed / 10
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
-func jump(down_input, left_input, right_input):
+func jump(_down_input, _left_input, _right_input):
+	pass
+
+func jump_j(down_input, left_input, right_input):
 	if down_input && on_floor && !left_input && !right_input:
 		SFX.play("Move_Jump_08")
 		vel.y += 1.5
@@ -218,9 +221,6 @@ func jump(down_input, left_input, right_input):
 	else:
 		is_jump_pressed = true
 	on_ladder = false
-
-func jump_j(_down_input, _left_input, _right_input):
-	pass
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:

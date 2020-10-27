@@ -171,12 +171,13 @@ func move_x(_moving, _right):
 					if _right:
 						current_x_speed += max_x_speed / 5 * speed_power_up #* delta
 					else:
-						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
+						current_x_speed -= max_x_speed / 5 * speed_power_up #* delta
 			else:
-				if current_x_speed < 4 && current_x_speed > -4 || on_ladder:
-					current_x_speed = 0
-				else:
-					current_x_speed -= current_x_speed / 5
+				current_x_speed = 0
+#				if current_x_speed < 4 && current_x_speed > -4 || on_ladder:
+#					current_x_speed = 0
+#				else:
+#					current_x_speed -= current_x_speed / 5
 		else:
 			if _moving:
 				if is_down:
