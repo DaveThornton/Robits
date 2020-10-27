@@ -117,21 +117,20 @@ position = Vector2( 960, 543 )
 scale = Vector2( 0.989583, 0.987132 )
 frames = SubResource( 1 )
 animation = "Real"
-frame = 41
+frame = 3
 speed_scale = 7.0
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1934, 550 )
+[node name="CollisionShape2D_Left" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -60, 550 )
 shape = SubResource( 2 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( -60, 550 )
+[node name="CollisionShape2D_Right" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1934, 550 )
 shape = SubResource( 2 )
 
 [node name="Backs" type="Node2D" parent="."]

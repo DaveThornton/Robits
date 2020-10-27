@@ -17,7 +17,7 @@ func back_blank():
 		backs.get_child(b).visible = false
 
 func camera_move(_move):
-	CAMERA.can_move = _move
+	CAMERA.move(_move)
 
 func add_kid(_kid):
 	self.add_child(_kid)

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=15 format=2]
+[gd_resource type="TileSet" load_steps=17 format=2]
 
 [ext_resource path="res://Sprites/Tile_Sets/TS-04-Back-FX.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tile_Sets/TS-G-06-Fence-2.png" type="Texture" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Sprites/Tile_Sets/Background/Jungle_Back_01.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Tile_Sets/Background/Jungle_Back_02.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Tile_Sets/Background/Jungle_Back_03.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Tile_Sets/Background/Jungle_Tree_05.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Tile_Sets/Background/Jungle_Tree_06.png" type="Texture" id=16]
 
 [resource]
 0/name = "Exit"
@@ -654,7 +656,7 @@
 44/texture = ExtResource( 10 )
 44/tex_offset = Vector2( 0, 0 )
 44/modulate = Color( 1, 1, 1, 1 )
-44/region = Rect2( 0, 20, 140, 200 )
+44/region = Rect2( 0, 0, 140, 220 )
 44/tile_mode = 0
 44/occluder_offset = Vector2( 0, 0 )
 44/navigation_offset = Vector2( 0, 0 )
@@ -734,3 +736,31 @@
 49/shape_one_way_margin = 0.0
 49/shapes = [  ]
 49/z_index = 0
+50/name = "Jungle_Tree_05.png 50"
+50/texture = ExtResource( 15 )
+50/tex_offset = Vector2( 0, 0 )
+50/modulate = Color( 1, 1, 1, 1 )
+50/region = Rect2( -20, 0, 180, 200 )
+50/tile_mode = 0
+50/occluder_offset = Vector2( 0, 0 )
+50/navigation_offset = Vector2( 0, 0 )
+50/shape_offset = Vector2( 0, 0 )
+50/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+50/shape_one_way = false
+50/shape_one_way_margin = 0.0
+50/shapes = [  ]
+50/z_index = 0
+51/name = "Jungle_Tree_06.png 51"
+51/texture = ExtResource( 16 )
+51/tex_offset = Vector2( 0, 0 )
+51/modulate = Color( 1, 1, 1, 1 )
+51/region = Rect2( 0, 20, 160, 180 )
+51/tile_mode = 0
+51/occluder_offset = Vector2( 0, 0 )
+51/navigation_offset = Vector2( 0, 0 )
+51/shape_offset = Vector2( 0, 0 )
+51/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+51/shape_one_way = false
+51/shape_one_way_margin = 0.0
+51/shapes = [  ]
+51/z_index = 0

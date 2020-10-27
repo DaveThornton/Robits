@@ -17,7 +17,7 @@ func start():
 
 func player_num_update(_num):
 	player = _num
-	player_num_count = str(_num)
+	player_num_count.text = str(_num)
 	game_over_stats.set_player_num(_num)
 
 func set_place(_place):

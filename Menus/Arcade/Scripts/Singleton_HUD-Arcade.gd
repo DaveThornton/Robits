@@ -120,7 +120,7 @@ func start():
 func update_player(_player): get_player_hud(_player).update_state(get_player_state(_player))
 
 func update_players():
-	for p in 8:
+	for p in Settings.max_num_of_player:
 		get_player_hud(p + 1).update_state(get_player_state(p + 1))
 
 func set_mode(_mode): mode = _mode
