@@ -32,6 +32,8 @@ onready var ray_up = $Raycast/Up
 onready var ray_down_l = $Raycast/Down_L 
 onready var ray_down_r = $Raycast/Down_R 
 
+onready var jump_timer = $Timer_Jump
+
 var player = 0
 var play_type = 2
 var start_equiped = false
@@ -54,13 +56,16 @@ var max_air_jump_count = 1
 var max_air_jump_power = 10
 var min_air_jump_power = 1.5
 var air_jump_count = 0
-var max_jump_power = 3
+var max_jump_power = 4
 var min_jump_power = 1.5
 var head_room = 0
 var last_vel = 0.0
 
 var move_step = 0
 var dec_step = 0
+
+var jump_top_pos = 0
+var jump_top = false
 
 #--------------------------------------------------------------------NRG--------
 var nrg_max = 200
@@ -163,8 +168,19 @@ func _process(delta):
 
 func _physics_process(delta):
 	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
-	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
-	vel = movement
+	if !jump_top:
+		var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
+		vel = movement
+#	if !is_jump_pressed:
+#		if going_up:
+#			vel.y = -2
+#		elif on_floor && !is_jump_pressed:
+#			vel.y = 0
+#		elif vel.y > terminal_vel:
+#			vel.y = terminal_vel
+#	else:
+#		if jump_top:
+#			vel.y = 0
 	if on_floor:
 		vel.y = vel.y / 1.1
 	if vel.y > terminal_vel:
@@ -223,8 +239,16 @@ func jump(down_input, left_input, right_input):
 		SFX.play("Move_Jump_08")
 		vel.y += 1.5
 		self.position.y += 1.5
+	elif is_jump_pressed && air_jump_count == 0:
+		if self.position.y <= jump_top_pos && !jump_top:
+			jump_top = true
+			jump_timer.start()
+		if jump_top:
+			vel.y = 0
+#			print("airjumping pawn 07")
 	elif !is_jump_pressed && on_floor:# && !down_input:
 		SFX.play("Move_Jump_01")
+		jump_top_pos = self.position.y - 30
 		vel.y = -max_jump_power * jump_power_up
 	elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
 		SFX.play("Move_Jump_05")
@@ -241,6 +265,7 @@ func jump_rel():
 		vel.y = -min_air_jump_power
 	elif vel.y < -min_jump_power:
 		vel.y = min_jump_power
+	jump_top = false
 	is_jump_pressed = false
 
 func rocket_test(_vel_y):
@@ -770,6 +795,10 @@ func stuntimer():
 
 func knockbacktimer():
 	knocked_back = Vector2(0, 0)
+
+func _on_Timer_Jump_timeout():
+	jump_top = false
+	jump_top_pos -= 50
 
 ##-------------------------------------------------------------[The in and outs]
 

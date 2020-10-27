@@ -2108,7 +2108,7 @@ position = Vector2( 0, -19 )
 
 [node name="Pawn_05_Part_Key" parent="." instance=ExtResource( 5 )]
 visible = false
-position = Vector2( -11, -15 )
+position = Vector2( -6, -14 )
 
 [node name="Pawn_07_Part_Fire" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, 18 )
@@ -2152,7 +2152,11 @@ anims/Right-Stun = SubResource( 13 )
 position = Vector2( 0, -15 )
 
 [node name="Pawn_07_Part_Arm" parent="Arm_POS" instance=ExtResource( 8 )]
+
+[node name="Timer_Jump" type="Timer" parent="."]
+one_shot = true
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]
 [connection signal="body_exited" from="Ladder_Area" to="." method="_on_Ladder_Area_body_exited"]
+[connection signal="timeout" from="Timer_Jump" to="." method="_on_Timer_Jump_timeout"]
