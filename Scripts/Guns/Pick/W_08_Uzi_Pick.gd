@@ -35,7 +35,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if ready:
 		set_dir(is_right, dir)
 
-func _on_WeapPick08Uzi_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_WeapPick08Uzi_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:
@@ -77,4 +77,9 @@ func _on_Timer_timeout():
 	queue_free()
 	
 func dont_hit_player():
+	self.set_collision_mask_bit( 1, false)
+
+
+func _on_Timer_Hit_timeout():
+	self.set_collision_layer_bit( 1, false)
 	self.set_collision_mask_bit( 1, false)

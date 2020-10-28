@@ -14,7 +14,7 @@ height = 8.03502
 ]]
 position = Vector2( 0, 0.0510483 )
 collision_layer = 524288
-collision_mask = 917532
+collision_mask = 917534
 gravity_scale = 6.0
 continuous_cd = 2
 contacts_reported = 9
@@ -42,8 +42,8 @@ frame = 1
 wait_time = 0.3
 one_shot = true
 
-[node name="Timer_Spin" type="Timer" parent="."]
+[node name="Timer_Hit" type="Timer" parent="."]
 wait_time = 0.1
 [connection signal="body_shape_entered" from="." to="." method="_on_WeapPick08Uzi_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Timer_Spin" to="." method="_on_Timer_Spin_timeout"]
+[connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]

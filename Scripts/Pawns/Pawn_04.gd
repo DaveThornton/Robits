@@ -599,7 +599,7 @@ func _anim_idle():
 	hover.rotation_degrees = 0
 	new_anim = "Up"
 	_rays_stand()
-	hover.play("idle")
+	hover.play("Idle")
 	if is_right:
 		head.is_right(true)
 	else:
@@ -609,7 +609,7 @@ func _anim_run():
 	_body(1)
 	new_anim = "Up"
 	_rays_stand()
-	hover.play("idle")
+	hover.play("Idle")
 	if is_right:
 		head.is_right(true)
 		hover.rotation_degrees = 45

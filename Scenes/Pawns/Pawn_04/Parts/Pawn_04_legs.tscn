@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Pawns/Pawn_04/Pawn_04_Hover_Bot.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Pawns/Pawn_04_Parts/Pawn_04_Parts_Legs.gd" type="Script" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Fall"
 length = 0.2
 loop = true
@@ -34,8 +34,7 @@ tracks/1/keys = {
 "values": [ 0, 1 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Idle"
+[sub_resource type="Animation" id=2]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -133,15 +132,15 @@ position = Vector2( 0, 10 )
 texture = ExtResource( 2 )
 
 [node name="Pawn_04_Hover_bot" type="Sprite" parent="."]
-visible = false
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, 20 )
 texture = ExtResource( 3 )
 hframes = 9
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fall = SubResource( 2 )
-anims/Idle = SubResource( 1 )
+anims/Fall = SubResource( 1 )
+anims/Idle = SubResource( 2 )
 anims/Jump = SubResource( 3 )
 anims/Off = SubResource( 4 )
 

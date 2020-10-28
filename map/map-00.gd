@@ -31,17 +31,12 @@ func next_spawn_pos():
 		next_spawn_spot = 0
 	return player_spawns.get_child(next_spawn_spot).position
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
 func remove_map():
 	reset()
 
 func reset():
 	propagate_call("queue_free",[],false)
 
-#
 #func delete_square(_pos):
 #	var _spot = map.world_to_map(_pos)
 #	map.set_cellv(_spot, -1, false, false, false)
