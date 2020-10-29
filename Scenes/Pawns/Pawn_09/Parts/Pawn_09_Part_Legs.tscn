@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_09/Horse_Legs.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Pawns/Pawn_09_Parts/Pawn_09_Part_Legs.gd" type="Script" id=2]
@@ -231,6 +231,35 @@ tracks/1/keys = {
 "values": [ 26, 27, 28 ]
 }
 
+[sub_resource type="Animation" id=9]
+resource_name = "Stun"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Legs:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.35, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 28, 27, 27, 26 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Shield:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.35, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 28, 27, 27, 26 ]
+}
+
 [node name="Pawn_09_Part_Legs" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -243,15 +272,16 @@ anims/Prone-Crawl = SubResource( 5 )
 anims/Prone-Idle = SubResource( 6 )
 anims/Run = SubResource( 7 )
 anims/Sit = SubResource( 8 )
+anims/Stun = SubResource( 9 )
 
 [node name="Shield" type="Sprite" parent="."]
 visible = false
 texture = ExtResource( 3 )
 hframes = 29
-frame = 12
+frame = 27
 
 [node name="Legs" type="Sprite" parent="."]
 self_modulate = Color( 0.6, 0.6, 0.6, 1 )
 texture = ExtResource( 1 )
 hframes = 34
-frame = 33
+frame = 27

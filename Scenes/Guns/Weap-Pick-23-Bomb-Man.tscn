@@ -42,7 +42,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-length = 4.4
+length = 4.65
 step = 0.15
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Fuse:frame")
@@ -51,16 +51,16 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.2, 1.35, 1.5, 1.65, 1.8, 1.95, 2.1, 2.25, 2.4, 2.55, 2.7, 2.85, 3, 3.15, 3.3, 3.45, 3.6, 3.75, 3.9, 4.05, 4.2, 4.35 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.2, 1.35, 1.5, 1.65, 1.8, 1.95, 2.1, 2.25, 2.4, 2.55, 2.7, 2.85, 3, 3.15, 3.3, 3.45, 3.6, 3.75, 3.9, 4.05, 4.2, 4.35, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 ]
 }
 
 [sub_resource type="Animation" id=5]
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
+[sub_resource type="CircleShape2D" id=6]
+radius = 7.94839
 
 [node name="Weap-Pick-23-Bomb-Man" type="RigidBody2D" groups=[
 "PickUp",
@@ -68,13 +68,12 @@ points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 ]]
 collision_layer = 524288
 collision_mask = 917534
-mass = 0.4
+mass = 51.0204
 physics_material_override = SubResource( 1 )
-gravity_scale = 5.0
+gravity_scale = 6.0
 continuous_cd = 2
 contacts_reported = 9
 contact_monitor = true
-can_sleep = false
 script = ExtResource( 1 )
 boom = ExtResource( 2 )
 smoke = ExtResource( 3 )
@@ -93,7 +92,7 @@ hframes = 4
 wait_time = 10.0
 
 [node name="Timer_Boom" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 4.65
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Armed = SubResource( 2 )
@@ -103,10 +102,6 @@ anims/Unarmed = SubResource( 3 )
 anims/Lit = SubResource( 4 )
 anims/Unlit = SubResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.0296669, 1.9796 )
-shape = SubResource( 6 )
-
 [node name="FX-21-Timer_Label" parent="." instance=ExtResource( 6 )]
 visible = false
 position = Vector2( 0, -22.9747 )
@@ -114,6 +109,9 @@ position = Vector2( 0, -22.9747 )
 [node name="Timer_start" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )
 [connection signal="body_exited" from="." to="." method="_on_WeapPick20Grenade_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Boom" to="." method="_on_Timer_Boom_timeout"]

@@ -726,12 +726,13 @@ func _anim_prone_crawl():
 		anim.play("Left_Prone")
 
 func _anim_stun():
+	legs.stun(is_right)
 	if is_right:
 		_body(2)
-		new_anim = "Right"
+		anim.play("Right_Stun")
 	else:
 		_body(1)
-		new_anim = "Left"
+		anim.play("Left_Stun")
 
 func _anim_Knock():
 	if is_right:

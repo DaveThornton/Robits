@@ -54,7 +54,9 @@ func _physics_process(delta):
 #		print("go right")
 	else:
 		stop_tracks()
-	move_and_slide(vel)
+	var m = move_and_slide(vel)
+	if !m:
+		print("no move and slide in BG 103 physics process")
 
 func move_tracks(_right):
 	for t in tracks.get_child_count():

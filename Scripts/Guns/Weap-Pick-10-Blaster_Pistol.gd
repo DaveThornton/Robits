@@ -36,11 +36,8 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	time = _time
 	if ready:
 		set_dir(is_right, dir)
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-func _on_WeapPick10Blaster_Pistol_body_shape_entered(body_id, body, body_shape, local_shape):
-#func _on_WeapPick10Blaster_Pistol_body_shape_entered(body):
+
+func _on_WeapPick10Blaster_Pistol_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:

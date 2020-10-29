@@ -201,18 +201,6 @@ func move_x(_moving, _right):
 
 func jump(_down_input, _left_input, _right_input):
 	pass
-#	if down_input && on_floor && !left_input && !right_input:
-#		SFX.play("Move_Jump_08")
-#		vel.y += 1.5
-#		self.position.y += 1.5
-#	elif !is_jump_pressed && on_floor:# && !down_input:
-#		SFX.play("Move_Jump_01")
-#		vel.y = -max_jump_power * jump_power_up
-#	if on_floor:
-#		is_jump_pressed = false
-#	else:
-#		is_jump_pressed = true
-#	on_ladder = false
 
 func jump_j(down_input, left_input, right_input):
 	if down_input && on_floor && !left_input && !right_input:
@@ -590,7 +578,6 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 						if !on_ladder:
 							_anim_jump()
 
-
 func _anim_idle():
 	legs.idle(is_right)
 	if is_right:
@@ -640,12 +627,13 @@ func _anim_prone_crawl():
 		anim.play("Left_Prone")
 
 func _anim_stun():
+	legs.stun(is_right)
 	if is_right:
 		_body(2)
-		new_anim = "Right"
+		anim.play("Right_Stun")
 	else:
 		_body(1)
-		new_anim = "Left"
+		anim.play("Left_Stun")
 
 func _anim_Knock():
 	if is_right:
@@ -821,4 +809,3 @@ func killed_by_map(_by_who, _by_what, _damage_type, _damage):
 func start_next_level():
 	if !my_gun && start_equiped > 0:
 		equip_start_weap()
-

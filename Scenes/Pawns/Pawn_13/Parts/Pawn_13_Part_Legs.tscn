@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_13/Pawn_13_Part_Legs_Body.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_13/Pawn_13_Part_Legs_Back.png" type="Texture" id=2]
@@ -165,7 +165,7 @@ tracks/3/keys = {
 "values": [ 9, 10 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "Ladder"
 length = 0.7
 loop = true
@@ -219,8 +219,7 @@ tracks/3/keys = {
 "values": [ 30, 31, 32, 33, 32, 31 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Prone-Crawl"
+[sub_resource type="Animation" id=5]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -272,8 +271,7 @@ tracks/3/keys = {
 "values": [ 22, 23, 23, 24, 24, 22 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Prone-Idle"
+[sub_resource type="Animation" id=6]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -313,7 +311,7 @@ tracks/2/keys = {
 "values": [ 22, 23 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "Run"
 length = 0.6
 loop = true
@@ -367,7 +365,7 @@ tracks/3/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:frame")
@@ -418,6 +416,59 @@ tracks/3/keys = {
 "values": [ 26, 27, 28 ]
 }
 
+[sub_resource type="Animation" id=9]
+resource_name = "Stun"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 28, 27, 26 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Back:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 28, 27, 26 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Front:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 28, 27, 26 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Shield:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 27, 28, 27, 26 ]
+}
+
 [node name="Pawn_13_Legs" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -425,28 +476,30 @@ script = ExtResource( 4 )
 visible = false
 texture = ExtResource( 5 )
 hframes = 34
-frame = 30
+frame = 27
 
 [node name="Back" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 hframes = 34
-frame = 30
+frame = 27
 
 [node name="Body" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 29
+frame = 27
 
 [node name="Front" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 hframes = 34
-frame = 30
+frame = 27
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fall = SubResource( 1 )
 anims/Idle = SubResource( 2 )
 anims/Jump = SubResource( 3 )
-anims/Ladder = SubResource( 6 )
-anims/Prone-Crawl = SubResource( 4 )
-anims/Prone-Idle = SubResource( 5 )
-anims/Run = SubResource( 8 )
-anims/Sit = SubResource( 7 )
+anims/Ladder = SubResource( 4 )
+anims/Prone-Crawl = SubResource( 5 )
+anims/Prone-Idle = SubResource( 6 )
+anims/Run = SubResource( 7 )
+anims/Sit = SubResource( 8 )
+anims/Stun = SubResource( 9 )
