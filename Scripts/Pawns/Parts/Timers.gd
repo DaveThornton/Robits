@@ -28,3 +28,27 @@ func _on_Stun_timeout():
 
 func _on_Jump_timeout():
 	dad.jumptimer()
+
+func set_knock_back(_time):
+	$Knock_Back.wait_time = _time
+
+func set_shield_hit(_time):
+	$Shield_Hit.wait_time = _time
+
+func set_shield_up(_time):
+	$Shield_Up.wait_time = _time
+
+func set_nrg_up(_time):
+	$NRG_Up.wait_time = _time
+
+func set_jump_up(_time):
+	$Jump_Up.wait_time = _time
+
+func set_speed(_time):
+	$Speed.wait_time = _time
+
+func set_stun(_time):
+	$Stun.wait_time = _time
+
+func set_jump(_time):
+	$Jump.wait_time = _time

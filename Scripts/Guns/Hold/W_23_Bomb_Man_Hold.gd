@@ -73,7 +73,7 @@ func throw():
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
 	t.position = pos_throw.global_position
-	t.init(ammo, player, time, is_right, shoot_pos, false)
+	t.init(ammo, player,timer.get_time_left(), is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
 		t.position = self.global_position
 		_drop_where(t)
@@ -89,7 +89,7 @@ func _drop():
 	var t = bomb_man_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
-	t.init(ammo, player, time, is_right, shoot_pos, false)
+	t.init(ammo, player, timer.get_time_left(), is_right, shoot_pos, false)
 	_drop_where(t)
 	emit_signal("ammo_change",player,0)
 	queue_free()

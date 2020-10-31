@@ -4,10 +4,7 @@ export(PackedScene) var boom
 export(PackedScene) var smoke
 
 onready var timer = $Timer
-#onready var start_timer = $Timer_start
 onready var timer_boom = $Timer_Boom
-#onready var sprite = $Sprite_Body
-#onready var fuse = $Sprite_Fuse
 onready var anim1 = $AnimationPlayer
 onready var anim2 = $AnimationPlayer2
 onready var label= $"FX-21-Timer_Label"

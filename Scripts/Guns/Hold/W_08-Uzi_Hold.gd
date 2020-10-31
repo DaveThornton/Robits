@@ -94,7 +94,7 @@ func shoot():
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
 			SFX.play("AK_Shoot")
-		if melee_cast.is_colliding() && shoot_pos == 3:
+		elif melee_cast.is_colliding() && shoot_pos == 3:
 #			print("uzi trying to melee")
 			melee()
 		else:

@@ -9,6 +9,7 @@ onready var hover = $Body/Pawn_04_legs
 onready var body_sprite = $Body
 onready var shield_sprite = $Body/Shield
 
+onready var timers = $Timers
 onready var knockback_timer = $Timers/Knock_Back
 onready var shield_hit_timer = $Timers/Shield_Hit
 onready var shield_up_timer = $Timers/Shield_Up
@@ -51,7 +52,7 @@ var vel = Vector2()
 var grav = 8
 var terminal_vel = 5
 
-var max_x_speed = 200
+var max_x_speed = 180
 var current_x_speed = 0
 
 #-------------------------------------------------------------------JUMP--------
@@ -60,9 +61,9 @@ var jumping_up: = false
 var can_jump = true
 var jump_top_pos = 0.0
 var jump_top = false
-var jump_height = 170
+var jump_height = 150
 var max_air_jump_count = 5
-var max_air_jump_power = 2
+var max_air_jump_power = 3
 var min_air_jump_power = 1.5
 var air_jump_count = 0
 var max_jump_power = 8
@@ -120,6 +121,7 @@ func _ready():
 	ray_down_l = ray_down_l_stand
 	ray_down_c = ray_down_c_stand
 	ray_down_r = ray_down_r_stand
+	timers.set_jump_up(.8)
 
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
