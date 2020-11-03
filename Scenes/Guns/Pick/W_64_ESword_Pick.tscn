@@ -1,14 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/Guns/Pick/W_65_Knife_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Guns/W_65_Knife.png" type="Texture" id=2]
-
+[ext_resource path="res://Scripts/Guns/Pick/W_64_ESword_Pick.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Guns/W_64_ESword.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 3.78738
-height = 12.4252
+radius = 5.09939
+height = 28.5149
 
-[node name="W_65_Knife_Pick" type="RigidBody2D" groups=[
+[node name="W_64_ESword_Pick" type="RigidBody2D" groups=[
 "FX",
 "PickUp",
 ]]
@@ -33,9 +32,10 @@ one_shot = true
 wait_time = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -0.0510483 )
+visible = false
+position = Vector2( -3.16955, 0 )
 rotation = 1.5708
 shape = SubResource( 1 )
-[connection signal="body_entered" from="." to="." method="_on_W_65_Knife_Pick_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_WeapPick61Sword_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Spin" to="." method="_on_Timer_Spin_timeout"]

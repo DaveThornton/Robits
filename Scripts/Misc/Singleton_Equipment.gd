@@ -64,7 +64,7 @@ export(PackedScene) var gun_hold_60
 export(PackedScene) var gun_hold_61
 export(PackedScene) var gun_hold_62
 export(PackedScene) var gun_hold_63
-#export(PackedScene) var gun_hold_64
+export(PackedScene) var gun_hold_64
 export(PackedScene) var gun_hold_65
 #export(PackedScene) var gun_hold_66
 #export(PackedScene) var gun_hold_67
@@ -177,8 +177,8 @@ func get_weap_hold(_weap):
 		return gun_hold_62
 	elif _weap == 63:
 		return gun_hold_63
-#	elif _weap == 64:
-#		return gun_hold_64
+	elif _weap == 64:
+		return gun_hold_64
 	elif _weap == 65:
 		return gun_hold_65
 #	elif _weap == 66:
