@@ -18,6 +18,15 @@ func shield_up():
 func shield_down():
 	shield.visable = false
 
+func idle():
+	anim.play("Idle")
+
+func stun():
+	face.visible = false
+
+func unstun():
+	face.visible = true
+
 func color(_pri, _sec):
 	head.self_modulate = _pri
 	face.self_modulate = _sec

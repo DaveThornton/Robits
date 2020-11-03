@@ -8,9 +8,9 @@ onready var timer = $Timer
 #onready var timer_hit = $Timer_Hit
 
 var ready = false
-var gun_num = 10
-var ammo = 150
-var time = .1
+var gun_num = 9
+var ammo = 12
+var time = .5
 var is_right = true
 var dir = 3
 # warning-ignore:unused_class_variable
@@ -37,7 +37,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if ready:
 		set_dir(is_right, dir)
 
-func _on_WeapPick10Blaster_Pistol_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_W_09_Magnum_Pick_body_shape_entered(body_id, body, body_shape, local_shape):
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:

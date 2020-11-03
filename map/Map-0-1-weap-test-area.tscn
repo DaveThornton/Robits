@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/Guns/Weap-Pick-20-Grenade.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-21-Nazi-Grenade.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-22-Plasma-Grenade.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Guns/Pick/W_09_Magnum_Pick.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-40-RPG.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-50-Shot_Gun.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=17]
@@ -169,6 +170,9 @@ position = Vector2( 288.472, 406.051 )
 
 [node name="W_23_Bomb_Man_Pick4" parent="Power_Ups" instance=ExtResource( 29 )]
 position = Vector2( 1490, 600 )
+
+[node name="W_09_Magnum_Pick" parent="Power_Ups" instance=ExtResource( 14 )]
+position = Vector2( 620, 670 )
 
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",

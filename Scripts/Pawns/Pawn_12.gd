@@ -104,6 +104,7 @@ signal explode_p
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
 	play_type = _play_type
+	head.idle()
 	_set_color()
 	start_equiped = _start_equiped
 	if start_equiped:
@@ -604,6 +605,7 @@ func _anim_prone_crawl():
 func _anim_stun():
 	_body(1)
 	hip.stop()
+	head.stun()
 	_jet_pack_right(is_right)
 	if is_right:
 		new_anim = "Right-Stun"
@@ -758,6 +760,7 @@ func nrguptimer():
 
 func stuntimer():
 	can_move = true
+	head.unstun()
 
 func knockbacktimer():
 	knocked_back = Vector2(0, 0)
