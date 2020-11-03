@@ -61,3 +61,20 @@ func _on_Timer_timeout():
 
 func dont_hit_player():
 	self.set_collision_mask_bit( 1, false)
+
+
+func _on_W_23_Bomb_Man_Pick_body_shape_entered(body_id, body, body_shape, local_shape):
+	pass
+#	if body.get_groups().has("player"):
+#		body.stun(gun_num)
+#	else:
+#		self.set_collision_layer_bit( 1, false)
+#		self.set_collision_mask_bit( 1, false)
+
+
+func _on_W_23_Bomb_Man_Pick_body_entered(body):
+	if body.get_groups().has("player"):
+		body.stun(gun_num)
+	else:
+#		self.set_collision_layer_bit( 1, false)
+		self.set_collision_mask_bit( 1, false)

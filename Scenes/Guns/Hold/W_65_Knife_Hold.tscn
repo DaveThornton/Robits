@@ -1,22 +1,22 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Guns/Hold/W_63_Crowbar_Hold.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/Pick/W_63_Crowbar_Pick.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Guns/W_63_Crowbar.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_65_Knife.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Guns/Hold/W_65_Knife_Hold.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Guns/Pick/W_65_Knife_Pick.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.7846
 height = 7.89017
 
-[node name="W_63_Crowbar_Hold" type="Node2D"]
-script = ExtResource( 1 )
-crowbar_pickup = ExtResource( 2 )
+[node name="W_65_Knife_Hold" type="Node2D"]
+script = ExtResource( 2 )
+knife_pickup = ExtResource( 3 )
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
 [node name="Bar" type="Sprite" parent="POS_Gun"]
 rotation = -1.5708
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 offset = Vector2( 10, 0 )
 
 [node name="POS_Throw" type="Position2D" parent="."]

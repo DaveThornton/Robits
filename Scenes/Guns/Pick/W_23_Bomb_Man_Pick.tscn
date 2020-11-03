@@ -68,11 +68,12 @@ tracks/1/keys = {
 }
 
 [node name="W_23_Bomb_Man_Pick" type="RigidBody2D" groups=[
+"FX",
 "PickUp",
 "hittable",
 ]]
 collision_layer = 2148007936
-collision_mask = 918046
+collision_mask = 917534
 mass = 50.0
 gravity_scale = 9.8
 script = ExtResource( 4 )
@@ -80,12 +81,15 @@ boom = ExtResource( 6 )
 smoke = ExtResource( 5 )
 
 [node name="Shape" type="CollisionShape2D" parent="."]
+visible = false
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Shape2" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0.334084, -11.8044 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="Bomb" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -98,6 +102,8 @@ vframes = 8
 hframes = 4
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
 
 [node name="Timer_Boom" type="Timer" parent="."]
 wait_time = 4.5
@@ -109,5 +115,7 @@ anims/Unlit = SubResource( 3 )
 [node name="FX-21-Timer_Label" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 0, -24 )
+[connection signal="body_entered" from="." to="." method="_on_W_23_Bomb_Man_Pick_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_W_23_Bomb_Man_Pick_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Boom" to="." method="_on_TimerBoom_timeout"]
