@@ -56,7 +56,7 @@ export(PackedScene) var gun_hold_52
 export(PackedScene) var gun_hold_53
 #export(PackedScene) var gun_hold_54
 #export(PackedScene) var gun_hold_55
-#export(PackedScene) var gun_hold_56
+export(PackedScene) var gun_hold_56
 #export(PackedScene) var gun_hold_57
 #export(PackedScene) var gun_hold_58
 #export(PackedScene) var gun_hold_59
@@ -120,74 +120,78 @@ export(PackedScene) var pawn_14
 export(PackedScene) var pawn_15
 #export(PackedScene) var pawn_16
 
-func get_weap_hold(_weap):
-	if _weap == 0:
-		return gun_hold_00
-	if _weap == 1:
-		return gun_hold_01
-	elif _weap == 2:
-		return gun_hold_02
-	elif _weap == 3:
-		return gun_hold_03
-	elif _weap == 4:
-		return gun_hold_04
-#	elif _weap == 5:
-#		return gun_hold_05
-#	elif _weap == 6:
-#		return gun_hold_06
-	elif _weap == 7:
-		return gun_hold_07
-	elif _weap == 8:
-		return gun_hold_08
-	elif _weap == 9:
-		return gun_hold_09
-	elif _weap == 10:
-		return gun_hold_10
-	elif _weap == 11:
-		return gun_hold_11
-	elif _weap == 12:
-		return gun_hold_12
-	elif _weap == 20:
-		return gun_hold_20
-	elif _weap == 21:
-		return gun_hold_21
-	elif _weap == 22:
-		return gun_hold_22
-	elif _weap == 23:
-		return gun_hold_23
-	elif _weap == 27:
-		return gun_hold_27
-	elif _weap == 39:
-		return gun_hold_39
-	elif _weap == 40:
-		return gun_hold_40
-	elif _weap == 50:
-		return gun_hold_50
-	elif _weap == 51:
-		return gun_hold_51
-	elif _weap == 52:
-		return gun_hold_52
-	elif _weap == 53:
-		return gun_hold_53
-	elif _weap == 60:
-		return gun_hold_60
-	elif _weap == 61:
-		return gun_hold_61
-	elif _weap == 62:
-		return gun_hold_62
-	elif _weap == 63:
-		return gun_hold_63
-	elif _weap == 64:
-		return gun_hold_64
-	elif _weap == 65:
-		return gun_hold_65
-#	elif _weap == 66:
-#		return gun_hold_66
-	elif _weap == 80:
-		return gun_hold_80
-	else:
-		print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
-		return gun_hold_02
+func get_weap_hold(_weap: int):
+	if _weap < 50:
+		if _weap == 0:
+			return gun_hold_00
+		elif _weap == 1:
+			return gun_hold_01
+		elif _weap == 2:
+			return gun_hold_02
+		elif _weap == 3:
+			return gun_hold_03
+		elif _weap == 4:
+			return gun_hold_04
+	#	elif _weap == 5:
+	#		return gun_hold_05
+	#	elif _weap == 6:
+	#		return gun_hold_06
+		elif _weap == 7:
+			return gun_hold_07
+		elif _weap == 8:
+			return gun_hold_08
+		elif _weap == 9:
+			return gun_hold_09
+		elif _weap == 10:
+			return gun_hold_10
+		elif _weap == 11:
+			return gun_hold_11
+		elif _weap == 12:
+			return gun_hold_12
+		elif _weap == 20:
+			return gun_hold_20
+		elif _weap == 21:
+			return gun_hold_21
+		elif _weap == 22:
+			return gun_hold_22
+		elif _weap == 23:
+			return gun_hold_23
+		elif _weap == 27:
+			return gun_hold_27
+		elif _weap == 39:
+			return gun_hold_39
+		elif _weap == 40:
+			return gun_hold_40
+	elif _weap > 49:
+		if _weap == 50:
+			return gun_hold_50
+		elif _weap == 51:
+			return gun_hold_51
+		elif _weap == 52:
+			return gun_hold_52
+		elif _weap == 53:
+			return gun_hold_53
+		elif _weap == 56:
+			return gun_hold_56
+		elif _weap == 60:
+			return gun_hold_60
+		elif _weap == 61:
+			return gun_hold_61
+		elif _weap == 62:
+			return gun_hold_62
+		elif _weap == 63:
+			return gun_hold_63
+		elif _weap == 64:
+			return gun_hold_64
+		elif _weap == 65:
+			return gun_hold_65
+	#	elif _weap == 66:
+	#		return gun_hold_66
+		elif _weap == 80:
+			return gun_hold_80
+		else:
+			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			return gun_hold_02
 
 func get_weap_pick(_weap):
 	print("get_weap_pick is empty in singleton equipment")

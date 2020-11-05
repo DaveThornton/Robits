@@ -57,7 +57,7 @@ func _process(delta):
 		hit_area.disabled = true
 		time_swing = 0.0
 	time_swing -= delta
-	print(time_swing)
+#	print(time_swing)
 		
 	
 func shoot_j():
