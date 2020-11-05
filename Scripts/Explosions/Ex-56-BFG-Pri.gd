@@ -30,21 +30,11 @@ func boom_sec(_player):
 	var x = boom.instance()
 	Map_Hand.add_kid_to_map(x)
 	x.init(owned, _pos, my_name, 0, damage1)
-	queue_free()
+#	queue_free()
 
 func _on_Area2Douter_body_entered(body):
 	if body.get_groups().has("player"):
 		call_deferred("boom_sec", body)
-#		var _pos = body.position
-#		var x = boom.instance()
-#		Map_Hand.add_kid_to_map(x)
-#		x.init(owned, _pos, my_name, 0, damage1)
-#	queue_free()
-#	if body.get_groups().has("player"):
-#		Player_Stats.add_hit(owned,1)
-#		body.hit(owned, str(weap_name, " ", my_name), damage_type, damage2)
-#	elif body.get_groups().has("hittable"):
-#		body.hit(owned, weap_name, damage_type, damage1)
 
 func _on_Area2D2inner_body_entered(body):
 	if body.get_groups().has("player"):
@@ -59,3 +49,6 @@ func _on_Timer_timeout():
 
 func _on_Timer2_timeout():
 	queue_free()
+
+func kill_me():
+	call_deferred("queue_free")

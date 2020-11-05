@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Explosions/Ex-56-BFG-Pri.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Projectiles/Proj_56_BFG9000.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Explosions/EX-56-BFG-Center.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Explosions/Ex-56-BFG-Sec.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Explosions/EX-56-BFG-Ring.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Explode"
+length = 1.5
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -14,10 +16,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.05 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3, 1.35, 1.4, 1.45, 1.5, 1.55, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 0, 2, 1, 3, 1, 0, 1, 0, 3, 1, 0, 3, 0, 3, 2, 0, 2 ]
+"values": [ 0, 1, 2, 0, 2, 1, 0, 1, 0, 1, 0, 2, 0, 1, 2, 0, 2, 1, 0, 1, 0, 1, 0, 2, 0, 0, 1, 2, 0, 2, 1, 0, 1, 0, 1, 0, 2, 0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Area2D-outer/CollisionShape2D-outer:disabled")
@@ -48,12 +50,12 @@ tracks/3/path = NodePath("Sprite:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
-tracks/3/enabled = false
+tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1.45 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 3, 3 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.1, 0.1 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath(".:z_index")
@@ -86,10 +88,72 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 1.45 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Sprite2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Sprite2:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1080.0 ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "kill_me"
+} ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Sprite2:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.05, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 2, 2 ), Vector2( 0.1, 0.1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Sprite:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1080.0 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -119,13 +183,23 @@ radius = 126.491
 radius = 150.333
 
 [node name="Ex-02-Standard" type="Node2D"]
+z_index = -5
 script = ExtResource( 1 )
 boom = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 8, 8 )
+visible = false
+rotation = 18.8496
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
-hframes = 4
+hframes = 3
+frame = 1
+
+[node name="Sprite2" type="Sprite" parent="."]
+visible = false
+rotation = 18.8496
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Explode = SubResource( 1 )
@@ -142,6 +216,7 @@ collision_mask = 395784
 
 [node name="CollisionShape2D-outer" type="CollisionShape2D" parent="Area2D-outer"]
 shape = SubResource( 3 )
+disabled = true
 
 [node name="Area2D2-inner" type="Area2D" parent="."]
 collision_layer = 512
@@ -156,7 +231,7 @@ wait_time = 8.0
 autostart = true
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 9.0
+wait_time = 3.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -174,6 +249,7 @@ collision_mask = 983040
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 5 )
+disabled = true
 [connection signal="body_entered" from="Area2D-outer" to="." method="_on_Area2Douter_body_entered"]
 [connection signal="body_entered" from="Area2D2-inner" to="." method="_on_Area2D2inner_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
