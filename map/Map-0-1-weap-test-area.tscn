@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_65_Knife_Pick.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Scenes/Guns/Pick/W_64_ESword_Pick.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Scenes/Guns/Pick/W_56_BFG_9000_Pick.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Scenes/Guns/Pick/W_41_SPNKr_Pick.tscn" type="PackedScene" id=33]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -166,13 +167,16 @@ position = Vector2( 370, 834 )
 position = Vector2( 592, 706 )
 
 [node name="W_65_Knife_Pick2" parent="Power_Ups" instance=ExtResource( 30 )]
-position = Vector2( 752, 741 )
+position = Vector2( 1070, 619.711 )
 
 [node name="W_65_Knife_Pick5" parent="Power_Ups" instance=ExtResource( 30 )]
-position = Vector2( 812, 745 )
+position = Vector2( 822, 619.711 )
 
 [node name="W_65_Knife_Pick4" parent="Power_Ups" instance=ExtResource( 30 )]
 position = Vector2( 140, 674 )
+
+[node name="W_41_SPNKr_Pick" parent="Power_Ups/W_65_Knife_Pick4" instance=ExtResource( 33 )]
+position = Vector2( 400, 28 )
 
 [node name="W_65_Knife_Pick" parent="Power_Ups" instance=ExtResource( 30 )]
 position = Vector2( 410, 670 )
@@ -187,13 +191,13 @@ position = Vector2( 540, 820 )
 position = Vector2( 288.472, 406.051 )
 
 [node name="W_23_Bomb_Man_Pick4" parent="Power_Ups" instance=ExtResource( 29 )]
-position = Vector2( 1490, 600 )
+position = Vector2( 1650, 710 )
 
 [node name="W_09_Magnum_Pick" parent="Power_Ups" instance=ExtResource( 14 )]
 position = Vector2( 199.829, 705 )
 
 [node name="W_56_BFG9000_Pick" parent="Power_Ups" instance=ExtResource( 32 )]
-position = Vector2( 540, 697 )
+position = Vector2( 650, 697 )
 
 [node name="W_64_ESword_Pick" parent="Power_Ups" instance=ExtResource( 31 )]
 position = Vector2( 1260, 320 )
