@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Sprites/Guns/W_66_Hammer.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Guns/Hold/W_66_Hammer_Hold.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Guns/Pick/W_66_Hammer_Pick.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Guns/W_69_Bat'leth.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Guns/Hold/W_69_Bat'leth_Hold.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Guns/Pick/W_69_Bat'leth_Pick.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.7846
@@ -10,15 +10,14 @@ height = 7.89017
 
 [node name="W_65_Knife_Hold" type="Node2D"]
 script = ExtResource( 2 )
-hammer_pickup = ExtResource( 3 )
+batleth_pickup = ExtResource( 3 )
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
 [node name="Bar" type="Sprite" parent="POS_Gun"]
-position = Vector2( 0, -7 )
 rotation = -1.5708
 texture = ExtResource( 1 )
-offset = Vector2( 10, 0 )
+offset = Vector2( 10, 8 )
 
 [node name="POS_Throw" type="Position2D" parent="."]
 position = Vector2( 40, 0 )

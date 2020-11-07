@@ -1,6 +1,6 @@
 extends Node2D
 
-export(PackedScene) var knife_pickup
+export(PackedScene) var hammer_pickup
 
 onready var gun_pos = $POS_Gun
 onready var pos_throw = $POS_Throw
@@ -12,9 +12,9 @@ var player = 1
 var gun_num = 65
 var ammo = 1
 var take_ammo = false
-var my_name = "Knife"
-var dmg_type = "blade"
-var damage = 33
+var my_name = "Hammer"
+var dmg_type = "Melee"
+var damage = 100
 var can_shoot = true
 var shoot_pos = 3
 var change_shoot_pos = true
@@ -78,7 +78,7 @@ func melee():
 	print("i dont know how this got called W_63_Bar Melee?")
 
 func throw():
-	var t = knife_pickup.instance()
+	var t = hammer_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, .5, is_right, shoot_pos, true)
@@ -96,7 +96,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = knife_pickup.instance()
+	var t = hammer_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
