@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_64_ESword_Pick.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Scenes/Guns/Pick/W_56_BFG_9000_Pick.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Guns/Pick/W_41_SPNKr_Pick.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Scenes/Guns/Pick/W_66_Hammer_Pick.tscn" type="PackedScene" id=34]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -192,6 +193,9 @@ position = Vector2( 288.472, 406.051 )
 
 [node name="W_23_Bomb_Man_Pick4" parent="Power_Ups" instance=ExtResource( 29 )]
 position = Vector2( 1650, 710 )
+
+[node name="W_65_Knife_Pick" parent="Power_Ups/W_23_Bomb_Man_Pick4" instance=ExtResource( 34 )]
+position = Vector2( -1140, -309.949 )
 
 [node name="W_09_Magnum_Pick" parent="Power_Ups" instance=ExtResource( 14 )]
 position = Vector2( 199.829, 705 )
