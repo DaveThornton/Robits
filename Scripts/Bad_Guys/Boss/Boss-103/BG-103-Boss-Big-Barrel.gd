@@ -49,7 +49,7 @@ func _explode():
 	var e = explode.instance()
 	shape.disabled = true
 	Map_Hand.add_kid_to_map(e)
-	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
+	e.init(0, self.position, str("player ", e, "'s destruct system"), 0, 0)
 	anim_hit.play("Dead")
 
 #func _process(delta):

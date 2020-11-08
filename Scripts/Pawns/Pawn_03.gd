@@ -35,7 +35,7 @@ onready var ray_down_r = $Raycasts/Right
 var player = 1
 var play_type = 2
 var start_equiped = false
-var armor = 1
+var armor = 3
 
 var my_gun
 var my_start_gun

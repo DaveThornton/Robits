@@ -13,7 +13,7 @@ export(PackedScene) var gun_hold_09
 export(PackedScene) var gun_hold_10
 export(PackedScene) var gun_hold_11
 export(PackedScene) var gun_hold_12
-#export(PackedScene) var gun_hold_13
+export(PackedScene) var gun_hold_13
 #export(PackedScene) var gun_hold_14
 #export(PackedScene) var gun_hold_15
 #export(PackedScene) var gun_hold_16
@@ -148,6 +148,8 @@ func get_weap_hold(_weap: int):
 			return gun_hold_11
 		elif _weap == 12:
 			return gun_hold_12
+		elif _weap == 13:
+			return gun_hold_13
 		elif _weap == 20:
 			return gun_hold_20
 		elif _weap == 21:

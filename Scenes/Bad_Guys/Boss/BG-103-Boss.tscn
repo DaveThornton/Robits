@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites/Bad_Guys/Boss/BG-103-Boss/BG-103-Body-Under.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Bad_Guys/Boss/BG-103-Parts/BG-103-Boss-Turret.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Bad_Guys/Boss/Boss-103/BG-103-Boss.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Explosions/Ex-103-BG.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.0
@@ -20,7 +20,7 @@ height = 114.0
 radius = 3.9999
 height = 62.0002
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "Hit"
 length = 0.1
 tracks/0/type = "value"
@@ -36,7 +36,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "Idle"
 length = 0.5
 loop = true
@@ -165,7 +165,7 @@ rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer_Hit" type="AnimationPlayer" parent="."]
-anims/Hit = SubResource( 5 )
+anims/Hit = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 6 )
+anims/Idle = SubResource( 5 )

@@ -35,7 +35,7 @@ onready var anim = $AnimationPlayer
 var player = 1
 var play_type = 2
 var start_equiped = false
-var armor = 15
+var armor = 4
 
 var my_gun
 var my_start_gun

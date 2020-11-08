@@ -1562,7 +1562,7 @@ tracks/16/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=11]
 resource_name = "Leftt-Stun"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Body:position")
@@ -1829,7 +1829,7 @@ tracks/21/keys = {
 "values": [ 43.5, 0.0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Body:position")
@@ -2084,7 +2084,7 @@ tracks/20/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Legs_B:frame")
@@ -2327,7 +2327,7 @@ tracks/19/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Legs_B:frame")
@@ -2546,7 +2546,7 @@ tracks/17/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -2790,7 +2790,7 @@ tracks/19/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -3034,7 +3034,7 @@ tracks/19/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -3254,7 +3254,7 @@ tracks/17/keys = {
 "values": [ Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=18]
 resource_name = "Right-Stun"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Body:position")
@@ -3521,11 +3521,11 @@ tracks/21/keys = {
 "values": [ -43.5, 0.0 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=17]
+[sub_resource type="CapsuleShape2D" id=19]
 radius = 27.0
 height = 48.0
 
-[sub_resource type="CapsuleShape2D" id=18]
+[sub_resource type="CapsuleShape2D" id=20]
 radius = 5.0
 height = 58.0
 
@@ -3652,14 +3652,14 @@ anims/Left-Jump-2 = SubResource( 7 )
 anims/Left-Prone-Crawl = SubResource( 8 )
 anims/Left-Prone-Idle = SubResource( 9 )
 anims/Left-Run = SubResource( 10 )
-anims/Leftt-Stun = SubResource( 19 )
-anims/Right-Idle = SubResource( 11 )
-anims/Right-Jump-1 = SubResource( 12 )
-anims/Right-Jump-2 = SubResource( 13 )
-anims/Right-Prone-Crawl = SubResource( 14 )
-anims/Right-Prone-Idle = SubResource( 15 )
-anims/Right-Run = SubResource( 16 )
-anims/Right-Stun = SubResource( 20 )
+anims/Leftt-Stun = SubResource( 11 )
+anims/Right-Idle = SubResource( 12 )
+anims/Right-Jump-1 = SubResource( 13 )
+anims/Right-Jump-2 = SubResource( 14 )
+anims/Right-Prone-Crawl = SubResource( 15 )
+anims/Right-Prone-Idle = SubResource( 16 )
+anims/Right-Run = SubResource( 17 )
+anims/Right-Stun = SubResource( 18 )
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
 visible = false
@@ -3669,7 +3669,7 @@ collision_mask = 786432
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
 position = Vector2( 0, 2 )
 rotation = 1.5708
-shape = SubResource( 17 )
+shape = SubResource( 19 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
 visible = false
@@ -3677,7 +3677,7 @@ collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
-shape = SubResource( 18 )
+shape = SubResource( 20 )
 [connection signal="timeout" from="Timers_old/Knock_Back" to="." method="_on_Knock_Back_timeout"]
 [connection signal="timeout" from="Timers_old/Shield_Hit" to="." method="_on_Shield_Hit_timeout"]
 [connection signal="timeout" from="Timers_old/Shield_Up" to="." method="_on_Shield_Up_timeout"]

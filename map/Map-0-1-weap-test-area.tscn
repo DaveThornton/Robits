@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_41_SPNKr_Pick.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Guns/Pick/W_66_Hammer_Pick.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Scenes/Guns/Pick/W_69_Bat'leth_Pick.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Scenes/Guns/Pick/W_13_TOS_Pick.tscn" type="PackedScene" id=36]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -124,10 +125,10 @@ position = Vector2( 1122, 670 )
 [node name="Power_Ups" type="Node2D" parent="."]
 
 [node name="Weap-Pick-02-Ak-47" parent="Power_Ups" instance=ExtResource( 6 )]
-position = Vector2( 360, 1040 )
+position = Vector2( 440, 1050 )
 
 [node name="Weap-Pick-03-Sniper" parent="Power_Ups" instance=ExtResource( 7 )]
-position = Vector2( 216.976, 931.073 )
+position = Vector2( 220.847, 954 )
 
 [node name="Weap-Pick-04-M_16" parent="Power_Ups" instance=ExtResource( 8 )]
 position = Vector2( 198, 832.853 )
@@ -136,7 +137,7 @@ position = Vector2( 198, 832.853 )
 position = Vector2( 120, 829 )
 
 [node name="Weap-Pick-11-Mega-Cannon" parent="Power_Ups" instance=ExtResource( 10 )]
-position = Vector2( 205.244, 417.551 )
+position = Vector2( 208.853, 430 )
 
 [node name="Weap-Pick-20-Grenade" parent="Power_Ups" instance=ExtResource( 11 )]
 position = Vector2( 200, 623.711 )
@@ -145,13 +146,13 @@ position = Vector2( 200, 623.711 )
 position = Vector2( 62.6485, 619.711 )
 
 [node name="Weap-Pick-22-Plasma-Grenade" parent="Power_Ups" instance=ExtResource( 13 )]
-position = Vector2( 199.829, 521.338 )
+position = Vector2( 199.829, 530 )
 
 [node name="Weap-Pick-40-RPG" parent="Power_Ups" instance=ExtResource( 15 )]
-position = Vector2( 242.017, 1047.98 )
+position = Vector2( 249.073, 1050 )
 
 [node name="Weap-Pick-40-RPG2" parent="Power_Ups" instance=ExtResource( 15 )]
-position = Vector2( 990, 1050 )
+position = Vector2( 500, 1050 )
 
 [node name="Weap-Pick-40-RPG3" parent="Power_Ups" instance=ExtResource( 15 )]
 position = Vector2( 1320, 1047.98 )
@@ -160,49 +161,49 @@ position = Vector2( 1320, 1047.98 )
 position = Vector2( 208.853, 199.146 )
 
 [node name="Weap-Pick-60-Axe" parent="Power_Ups" instance=ExtResource( 17 )]
-position = Vector2( 650, 829 )
+position = Vector2( 650, 832.212 )
 
 [node name="Weap-Pick-61-Sword" parent="Power_Ups" instance=ExtResource( 18 )]
 position = Vector2( 370, 834 )
 
 [node name="W_65_Knife_Pick3" parent="Power_Ups" instance=ExtResource( 30 )]
-position = Vector2( 800, 826 )
+position = Vector2( 680, 832.212 )
 
 [node name="W_65_Knife_Pick2" parent="Power_Ups" instance=ExtResource( 30 )]
-position = Vector2( 1070, 619.711 )
+position = Vector2( 1500, 709 )
 
 [node name="W_65_Knife_Pick5" parent="Power_Ups" instance=ExtResource( 30 )]
-position = Vector2( 822, 619.711 )
+position = Vector2( 1620, 709 )
 
 [node name="W_41_SPNKr_Pick" parent="Power_Ups" instance=ExtResource( 33 )]
-position = Vector2( 1020, 766.208 )
+position = Vector2( 670, 710 )
 
 [node name="W_65_Knife_Pick4" parent="Power_Ups" instance=ExtResource( 30 )]
-position = Vector2( 700, 620.208 )
+position = Vector2( 1570, 710 )
 
 [node name="W_65_Knife_Pick" parent="Power_Ups" instance=ExtResource( 30 )]
-position = Vector2( 900, 830 )
+position = Vector2( 660, 950 )
 
 [node name="W_23_Bomb_Man_Pick" parent="Power_Ups" instance=ExtResource( 29 )]
-position = Vector2( 980, 330 )
+position = Vector2( 980, 350 )
 
 [node name="W_23_Bomb_Man_Pick2" parent="Power_Ups" instance=ExtResource( 29 )]
-position = Vector2( 540, 820 )
+position = Vector2( 540, 830 )
 
 [node name="W_23_Bomb_Man_Pick3" parent="Power_Ups" instance=ExtResource( 29 )]
-position = Vector2( 288.472, 406.051 )
+position = Vector2( 290, 430 )
 
 [node name="W_65_Knife_Pick7" parent="Power_Ups" instance=ExtResource( 35 )]
-position = Vector2( 580, 640 )
+position = Vector2( 450, 430 )
 
 [node name="W_65_Knife_Pick8" parent="Power_Ups" instance=ExtResource( 35 )]
 position = Vector2( 140, 613.711 )
 
 [node name="W_65_Knife_Pick9" parent="Power_Ups" instance=ExtResource( 35 )]
-position = Vector2( 870, 560 )
+position = Vector2( 1450, 705 )
 
 [node name="W_65_Knife_Pick10" parent="Power_Ups" instance=ExtResource( 35 )]
-position = Vector2( 450, 802 )
+position = Vector2( 486, 832.212 )
 
 [node name="W_65_Knife_Pick6" parent="Power_Ups" instance=ExtResource( 34 )]
 position = Vector2( 510, 400.051 )
@@ -211,13 +212,16 @@ position = Vector2( 510, 400.051 )
 position = Vector2( 1650, 710 )
 
 [node name="W_09_Magnum_Pick" parent="Power_Ups" instance=ExtResource( 14 )]
-position = Vector2( 230, 621.711 )
+position = Vector2( 230, 627.037 )
 
 [node name="W_56_BFG9000_Pick" parent="Power_Ups" instance=ExtResource( 32 )]
-position = Vector2( 592, 810 )
+position = Vector2( 590, 826 )
 
 [node name="W_64_ESword_Pick" parent="Power_Ups" instance=ExtResource( 31 )]
 position = Vector2( 1260, 320 )
+
+[node name="W_12_OpenCannon_Pick" parent="Power_Ups" instance=ExtResource( 36 )]
+position = Vector2( 470, 630 )
 
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
@@ -256,10 +260,10 @@ position = Vector2( 289.073, 320 )
 level_to_load_1 = ExtResource( 27 )
 
 [node name="Weap-Pick-08-Uzi" parent="." instance=ExtResource( 28 )]
-position = Vector2( 343.816, 420 )
+position = Vector2( 350, 428.986 )
 
 [node name="Weap-Pick-08-Uzi2" parent="." instance=ExtResource( 28 )]
 position = Vector2( 269.32, 835.226 )
 
 [node name="Weap-Pick-08-Uzi3" parent="." instance=ExtResource( 28 )]
-position = Vector2( 850, 310 )
+position = Vector2( 858.472, 350 )

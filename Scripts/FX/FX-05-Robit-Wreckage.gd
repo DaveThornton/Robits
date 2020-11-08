@@ -26,6 +26,7 @@ func _ready():
 		$Timer.start()
 
 func init(_player, _pawn, _part_num, _move, _pos, _impulse):
+	sprite.frame = _part_num
 	if _pawn == 2:
 		sprite.texture = pawn_img_02
 	elif _pawn == 3:

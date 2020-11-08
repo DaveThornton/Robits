@@ -139,6 +139,7 @@ func _process(delta):
 		if _hit_time > 0.1:
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
+			_hit_time = clamp(_hit_time,0,.3)
 		elif _hit_time > 0.05:
 			_hit_time -= delta
 			_set_new_color(_hit_color_02, _hit_color_01)
