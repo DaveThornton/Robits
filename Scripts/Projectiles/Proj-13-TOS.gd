@@ -24,20 +24,23 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 
 func _physics_process(delta):
 	if ray.is_colliding():
-		if ray.get_collider().get_groups().has("map"):
-			var spot = ray.get_collision_point()
-			var x = hit_anim_map.instance()
-			self.get_tree().get_current_scene().add_child(x)
-			x.global_position = ray.get_collision_point()
-#			print("map")
-		else:
-			if ray.get_collider().get_groups().has("player"):
-				Player_Stats.add_hit(owned,1)
-			var x = hit_anim_move.instance()
-			self.get_tree().get_current_scene().add_child(x)
-			x.global_position = ray.get_collision_point()
-#			print("not map")
-		call_deferred("free")
+		var _col = ray.get_collider()
+		if _col:
+			if ray.get_collider().get_groups().has("map"):
+				var spot = ray.get_collision_point()
+				var x = hit_anim_map.instance()
+				self.get_tree().get_current_scene().add_child(x)
+				x.global_position = ray.get_collision_point()
+	#			print("map")
+			else:
+				if ray.get_collider().get_groups().has("player"):
+					Player_Stats.add_hit(owned,.1)
+					print("adding to many hits in proj 13 make less")
+				var x = hit_anim_move.instance()
+				self.get_tree().get_current_scene().add_child(x)
+				x.global_position = ray.get_collision_point()
+	#			print("not map")
+			call_deferred("free")
 	move_local_x(speed * delta)
 	
 func _on_Projectile_area_entered(area):
@@ -48,6 +51,7 @@ func _on_Projectile_body_entered(body):
 func entered(body):
 	if body.get_groups().has("hittable"):
 		Player_Stats.add_hit(owned, 1)
+		print("adding to many hits in proj 13 make less")
 		_hit_move()
 		body.hit(owned, my_name, damage_type, damage)
 		call_deferred("free")

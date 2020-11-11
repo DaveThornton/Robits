@@ -8,7 +8,7 @@ onready var timer = $Timer
 
 var ready = false
 var gun_num = 13
-var ammo = 35
+var ammo = 250
 var time = .1
 var is_right = true
 var dir = 3

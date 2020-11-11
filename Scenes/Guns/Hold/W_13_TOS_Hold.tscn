@@ -277,6 +277,7 @@ position = Vector2( 31, -4 )
 position = Vector2( 31, -4 )
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
+visible = false
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
 position = Vector2( 17, -4 )
@@ -297,6 +298,7 @@ cast_to = Vector2( 23, 0 )
 collision_mask = 3338
 
 [node name="Melee_Area" type="Area2D" parent="POS_Gun"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
 position = Vector2( 10, -5 )

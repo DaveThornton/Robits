@@ -50,8 +50,8 @@ func update():
 		_kdr = _player["kill"] / _player["death"]
 	kdr.text = str(stepify(_kdr, 0.01))
 	shots.text = str(_player["shot"])
-	hits.text = str(_player["hit"])
-	miss.text = str(_player["hit"] - _player["shot"])
+	hits.text = str(int(_player["hit"]))
+	miss.text = str(int(_player["hit"]) - _player["shot"])
 	var _places = Player_Stats.get_places()
 	for i in _places.size():
 		if i == _places.size() - 1 || _places.back().y == _places[i].y:
