@@ -30,7 +30,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if ready:
 		time = timer_boom.get_time_left()
 		label_time.set_time(time)
@@ -63,10 +63,10 @@ func dont_hit_player():
 	self.set_collision_mask_bit( 1, false)
 
 
-func _on_W_23_Bomb_Man_Pick_body_shape_entered(body_id, body, body_shape, local_shape):
-	pass
-#	if body.get_groups().has("player"):
-#		body.stun(gun_num)
+func _on_W_23_Bomb_Man_Pick_body_shape_entered(_body_id, body, _body_shape, _local_shape):
+#	pass
+	if body.get_groups().has("player"):
+		body.stun(gun_num)
 #	else:
 #		self.set_collision_layer_bit( 1, false)
 #		self.set_collision_mask_bit( 1, false)

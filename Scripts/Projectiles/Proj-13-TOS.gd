@@ -27,7 +27,7 @@ func _physics_process(delta):
 		var _col = ray.get_collider()
 		if _col:
 			if ray.get_collider().get_groups().has("map"):
-				var spot = ray.get_collision_point()
+#				var spot = ray.get_collision_point()
 				var x = hit_anim_map.instance()
 				self.get_tree().get_current_scene().add_child(x)
 				x.global_position = ray.get_collision_point()

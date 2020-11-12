@@ -1,6 +1,6 @@
 extends Node2D
 
-export(PackedScene) var blaster_pistol_pickup
+export(PackedScene) var zapper_pistol_pickup
 export(PackedScene) var projectile
 
 onready var anim_fire = $AnimationPlayer
@@ -63,14 +63,15 @@ func shoot_j():
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
 					if _thing.player == player:
+#						_thing.hit(player, my_name, dmg_type, damage)
 						_fire_projectile()
 					else:
 						_thing.hit(player, my_name, dmg_type, damage)
-					print("gun 10 shot happened but no projectile spawned hit anyways")
+					print("gun 15 shot happened but no projectile spawned hit anyways")
 				elif _thing.get_groups().has("map"):
-					print("gun 10 hitting wall not fireing projectile", _thing)
+					print("gun 15 hitting wall not fireing projectile", _thing)
 				else:
-					print("gun 10 dont know what im hitting but no projectile spawned")
+					print("gun 15 dont know what im hitting but no projectile spawned")
 			anim_fire.play("Shoot")
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
@@ -99,7 +100,7 @@ func _fire_projectile():
 	new_projectile.start( _sr , _ss, _sss, player, damage)
 
 func throw():
-	var t = blaster_pistol_pickup.instance()
+	var t = zapper_pistol_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
@@ -114,7 +115,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = blaster_pistol_pickup.instance()
+	var t = zapper_pistol_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = self.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
