@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Guns/Hold/W_16_Solo_Hold.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Guns/W_16_Solo.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Projectiles/Proj-16-Solo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Guns/Pick/W_16_Solo_Pick.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Shoot"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun/Gun_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0 ]
+}
+
+[node name="W_16_Solo_Hold" type="Node2D"]
+script = ExtResource( 1 )
+solo_pistol_pickup = ExtResource( 4 )
+projectile = ExtResource( 3 )
+
+[node name="Shoot_Timer" type="Timer" parent="."]
+wait_time = 0.15
+
+[node name="POS_Gun" type="Node2D" parent="."]
+
+[node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
+position = Vector2( 5, -4 )
+texture = ExtResource( 2 )
+
+[node name="POS" type="Node2D" parent="POS_Gun"]
+
+[node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 28, -5 )
+
+[node name="Throw" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 37, -5 )
+
+[node name="Raycast" type="Node2D" parent="POS_Gun"]
+
+[node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( 0, -5 )
+enabled = true
+cast_to = Vector2( 29, 0 )
+collision_mask = 514
+
+[node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( 3, -5 )
+enabled = true
+cast_to = Vector2( 40, 0 )
+collision_mask = 2570
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Shoot = SubResource( 1 )
+[connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
