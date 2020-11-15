@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -40,6 +40,8 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_16_Solo_Pick.tscn" type="PackedScene" id=38]
 [ext_resource path="res://Scenes/Guns/Pick/W_17_Mars_Pick.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Scenes/Guns/Pick/W_18_Cricket_Pick.tscn" type="PackedScene" id=40]
+[ext_resource path="res://Scenes/Guns/Pick/W_24_TNT_Pick.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Scenes/Guns/Pick/W_25_Time_Bomb_Pick.tscn" type="PackedScene" id=42]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -180,7 +182,7 @@ position = Vector2( 1500, 709 )
 position = Vector2( 1620, 709 )
 
 [node name="W_41_SPNKr_Pick" parent="Power_Ups" instance=ExtResource( 33 )]
-position = Vector2( 670, 710 )
+position = Vector2( 1350, 270 )
 
 [node name="W_65_Knife_Pick4" parent="Power_Ups" instance=ExtResource( 30 )]
 position = Vector2( 1570, 710 )
@@ -216,7 +218,7 @@ position = Vector2( 780, 320 )
 position = Vector2( 1650, 710 )
 
 [node name="W_09_Magnum_Pick" parent="Power_Ups" instance=ExtResource( 14 )]
-position = Vector2( 230, 627.037 )
+position = Vector2( 140, 940 )
 
 [node name="W_56_BFG9000_Pick" parent="Power_Ups" instance=ExtResource( 32 )]
 position = Vector2( 590, 826 )
@@ -225,7 +227,7 @@ position = Vector2( 590, 826 )
 position = Vector2( 1260, 320 )
 
 [node name="W_12_OpenCannon_Pick" parent="Power_Ups" instance=ExtResource( 36 )]
-position = Vector2( 230, 698.196 )
+position = Vector2( 360, 945.903 )
 
 [node name="Weap-Pick-10-Blaster_Pistol2" parent="Power_Ups" instance=ExtResource( 37 )]
 position = Vector2( 319.073, 822 )
@@ -282,7 +284,25 @@ position = Vector2( 200, 698.196 )
 position = Vector2( 797, 693 )
 
 [node name="W_17_Mars_Pick" parent="." instance=ExtResource( 39 )]
-position = Vector2( 480, 698.196 )
+position = Vector2( 1030, 842 )
 
 [node name="W_17_Mars_Pick2" parent="." instance=ExtResource( 40 )]
-position = Vector2( 360, 690 )
+position = Vector2( 408, 422.986 )
+
+[node name="W_24_TNT_Pick" parent="." instance=ExtResource( 41 )]
+position = Vector2( 300, 690 )
+
+[node name="W_24_TNT_Pick2" parent="." instance=ExtResource( 41 )]
+position = Vector2( 342, 690 )
+
+[node name="W_24_TNT_Pick3" parent="." instance=ExtResource( 41 )]
+position = Vector2( 389, 690 )
+
+[node name="W_24_TNT_Pick4" parent="." instance=ExtResource( 41 )]
+position = Vector2( 440, 690 )
+
+[node name="W_24_TNT_Pick5" parent="." instance=ExtResource( 41 )]
+position = Vector2( 495, 690 )
+
+[node name="W_24_TNT_Pick6" parent="." instance=ExtResource( 42 )]
+position = Vector2( 580, 700 )

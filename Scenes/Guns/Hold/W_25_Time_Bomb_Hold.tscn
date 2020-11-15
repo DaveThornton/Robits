@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Guns/W_25_Time_Bomb.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Guns/Pick/W_25_Time_Bomb_Pick.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Guns/Hold/W_25_Time_Bomb_Hold.gd" type="Script" id=6]
+
+[node name="W_24_TNT_Hold" type="Node2D"]
+script = ExtResource( 6 )
+time_bomb_pickup = ExtResource( 5 )
+boom = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+
+[node name="POS_Gun" type="Node2D" parent="."]
+
+[node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
+position = Vector2( 11.4351, 0 )
+texture = ExtResource( 3 )
+hframes = 2
+frame = 1
+
+[node name="FX-21-Timer_Label" parent="POS_Gun/Gun_Sprite" instance=ExtResource( 2 )]
+position = Vector2( 0.731312, 19.48 )
+text_color = Color( 1, 1, 1, 1 )
+
+[node name="POS" type="Node2D" parent="POS_Gun"]
+
+[node name="Position2D" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 24, 0 )
+
+[node name="Raycast" type="Node2D" parent="POS_Gun"]
+
+[node name="RayCast2D" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( 5, 0 )
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 3850
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
