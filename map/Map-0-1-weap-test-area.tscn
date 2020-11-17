@@ -1,30 +1,29 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
 [ext_resource path="res://Tilesets/R_BasicX20.tres" type="TileSet" id=3]
 [ext_resource path="res://Tilesets/R_B_Plat_X20.tres" type="TileSet" id=4]
 [ext_resource path="res://Tilesets/TS-04-Ladder.tres" type="TileSet" id=5]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-02-Ak-47.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-03-Sniper.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-04-M_16.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-10-Blaster_Pistol.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-11-Mega-Cannon.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-20-Grenade.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-21-Nazi-Grenade.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-22-Plasma-Grenade.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Guns/Pick/W_03_Sniper_Pick.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Guns/Pick/W_04_M16_Pick.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Guns/Pick/W_10_Blaster_Pistol_Pick.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Guns/Pick/W_11_Mega_Cannon_Pick.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Guns/Pick/W_20_Grenade_Pick.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Guns/Pick/W_21_Nazi_Grenade_Pick.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Guns/Pick/W_22_Plasma_Grenade_Pick.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Guns/Pick/W_09_Magnum_Pick.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-40-RPG.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-50-Shot_Gun.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-61-Sword.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Guns/Pick/W_40_RPG_Pick.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Guns/Pick/W_50_Shot_Gun_Pick.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Guns/Pick/W_60_Axe_Pick.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Guns/Pick/W_61_Sword_Pick.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_01.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Map_Parts/MP-40-Distruct-Brick-Red-Brick.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Scenes/Bad_Guys/BG-02-Open_Gunner-01.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Map_Parts/MP-15-Level_Change-01-Door.tscn" type="PackedScene" id=26]
 [ext_resource path="res://map/Map-0-1-BG-test-area.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Guns/Pick/W_08_Uzi_Pick.tscn" type="PackedScene" id=28]
@@ -106,7 +105,7 @@ tile_data = PoolIntArray( 589829, 536870913, 0, 655365, 536870912, 0, 720901, 53
 position = Vector2( 130, 591.711 )
 
 [node name="Position2D2" type="Position2D" parent="Player_spawns"]
-position = Vector2( 390, 569.338 )
+position = Vector2( 371.975, 690 )
 
 [node name="Position2D3" type="Position2D" parent="Player_spawns"]
 position = Vector2( 1860, 600 )
@@ -115,24 +114,24 @@ position = Vector2( 1860, 600 )
 position = Vector2( 1880, 173.266 )
 
 [node name="Position2D6" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1430, 659.008 )
+position = Vector2( 1430, 696 )
 
 [node name="Position2D5" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1230, 627.037 )
+position = Vector2( 1320, 695.903 )
 
 [node name="Position2D4" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1540, 664 )
+position = Vector2( 1570, 695.903 )
 
 [node name="Position2D8" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1000, 651.701 )
+position = Vector2( 1760, 696 )
 
 [node name="Position2D9" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1122, 670 )
+position = Vector2( 1230, 696 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
 [node name="Weap-Pick-02-Ak-47" parent="Power_Ups" instance=ExtResource( 6 )]
-position = Vector2( 440, 1050 )
+position = Vector2( 350, 1050 )
 
 [node name="Weap-Pick-03-Sniper" parent="Power_Ups" instance=ExtResource( 7 )]
 position = Vector2( 220.847, 954 )
@@ -144,13 +143,13 @@ position = Vector2( 198, 832.853 )
 position = Vector2( 120, 829 )
 
 [node name="Weap-Pick-11-Mega-Cannon" parent="Power_Ups" instance=ExtResource( 10 )]
-position = Vector2( 208.853, 430 )
+position = Vector2( 217.073, 434.986 )
 
 [node name="Weap-Pick-20-Grenade" parent="Power_Ups" instance=ExtResource( 11 )]
 position = Vector2( 192.829, 630.081 )
 
 [node name="Weap-Pick-21-Nazi-Grenade" parent="Power_Ups" instance=ExtResource( 12 )]
-position = Vector2( 59.6485, 631.081 )
+position = Vector2( 71.6485, 637.114 )
 
 [node name="Weap-Pick-22-Plasma-Grenade" parent="Power_Ups" instance=ExtResource( 13 )]
 position = Vector2( 199.829, 530 )
@@ -160,9 +159,6 @@ position = Vector2( 249.073, 1050 )
 
 [node name="Weap-Pick-40-RPG2" parent="Power_Ups" instance=ExtResource( 15 )]
 position = Vector2( 500, 1050 )
-
-[node name="Weap-Pick-40-RPG3" parent="Power_Ups" instance=ExtResource( 15 )]
-position = Vector2( 1320, 1047.98 )
 
 [node name="Weap-Pick-50-Shot_Gun" parent="Power_Ups" instance=ExtResource( 16 )]
 position = Vector2( 208.853, 199.146 )
@@ -177,10 +173,10 @@ position = Vector2( 370, 834 )
 position = Vector2( 680, 832.212 )
 
 [node name="W_65_Knife_Pick2" parent="Power_Ups" instance=ExtResource( 30 )]
-position = Vector2( 1500, 709 )
+position = Vector2( 1270, 716.033 )
 
 [node name="W_65_Knife_Pick5" parent="Power_Ups" instance=ExtResource( 30 )]
-position = Vector2( 1900, 621.711 )
+position = Vector2( 1850, 637.611 )
 
 [node name="W_41_SPNKr_Pick" parent="Power_Ups" instance=ExtResource( 33 )]
 position = Vector2( 1350, 270 )
@@ -195,13 +191,13 @@ position = Vector2( 660, 950 )
 position = Vector2( 980, 350 )
 
 [node name="W_23_Bomb_Man_Pick2" parent="Power_Ups" instance=ExtResource( 29 )]
-position = Vector2( 540, 830 )
+position = Vector2( 540.334, 830 )
 
 [node name="W_23_Bomb_Man_Pick3" parent="Power_Ups" instance=ExtResource( 29 )]
 position = Vector2( 290, 430 )
 
 [node name="W_65_Knife_Pick7" parent="Power_Ups" instance=ExtResource( 35 )]
-position = Vector2( 371.975, 300 )
+position = Vector2( 400, 310 )
 
 [node name="W_65_Knife_Pick8" parent="Power_Ups" instance=ExtResource( 35 )]
 position = Vector2( 130, 631.081 )
@@ -213,7 +209,7 @@ position = Vector2( 1460, 255 )
 position = Vector2( 486, 832.212 )
 
 [node name="W_65_Knife_Pick6" parent="Power_Ups" instance=ExtResource( 34 )]
-position = Vector2( 780, 320 )
+position = Vector2( 780, 350 )
 
 [node name="W_23_Bomb_Man_Pick4" parent="Power_Ups" instance=ExtResource( 29 )]
 position = Vector2( 1650, 710 )
@@ -265,9 +261,6 @@ head_hit = true
 position = Vector2( 730, 970 )
 head_hit = true
 
-[node name="BG-02-Open_Gunner-01" parent="Map_parts" instance=ExtResource( 25 )]
-position = Vector2( 1320, 710 )
-
 [node name="MP-15-Level_Change-01-Door" parent="." instance=ExtResource( 26 )]
 position = Vector2( 289.073, 320 )
 level_to_load_1 = ExtResource( 27 )
@@ -279,7 +272,7 @@ position = Vector2( 350, 428.986 )
 position = Vector2( 269.32, 835.226 )
 
 [node name="Weap-Pick-08-Uzi3" parent="." instance=ExtResource( 28 )]
-position = Vector2( 858.472, 350 )
+position = Vector2( 880, 350 )
 
 [node name="Weap-Pick-10-Blaster_Pistol" parent="." instance=ExtResource( 38 )]
 position = Vector2( 198, 713 )
@@ -288,10 +281,10 @@ position = Vector2( 198, 713 )
 position = Vector2( 797, 693 )
 
 [node name="W_17_Mars_Pick" parent="." instance=ExtResource( 39 )]
-position = Vector2( 1030, 842 )
+position = Vector2( 588, 1050 )
 
 [node name="W_17_Mars_Pick2" parent="." instance=ExtResource( 40 )]
-position = Vector2( 408, 422.986 )
+position = Vector2( 430, 434.986 )
 
 [node name="W_24_TNT_Pick" parent="." instance=ExtResource( 41 )]
 position = Vector2( 550, 948 )
@@ -316,3 +309,6 @@ position = Vector2( 682, 709.816 )
 
 [node name="W_24_TNT_Pick7" parent="." instance=ExtResource( 42 )]
 position = Vector2( 226.853, 630.081 )
+
+[node name="Weap-Pick-02-Ak-47" parent="." instance=ExtResource( 6 )]
+position = Vector2( 450, 680 )

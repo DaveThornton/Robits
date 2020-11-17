@@ -1,9 +1,11 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Guns/Weap-Hold-10-Blaster_Pistol.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-10-Blaster_Pistol.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Guns/Pick/W_10_Blaster_Pistol_Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Projectiles/Proj-10-Laser.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/Weap-10-Blaster_Pistol.png" type="Texture" id=4]
+
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.9395

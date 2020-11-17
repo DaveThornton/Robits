@@ -1,9 +1,11 @@
 [gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/Map_Parts/MP-10-R_Mark_01.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-20-Grenade.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Guns/Pick/W_20_Grenade_Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Map_Parts/Marks-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Map_Parts/StaticBody2D-pass-func-up.gd" type="Script" id=4]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

@@ -3,7 +3,9 @@
 [ext_resource path="res://Sprites/Guns/W_10_BlasterPistol.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Hold/W_10_Blaster_Pistol_Hold.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Projectiles/Proj-10-Laser.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-10-Blaster_Pistol.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Guns/Pick/W_10_Blaster_Pistol_Pick.tscn" type="PackedScene" id=4]
+
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "Shoot"

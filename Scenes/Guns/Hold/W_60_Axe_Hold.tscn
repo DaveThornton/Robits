@@ -2,7 +2,9 @@
 
 [ext_resource path="res://Sprites/Guns/Weap-60-Axe.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Hold/W_60_Axe_Hold.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Guns/Pick/W_60_Axe_Pick.tscn" type="PackedScene" id=3]
+
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 9.78757

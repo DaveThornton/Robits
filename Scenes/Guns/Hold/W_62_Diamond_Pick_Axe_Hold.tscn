@@ -1,8 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Guns/Hold/W_62_PickAxe_Hold.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-62-Diamond_PickAxe.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Guns/Pick/W_62_Diamond_PickAxe_Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_62_Diamond_PickAxe.png" type="Texture" id=3]
+
+
 
 
 [sub_resource type="CapsuleShape2D" id=1]

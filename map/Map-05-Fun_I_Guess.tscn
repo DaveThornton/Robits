@@ -8,24 +8,24 @@
 [ext_resource path="res://Tilesets/R_B_Plat_X20.tres" type="TileSet" id=6]
 [ext_resource path="res://Tilesets/TS-04-Ladder.tres" type="TileSet" id=7]
 [ext_resource path="res://Scenes/Map_Parts/MP-40-Distruct-Brick-Red-Brick.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-40-RPG.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Guns/Pick/W_40_RPG_Pick.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Power_Ups/Ammo_Box.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-04-Jump_Power_Up.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-03-Speed_Power_Up.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-02-Ak-47.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-10-Blaster_Pistol.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-23-Bomb-Man.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Guns/Pick/W_10_Blaster_Pistol_Pick.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Guns/Pick/W_23_Bomb_Man_Pick.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Map_Parts/MP-36-Moving_Omni_1x4.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_01.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-11-Mega-Cannon.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-60-Axe.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-61-Sword.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-03-Sniper.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Guns/Pick/W_11_Mega_Cannon_Pick.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Guns/Pick/W_60_Axe_Pick.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Guns/Pick/W_61_Sword_Pick.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Guns/Pick/W_03_Sniper_Pick.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-22-Plasma-Grenade.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Guns/Pick/W_22_Plasma_Grenade_Pick.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Map_Parts/MP-31-Falling_Block.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Map_Parts/MP-33-Belt-5.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Map_Parts/MP-33-Belt-3.tscn" type="PackedScene" id=29]
@@ -53,7 +53,6 @@ __meta__ = {
 "map_part",
 "unkillable",
 ]]
-editor/display_folded = true
 z_index = -4
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 20, 20 )
@@ -98,7 +97,6 @@ __meta__ = {
 }
 
 [node name="Distructable-Bricks" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="MP-40-Distruct-Brick-Red-Brick3" parent="Distructable-Bricks" instance=ExtResource( 8 )]
 position = Vector2( 490.125, 670 )
@@ -261,7 +259,6 @@ position = Vector2( 1430, 750 )
 head_hit = true
 
 [node name="Player_spawns" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Position2D" type="Position2D" parent="Player_spawns"]
 position = Vector2( 750, 540 )
@@ -324,7 +321,6 @@ position = Vector2( 1695, 605 )
 position = Vector2( 210, 180 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Weap-Pick-40-RPG" parent="Power_Ups" instance=ExtResource( 9 )]
 position = Vector2( 1230, 610 )
@@ -404,7 +400,7 @@ start_time = 6.0
 wait_time = 2.0
 
 [node name="R_Mark_01_00" parent="Map_parts" instance=ExtResource( 20 )]
-position = Vector2( 170, 410 )
+position = Vector2( 170, 411 )
 spawn_01 = ExtResource( 21 )
 
 [node name="R_Mark_01_01" parent="Map_parts" instance=ExtResource( 20 )]

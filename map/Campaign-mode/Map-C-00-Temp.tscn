@@ -13,10 +13,12 @@
 [ext_resource path="res://Tilesets/TS-06-Main-FX.tres" type="TileSet" id=11]
 [ext_resource path="res://Tilesets/TS-05-Main-Brick.tres" type="TileSet" id=12]
 [ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_01.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-11-Mega-Cannon.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Guns/Pick/W_11_Mega_Cannon_Pick.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Sprites/Bad_Guys/Boss/Temp/Boss-01.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/Bad_Guys/Boss/BG-101-Boss.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Bad_Guys/BG-03.tscn" type="PackedScene" id=17]
+
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 30.0984

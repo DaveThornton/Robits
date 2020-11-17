@@ -14,9 +14,11 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-15-Level_Change-01-Door.tscn" type="PackedScene" id=12]
 [ext_resource path="res://map/Campaign-mode/old/Map-C-02-A-Level.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_20x80-01.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-02-Ak-47.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Guns/Pick/W_12_OpenCannon_Pick.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Bad_Guys/BG-03.tscn" type="PackedScene" id=17]
+
+
 
 
 [sub_resource type="RectangleShape2D" id=1]

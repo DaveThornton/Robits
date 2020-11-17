@@ -1,9 +1,11 @@
 [gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Guns/Weap-Hold-11-Mega-Cannon.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-11-Mega-Cannon.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Guns/Pick/W_11_Mega_Cannon_Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Projectiles/Proj-11-Mega-Cannon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/Weap-11-Mega-Cannon-sheet.png" type="Texture" id=4]
+
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 11.1374

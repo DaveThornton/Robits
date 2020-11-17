@@ -1,8 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Guns/Weap-61-Sword.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-61-Sword.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Guns/Pick/W_61_Sword_Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Guns/Hold/W_61_Sword_Hold.gd" type="Script" id=3]
+
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.5277

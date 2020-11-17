@@ -16,7 +16,9 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_20x80-01.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Map_Parts/MP-06-Trap-Door_160x20-01.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Map_Parts/MP-06-Trap-Door_200x20-01.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-02-Ak-47.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=17]
+
+
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )

@@ -1,9 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Map_Parts/MP-08-Rigid_Body_Spawner -01.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-20-Grenade.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Guns/Pick/W_20_Grenade_Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Map_Parts/Blue_Spawner.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Map_Parts/Marks-Sheet.png" type="Texture" id=4]
+
+
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 25.0

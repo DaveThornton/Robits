@@ -20,9 +20,13 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_20x80-01.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Map_Parts/MP-52-Door-BG-Spawner.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Guns/Pick/W_51_Contradiction_S_Pick.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-02-Ak-47.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-11-Mega-Cannon.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Guns/Pick/W_11_Mega_Cannon_Pick.tscn" type="PackedScene" id=22]
 [ext_resource path="res://map/Campaign-mode/World_02/Map-C-W02-L01-Jungle.tscn" type="PackedScene" id=23]
+
+
+
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 30.0984

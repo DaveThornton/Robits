@@ -3,9 +3,11 @@
 [ext_resource path="res://Sprites/Guns/Weap-21-Nazi-Grenade.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Guns/Hold/W_21_Nazi_Grenade_Hold.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Guns/Weap-Pick-21-Nazi-Grenade.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Guns/Pick/W_21_Nazi_Grenade_Pick.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Projectiles/Shell-02-Pin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Explosions/Ex-10-Directional-Basic.tscn" type="PackedScene" id=6]
+
+
 
 [node name="W_20_Nazi_Grenade_Hold" type="Node2D"]
 script = ExtResource( 3 )
