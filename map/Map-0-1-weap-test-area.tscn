@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -42,6 +42,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_18_Cricket_Pick.tscn" type="PackedScene" id=40]
 [ext_resource path="res://Scenes/Guns/Pick/W_24_TNT_Pick.tscn" type="PackedScene" id=41]
 [ext_resource path="res://Scenes/Guns/Pick/W_25_Time_Bomb_Pick.tscn" type="PackedScene" id=42]
+[ext_resource path="res://Scenes/Guns/Pick/W_19-Rail_Gun_Pick.tscn" type="PackedScene" id=43]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -146,10 +147,10 @@ position = Vector2( 120, 829 )
 position = Vector2( 208.853, 430 )
 
 [node name="Weap-Pick-20-Grenade" parent="Power_Ups" instance=ExtResource( 11 )]
-position = Vector2( 200, 623.711 )
+position = Vector2( 192.829, 630.081 )
 
 [node name="Weap-Pick-21-Nazi-Grenade" parent="Power_Ups" instance=ExtResource( 12 )]
-position = Vector2( 62.6485, 619.711 )
+position = Vector2( 59.6485, 631.081 )
 
 [node name="Weap-Pick-22-Plasma-Grenade" parent="Power_Ups" instance=ExtResource( 13 )]
 position = Vector2( 199.829, 530 )
@@ -179,13 +180,13 @@ position = Vector2( 680, 832.212 )
 position = Vector2( 1500, 709 )
 
 [node name="W_65_Knife_Pick5" parent="Power_Ups" instance=ExtResource( 30 )]
-position = Vector2( 1620, 709 )
+position = Vector2( 1900, 621.711 )
 
 [node name="W_41_SPNKr_Pick" parent="Power_Ups" instance=ExtResource( 33 )]
 position = Vector2( 1350, 270 )
 
 [node name="W_65_Knife_Pick4" parent="Power_Ups" instance=ExtResource( 30 )]
-position = Vector2( 1570, 710 )
+position = Vector2( 1560, 190.516 )
 
 [node name="W_65_Knife_Pick" parent="Power_Ups" instance=ExtResource( 30 )]
 position = Vector2( 660, 950 )
@@ -203,10 +204,10 @@ position = Vector2( 290, 430 )
 position = Vector2( 371.975, 300 )
 
 [node name="W_65_Knife_Pick8" parent="Power_Ups" instance=ExtResource( 35 )]
-position = Vector2( 140, 613.711 )
+position = Vector2( 130, 631.081 )
 
 [node name="W_65_Knife_Pick9" parent="Power_Ups" instance=ExtResource( 35 )]
-position = Vector2( 1450, 705 )
+position = Vector2( 1460, 255 )
 
 [node name="W_65_Knife_Pick10" parent="Power_Ups" instance=ExtResource( 35 )]
 position = Vector2( 486, 832.212 )
@@ -218,7 +219,7 @@ position = Vector2( 780, 320 )
 position = Vector2( 1650, 710 )
 
 [node name="W_09_Magnum_Pick" parent="Power_Ups" instance=ExtResource( 14 )]
-position = Vector2( 140, 940 )
+position = Vector2( 281.073, 950 )
 
 [node name="W_56_BFG9000_Pick" parent="Power_Ups" instance=ExtResource( 32 )]
 position = Vector2( 590, 826 )
@@ -231,6 +232,9 @@ position = Vector2( 360, 945.903 )
 
 [node name="Weap-Pick-10-Blaster_Pistol2" parent="Power_Ups" instance=ExtResource( 37 )]
 position = Vector2( 319.073, 822 )
+
+[node name="Weap-Pick-03-Sniper2" parent="Power_Ups" instance=ExtResource( 43 )]
+position = Vector2( 570, 690 )
 
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
@@ -278,7 +282,7 @@ position = Vector2( 269.32, 835.226 )
 position = Vector2( 858.472, 350 )
 
 [node name="Weap-Pick-10-Blaster_Pistol" parent="." instance=ExtResource( 38 )]
-position = Vector2( 200, 698.196 )
+position = Vector2( 198, 713 )
 
 [node name="Weap-Pick-10-Blaster_Pistol2" parent="." instance=ExtResource( 38 )]
 position = Vector2( 797, 693 )
@@ -290,19 +294,25 @@ position = Vector2( 1030, 842 )
 position = Vector2( 408, 422.986 )
 
 [node name="W_24_TNT_Pick" parent="." instance=ExtResource( 41 )]
-position = Vector2( 300, 690 )
+position = Vector2( 550, 948 )
 
 [node name="W_24_TNT_Pick2" parent="." instance=ExtResource( 41 )]
-position = Vector2( 342, 690 )
+position = Vector2( 600, 946 )
 
 [node name="W_24_TNT_Pick3" parent="." instance=ExtResource( 41 )]
-position = Vector2( 389, 690 )
+position = Vector2( 468, 948 )
 
 [node name="W_24_TNT_Pick4" parent="." instance=ExtResource( 41 )]
-position = Vector2( 440, 690 )
+position = Vector2( 512, 948 )
 
 [node name="W_24_TNT_Pick5" parent="." instance=ExtResource( 41 )]
-position = Vector2( 495, 690 )
+position = Vector2( 436, 940 )
 
 [node name="W_24_TNT_Pick6" parent="." instance=ExtResource( 42 )]
-position = Vector2( 580, 700 )
+position = Vector2( 230, 709 )
+
+[node name="W_24_TNT_Pick8" parent="." instance=ExtResource( 42 )]
+position = Vector2( 682, 709.816 )
+
+[node name="W_24_TNT_Pick7" parent="." instance=ExtResource( 42 )]
+position = Vector2( 226.853, 630.081 )
