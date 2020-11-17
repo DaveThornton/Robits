@@ -31,8 +31,6 @@ smoke = ExtResource( 3 )
 
 [node name="Sprite_Body" type="Sprite" parent="."]
 texture = ExtResource( 5 )
-hframes = 2
-frame = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

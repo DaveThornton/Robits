@@ -98,7 +98,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 110.454
+radius = 110.5
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 70.0

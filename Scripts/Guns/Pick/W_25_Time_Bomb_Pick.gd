@@ -38,11 +38,11 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	player = _player
 	if _ammo == 0:
 		ammo = 0
-		label.visible = true
+#		label.visible = true
 		timer_boom.wait_time = _time
 		timer_boom.start()
 	else:
-		label.visible = false
+#		label.visible = false
 		timer.wait_time = expire_time
 		timer.start()
 
