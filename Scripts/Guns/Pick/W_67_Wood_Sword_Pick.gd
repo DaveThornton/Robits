@@ -5,10 +5,10 @@ onready var timer = $Timer
 onready var spin_timer = $Timer_Spin
 
 var owned = 1
-var my_name = "Hammer"
+var my_name = "Wood Sword"
 var damage_type = "Melee"
-var damage = 100
-var gun_num = 66
+var damage = 25
+var gun_num = 67
 var ammo = 0
 var time = .1
 var is_right = true
