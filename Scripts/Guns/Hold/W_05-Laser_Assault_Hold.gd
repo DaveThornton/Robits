@@ -1,6 +1,6 @@
 extends Node2D
 
-export(PackedScene) var ak47_Pickup
+export(PackedScene) var laser_pickup
 export(PackedScene) var projectile
 export(PackedScene) var shell
 
@@ -15,12 +15,12 @@ onready var pos_shell = $POS_Gun/POS/Shell
 onready var pos_throw = $POS_Gun/POS/Throw
 
 var player = 1
-var gun_num = 2
+var gun_num = 5
 var ammo = 30
 var ammo_max = 90
 var take_ammo = true
-var my_name = "AK-47"
-var dmg_type = "Bullet"
+var my_name = "Laser Assault Rifle"
+var dmg_type = "Laser"
 var damage = 21
 var can_shoot = true
 var just_shot = false
@@ -28,7 +28,7 @@ var shoot_pos = 3
 var change_shoot_pos = true
 var is_right = true
 var walk = 0.0
-var walk_amount = 8.0
+var walk_amount = 1.0
 var time = 4.0
 
 signal ammo_change(player, ammo)
@@ -36,7 +36,7 @@ signal ammo_change(player, ammo)
 func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 02 AK-47")
+		print("failed to connect ammo change in weap hold 02 Laser Assault")
 
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
@@ -73,11 +73,11 @@ func shoot():
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
 					_thing.hit(player, my_name, dmg_type, damage)
-					print("gun 02 shot happened but no projectile spawned hit anyways")
+					print("gun 05 shot happened but no projectile spawned hit anyways")
 				elif _thing.get_groups().has("map"):
-					print("gun 02 hitting wall not fireing projectile", _thing)
+					print("gun 05 hitting wall not fireing projectile", _thing)
 				else:
-					print("gun 02 dont know what im hitting but no projectile spawned")
+					print("gun 05 dont know what im hitting but no projectile spawned")
 			var s = shell.instance()
 			Map_Hand.add_kid_to_map(s)
 			s.position = pos_shell.global_position
@@ -114,7 +114,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting your self")
 
 func throw():
-	var t = ak47_Pickup.instance()
+	var t = laser_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
@@ -132,7 +132,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = ak47_Pickup.instance()
+	var t = laser_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

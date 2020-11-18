@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Map_Parts/MP-40-Distruct-Brick-Red-Brick.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Map_Parts/MP-15-Level_Change-01-Door.tscn" type="PackedScene" id=26]
 [ext_resource path="res://map/Map-0-1-BG-test-area.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Guns/Pick/W_08_Uzi_Pick.tscn" type="PackedScene" id=28]
@@ -230,7 +231,7 @@ position = Vector2( 360, 945.903 )
 position = Vector2( 319.073, 822 )
 
 [node name="Weap-Pick-03-Sniper2" parent="Power_Ups" instance=ExtResource( 43 )]
-position = Vector2( 570, 690 )
+position = Vector2( 568.013, 712.033 )
 
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
@@ -312,3 +313,6 @@ position = Vector2( 226.853, 630.081 )
 
 [node name="Weap-Pick-02-Ak-47" parent="." instance=ExtResource( 6 )]
 position = Vector2( 450, 680 )
+
+[node name="W_05_Laser_Assault_Pick" parent="." instance=ExtResource( 25 )]
+position = Vector2( 524, 712.033 )

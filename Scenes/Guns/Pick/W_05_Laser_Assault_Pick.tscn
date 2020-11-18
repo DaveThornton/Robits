@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_05_Laser_Assault_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Guns/W_02-AK47.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Guns/W_05_Laser_Assault.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 2.99997
-height = 12.0001
+radius = 4.49765
+height = 28.2225
 
 [node name="W_05_Laser_Assault_Pick" type="RigidBody2D" groups=[
 "FX",
@@ -22,14 +23,23 @@ continuous_cd = 1
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
+smoke = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0, 1, 0, 1 )
 texture = ExtResource( 3 )
-hframes = 2
+hframes = 8
+
+[node name="Sprite2" type="Sprite" parent="Sprite"]
+self_modulate = Color( 1, 0, 0, 1 )
+show_behind_parent = true
+texture = ExtResource( 3 )
+hframes = 8
+frame = 3
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
