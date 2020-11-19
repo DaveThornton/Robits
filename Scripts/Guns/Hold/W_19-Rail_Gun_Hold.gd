@@ -14,6 +14,7 @@ onready var pos_shell = $POS_Gun/POS/Shell
 onready var pos_throw = $POS_Gun/POS/Throw
 onready var beam = $POS_Gun/Gun_Sprite/Beam
 onready var beam_end =$POS_Gun/Gun_Sprite/Beam_End
+onready var partic = $POS_Gun/Gun_Sprite/CPUParticles2D
 
 var player = 1
 var pawn = 0
@@ -56,32 +57,14 @@ func _physics_process(delta):
 	else: 
 		beam_end.global_position = shoot_cast.cast_to
 	beam.region_rect.end.x = beam_end.position.length() * 7
-	if shoot_pressed:
+	if shoot_pressed && can_shoot:
 		shoot_pressed_time += delta
-	elif can_shoot && !beam.visible:
+	if can_shoot && !beam.visible:
 		beam.visible = true
 
 func shoot_j():
 	shoot_pressed = true
 	anim_fire.play("ChargeUp")
-#	if can_shoot:
-#		if melee_cast.is_colliding() && shoot_pos == 3:
-#			melee()
-#		elif ammo > 0:
-#			if !shoot_cast.is_colliding():
-#				print("shoot cast not colliding why gun 19")
-#			else: 
-#				var e = projectile.instance()
-#				Map_Hand.add_kid_to_map(e)
-#				e.init(player, shoot_cast.get_collision_point(), my_name, pawn, damage)
-#			anim_fire.play("Shoot")
-#			ammo = clamp(ammo - 1, 0, ammo_max)
-#			emit_signal("ammo_change",player,ammo)
-#			Player_Stats.add_shot(player, 1)
-#			just_shot = true
-#			SFX.play("Sniper_Shoot")
-#		else:
-#			SFX.play("Gun_Click")
 
 func shoot():
 	if shoot_pressed_time > 1 && shoot_pressed:

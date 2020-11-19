@@ -2,7 +2,7 @@ extends Node2D
 
 export(PackedScene) var laser_pickup
 export(PackedScene) var projectile
-export(PackedScene) var shell
+#export(PackedScene) var shell
 
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
@@ -13,6 +13,7 @@ onready var throw_cast = $POS_Gun/Raycast/Throw
 onready var pos_shoot = $POS_Gun/POS/Shoot
 onready var pos_shell = $POS_Gun/POS/Shell
 onready var pos_throw = $POS_Gun/POS/Throw
+onready var particles = $POS_Gun/Gun_Sprite/CPUParticles2D
 
 var player = 1
 var gun_num = 5
@@ -57,6 +58,7 @@ func shoot():
 		if melee_cast.is_colliding() && shoot_pos == 3:
 			melee()
 		elif ammo > 0:
+#			particles.emitting = true
 			if !shoot_cast.is_colliding():
 				var new_projectile = projectile.instance()
 				Map_Hand.add_kid_to_map(new_projectile)
@@ -78,10 +80,10 @@ func shoot():
 					print("gun 05 hitting wall not fireing projectile", _thing)
 				else:
 					print("gun 05 dont know what im hitting but no projectile spawned")
-			var s = shell.instance()
-			Map_Hand.add_kid_to_map(s)
-			s.position = pos_shell.global_position
-			s.rotation = pos_shell.global_rotation
+#			var s = shell.instance()
+#			Map_Hand.add_kid_to_map(s)
+#			s.position = pos_shell.global_position
+#			s.rotation = pos_shell.global_rotation
 			walk += walk_amount
 			can_shoot = false
 			shoot_timer.start()
@@ -89,14 +91,16 @@ func shoot():
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
-			SFX.play("AK_Shoot")
+			SFX.play("Laser_Shoot")
 		else:
+#			particles.emitting = false
 			anim_fire.play("Click")
 			can_shoot = false
 			shoot_timer.start()
-			SFX.play("Gun_Click")
+			SFX.play("Laser_Empty")
 
 func shoot_r():
+#	particles.emitting = false
 	pass
 
 func melee():

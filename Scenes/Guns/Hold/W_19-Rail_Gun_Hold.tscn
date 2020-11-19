@@ -1,11 +1,16 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Guns/Hold/W_19-Rail_Gun_Hold.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Explosions/Ex-19-Rail_Gun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_19_Rail_Gun.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Guns/Pick/W_19-Rail_Gun_Pick.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/FX/FX-19-Laser_Beam.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/FX/FX-23-plasma-cloud.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/FX/FX-19-Laser_Beam_End.png" type="Texture" id=7]
+
+[sub_resource type="Curve" id=7]
+max_value = 2.0
+_data = [ Vector2( 0.0208333, 0.993182 ), 0.0, 0.0, 0, 0, Vector2( 0.5, 1.28409 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 14.0
@@ -36,6 +41,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("POS_Gun/Gun_Sprite/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Chargedown"
@@ -63,6 +80,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("POS_Gun/Gun_Sprite/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -259,6 +288,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("POS_Gun/Gun_Sprite/CPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.275, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
 
 [node name="W_19-Rail_Gun_Hold" type="Node2D"]
 script = ExtResource( 1 )
@@ -276,16 +317,20 @@ wait_time = 0.5
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
 position = Vector2( 12, -2 )
 texture = ExtResource( 3 )
+offset = Vector2( 0, 2 )
 hframes = 5
 
 [node name="Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
 modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0 )
 show_behind_parent = true
 texture = ExtResource( 3 )
+offset = Vector2( 0, 2 )
 hframes = 5
-frame = 2
+frame = 4
 
 [node name="Beam" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+visible = false
 self_modulate = Color( 1, 0, 0, 0.294118 )
 show_behind_parent = true
 position = Vector2( -1, 0 )
@@ -301,8 +346,20 @@ region_rect = Rect2( 1, 1, 1080, 4 )
 visible = false
 
 [node name="Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite/Beam_End"]
+visible = false
 self_modulate = Color( 1, 0, 0, 0.521569 )
 texture = ExtResource( 7 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="POS_Gun/Gun_Sprite"]
+position = Vector2( 8, 0 )
+emitting = false
+amount = 1
+lifetime = 2.0
+local_coords = false
+texture = ExtResource( 6 )
+gravity = Vector2( -5, -10 )
+scale_amount_curve = SubResource( 7 )
+color = Color( 1, 0, 0, 0.376471 )
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 visible = false
