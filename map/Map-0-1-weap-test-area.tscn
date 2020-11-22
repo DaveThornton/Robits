@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -44,6 +44,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_25_Time_Bomb_Pick.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Scenes/Guns/Pick/W_19-Rail_Gun_Pick.tscn" type="PackedScene" id=43]
 [ext_resource path="res://Scenes/Guns/Pick/W_67_Wood_Sword_Pick.tscn" type="PackedScene" id=44]
+[ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=45]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -107,7 +108,7 @@ tile_data = PoolIntArray( 589829, 536870913, 0, 655365, 536870912, 0, 720901, 53
 position = Vector2( 130, 591.711 )
 
 [node name="Position2D2" type="Position2D" parent="Player_spawns"]
-position = Vector2( 371.975, 690 )
+position = Vector2( 329.073, 685 )
 
 [node name="Position2D3" type="Position2D" parent="Player_spawns"]
 position = Vector2( 1860, 600 )
@@ -235,7 +236,7 @@ position = Vector2( 319.073, 822 )
 position = Vector2( 568.013, 712.033 )
 
 [node name="W_66_Hammer_Pick" parent="Power_Ups/Weap-Pick-03-Sniper2" instance=ExtResource( 44 )]
-position = Vector2( -164.874, -11.1506 )
+position = Vector2( 399.987, -186.033 )
 
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
@@ -316,7 +317,10 @@ position = Vector2( 682, 709.816 )
 position = Vector2( 226.853, 630.081 )
 
 [node name="Weap-Pick-02-Ak-47" parent="." instance=ExtResource( 6 )]
-position = Vector2( 450, 680 )
+position = Vector2( 1039.29, 287 )
 
 [node name="W_05_Laser_Assault_Pick" parent="." instance=ExtResource( 25 )]
 position = Vector2( 612, 710 )
+
+[node name="W_06_Atom_Rifle_Pick" parent="." instance=ExtResource( 45 )]
+position = Vector2( 425.284, 675.292 )

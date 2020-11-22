@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Guns/Pick/W_06_Atom_Rifle_Pick.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Guns/W_06_Atom_Rifle.png" type="Texture" id=3]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.2
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 6.0
+height = 18.0
+
+[node name="W_06_Atom_Rifle_Pick" type="RigidBody2D" groups=[
+"FX",
+"PickUp",
+]]
+collision_layer = 524288
+collision_mask = 917534
+mass = 0.612245
+physics_material_override = SubResource( 1 )
+gravity_scale = 6.0
+continuous_cd = 2
+contacts_reported = 9
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 1 )
+smoke = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+hframes = 6
+
+[node name="Sprite2" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+hframes = 6
+frame = 1
+
+[node name="Sprite3" type="Sprite" parent="."]
+modulate = Color( 0, 0.439216, 0.772549, 1 )
+texture = ExtResource( 3 )
+hframes = 24
+frame = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+rotation = 1.5708
+shape = SubResource( 2 )
+one_way_collision_margin = 0.0
+
+[node name="Timer_Hit" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="body_shape_entered" from="." to="." method="_on_WeapPick10Blaster_Pistol_body_shape_entered"]
+[connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
