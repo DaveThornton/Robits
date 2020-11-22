@@ -46,7 +46,7 @@ modulate = Color( 0, 1, 0.972549, 1 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 42
-frame = 41
+frame = 35
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.25

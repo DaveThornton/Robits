@@ -440,6 +440,7 @@ func _is_on_floor():
 func stun(_gun_num):
 	stun_timer.start()
 	can_move = false
+	on_ladder = false
 	_anim_stun()
 	let_go()
 

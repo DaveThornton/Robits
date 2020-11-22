@@ -413,6 +413,7 @@ func _is_on_floor():
 func stun(_gun_num):
 	stun_timer.start()
 	can_move = false
+	on_ladder = false
 	_anim_stun()
 	let_go()
 
@@ -593,11 +594,13 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 
 func _anim_idle():
 	new_anim = "Stand"
+	head.play("On")
 	_body(1)
 	legs_right(is_right)
 
 func _anim_run():
 	new_anim = "Run"
+	head.play("On")
 	_body(1)
 	legs_right(is_right)
 
@@ -606,6 +609,7 @@ func _anim_jump():
 		new_anim = "Jump"
 	elif vel.y > 0:
 		new_anim = "Fall"
+	head.play("Flash")
 	_body(1)
 	legs_right(is_right)
 
@@ -615,6 +619,7 @@ func _anim_prone_idle():
 		new_anim = "Prone-Right-Idle"
 	else:
 		new_anim = "Prone-Left-Idle"
+	head.play("On")
 
 func _anim_prone_crawl():
 	_body(2)
@@ -622,15 +627,17 @@ func _anim_prone_crawl():
 		new_anim = "Crawl-Right"
 	else:
 		new_anim = "Crawl-Left"
+	head.play("On")
 
 func _anim_stun():
 	print("make stun animation pawn 01")
 	if is_right:
 		_body(1)
-		new_anim = "Right"
+		new_anim = "Stun-Right"
 	else:
 		_body(1)
-		new_anim = "Left"
+		new_anim = "Stun-Left"
+	head.play("Stun")
 
 func _anim_Knock():
 	print("make Knock back animation pawn 01")
@@ -640,23 +647,27 @@ func _anim_Knock():
 	else:
 		_body(1)
 		new_anim = "Left"
+	head.play("Stun")
 
 func _anim_ladder_move():
 	print("make ladder animation pawn 01")
 	_body(1)
 	new_anim = "Ladder_Move"
+	head.play("Up")
 
 func _anim_ladder_right():
 #	print("make ladder animation pawn 01")
 	_body(1)
 #	hip.stop()
 	new_anim = "Ladder_Right"
+	head.play("On")
 
 func _anim_ladder_left():
 #	print("make ladder animation pawn 01")
 	_body(1)
 #	hip.stop()
 	new_anim = "Ladder_Left"
+	head.play("On")
 
 func _set_gun_dir():
 	arm.is_right(is_right)

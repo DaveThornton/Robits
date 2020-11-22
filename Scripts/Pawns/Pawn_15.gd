@@ -424,6 +424,7 @@ func stun(_gun_num):
 	print("stun")
 	stun_timer.start()
 	can_move = false
+	on_ladder = false
 	_anim_stun()
 	let_go()
 

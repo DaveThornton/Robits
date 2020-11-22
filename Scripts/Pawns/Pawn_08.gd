@@ -469,6 +469,7 @@ func _is_on_wall():
 func stun(_gun_num):
 	stun_timer.start()
 	can_move = false
+	on_ladder = false
 	_anim_stun()
 	let_go()
 

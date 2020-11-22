@@ -280,8 +280,9 @@ func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 
 func let_go():
 	if is_holding == true:
-		take_ammo = false
 		is_holding = false
+		hold_weap(false)
+		take_ammo = false
 		my_gun.drop()
 		my_gun = null
 
@@ -297,8 +298,9 @@ func pick_up():
 
 func no_gun():
 	if is_holding == true:
-		take_ammo = false
 		is_holding = false
+		take_ammo = false
+		hold_weap(false)
 		my_gun = null
 
 ##-----------------------------------------------------------------------[Equip]
@@ -404,6 +406,7 @@ func _is_on_floor():
 func stun(_gun_num):
 	stun_timer.start()
 	can_move = false
+	on_ladder = false
 	_anim_stun()
 	let_go()
 
@@ -622,10 +625,12 @@ func _anim_prone_crawl():
 
 func _anim_stun():
 	print("make stun animation pawn 02")
+	_body(1)
 	if is_right:
-		_body(1)
+		new_anim = "Stun_Right"
 	else:
-		_body(1)
+		new_anim = "Stun_Left"
+#	head.stun()
 
 func _anim_Knock():
 	print("make Knock back animation pawn 02")
@@ -711,8 +716,10 @@ func _set_gun_dir():
 	if on_ladder:
 		head.ladder()
 		head.rotation_degrees = 90
-	else:
+	if can_move:
 		head.is_right(is_right)
+	else:
+		head.stun()
 
 func _body(_num: int):
 	call_deferred("_body_",_num)
@@ -763,12 +770,13 @@ func hold_weap(_hold:bool):
 		legff.visible = true
 
 func legs_walk(_right:bool):
-	legff.walk(_right)
-	legfb.walk(_right)
-	legmf.walk(_right)
-	legmb.walk(_right)
-	legbf.walk(_right)
-	legbb.walk(_right)
+	if can_move:
+		legff.walk(_right)
+		legfb.walk(_right)
+		legmf.walk(_right)
+		legmb.walk(_right)
+		legbf.walk(_right)
+		legbb.walk(_right)
 
 func legs_stop():
 	legff.stop()

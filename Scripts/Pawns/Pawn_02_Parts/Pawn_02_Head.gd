@@ -33,6 +33,9 @@ func ladder():
 #		eye.frame = 2
 #		mouth.frame = 2
 
+func stun():
+	anim_face.play("Stun")
+
 func shield_up():
 	shield.visible = true
 	

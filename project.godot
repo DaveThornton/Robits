@@ -38,7 +38,6 @@ High_Score="*res://Scenes/Misc/Singleton_Scores.tscn"
 [debug]
 
 settings/fps/force_fps=120
-settings/stdout/print_fps=true
 
 [display]
 
@@ -669,6 +668,6 @@ quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
 threads/thread_model=2
 quality/reflections/high_quality_ggx=false
-environment/default_clear_color=Color( 1, 1, 1, 1 )
+environment/default_clear_color=Color( 1, 0, 0.984314, 1 )
 quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"
