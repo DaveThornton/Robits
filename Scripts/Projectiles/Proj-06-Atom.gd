@@ -43,10 +43,10 @@ func _physics_process(delta):
 			call_deferred("free")
 	move_local_x(speed * delta)
 	
-func _on_Projectile_area_entered(area):
-	entered(area)
-func _on_Projectile_body_entered(body):
-	entered(body)
+#func _on_Projectile_area_entered(area):
+#	entered(area)
+#func _on_Projectile_body_entered(body):
+#	entered(body)
 
 func entered(body):
 	if body.get_groups().has("hittable"):

@@ -638,6 +638,7 @@ func _anim_prone_crawl():
 		_body(4)
 
 func _anim_stun():
+	anim.play("Stun")
 	if is_right:
 		body_state = 3
 		_body(1)

@@ -601,6 +601,7 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 func _anim_idle():
 	_body(1)
 	hover.rotation_degrees = 0
+	head.play_face("On")
 	new_anim = "Up"
 	_rays_stand()
 	hover.play("Idle")
@@ -611,6 +612,7 @@ func _anim_idle():
 
 func _anim_run():
 	_body(1)
+	head.play_face("On")
 	new_anim = "Up"
 	_rays_stand()
 	hover.play("Idle")
@@ -624,6 +626,7 @@ func _anim_run():
 func _anim_jump():
 #	print("pawn 04 jump")
 	_body(1)
+	head.play_face("Flash")
 	new_anim = "Up"
 	_rays_stand()
 	if vel.y > 1:
@@ -640,6 +643,7 @@ func _anim_prone_idle():
 	_body(2)
 	_rays_prone()
 	hover.rotation_degrees = 0
+	head.play_face("On")
 	new_anim = "Prone"
 	hover.play("Off")
 	if is_right:
@@ -650,6 +654,7 @@ func _anim_prone_idle():
 func _anim_prone_crawl():
 	_body(2)
 	_rays_prone()
+	head.play_face("Flash")
 	new_anim = "Prone"
 	hover.play("Off")
 	if is_right:
@@ -661,7 +666,8 @@ func _anim_prone_crawl():
 
 func _anim_stun():
 	_body(1)
-	new_anim = "Up"
+	head.play_face("Stun")
+	new_anim = "Stun"
 	_rays_stand()
 	print("make stun anim for pawn 04")
 	head.play_face("Stun")
@@ -685,6 +691,7 @@ func _anim_Knock():
 func _anim_ladder_move():
 	_body(1)
 	_rays_stand()
+	head.play_face("On")
 	hover.play("Off")
 	print("make ladder anim for pawn 04")
 	new_anim = "Up"
@@ -694,6 +701,7 @@ func _anim_ladder_move():
 func _anim_ladder_right():
 	_body(1)
 	_rays_stand()
+	head.play_face("On")
 	hover.play("Off")
 	print("make ladder anim for pawn 04")
 	new_anim = "Up"
@@ -702,6 +710,7 @@ func _anim_ladder_right():
 func _anim_ladder_left():
 	_body(1)
 	_rays_stand()
+	head.play_face("On")
 	hover.play("Off")
 	print("make ladder anim for pawn 04")
 	new_anim = "Up"

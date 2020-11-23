@@ -52,12 +52,11 @@ frame = 35
 wait_time = 0.25
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -20.1753, 0 )
 enabled = true
-cast_to = Vector2( 30, 0 )
+cast_to = Vector2( 45, 0 )
 collision_mask = 778
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )
-[connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
