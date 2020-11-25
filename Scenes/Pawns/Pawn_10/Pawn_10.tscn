@@ -728,7 +728,6 @@ tracks/7/keys = {
 }
 
 [sub_resource type="Animation" id=12]
-length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_10_Part_Body:position")
 tracks/0/interp = 0
@@ -736,7 +735,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"times": PoolRealArray( 0, 0.1, 0.5, 0.8, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
@@ -748,10 +747,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 25.0, 0.0 ]
+"values": [ 22.4, 44.8, -32.4, 0.0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Pawn_10_Part_Body:scale")
@@ -772,7 +771,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"times": PoolRealArray( 0, 0.1, 0.5, 0.8, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, -33 ), Vector2( 0, -35 ), Vector2( 0, -33 ), Vector2( 0, -31 ), Vector2( 0, -33 ) ]
@@ -784,10 +783,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 20.0, 0.0 ]
+"values": [ 20.0, 37.6, -45.2, 0.0 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Pawn_10_Part_Body/POS_Arm:position")
@@ -808,10 +807,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ -60.0, 0.0 ]
+"values": [ -60.0, 123.6, 0.0 ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("Pawn_10_Part_Body:frame")
@@ -1358,14 +1357,6 @@ enabled = true
 cast_to = Vector2( 0, -10 )
 collision_mask = 8
 
-[node name="Shield_Sprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( -6.77626e-21, -17 )
-scale = Vector2( 1.25, 1.25 )
-texture = ExtResource( 5 )
-hframes = 3
-frame = 2
-
 [node name="Pawn_10_Part_Wheel" parent="." instance=ExtResource( 2 )]
 
 [node name="Pawn_10_Part_Body" type="Sprite" parent="."]
@@ -1385,6 +1376,14 @@ position = Vector2( 0, -8 )
 position = Vector2( 0, -28 )
 
 [node name="Pawn_10_Part_Arm" parent="Pawn_10_Part_Body/POS_Arm" instance=ExtResource( 3 )]
+
+[node name="Shield_Sprite" type="Sprite" parent="Pawn_10_Part_Body"]
+visible = false
+position = Vector2( -6.77626e-21, -17 )
+scale = Vector2( 1.25, 1.25 )
+texture = ExtResource( 5 )
+hframes = 4
+frame = 2
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -21 )

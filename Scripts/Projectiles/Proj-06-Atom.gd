@@ -33,7 +33,7 @@ func _physics_process(delta):
 			cast.get_collider().stun(6)
 			cast.get_collider().hit(owned, my_name, damage_type, damage)
 			call_deferred("free")
-		if cast.get_collider().get_groups().has("hittable"):
+		elif cast.get_collider().get_groups().has("hittable"):
 			Player_Stats.add_hit(owned, 1)
 			_hit_move(cast.get_collision_point())
 			cast.get_collider().hit(owned, my_name, damage_type, damage)

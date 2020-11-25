@@ -16,7 +16,7 @@ onready var arm_pos = $Pawn_10_Part_Body/POS_Arm
 onready var wheel = $Pawn_10_Part_Wheel
 
 onready var body_sprite = $Pawn_10_Part_Body
-onready var shield_sprite = $Shield_Sprite
+onready var shield_sprite = $Pawn_10_Part_Body/Shield_Sprite
 
 onready var knockback_timer = $Timers/Knock_Back
 onready var shield_hit_timer = $Timers/Shield_Hit
@@ -390,6 +390,7 @@ func nrg_update():
 func put_shield_up(_how_long):
 	is_shield_up = true
 	shield_sprite.visible = true
+	head.shield_up() 
 	if _how_long <= 0:
 		shield_up_timer.wait_time = 10
 	else:
@@ -596,7 +597,7 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 func _anim_idle():
 	_body(1)
 	wheel.stop()
-#	key.stop()
+	head.play("Idle")
 	if is_right:
 #		arm.scale.x = 1
 #		head.scale.x = 1
@@ -607,32 +608,30 @@ func _anim_idle():
 		new_anim = "Left-Idle"
 
 func _anim_run():
+	head.play("Idle")
 	if is_right:
 		new_anim = "Right-Run"
 		wheel.turn(true)
-#		key.turn(true)
 		_body(3)
 	else:
 		new_anim = "Left-Run"
 		wheel.turn(false)
-#		key.turn(false)
 		_body(2)
 
 func _anim_jump():
+	head.play("Idle")
 	if is_right:
 		new_anim = "Right-Run"
 		wheel.turn(true)
-#		key.turn(true)
 		_body(1)
 	else:
 		new_anim = "Left-Run"
 		wheel.turn(false)
-#		key.turn(false)
 		_body(1)
 
 func _anim_prone_idle():
+	head.play("Idle")
 	wheel.stop()
-#	key.stop()
 	if is_right:
 		_body(5)
 		new_anim = "Right-Prone-Idle"
@@ -641,7 +640,7 @@ func _anim_prone_idle():
 		_body(4)
 
 func _anim_prone_crawl():
-#	_body(4)
+	head.play("Idle")
 	if is_right:
 		new_anim = "Right-Prone-Crawl"
 		wheel.turn(true)
@@ -655,13 +654,15 @@ func _anim_prone_crawl():
 
 func _anim_stun():
 	_body(1)
+	head.play("Stun")
 	if is_right:
-		new_anim = "Right-Stun"
+		new_anim = "Left-Stun"
 	else:
 		new_anim = "Left-Stun"
 
 func _anim_Knock():
 	_body(1)
+	head.play("Idle")
 	if is_right:
 		new_anim = "Right-Knock_Back"
 	else:
@@ -669,18 +670,21 @@ func _anim_Knock():
 
 func _anim_ladder_move():
 	_body(1)
+	head.play("Idle")
 	new_anim = "Ladder-Move"
 	wheel.ladder()
 #	key.ladder()
 
 func _anim_ladder_right():
 	_body(1)
+	head.play("Idle")
 	new_anim = "Ladder-Right"
 	wheel.ladder()
 #	key.ladder()
 
 func _anim_ladder_left():
 	_body(1)
+	head.play("Idle")
 	new_anim = "Ladder-Left"
 	wheel.ladder()
 #	key.ladder()
@@ -771,6 +775,7 @@ func shieldhittimer():
 
 func shielduptimer():
 	shield_sprite.visible = false
+	head.shield_down()
 	is_shield_up = false
 
 func speedtimer():

@@ -80,10 +80,6 @@ func shoot():
 					print("gun 05 hitting wall not fireing projectile", _thing)
 				else:
 					print("gun 05 dont know what im hitting but no projectile spawned")
-#			var s = shell.instance()
-#			Map_Hand.add_kid_to_map(s)
-#			s.position = pos_shell.global_position
-#			s.rotation = pos_shell.global_rotation
 			walk += walk_amount
 			can_shoot = false
 			shoot_timer.start()
@@ -93,14 +89,12 @@ func shoot():
 			Player_Stats.add_shot(player, 1)
 			SFX.play("Laser_Shoot")
 		else:
-#			particles.emitting = false
 			anim_fire.play("Click")
 			can_shoot = false
 			shoot_timer.start()
 			SFX.play("Laser_Empty")
 
 func shoot_r():
-#	particles.emitting = false
 	pass
 
 func melee():
