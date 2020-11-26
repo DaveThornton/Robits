@@ -4,6 +4,9 @@ onready var head = $Head
 onready var face = $Face
 onready var shield = $Shield
 
+var up = false
+var stunned = false
+
 func face_on(_face:bool):
 	if _face:
 		face.frame = 0
@@ -11,10 +14,23 @@ func face_on(_face:bool):
 		face.frame = 1
 
 func is_right(_right: bool):
+	if up:
+		face.frame = 2
+	else:
+		if !stunned:
+			face.frame = 0
+		else:
+			face.frame = 1
 	if _right == true:
 		face.scale.x = 1
 	else:
 		face.scale.x = -1
+
+func stun(_stun):
+	stunned = _stun
+
+func up(_up):
+	up = _up
 
 func shield_up():
 	shield.visible = true

@@ -555,10 +555,13 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 
 func _anim_idle():
 	_body(1)
+	head.up(false)
 	trax.stop()
 	new_anim = "Idle"
 
 func _anim_run():
+	_body(1)
+	head.up(false)
 	new_anim = "Idle"
 	if is_right:
 		trax.turn(true)
@@ -568,6 +571,8 @@ func _anim_run():
 		_body(1)
 
 func _anim_jump():
+	_body(1)
+	head.up(false)
 	new_anim = "Idle"
 	if is_right:
 		trax.turn(true)
@@ -577,12 +582,14 @@ func _anim_jump():
 		_body(1)
 
 func _anim_prone_idle():
+	head.up(false)
 	new_anim = "Prone"
 	_body(2)
 	trax.stop()
 
 func _anim_prone_crawl():
 	new_anim = "Prone"
+	head.up(false)
 	_body(2)
 	if is_right:
 		trax.turn(true)
@@ -590,26 +597,32 @@ func _anim_prone_crawl():
 		trax.turn(false)
 
 func _anim_stun():
-	new_anim = "Idle"
 	_body(1)
+	head.up(false)
+	head.stun(true)
+	new_anim = "Stun"
 
 func _anim_Knock():
-	new_anim = "Idle"
 	_body(1)
+	head.up(false)
+	new_anim = "Idle"
 
 func _anim_ladder_move():
-	new_anim = "Idle"
 	_body(1)
+	head.up(true)
+	new_anim = "Idle"
 	trax.ladder()
 
 func _anim_ladder_right():
-	new_anim = "Idle"
 	_body(1)
+	head.up(true)
+	new_anim = "Idle"
 	trax.ladder()
 
 func _anim_ladder_left():
-	new_anim = "Idle"
 	_body(1)
+	head.up(true)
+	new_anim = "Idle"
 	trax.ladder()
 
 func _set_gun_dir():
@@ -690,6 +703,7 @@ func nrguptimer():
 	nrg_regen_max = nrg_default_regen_max
 
 func stuntimer():
+	head.stun(false)
 	can_move = true
 
 func knockbacktimer():

@@ -189,7 +189,7 @@ hframes = 6
 frame = 3
 
 [node name="Tank" type="Sprite" parent="POS_Gun/Gun_Sprite"]
-self_modulate = Color( 0, 0.299829, 1, 1 )
+self_modulate = Color( 0, 0.381291, 1, 1 )
 texture = ExtResource( 1 )
 hframes = 24
 frame = 9
