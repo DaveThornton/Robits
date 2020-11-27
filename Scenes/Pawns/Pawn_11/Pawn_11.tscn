@@ -10,8 +10,8 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_11/Parts/Pawn_11_Part_Arm.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 13.0
-height = 18.0
+radius = 20.0
+height = 4.0
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 23.0
@@ -996,7 +996,6 @@ position = Vector2( 0, 17 )
 [node name="Shield" type="Sprite" parent="Robit_11"]
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
 
 [node name="Shape_Prone" type="CollisionShape2D" parent="."]

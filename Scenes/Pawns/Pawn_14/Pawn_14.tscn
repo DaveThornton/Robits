@@ -9,8 +9,8 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_07/Parts/Pawn_07_Part_Fire.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 21.0
-height = 14.0
+radius = 20.0
+height = 16.0
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 21.0
@@ -295,7 +295,6 @@ show_behind_parent = true
 position = Vector2( 0, 31 )
 
 [node name="CollisionShape2D_Stand" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Prone" type="CollisionShape2D" parent="."]

@@ -214,30 +214,21 @@ func move_x(_moving, _right):
 
 ##------------------------------------------------------------------------[Jump]
 func jump(down_input, left_input, right_input):
-	if down_input && on_floor && !left_input && !right_input:
-		SFX.play("Move_Jump_08")
-		vel.y += 1.5
-		self.position.y += 1.5
+	if can_move:
+		if down_input && on_floor && !left_input && !right_input:
+			SFX.play("Move_Jump_08")
+			vel.y += 1.5
+			self.position.y += 1.5
 
 func jump_j(_down_input, _left_input, _right_input):
-#	print(is_down)
-	if is_down && on_floor:
-		pass
-	elif !is_jump_pressed && on_floor && !is_down:# && !down_input:
-		SFX.play("Move_Jump_01")
-		vel.y = -max_jump_power * jump_power_up
-#	elif !on_floor && air_jump_count == 0 && !is_down:
-#		air_jump_count += 1
-#		print(air_jump_count)
-#		SFX.play("Move_Jump_01")
-#		vel.y = -max_air_jump_power * jump_power_up
-#	elif !on_floor && air_jump_count == 1 && !is_down:
-#		air_jump_count += 1
-#		print(air_jump_count)
-#		SFX.play("Move_Jump_01")
-#		vel.y = -max_jump_power * jump_power_up
-	is_jump_pressed = true
-	on_ladder = false
+	if can_move:
+		if is_down && on_floor:
+			pass
+		elif !is_jump_pressed && on_floor && !is_down:# && !down_input:
+			SFX.play("Move_Jump_01")
+			vel.y = -max_jump_power * jump_power_up
+		is_jump_pressed = true
+		on_ladder = false
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:

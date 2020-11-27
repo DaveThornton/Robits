@@ -1563,7 +1563,7 @@ tracks/16/keys = {
 }
 
 [sub_resource type="Animation" id=11]
-resource_name = "Leftt-Stun"
+resource_name = "Left-Stun"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pawn_12_Part_Body:position")
 tracks/0/interp = 1
@@ -3615,6 +3615,7 @@ frame = 8
 
 [node name="Pawn_12_Part_Legs_B" type="Sprite" parent="."]
 position = Vector2( 1, 6 )
+scale = Vector2( -1, 1 )
 texture = ExtResource( 4 )
 offset = Vector2( 0, 10 )
 hframes = 31
@@ -3635,6 +3636,7 @@ position = Vector2( 1, -7 )
 
 [node name="Pawn_12_Part_Legs_F" type="Sprite" parent="."]
 position = Vector2( 0, 6 )
+scale = Vector2( -1, 1 )
 texture = ExtResource( 6 )
 offset = Vector2( 0, 10 )
 hframes = 31
@@ -3652,7 +3654,7 @@ anims/Left-Jump-2 = SubResource( 7 )
 anims/Left-Prone-Crawl = SubResource( 8 )
 anims/Left-Prone-Idle = SubResource( 9 )
 anims/Left-Run = SubResource( 10 )
-anims/Leftt-Stun = SubResource( 11 )
+anims/Left-Stun = SubResource( 11 )
 anims/Right-Idle = SubResource( 12 )
 anims/Right-Jump-1 = SubResource( 13 )
 anims/Right-Jump-2 = SubResource( 14 )

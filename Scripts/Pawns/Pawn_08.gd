@@ -239,36 +239,38 @@ func move_x(_moving, _right):
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
 func jump(down_input, left_input, right_input):
-	if down_input && on_floor && !left_input && !right_input:
-		SFX.play("Move_Jump_08")
-		vel.y += 1.5
-		self.position.y += 1.5
-	elif !is_jump_pressed && on_floor:# && !down_input:
-		SFX.play("Move_Jump_01")
-		vel.y = -max_jump_power * jump_power_up
-	is_jump_pressed = true
-	on_ladder = false
+	if can_move:
+		if down_input && on_floor && !left_input && !right_input:
+			SFX.play("Move_Jump_08")
+			vel.y += 1.5
+			self.position.y += 1.5
+		elif !is_jump_pressed && on_floor:# && !down_input:
+			SFX.play("Move_Jump_01")
+			vel.y = -max_jump_power * jump_power_up
+		is_jump_pressed = true
+		on_ladder = false
 
 # Wall Jump can jump
 # -1 = left -- 1 = right -- 0 = both
 func jump_j(_down_input, _left_input, _right_input):
-	print(on_wall)
-	if on_wall == 0:
-		return
-	elif on_wall < 0:
-		vel.y = -max_air_jump_power * jump_power_up
-		jump_dir = 250.0
-		last_jump = 1
-		SFX.play("Move_Jump_05")
-		is_right = true
-		return
-	elif on_wall > 0:
-		vel.y = -max_air_jump_power * jump_power_up
-		jump_dir = -250.0
-		last_jump = -1
-		SFX.play("Move_Jump_05")
-		is_right = false
-		return
+	if can_move:
+		print(on_wall)
+		if on_wall == 0:
+			return
+		elif on_wall < 0:
+			vel.y = -max_air_jump_power * jump_power_up
+			jump_dir = 250.0
+			last_jump = 1
+			SFX.play("Move_Jump_05")
+			is_right = true
+			return
+		elif on_wall > 0:
+			vel.y = -max_air_jump_power * jump_power_up
+			jump_dir = -250.0
+			last_jump = -1
+			SFX.play("Move_Jump_05")
+			is_right = false
+			return
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:

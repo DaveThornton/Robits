@@ -236,27 +236,28 @@ func move_x(_moving, _right):
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
 func jump(down_input, left_input, right_input):
-	if down_input && on_floor && !left_input && !right_input:
-		SFX.play("Move_Jump_08")
-		vel.y += 1.5
-		self.position.y += 1.5
-	elif is_jump_pressed && air_jump_count == 0:
-		if self.position.y <= jump_top_pos && !jump_top:
-			jump_top = true
-			jump_timer.start()
-		if jump_top:
-			vel.y = 0
-#			print("airjumping pawn 07")
-	elif !is_jump_pressed && on_floor:# && !down_input:
-		SFX.play("Move_Jump_01")
-		jump_top_pos = self.position.y - 30
-		vel.y = -max_jump_power * jump_power_up
-	elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
-		SFX.play("Move_Jump_05")
-		vel.y = -max_air_jump_power * jump_power_up
-		air_jump_count += 1
-	is_jump_pressed = true
-	on_ladder = false
+	if can_move:
+		if down_input && on_floor && !left_input && !right_input:
+			SFX.play("Move_Jump_08")
+			vel.y += 1.5
+			self.position.y += 1.5
+		elif is_jump_pressed && air_jump_count == 0:
+			if self.position.y <= jump_top_pos && !jump_top:
+				jump_top = true
+				jump_timer.start()
+			if jump_top:
+				vel.y = 0
+	#			print("airjumping pawn 07")
+		elif !is_jump_pressed && on_floor:# && !down_input:
+			SFX.play("Move_Jump_01")
+			jump_top_pos = self.position.y - 30
+			vel.y = -max_jump_power * jump_power_up
+		elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
+			SFX.play("Move_Jump_05")
+			vel.y = -max_air_jump_power * jump_power_up
+			air_jump_count += 1
+		is_jump_pressed = true
+		on_ladder = false
 
 func jump_j(_down_input, _left_input, _right_input):
 	pass

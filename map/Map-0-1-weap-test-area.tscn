@@ -324,3 +324,6 @@ position = Vector2( 612, 710 )
 
 [node name="W_06_Atom_Rifle_Pick" parent="." instance=ExtResource( 45 )]
 position = Vector2( 425.284, 675.292 )
+
+[node name="Weap-Pick-10-Blaster_Pistol3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 504.017, 644.026 )

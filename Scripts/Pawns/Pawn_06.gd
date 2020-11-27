@@ -234,31 +234,32 @@ func move_x(_moving, _right):
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
 func jump(down_input, left_input, right_input):
-	if down_input && ray_down_p.is_colliding() && !left_input && !right_input:
-		SFX.play("Move_Jump_08")
-		var thing1 = ray_down_p.get_collider()
-#		print(thing1)
-		if thing1:
-			if thing1.get_groups().has("map"):
-				pass
-			else:
-				vel.y += terminal_vel / 3
-				self.position.y += 2
-	elif !is_jump_pressed && on_floor && can_jump:
-		SFX.play("Move_Jump_01")
-		vel.y = -max_jump_power * jump_power_up
-		jump_top_pos = global_position.y - jump_height
-	elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count:
-		SFX.play("Move_Jump_05")
-		vel.y = -max_air_jump_power * jump_power_up
-		air_jump_count += 1
-	elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump:
-		jump_top = true
-		can_jump = false
-		if jump_timer.is_stopped():
-			jump_timer.start()
-	is_jump_pressed = true
-	on_ladder = false
+	if can_move:
+		if down_input && ray_down_p.is_colliding() && !left_input && !right_input:
+			SFX.play("Move_Jump_08")
+			var thing1 = ray_down_p.get_collider()
+	#		print(thing1)
+			if thing1:
+				if thing1.get_groups().has("map"):
+					pass
+				else:
+					vel.y += terminal_vel / 3
+					self.position.y += 2
+		elif !is_jump_pressed && on_floor && can_jump:
+			SFX.play("Move_Jump_01")
+			vel.y = -max_jump_power * jump_power_up
+			jump_top_pos = global_position.y - jump_height
+		elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count:
+			SFX.play("Move_Jump_05")
+			vel.y = -max_air_jump_power * jump_power_up
+			air_jump_count += 1
+		elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump:
+			jump_top = true
+			can_jump = false
+			if jump_timer.is_stopped():
+				jump_timer.start()
+		is_jump_pressed = true
+		on_ladder = false
 
 func jump_j(_down_input, _left_input, _right_input):
 	pass
