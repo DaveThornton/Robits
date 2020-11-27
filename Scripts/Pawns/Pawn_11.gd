@@ -557,6 +557,7 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 
 func _anim_idle():
 	_body(1)
+	head.play("Idle")
 	trax.stop()
 	key.stop()
 	if is_right:
@@ -567,6 +568,7 @@ func _anim_idle():
 
 func _anim_run():
 	_body(1)
+	head.play("Idle")
 	if is_right:
 		new_anim = "Right-Run"
 		trax.turn(true)
@@ -578,6 +580,7 @@ func _anim_run():
 
 func _anim_jump():
 	_body(1)
+	head.play("Idle")
 	if is_right:
 		new_anim = "Right-Run"
 		trax.turn(true)
@@ -589,6 +592,7 @@ func _anim_jump():
 
 func _anim_prone_idle():
 	_body(2)
+	head.play("Idle")
 	trax.stop()
 	key.stop()
 	if is_right:
@@ -598,6 +602,7 @@ func _anim_prone_idle():
 
 func _anim_prone_crawl():
 	_body(2)
+	head.play("Idle")
 	if is_right:
 		new_anim = "Right-Prone-Crawl"
 		trax.turn(true)
@@ -609,6 +614,7 @@ func _anim_prone_crawl():
 
 func _anim_stun():
 	_body(1)
+	head.play("Stun")
 	if is_right:
 		new_anim = "Right-Stun"
 	else:
@@ -616,6 +622,7 @@ func _anim_stun():
 
 func _anim_Knock():
 	_body(1)
+	head.play("Idle")
 	if is_right:
 		new_anim = "Right-Knock_Back"
 	else:
@@ -623,6 +630,7 @@ func _anim_Knock():
 
 func _anim_ladder_move():
 	_body(1)
+	head.play("Idle")
 	new_anim = "Ladder-Move"
 	trax.ladder()
 	key.ladder()
@@ -630,12 +638,14 @@ func _anim_ladder_move():
 
 func _anim_ladder_right():
 	_body(1)
+	head.play("Idle")
 	new_anim = "Ladder-Right"
 	trax.ladder()
 	key.ladder()
 
 func _anim_ladder_left():
 	_body(1)
+	head.play("Idle")
 	new_anim = "Ladder-Left"
 	trax.ladder()
 	key.ladder()

@@ -115,19 +115,22 @@ tracks/3/keys = {
 script = ExtResource( 5 )
 
 [node name="Back" type="Sprite" parent="."]
+position = Vector2( 0, 11 )
 texture = ExtResource( 2 )
 hframes = 12
 
 [node name="Wheels" type="Sprite" parent="."]
+position = Vector2( 0, 11 )
 texture = ExtResource( 1 )
 hframes = 12
 
 [node name="Wheel_Moves" type="Sprite" parent="."]
+position = Vector2( 0, 11 )
 texture = ExtResource( 4 )
 hframes = 12
-frame = 6
 
 [node name="Top" type="Sprite" parent="."]
+position = Vector2( 0, 11 )
 texture = ExtResource( 3 )
 hframes = 12
 
