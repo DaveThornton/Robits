@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_11/Parts/Pawn_11_Part_Tracks.tscn" type="PackedScene" id=2]
@@ -10,7 +10,15 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_11/Parts/Pawn_11_Part_Arm.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 20.0
+radius = 11.0
+height = 24.0
+
+[sub_resource type="CapsuleShape2D" id=14]
+radius = 12.0
+height = 18.0
+
+[sub_resource type="CapsuleShape2D" id=15]
+radius = 16.0
 height = 4.0
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -473,7 +481,8 @@ tracks/7/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-length = 0.1
+length = 10.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Robit_11/Pawn_11_Body:rotation_degrees")
 tracks/0/interp = 1
@@ -529,10 +538,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, -1 ), Vector2( 0, 1 ), Vector2( 0, -1 ), Vector2( 0, 1 ), Vector2( 0, -1 ), Vector2( 0, 1 ), Vector2( 0, -1 ), Vector2( 0, 1 ), Vector2( 0, -1 ), Vector2( 0, 1 ), Vector2( 0, -1 ), Vector2( 0, 1 ), Vector2( 0, -1 ), Vector2( 0, 1 ), Vector2( 0, -1 ), Vector2( 0, 1 ), Vector2( 0, -1 ), Vector2( 0, 1 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:position")
@@ -969,10 +978,11 @@ collision_mask = 10
 [node name="Robit_11" type="Node2D" parent="."]
 
 [node name="Pawn_11_Body" type="Sprite" parent="Robit_11"]
+position = Vector2( 0, -0.450527 )
 texture = ExtResource( 8 )
 offset = Vector2( 0, -5 )
 hframes = 8
-frame = 7
+frame = 6
 
 [node name="Pawn_11_Part_Head" parent="Robit_11/Pawn_11_Body" instance=ExtResource( 3 )]
 position = Vector2( 0, -9 )
@@ -996,11 +1006,20 @@ position = Vector2( 0, 17 )
 [node name="Shield" type="Sprite" parent="Robit_11"]
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -1 )
 shape = SubResource( 1 )
+
+[node name="Shape_Stand2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, 10 )
+rotation = 1.5708
+shape = SubResource( 14 )
 
 [node name="Shape_Prone" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 1 )
+position = Vector2( -0.191589, 4 )
+shape = SubResource( 15 )
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
 visible = false

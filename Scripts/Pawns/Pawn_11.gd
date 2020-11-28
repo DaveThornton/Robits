@@ -686,7 +686,7 @@ func _set_gun_dir():
 			head.rotation_degrees = -90
 			body_sprite.rotation_degrees = 90
 			arm.rotation_degrees = -30
-			arm.bend(3)
+			arm.bend(1)
 		if my_gun:
 			arm.rotation_degrees -= my_gun.walk
 	else:
@@ -719,7 +719,7 @@ func _set_gun_dir():
 			head.rotation_degrees = 90
 			body_sprite.rotation_degrees = -90
 			arm.rotation_degrees = 30
-			arm.bend(3)
+			arm.bend(1)
 		if my_gun:
 			arm.rotation_degrees += my_gun.walk
 

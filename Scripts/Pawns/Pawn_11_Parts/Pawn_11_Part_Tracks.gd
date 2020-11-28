@@ -6,6 +6,10 @@ onready var wheels_move = $Wheel_Moves
 onready var top = $Top
 onready var shield = $Shield
 onready var anim = $AnimationPlayer
+onready var anim2 = $AnimationPlayer2
+
+func _ready():
+	anim2.play("Idle")
 
 func turn(_right:bool):
 	if _right:
