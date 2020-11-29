@@ -12,14 +12,23 @@ func is_right(_right: bool):
 	else:
 		self.scale.x = -1
 
+func stun():
+#	print("stun called in pawn 05 head")
+	anim.play("Stun")
+
 func flash():
 	anim.play("flash")
 
 func flash_off():
 	anim.stop()
+	ant.flash_off()
+	face.frame = 0
 
 func light_up():
 	ant.flash()
+	
+func light_off():
+	ant.flash_off()
 
 func color(_pri: Color, _sec: Color):
 	head.self_modulate = _pri

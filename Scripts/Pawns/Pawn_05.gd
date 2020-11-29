@@ -73,7 +73,7 @@ var nrg_regen_rate = 5
 var nrg_regen_max = 30
 var nrg_default_regen_rate = 5
 var nrg_default_regen_max = 30
-var light_on_nrg = 20
+var light_on_nrg = false
 
 var can_move = true
 var is_right = true
@@ -144,11 +144,13 @@ func _process(delta):
 		anim.play(new_anim)
 		last_anim = new_anim
 	if nrg < nrg_regen_max:
-		if nrg > light_on_nrg:
-			head.flash()
-		else:
-			head.flash_off()
+		light_on_nrg = true
+		head.flash()
 		nrg = clamp(nrg + (nrg_regen_rate * delta), 0, 100)
+	else:
+		if light_on_nrg:
+			light_on_nrg = false
+			head.flash_off()
 	if nrg != last_nrg:
 		nrg_update()
 		last_nrg = nrg
@@ -375,12 +377,12 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 				let_go()
 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
 				call_deferred("free")
-			elif nrg < light_on_nrg:
-				print("pawn 05 fix hit")
-#				light.on()
-			else:
-				print("pawn 05 fix hit")
-#				light.blink(2)
+#			elif nrg < light_on_nrg:
+#				print("pawn 05 fix hit")
+##				light.on()
+#			else:
+#				print("pawn 05 fix hit")
+##				light.blink(2)
 
 func change_pos(_pos):
 	self.position = _pos
@@ -604,11 +606,7 @@ func _anim_idle():
 	wheel.stop()
 	key.stop()
 	if is_right:
-#		arm.scale.x = 1
-#		head.scale.x = 1
-#		body_sprite.rotation_degrees = 0
 		new_anim = "Right-Idle"
-#		face.play(true)
 	else:
 		new_anim = "Left-Idle"
 
@@ -625,10 +623,6 @@ func _anim_run():
 		_body(1)
 
 func _anim_jump():
-#	if is_right:
-#		new_anim = "Right-Jump"
-#	else:
-#		new_anim = "Left-Jump"
 	if is_right:
 		new_anim = "Right-Run"
 		wheel.turn(true)
@@ -664,6 +658,7 @@ func _anim_prone_crawl():
 
 func _anim_stun():
 	_body(2)
+	head.stun()
 	if is_right:
 		new_anim = "Right-Stun"
 	else:
@@ -795,7 +790,9 @@ func nrguptimer():
 	nrg_regen_max = nrg_default_regen_max
 
 func stuntimer():
+#	print("stun over in pawm 05")
 	can_move = true
+	head.flash_off()
 
 ##-------------------------------------------------------------[The in and outs]
 
