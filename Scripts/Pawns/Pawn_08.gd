@@ -612,6 +612,7 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 
 
 func _anim_idle():
+	body_head.play_eye(0)
 	_body(1)
 	hip.stop()
 	if is_right:
@@ -622,6 +623,7 @@ func _anim_idle():
 		body_head.look(shoot_spot,false)
 
 func _anim_run():
+	body_head.play_eye(0)
 	if is_right:
 		hip.turn(true)
 		new_anim = "Right-Run"
@@ -634,6 +636,7 @@ func _anim_run():
 		_body(1)
 
 func _anim_jump():
+	body_head.play_eye(0)
 	if is_right:
 		hip.turn(true)
 		new_anim = "Right-Run"
@@ -669,6 +672,7 @@ func _anim_jump():
 
 func _anim_prone_idle():
 	_body(2)
+	body_head.play_eye(0)
 	hip.stop()
 	if is_right:
 		new_anim = "Right-Prone-Idle"
@@ -679,6 +683,7 @@ func _anim_prone_idle():
 
 func _anim_prone_crawl():
 	_body(2)
+	body_head.play_eye(0)
 	if is_right:
 		hip.turn(true)
 		new_anim = "Right-Prone-Crawl"
@@ -690,6 +695,7 @@ func _anim_prone_crawl():
 
 func _anim_stun():
 	_body(1)
+	body_head.play_eye(1)
 	hip.stop()
 	if is_right:
 		new_anim = "Right-Stun"
@@ -698,6 +704,7 @@ func _anim_stun():
 
 func _anim_Knock():
 	_body(1)
+	body_head.play_eye(0)
 	hip.stop()
 	if is_right:
 		new_anim = "Right-Knock_Back"
@@ -708,22 +715,26 @@ func _anim_Knock():
 
 func _anim_ladder_move():
 	_body(1)
+	body_head.play_eye(0)
 	new_anim = "Ladder-Move"
 	body_head.look(shoot_spot,true)
 
 func _anim_ladder_right():
 	_body(1)
+	body_head.play_eye(0)
 	hip.stop()
 	new_anim = "Ladder-Stand"
 	body_head.look(shoot_spot,true)
 
 func _anim_ladder_left():
 	_body(1)
+	body_head.play_eye(0)
 	hip.stop()
 	new_anim = "Ladder-Stand"
 	body_head.look(shoot_spot,false)
 
 func _anim_on_wall():
+	body_head.play_eye(0)
 	if on_wall == -1:
 		new_anim = "Left_Wall"
 	elif on_wall == 1:

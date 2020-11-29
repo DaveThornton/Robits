@@ -5,7 +5,7 @@ onready var face = $Face
 onready var shield = $Shield
 onready var anim = $AnimationPlayer
 
-var up = false
+var going_up = false
 var stunned = false
 
 func face_on(_face:bool):
@@ -15,7 +15,7 @@ func face_on(_face:bool):
 		face.frame = 1
 
 func is_right(_right: bool):
-	if up:
+	if going_up:
 		if anim.current_animation != "Up":
 			anim.play("Up")
 	else:
@@ -35,7 +35,7 @@ func stun(_stun):
 	stunned = _stun
 
 func up(_up):
-	up = _up
+	going_up = _up
 
 func shield_up():
 	shield.visible = true

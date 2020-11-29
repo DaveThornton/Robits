@@ -8,15 +8,17 @@ onready var shield = $Shield
 onready var anim_face = $AnimationFace
 onready var anim_eye = $AnimationEye
 
+func _ready():
+	anim_eye.play("Stun")
+
 func init():
-	pass
+	anim_eye.play("Idle")
 
 func look(_pos: int, _right: bool):
 	if _right:
 		self.scale.x = 1
 	else:
 		self.scale.x = -1
-#	if _right:
 	if _pos == 1:
 		anim_face.play("Up")
 		return
@@ -32,28 +34,14 @@ func look(_pos: int, _right: bool):
 	elif _pos == 5:
 		anim_face.play("Down")
 		return
-#	else:
-#		if _pos == 1:
-#			anim_face.play("Up")
-#			return
-#		elif _pos == 2:
-#			anim_face.play("Left_Up")
-#			return
-#		elif _pos == 3:
-#			anim_face.play("Left")
-#			return
-#		elif _pos == 4:
-#			anim_face.play("Left_Down")
-#			return
-#		elif _pos == 5:
-#			anim_face.play("Down")
-#			return
 
-func play_eye(_num):
+func play_eye(_num:int):
 	if _num == 0:
-		pass
+#		if anim_eye.current_animation != "Idle":
+		anim_eye.play("Idle")
 	elif _num == 1:
-		anim_eye.play("Blink")
+#		if anim_eye.current_animation != "Stun":
+		anim_eye.play("Stun")
 
 func shield_up():
 	shield.visible = true

@@ -1367,7 +1367,7 @@ tracks/9/keys = {
 }
 
 [sub_resource type="Animation" id=17]
-length = 0.2
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Legs:frame")
 tracks/0/interp = 0
@@ -2299,30 +2299,26 @@ shape = SubResource( 2 )
 [node name="Shield" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, 4 )
-scale = Vector2( -1, 1 )
 texture = ExtResource( 5 )
 centered = false
 offset = Vector2( -24, -8 )
 hframes = 35
-frame = 29
+frame = 8
 
 [node name="Pawn_08_Part_Body" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, 2 )
 
 [node name="Legs" type="Sprite" parent="."]
 position = Vector2( 0, 4 )
-scale = Vector2( -1, 1 )
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -24, -8 )
 hframes = 35
-frame = 29
+frame = 8
 
 [node name="Pawn_08_Part_Hip" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, 4 )
 
 [node name="POS_Arm" type="Position2D" parent="."]
-position = Vector2( 0, -5 )
+position = Vector2( 0, -7 )
 
 [node name="Pawn_09_Part_Arm" parent="POS_Arm" instance=ExtResource( 6 )]
 
