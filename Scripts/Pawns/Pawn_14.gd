@@ -9,7 +9,7 @@ onready var body_shape_02 = $CollisionShape2D_Prone
 onready var head = $Body/Pawn_14_Part_Head
 onready var trax = $Body/Pawn_14_Part_Tracks
 
-onready var rockets = $Body/Pawn_07_Part_Fire
+onready var rockets = $Body/Pawn_14_Part_Tracks/Pawn_07_Part_Fire
 
 onready var body_sprite = $Body
 onready var shield_sprite = $Body/Shield

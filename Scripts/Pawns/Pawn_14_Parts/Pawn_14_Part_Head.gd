@@ -3,6 +3,7 @@ extends Node2D
 onready var head = $Head
 onready var face = $Face
 onready var shield = $Shield
+onready var anim = $AnimationPlayer
 
 var up = false
 var stunned = false
@@ -15,12 +16,16 @@ func face_on(_face:bool):
 
 func is_right(_right: bool):
 	if up:
-		face.frame = 2
+		if anim.current_animation != "Up":
+			anim.play("Up")
 	else:
 		if !stunned:
-			face.frame = 0
+			if anim.current_animation != "Idle":
+				anim.play("Idle")
 		else:
-			face.frame = 1
+			if anim.current_animation != "Stun":
+				anim.play("Stun")
+	
 	if _right == true:
 		face.scale.x = 1
 	else:
