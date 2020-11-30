@@ -34,11 +34,12 @@ tracks/1/keys = {
 "values": [ Color( 0, 0.156863, 1, 1 ), Color( 0, 0.694118, 1, 1 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 height = 32.0
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Melee"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Gun:position")
 tracks/0/interp = 1
@@ -58,10 +59,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.5, 0.7, 0.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 8, -1 ), Vector2( -11, 2 ), Vector2( 19, -1 ), Vector2( 12, 2 ), Vector2( 8, -1 ) ]
+"values": [ Vector2( -11, 2 ), Vector2( 19, -1 ), Vector2( 12, 2 ), Vector2( 8, -1 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("POS_Gun/Gun_Sprite/Muzzel_Flash:frame")
@@ -94,13 +95,13 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
+"times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 step = 0.025
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Gun/Gun_Sprite:frame")
@@ -162,6 +163,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Vector2( 8, -1 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("POS_Gun/Area2D/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [node name="W_06_Atom_Rifle" type="Node2D"]
 script = ExtResource( 2 )
@@ -169,6 +182,9 @@ atom_rifle_pickup = ExtResource( 4 )
 projectile = ExtResource( 3 )
 
 [node name="Shoot_Timer" type="Timer" parent="."]
+
+[node name="Melee_Timer" type="Timer" parent="."]
+wait_time = 0.75
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
@@ -233,11 +249,12 @@ collision_mask = 2147484162
 [node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Area2D"]
 position = Vector2( 27, 0 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Melee = SubResource( 4 )
-anims/Shoot = SubResource( 2 )
+anims/Melee = SubResource( 3 )
+anims/Shoot = SubResource( 4 )
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
+[connection signal="timeout" from="Melee_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="body_entered" from="POS_Gun/Area2D" to="." method="_on_Area2D_body_entered"]

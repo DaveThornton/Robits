@@ -668,6 +668,5 @@ quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
 threads/thread_model=2
 quality/reflections/high_quality_ggx=false
-environment/default_clear_color=Color( 1, 0, 0.984314, 1 )
 quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"

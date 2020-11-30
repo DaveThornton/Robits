@@ -483,6 +483,7 @@ func stun(_gun_num):
 	let_go()
 
 func knock_back(_amount, _time):
+	knockback_timer.wait_time = _time
 	knockback_timer.start()
 	if is_right:
 		if shoot_spot == 1:

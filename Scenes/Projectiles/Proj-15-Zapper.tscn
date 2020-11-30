@@ -12,6 +12,7 @@ height = 18.7296
 [node name="Projectile" type="Area2D" groups=[
 "projectile",
 ]]
+position = Vector2( -15, 0 )
 z_index = -3
 collision_layer = 512
 collision_mask = 512
@@ -25,7 +26,7 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 4.98911, 0.00801982 )
+position = Vector2( 15, 0 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 hframes = 12
@@ -35,8 +36,9 @@ frame = 2
 wait_time = 0.25
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -1, 0 )
 enabled = true
-cast_to = Vector2( 30, 0 )
+cast_to = Vector2( 45, 0 )
 collision_mask = 778
 [connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]

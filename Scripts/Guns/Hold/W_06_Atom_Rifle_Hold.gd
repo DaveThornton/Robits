@@ -5,6 +5,7 @@ export(PackedScene) var projectile
 
 onready var anim_fire = $AnimationPlayer
 onready var shoot_timer = $Shoot_Timer
+onready var melee_timer = $Melee_Timer
 onready var pos_shoot = $POS_Gun/POS/Shoot
 onready var pos_throw = $POS_Gun/POS/Throw
 onready var shoot_cast = $POS_Gun/Raycast/Shoot
@@ -65,20 +66,9 @@ func shoot_j():
 			SFX.play("Laser_Shoot")
 			walk += walk_amount
 		elif shoot_cast.is_colliding():
+			can_shoot = false
 			anim_fire.play("Melee")
-#			var _thing = shoot_cast.get_collider()
-#			if _thing.get_groups().has("hittable"):
-#				if _thing.player == player:
-#					anim_fire.play("Melee")
-##						_thing.hit(player, my_name, dmg_type, damage)
-##					_fire_projectile()
-#				else:
-#					_thing.hit(player, my_name, dmg_type, damage)
-#				print("gun 15 shot happened but no projectile spawned hit anyways")
-#			elif _thing.get_groups().has("map"):
-#				print("gun 15 hitting wall not fireing projectile", _thing)
-#			else:
-#				print("gun 15 dont know what im hitting but no projectile spawned")
+			melee_timer.start()
 		else:
 			SFX.play("Laser_Empty")
 

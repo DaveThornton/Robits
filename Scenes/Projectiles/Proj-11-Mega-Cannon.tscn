@@ -33,6 +33,10 @@ frame = 7
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.85
-[connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -16, 0 )
+enabled = true
+cast_to = Vector2( 45, 0 )
+collision_mask = 2826
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

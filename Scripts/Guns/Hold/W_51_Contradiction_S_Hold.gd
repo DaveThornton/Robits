@@ -83,11 +83,11 @@ func shoot():
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
 					_thing.hit(player, my_name, dmg_type, damage)
-					print("gun 02 shot happened but no projectile spawned hit anyways")
+					print("gun 51 shot happened but no projectile spawned hit anyways")
 				elif _thing.get_groups().has("map"):
-					print("gun 02 hitting wall not fireing projectile", _thing)
+					print("gun 51 hitting wall not fireing projectile", _thing)
 				else:
-					print("gun 02 dont know what im hitting but no projectile spawned")
+					print("gun 51 dont know what im hitting but no projectile spawned")
 			walk += walk_amount
 			can_shoot = false
 			shoot_timer.start()

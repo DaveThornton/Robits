@@ -76,7 +76,7 @@ func shoot_j():
 					print("gun 18 dont know what im hitting but no projectile spawned")
 			anim_fire.play("Shoot")
 			if pawn:
-				pawn.knock_back(500, .1)
+				pawn.knock_back(500, .2)
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)

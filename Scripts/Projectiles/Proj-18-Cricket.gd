@@ -26,7 +26,7 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 
 func _physics_process(delta):
 	if cast.is_colliding():
-		call_deferred("_explode", position)
+		call_deferred("_explode", cast.get_collision_point())
 #		if cast.get_collider().get_groups().has("hittable"):
 #			Player_Stats.add_hit(owned, 1)
 #			_hit_move(cast.get_collision_point())
@@ -36,26 +36,6 @@ func _physics_process(delta):
 #			_hit_map(cast.get_collision_point())
 #			call_deferred("free")
 	move_local_x(speed * delta)
-	
-func _on_Projectile_area_entered(area):
-	entered(area)
-func _on_Projectile_body_entered(body):
-	entered(body)
-
-func entered(body):
-	pass
-#	if body.get_groups().has("hittable"):
-#		Player_Stats.add_hit(owned, 1)
-#		_hit_move(self.global_position)
-#		body.hit(owned, my_name, damage_type, damage)
-#		call_deferred("free")
-##		queue_free()
-#	elif body.get_groups().has("projectile"):
-#		_hit_move(self.global_position)
-#		call_deferred("free")
-#	elif body.get_groups().has("map"):
-#		_hit_map(self.global_position)
-#		call_deferred("free")
 
 func _hit_map(_pos):
 	var x = hit_anim_map.instance()

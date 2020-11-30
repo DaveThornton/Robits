@@ -20,15 +20,19 @@ hit_anim_map = ExtResource( 2 )
 hit_anim_move = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 9.13144, -0.0852599 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 4.98911, 0.00801982 )
 scale = Vector2( 1.5, 1 )
 texture = ExtResource( 4 )
 hframes = 12
 frame = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -16, 0 )
+enabled = true
+cast_to = Vector2( 45, 0 )
+collision_mask = 2826
 [connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
