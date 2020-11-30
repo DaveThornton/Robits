@@ -8,6 +8,7 @@ onready var body_shape_03 = $CollisionShape2D_Right
 onready var body_shape_04 = $CollisionShape2D_Prone
 
 onready var head = $Body/Pawn_03_Part_Head
+onready var neck = $Body/Pawn_03_Part_Head/Pawn_03_Part_Neck
 onready var arm = $Body/POS_Arm/Pawn_03_Part_Arm
 onready var arm_pos = $Body/POS_Arm
 onready var wheel1 = $Pawn_03_Part_Big_Wheel
@@ -465,6 +466,7 @@ func stun(_gun_num):
 	let_go()
 
 func knock_back(_amount, _time):
+	knockback_timer.wait_time = _time
 	knockback_timer.start()
 	if is_right:
 		if shoot_spot == 1:
@@ -583,6 +585,8 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			shoot_spot = 1
 
 func _anim_idle():
+	anim.play("Idle")
+	neck.play("Idle")
 	wheel1.stop()
 	wheel2.stop()
 	if is_right:
@@ -593,6 +597,8 @@ func _anim_idle():
 		_body(2)
 
 func _anim_run():
+	anim.play("Idle")
+	neck.play("Idle")
 	if is_right:
 		wheel1.turn(true)
 		wheel2.turn(true)
@@ -605,6 +611,8 @@ func _anim_run():
 		_body(2)
 
 func _anim_jump():
+	anim.play("Idle")
+	neck.play("Idle")
 	if is_right:
 		wheel1.turn(true)
 		wheel2.turn(true)
@@ -617,6 +625,8 @@ func _anim_jump():
 		_body(2)
 
 func _anim_prone_idle():
+	anim.play("Idle")
+	neck.play("Idle")
 	wheel1.stop()
 	wheel2.stop()
 	if is_right:
@@ -627,6 +637,8 @@ func _anim_prone_idle():
 		_body(4)
 
 func _anim_prone_crawl():
+	anim.play("Idle")
+	neck.play("Idle")
 	if is_right:
 		wheel1.turn(true)
 		wheel2.turn(true)
@@ -640,6 +652,7 @@ func _anim_prone_crawl():
 
 func _anim_stun():
 	anim.play("Stun")
+	neck.play("Stun")
 	if is_right:
 		body_state = 3
 		_body(1)
@@ -648,6 +661,8 @@ func _anim_stun():
 		_body(2)
 
 func _anim_Knock():
+	anim.play("Idle")
+	neck.play("Idle")
 	if is_right:
 		body_state = 3
 		_body(1)
@@ -656,18 +671,21 @@ func _anim_Knock():
 		_body(2)
 
 func _anim_ladder_move():
+	neck.play("Idle")
 	body_state = 2
 	_body(1)
 	wheel1.stop()
 	wheel2.stop()
 
 func _anim_ladder_right():
+	neck.play("Idle")
 	body_state = 2
 	_body(1)
 	wheel1.ladder()
 	wheel2.ladder()
 
 func _anim_ladder_left():
+	neck.play("Idle")
 	body_state = 2
 	_body(2)
 	wheel1.ladder()
@@ -735,6 +753,7 @@ func _set_new_color(_pri, _sec):
 	wheel1.color(_pri, _sec)
 	wheel2.color(_pri, _sec)
 	head.color(_pri, _sec)
+	neck.color(_pri, _sec)
 	body_sprite.self_modulate = _pri
 
 ##--------------------------------------------------------------------[Time Out]

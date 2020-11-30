@@ -1,8 +1,8 @@
 extends Node2D
 onready var head = $Head
-onready var face1 = $Face_01
-onready var face2 = $Face_02
-onready var shield = $Shield
+onready var face1 = $Head/Face_01
+onready var face2 = $Head/Face_02
+onready var shield = $Head/Shield
 
 func shield_up():
 	shield.visible = true
