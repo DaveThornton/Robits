@@ -1,35 +1,42 @@
 extends Node2D
 
-export(PackedScene) var opencannon_pickup
-export(PackedScene) var projectile
+const MAX_LENGTH = 750
+
+export(PackedScene) var tos_pickup
+export(PackedScene) var hit_anim
+export(PackedScene) var hit_anim_nothing
+
 
 onready var anim_fire = $AnimationPlayer
+
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
-onready var shoot_cast = $POS_Gun/Raycast/Shoot
+onready var shoot_cast = $POS_Gun/Gun_Sprite/Shoot_cast
 onready var melee_cast = $POS_Gun/Raycast/Melee
 onready var throw_cast = $POS_Gun/Raycast/Throw
-onready var pos_shoot = $POS_Gun/POS/Shoot
+onready var beam_end = $POS_Gun/Gun_Sprite/Laser_Sprite/Shoot
 onready var pos_shell = $POS_Gun/POS/Shell
 onready var pos_throw = $POS_Gun/POS/Throw
+onready var beam = $POS_Gun/Gun_Sprite/Laser_Sprite
 
 var player = 1
 var gun_num = 13
 var ammo = 250
 var ammo_max = 550
-var shot_count = 0
+#var shot_count = 0
 var take_ammo = true
 var my_name = "TOS"
 var dmg_type = "Laser"
-var damage = 5
+var damage = 6
 var can_shoot = true
 var just_shot = false
 var shoot_pos = 3
 var change_shoot_pos = true
 var is_right = true
 var walk = 0.0
-var walk_amount = 8.0
+var walk_amount = 0.0
 var time = 4.0
+var shoot_pressed = false
 
 signal ammo_change(player, ammo)
 
@@ -43,61 +50,50 @@ func init(_ammo, _player, _timer, _just_shot):
 	player = _player
 	emit_signal("ammo_change",player,ammo)
 
-func _process(delta):
-	if walk > 0.0:
-		walk -= delta * 35
-		if walk < 0.0:
-			walk = 0.0
-
-func shoot_j():
-	if can_shoot:
-		anim_fire.play("Shoot")
-
-func shoot():
-	if can_shoot:
-		if melee_cast.is_colliding() && shoot_pos == 3:
-			melee()
-		elif ammo > 0:
-			if !shoot_cast.is_colliding():
-				var new_projectile = projectile.instance()
-				Map_Hand.add_kid_to_map(new_projectile)
-				var _ss = pos_shoot.global_position
-				var _sr = pos_shoot.global_rotation
-				if is_right:
-					_sr = pos_shoot.global_rotation
-				else:
-					_sr = pos_shoot.global_rotation * -1
-				#---------------------------------------------------------------
-				var _sss = pos_shoot.global_scale
-				new_projectile.start( _sr , _ss, _sss, player, damage)
+func _physics_process(delta):
+	if shoot_cast.is_colliding():
+		beam_end.global_position = shoot_cast.get_collision_point()
+	else:
+		beam_end.position = shoot_cast.cast_to
+	beam.region_rect.end.x = beam_end.position.length() * 5
+	if shoot_pressed && can_shoot && ammo >= 1:
+		beam.visible = true
+		if shoot_cast.is_colliding() && time >.05:
+			if shoot_cast.get_collider().get_groups().has("player"):
+				Player_Stats.add_hit(player, 1)
+				_hit(shoot_cast.get_collision_point())
+				shoot_cast.get_collider().hit(player, my_name, dmg_type, damage)
+			elif shoot_cast.get_collider().get_groups().has("hittable"):
+				Player_Stats.add_hit(player, 1)
+				_hit(shoot_cast.get_collision_point())
+				shoot_cast.get_collider().hit(player, my_name, dmg_type, damage)
 			else:
-				var _thing = shoot_cast.get_collider()
-				if _thing:
-					if _thing.get_groups().has("hittable"):
-						_thing.hit(player, my_name, dmg_type, damage)
-						print("gun 13 shot happened but no projectile spawned hit anyways")
-					elif _thing.get_groups().has("map"):
-						print("gun 13 hitting wall not fireing projectile", _thing)
-					else:
-						print("gun 13 dont know what im hitting but no projectile spawned")
-#			walk += walk_amount
-			can_shoot = false
-			shoot_timer.start()
+				_hit(shoot_cast.get_collision_point())
 			anim_fire.play("Shoot")
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
-			shot_count += 1
-			if shot_count <= 10:
-				Player_Stats.add_shot(player, 1)
-				shot_count = 0
-			SFX.play("AK_Shoot")
-		else:
-			anim_fire.play("Click")
-			can_shoot = false
-			shoot_timer.start()
-			SFX.play("Gun_Click")
+			Player_Stats.add_shot(player, 1)
+			time = 0
+		elif time >.1:
+			_hit_nothing(beam_end.position)
+			ammo = clamp(ammo - 1, 0, ammo_max)
+			emit_signal("ammo_change",player,ammo)
+			Player_Stats.add_shot(player, 1)
+			time = 0
+		time += delta
+	else:
+		beam.visible = false
+
+func shoot_j():
+	if can_shoot:
+		shoot_pressed = true
+		anim_fire.play("Shoot")
+
+func shoot():
+	pass
 
 func shoot_r():
+	shoot_pressed = false
 	anim_fire.play("UnShoot")
 
 func melee():
@@ -115,7 +111,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting your self")
 
 func throw():
-	var t = opencannon_pickup.instance()
+	var t = tos_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
@@ -133,7 +129,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = opencannon_pickup.instance()
+	var t = tos_pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
@@ -178,8 +174,16 @@ func _drop_where(_obj):
 	_obj.set_collision_layer_bit( 1, false)
 	_obj.set_collision_mask_bit( 1, false)
 
-func _on_Shoot_Timer_timeout():
-	can_shoot = true
+func _hit(_pos):
+	var x = hit_anim.instance()
+	self.get_tree().get_current_scene().add_child(x)
+	x.global_position = _pos
+
+func _hit_nothing(_pos):
+	var x = hit_anim_nothing.instance()
+	Map_Hand.add_kid_to_map(x)
+	x.global_position = beam_end.global_position
+	x.emitting = true
 
 func _on_Melee_Timer_timeout():
 	can_shoot = true

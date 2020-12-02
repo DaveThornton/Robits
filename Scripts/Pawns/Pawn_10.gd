@@ -295,10 +295,12 @@ func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 		is_holding = false
 		if !left_input && !right_input && !up_input && !down_input && !hold_input:
 			SFX.play("Blip_11")
-			my_gun.drop()
+			if my_gun:
+				my_gun.drop()
 		else:
 			SFX.play("Blip_06")
-			my_gun.throw()
+			if my_gun:
+				my_gun.throw()
 		my_gun = null
 		if my_start_gun && start_equiped:
 			my_start_gun.visible = true

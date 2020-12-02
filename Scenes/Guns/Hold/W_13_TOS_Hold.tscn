@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Sprites/FX/shot-right-01.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/FX/FX-19-Laser_Beam.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Guns/W_13_TOS.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Guns/Hold/W_13_TOS_Hold.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Projectiles/Proj-13-TOS.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/FX/FX-13-Phaser-Hit_Particle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Guns/Pick/W_13_TOS_Pick.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/FX/FX-13-Phaser-Hit.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 1
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -25,7 +29,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3, -3 ), Vector2( 1, -3 ), Vector2( 3, -3 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("POS_Gun/Gun_Sprite/Fire_Sprite:frame")
+tracks/1/path = NodePath("POS_Gun/Gun_Sprite/Laser_Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -78,7 +82,7 @@ tracks/0/keys = {
 "values": [ Vector2( 3, -3 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("POS_Gun/Gun_Sprite/Fire_Sprite:frame")
+tracks/1/path = NodePath("POS_Gun/Gun_Sprite/Laser_Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -131,7 +135,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, -3 ), Vector2( 3, -3 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("POS_Gun/Gun_Sprite/Fire_Sprite:frame")
+tracks/1/path = NodePath("POS_Gun/Gun_Sprite/Laser_Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -196,7 +200,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, -3 ), Vector2( 3, -3 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("POS_Gun/Gun_Sprite/Fire_Sprite:frame")
+tracks/1/path = NodePath("POS_Gun/Gun_Sprite/Laser_Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -246,11 +250,9 @@ tracks/4/keys = {
 
 [node name="W_13_TOS_Hold" type="Node2D"]
 script = ExtResource( 3 )
-opencannon_pickup = ExtResource( 5 )
-projectile = ExtResource( 4 )
-
-[node name="Shoot_Timer" type="Timer" parent="."]
-wait_time = 0.02
+tos_pickup = ExtResource( 5 )
+hit_anim = ExtResource( 7 )
+hit_anim_nothing = ExtResource( 4 )
 
 [node name="Melee_Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -258,41 +260,48 @@ wait_time = 0.5
 [node name="POS_Gun" type="Node2D" parent="."]
 
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
-position = Vector2( 1, -3 )
+position = Vector2( 3, -3 )
 texture = ExtResource( 2 )
 hframes = 2
 
-[node name="Fire_Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
-visible = false
-position = Vector2( 22, -1 )
+[node name="Laser_Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+self_modulate = Color( 1, 0, 0, 1 )
+material = SubResource( 6 )
+position = Vector2( 9, -4 )
+scale = Vector2( 1, 0.75 )
 texture = ExtResource( 1 )
+centered = false
 hframes = 5
+region_enabled = true
+region_rect = Rect2( 0, 0, 2500, 4 )
+
+[node name="Shoot" type="Position2D" parent="POS_Gun/Gun_Sprite/Laser_Sprite"]
+position = Vector2( 500, 1.5 )
+scale = Vector2( 1, 1.33333 )
+
+[node name="Shoot_cast" type="RayCast2D" parent="POS_Gun/Gun_Sprite"]
+position = Vector2( 9, -2.5 )
+enabled = true
+cast_to = Vector2( 750, 0 )
+collision_mask = 3338
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
-
-[node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 31, -4 )
+visible = false
 
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 31, -4 )
+position = Vector2( 30.7659, -0.488336 )
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 visible = false
 
-[node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 17, -4 )
-enabled = true
-cast_to = Vector2( 15, 0 )
-collision_mask = 3338
-
 [node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 0, -4 )
+position = Vector2( -0.0278397, -5.94884 )
 enabled = true
 cast_to = Vector2( 19, 0 )
 collision_mask = 3338
 
 [node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 9, -4 )
+position = Vector2( -0.0481911, -5.97668 )
 enabled = true
 cast_to = Vector2( 23, 0 )
 collision_mask = 3338
@@ -310,5 +319,4 @@ anims/Click = SubResource( 2 )
 anims/Melee = SubResource( 3 )
 anims/Shoot = SubResource( 4 )
 anims/UnShoot = SubResource( 5 )
-[connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]

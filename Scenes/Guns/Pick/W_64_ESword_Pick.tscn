@@ -23,6 +23,7 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+hframes = 10
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3

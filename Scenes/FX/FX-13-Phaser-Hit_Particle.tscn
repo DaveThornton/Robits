@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="FX-13-Phaser-Hit" type="CPUParticles2D"]
+self_modulate = Color( 1, 0, 0, 1 )
+emitting = false
+lifetime = 0.4
+one_shot = true
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 2.0
+gravity = Vector2( 0, -100 )

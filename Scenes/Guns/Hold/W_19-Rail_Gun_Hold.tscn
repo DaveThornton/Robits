@@ -8,14 +8,14 @@
 [ext_resource path="res://Sprites/FX/FX-23-plasma-cloud.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/FX/FX-19-Laser_Beam_End.png" type="Texture" id=7]
 
-[sub_resource type="Curve" id=7]
+[sub_resource type="Curve" id=8]
 max_value = 2.0
 _data = [ Vector2( 0.0208333, 0.993182 ), 0.0, 0.0, 0, 0, Vector2( 0.5, 1.28409 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=9]
 radius = 14.0
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=10]
 resource_name = "ChargeUp"
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Gun/Gun_Sprite/Sprite:frame")
@@ -54,7 +54,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=11]
 resource_name = "Chargedown"
 length = 0.1
 tracks/0/type = "value"
@@ -94,8 +94,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Click"
+[sub_resource type="Animation" id=5]
 length = 0.15
 step = 0.025
 tracks/0/type = "value"
@@ -147,8 +146,7 @@ tracks/3/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Melee"
+[sub_resource type="Animation" id=6]
 length = 0.4
 step = 0.05
 tracks/0/type = "value"
@@ -200,8 +198,7 @@ tracks/3/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Shoot"
+[sub_resource type="Animation" id=7]
 length = 2.0
 step = 0.025
 tracks/0/type = "value"
@@ -340,7 +337,7 @@ offset = Vector2( 0, -2 )
 hframes = 7
 frame = 4
 region_enabled = true
-region_rect = Rect2( 1, 1, 1080, 4 )
+region_rect = Rect2( 0.055, 0.13, 1080, 4 )
 
 [node name="Beam_End" type="Position2D" parent="POS_Gun/Gun_Sprite"]
 visible = false
@@ -358,7 +355,7 @@ lifetime = 2.0
 local_coords = false
 texture = ExtResource( 6 )
 gravity = Vector2( -5, -10 )
-scale_amount_curve = SubResource( 7 )
+scale_amount_curve = SubResource( 8 )
 color = Color( 1, 0, 0, 0.376471 )
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
@@ -402,15 +399,15 @@ collision_mask = 2562
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
 position = Vector2( 14, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 9 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/ChargeUp = SubResource( 5 )
-anims/Chargedown = SubResource( 6 )
-anims/Click = SubResource( 2 )
-anims/Melee = SubResource( 3 )
-anims/Shoot = SubResource( 4 )
+anims/ChargeUp = SubResource( 10 )
+anims/Chargedown = SubResource( 11 )
+anims/Click = SubResource( 5 )
+anims/Melee = SubResource( 6 )
+anims/Shoot = SubResource( 7 )
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]
 [connection signal="body_entered" from="POS_Gun/Melee_Area" to="." method="_on_Melee_Area_body_entered"]

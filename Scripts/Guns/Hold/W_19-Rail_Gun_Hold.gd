@@ -56,7 +56,7 @@ func _physics_process(delta):
 		beam_end.global_position = shoot_cast.get_collision_point()
 	else: 
 		beam_end.global_position = shoot_cast.cast_to
-	beam.region_rect.end.x = beam_end.position.length() * 7
+	beam.region_rect.end.x = beam_end.position.length() * 4
 	if shoot_pressed && can_shoot:
 		shoot_pressed_time += delta
 	if can_shoot && !beam.visible:

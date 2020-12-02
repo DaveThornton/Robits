@@ -7,8 +7,11 @@ onready var pos_throw = $POS_Throw
 onready var cast_throw = $RayCast2D
 onready var bar = $POS_Gun/Bar
 onready var hit_area = $Melee_Area/CollisionShape2D
+onready var timer = $Timer
+onready var anim = $AnimationPlayer
 
 var player = 1
+var pawn
 var gun_num = 64
 var ammo = 1
 var take_ammo = false
@@ -23,10 +26,10 @@ var swinging = false
 var up_swing = 500
 var down_swing = 750
 var time_swing = 0.0
-var time = 4.0
+var time = 2.0
 var walk = 30
 var walk_back = 30
-
+var swung = false
 signal ammo_change(player, ammo)
 
 func _ready():
@@ -36,6 +39,7 @@ func _ready():
 
 func init(_ammo, _player, _time, _just_shot):
 	player = _player
+	pawn = Controllers.get_pawn(player)
 	ammo = 1
 	emit_signal("ammo_change",player,ammo)
 
@@ -57,11 +61,15 @@ func _process(delta):
 		hit_area.disabled = true
 		time_swing = 0.0
 	time_swing -= delta
-#	print(time_swing)
-		
-	
+
 func shoot_j():
 	swinging = true
+	if pawn && !swung:
+		pawn.knock_back(-500, .2)
+		swung = true
+	timer.start()
+#	time = 0.0
+	swung = true
 	Player_Stats.add_shot(player, 1)
 	hit_area.disabled = false
 	time_swing = 0.5
@@ -150,3 +158,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting yourself")
 	elif body.get_groups().has("hittable"):
 			body.hit(player, my_name, dmg_type,damage)
+
+func _on_Timer_timeout():
+	anim.play("Flash")
+	swung = false
