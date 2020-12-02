@@ -647,28 +647,6 @@ func _anim_jump():
 		new_anim = "Left-Run"
 		body_head.look(shoot_spot,false)
 		_body(1)
-#	if vel.y > 0:
-#		if is_right:
-#			hip.stop()
-#			new_anim = "Right-Jump"
-#			body_head.look(shoot_spot,true)
-#			_body(1)
-#		else:
-#			hip.stop()
-#			new_anim = "Left-Jump"
-#			body_head.look(shoot_spot,false)
-#			_body(1)
-#	else:
-#		if is_right:
-#			hip.stop()
-#			new_anim = "Right-Fall"
-#			body_head.look(shoot_spot,true)
-#			_body(1)
-#		else:
-#			hip.stop()
-#			new_anim = "Left-Fall"
-#			body_head.look(shoot_spot,false)
-#			_body(1)
 
 func _anim_prone_idle():
 	_body(2)

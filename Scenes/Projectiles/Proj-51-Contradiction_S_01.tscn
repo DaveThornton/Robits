@@ -9,7 +9,9 @@
 radius = 3.0
 height = 22.0
 
-[node name="Proj-51-Contradiction_S_01" type="Area2D"]
+[node name="Proj-51-Contradiction_S_01" type="Area2D" groups=[
+"projectile",
+]]
 scale = Vector2( 0.5, 0.5 )
 collision_layer = 512
 collision_mask = 512

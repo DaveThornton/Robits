@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_25_Time_Bomb_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Explosions/Ex-25-Directional-Time_Bomb.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/W_25_Time_Bomb.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=7]
@@ -9,7 +9,7 @@
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.5
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8.88681, 15.8847 )
 
 [node name="W_24_TNT_Pick" type="RigidBody2D" groups=[
@@ -51,7 +51,7 @@ text_color = Color( 1, 1, 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 [connection signal="body_exited" from="." to="." method="_on_WeapPick20Grenade_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]

@@ -52,41 +52,51 @@ func init(_ammo, _player, _timer, _just_shot):
 func shoot_j():
 	if can_shoot:
 		if melee_cast.is_colliding():
-			melee()
-		elif ammo > 0:
-			if !shoot_cast.is_colliding():
-				var new_projectile = projectile.instance()
-				Map_Hand.add_kid_to_map(new_projectile)
-				var _ss = pos_shoot.global_position
-				var _sr = pos_shoot.global_rotation
-				if is_right:
-					_sr = pos_shoot.global_rotation
+			if melee_cast.get_collider().get_groups().has("player"):
+				if melee_cast.get_collider().player == player:
+					fire_projectile()
 				else:
-					_sr = pos_shoot.global_rotation * -1
-				var _sss = pos_shoot.global_scale
-				new_projectile.start( _sr , _ss, _sss, player, damage)
+					melee()
 			else:
-				var _thing = shoot_cast.get_collider()
-				if _thing.get_groups().has("hittable"):
-					_thing.hit(player, my_name, dmg_type, damage)
-					print("gun 65 shot happened but no projectile spawned hit anyways")
-				elif _thing.get_groups().has("map"):
-					print("gun 65 hitting wall not fireing projectile", _thing)
-				else:
-					print("gun 65 dont know what im hitting but no projectile spawned")
-			
-			ammo = clamp(ammo - 1, 0, ammo_max)
-			sprite_gun.frame = 1
-			emit_signal("ammo_change",player,ammo)
-			Player_Stats.add_shot(player, 1)
-			can_shoot = false
-			shoot_timer.start()
+				melee()
+		elif ammo > 0:
+			fire_projectile()
+
 
 func shoot():
 	pass
 
 func shoot_r():
 	pass
+
+func fire_projectile():
+	if !shoot_cast.is_colliding():
+		var new_projectile = projectile.instance()
+		Map_Hand.add_kid_to_map(new_projectile)
+		var _ss = pos_shoot.global_position
+		var _sr = pos_shoot.global_rotation
+		if is_right:
+			_sr = pos_shoot.global_rotation
+		else:
+			_sr = pos_shoot.global_rotation * -1
+		var _sss = pos_shoot.global_scale
+		new_projectile.start( _sr , _ss, _sss, player, damage)
+	else:
+		var _thing = shoot_cast.get_collider()
+		if _thing.get_groups().has("hittable"):
+			_thing.hit(player, my_name, dmg_type, damage)
+			print("gun 65 shot happened but no projectile spawned hit anyways")
+		elif _thing.get_groups().has("map"):
+			print("gun 65 hitting wall not fireing projectile", _thing)
+		else:
+			print("gun 65 dont know what im hitting but no projectile spawned")
+	
+	ammo = clamp(ammo - 1, 0, ammo_max)
+	sprite_gun.frame = 1
+	emit_signal("ammo_change",player,ammo)
+	Player_Stats.add_shot(player, 1)
+	can_shoot = false
+	shoot_timer.start()
 
 func melee():
 	if can_shoot:

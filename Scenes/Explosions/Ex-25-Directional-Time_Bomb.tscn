@@ -1,0 +1,271 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/gen-boom/Generic-boom-02-sheet.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Explosions/Ex-10-Directional-Basic.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Explode"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fade"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3, 3 ), Vector2( 2.75, 2.75 ), Vector2( 2.25, 2.25 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ), Vector2( 0.5, 0.5 ), Vector2( 0.25, 0.25 ), Vector2( 0.1, 0.1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 161.902
+
+[node name="Ex-10-Directional-Basic" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Explode = SubResource( 1 )
+anims/Fade = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 6, 6 )
+texture = ExtResource( 1 )
+hframes = 9
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 9.0
+one_shot = true
+autostart = true
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="Area2D-Inner" type="Area2D" parent="."]
+scale = Vector2( 2, 2 )
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D-Inner"]
+polygon = PoolVector2Array( 0, -23, 16, -16, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D-Inner"]
+rotation = 0.785398
+polygon = PoolVector2Array( 0, -22.6274, 16, -16, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Area2D-Inner"]
+rotation = 1.5708
+polygon = PoolVector2Array( 0, -22.6274, 16, -16, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Area2D-Inner"]
+rotation = 2.35619
+polygon = PoolVector2Array( 0, -22.6274, 16, -16, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Area2D-Inner"]
+rotation = 3.14159
+polygon = PoolVector2Array( 0, -22.6274, 16, -16, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Area2D-Inner"]
+rotation = 3.92699
+polygon = PoolVector2Array( 0, -22.6274, 16, -16, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Area2D-Inner"]
+rotation = 4.71239
+polygon = PoolVector2Array( 0, -22.6274, 16, -16, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Area2D-Inner"]
+rotation = 5.49779
+polygon = PoolVector2Array( 0, -22.6274, 16, -16, 0, 0 )
+disabled = true
+
+[node name="Area2D-Outer" type="Area2D" parent="."]
+scale = Vector2( 2, 2 )
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D-Outer"]
+polygon = PoolVector2Array( 0, -72, 51, -51, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D-Outer"]
+rotation = 0.785398
+polygon = PoolVector2Array( 0, -72.1249, 50.9117, -50.9117, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Area2D-Outer"]
+rotation = 1.5708
+polygon = PoolVector2Array( -3.14722e-06, -72, 51, -51, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Area2D-Outer"]
+rotation = 2.35619
+polygon = PoolVector2Array( 0, -72.1249, 50.9117, -50.9117, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Area2D-Outer"]
+rotation = 3.14159
+polygon = PoolVector2Array( -6.29444e-06, -72, 51, -51, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Area2D-Outer"]
+rotation = 3.92699
+polygon = PoolVector2Array( 3.8147e-06, -72.1249, 50.9117, -50.9117, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Area2D-Outer"]
+rotation = 4.71239
+polygon = PoolVector2Array( -8.58591e-07, -72, 51, -51, 0, 0 )
+disabled = true
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Area2D-Outer"]
+rotation = 5.49779
+polygon = PoolVector2Array( 1.14441e-05, -72.1249, 50.9117, -50.9117, 0, 0 )
+disabled = true
+
+[node name="Area2D-Blast" type="Area2D" parent="."]
+space_override = 3
+gravity_distance_scale = 1024.0
+gravity_vec = Vector2( -2, -2 )
+gravity = -1024.0
+linear_damp = 0.0
+angular_damp = 0.0
+collision_layer = 131072
+collision_mask = 920578
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Blast"]
+shape = SubResource( 3 )
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="Inner" type="Node2D" parent="Raycasts"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Raycasts/Inner"]
+position = Vector2( 1, -2 )
+cast_to = Vector2( 9, -18 )
+collision_mask = 256
+
+[node name="RayCast2D2" type="RayCast2D" parent="Raycasts/Inner"]
+position = Vector2( 2, -1 )
+cast_to = Vector2( 18, -9 )
+collision_mask = 256
+
+[node name="RayCast2D3" type="RayCast2D" parent="Raycasts/Inner"]
+position = Vector2( 2, 1 )
+cast_to = Vector2( 18, 9 )
+collision_mask = 256
+
+[node name="RayCast2D4" type="RayCast2D" parent="Raycasts/Inner"]
+position = Vector2( 1, 2 )
+cast_to = Vector2( 9, 18 )
+collision_mask = 256
+
+[node name="RayCast2D5" type="RayCast2D" parent="Raycasts/Inner"]
+position = Vector2( -1, 2 )
+cast_to = Vector2( -9, 18 )
+collision_mask = 256
+
+[node name="RayCast2D6" type="RayCast2D" parent="Raycasts/Inner"]
+position = Vector2( -2, 1 )
+cast_to = Vector2( -18, 9 )
+collision_mask = 256
+
+[node name="RayCast2D7" type="RayCast2D" parent="Raycasts/Inner"]
+position = Vector2( -2, -1 )
+cast_to = Vector2( -18, -9 )
+collision_mask = 256
+
+[node name="RayCast2D8" type="RayCast2D" parent="Raycasts/Inner"]
+position = Vector2( -1, -2 )
+cast_to = Vector2( -9, -18 )
+collision_mask = 256
+
+[node name="Outer" type="Node2D" parent="Raycasts"]
+
+[node name="RayCast2D" type="RayCast2D" parent="Raycasts/Outer"]
+position = Vector2( 8, -19 )
+cast_to = Vector2( 20.5, -41 )
+collision_mask = 256
+
+[node name="RayCast2D2" type="RayCast2D" parent="Raycasts/Outer"]
+position = Vector2( 19, -8 )
+cast_to = Vector2( 41, -20.5 )
+collision_mask = 256
+
+[node name="RayCast2D3" type="RayCast2D" parent="Raycasts/Outer"]
+position = Vector2( 19, 8 )
+cast_to = Vector2( 41, 20.5 )
+collision_mask = 256
+
+[node name="RayCast2D4" type="RayCast2D" parent="Raycasts/Outer"]
+position = Vector2( 8, 19 )
+cast_to = Vector2( 20.5, 41 )
+collision_mask = 256
+
+[node name="RayCast2D5" type="RayCast2D" parent="Raycasts/Outer"]
+position = Vector2( -8, 19 )
+cast_to = Vector2( -20.5, 41 )
+collision_mask = 256
+
+[node name="RayCast2D6" type="RayCast2D" parent="Raycasts/Outer"]
+position = Vector2( -19, 8 )
+cast_to = Vector2( -41, 20.5 )
+collision_mask = 256
+
+[node name="RayCast2D7" type="RayCast2D" parent="Raycasts/Outer"]
+position = Vector2( -19, -8 )
+cast_to = Vector2( -41, -20.5 )
+collision_mask = 256
+
+[node name="RayCast2D8" type="RayCast2D" parent="Raycasts/Outer"]
+position = Vector2( -8, -19 )
+cast_to = Vector2( -20.5, -41 )
+collision_mask = 256
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_Timer3_timeout"]
+[connection signal="body_entered" from="Area2D-Inner" to="." method="_on_Area2DInner_body_entered"]
+[connection signal="body_entered" from="Area2D-Outer" to="." method="_on_Area2DOuter_body_entered"]

@@ -15,12 +15,8 @@ func bend(_pos: int):
 func is_right(_right: bool):
 	if _right == true:
 		self.scale.x = 1
-#		arm.scale.x = 1
-#		gun_pos.scale.x = 1
 	else:
 		self.scale.x = -1
-#		arm.scale.x = -1
-#		gun_pos.scale.x = -1
 
 func shield_up():
 	shield.visible = true

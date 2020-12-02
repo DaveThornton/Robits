@@ -214,6 +214,13 @@ tracks/3/keys = {
 [node name="Pawn_04_Part_Head" type="Node2D"]
 script = ExtResource( 5 )
 
+[node name="Shield" type="Sprite" parent="."]
+visible = false
+position = Vector2( -1, -9 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 4 )
+hframes = 3
+
 [node name="Hair" type="Sprite" parent="."]
 visible = false
 modulate = Color( 1, 0, 0, 1 )
@@ -234,8 +241,6 @@ hframes = 3
 texture = ExtResource( 1 )
 offset = Vector2( 0, -9 )
 hframes = 5
-
-[node name="Shield" type="Sprite" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Flash = SubResource( 1 )

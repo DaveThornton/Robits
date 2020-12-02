@@ -42,11 +42,7 @@ func _physics_process(delta):
 			_hit_map(cast.get_collision_point())
 			call_deferred("free")
 	move_local_x(speed * delta)
-	
-#func _on_Projectile_area_entered(area):
-#	entered(area)
-#func _on_Projectile_body_entered(body):
-#	entered(body)
+
 
 func entered(body):
 	if body.get_groups().has("hittable"):
@@ -64,12 +60,12 @@ func entered(body):
 
 func _hit_map(_pos):
 	var x = hit_anim_map.instance()
-	self.get_tree().get_current_scene().add_child(x)
+	Map_Hand.add_kid_to_map(x)
 	x.global_position = _pos
 
 func _hit_move(_pos):
 	var x = hit_anim_move.instance()
-	self.get_tree().get_current_scene().add_child(x)
+	Map_Hand.add_kid_to_map(x)
 	x.global_position = _pos
 
 func _on_Timer_timeout():

@@ -7,7 +7,7 @@ onready var head = $Body/Pawn_04_Part_Head
 onready var hover = $Body/Pawn_04_legs
 
 onready var body_sprite = $Body
-onready var shield_sprite = $Body/Shield
+onready var shield_sprite = $Shield
 
 onready var timers = $Timers
 onready var knockback_timer = $Timers/Knock_Back
@@ -166,6 +166,7 @@ func _process(delta):
 	
 	if _im_hit:
 		if _hit_time > 0.1:
+			shields_up()
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 			_hit_time = clamp(_hit_time,0,.3)
@@ -176,6 +177,7 @@ func _process(delta):
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 		else:
+			shields_down()
 			_set_new_color(_pri_color, _sec_color)
 			_hit_time = 0.0
 			_im_hit = false
@@ -413,7 +415,8 @@ func nrg_update():
 
 func put_shield_up(_how_long):
 	is_shield_up = true
-	shield_sprite.visible = true
+	shields_up()
+#	shield_sprite.visible = true
 	if _how_long <= 0:
 		shield_up_timer.wait_time = 10
 	else:
@@ -717,6 +720,16 @@ func _anim_ladder_left():
 	new_anim = "Up"
 	head.is_right(false)
 
+func shields_up():
+	shield_sprite.visible = true
+	head.shield_up()
+	hover.shield_up()
+
+func shields_down():
+	shield_sprite.visible = true
+	head.shield_down()
+	hover.shield_down()
+
 func _rays_stand():
 	_body(1)
 	ray_down_l = ray_down_l_stand
@@ -784,12 +797,14 @@ func _set_new_color(_pri, _sec):
 
 ##--------------------------------------------------------------------[Time Out]
 func shielduptimer():
-	shield_sprite.visible = false
+	shields_down()
+#	shield_sprite.visible = false
 	is_shield_up = false
 
 func shieldhittimer():
-	shield_sprite.visible = false
-	head.shield_down()
+	shields_down()
+#	shield_sprite.visible = false
+#	head.shield_down()
 	is_shield_up = false
 
 func speedtimer():

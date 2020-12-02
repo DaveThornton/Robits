@@ -22,7 +22,7 @@ height = 78.0
 radius = 7.0
 height = 42.0
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=5]
 resource_name = "Left"
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Body/Body/POS_Head:position")
@@ -200,8 +200,7 @@ tracks/6/keys = {
 "values": [ Vector2( -8, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Left_Stun"
+[sub_resource type="Animation" id=7]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -295,7 +294,7 @@ tracks/7/keys = {
 "values": [ Vector2( -8, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Body/Body/POS_Head:position")
 tracks/0/interp = 1
@@ -387,7 +386,7 @@ tracks/7/keys = {
 "values": [ Vector2( 8, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Body/Body/POS_Arm:rotation_degrees")
 tracks/0/interp = 1
@@ -651,6 +650,7 @@ rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 32
 
@@ -659,11 +659,11 @@ position = Vector2( -8, 1 )
 shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Left = SubResource( 9 )
+anims/Left = SubResource( 5 )
 anims/Left_Prone = SubResource( 6 )
-anims/Left_Stun = SubResource( 5 )
-anims/Right = SubResource( 7 )
-anims/Right_Prone = SubResource( 8 )
+anims/Left_Stun = SubResource( 7 )
+anims/Right = SubResource( 8 )
+anims/Right_Prone = SubResource( 9 )
 anims/Right_Stun = SubResource( 10 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]

@@ -704,7 +704,7 @@ func _set_gun_dir():
 		elif shoot_spot == 1:
 			arm.rotation_degrees = -85
 			head.rotation_degrees = -50
-			arm.bend(1)
+			arm.bend(3)
 		elif shoot_spot == 2:
 			arm.rotation_degrees = -35
 			head.rotation_degrees = -20
@@ -716,7 +716,7 @@ func _set_gun_dir():
 		elif shoot_spot == 5:
 			arm.rotation_degrees = 85
 			head.rotation_degrees = 50
-			arm.bend(1)
+			arm.bend(3)
 		elif shoot_spot == 6:
 			arm.rotation_degrees = 0
 			head.rotation_degrees = 0
@@ -733,7 +733,7 @@ func _set_gun_dir():
 		elif shoot_spot == 1:
 			arm.rotation_degrees = 85
 			head.rotation_degrees = 50
-			arm.bend(1)
+			arm.bend(3)
 		elif shoot_spot == 2:
 			arm.rotation_degrees = 35
 			head.rotation_degrees = 20
@@ -745,7 +745,7 @@ func _set_gun_dir():
 		elif shoot_spot == 5:
 			arm.rotation_degrees = -85
 			head.rotation_degrees = -50
-			arm.bend(1)
+			arm.bend(3)
 		elif shoot_spot == 6:
 			arm.rotation_degrees = 0
 			head.rotation_degrees = 0
