@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -46,6 +46,8 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_67_Wood_Sword_Pick.tscn" type="PackedScene" id=44]
 [ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=45]
 [ext_resource path="res://Scenes/Guns/Pick/W_51_Contradiction_S_Pick.tscn" type="PackedScene" id=46]
+[ext_resource path="res://Scenes/Guns/Pick/W_42_G-Launcher_Pick.tscn" type="PackedScene" id=47]
+[ext_resource path="res://Scenes/Projectiles/Proj-42-G_Launcher.tscn" type="PackedScene" id=48]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -271,12 +273,18 @@ head_hit = true
 position = Vector2( 730, 970 )
 head_hit = true
 
+[node name="Proj-42-G_Launcher" parent="Map_parts" instance=ExtResource( 48 )]
+position = Vector2( 1034.15, 609.513 )
+
 [node name="MP-15-Level_Change-01-Door" parent="." instance=ExtResource( 26 )]
 position = Vector2( 289.073, 320 )
 level_to_load_1 = ExtResource( 27 )
 
 [node name="Weap-Pick-08-Uzi" parent="." instance=ExtResource( 28 )]
 position = Vector2( 350, 428.986 )
+
+[node name="W_41_SPNKr_Pick" parent="." instance=ExtResource( 47 )]
+position = Vector2( 504.658, 696.451 )
 
 [node name="Weap-Pick-08-Uzi2" parent="." instance=ExtResource( 28 )]
 position = Vector2( 269.32, 835.226 )

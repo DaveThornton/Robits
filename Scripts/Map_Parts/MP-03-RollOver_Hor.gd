@@ -26,6 +26,9 @@ func _on_EL_ER_body_entered(body):
 	elif body.get_groups().has("BadGuy"):
 		var _this = body.global_position
 		body.global_position = Vector2(_this.x + 1980, _this.y)
+	elif body.get_groups().has("projectile"):
+		var _this = body.global_position
+		body.global_position = Vector2(_this.x + 1980, _this.y)
 
 func _on_ER_EL_body_entered(body):
 #	print(body)
@@ -36,6 +39,9 @@ func _on_ER_EL_body_entered(body):
 		var _this = body.global_position
 		body.global_position = Vector2(_this.x - 1980, _this.y)
 	elif body.get_groups().has("BadGuy"):
+		var _this = body.global_position
+		body.global_position = Vector2(_this.x - 1980, _this.y)
+	elif body.get_groups().has("projectile"):
 		var _this = body.global_position
 		body.global_position = Vector2(_this.x - 1980, _this.y)
 

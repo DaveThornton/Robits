@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/FX/FX-42-Grenade_Trail.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/FX/FX-20-plasma-cloud.png" type="Texture" id=2]
+
+[sub_resource type="Curve" id=1]
+max_value = 2.0
+_data = [ Vector2( 0.00888889, 0.327273 ), 0.0, 24.5455, 0, 0, Vector2( 0.18, 0.672727 ), 0.818181, 0.818181, 0, 0, Vector2( 0.442222, 0.290909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -4.09091, 0.0, 0, 0 ]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+show_behind_parent = true
+position = Vector2( -5, 0 )
+amount = 100
+lifetime = 1.5
+local_coords = false
+draw_order = 1
+texture = ExtResource( 2 )
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector2( -1, 0 )
+gravity = Vector2( -10, 0 )
+initial_velocity = 3.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 1 )
+script = ExtResource( 1 )
+time = 2.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

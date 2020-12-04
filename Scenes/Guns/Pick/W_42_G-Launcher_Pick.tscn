@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Guns/Pick/W_42_G-Launcher_Pick.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Guns/W_42_G-Launcher_Top.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_42_G-Launcher_Back.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Guns/W_42_G-Launcher_Mid.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Guns/W_42_G-Launcher_Back_2.png" type="Texture" id=6]
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.1
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 6.99997
+height = 17.5892
+
+[node name="W_42_G-Launcher" type="RigidBody2D" groups=[
+"FX",
+"PickUp",
+]]
+collision_layer = 524288
+collision_mask = 917534
+mass = 20.4082
+physics_material_override = SubResource( 1 )
+gravity_scale = 6.0
+continuous_cd = 2
+contacts_reported = 9
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 1 )
+smoke = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+self_modulate = Color( 0.678431, 0.678431, 0.678431, 1 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Back" type="Sprite" parent="."]
+self_modulate = Color( 0.678431, 0.678431, 0.678431, 1 )
+texture = ExtResource( 4 )
+hframes = 3
+frame = 2
+
+[node name="Mid_Back" type="Sprite" parent="."]
+self_modulate = Color( 0.737255, 0.737255, 0.737255, 1 )
+texture = ExtResource( 6 )
+
+[node name="Mid" type="Sprite" parent="."]
+self_modulate = Color( 0.313726, 0.313726, 0.313726, 1 )
+texture = ExtResource( 5 )
+hframes = 3
+
+[node name="Top" type="Sprite" parent="."]
+self_modulate = Color( 1, 0, 0, 1 )
+texture = ExtResource( 3 )
+hframes = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+[connection signal="body_entered" from="." to="." method="_on_WeapPick40RPG_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Des_Timer_timeout"]
