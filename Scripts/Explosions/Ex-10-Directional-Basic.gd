@@ -89,7 +89,7 @@ func _on_Timer_timeout():
 	anim.play("Fade")
 
 func _on_Timer2_timeout():
-	queue_free()
+	call_deferred("free")
 
 func _on_Timer3_timeout():
 	shape_blast.disabled = true

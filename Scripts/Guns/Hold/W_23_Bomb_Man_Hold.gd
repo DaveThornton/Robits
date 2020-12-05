@@ -81,7 +81,7 @@ func throw():
 		t.position = pos_throw.global_position
 		_throw_where(t)
 	emit_signal("ammo_change",player,0)
-	queue_free()
+	call_deferred("free")
 
 func drop():
 	call_deferred("_drop")
@@ -92,7 +92,7 @@ func _drop():
 	t.init(ammo, player, timer.get_time_left(), is_right, shoot_pos, false)
 	_drop_where(t)
 	emit_signal("ammo_change",player,0)
-	queue_free()
+	call_deferred("free")
 
 func _throw_where(_obj):
 	if is_right:

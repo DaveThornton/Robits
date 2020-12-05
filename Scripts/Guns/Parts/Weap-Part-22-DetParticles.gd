@@ -36,4 +36,4 @@ func _on_Timer_timeout():
 		get_parent().booming()
 #	else:
 #		print("there is no boom w 22")
-	queue_free()
+	call_deferred("free")

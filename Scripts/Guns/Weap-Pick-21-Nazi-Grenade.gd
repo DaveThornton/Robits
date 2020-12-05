@@ -54,7 +54,7 @@ func _on_Timer_Boom_timeout():
 	var b = boom.instance()
 	Map_Hand.add_kid_to_map(b)
 	b.init(player, self.global_position, my_name, 0, damage)
-	queue_free()
+	call_deferred("free")
 
 func spin(_how_much):
 	if is_right:
@@ -108,7 +108,7 @@ func _on_Timer_timeout():
 	var s = smoke.instance()
 	Map_Hand.add_kid_to_map(s)
 	s.start( 0 , self.global_position, 0, 0)
-	queue_free()
+	call_deferred("free")
 
 func _on_Timer_Hit_timeout():
 	dont_hit_player()

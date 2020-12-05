@@ -230,7 +230,7 @@ position = Vector2( 590, 826 )
 position = Vector2( 1430, 292.283 )
 
 [node name="W_12_OpenCannon_Pick" parent="Power_Ups" instance=ExtResource( 36 )]
-position = Vector2( 1369.04, 702 )
+position = Vector2( 1359.04, 716.033 )
 
 [node name="Weap-Pick-10-Blaster_Pistol2" parent="Power_Ups" instance=ExtResource( 37 )]
 position = Vector2( 318, 834 )
@@ -274,7 +274,7 @@ position = Vector2( 730, 970 )
 head_hit = true
 
 [node name="Proj-42-G_Launcher" parent="Map_parts" instance=ExtResource( 48 )]
-position = Vector2( 1034.15, 609.513 )
+position = Vector2( 1492.87, 829.226 )
 
 [node name="MP-15-Level_Change-01-Door" parent="." instance=ExtResource( 26 )]
 position = Vector2( 289.073, 320 )
@@ -294,9 +294,6 @@ position = Vector2( 880, 350 )
 
 [node name="Weap-Pick-10-Blaster_Pistol" parent="." instance=ExtResource( 38 )]
 position = Vector2( 660, 698.196 )
-
-[node name="Weap-Pick-10-Blaster_Pistol2" parent="." instance=ExtResource( 38 )]
-position = Vector2( 797, 693 )
 
 [node name="W_17_Mars_Pick" parent="." instance=ExtResource( 39 )]
 position = Vector2( 588, 1050 )

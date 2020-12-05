@@ -13,4 +13,4 @@ func _on_AnimatedSprite_animation_finished():
 	Map_Hand.add_kid_to_map(x)
 	x.global_position = self.global_position
 	x.emitting = true
-	queue_free()
+	call_deferred("free")

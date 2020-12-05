@@ -53,7 +53,7 @@ func _on_TimerBoom_timeout():
 	Map_Hand.add_kid_to_map(b)
 	b.position = self.global_position
 	b.init(player, self.global_position, my_name, 0, damage)
-	queue_free()
+	call_deferred("free")
 
 
 func _on_Timer_timeout():

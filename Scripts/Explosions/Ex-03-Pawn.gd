@@ -55,4 +55,4 @@ func _on_Timer_timeout():
 	anim.play("fade")
 
 func _on_Timer2_timeout():
-	call_deferred("free")#queue_free()
+	call_deferred("free")

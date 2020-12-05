@@ -63,7 +63,7 @@ func _physics_process(delta):
 #		call_deferred("free")
 
 func _on_Timer_timeout():
-	queue_free()
+	call_deferred("free")
 
 #func _on_Area2D_body_entered(body):
 #	if body.get_groups().has("map"):

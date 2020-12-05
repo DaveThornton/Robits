@@ -74,7 +74,7 @@ func _on_Timer_timeout():
 	var s = smoke.instance()
 	Map_Hand.add_kid_to_map(s)
 	s.start( 0 , self.global_position, 0, 0)
-	queue_free()
+	call_deferred("free")
 	
 func dont_hit_player():
 	self.set_collision_mask_bit( 1, false)

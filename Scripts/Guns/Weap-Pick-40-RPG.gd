@@ -45,7 +45,7 @@ func _on_Des_Timer_timeout():
 	Map_Hand.add_kid_to_map(s)
 #	get_tree().get_current_scene().add_child(s)
 	s.start( 0 , self.global_position, 0, 0)
-	queue_free()
+	call_deferred("free")
 
 func _on_WeapPick40RPG_body_entered(body):
 	if body.get_groups().has("player"):

@@ -50,7 +50,7 @@ func _hit():
 	x.global_position = self.global_position
 
 func _on_Timer_timeout():
-	queue_free()
+	call_deferred("free")
 
 
 func _on_Projectile_area_entered(area):

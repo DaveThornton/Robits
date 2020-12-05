@@ -24,4 +24,4 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	proj5.start( _owner, int(_dmg / 5))
 
 func _on_Timer_timeout():
-	queue_free()
+	call_deferred("free")

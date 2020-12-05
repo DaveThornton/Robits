@@ -89,7 +89,7 @@ func fire_projectile():
 			_sr = pos_shoot.global_rotation * -1
 		var _sss = pos_shoot.global_scale
 		new_projectile.start( _sr , _ss, _sss, player, damage)
-		new_projectile.apply_impulse(pos_shoot.position, (pos_shoot.global_position - pawn.global_position) * Vector2(power,power))
+		new_projectile.apply_impulse(pos_shoot.position, (pos_shoot.global_position - pawn.arm.global_position) * Vector2(power,power))
 	else:
 		var _thing = shoot_cast.get_collider()
 		if _thing.get_groups().has("hittable"):

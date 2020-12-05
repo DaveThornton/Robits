@@ -82,7 +82,7 @@ func throw():
 		t.position = pos_throw.global_position
 		_throw_where(t)
 	emit_signal("ammo_change",player,0)
-	queue_free()
+	call_deferred("free")
 
 func drop():
 	call_deferred("_drop")
@@ -93,7 +93,7 @@ func _drop():
 	t.init(ammo, player, time, is_right, shoot_pos, false)
 	_drop_where(t)
 	emit_signal("ammo_change",player,0)
-	queue_free()
+	call_deferred("free")
 
 func _throw_where(_obj):
 	if is_right:
@@ -130,4 +130,4 @@ func _on_Timer_timeout():
 	var b = boom.instance()
 	Map_Hand.add_kid_to_map(b)
 	b.init(player, self.global_position, my_name, 0, damage)
-	queue_free()
+	call_deferred("free")

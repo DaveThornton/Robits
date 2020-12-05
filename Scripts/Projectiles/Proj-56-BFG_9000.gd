@@ -48,4 +48,4 @@ func _explode(_pos):
 	var x = boom.instance()
 	get_tree().get_current_scene().add_child(x)
 	x.init(owned, _pos, my_name, 0, damage)
-	queue_free()
+	call_deferred("free")

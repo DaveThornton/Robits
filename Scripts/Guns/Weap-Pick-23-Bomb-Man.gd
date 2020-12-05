@@ -42,7 +42,7 @@ func _on_Timer_Boom_timeout():
 #	self.get_tree().get_current_scene().add_child(b)
 	b.position = self.global_position
 	b.init(player, self.global_position, my_name, 0, damage)
-	queue_free()
+	call_deferred("free")
 
 func _on_WeapPick20Grenade_body_exited(body):
 	if body.get_groups().has("player"):
@@ -71,7 +71,7 @@ func _on_Timer_timeout():
 	Map_Hand.add_kid_to_map(s)
 #	get_tree().get_current_scene().add_child(s)
 	s.start( 0 , self.global_position, 0, 0)
-	queue_free()
+	call_deferred("free")
 
 
 func _on_Timer_start_timeout():

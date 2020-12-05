@@ -86,4 +86,3 @@ func set_num(_num):
 
 func _on_Timer_timeout():
 	call_deferred("free")
-	pass # Replace with function body.

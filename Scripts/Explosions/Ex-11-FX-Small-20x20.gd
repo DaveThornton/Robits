@@ -180,4 +180,4 @@ func _on_Timer_timeout():
 	anim.play("fade")
 
 func _on_Timer2_timeout():
-	queue_free()
+	call_deferred("free")

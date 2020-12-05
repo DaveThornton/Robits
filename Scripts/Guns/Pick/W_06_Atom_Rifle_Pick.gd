@@ -89,7 +89,7 @@ func _on_Timer_timeout():
 	Map_Hand.add_kid_to_map(s)
 #	get_tree().get_current_scene().add_child(s)
 	s.start( 0 , self.global_position, 0, 0)
-	queue_free()
+	call_deferred("free")
 	
 func dont_hit_player():
 	self.set_collision_mask_bit( 1, false)

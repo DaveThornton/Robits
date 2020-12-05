@@ -5,7 +5,7 @@ export(PackedScene) var boom
 
 onready var timer = $Timer
 onready var pos_throw = $POS_Gun/POS/Position2D
-onready var sprite_pin = $POS_Gun/Pin
+#onready var sprite_pin = $POS_Gun/Pin
 onready var throw_cast = $POS_Gun/Raycast/RayCast2D
 onready var anim = $AnimationPlayer
 
@@ -83,7 +83,7 @@ func throw():
 		t.position = pos_throw.global_position
 		_throw_where(t)
 	emit_signal("ammo_change",player,0)
-	queue_free()
+	call_deferred("free")
 
 func drop():
 	call_deferred("_drop")
@@ -94,7 +94,7 @@ func _drop():
 	t.init(ammo, player, timer.time_left, is_right, shoot_pos, false)
 	_drop_where(t)
 	emit_signal("ammo_change",player,0)
-	queue_free()
+	call_deferred("free")
 
 func _throw_where(_obj):
 	if is_right:

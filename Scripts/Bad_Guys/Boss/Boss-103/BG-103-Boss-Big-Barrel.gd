@@ -42,7 +42,6 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			emit_signal("dead_cannon")
 			print("BG-103-Dead")
 			call_deferred("_explode")
-	#		call_deferred("free")
 
 func _explode():
 	dead = true
@@ -51,10 +50,6 @@ func _explode():
 	Map_Hand.add_kid_to_map(e)
 	e.init(0, self.position, str("player ", e, "'s destruct system"), 0, 0)
 	anim_hit.play("Dead")
-
-#func _process(delta):
-#	pass
-
 
 func _on_Timer_timeout():
 	can_shoot = true
