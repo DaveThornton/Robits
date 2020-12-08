@@ -520,6 +520,16 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 		is_down = false
 	if can_move:
 		if !hold_input:
+			if on_ladder:
+				ray_down_l.enabled = false
+				ray_down_c.enabled = false
+				ray_down_r.enabled = false
+#				self.collision_mask = 67222
+			else:
+				ray_down_l.enabled = true
+				ray_down_c.enabled = true
+				ray_down_r.enabled = true
+#				self.collision_mask = 67230
 			if !is_down:
 				if right_input || left_input:
 					_anim_run()
@@ -695,16 +705,20 @@ func _set_gun_dir():
 			head.rotation_degrees = 0
 		elif shoot_spot == 1:
 			arm.rotation_degrees = -85
-			head.rotation_degrees = -85
+			if !on_ladder:
+				head.rotation_degrees = -85
 		elif shoot_spot == 2:
 			arm.rotation_degrees = -45
-			head.rotation_degrees =-45
+			if !on_ladder:
+				head.rotation_degrees =-45
 		elif shoot_spot == 4:
 			arm.rotation_degrees = 35
-			head.rotation_degrees = 35
+			if !on_ladder:
+				head.rotation_degrees = 35
 		elif shoot_spot == 5:
 			arm.rotation_degrees = 85
-			head.rotation_degrees = 85
+			if !on_ladder:
+				head.rotation_degrees = 85
 		if my_gun:
 			arm.rotation_degrees -= my_gun.walk
 	else:
@@ -714,16 +728,20 @@ func _set_gun_dir():
 			head.rotation_degrees = 0
 		elif shoot_spot == 1:
 			arm.rotation_degrees = 85
-			head.rotation_degrees = 85
+			if !on_ladder:
+				head.rotation_degrees = 85
 		elif shoot_spot == 2:
 			arm.rotation_degrees = 45
-			head.rotation_degrees = 45
+			if !on_ladder:
+				head.rotation_degrees = 45
 		elif shoot_spot == 4:
 			arm.rotation_degrees = -35
-			head.rotation_degrees = -35
+			if !on_ladder:
+				head.rotation_degrees = -35
 		elif shoot_spot == 5:
 			arm.rotation_degrees = -85
-			head.rotation_degrees = -85
+			if !on_ladder:
+				head.rotation_degrees = -85
 		if my_gun:
 			arm.rotation_degrees += my_gun.walk
 

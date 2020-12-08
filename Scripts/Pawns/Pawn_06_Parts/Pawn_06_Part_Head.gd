@@ -7,7 +7,7 @@ onready var anim_head = $AnimationPlayer_Head
 onready var anim_face = $AnimationPlayer_Face
 
 var last_face = "Idle"
-
+var _is_right = true
 
 func _ready():
 	anim_face.play("Idle")
@@ -27,12 +27,14 @@ func play_face(_num):
 		anim_face.play("Stun")
 
 func right():
+	_is_right = true
 	anim_head.play("Right")
 	var _face_anim = anim_face.get_current_animation()
 	if _face_anim == "Up":# || _face_anim == "":
 		anim_face.play(last_face)
 
 func left():
+	_is_right = false
 	var _face_anim = anim_face.get_current_animation()
 	if _face_anim == "Up":
 		anim_face.play(last_face)
@@ -44,7 +46,10 @@ func up():
 		last_face = "Idle"
 	elif _last_face == "Up":
 		pass
-	anim_head.play("Up")
+	if _is_right:
+		anim_head.play("Up_Right")
+	else:
+		anim_head.play("Up_Left")
 	anim_face.play("Up")
 
 func shield_up():
