@@ -19,6 +19,7 @@ position = Vector2( 0, 1 )
 script = ExtResource( 1 )
 
 [node name="MP-01-Camera" parent="." instance=ExtResource( 5 )]
+position = Vector2( 0, -1 )
 can_move = true
 
 [node name="ROBITS-Logo-03" type="Sprite" parent="MP-01-Camera"]
@@ -40,15 +41,18 @@ position = Vector2( -0.0100098, 0 )
 [node name="Space-00" parent="MP-01-Camera/Back" instance=ExtResource( 2 )]
 visible = false
 z_index = -129
+z_as_relative = false
 
 [node name="Space-01" parent="MP-01-Camera/Back" instance=ExtResource( 2 )]
 visible = false
 z_index = -129
+z_as_relative = false
 going_right = false
 
 [node name="Space-02" parent="MP-01-Camera/Back" instance=ExtResource( 2 )]
 visible = false
 z_index = -129
+z_as_relative = false
 moving = false
 
 [node name="Back_02_Blue_Sky_Tile" type="Sprite" parent="MP-01-Camera/Back"]
@@ -56,6 +60,7 @@ visible = false
 position = Vector2( 960.01, 540 )
 scale = Vector2( 1.01563, 0.421875 )
 z_index = -129
+z_as_relative = false
 texture = ExtResource( 6 )
 
 [node name="Back_07_Sun_Set_Sky" type="Sprite" parent="MP-01-Camera/Back"]
@@ -63,6 +68,7 @@ visible = false
 position = Vector2( 960.01, 530 )
 scale = Vector2( 1.01563, 0.421875 )
 z_index = -129
+z_as_relative = false
 texture = ExtResource( 7 )
 
 [node name="Area2D_Respawn" type="Area2D" parent="MP-01-Camera"]

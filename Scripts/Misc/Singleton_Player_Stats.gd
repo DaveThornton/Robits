@@ -193,11 +193,11 @@ func _ready():
 	if get_tree().get_current_scene().game_mode == 3:
 		print("pawns set in player stats")
 		p1["pawn_num"] = 6
-		p2["pawn_num"] = 4
+		p2["pawn_num"] = 12
 		p3["pawn_num"] = 5
 		p4["pawn_num"] = 9
 		p5["pawn_num"] = 12
-		p6["pawn_num"] = 10
+		p6["pawn_num"] = 14
 		p7["pawn_num"] = 15
 		p8["pawn_num"] = 13
 

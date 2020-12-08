@@ -1,0 +1,226 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Map_Parts/Parts/AnimationPlayer_Door.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SFX/Map_Parts/Doors/sfx_movement_dooropen2.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sprites/Map_Parts/Door20x120.png" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+#export var open_timer = .75
+export var open_on_left = true 
+export var open_on_right = true 
+export var open_on_far_left = false 
+export var open_on_far_right = false 
+export var open_for_bg = true
+export var open_for_player = true
+export var always_open = false
+
+onready var anim = $AnimationPlayer
+onready var timer = $Timer
+onready var far_left = $\"Area2D-Left/CollisionShape2D-Left-far\"
+onready var far_right = $\"Area2D-Right/CollisionShape2D-Right-far\"
+onready var sfx = $AudioStreamPlayer
+onready var area_left = $\"Area2D-Left\"
+onready var area_right = $\"Area2D-Right\"
+onready var area_left_shape = $\"Area2D-Left/CollisionShape2D\"
+onready var area_right_shape = $\"Area2D-Right/CollisionShape2D\"
+
+var bodies = 0
+var open = false 
+var open_last = false
+
+func _ready():
+	far_left.disabled = !open_on_far_left
+	far_right.disabled = !open_on_far_right
+	area_left.set_collision_mask_bit(1,open_for_player)
+	area_right.set_collision_mask_bit(1,open_for_player)
+	area_left.set_collision_mask_bit(10,open_for_player)
+	area_right.set_collision_mask_bit(10,open_for_player)
+	area_left.set_collision_mask_bit(11,open_for_bg)
+	area_right.set_collision_mask_bit(11,open_for_bg)
+	if always_open:
+		anim.play(\"Open\")
+		open = true
+		area_left_shape.disabled = true
+		area_right_shape.disabled = true
+
+func _process(_delta):
+	if open != open_last:
+		sfx.play()
+		open_last = open
+
+func _on_entered(body):
+#	print(\"body entered\")
+	if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+#		print(\"player or bg entered\")
+		bodies += 1
+		if !anim.is_playing():
+#			print(\"playing anim\")
+			if !open:
+				anim.play(\"Door_Open\")
+				open = true
+			else:
+				timer.stop()
+		else :
+			var _anim_pos = anim.current_animation_position
+			if !open:
+				anim.play(\"Door_Open\")
+				anim.seek(_anim_pos)
+				open = true
+			else:
+				timer.stop()
+
+func _on_exited(body):
+	if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+		bodies -= 1
+		if bodies <= 0:
+			timer.start()
+
+func _on_Timer_timeout():
+	if open:
+		if !always_open:
+			anim.play(\"Door_Open\",0,-1,true)
+			open = false
+#		sfx.play()
+
+func _on_Area2DLeft_body_entered(body):
+	if open_on_left:
+#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+		_on_entered(body)
+
+func _on_Area2DRight_body_entered(body):
+	if open_on_right:
+#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+		_on_entered(body)
+
+func _on_Area2DLeft_body_exited(body):
+	if open_on_left:
+#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+		_on_exited(body)
+
+func _on_Area2DRight_body_exited(body):
+	if open_on_right:
+#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+		_on_exited(body)
+"
+
+[sub_resource type="Animation" id=2]
+resource_name = "Open"
+length = 0.05
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("StaticBody2D/Door_Bottom:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("StaticBody2D/Door_Top:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 25.0
+height = 56.0
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10, 2.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 6, 29 )
+
+[node name="Door-120_Tall" type="Node2D" groups=[
+"map",
+]]
+script = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." instance=ExtResource( 1 )]
+anims/Open = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+hframes = 7
+
+[node name="Area2D-Left" type="Area2D" parent="."]
+position = Vector2( -32, 7 )
+collision_layer = 262144
+collision_mask = 3074
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Left"]
+position = Vector2( 0, -7 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D-Left-far" type="CollisionShape2D" parent="Area2D-Left"]
+position = Vector2( -53, -7 )
+shape = SubResource( 7 )
+
+[node name="Area2D-Right" type="Area2D" parent="."]
+position = Vector2( 32, 7 )
+collision_layer = 262144
+collision_mask = 3074
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Right"]
+position = Vector2( 0, -7 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D-Right-far" type="CollisionShape2D" parent="Area2D-Right"]
+position = Vector2( 53, -7 )
+shape = SubResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
+"map",
+]]
+collision_layer = 8
+collision_mask = 885279
+
+[node name="Very_Top" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, -58 )
+shape = SubResource( 5 )
+
+[node name="Door_Top" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, -27 )
+shape = SubResource( 6 )
+
+[node name="Door_Bottom" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 31 )
+shape = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -22.0
+bus = "SFX"
+[connection signal="body_entered" from="Area2D-Left" to="." method="_on_Area2DLeft_body_entered"]
+[connection signal="body_exited" from="Area2D-Left" to="." method="_on_Area2DLeft_body_exited"]
+[connection signal="body_entered" from="Area2D-Right" to="." method="_on_Area2DRight_body_entered"]
+[connection signal="body_exited" from="Area2D-Right" to="." method="_on_Area2DRight_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

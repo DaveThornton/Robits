@@ -27,22 +27,6 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-07-WayPoints.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Map_Parts/MP-35-Area_Way_Point_Moving.tscn" type="PackedScene" id=26]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [sub_resource type="CapsuleShape2D" id=1]
 height = 90.0
 
@@ -153,7 +137,10 @@ __meta__ = {
 }
 
 [node name="MP-07-WayPoints-00" parent="." instance=ExtResource( 25 )]
+editor_process = true
 line_color = Color( 0.662745, 0.14902, 0.14902, 0.815686 )
+tri_color = Color( 0.9, 0.01, 0.01, 1 )
+line_width = 10.0
 
 [node name="Position2D2" type="Position2D" parent="MP-07-WayPoints-00"]
 position = Vector2( 460, 320 )
@@ -168,7 +155,10 @@ position = Vector2( 1060, 160 )
 position = Vector2( 440, 200 )
 
 [node name="MP-07-WayPoints-01" parent="." instance=ExtResource( 25 )]
+editor_process = true
 line_color = Color( 0.662745, 0.14902, 0.14902, 0.815686 )
+tri_color = Color( 0.9, 0.01, 0.01, 1 )
+line_width = 10.0
 
 [node name="Position2D2" type="Position2D" parent="MP-07-WayPoints-01"]
 position = Vector2( 640, 500 )
@@ -392,6 +382,9 @@ body_1 = ExtResource( 23 )
 position = Vector2( 460, 320 )
 collision_layer = 3
 collision_mask = 3
+editor_process = true
+speed = 400.0
+player_area_size = 20.0
 waypoints_path = NodePath("../MP-07-WayPoints-00")
 
 [node name="TileMap" type="TileMap" parent="MP-35-Area_Way_Point_Moving"]
@@ -413,6 +406,8 @@ position = Vector2( 640, 500 )
 collision_layer = 3
 collision_mask = 3
 editor_process = false
+speed = 400.0
+player_area_size = 20.0
 waypoints_path = NodePath("../MP-07-WayPoints-01")
 
 [node name="MP-51-Saw" parent="MP-35-Area_Way_Point_Moving2" instance=ExtResource( 24 )]

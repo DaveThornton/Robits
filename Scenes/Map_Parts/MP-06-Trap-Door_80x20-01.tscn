@@ -4,7 +4,6 @@
 [ext_resource path="res://Sprites/Map_Parts/MP-06-Trap_Door-80x20.png" type="Texture" id=2]
 [ext_resource path="res://SFX/Map_Parts/Doors/sfx_movement_dooropen2.wav" type="AudioStream" id=3]
 
-
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
@@ -101,16 +100,16 @@ func _on_Area2DRight_body_exited(body):
 #		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
 		_on_exited(body)"
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 21.147
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 2.5 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 6, 12 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 6, 13 )
 
 [node name="Trap_Door-80_Wide" type="Node2D" groups=[
@@ -123,7 +122,6 @@ script = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 hframes = 7
-frame = 1
 
 [node name="Area2D-Top" type="Area2D" parent="."]
 position = Vector2( 0, -32 )
@@ -131,11 +129,11 @@ collision_layer = 262144
 collision_mask = 3074
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Top"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D-Top-Far" type="CollisionShape2D" parent="Area2D-Top"]
 position = Vector2( 0, -42 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="Area2D-Bot" type="Area2D" parent="."]
@@ -144,44 +142,42 @@ collision_layer = 262144
 collision_mask = 3074
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Bot"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D-Bot-Far" type="CollisionShape2D" parent="Area2D-Bot"]
 position = Vector2( 0, 42 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
 "map",
 ]]
-editor/display_folded = true
 collision_layer = 8
 collision_mask = 885279
 
 [node name="Very_Top" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -37.5275, 0 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Very_Top2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 37.5275, 0 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Door_Top" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -25, 0 )
 rotation = 1.5708
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Door_Top2" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 25, 0 )
 rotation = 1.5708
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Door_Bottom" type="CollisionShape2D" parent="StaticBody2D"]
 rotation = 1.5708
-shape = SubResource( 6 )
-disabled = true
+shape = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

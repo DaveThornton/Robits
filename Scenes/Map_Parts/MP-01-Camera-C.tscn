@@ -112,12 +112,13 @@ position = Vector2( 2090, 540 )
 texture = ExtResource( 4 )
 
 [node name="SpriteStatic" type="AnimatedSprite" parent="."]
+visible = false
 modulate = Color( 1, 1, 1, 0.0117647 )
 position = Vector2( 960, 543 )
 scale = Vector2( 0.989583, 0.987132 )
 frames = SubResource( 1 )
 animation = "Real"
-frame = 19
+frame = 47
 speed_scale = 7.0
 playing = true
 
