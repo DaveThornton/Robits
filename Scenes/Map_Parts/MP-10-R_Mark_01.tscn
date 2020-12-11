@@ -5,8 +5,6 @@
 [ext_resource path="res://Sprites/Map_Parts/Marks-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Map_Parts/StaticBody2D-pass-func-up.gd" type="Script" id=4]
 
-
-
 [sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]

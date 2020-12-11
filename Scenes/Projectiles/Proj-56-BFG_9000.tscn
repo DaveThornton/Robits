@@ -78,11 +78,10 @@ anims/Move = SubResource( 2 )
 anims/fire = SubResource( 3 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( -15, 0 )
+position = Vector2( -5, 0 )
 enabled = true
 cast_to = Vector2( 40, 0 )
 collision_mask = 2842
-[connection signal="area_entered" from="." to="." method="_on_Projectile_04_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Projectile_04_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

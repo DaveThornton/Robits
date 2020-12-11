@@ -7,13 +7,12 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_13_TOS_Pick.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/FX/FX-13-Phaser-Hit.tscn" type="PackedScene" id=7]
 
-[sub_resource type="CanvasItemMaterial" id=6]
+[sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 
-[sub_resource type="Animation" id=2]
-resource_name = "Click"
+[sub_resource type="Animation" id=3]
 length = 0.15
 step = 0.025
 tracks/0/type = "value"
@@ -65,8 +64,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Melee"
+[sub_resource type="Animation" id=4]
 length = 0.4
 step = 0.025
 tracks/0/type = "value"
@@ -118,8 +116,7 @@ tracks/3/keys = {
 "values": [ true, false, true ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Shoot"
+[sub_resource type="Animation" id=5]
 length = 0.1
 step = 0.025
 tracks/0/type = "value"
@@ -183,8 +180,7 @@ tracks/4/keys = {
 "values": [ 1, 0 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "UnShoot"
+[sub_resource type="Animation" id=6]
 length = 0.1
 step = 0.025
 tracks/0/type = "value"
@@ -266,7 +262,7 @@ hframes = 2
 
 [node name="Laser_Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
 self_modulate = Color( 1, 0, 0, 1 )
-material = SubResource( 6 )
+material = SubResource( 1 )
 position = Vector2( 9, -4 )
 scale = Vector2( 1, 0.75 )
 texture = ExtResource( 1 )
@@ -283,7 +279,7 @@ scale = Vector2( 1, 1.33333 )
 position = Vector2( 9, -2.5 )
 enabled = true
 cast_to = Vector2( 750, 0 )
-collision_mask = 3338
+collision_mask = 3850
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 visible = false
@@ -311,12 +307,12 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
 position = Vector2( 10, -5 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Click = SubResource( 2 )
-anims/Melee = SubResource( 3 )
-anims/Shoot = SubResource( 4 )
-anims/UnShoot = SubResource( 5 )
+anims/Click = SubResource( 3 )
+anims/Melee = SubResource( 4 )
+anims/Shoot = SubResource( 5 )
+anims/UnShoot = SubResource( 6 )
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]

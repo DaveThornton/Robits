@@ -22,7 +22,7 @@ hframes = 4
 frame = 3
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

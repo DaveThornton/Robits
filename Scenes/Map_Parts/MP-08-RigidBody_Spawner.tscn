@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Map_Parts/MP-08-Rigid_Body_Spawner -01.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Pick/W_20_Grenade_Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Map_Parts/Blue_Spawner.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Map_Parts/Marks-Sheet.png" type="Texture" id=4]
-
-
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 25.0
@@ -27,6 +25,10 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
 }
+
+[sub_resource type="Curve" id=4]
+max_value = 2.0
+_data = [ Vector2( 0.0488889, 0.265909 ), 0.0, 0.0, 0, 0, Vector2( 0.890845, 2 ), 0.0, 0.0, 0, 0, Vector2( 0.993333, 0 ), -1.76653, 0.0, 0, 0 ]
 
 [node name="RigidBody_Spawner" type="Node2D"]
 z_index = 2
@@ -50,7 +52,7 @@ gravity = 75.0
 linear_damp = 10.0
 angular_damp = 10.0
 collision_layer = 524288
-collision_mask = 524288
+collision_mask = 720896
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
@@ -72,6 +74,7 @@ one_shot = true
 autostart = true
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -30 )
 z_index = -2
 texture = ExtResource( 3 )
@@ -86,6 +89,17 @@ frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Running = SubResource( 3 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 0, -10 )
+amount = 25
+lifetime = 1.1
+lifetime_randomness = 0.5
+emission_shape = 2
+emission_rect_extents = Vector2( 5, 1 )
+gravity = Vector2( 0, -98 )
+scale_amount_curve = SubResource( 4 )
+color = Color( 0.411765, 0.309804, 1, 1 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

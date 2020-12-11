@@ -15,6 +15,9 @@ export var open_on_far_right = false
 export var open_for_bg = true
 export var open_for_player = true
 export var always_open = false
+export var open_in_time = false
+export var open_in_time_time = 10
+export var open_in_tine_open = false
 
 onready var anim = $AnimationPlayer
 onready var timer = $Timer
@@ -29,6 +32,7 @@ onready var area_right_shape = $\"Area2D-Right/CollisionShape2D\"
 var bodies = 0
 var open = false 
 var open_last = false
+var open_in_time_left = 0
 
 func _ready():
 	far_left.disabled = !open_on_far_left
@@ -44,6 +48,14 @@ func _ready():
 		open = true
 		area_left_shape.disabled = true
 		area_right_shape.disabled = true
+	print(open_in_time)
+	if open_in_time:
+		open_in_time_left = open_in_time_time
+		if open_in_tine_open:
+			open_door()
+		var con = self.get_tree().get_current_scene().connect(\"second\", self, \"second\")
+		if con != 0:
+			print(\"error on connecting second to second in door\")
 
 func _process(_delta):
 	if open != open_last:
@@ -51,7 +63,6 @@ func _process(_delta):
 		open_last = open
 
 func _on_entered(body):
-#	print(\"body entered\")
 	if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
 #		print(\"player or bg entered\")
 		bodies += 1
@@ -84,24 +95,48 @@ func _on_Timer_timeout():
 			open = false
 #		sfx.play()
 
+func second():
+	open_in_time_left -= 1
+	print(open_in_time_left)
+	if open_in_time_left <= 0:
+		open_in_time_left = open_in_time_time
+		if !open:
+			open_door()
+		else:
+			close_door()
+#	current_count += 1
+#	if current_count == hit_on_second:
+#		slam()
+#	else:
+#		slamming = false
+#	if current_count >= count_to_second:
+#		current_count = 0
+
+func open_door():
+	if !open:
+		anim.play(\"Door_Open\")
+		open = true
+
+func close_door():
+	if open:
+		if !always_open:
+			anim.play(\"Door_Open\",0,-1,true)
+			open = false
+
 func _on_Area2DLeft_body_entered(body):
 	if open_on_left:
-#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
 		_on_entered(body)
 
 func _on_Area2DRight_body_entered(body):
 	if open_on_right:
-#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
 		_on_entered(body)
 
 func _on_Area2DLeft_body_exited(body):
 	if open_on_left:
-#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
 		_on_exited(body)
 
 func _on_Area2DRight_body_exited(body):
 	if open_on_right:
-#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
 		_on_exited(body)
 "
 

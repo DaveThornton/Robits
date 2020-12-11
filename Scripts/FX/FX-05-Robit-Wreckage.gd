@@ -21,7 +21,7 @@ var pawn_img_15 = preload("res://Sprites/Pawns/Pawn_15/Pawn_15_Wreckage.png")
 
 func _ready():
 	if expire:
-		var time = rand_range(65.0,125.0)
+		var time = rand_range(10.0,30.0)
 		$Timer.wait_time = time
 		$Timer.start()
 

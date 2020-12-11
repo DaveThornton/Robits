@@ -5,7 +5,7 @@
 [resource]
 render_priority = 1
 shader = ExtResource( 1 )
-shader_param/boost = 2.0
+shader_param/boost = 1.5
 shader_param/grille_opacity = 0.85
 shader_param/scanlines_opacity = 0.98
 shader_param/vignette_opacity = 0.2

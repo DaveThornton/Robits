@@ -14,6 +14,9 @@ export var open_on_far_right = false
 export var open_for_bg = true
 export var open_for_player = true
 export var always_open = false
+export var open_in_time = false
+export var open_in_time_time = 10
+export var open_in_tine_open = false
 
 onready var anim = $AnimationPlayer
 onready var timer = $Timer
@@ -28,6 +31,7 @@ onready var area_right_shape = $\"Area2D-Right/CollisionShape2D\"
 var bodies = 0
 var open = false 
 var open_last = false
+var open_in_time_left = 0
 
 func _ready():
 	far_left.disabled = !open_on_far_left
@@ -43,6 +47,14 @@ func _ready():
 		open = true
 		area_left_shape.disabled = true
 		area_right_shape.disabled = true
+	print(open_in_time)
+	if open_in_time:
+		open_in_time_left = open_in_time_time
+		if open_in_tine_open:
+			open_door()
+		var con = self.get_tree().get_current_scene().connect(\"second\", self, \"second\")
+		if con != 0:
+			print(\"error on connecting second to second in door\")
 
 func _process(_delta):
 	if open != open_last:
@@ -50,7 +62,6 @@ func _process(_delta):
 		open_last = open
 
 func _on_entered(body):
-#	print(\"body entered\")
 	if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
 #		print(\"player or bg entered\")
 		bodies += 1
@@ -83,28 +94,152 @@ func _on_Timer_timeout():
 			open = false
 #		sfx.play()
 
+func second():
+	open_in_time_left -= 1
+	print(open_in_time_left)
+	if open_in_time_left <= 0:
+		open_in_time_left = open_in_time_time
+		if !open:
+			open_door()
+		else:
+			close_door()
+#	current_count += 1
+#	if current_count == hit_on_second:
+#		slam()
+#	else:
+#		slamming = false
+#	if current_count >= count_to_second:
+#		current_count = 0
+
+func open_door():
+	if !open:
+		anim.play(\"Door_Open\")
+		open = true
+
+func close_door():
+	if open:
+		if !always_open:
+			anim.play(\"Door_Open\",0,-1,true)
+			open = false
+
 func _on_Area2DLeft_body_entered(body):
 	if open_on_left:
-#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
 		_on_entered(body)
 
 func _on_Area2DRight_body_entered(body):
 	if open_on_right:
-#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
 		_on_entered(body)
 
 func _on_Area2DLeft_body_exited(body):
 	if open_on_left:
-#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
 		_on_exited(body)
 
 func _on_Area2DRight_body_exited(body):
 	if open_on_right:
-#		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
 		_on_exited(body)
+
+
+#extends Node2D
+#
+##export var open_timer = .75
+#export var open_on_left = true 
+#export var open_on_right = true 
+#export var open_on_far_left = false 
+#export var open_on_far_right = false 
+#export var open_for_bg = true
+#export var open_for_player = true
+#export var always_open = false
+#
+#onready var anim = $AnimationPlayer
+#onready var timer = $Timer
+#onready var far_left = $\"Area2D-Left/CollisionShape2D-Left-far\"
+#onready var far_right = $\"Area2D-Right/CollisionShape2D-Right-far\"
+#onready var sfx = $AudioStreamPlayer
+#onready var area_left = $\"Area2D-Left\"
+#onready var area_right = $\"Area2D-Right\"
+#onready var area_left_shape = $\"Area2D-Left/CollisionShape2D\"
+#onready var area_right_shape = $\"Area2D-Right/CollisionShape2D\"
+#
+#var bodies = 0
+#var open = false 
+#var open_last = false
+#
+#func _ready():
+#	far_left.disabled = !open_on_far_left
+#	far_right.disabled = !open_on_far_right
+#	area_left.set_collision_mask_bit(1,open_for_player)
+#	area_right.set_collision_mask_bit(1,open_for_player)
+#	area_left.set_collision_mask_bit(10,open_for_player)
+#	area_right.set_collision_mask_bit(10,open_for_player)
+#	area_left.set_collision_mask_bit(11,open_for_bg)
+#	area_right.set_collision_mask_bit(11,open_for_bg)
+#	if always_open:
+#		anim.play(\"Open\")
+#		open = true
+#		area_left_shape.disabled = true
+#		area_right_shape.disabled = true
+#
+#func _process(_delta):
+#	if open != open_last:
+#		sfx.play()
+#		open_last = open
+#
+#func _on_entered(body):
+##	print(\"body entered\")
+#	if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+##		print(\"player or bg entered\")
+#		bodies += 1
+#		if !anim.is_playing():
+##			print(\"playing anim\")
+#			if !open:
+#				anim.play(\"Door_Open\")
+#				open = true
+#			else:
+#				timer.stop()
+#		else :
+#			var _anim_pos = anim.current_animation_position
+#			if !open:
+#				anim.play(\"Door_Open\")
+#				anim.seek(_anim_pos)
+#				open = true
+#			else:
+#				timer.stop()
+#
+#func _on_exited(body):
+#	if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+#		bodies -= 1
+#		if bodies <= 0:
+#			timer.start()
+#
+#func _on_Timer_timeout():
+#	if open:
+#		if !always_open:
+#			anim.play(\"Door_Open\",0,-1,true)
+#			open = false
+##		sfx.play()
+#
+#func _on_Area2DLeft_body_entered(body):
+#	if open_on_left:
+##		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+#		_on_entered(body)
+#
+#func _on_Area2DRight_body_entered(body):
+#	if open_on_right:
+##		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+#		_on_entered(body)
+#
+#func _on_Area2DLeft_body_exited(body):
+#	if open_on_left:
+##		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+#		_on_exited(body)
+#
+#func _on_Area2DRight_body_exited(body):
+#	if open_on_right:
+##		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
+#		_on_exited(body)
 "
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=2]
 resource_name = "Open"
 length = 0.05
 step = 0.05
@@ -145,13 +280,13 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="StreamTexture" id=8]
+[sub_resource type="StreamTexture" id=3]
 load_path = "res://.import/Door20x80.png-699c5f392590b3dbf15d8320bf76153a.stex"
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=4]
 radius = 29.6646
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10, 2.5 )
 
 [sub_resource type="RectangleShape2D" id=6]
@@ -163,10 +298,10 @@ extents = Vector2( 6, 18.993 )
 script = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 1 )]
-anims/Open = SubResource( 7 )
+anims/Open = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = SubResource( 8 )
+texture = SubResource( 3 )
 hframes = 7
 
 [node name="Area2D-Left" type="Area2D" parent="."]
@@ -175,11 +310,11 @@ collision_layer = 262144
 collision_mask = 3074
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Left"]
-shape = SubResource( 9 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D-Left-far" type="CollisionShape2D" parent="Area2D-Left"]
 position = Vector2( -45, 0 )
-shape = SubResource( 9 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="Area2D-Right" type="Area2D" parent="."]
@@ -188,11 +323,11 @@ collision_layer = 262144
 collision_mask = 3074
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Right"]
-shape = SubResource( 9 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D-Right-far" type="CollisionShape2D" parent="Area2D-Right"]
 position = Vector2( 42, 0 )
-shape = SubResource( 9 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
@@ -203,7 +338,7 @@ collision_mask = 885279
 
 [node name="Very_Top" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 0, -37.5 )
-shape = SubResource( 10 )
+shape = SubResource( 5 )
 
 [node name="Door_Top" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 0, -17 )

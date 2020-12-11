@@ -37,8 +37,8 @@ func _explode(_pos):
 	call_deferred("free")
 
 
-func _on_Proj42G_Launcher_body_entered(body):
+func _on_Proj42G_Launcher_body_entered(_body):
 	entered()
 
-func _on_Proj42G_Launcher_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_Proj42G_Launcher_body_shape_entered(_body_id, _body, _body_shape, _local_shape):
 	entered()
