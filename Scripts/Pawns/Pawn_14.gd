@@ -8,6 +8,7 @@ onready var body_shape_02 = $CollisionShape2D_Prone
 
 onready var head = $Body/Pawn_14_Part_Head
 onready var trax = $Body/Pawn_14_Part_Tracks
+onready var exhaust = $Body/Pawn_14_Exhaust
 
 onready var rockets = $Body/Pawn_14_Part_Tracks/Pawn_07_Part_Fire
 
@@ -559,12 +560,14 @@ func _anim_idle():
 	_body(1)
 	head.up(false)
 	trax.stop()
+	exhaust.idle()
 	new_anim = "Idle"
 
 func _anim_run():
 	_body(1)
 	head.up(false)
-	new_anim = "Idle"
+	new_anim = "Go"
+	exhaust.go()
 	if is_right:
 		trax.turn(true)
 		_body(1)
@@ -576,6 +579,7 @@ func _anim_jump():
 	_body(1)
 	head.up(false)
 	new_anim = "Idle"
+	exhaust.idle()
 	if is_right:
 		trax.turn(true)
 		_body(1)
@@ -586,12 +590,14 @@ func _anim_jump():
 func _anim_prone_idle():
 	head.up(false)
 	new_anim = "Prone"
+	exhaust.idle()
 	_body(2)
 	trax.stop()
 
 func _anim_prone_crawl():
 	new_anim = "Prone"
 	head.up(false)
+	exhaust.go()
 	_body(2)
 	if is_right:
 		trax.turn(true)
@@ -602,34 +608,40 @@ func _anim_stun():
 	_body(1)
 	head.up(false)
 	head.stun(true)
+	exhaust.stop()
 	new_anim = "Stun"
 
 func _anim_Knock():
 	_body(1)
+	exhaust.idle()
 	head.up(false)
 	new_anim = "Idle"
 
 func _anim_ladder_move():
 	_body(1)
 	head.up(true)
+	exhaust.go()
 	new_anim = "Idle"
 	trax.ladder()
 
 func _anim_ladder_right():
 	_body(1)
 	head.up(true)
+	exhaust.idle()
 	new_anim = "Idle"
 	trax.ladder()
 
 func _anim_ladder_left():
 	_body(1)
 	head.up(true)
+	exhaust.idle()
 	new_anim = "Idle"
 	trax.ladder()
 
 func _set_gun_dir():
 	arm.is_right(is_right)
 	head.is_right(is_right)
+	exhaust.is_right(is_right)
 	if is_right:
 		if shoot_spot == 3 || shoot_spot == 6:
 			arm.rotation_degrees = 0
@@ -677,6 +689,7 @@ func _set_new_color(_pri, _sec):
 	arm.color(_pri, _sec)
 	trax.color(_pri, _sec)
 	head.color(_pri, _sec)
+	exhaust.color(_pri, _sec)
 	shield_sprite.modulate = _sec
 	body_sprite.self_modulate = _pri
 

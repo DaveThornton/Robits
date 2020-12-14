@@ -3,9 +3,9 @@ extends KinematicBody2D
 onready var arm = $POS_Arm/Pawn_06_Part_Arm
 onready var gun_pos = $POS_Arm/Pawn_06_Part_Arm/POS_Gun
 
-onready var body_shape_01 = $Shape_Left
+#onready var body_shape_01 = $Shape_Left
 onready var body_shape_02 = $Shape_Stand
-onready var body_shape_03 = $Shape_Right
+#onready var body_shape_03 = $Shape_Right
 onready var body_shape_04 = $Shape_Down
 
 onready var key = $Pawn_05_Part_Key
@@ -433,24 +433,24 @@ func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
 	if _num == 1:
-		body_shape_01.disabled = false
-		body_shape_02.disabled = true
-		body_shape_03.disabled = true
+#		body_shape_01.disabled = false
+		body_shape_02.disabled = false
+#		body_shape_03.disabled = true
 		body_shape_04.disabled = true
 	elif _num == 2:
-		body_shape_01.disabled = true
+#		body_shape_01.disabled = true
 		body_shape_02.disabled = false
-		body_shape_03.disabled = true
+#		body_shape_03.disabled = true
 		body_shape_04.disabled = true
 	elif _num == 3:
-		body_shape_01.disabled = true
-		body_shape_02.disabled = true
-		body_shape_03.disabled = false
+#		body_shape_01.disabled = true
+		body_shape_02.disabled = false
+#		body_shape_03.disabled = false
 		body_shape_04.disabled = true
 	elif _num == 4:
-		body_shape_01.disabled = true
+#		body_shape_01.disabled = true
 		body_shape_02.disabled = true
-		body_shape_03.disabled = true
+#		body_shape_03.disabled = true
 		body_shape_04.disabled = false
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():

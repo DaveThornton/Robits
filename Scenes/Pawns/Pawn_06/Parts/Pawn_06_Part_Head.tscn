@@ -67,7 +67,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -3, -9 ) ]
+"values": [ Vector2( -3, -10 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Head:position")
@@ -232,7 +232,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -4, -9 ) ]
+"values": [ Vector2( 0, -7 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Face:scale")
@@ -245,6 +245,30 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Head:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -7 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Shield:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -7 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -296,7 +320,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 3, -8 ) ]
+"values": [ Vector2( 1, -7 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Face:scale")
@@ -309,6 +333,30 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Head:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -7 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Shield:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, -7 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -481,6 +529,7 @@ position = Vector2( 3, -9 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 8
+frame = 5
 
 [node name="AnimationPlayer_Head" type="AnimationPlayer" parent="."]
 anims/Left = SubResource( 1 )

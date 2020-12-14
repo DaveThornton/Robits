@@ -9,11 +9,13 @@ onready var anim = $AnimationPlayer
 onready var gun_pos = $POS_Body/Pawn_13_Part_Body/POS_Arm/Pawn_13_Part_Arm/POS_Gun
 
 onready var ray_up = $Raycasts/Up
-onready var ray_down_l = $Raycasts/Down_L 
+onready var ray_down_l = $Raycasts/Down_L
+onready var ray_down_c = $Raycasts/Down_C
 onready var ray_down_r = $Raycasts/Down_R
 
-onready var body1 = $"CollisionShape2D-Stand-R"
-onready var body2 = $"CollisionShape2D-Stand-L"
+onready var body1 = $"CollisionShape2D-Stand"
+onready var ladder_l = $"Ladder_Area/CollisionShape2D-L"
+onready var ladder_r = $"Ladder_Area/CollisionShape2D-R"
 
 onready var knockback_timer = $Timers/Knock_Back
 onready var shield_hit_timer = $Timers/Shield_Hit
@@ -170,9 +172,9 @@ func move_x(_moving, _right):
 					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
 					if _right:
-						current_x_speed += max_x_speed / 5 * speed_power_up #* delta
+						current_x_speed += max_x_speed / 4 * speed_power_up #* delta
 					else:
-						current_x_speed -= max_x_speed / 5 * speed_power_up #* delta
+						current_x_speed -= max_x_speed / 4 * speed_power_up #* delta
 			else:
 				current_x_speed = 0
 #				if current_x_speed < 4 && current_x_speed > -4 || on_ladder:
@@ -209,15 +211,22 @@ func jump(down_input, left_input, right_input):
 		if down_input && on_floor && !left_input && !right_input:
 			SFX.play("Move_Jump_08")
 			vel.y += 1.5
-			self.position.y += 1.5
-		elif !is_jump_pressed && on_floor:# && !down_input:
+#			self.position.y += 1.5
+		if !is_jump_pressed && on_floor && !down_input:# && !down_input:
 			SFX.play("Move_Jump_01")
 			vel.y = -max_jump_power * jump_power_up
 		is_jump_pressed = true
 		on_ladder = false
 
 func jump_j(_down_input, _left_input, _right_input):
-	pass
+	if can_move:
+		if _down_input && on_floor && !_left_input && !_right_input:
+			SFX.play("Move_Jump_08")
+			vel.y += 1.5
+			self.position.y += 5
+#	if can_move:
+#		if !_down_input && on_floor:
+#			vel.y -= 3
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
@@ -390,7 +399,7 @@ func _test_headroom():
 		head_room = 0
 
 func _is_on_floor():
-	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
+	if ray_down_r.is_colliding() || ray_down_l.is_colliding() || ray_down_c.is_colliding():
 		if !on_floor: # && !is_jump_pressed:
 			SFX.play("Move_Jump_19_Land")
 		on_floor = true
@@ -441,106 +450,6 @@ func add_ammo(_ammo):
 			my_gun.add_ammo(_ammo)
 
 ##-------------------------------------------------------------------[Animation]
-# warning-ignore:unused_argument
-#func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, _delta):
-#	if can_move:
-#		if !down_input && is_down:
-#			is_down = false
-#		if hold_input:
-#			if on_floor:
-#				if current_x_speed < 9 && current_x_speed > -9:
-#					current_x_speed = 0
-#				elif current_x_speed <= -10.0:
-#					current_x_speed += 9
-#				elif current_x_speed >= 10.0:
-#					current_x_speed -= 9
-#			if up_input && !down_input && !left_input && !right_input:
-#				shoot_spot = 1
-#			elif !up_input && down_input && !left_input && !right_input:
-#				shoot_spot = 5
-#			elif !up_input && !down_input && left_input && !right_input:
-#				shoot_spot = 3
-#			elif !up_input && !down_input && !left_input && right_input:
-#				shoot_spot = 3
-#			elif up_input && !down_input && left_input && !right_input:
-#				shoot_spot = 2
-#			elif up_input && !down_input && !left_input && right_input:
-#				shoot_spot = 2
-#			elif !up_input && down_input && left_input && !right_input:
-#				shoot_spot = 4
-#			elif !up_input && down_input && !left_input && right_input:
-#				shoot_spot = 4
-#			if on_floor:
-#				_anim_idle()
-#			else:
-#				_anim_jump()
-#		else:# no hold input
-#			if is_down:
-#				shoot_spot = 6
-#				if down_input && !left_input && !right_input:
-#					_anim_prone_idle()
-#				elif down_input && left_input && !right_input:
-#					_anim_prone_crawl()
-#				elif down_input && !left_input && right_input:
-#					_anim_prone_crawl()
-#				elif !down_input:
-#					is_down = false
-#			else:
-#				if on_floor:
-#					if down_input && !left_input && !right_input && !on_ladder:
-#						_anim_prone_idle()
-#						is_down = true
-#					elif !down_input && !left_input && right_input:
-#						_anim_run()
-#						if up_input:
-#							shoot_spot = 2
-#						else:
-#							shoot_spot = 3
-#					elif !up_input && !left_input && right_input:
-#						_anim_run()
-#						if down_input:
-#							shoot_spot = 4
-#						else:
-#							shoot_spot = 3
-#					elif !down_input && left_input && !right_input:
-#						_anim_run()
-#						if up_input:
-#							shoot_spot = 2
-#						else:
-#							shoot_spot = 3
-#					elif !up_input && left_input && !right_input:
-#						_anim_run()
-#						if down_input:
-#							shoot_spot = 4
-#						else:
-#							shoot_spot = 3
-#					elif !down_input && !up_input && !left_input && !right_input:
-#						_anim_idle()
-#						shoot_spot = 3
-#					elif up_input && !down_input && !left_input && !right_input:
-#						_anim_idle()
-#						shoot_spot = 1
-#				else:# not on floor
-#					_anim_jump()
-#					if !up_input && !down_input && !left_input && !right_input:
-#						shoot_spot = 3
-#					elif up_input && !down_input && !left_input && !right_input:
-#						shoot_spot = 1
-#					elif !up_input && down_input && !left_input && !right_input:
-#						shoot_spot = 5
-#					elif !up_input && !down_input && left_input && !right_input:
-#						shoot_spot = 3
-#					elif !up_input && !down_input && !left_input && right_input:
-#						shoot_spot = 3
-#					elif up_input && !down_input && left_input && !right_input:
-#						shoot_spot = 2
-#					elif up_input && !down_input && !left_input && right_input:
-#						shoot_spot = 2
-#					elif !up_input && down_input && left_input && !right_input:
-#						shoot_spot = 4
-#					elif !up_input && down_input && !left_input && right_input:
-#						shoot_spot = 4
-
 func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
 	if can_move:
 		if !down_input && is_down:
@@ -573,6 +482,15 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			else:
 				_anim_jump()
 		else:# no hold input
+			if on_ladder:
+				ray_down_l.enabled = false
+#				ray_down_c.enabled = false
+				ray_down_r.enabled = false
+#				self.collision_mask = 67222
+			else:
+				ray_down_l.enabled = true
+#				ray_down_c.enabled = true
+				ray_down_r.enabled = true
 			if is_down:
 				shoot_spot = 6
 				if down_input && !left_input && !right_input:
@@ -746,11 +664,11 @@ func _anim_Knock():
 		new_anim = "Left"
 
 func _anim_ladder_move():
-	_body(1)
+#	_body(1)
 	legs.ladder_move(is_right)
 
 func _anim_ladder_right():
-	_body(1)
+	_body(2)
 	legs.ladder(true)
 
 func _anim_ladder_left():
@@ -833,13 +751,16 @@ func _body_(_num: int):
 #	print("fix body in pawn 13")
 	if _num == 1:
 		body1.disabled = false
-		body2.disabled = true
+		ladder_l.disabled = false
+		ladder_r.disabled = true
 	elif _num == 2:
-		body1.disabled = true
-		body2.disabled = false
+		body1.disabled = false
+		ladder_l.disabled = true
+		ladder_r.disabled = false
 	elif _num == 3:
 		body1.disabled = true
-		body2.disabled = true
+		ladder_l.disabled = false
+		ladder_r.disabled = false
 
 func shield_up():
 	head.shield_up()

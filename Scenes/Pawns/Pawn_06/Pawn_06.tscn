@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Body.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Key.tscn" type="PackedScene" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://Sprites/Guns/Weap-02-AK-47.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Pawns/Pawn_06/Parts/Pawn_06_Part_Arm.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=9]
+
+[sub_resource type="CapsuleShape2D" id=17]
+radius = 12.0
+height = 10.0
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.0
@@ -2108,50 +2112,38 @@ cast_to = Vector2( 0, -5 )
 collision_mask = 8
 
 [node name="Down_L" type="RayCast2D" parent="Raycast"]
-position = Vector2( -13, 15 )
+position = Vector2( -11, 15 )
 enabled = true
 cast_to = Vector2( 0, 13 )
 collision_mask = 2078
 
 [node name="Down_C" type="RayCast2D" parent="Raycast"]
-position = Vector2( 0, 14 )
+position = Vector2( 0, 19 )
 enabled = true
-cast_to = Vector2( 0, 11 )
+cast_to = Vector2( 0, 7 )
 collision_mask = 28
 
 [node name="Down_Plat" type="RayCast2D" parent="Raycast"]
-position = Vector2( 0, 13 )
+position = Vector2( 0, 17 )
 enabled = true
-cast_to = Vector2( 0, 20 )
+cast_to = Vector2( 0, 16 )
 collision_mask = 4
 
 [node name="Down_R" type="RayCast2D" parent="Raycast"]
-position = Vector2( 13, 15 )
+position = Vector2( 11, 15 )
 enabled = true
 cast_to = Vector2( 0, 13 )
 collision_mask = 2078
 
-[node name="Shape_Left_old" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PoolVector2Array( 10, 14, 10, 14, 10, 14, 11, -1, 0, -18, -13, -18, -15, -1, -12, 14, -12, 14, -12, 14, -12, 14 )
-
-[node name="Shape_Left" type="CollisionPolygon2D" parent="."]
-visible = false
-rotation = -3.14159
-scale = Vector2( 1, -1 )
-polygon = PoolVector2Array( -14, 9, 14, 15, 14, 6, 7, -5, 9, -17, 2, -17 )
-
-[node name="Shape_Stand" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 15, 13, -15, 13, -6, -17, 6, -17 )
-
-[node name="Shape_Right" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PoolVector2Array( -14, 9, 14, 15, 14, 6, 7, -5, 9, -17, 2, -17 )
+[node name="Shape_Stand" type="CollisionShape2D" parent="."]
+shape = SubResource( 17 )
+disabled = true
 
 [node name="Shape_Down" type="CollisionShape2D" parent="."]
 position = Vector2( -1, 13 )
 rotation = 1.5708
 shape = SubResource( 1 )
+disabled = true
 
 [node name="Shield_Sprite" type="Sprite" parent="."]
 visible = false

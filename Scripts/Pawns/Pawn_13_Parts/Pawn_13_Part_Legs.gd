@@ -4,7 +4,7 @@ onready var front = $Front
 onready var body = $Body
 onready var shield = $Shield
 onready var anim = $AnimationPlayer
-
+onready var parts = $CPUParticles2D
 func run(_right):
 	if _right:
 		self.scale.x = 1
@@ -92,4 +92,5 @@ func color(_pri, _sec):
 	back.self_modulate = _pri
 	front.self_modulate = _pri
 	body.self_modulate = _pri
+	parts.modulate = _sec
 	shield.self_modulate = _sec

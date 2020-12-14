@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_13/Parts/Pawn_13_Part_Head.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_13/Parts/Pawn_13_Part_Legs.tscn" type="PackedScene" id=2]
@@ -8,23 +8,26 @@
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 17.0
+height = 22.0
+
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 11.0
 height = 30.0
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 14.0
-height = 8.0
-
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 28.0
-height = 78.0
+radius = 18.0
+height = 6.00001
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 7.0
-height = 42.0
+radius = 34.9999
+height = 46.0002
 
-[sub_resource type="Animation" id=5]
-resource_name = "Left"
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 9.0
+height = 46.0
+
+[sub_resource type="Animation" id=6]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Body:position")
@@ -87,8 +90,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Left_Prone"
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Body:position")
@@ -115,7 +117,7 @@ tracks/1/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "Left_Stun"
 length = 0.5
 step = 0.05
@@ -180,7 +182,7 @@ tracks/4/keys = {
 "values": [ 50.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Body:position")
@@ -243,8 +245,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Right_Prone"
+[sub_resource type="Animation" id=10]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Body:position")
@@ -271,8 +272,7 @@ tracks/1/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "Right_Stun"
+[sub_resource type="Animation" id=11]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -350,57 +350,65 @@ script = ExtResource( 5 )
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="Up" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -1, -53 )
+position = Vector2( 0, -52 )
 enabled = true
 cast_to = Vector2( 0, -10 )
 collision_mask = 2058
 
 [node name="Down_L" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -12, 4 )
+position = Vector2( -16, 1 )
 enabled = true
-cast_to = Vector2( 0, 3 )
-collision_mask = 2078
+cast_to = Vector2( 0, 4 )
+collision_mask = 3102
+
+[node name="Down_C" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 0, 4 )
+cast_to = Vector2( 0, 1 )
+collision_mask = 3102
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 9, 4 )
+position = Vector2( 16, 1 )
 enabled = true
-cast_to = Vector2( 0, 3 )
-collision_mask = 2078
+cast_to = Vector2( 0, 4 )
+collision_mask = 3102
 
-[node name="CollisionShape2D-Stand-R" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D-Stand" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -24 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D-Stand-R-OLD" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 6, -25 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
+disabled = true
 
-[node name="CollisionShape2D-Stand-L" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D-Stand-L-OLD" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -8, -25 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
+disabled = true
 
 [node name="CollisionShape2D-Down" type="CollisionShape2D" parent="."]
-position = Vector2( -1, -10 )
-rotation = 1.5708
-shape = SubResource( 2 )
+position = Vector2( 0, -17 )
+shape = SubResource( 3 )
 
 [node name="Shield" type="Sprite" parent="."]
 
 [node name="POS_Body" type="Position2D" parent="."]
-position = Vector2( -7, -20 )
-rotation = 0.349066
+position = Vector2( 7, -20 )
 
 [node name="Pawn_13_Part_Body" type="Sprite" parent="POS_Body"]
 texture = ExtResource( 4 )
 offset = Vector2( 0, -9 )
 hframes = 2
-frame = 1
 
 [node name="POS_Head" type="Position2D" parent="POS_Body/Pawn_13_Part_Body"]
 position = Vector2( 0, -16 )
-rotation = 0.349066
 
 [node name="Pawn_13_Part_Head" parent="POS_Body/Pawn_13_Part_Body/POS_Head" instance=ExtResource( 1 )]
 
 [node name="POS_Arm" type="Position2D" parent="POS_Body/Pawn_13_Part_Body"]
 position = Vector2( 0, -12 )
-rotation = 0.872665
 
 [node name="Pawn_13_Part_Arm" parent="POS_Body/Pawn_13_Part_Body/POS_Arm" instance=ExtResource( 3 )]
 
@@ -415,24 +423,28 @@ collision_mask = 786432
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
 position = Vector2( 0, -24 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
 visible = false
 collision_layer = 32
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
-position = Vector2( 0, -24 )
-shape = SubResource( 4 )
+[node name="CollisionShape2D-R" type="CollisionShape2D" parent="Ladder_Area"]
+position = Vector2( 9, -21 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D-L" type="CollisionShape2D" parent="Ladder_Area"]
+position = Vector2( -9, -21 )
+shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Left = SubResource( 5 )
-anims/Left_Prone = SubResource( 6 )
-anims/Left_Stun = SubResource( 9 )
-anims/Right = SubResource( 7 )
-anims/Right_Prone = SubResource( 8 )
-anims/Right_Stun = SubResource( 10 )
+anims/Left = SubResource( 6 )
+anims/Left_Prone = SubResource( 7 )
+anims/Left_Stun = SubResource( 8 )
+anims/Right = SubResource( 9 )
+anims/Right_Prone = SubResource( 10 )
+anims/Right_Stun = SubResource( 11 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]
