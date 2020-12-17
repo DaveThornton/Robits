@@ -21,7 +21,7 @@ var shoot_pos = 3
 var change_shoot_pos = true
 var is_right = true
 var walk = 0.0
-var time = 4.5
+var time = 3.8
 
 signal ammo_change(player, ammo)
 
@@ -73,10 +73,10 @@ func throw():
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
 	t.position = pos_throw.global_position
-	t.init(ammo, player,timer.get_time_left(), is_right, shoot_pos, false)
+	t.init(ammo, player,timer.get_time_left(), is_right, shoot_pos, true)
 	if throw_cast.is_colliding():
 		t.position = self.global_position
-		_drop_where(t)
+#		_drop_where(t)
 	else:
 		t.position = pos_throw.global_position
 		_throw_where(t)
@@ -90,7 +90,7 @@ func _drop():
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, timer.get_time_left(), is_right, shoot_pos, false)
-	_drop_where(t)
+#	_drop_where(t)
 	emit_signal("ammo_change",player,0)
 	call_deferred("free")
 
@@ -118,9 +118,9 @@ func _throw_where(_obj):
 		if shoot_pos == 5:
 			_obj.apply_impulse(pos_throw.position, Vector2(-50, 350))
 
-func _drop_where(_obj):
-	_obj.set_collision_layer_bit( 1, false)
-	_obj.set_collision_mask_bit( 1, false)
+#func _drop_where(_obj):
+#	_obj.set_collision_layer_bit( 1, false)
+#	_obj.set_collision_mask_bit( 1, false)
 
 func _on_Timer_timeout():
 	var p = Controllers.get_pawn(player)

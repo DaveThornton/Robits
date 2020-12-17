@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Projectiles/Proj-11-Mega-Cannon.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Projectiles/Campaign/Proj-00-Start-Cannon.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/FX/Bullet_Hit_Map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/FX/Bullet_Hit_Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Projectiles/Proj.png" type="Texture" id=4]
@@ -32,6 +32,13 @@ frame = 7
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.85
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -16, 0 )
+enabled = true
+cast_to = Vector2( 45, 0 )
+collision_mask = 2816
+collide_with_areas = true
 [connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,14 +1,37 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Sprites/Guns/Weap-23-Bomb.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Guns/Weap-23-Bomb-fuse.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Guns/W_23_Bomb_Fire.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Guns/W_23_Bomb.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Guns/Hold/W_23_Bomb_Man_Hold.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Guns/Pick/W_23_Bomb_Man_Pick.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Explosions/Ex-10-Directional-Basic.tscn" type="PackedScene" id=6]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Armed"
-length = 4.5
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 24, 0, 8, 8 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=6]
+length = 3.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Gun/Fuse:frame")
 tracks/0/interp = 1
@@ -16,10 +39,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.2, 1.35, 1.5, 1.65, 1.8, 1.95, 2.1, 2.25, 2.4, 2.55, 2.7, 2.85, 3, 3.15, 3.3, 3.45, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5, 0.7, 0.9, 1.1, 1.3, 1.5, 1.7, 1.9, 2.1, 2.3, 2.5, 2.7, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 ]
+"values": [ 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("POS_Gun/Gun_Sprite:frame")
@@ -28,14 +51,37 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 0 ]
+"values": [ 0, 0, 1, 2, 0, 1, 2, 0, 1, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("POS_Gun/AnimatedSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 27, -10 ), Vector2( 24, -6 ), Vector2( 21, -5 ), Vector2( 18, -7 ), Vector2( 17, -9 ), Vector2( 15, -12 ), Vector2( 14, -16 ), Vector2( 13, -19 ), Vector2( 11, -21 ), Vector2( 7, -22 ), Vector2( 5, -21 ), Vector2( 2, -19 ), Vector2( 1, -16 ), Vector2( 0, -14 ), Vector2( 0, -11 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("POS_Gun/AnimatedSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Unarmed"
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Gun/Gun_Sprite:frame")
@@ -68,20 +114,24 @@ bomb_man_pickup = ExtResource( 4 )
 boom = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.5
+wait_time = 3.75
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
-position = Vector2( 0, 8 )
-texture = ExtResource( 1 )
-hframes = 4
+texture = ExtResource( 2 )
+hframes = 18
 
 [node name="Fuse" type="Sprite" parent="POS_Gun"]
-position = Vector2( 1, -16 )
+position = Vector2( 13, -15 )
 texture = ExtResource( 2 )
-vframes = 8
-hframes = 4
+hframes = 18
+frame = 3
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="POS_Gun"]
+visible = false
+position = Vector2( 27, -10 )
+frames = SubResource( 5 )
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 
@@ -97,6 +147,6 @@ cast_to = Vector2( 20, 0 )
 collision_mask = 3850
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Armed = SubResource( 1 )
-anims/Unarmed = SubResource( 2 )
+anims/Armed = SubResource( 6 )
+anims/Unarmed = SubResource( 7 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -25,7 +25,7 @@ var shoot_pos = 3
 var change_shoot_pos = true
 var is_right = true
 var walk = 0.0
-var walk_amount = 10.0
+var walk_amount = 3.0
 var time = 4.0
 
 signal ammo_change(player, ammo)

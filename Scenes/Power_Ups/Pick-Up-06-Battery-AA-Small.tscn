@@ -4,20 +4,20 @@
 [ext_resource path="res://Sprites/Power_Ups/Pick-Up-06-Battery.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 9.99996
-height = 20.0001
+radius = 6.0
+height = 14.0
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 12.9166
-height = 23.4354
+radius = 8.0
+height = 16.0
 
-[node name="Pick-Up-06-Battery" type="RigidBody2D"]
+[node name="Pick-Up-06-Battery-AA-Small" type="RigidBody2D"]
 collision_layer = 524288
-collision_mask = 589836
+collision_mask = 65804
 mass = 10.0
 gravity_scale = 3.0
 script = ExtResource( 1 )
-how_much_nrg = 75
+how_much_nrg = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -26,6 +26,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 hframes = 2
+frame = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 65536

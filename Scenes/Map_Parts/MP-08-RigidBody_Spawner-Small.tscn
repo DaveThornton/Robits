@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Map_Parts/MP-08-Spawner.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 25.0
+radius = 18.0
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -17,9 +17,10 @@ loop = true
 max_value = 2.0
 _data = [ Vector2( 0.0488889, 0.265909 ), 0.0, 0.0, 0, 0, Vector2( 0.890845, 2 ), 0.0, 0.0, 0, 0, Vector2( 0.993333, 0 ), -1.76653, 0.0, 0, 0 ]
 
-[node name="RigidBody_Spawner" type="Node2D"]
+[node name="RigidBody_Spawner_Small" type="Node2D"]
 z_index = 2
 script = ExtResource( 1 )
+respawn_time = 10
 my_color = Color( 1, 0, 0, 1 )
 body_1 = ExtResource( 2 )
 body_2 = ExtResource( 2 )
@@ -29,14 +30,14 @@ body_5 = ExtResource( 2 )
 body_6 = ExtResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 0, -40 )
+position = Vector2( 0, -28 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 0, -40 )
+position = Vector2( 0, -25 )
 space_override = 3
 gravity_point = true
 gravity_vec = Vector2( 1, 1 )
-gravity = 75.0
+gravity = 100.0
 linear_damp = 10.0
 angular_damp = 10.0
 collision_layer = 524288
@@ -52,6 +53,7 @@ collision_mask = 524812
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 2 )
+disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 18.0
@@ -67,7 +69,6 @@ self_modulate = Color( 1, 0, 0, 1 )
 z_index = -2
 texture = ExtResource( 4 )
 hframes = 4
-frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Running = SubResource( 3 )
@@ -75,10 +76,10 @@ anims/Running = SubResource( 3 )
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2( 0, -10 )
 amount = 25
-lifetime = 1.1
+lifetime = 0.8
 lifetime_randomness = 0.5
 emission_shape = 2
-emission_rect_extents = Vector2( 5, 1 )
+emission_rect_extents = Vector2( 3, 1 )
 gravity = Vector2( 0, -98 )
 scale_amount_curve = SubResource( 4 )
 color = Color( 0.411765, 0.309804, 1, 1 )

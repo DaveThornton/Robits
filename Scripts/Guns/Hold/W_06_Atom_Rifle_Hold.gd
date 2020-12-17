@@ -66,9 +66,15 @@ func shoot_j():
 			SFX.play("Laser_Shoot")
 			walk += walk_amount
 		elif shoot_cast.is_colliding():
-			can_shoot = false
-			anim_fire.play("Melee")
-			melee_timer.start()
+			
+			if shoot_cast.get_collider().get_groups().has("player"):
+				if shoot_cast.get_collider().player == player:
+					_fire_projectile()
+				else:
+#					melee()
+					can_shoot = false
+					anim_fire.play("Melee")
+					melee_timer.start()
 		else:
 			SFX.play("Laser_Empty")
 

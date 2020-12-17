@@ -11,8 +11,8 @@ radius = 6.96588
 height = 12.507
 
 [node name="Weap-Pick-60-Axe" type="RigidBody2D" groups=[
-"PickUp",
 "FX",
+"PickUp",
 ]]
 position = Vector2( 0, 0.0510483 )
 collision_layer = 524288

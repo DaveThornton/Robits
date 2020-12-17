@@ -32,6 +32,8 @@ onready var ladder_count = [] #shouldnt be here??!!??
 onready var ray_up = $Raycasts/Up
 onready var ray_down_l = $Raycasts/Left
 onready var ray_down_r = $Raycasts/Right
+onready var ray_down_l2 = $Raycasts/Left2
+onready var ray_down_r2 = $Raycasts/Right2
 
 var player = 1
 var play_type = 2
@@ -421,11 +423,15 @@ func _body_(_num: int):
 		body_shape_02.disabled = false
 		body_shape_03.disabled = true
 		body_shape_04.disabled = true
+		ray_down_r2.enabled = false
+		ray_down_l2.enabled = true
 	elif _num == 3:
 		body_shape_01.disabled = true
 		body_shape_02.disabled = true
 		body_shape_03.disabled = false
 		body_shape_04.disabled = false
+		ray_down_r2.enabled = true
+		ray_down_l2.enabled = false
 	elif _num == 4:
 		body_shape_01.disabled = true
 		body_shape_02.disabled = false
@@ -450,7 +456,7 @@ func _test_headroom():
 		head_room = 0
 
 func _is_on_floor():
-	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
+	if ray_down_r.is_colliding() || ray_down_l.is_colliding() || ray_down_r2.is_colliding() || ray_down_l2.is_colliding():
 		if !on_floor && !is_jump_pressed:
 			on_floor = true
 			SFX.play("Move_Jump_19_Land")

@@ -5,11 +5,9 @@
 [ext_resource path="res://Scenes/Projectiles/Proj-11-Mega-Cannon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Guns/Pick/W_11_Mega_Cannon_Pick.tscn" type="PackedScene" id=4]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "Shoot"
-length = 0.15
+length = 0.1
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Gun/Gun_Sprite:frame")
@@ -18,10 +16,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15 ),
+"times": PoolRealArray( 0, 0.05, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 2, 3, 1, 0 ]
+"values": [ 3, 1, 0, 2 ]
 }
 
 [node name="W_11_MegaCannon_Hold" type="Node2D"]
@@ -30,13 +28,14 @@ mega_cannon = ExtResource( 4 )
 projectile = ExtResource( 3 )
 
 [node name="Shoot_Timer" type="Timer" parent="."]
-wait_time = 0.16
+wait_time = 0.11
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
 texture = ExtResource( 1 )
 hframes = 4
+frame = 2
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 

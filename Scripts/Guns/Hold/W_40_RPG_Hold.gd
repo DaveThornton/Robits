@@ -2,7 +2,7 @@ extends Node2D
 
 export(PackedScene) var RPG_Pickup
 export(PackedScene) var projectile
-
+export(PackedScene) var boom
 onready var sprite_gun = $POS_Gun/Gun_Sprite
 onready var anim_fire = $AnimationPlayer
 onready var shoot_timer = $Shoot_Timer
@@ -64,14 +64,17 @@ func shoot_j():
 				var _sss = pos_shoot.global_scale
 				new_projectile.start( _sr , _ss, _sss, player, damage)
 			else:
-				var _thing = shoot_cast.get_collider()
-				if _thing.get_groups().has("hittable"):
-					_thing.hit(player, my_name, dmg_type, damage)
-					print("gun 40 shot happened but no projectile spawned hit anyways")
-				elif _thing.get_groups().has("map"):
-					print("gun 40 hitting wall not fireing projectile", _thing)
-				else:
-					print("gun 40 dont know what im hitting but no projectile spawned")
+				var x = boom.instance()
+				get_tree().get_current_scene().add_child(x)
+				x.init(player, shoot_cast.get_collision_point(), "RPG", 0, damage)
+#				var _thing = shoot_cast.get_collider()
+#				if _thing.get_groups().has("hittable"):
+#					_thing.hit(player, my_name, dmg_type, damage)
+#					print("gun 40 shot happened but no projectile spawned hit anyways")
+#				elif _thing.get_groups().has("map"):
+#					print("gun 40 hitting wall not fireing projectile", _thing)
+#				else:
+#					print("gun 40 dont know what im hitting but no projectile spawned")
 			
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			sprite_gun.frame = 1

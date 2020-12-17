@@ -66,8 +66,8 @@ tracks/1/keys = {
 }
 
 [node name="BG-103-Boss" type="KinematicBody2D"]
-collision_layer = 8
-collision_mask = 2056
+collision_layer = 2147483656
+collision_mask = 520
 script = ExtResource( 7 )
 explode = ExtResource( 8 )
 debris_scene = ExtResource( 1 )
@@ -147,19 +147,16 @@ position = Vector2( 0, -22 )
 position = Vector2( -87, -4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -46 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 3, -19 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 40, -42 )
 rotation = 1.5708
 shape = SubResource( 3 )

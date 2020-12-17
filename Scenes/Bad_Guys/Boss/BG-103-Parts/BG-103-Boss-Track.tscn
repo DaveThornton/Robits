@@ -53,7 +53,7 @@ tracks/2/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 resource_name = "Dead"
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG-103-Track-Hit-Spot:modulate")
@@ -140,8 +140,7 @@ tracks/6/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Hit"
+[sub_resource type="Animation" id=4]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("BG-103-Track-Hit-Spot:modulate")
@@ -232,8 +231,8 @@ tracks/6/keys = {
 "badguy",
 "hittable",
 ]]
-collision_layer = 0
-collision_mask = 2560
+collision_layer = 2048
+collision_mask = 512
 script = ExtResource( 6 )
 explode = ExtResource( 7 )
 debris_scene = ExtResource( 8 )
@@ -274,7 +273,6 @@ texture = ExtResource( 5 )
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -10, -18 )
 shape = SubResource( 1 )
 
@@ -288,8 +286,8 @@ texture = ExtResource( 1 )
 anims/Left = SubResource( 2 )
 
 [node name="AnimationPlayer_Hit" type="AnimationPlayer" parent="."]
-anims/Dead = SubResource( 4 )
-anims/Hit = SubResource( 3 )
+anims/Dead = SubResource( 5 )
+anims/Hit = SubResource( 4 )
 
 [node name="Debris" type="Node2D" parent="."]
 
