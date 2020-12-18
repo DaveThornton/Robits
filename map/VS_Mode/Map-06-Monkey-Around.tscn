@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Guns/Pick/W_19-Rail_Gun_Pick.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Scenes/Guns/Pick/W_60_Axe_Pick.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Scenes/Map_Parts/MP-31-Falling_Block.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=35]
@@ -208,95 +209,56 @@ __meta__ = {
 
 [node name="Player_spawns" type="Node2D" parent="."]
 
-[node name="Position2D" type="Position2D" parent="Player_spawns"]
-position = Vector2( 890, 688 )
+[node name="MP-11-Player_Spawner-VS-00" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 840, 690 )
 
-[node name="Position2D2" type="Position2D" parent="Player_spawns"]
-position = Vector2( 180, 216 )
+[node name="MP-11-Player_Spawner-VS-01" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 1082, 687 )
 
-[node name="Position2D3" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1040, 688 )
+[node name="MP-11-Player_Spawner-VS-02" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 1160, 490 )
 
-[node name="Position2D7" type="Position2D" parent="Player_spawns"]
-position = Vector2( 350, 540 )
+[node name="MP-11-Player_Spawner-VS-03" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 760, 490 )
 
-[node name="Position2D6" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1730, 216 )
+[node name="MP-11-Player_Spawner-VS-04" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 310, 550 )
 
-[node name="Position2D5" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1200, 470 )
+[node name="MP-11-Player_Spawner-VS-05" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 180, 687 )
 
-[node name="Position2D4" type="Position2D" parent="Player_spawns"]
-position = Vector2( 720, 470 )
-
-[node name="Position2D8" type="Position2D" parent="Player_spawns"]
-position = Vector2( 140, 1000 )
-
-[node name="Position2D9" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1790, 1000 )
-
-[node name="Position2D10" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1570, 550 )
-
-[node name="Position2D11" type="Position2D" parent="Player_spawns"]
-position = Vector2( 130, 370 )
-
-[node name="Position2D12" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1760, 370 )
-
-[node name="Position2D13" type="Position2D" parent="Player_spawns"]
-position = Vector2( 220, 687 )
-
-[node name="Position2D14" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1346, 927 )
-
-[node name="Position2D15" type="Position2D" parent="Player_spawns"]
-position = Vector2( 80, 1000 )
-
-[node name="Position2D16" type="Position2D" parent="Player_spawns"]
-position = Vector2( 700, 216 )
-
-[node name="Position2D17" type="Position2D" parent="Player_spawns"]
-position = Vector2( 590, 927 )
-
-[node name="Position2D18" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1840, 1000 )
-
-[node name="Position2D19" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1220, 216 )
-
-[node name="Position2D20" type="Position2D" parent="Player_spawns"]
-position = Vector2( 360, 380 )
-
-[node name="Position2D21" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1540, 380 )
-
-[node name="Position2D22" type="Position2D" parent="Player_spawns"]
-position = Vector2( 280, 687 )
-
-[node name="Position2D23" type="Position2D" parent="Player_spawns"]
+[node name="MP-11-Player_Spawner-VS-06" parent="Player_spawns" instance=ExtResource( 31 )]
 position = Vector2( 1570, 690 )
 
-[node name="Position2D24" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1140, 490 )
+[node name="MP-11-Player_Spawner-VS-07" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 1830, 1010 )
 
-[node name="Position2D25" type="Position2D" parent="Player_spawns"]
-position = Vector2( 540, 216 )
+[node name="MP-11-Player_Spawner-VS-08" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 120, 1008 )
 
-[node name="Position2D26" type="Position2D" parent="Player_spawns"]
-position = Vector2( 780, 490 )
+[node name="MP-11-Player_Spawner-VS-09" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 570, 970.09 )
 
-[node name="Position2D27" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1890, 1000 )
+[node name="MP-11-Player_Spawner-VS-10" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 1430, 211 )
 
-[node name="Position2D28" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1380, 216 )
+[node name="MP-11-Player_Spawner-VS-11" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 170, 209.372 )
 
-[node name="Position2D29" type="Position2D" parent="Player_spawns"]
-position = Vector2( 964, 930 )
+[node name="MP-11-Player_Spawner-VS-12" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 724, 209.372 )
 
-[node name="Position2D30" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1710, 690 )
+[node name="MP-11-Player_Spawner-VS-13" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 230, 390 )
+
+[node name="MP-11-Player_Spawner-VS-14" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 1780, 390 )
+
+[node name="MP-11-Player_Spawner-VS-15" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 1830, 687 )
+
+[node name="MP-11-Player_Spawner-VS-16" parent="Player_spawns" instance=ExtResource( 31 )]
+position = Vector2( 1350, 970.09 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 

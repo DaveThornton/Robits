@@ -1,14 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Menus/Arcade/Scripts/M04-Arcade-Map-Select-VS.gd" type="Script" id=1]
-[ext_resource path="res://map/VS_Mode/Map-02-Refuted.tscn" type="PackedScene" id=2]
+[ext_resource path="res://map/VS_Mode/Map-06-Monkey-Around.tscn" type="PackedScene" id=2]
 [ext_resource path="res://map/VS_Mode/Map-01-Disputed.tscn" type="PackedScene" id=3]
-[ext_resource path="res://map/VS_Mode/Map-03-Scooted.tscn" type="PackedScene" id=4]
-[ext_resource path="res://map/VS_Mode/Map-04-Levely_McLevelFace.tscn" type="PackedScene" id=5]
+[ext_resource path="res://map/VS_Mode/Map-07-Pink.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Menus/Grids/menu_8x4_01.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/Menu/Map_Select_8x4.png" type="Texture" id=7]
 [ext_resource path="res://map/VS_Mode/Map-09-Red_Eye.tscn" type="PackedScene" id=8]
-[ext_resource path="res://map/VS_Mode/Map-05-Fun_Guy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Menus/Arcade/M03-Arcade-Player-Select-VS.tscn" type="PackedScene" id=10]
 
 [node name="M04-Arcade-Map-Select-VS" type="Node2D"]
@@ -17,13 +15,13 @@ script = ExtResource( 1 )
 player_select_vs = ExtResource( 10 )
 map = ExtResource( 2 )
 map_01 = ExtResource( 3 )
-map_02 = ExtResource( 2 )
-map_03 = ExtResource( 4 )
-map_04 = ExtResource( 5 )
-map_05 = ExtResource( 3 )
+map_02 = ExtResource( 4 )
+map_03 = ExtResource( 2 )
+map_04 = ExtResource( 2 )
+map_05 = ExtResource( 2 )
 map_06 = ExtResource( 2 )
 map_07 = ExtResource( 4 )
-map_08 = ExtResource( 9 )
+map_08 = ExtResource( 4 )
 map_09 = ExtResource( 8 )
 map_10 = ExtResource( 8 )
 map_11 = ExtResource( 8 )
