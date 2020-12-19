@@ -15,12 +15,12 @@ height = 12.0
 height = 28.0
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 28.0
-height = 78.0
+radius = 29.9999
+height = 60.0003
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 7.0
-height = 42.0
+height = 56.0
 
 [sub_resource type="Animation" id=5]
 resource_name = "Left"
@@ -89,7 +89,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 5, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -23, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/6/type = "bezier"
@@ -175,7 +175,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -7, 19 ) ]
+"values": [ Vector2( -7, -9 ) ]
 }
 tracks/5/type = "bezier"
 tracks/5/path = NodePath("POS_Body:rotation_degrees")
@@ -268,7 +268,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 5, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -23, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/6/type = "bezier"
@@ -360,7 +360,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 5, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -23, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/6/type = "bezier"
@@ -445,7 +445,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 7, 19 ) ]
+"values": [ Vector2( 7, -9 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("POS_Body:rotation_degrees")
@@ -541,7 +541,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"points": PoolRealArray( 5, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( -23, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
 tracks/6/type = "bezier"
@@ -579,48 +579,44 @@ script = ExtResource( 5 )
 [node name="Timers" parent="." instance=ExtResource( 6 )]
 
 [node name="Raycasts" type="Node2D" parent="."]
-visible = false
 
 [node name="Up" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -32 )
+position = Vector2( 0, -57 )
 enabled = true
 cast_to = Vector2( 0, -5 )
 collision_mask = 2058
 
 [node name="Down_L" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -13, 26 )
+position = Vector2( -12, -1 )
 enabled = true
 cast_to = Vector2( 0, 2 )
 collision_mask = 2078
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 11, 26 )
+position = Vector2( 12, -1 )
 enabled = true
 cast_to = Vector2( 0, 2 )
 collision_mask = 2078
 
 [node name="CollisionShape2D-Down" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, 13 )
+position = Vector2( 0, -14 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Right" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 10, -1 )
+position = Vector2( 10, -34 )
 shape = SubResource( 2 )
 disabled = true
 
 [node name="CollisionShape2D_Left" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -10, -1 )
+position = Vector2( -10, -34 )
 shape = SubResource( 2 )
 disabled = true
 
 [node name="Shield" type="Sprite" parent="."]
 
 [node name="POS_Body" type="Position2D" parent="."]
-position = Vector2( -7, 5 )
+position = Vector2( -7, -23 )
 
 [node name="Body" type="Sprite" parent="POS_Body"]
 self_modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
@@ -639,23 +635,23 @@ position = Vector2( 0, -12 )
 [node name="Pawn_09_Part_Arm" parent="POS_Body/Body/POS_Arm" instance=ExtResource( 4 )]
 
 [node name="Pawn_09_Part_Legs" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -28 )
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
-visible = false
 collision_layer = 262144
 collision_mask = 786432
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
+position = Vector2( 1, -29 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
-visible = false
 collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
-position = Vector2( -8, 1 )
+position = Vector2( 0, -28 )
 shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

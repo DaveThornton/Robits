@@ -468,6 +468,7 @@ tracks/0/keys = {
 ]]
 script = ExtResource( 1 )
 spawn_01 = ExtResource( 2 )
+mark = 8
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )

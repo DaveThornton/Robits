@@ -4,7 +4,7 @@ onready var head = $POS_Body/Pawn_13_Part_Body/POS_Head/Pawn_13_Part_Head
 onready var hbody = $POS_Body/Pawn_13_Part_Body
 onready var arm = $POS_Body/Pawn_13_Part_Body/POS_Arm/Pawn_13_Part_Arm
 onready var legs = $Pawn_13_Legs
-onready var shield = $Shield
+onready var shield = $POS_Body/Shield
 onready var anim = $AnimationPlayer
 onready var gun_pos = $POS_Body/Pawn_13_Part_Body/POS_Arm/Pawn_13_Part_Arm/POS_Gun
 

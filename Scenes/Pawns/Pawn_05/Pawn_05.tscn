@@ -14,11 +14,11 @@ height = 28.0
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 25.0
-height = 26.0
+height = 44.0
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 4.0
-height = 46.0
+height = 58.0
 
 [sub_resource type="Animation" id=4]
 length = 0.4
@@ -81,7 +81,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Pawn_05_Part_Body:rotation_degrees")
@@ -217,7 +217,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Pawn_05_Part_Body:rotation_degrees")
@@ -413,7 +413,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("Pawn_05_Part_Body:rotation_degrees")
@@ -522,10 +522,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ), Vector2( 0, -9 ), Vector2( 0, -10 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Pawn_05_Part_Body:rotation_degrees")
@@ -685,7 +685,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 1 ) ]
+"values": [ Vector2( 0, -10 ), Vector2( 0, -10 ), Vector2( 0, -9 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Pawn_05_Part_Body:rotation_degrees")
@@ -892,7 +892,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("Pawn_05_Part_Body:rotation_degrees")
@@ -1004,7 +1004,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Pawn_05_Part_Body:rotation_degrees")
@@ -1150,7 +1150,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ), Vector2( 0, -10 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Pawn_05_Part_Body:rotation_degrees")
@@ -1367,10 +1367,10 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
+"values": [ Vector2( 0, -10 ), Vector2( 0, -9 ), Vector2( 0, -10 ) ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("Pawn_05_Part_Body:rotation_degrees")
@@ -1530,7 +1530,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ) ]
+"values": [ Vector2( 0, -10 ), Vector2( 0, -11 ) ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("Pawn_05_Part_Body:rotation_degrees")
@@ -1678,7 +1678,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("Pawn_05_Part_Body:rotation_degrees")
@@ -1790,7 +1790,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("Pawn_05_Part_Body:frame")
@@ -1949,7 +1949,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Pawn_05_Part_Body:frame")
@@ -2062,33 +2062,36 @@ script = ExtResource( 7 )
 [node name="Raycast" type="Node2D" parent="."]
 
 [node name="Up" type="RayCast2D" parent="Raycast"]
-position = Vector2( 0, -36 )
+position = Vector2( 0, -49 )
 enabled = true
 cast_to = Vector2( 0, -10 )
 collision_mask = 3354
 
 [node name="Down_L" type="RayCast2D" parent="Raycast"]
-position = Vector2( -11, 8 )
+position = Vector2( -7, -2 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 collision_mask = 28
 
 [node name="Down_R" type="RayCast2D" parent="Raycast"]
-position = Vector2( 11, 8 )
+position = Vector2( 7, -2 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 collision_mask = 28
 
 [node name="Shield_Sprite" type="Sprite" parent="."]
 visible = false
+position = Vector2( -5.68434e-14, -6.82121e-13 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -12 )
 hframes = 3
 
 [node name="Pawn_05_Part_Wheel" parent="." instance=ExtResource( 8 )]
+position = Vector2( 0, -10 )
 
 [node name="Pawn_05_Part_Body" type="Sprite" parent="."]
 self_modulate = Color( 0.631373, 0.631373, 0.631373, 1 )
+position = Vector2( 0, -10 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -12 )
 hframes = 3
@@ -2106,59 +2109,52 @@ position = Vector2( 0, 1.90735e-06 )
 
 [node name="Pawn_05_Part_Key" parent="Pawn_05_Part_Body" instance=ExtResource( 6 )]
 show_behind_parent = true
-position = Vector2( -4, -20 )
+position = Vector2( -4, -19 )
 
 [node name="Shape_Left" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -7, -12 )
+position = Vector2( -7, -22 )
 rotation = -0.523599
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, -14 )
+position = Vector2( 0, -24 )
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Shape_Right" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 7, -12 )
+position = Vector2( 7, -22 )
 rotation = 0.523599
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Shape_Down_Right" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 14, 0 )
+position = Vector2( 14, -10 )
 rotation = 1.5708
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Shape_Down_Left" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -14, 0 )
+position = Vector2( -14, -10 )
 rotation = 1.5708
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
-visible = false
 collision_layer = 262144
 collision_mask = 786432
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
-position = Vector2( 0, -13 )
+position = Vector2( -1, -24 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
-visible = false
 collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
-position = Vector2( 0, -14 )
+position = Vector2( 0, -24 )
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

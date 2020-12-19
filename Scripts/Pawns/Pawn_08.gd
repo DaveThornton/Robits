@@ -1,12 +1,12 @@
 extends KinematicBody2D
 
-onready var legs = $Legs
+onready var legs = $Pawn_08_Part_Body/Pawn_08_Part_Hip/Legs
 onready var body_head = $Pawn_08_Part_Body
-onready var hip = $Pawn_08_Part_Hip
-onready var shield = $Shield
+onready var hip = $Pawn_08_Part_Body/Pawn_08_Part_Hip
+onready var shield = $Pawn_08_Part_Body/Shield
 
-onready var arm = $POS_Arm/Pawn_09_Part_Arm
-onready var gun_pos = $POS_Arm/Pawn_09_Part_Arm/POS_Gun
+onready var arm = $Pawn_08_Part_Body/POS_Arm/Pawn_09_Part_Arm
+onready var gun_pos = $Pawn_08_Part_Body/POS_Arm/Pawn_09_Part_Arm/POS_Gun
 onready var anim = $AnimationPlayer
 
 onready var knockback_timer = $Timers/Knock_Back
@@ -239,7 +239,9 @@ func move_x(_moving, _right):
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
 func jump(down_input, left_input, right_input):
-	if can_move:
+	if head_room == 1:
+		vel.y = 2
+	elif can_move:
 		if down_input && on_floor && !left_input && !right_input:
 			SFX.play("Move_Jump_08")
 			vel.y += 1.5
@@ -595,7 +597,7 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			_body(1)
 		else:
 			hip.stop()
-			new_anim = "Left-Jump"
+			new_anim = "Right-Jump"
 			body_head.look(shoot_spot,false)
 			_body(1)
 	elif !on_floor && vel.y > 0:
@@ -606,7 +608,7 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			_body(1)
 		else:
 			hip.stop()
-			new_anim = "Left-Fall"
+			new_anim = "Right-Fall"
 			body_head.look(shoot_spot,false)
 			_body(1)
 
@@ -619,7 +621,7 @@ func _anim_idle():
 		new_anim = "Right-Idle"
 		body_head.look(shoot_spot,true)
 	else:
-		new_anim = "Left-Idle"
+		new_anim = "Right-Idle"
 		body_head.look(shoot_spot,false)
 
 func _anim_run():
@@ -631,7 +633,7 @@ func _anim_run():
 		_body(1)
 	else:
 		hip.turn(false)
-		new_anim = "Left-Run"
+		new_anim = "Right-Run"
 		body_head.look(shoot_spot,false)
 		_body(1)
 
@@ -644,7 +646,7 @@ func _anim_jump():
 		_body(1)
 	else:
 		hip.turn(false)
-		new_anim = "Left-Run"
+		new_anim = "Right-Run"
 		body_head.look(shoot_spot,false)
 		_body(1)
 
@@ -656,7 +658,7 @@ func _anim_prone_idle():
 		new_anim = "Right-Prone-Idle"
 		body_head.look(3,true)
 	else:
-		new_anim = "Left-Prone-Idle"
+		new_anim = "Right-Prone-Idle"
 		body_head.look(3,false)
 
 func _anim_prone_crawl():
@@ -668,7 +670,7 @@ func _anim_prone_crawl():
 		body_head.look(3,true)
 	else:
 		hip.turn(false)
-		new_anim = "Left-Prone-Crawl"
+		new_anim = "Right-Prone-Crawl"
 		body_head.look(3,false)
 
 func _anim_stun():
@@ -678,7 +680,7 @@ func _anim_stun():
 	if is_right:
 		new_anim = "Right-Stun"
 	else:
-		new_anim = "Left-Stun"
+		new_anim = "Right-Stun"
 
 func _anim_Knock():
 	_body(1)
@@ -688,7 +690,7 @@ func _anim_Knock():
 		new_anim = "Right-Knock_Back"
 		body_head.look(shoot_spot,true)
 	else:
-		new_anim = "Left-Knock_Back"
+		new_anim = "Right-Knock_Back"
 		body_head.look(shoot_spot,true)
 
 func _anim_ladder_move():
@@ -714,7 +716,7 @@ func _anim_ladder_left():
 func _anim_on_wall():
 	body_head.play_eye(0)
 	if on_wall == -1:
-		new_anim = "Left_Wall"
+		new_anim = "Right_Wall"
 	elif on_wall == 1:
 		new_anim = "Right_Wall"
 
@@ -743,19 +745,19 @@ func _set_gun_dir():
 			arm.rotation_degrees = 0
 			arm.bend(2)
 		elif shoot_spot == 1:
-			arm.rotation_degrees = 85
+			arm.rotation_degrees = -85
 			arm.bend(1)
 		elif shoot_spot == 2:
-			arm.rotation_degrees = 45
+			arm.rotation_degrees = -45
 			arm.bend(2)
 		elif shoot_spot == 4:
-			arm.rotation_degrees = -35
+			arm.rotation_degrees = 35
 			arm.bend(3)
 		elif shoot_spot == 5:
-			arm.rotation_degrees = -85
+			arm.rotation_degrees = 85
 			arm.bend(3)
 		if my_gun:
-			arm.rotation_degrees += my_gun.walk
+			arm.rotation_degrees -= my_gun.walk
 
 func _body(_num: int):
 	call_deferred("_body_",_num)

@@ -15,7 +15,7 @@ func is_right(_right: bool):
 	if _right == true:
 		self.scale.x = 1
 	else:
-		self.scale.x = -1
+		self.scale.x = 1
 
 func color(_pri: Color, _sec: Color):
 	arm.self_modulate = _pri

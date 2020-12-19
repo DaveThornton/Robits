@@ -6,12 +6,19 @@ onready var arm = $Body/POS_Arm/Pawn_02_Part_Arm
 onready var gun_pos = $Body/POS_Arm/Pawn_02_Part_Arm/POS_Gun
 onready var shield = $Body/Shield
 
-onready var legff = $Pawn_02_Leg_01
-onready var legfb = $Pawn_02_Leg_02
-onready var legmf = $Pawn_02_Leg_03
-onready var legmb = $Pawn_02_Leg_04
-onready var legbf = $Pawn_02_Leg_05
-onready var legbb = $Pawn_02_Leg_06
+onready var legff = $Body/Pawn_02_Leg_01
+onready var legfb = $Body/Pawn_02_Leg_02
+onready var legmf = $Body/Pawn_02_Leg_03
+onready var legmb = $Body/Pawn_02_Leg_04
+onready var legbf = $Body/Pawn_02_Leg_05
+onready var legbb = $Body/Pawn_02_Leg_06
+
+#onready var legff = $Pawn_02_Leg_01
+#onready var legfb = $Pawn_02_Leg_02
+#onready var legmf = $Pawn_02_Leg_03
+#onready var legmb = $Pawn_02_Leg_04
+#onready var legbf = $Pawn_02_Leg_05
+#onready var legbb = $Pawn_02_Leg_06
 
 onready var ray_up = $Raycasts/Up
 onready var ray_down_l = $Raycasts/Down_L 

@@ -86,7 +86,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.5, 0.7, 0.8, 1, 1.2, 1.4, 1.5, 1.7, 1.8, 2, 2.1, 2.3, 2.4, 2.6, 2.7, 2.9, 3.2, 3.4, 3.5, 3.7, 3.8, 4, 4.2, 4.4, 4.5, 4.7, 4.8, 5, 5.2, 5.4, 5.5, 5.7, 5.8, 6, 6.1, 6.3, 6.4, 6.6, 6.7, 6.9, 7.2, 7.4, 7.5, 7.7, 7.8, 8, 8.2, 8.4, 8.5, 8.7, 8.8, 9, 9.2, 9.4, 9.5, 9.7, 9.8, 10, 10.2, 10.4, 10.5, 10.7, 10.8, 11, 11.1, 11.3, 11.4, 11.6, 11.7, 11.9, 12.2, 12.4, 12.5, 12.7, 12.8, 13 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ) ]
+"values": [ Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 1, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -14 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ), Vector2( 0, -15 ), Vector2( 0, -17 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Body/Pawn_03_Part_Small_Wheel:position")
@@ -160,7 +160,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -1 ) ]
+"values": [ Vector2( 0, -17 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Body/Pawn_03_Part_Small_Wheel:position")
@@ -189,52 +189,53 @@ script = ExtResource( 5 )
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="Right" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 9, 12 )
+position = Vector2( 9, -3 )
 enabled = true
 cast_to = Vector2( 0, 4 )
 collision_mask = 30
 
 [node name="Right2" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 23, 12 )
+position = Vector2( 23, -3 )
 enabled = true
 cast_to = Vector2( 0, 4 )
 collision_mask = 30
 
 [node name="Left" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -9, 12 )
+position = Vector2( -8, -3 )
 enabled = true
 cast_to = Vector2( 0, 4 )
 collision_mask = 30
 
 [node name="Left2" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -23, 12 )
+position = Vector2( -23, -3 )
 enabled = true
 cast_to = Vector2( 0, 4 )
 collision_mask = 30
 
 [node name="Up" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -27 )
+position = Vector2( 0.263362, -42 )
 enabled = true
 cast_to = Vector2( 0, -5 )
 collision_mask = 8
 
 [node name="Pawn_03_Part_Big_Wheel" parent="." instance=ExtResource( 4 )]
 show_behind_parent = true
+position = Vector2( 0.263362, -15 )
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( 0, -2 )
+position = Vector2( 0, -16.3494 )
 texture = ExtResource( 1 )
 hframes = 3
 
 [node name="Pawn_03_Part_Head" parent="Body" instance=ExtResource( 3 )]
-position = Vector2( 0, -14 )
+position = Vector2( 0, -13.6747 )
 
 [node name="Pawn_03_Part_Neck" parent="Body/Pawn_03_Part_Head" instance=ExtResource( 7 )]
 position = Vector2( 0, -1 )
 
 [node name="Pawn_03_Part_Small_Wheel" parent="Body" instance=ExtResource( 2 )]
 show_behind_parent = true
-position = Vector2( 20, 11 )
+position = Vector2( 20, 10.3494 )
 
 [node name="POS_Arm" type="Position2D" parent="Body"]
 position = Vector2( 0, -10 )
@@ -245,24 +246,24 @@ position = Vector2( 0, -10 )
 
 [node name="CollisionShape2D_Stand" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( 0, -6 )
+position = Vector2( 0.263362, -21 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Prone" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( 0, -6 )
+position = Vector2( 0, -21 )
 shape = SubResource( 1 )
 disabled = true
 
 [node name="CollisionShape2D_Right" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( 16, 0 )
+position = Vector2( 15, -14 )
 shape = SubResource( 2 )
 disabled = true
 
 [node name="CollisionShape2D_Left" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( -16, 0 )
+position = Vector2( -15, -14 )
 shape = SubResource( 2 )
 disabled = true
 
@@ -272,7 +273,7 @@ collision_layer = 262144
 collision_mask = 786432
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
-position = Vector2( 0, -6 )
+position = Vector2( 0, -20 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
@@ -282,7 +283,7 @@ collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
-position = Vector2( 0, -6 )
+position = Vector2( 0, -18 )
 shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

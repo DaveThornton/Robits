@@ -4,11 +4,14 @@ onready var head = $Pawn_12_Part_Body/Pawn_12_Part_Head
 onready var my_body = $Pawn_12_Part_Body
 onready var pack = $Pawn_12_Part_Body/Pawn_12_Part_Jet_Pack
 onready var arm = $Pawn_12_Part_Body/Pawn_12_Part_Arm
-onready var legf = $Pawn_12_Part_Legs_F
-onready var legb = $Pawn_12_Part_Legs_B
-onready var hip = $Pawn_12_Part_Hip
+onready var legf = $Pawn_12_Part_Body/Pawn_12_Part_Legs_F
+onready var legb = $Pawn_12_Part_Body/Pawn_12_Part_Legs_B
+onready var hip = $Pawn_12_Part_Body/Pawn_12_Part_Hip
 
-onready var shield = $Shield
+#onready var legf = $Pawn_12_Part_Legs_F
+#onready var legb = $Pawn_12_Part_Legs_B
+#onready var hip = $Pawn_12_Part_Hip
+onready var shield = $Pawn_12_Part_Body/Shield
 #onready var shield_leg_f = $Shield_Leg_F
 #onready var shield_leg_b = $Shield_Leg_B
 

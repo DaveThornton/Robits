@@ -4,7 +4,8 @@ export var used = false
 export(PackedScene) var spawn_01
 #export var let = 1
 export var mark = 1
-
+export var my_color = Color8(255,255,0,255)
+onready var sprite = $Sprite
 onready var anim = $AnimationPlayer
 onready var spawn_pos = $Pos2D_Spawn
 #onready var hit_area = $Area2D_Hit
@@ -12,6 +13,7 @@ onready var timer = $Timer
 onready var hit_timer = $Timer_Hit
 
 func _ready():
+	sprite.self_modulate = my_color
 	if !used:
 		if mark == 1:
 			anim.play("Start_R")

@@ -129,7 +129,6 @@ texture = ExtResource( 1 )
 hframes = 2
 
 [node name="Hat" type="Sprite" parent="."]
-self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -9 )
 texture = ExtResource( 3 )
 hframes = 2
