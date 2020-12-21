@@ -16,13 +16,14 @@ onready var label= $"FX-21-Timer_Label"
 var player = 0
 var my_name = "Grenade"
 var damage = 100
-var time = 5.0
+var time = 4.0
 var gun_num = 20
 var ammo = 1
 var is_right = false
 var just_shot = false
 
 func _ready():
+	timer_boom.wait_time = time
 	if armed:
 		ammo = 0
 		pin.visible = false
@@ -31,22 +32,25 @@ func _ready():
 		timer_boom.start()
 
 func _process(_delta):
-	time = timer_boom.time_left
-	label.set_time(time)
+	if ammo == 0:
+		time = timer_boom.time_left
+		print(time)
+		label.set_time(time)
 	
-
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
 	player = _player
-	if _ammo == 0:
+	timer_boom.wait_time = _time
+	ammo = int(clamp(_ammo,0,1))
+	if ammo == 0:
 		ammo = 0
 		pin.visible = false
 		label.visible = true
-		timer_boom.wait_time = _time
+#		timer_boom.wait_time = _time
 		timer_boom.start()
 	else:
 		label.visible = false
-		timer.wait_time = expire_time
+#		timer.wait_time = expire_time
 		timer.start()
 
 func _on_Timer_Boom_timeout():

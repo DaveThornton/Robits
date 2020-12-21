@@ -32,16 +32,24 @@ func _ready():
 
 func init(_ammo, _player, _time, _just_shot):
 	player = _player
-	ammo = _ammo
-	if _ammo <= 0:
-		ammo = 0
+	ammo = int(clamp(_ammo,0,1))
+	if ammo <= 0:
 		sprite_pin.visible = false
-		timer.wait_time = _time
-		timer.start()
-	else:
-		timer.wait_time = time
+#		timer.wait_time = _time
+#		timer.start()
+#	else:
+#		timer.wait_time = _time
+
+	time = _time
 	emit_signal("ammo_change",player,ammo)
-	
+
+func _process(delta):
+	print(time)
+	if ammo <= 0:
+		time -= delta
+		if time <= 0:
+			go_boom()
+
 func shoot_j():
 	pass
 
@@ -124,6 +132,8 @@ func _drop_where(_obj):
 	_obj.set_collision_mask_bit( 1, false)
 
 func _on_Timer_timeout():
+	pass
+func go_boom():
 	var p = Controllers.get_pawn(player)
 	p.my_gun = null
 	p.is_holding = false

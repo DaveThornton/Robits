@@ -32,23 +32,39 @@ func _ready():
 		timer_boom.start()
 
 func _process(_delta):
-	time = timer_boom.time_left
-	label.set_time(time)
+	if ammo == 0:
+		time = timer_boom.time_left
+		print(time)
+		label.set_time(time)
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
-	print(_time)
 	player = _player
-	if _ammo  == 0:
+	timer_boom.wait_time = _time
+	if _ammo == 0:
 		ammo = 0
 		pin.visible = false
 		label.visible = true
-		timer_boom.wait_time = _time
+#		timer_boom.wait_time = _time
 		timer_boom.start()
 	else:
 		label.visible = false
-		timer.wait_time = 30
+#		timer.wait_time = expire_time
 		timer.start()
+#func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
+#	set_dir(_is_right, _dir)
+#	print(_time)
+#	player = _player
+#	if _ammo  == 0:
+#		ammo = 0
+#		pin.visible = false
+#		label.visible = true
+#		timer_boom.wait_time = _time
+#		timer_boom.start()
+#	else:
+#		label.visible = false
+#		timer.wait_time = 30
+#		timer.start()
 
 func _on_Timer_Boom_timeout():
 	var b = boom.instance()

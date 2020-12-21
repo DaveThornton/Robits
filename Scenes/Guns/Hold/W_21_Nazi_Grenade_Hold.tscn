@@ -7,8 +7,6 @@
 [ext_resource path="res://Scenes/Projectiles/Shell-02-Pin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Explosions/Ex-10-Directional-Basic.tscn" type="PackedScene" id=6]
 
-
-
 [node name="W_20_Nazi_Grenade_Hold" type="Node2D"]
 script = ExtResource( 3 )
 grenade_pickup = ExtResource( 4 )
