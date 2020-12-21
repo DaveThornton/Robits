@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=1]
 [ext_resource path="res://map/map-00.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Guns/Pick/W_03_Sniper_Pick.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Guns/Pick/W_10_Blaster_Pistol_Pick.tscn" type="PackedScene" id=4]
@@ -26,7 +25,7 @@ __meta__ = {
 }
 
 [node name="TileMap-Backround-01" type="TileMap" parent="."]
-modulate = Color( 0.501961, 0.196078, 0.196078, 1 )
+modulate = Color( 0.466667, 0.0862745, 0.0862745, 1 )
 z_index = -6
 tile_set = ExtResource( 14 )
 cell_size = Vector2( 20, 20 )
@@ -126,70 +125,70 @@ __meta__ = {
 [node name="Player_spawns" type="Node2D" parent="."]
 
 [node name="MP-11-Player_Spawner-VS-00" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 877.609, 949.603 )
+position = Vector2( 877.609, 970 )
 
 [node name="MP-11-Player_Spawner-VS-01" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 70.0215, 942.112 )
+position = Vector2( 60, 970 )
 
 [node name="MP-11-Player_Spawner-VS-02" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 1844.02, 942.112 )
+position = Vector2( 1852.53, 970 )
 
 [node name="MP-11-Player_Spawner-VS-03" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 1766.11, 831.237 )
+position = Vector2( 1785, 854 )
 
 [node name="MP-11-Player_Spawner-VS-04" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 201.872, 828.24 )
+position = Vector2( 200, 850 )
 
 [node name="MP-11-Player_Spawner-VS-05" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 77.5129, 470.145 )
+position = Vector2( 86.0215, 490 )
 
 [node name="MP-11-Player_Spawner-VS-06" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 1844.02, 470.145 )
+position = Vector2( 1846.53, 490 )
 
 [node name="MP-11-Player_Spawner-VS-07" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 1830.53, 326.307 )
+position = Vector2( 1830.53, 350 )
 
 [node name="MP-11-Player_Spawner-VS-08" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 86.5027, 326.307 )
+position = Vector2( 86.5027, 350 )
 
 [node name="MP-11-Player_Spawner-VS-09" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 86.5027, 228.918 )
+position = Vector2( 86.5027, 254 )
 
 [node name="MP-11-Player_Spawner-VS-10" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 1836.53, 227.419 )
+position = Vector2( 1846.53, 249 )
 
 [node name="MP-11-Player_Spawner-VS-11" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 1691.19, 148.009 )
+position = Vector2( 1690, 174 )
 
 [node name="MP-11-Player_Spawner-VS-12" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 234.835, 148.009 )
+position = Vector2( 240, 174 )
 
 [node name="MP-11-Player_Spawner-VS-13" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 447.595, 228.918 )
+position = Vector2( 450, 254 )
 
 [node name="MP-11-Player_Spawner-VS-14" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 624.395, 627.467 )
+position = Vector2( 630, 654 )
 
 [node name="MP-11-Player_Spawner-VS-15" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 1288.15, 627.467 )
+position = Vector2( 1280, 650 )
 
 [node name="MP-11-Player_Spawner-VS-16" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 967.507, 738.342 )
+position = Vector2( 976.203, 770 )
 
 [node name="MP-11-Player_Spawner-VS-17" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 808.687, 228.918 )
+position = Vector2( 820, 254 )
 
 [node name="MP-11-Player_Spawner-VS-18" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 1114.34, 227.419 )
+position = Vector2( 1114.34, 254 )
 
 [node name="MP-11-Player_Spawner-VS-19" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 1244.69, 1029.01 )
+position = Vector2( 1250, 1050 )
 
 [node name="MP-11-Player_Spawner-VS-20" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 591.432, 312.823 )
+position = Vector2( 610, 334 )
 
 [node name="MP-11-Player_Spawner-VS-21" parent="Player_spawns" instance=ExtResource( 18 )]
-position = Vector2( 1349.58, 312.823 )
+position = Vector2( 1349.58, 334 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
@@ -198,115 +197,132 @@ position = Vector2( 1349.58, 312.823 )
 ]]
 
 [node name="R_Mark_01_00" parent="Map_parts" instance=ExtResource( 15 )]
-position = Vector2( 910, 870 )
-spawn_01 = ExtResource( 7 )
-mark = 2
-
-[node name="R_Mark_01_01" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 870, 870 )
 spawn_01 = ExtResource( 7 )
+mark = 2
+my_color = Color( 0, 1, 0, 1 )
+
+[node name="R_Mark_01_01" parent="Map_parts" instance=ExtResource( 15 )]
+position = Vector2( 810, 870 )
+spawn_01 = ExtResource( 7 )
+mark = 1
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_02" parent="Map_parts" instance=ExtResource( 15 )]
-position = Vector2( 950, 870 )
+position = Vector2( 930, 870 )
 spawn_01 = ExtResource( 7 )
 mark = 3
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_03" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 990, 870 )
 spawn_01 = ExtResource( 4 )
 mark = 4
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_04" parent="Map_parts" instance=ExtResource( 15 )]
-position = Vector2( 1030, 870 )
+position = Vector2( 1050, 870 )
 spawn_01 = ExtResource( 7 )
 mark = 5
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_05" parent="Map_parts" instance=ExtResource( 15 )]
-position = Vector2( 1070, 870 )
+position = Vector2( 1110, 870 )
 spawn_01 = ExtResource( 7 )
 mark = 6
-
-[node name="R_Mark_01_06" parent="Map_parts" instance=ExtResource( 15 )]
-position = Vector2( 1110, 870 )
-spawn_01 = ExtResource( 3 )
-mark = 7
-
-[node name="R_Mark_01_16" parent="Map_parts" instance=ExtResource( 15 )]
-position = Vector2( 830, 870 )
-spawn_01 = ExtResource( 1 )
-mark = 7
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="RigidBody_Spawner" parent="Map_parts" instance=ExtResource( 16 )]
 position = Vector2( 135, 1070 )
+my_color = Color( 0, 1, 0, 1 )
 body_1 = ExtResource( 4 )
 
 [node name="RigidBody_Spawner4" parent="Map_parts" instance=ExtResource( 16 )]
 position = Vector2( 1785, 1070 )
+my_color = Color( 0, 1, 0, 1 )
 body_1 = ExtResource( 4 )
 
 [node name="RigidBody_Spawner2" parent="Map_parts" instance=ExtResource( 16 )]
 position = Vector2( 90, 789.743 )
+my_color = Color( 0, 1, 0, 1 )
 body_1 = ExtResource( 3 )
 
 [node name="RigidBody_Spawner5" parent="Map_parts" instance=ExtResource( 16 )]
 position = Vector2( 1830, 790 )
+my_color = Color( 0, 1, 0, 1 )
 body_1 = ExtResource( 3 )
 
 [node name="RigidBody_Spawner3" parent="Map_parts" instance=ExtResource( 16 )]
 position = Vector2( 970, 590 )
+my_color = Color( 0, 1, 0, 1 )
 body_1 = ExtResource( 5 )
 
 [node name="RigidBody_Spawner6" parent="Map_parts" instance=ExtResource( 16 )]
 position = Vector2( 550, 270 )
+my_color = Color( 0, 1, 0, 1 )
 body_1 = ExtResource( 4 )
 
 [node name="RigidBody_Spawner8" parent="Map_parts" instance=ExtResource( 16 )]
 position = Vector2( 210, 510 )
+my_color = Color( 0, 1, 0, 1 )
 body_1 = ExtResource( 4 )
 
 [node name="RigidBody_Spawner9" parent="Map_parts" instance=ExtResource( 16 )]
 position = Vector2( 1730, 510 )
+my_color = Color( 0, 1, 0, 1 )
 body_1 = ExtResource( 4 )
 
 [node name="RigidBody_Spawner7" parent="Map_parts" instance=ExtResource( 16 )]
 position = Vector2( 1390, 270 )
+my_color = Color( 0, 1, 0, 1 )
 body_1 = ExtResource( 4 )
 
 [node name="R_Mark_01_07" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 180, 270 )
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_08" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 1760, 270 )
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_09" parent="Map_parts" instance=ExtResource( 15 )]
-position = Vector2( 655.471, 601.078 )
+position = Vector2( 630, 670 )
 spawn_01 = ExtResource( 7 )
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_10" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 1290, 670 )
 spawn_01 = ExtResource( 7 )
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_11" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 1370, 350 )
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_12" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 570, 350 )
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_13" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 930, 270 )
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_14" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 1010, 270 )
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_15" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 970, 270 )
 spawn_01 = ExtResource( 7 )
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_17" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 1650, 190 )
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="R_Mark_01_18" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 290, 190 )
+my_color = Color( 0, 1, 0, 1 )
 
 [node name="Weap-Pick-60-Axe" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 970, 635 )

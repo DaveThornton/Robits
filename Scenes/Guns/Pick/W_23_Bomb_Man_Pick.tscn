@@ -7,35 +7,35 @@
 [ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Explosions/Ex-05-Bomb_Man.tscn" type="PackedScene" id=6]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 7.99997
 height = 12.0
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 8, 8 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
 region = Rect2( 8, 0, 8, 8 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
 region = Rect2( 16, 0, 8, 8 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 24, 0, 8, 8 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 3.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Fuse:frame")
@@ -94,7 +94,7 @@ tracks/3/keys = {
 collision_layer = 2148007936
 collision_mask = 917532
 mass = 50.0
-gravity_scale = 9.8
+gravity_scale = 6.0
 continuous_cd = 1
 contacts_reported = 5
 contact_monitor = true
@@ -104,7 +104,7 @@ smoke = ExtResource( 5 )
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Bomb" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -119,7 +119,7 @@ frame = 3
 [node name="Lit" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 28, -10 )
-frames = SubResource( 7 )
+frames = SubResource( 6 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -129,7 +129,7 @@ autostart = true
 wait_time = 3.75
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Lit = SubResource( 8 )
+anims/Lit = SubResource( 7 )
 
 [node name="FX-21-Timer_Label" parent="." instance=ExtResource( 3 )]
 visible = false

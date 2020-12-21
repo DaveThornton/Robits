@@ -18,9 +18,9 @@ extents = Vector2( 8.88681, 15.8847 )
 ]]
 collision_layer = 524288
 collision_mask = 786462
-mass = 10.0
+mass = 600.0
 physics_material_override = SubResource( 1 )
-gravity_scale = 20.0
+gravity_scale = 6.0
 continuous_cd = 2
 contacts_reported = 12
 contact_monitor = true

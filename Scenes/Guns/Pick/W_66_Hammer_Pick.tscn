@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Guns/Pick/W_66_Hammer_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/W_66_Hammer.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 6.0
 height = 10.1021
 
@@ -18,7 +18,7 @@ height = 36.0001
 position = Vector2( 0, 0.0510483 )
 collision_layer = 524288
 collision_mask = 917532
-gravity_scale = 10.0
+gravity_scale = 6.0
 continuous_cd = 2
 contacts_reported = 9
 contact_monitor = true
@@ -27,7 +27,7 @@ script = ExtResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( 17, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -0.0510483 )

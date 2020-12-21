@@ -8,8 +8,8 @@
 bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 7.20541
-height = 40.6494
+radius = 5.19868
+height = 32.0282
 
 [node name="W_41_SPNKr_Pick" type="RigidBody2D" groups=[
 "FX",

@@ -34,7 +34,8 @@ extents = Vector2( 3.58397, 5.48194 )
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 5.04941, 5.79597 )
 
-[sub_resource type="ConvexPolygonShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 3.84004, 4.78797 )
 
 [sub_resource type="CapsuleShape2D" id=12]
 radius = 2.33971
@@ -49,7 +50,9 @@ extents = Vector2( 6.93353, 4.4352 )
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 2.74658, 6.94738 )
 
-[sub_resource type="ConvexPolygonShape2D" id=16]
+[sub_resource type="CapsuleShape2D" id=22]
+radius = 4.10467
+height = 8.62805
 
 [sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 2.85126, 7.36608 )
@@ -76,6 +79,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 8
+frame = 16
 
 [node name="col_2d_00" type="CollisionShape2D" parent="."]
 visible = false
@@ -140,7 +144,7 @@ disabled = true
 visible = false
 position = Vector2( 0.628044, -2.51217 )
 rotation = 0.93026
-shape = SubResource( 11 )
+shape = SubResource( 21 )
 disabled = true
 
 [node name="col_2d_11" type="CollisionShape2D" parent="."]
@@ -177,7 +181,7 @@ disabled = true
 [node name="col_2d_16" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( -0.104675, 0.418697 )
-shape = SubResource( 16 )
+shape = SubResource( 22 )
 disabled = true
 
 [node name="col_2d_17" type="CollisionShape2D" parent="."]

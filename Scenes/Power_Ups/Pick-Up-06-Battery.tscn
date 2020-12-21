@@ -15,7 +15,7 @@ height = 23.4354
 collision_layer = 524288
 collision_mask = 589836
 mass = 10.0
-gravity_scale = 3.0
+gravity_scale = 6.0
 script = ExtResource( 1 )
 how_much_nrg = 75
 
