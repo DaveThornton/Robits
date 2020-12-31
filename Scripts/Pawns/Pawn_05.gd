@@ -30,7 +30,8 @@ onready var anim = $AnimationPlayer
 
 onready var ladder_count = [] #shouldnt be here??!!??
 
-onready var ray_up = $Raycast/Up
+onready var ray_up_l = $Raycast/Up_L
+onready var ray_up_r = $Raycast/Up_R
 onready var ray_down_l = $Raycast/Down_L 
 onready var ray_down_r = $Raycast/Down_R 
 
@@ -236,6 +237,23 @@ func move_x(_moving, _right):
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
 func jump(down_input, left_input, right_input):
+	pass
+#	if can_move:
+#		if down_input && on_floor && !left_input && !right_input:
+#			SFX.play("Move_Jump_08")
+#			vel.y += 1.5
+#			self.position.y += 1.5
+#		elif !is_jump_pressed && on_floor:# && !down_input:
+#			SFX.play("Move_Jump_01")
+#			vel.y = -max_jump_power * jump_power_up
+#		elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
+#			SFX.play("Move_Jump_05")
+#			vel.y = -max_air_jump_power * jump_power_up
+#			air_jump_count += 1
+#		is_jump_pressed = true
+#		on_ladder = false
+
+func jump_j(down_input, left_input, right_input):
 	if can_move:
 		if down_input && on_floor && !left_input && !right_input:
 			SFX.play("Move_Jump_08")
@@ -250,9 +268,6 @@ func jump(down_input, left_input, right_input):
 			air_jump_count += 1
 		is_jump_pressed = true
 		on_ladder = false
-
-func jump_j(_down_input, _left_input, _right_input):
-	pass
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
@@ -459,7 +474,7 @@ func _body_(_num: int):
 		print("pawn 05 invalid body shape in _body")
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
-	if ray_up.is_colliding():
+	if ray_up_r.is_colliding() || ray_up_l.is_colliding():
 		head_room = 1
 	else:
 		head_room = 0
@@ -782,7 +797,7 @@ func speedtimer():
 	is_speed_up = false
 	speed_power_up = 1
 
-func jumptimer():
+func jumpuptimer():
 	is_jump_up = false
 	jump_power_up = 1
 
@@ -794,6 +809,9 @@ func stuntimer():
 #	print("stun over in pawm 05")
 	can_move = true
 	head.flash_off()
+	
+func jumptimer():
+	print("jump timer timed out dont know why in pawn 05 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 
 ##-------------------------------------------------------------[The in and outs]
 

@@ -786,7 +786,7 @@ func speedtimer():
 	is_speed_up = false
 	speed_power_up = 1
 
-func jumptimer():
+func jumpuptimer():
 	is_jump_up = false
 	jump_power_up = 1
 
@@ -797,6 +797,8 @@ func nrguptimer():
 func stuntimer():
 	can_move = true
 
+func jumptimer():
+	print("jump timer timed out dont know why in pawn 10 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 ##-------------------------------------------------------------[The in and outs]
 
 func _on_Pick_Up_Area_body_entered(body):

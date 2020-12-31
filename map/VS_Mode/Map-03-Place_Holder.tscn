@@ -1,0 +1,174 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://map/map-00.gd" type="Script" id=1]
+[ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
+[ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=3]
+[ext_resource path="res://Tilesets/TS-05-Main-Brick.tres" type="TileSet" id=4]
+[ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=6]
+[ext_resource path="res://Tilesets/TS-08-Ladder.tres" type="TileSet" id=7]
+[ext_resource path="res://Tilesets/TS-06-Main-FX.tres" type="TileSet" id=8]
+[ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=23]
+
+[node name="Map-01-Disputed" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_vertical_guides_": [ 38.1926 ]
+}
+
+[node name="TileMap-Backround-01" type="TileMap" parent="." groups=[
+"map_part",
+]]
+z_index = -30
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 131072, 49, 0, 131073, 49, 0, 131074, 49, 0, 131075, 49, 0, 131076, 49, 0, 131077, 49, 0, 131078, 49, 0, 131079, 49, 0, 131080, 49, 0, 131081, 49, 0, 131082, 49, 0, 131109, 49, 0, 196608, 49, 0, 196609, 49, 0, 196610, 49, 0, 196611, 49, 0, 196612, 49, 0, 196613, 49, 0, 196614, 49, 0, 196619, 49, 0, 196620, 49, 0, 196621, 49, 0, 196622, 49, 0, 196623, 49, 0, 196624, 49, 0, 196625, 49, 0, 196630, 49, 0, 524350, 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap-Back-FX-01" type="TileMap" parent="." groups=[
+"map_part",
+]]
+z_index = -29
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 20, 20 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap-Main-01" type="TileMap" parent="." groups=[
+"map",
+"map_part",
+]]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 264
+collision_mask = 522
+format = 1
+tile_data = PoolIntArray( 1376260, 16, 0, 1376261, 16, 1, 1376262, 16, 1, 1376263, 16, 1, 1376264, 16, 1, 1376265, 16, 1, 1376266, 16, 1, 1376267, 16, 1, 1376268, 16, 1, 1376269, 16, 1, 1376270, 16, 1, 1376271, 16, 1, 1376272, 16, 1, 1376273, 16, 1, 1376274, 16, 2, 1441796, 16, 131072, 1441797, 16, 131073, 1441798, 16, 131073, 1441799, 16, 131073, 1441800, 16, 131073, 1441801, 16, 131073, 1441802, 16, 131073, 1441803, 16, 131073, 1441804, 16, 131073, 1441805, 16, 131073, 1441806, 16, 131073, 1441807, 16, 131073, 1441808, 16, 131073, 1441809, 16, 131073, 1441810, 16, 131074, 2162710, 16, 0, 2162711, 16, 1, 2162712, 16, 1, 2162713, 16, 1, 2162714, 16, 1, 2162715, 16, 1, 2162716, 16, 1, 2162717, 16, 2, 2162726, 16, 0, 2162727, 16, 1, 2162728, 16, 1, 2162729, 16, 1, 2162730, 16, 1, 2162731, 16, 1, 2162732, 16, 1, 2162733, 16, 1, 2162734, 16, 1, 2162735, 16, 1, 2162736, 16, 1, 2162737, 16, 2, 2228246, 16, 131072, 2228247, 16, 131073, 2228248, 16, 131073, 2228249, 16, 65542, 2228250, 16, 65541, 2228251, 16, 131073, 2228252, 16, 131073, 2228253, 16, 131074, 2228262, 16, 131072, 2228263, 16, 131073, 2228264, 16, 131073, 2228265, 16, 131073, 2228266, 16, 131073, 2228267, 16, 65542, 2228268, 16, 65541, 2228269, 16, 131073, 2228270, 16, 131073, 2228271, 16, 131073, 2228272, 16, 131073, 2228273, 16, 131074, 2293785, 16, 65536, 2293786, 16, 65538, 2293803, 16, 65536, 2293804, 16, 65538, 2359321, 16, 65536, 2359322, 16, 65538, 2359339, 16, 65536, 2359340, 16, 65538, 2424857, 16, 65536, 2424858, 16, 65538, 2424875, 16, 65536, 2424876, 16, 65538, 2424902, 16, 0, 2424903, 16, 1, 2424904, 16, 1, 2424905, 16, 1, 2424906, 16, 1, 2424907, 16, 1, 2424908, 16, 1, 2424909, 16, 1, 2424910, 16, 1, 2424911, 16, 1, 2424912, 16, 1, 2424913, 16, 1, 2424914, 16, 1, 2424915, 16, 1, 2424916, 16, 1, 2424917, 16, 1, 2424918, 16, 1, 2424919, 16, 1, 2424920, 16, 1, 2424921, 16, 2, 2490393, 16, 65536, 2490394, 16, 65538, 2490411, 16, 65536, 2490412, 16, 65538, 2490438, 16, 131072, 2490439, 16, 131073, 2490440, 16, 131073, 2490441, 16, 131073, 2490442, 16, 131073, 2490443, 16, 131073, 2490444, 16, 131073, 2490445, 16, 131073, 2490446, 16, 131073, 2490447, 16, 131073, 2490448, 16, 131073, 2490449, 16, 131073, 2490450, 16, 131073, 2490451, 16, 131073, 2490452, 16, 131073, 2490453, 16, 131073, 2490454, 16, 131073, 2490455, 16, 131073, 2490456, 16, 131073, 2490457, 16, 131074, 2555929, 16, 65536, 2555930, 16, 65538, 2555947, 16, 65536, 2555948, 16, 65538, 2555954, 16, 196608, 2555955, 16, 196609, 2555956, 16, 196609, 2555957, 16, 196609, 2555958, 16, 196609, 2555959, 16, 196609, 2555960, 16, 196609, 2555961, 16, 196609, 2555962, 16, 196609, 2555963, 16, 196609, 2555964, 16, 196609, 2555965, 16, 196609, 2555966, 16, 196610, 2621465, 16, 65536, 2621466, 16, 65538, 2621483, 16, 65536, 2621484, 16, 65538, 2687001, 16, 65536, 2687002, 16, 65538, 2687004, 16, 0, 2687005, 16, 1, 2687006, 16, 1, 2687007, 16, 1, 2687008, 16, 1, 2687009, 16, 1, 2687010, 16, 1, 2687011, 16, 1, 2687012, 16, 2, 2687019, 16, 65536, 2687020, 16, 65538, 2752537, 16, 65536, 2752538, 16, 65538, 2752540, 16, 131072, 2752541, 16, 131073, 2752542, 16, 131073, 2752543, 16, 65542, 2752544, 16, 65541, 2752545, 16, 131073, 2752546, 16, 131073, 2752547, 16, 131073, 2752548, 16, 131074, 2752555, 16, 65536, 2752556, 16, 65538, 2818053, 16, 0, 2818054, 16, 1, 2818055, 16, 1, 2818056, 16, 1, 2818057, 16, 1, 2818058, 16, 1, 2818059, 16, 1, 2818060, 16, 1, 2818061, 16, 1, 2818062, 16, 1, 2818063, 16, 1, 2818064, 16, 1, 2818065, 16, 1, 2818066, 16, 1, 2818067, 16, 1, 2818068, 16, 1, 2818069, 16, 1, 2818070, 16, 1, 2818071, 16, 2, 2818073, 16, 65536, 2818074, 16, 65538, 2818079, 16, 65536, 2818080, 16, 65538, 2818091, 16, 65536, 2818092, 16, 65538, 2883589, 16, 131072, 2883590, 16, 131073, 2883591, 16, 131073, 2883592, 16, 131073, 2883593, 16, 131073, 2883594, 16, 131073, 2883595, 16, 131073, 2883596, 16, 131073, 2883597, 16, 65542, 2883598, 16, 65541, 2883599, 16, 131073, 2883600, 16, 131073, 2883601, 16, 131073, 2883602, 16, 131073, 2883603, 16, 131073, 2883604, 16, 131073, 2883605, 16, 131073, 2883606, 16, 131073, 2883607, 16, 131074, 2883609, 16, 65536, 2883610, 16, 65538, 2883615, 16, 65536, 2883616, 16, 65538, 2883627, 16, 65536, 2883628, 16, 65538, 2883648, 16, 0, 2883649, 16, 1, 2883650, 16, 1, 2883651, 16, 1, 2883652, 16, 1, 2883653, 16, 1, 2883654, 16, 1, 2883655, 16, 1, 2883656, 16, 1, 2883657, 16, 1, 2883658, 16, 1, 2883659, 16, 1, 2883660, 16, 1, 2883661, 16, 1, 2883662, 16, 1, 2883663, 16, 2, 2949133, 16, 65536, 2949134, 16, 65538, 2949145, 16, 65536, 2949146, 16, 65538, 2949151, 16, 65536, 2949152, 16, 65538, 2949163, 16, 65536, 2949164, 16, 65538, 2949184, 16, 131072, 2949185, 16, 131073, 2949186, 16, 131073, 2949187, 16, 131073, 2949188, 16, 131073, 2949189, 16, 131073, 2949190, 16, 131073, 2949191, 16, 131073, 2949192, 16, 131073, 2949193, 16, 131073, 2949194, 16, 131073, 2949195, 16, 131073, 2949196, 16, 131073, 2949197, 16, 131073, 2949198, 16, 131073, 2949199, 16, 131074, 3014669, 16, 65536, 3014670, 16, 65538, 3014681, 16, 65536, 3014682, 16, 65538, 3014687, 16, 65536, 3014688, 16, 65538, 3014699, 16, 65536, 3014700, 16, 65538, 3080205, 16, 65536, 3080206, 16, 65538, 3080217, 16, 65536, 3080218, 16, 65538, 3080223, 16, 65536, 3080224, 16, 65538, 3080235, 16, 65536, 3080236, 16, 65538, 3145741, 16, 65536, 3145742, 16, 65538, 3145753, 16, 65536, 3145754, 16, 65538, 3145759, 16, 65536, 3145760, 16, 65538, 3145771, 16, 65536, 3145772, 16, 65538, 3211277, 16, 65536, 3211278, 16, 65538, 3211289, 16, 65536, 3211290, 16, 65538, 3211295, 16, 65536, 3211296, 16, 65538, 3211307, 16, 65536, 3211308, 16, 65538, 3276813, 16, 65536, 3276814, 16, 65538, 3276825, 16, 65536, 3276826, 16, 65538, 3276831, 16, 65536, 3276832, 16, 65538, 3276843, 16, 65536, 3276844, 16, 65538, 3342349, 16, 65536, 3342350, 16, 65538, 3342361, 16, 65536, 3342362, 16, 65538, 3342367, 16, 65536, 3342368, 16, 65538, 3342379, 16, 65536, 3342380, 16, 65538, 3407885, 16, 65536, 3407886, 16, 65538, 3407897, 16, 65536, 3407898, 16, 65538, 3407903, 16, 65536, 3407904, 16, 65538, 3407915, 16, 65536, 3407916, 16, 65538, 3473421, 16, 65536, 3473422, 16, 65538, 3473433, 16, 131072, 3473434, 16, 131074, 3473439, 16, 65536, 3473440, 16, 65538, 3473451, 16, 65536, 3473452, 16, 65538, 3538957, 16, 131072, 3538958, 16, 131074, 3538975, 16, 131072, 3538976, 16, 131074, 3538987, 16, 65536, 3538988, 16, 65538, 3604523, 16, 131072, 3604524, 16, 131074 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap-Main-02" type="TileMap" parent="." groups=[
+"map",
+"map_part",
+]]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 264
+collision_mask = 522
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap-Plat-01" type="TileMap" parent="." groups=[
+"map_part",
+]]
+modulate = Color( 0.784314, 0, 0, 1 )
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 4
+collision_mask = 4
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap-Ladders-01" type="TileMap" parent="." groups=[
+"map_part",
+]]
+modulate = Color( 0.509804, 0.262745, 0, 1 )
+z_index = -1
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 32
+collision_mask = 32
+format = 1
+tile_data = PoolIntArray( 3407942, 2, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap-Top-FX-01" type="TileMap" parent="." groups=[
+"map_part",
+]]
+z_index = 40
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 4
+collision_mask = 4
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MP-04-Nav2D" parent="." instance=ExtResource( 9 )]
+
+[node name="Player_spawns" type="Node2D" parent="."]
+
+[node name="MP-11-Player_Spawner-VS-00" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 110, 210 )
+
+[node name="MP-11-Player_Spawner-VS-01" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 240, 210 )
+
+[node name="MP-11-Player_Spawner-VS-02" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 380, 210 )
+
+[node name="MP-11-Player_Spawner-VS-03" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 520, 210 )
+
+[node name="MP-11-Player_Spawner-VS-04" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 690, 210 )
+
+[node name="MP-11-Player_Spawner-VS-05" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 840, 210 )
+
+[node name="MP-11-Player_Spawner-VS-06" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 990, 210 )
+
+[node name="MP-11-Player_Spawner-VS-07" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 1120, 210 )
+
+[node name="MP-11-Player_Spawner-VS-08" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 1240, 210 )
+
+[node name="MP-11-Player_Spawner-VS-09" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 1380, 210 )
+
+[node name="MP-11-Player_Spawner-VS-10" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 1520, 210 )
+
+[node name="MP-11-Player_Spawner-VS-11" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 1660, 210 )
+
+[node name="MP-11-Player_Spawner-VS-12" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 1780, 210 )
+
+[node name="MP-11-Player_Spawner-VS-13" parent="Player_spawns" instance=ExtResource( 5 )]
+position = Vector2( 990, 450 )
+
+[node name="Power_Ups" type="Node2D" parent="."]
+
+[node name="Map_parts" type="Node2D" parent="." groups=[
+"map_part",
+]]
+
+[node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 10 )]
+
+[node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 11 )]
+position = Vector2( 1016.51, 1127.47 )
+
+[node name="MP-51-Saw" parent="Map_parts" instance=ExtResource( 23 )]
+position = Vector2( 1690, 620 )

@@ -7,14 +7,6 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_60_Axe_Pick.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/FX/22-plasma-cloud.png" type="Texture" id=6]
 
-
-
-
-
-
-
-
-
 [node name="MP-29-Weap_Spawner" type="Node2D"]
 script = ExtResource( 1 )
 weap_num_01 = ExtResource( 2 )

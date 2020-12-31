@@ -801,7 +801,7 @@ func speedtimer():
 	is_speed_up = false
 	speed_power_up = 1
 
-func jumptimer():
+func jumpuptimer():
 	is_jump_up = false
 	jump_power_up = 1
 
@@ -814,6 +814,9 @@ func stuntimer():
 
 func knockbacktimer():
 	knocked_back = Vector2(0, 0)
+
+func jumptimer():
+	print("jump timer timed out dont know why in pawn 08 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 
 ##-------------------------------------------------------------[The in and outs]
 

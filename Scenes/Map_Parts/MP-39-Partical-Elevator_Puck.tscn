@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/FX/FX-20-plasma-cloud.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Map_Parts/MP-39-Partical-Elevator.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/FX/FX-22-Ghost.png" type="Texture" id=3]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0.009375, 0.225 ), 0.0, 0.0, 0, 0, Vector2( 0.2625, 0.345455 ), 0.323232, 0.323232, 0, 0, Vector2( 0.4875, 0.497727 ), 0.887273, 0.887273, 0, 0, Vector2( 0.740625, 0.797727 ), 0.0, 0.0, 0, 0, Vector2( 0.98125, 0.152273 ), -4.15584, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.167785, 0.399329, 0.704698 )
+colors = PoolColorArray( 0, 0.588235, 1, 1, 0, 0.486489, 1, 1, 0, 0.00392157, 1, 1 )
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 50.0
+height = 220.0
+
+[node name="MP-39-Partical-Elevator-Puck" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+amount = 25
+lifetime = 2.5
+texture = ExtResource( 1 )
+emission_shape = 2
+emission_rect_extents = Vector2( 40, 2 )
+direction = Vector2( 0, -1 )
+gravity = Vector2( 0, -200 )
+initial_velocity = 50.0
+initial_velocity_random = 1.0
+scale_amount_random = 0.22
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.33
+hue_variation_random = 0.23
+
+[node name="Area2D" type="Area2D" parent="."]
+space_override = 3
+gravity_point = true
+gravity_vec = Vector2( 0, -25 )
+collision_layer = 2147745792
+collision_mask = 984066
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -150 )
+shape = SubResource( 3 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 0, -340 )
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+amount = 30
+lifetime = 2.2
+texture = ExtResource( 3 )
+emission_shape = 2
+emission_rect_extents = Vector2( 50, 1 )
+direction = Vector2( 0, -1 )
+gravity = Vector2( 0, -98 )
+initial_velocity = 30.0
+hue_variation = 0.3
+hue_variation_random = 1.0
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

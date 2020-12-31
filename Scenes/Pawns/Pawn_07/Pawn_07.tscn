@@ -2156,11 +2156,7 @@ polygon = PoolVector2Array( 14, -31, 13, 0, 8, 8, -10, 8, -12, 2, -3, -25 )
 visible = false
 position = Vector2( 0, 4 )
 polygon = PoolVector2Array( 7, -19, 13, 0, 2, 8, -2, 8, -13, 0, -7, -19 )
-
-[node name="Timer_Jump" type="Timer" parent="."]
-one_shot = true
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]
 [connection signal="body_exited" from="Ladder_Area" to="." method="_on_Ladder_Area_body_exited"]
-[connection signal="timeout" from="Timer_Jump" to="." method="_on_Timer_Jump_timeout"]

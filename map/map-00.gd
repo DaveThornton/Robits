@@ -13,8 +13,8 @@ var spawn_spots = []
 var nav_system
 var first = true
 var num_in_play = 0
-func _ready():
 
+func _ready():
 #	Game.mode = 2
 	Game.use_lives() #checks if number of lives are used
 	if $"MP-04-Nav2D":

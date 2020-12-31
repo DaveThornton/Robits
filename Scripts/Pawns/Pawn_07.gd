@@ -786,7 +786,7 @@ func speedtimer():
 	is_speed_up = false
 	speed_power_up = 1
 
-func jumptimer():
+func jumpuptimer():
 	is_jump_up = false
 	jump_power_up = 1
 
@@ -800,7 +800,7 @@ func stuntimer():
 func knockbacktimer():
 	knocked_back = Vector2(0, 0)
 
-func _on_Timer_Jump_timeout():
+func jumptimer():
 	jump_top = false
 	jump_top_pos -= 50
 

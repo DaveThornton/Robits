@@ -2375,16 +2375,16 @@ script = ExtResource( 4 )
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 19, -1 )
+position = Vector2( 29, -1 )
 enabled = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 28
+cast_to = Vector2( -30, 2 )
+collision_mask = 3358
 
 [node name="Down_L" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -19, -1 )
+position = Vector2( -30, -1 )
 enabled = true
-cast_to = Vector2( 0, 2 )
-collision_mask = 28
+cast_to = Vector2( 30, 2 )
+collision_mask = 3358
 
 [node name="LDown" type="RayCast2D" parent="Raycasts"]
 position = Vector2( 0, -13 )
@@ -2393,32 +2393,34 @@ collision_mask = 32
 collide_with_areas = true
 
 [node name="LUp" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -13 )
+position = Vector2( 0, -13.2 )
 cast_to = Vector2( 0, -45 )
 collision_mask = 32
 collide_with_areas = true
 
-[node name="Up" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -41 )
+[node name="UpL" type="RayCast2D" parent="Raycasts"]
+position = Vector2( -30, -35 )
 enabled = true
-cast_to = Vector2( 0, -3 )
-collision_mask = 28
+cast_to = Vector2( 50, -8 )
+collision_mask = 3354
+
+[node name="UpR" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 30, -35 )
+enabled = true
+cast_to = Vector2( -50, -8 )
+collision_mask = 3354
 
 [node name="Body" type="Sprite" parent="."]
 self_modulate = Color( 0.529412, 0.529412, 0.529412, 1 )
 position = Vector2( 0, -13 )
-rotation = -1.5708
 texture = ExtResource( 8 )
 hframes = 5
-frame = 2
 
 [node name="Pawn_02_Head" parent="Body" instance=ExtResource( 2 )]
-position = Vector2( 28, 1.90735e-06 )
-rotation = 1.5708
+position = Vector2( 19, -11 )
 
 [node name="POS_Arm" type="Position2D" parent="Body"]
-position = Vector2( 24, 7 )
-rotation = 1.5708
+position = Vector2( 19, -4 )
 
 [node name="Pawn_02_Part_Arm" parent="Body/POS_Arm" instance=ExtResource( 1 )]
 visible = false
@@ -2426,34 +2428,32 @@ visible = false
 [node name="Shield" type="Sprite" parent="Body"]
 
 [node name="Pawn_02_Leg_01" parent="Body" instance=ExtResource( 3 )]
-position = Vector2( 22, 4 )
-leg_num = 2
+position = Vector2( 19, -4 )
 
 [node name="Pawn_02_Leg_03" parent="Body" instance=ExtResource( 3 )]
-position = Vector2( 8, 4 )
+position = Vector2( 7, 2 )
 step_start_forward = false
 leg_num = 2
 
 [node name="Pawn_02_Leg_05" parent="Body" instance=ExtResource( 3 )]
-position = Vector2( -3, 5 )
+position = Vector2( -7, 5 )
 leg_num = 3
 
 [node name="Pawn_02_Leg_06" parent="Body" instance=ExtResource( 3 )]
-position = Vector2( -4, -7 )
+position = Vector2( -7, 5 )
 front = false
 step_start_forward = false
 leg_num = 3
 
 [node name="Pawn_02_Leg_04" parent="Body" instance=ExtResource( 3 )]
-position = Vector2( 10.8, -5 )
+position = Vector2( 7, 2 )
 front = false
 leg_num = 2
 
 [node name="Pawn_02_Leg_02" parent="Body" instance=ExtResource( 3 )]
-position = Vector2( 21, -3 )
+position = Vector2( 19, -4 )
 front = false
 step_start_forward = false
-leg_num = 2
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -18 )
@@ -2461,6 +2461,7 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -12 )
 rotation = 1.5708
 shape = SubResource( 2 )

@@ -19,6 +19,7 @@ radius = 3.32799
 
 [node name="MP-36-Moving_Onmi" type="Node2D"]
 script = ExtResource( 1 )
+wait = false
 
 [node name="Plat" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -54,7 +55,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Kill-Up"]
-position = Vector2( -3.89414e-007, -2 )
+position = Vector2( -3.89414e-07, -2 )
 rotation = 1.5708
 shape = SubResource( 3 )
 disabled = true
@@ -65,7 +66,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Kill-Down"]
-position = Vector2( 3.89414e-007, 22 )
+position = Vector2( 3.89414e-07, 22 )
 rotation = 1.5708
 shape = SubResource( 3 )
 disabled = true

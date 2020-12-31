@@ -20,7 +20,8 @@ onready var legbb = $Body/Pawn_02_Leg_06
 #onready var legbf = $Pawn_02_Leg_05
 #onready var legbb = $Pawn_02_Leg_06
 
-onready var ray_up = $Raycasts/Up
+onready var ray_up_r = $Raycasts/UpR
+onready var ray_up_l = $Raycasts/UpL
 onready var ray_down_l = $Raycasts/Down_L 
 onready var ray_down_r = $Raycasts/Down_R
 onready var lup = $Raycasts/LUp
@@ -59,6 +60,7 @@ var current_x_speed = 0
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed: = false
 var can_jump = true
+var max_air_jump_count = 1
 var max_air_jump_power = 4
 var min_air_jump_power = 2
 var air_jump_count = 0
@@ -165,9 +167,19 @@ func _physics_process(delta):
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
 	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
-	var movement = Vector2(0, ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
+	var movement = Vector2(0, (vel.y + (grav * int(!on_floor)) * delta) + (head_room * 2) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
 	var _2 = move_and_collide(vel)
+
+#func _physics_process(delta):
+#	if on_floor:
+#		vel.y = vel.y / 1.1
+#	if vel.y > terminal_vel:
+#		vel.y = terminal_vel
+#	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
+#	var movement = Vector2(0, (((vel.y * head_room) + (grav * int(!on_floor)) * delta)) * int(!on_ladder))# + (map_movement * delta)
+#	vel = movement
+#	var _2 = move_and_collide(vel)
 
 ##-------------------------------------------------------------------[Move/jump]
 func move_x(_moving, _right):
@@ -215,6 +227,8 @@ func move_x(_moving, _right):
 
 func jump(_down_input, _left_input, _right_input):
 	pass
+#	if head_room == 1:
+#		vel.y = max_jump_power * jump_power_up
 
 func jump_j(down_input, left_input, right_input):
 	if can_move:
@@ -225,6 +239,10 @@ func jump_j(down_input, left_input, right_input):
 		elif !is_jump_pressed && on_floor:# && !down_input:
 			SFX.play("Move_Jump_01")
 			vel.y = -max_jump_power * jump_power_up
+		elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
+			SFX.play("Move_Jump_05")
+			vel.y = -max_air_jump_power * jump_power_up
+			air_jump_count += 1
 		if on_floor:
 			is_jump_pressed = false
 		else:
@@ -396,7 +414,7 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
-	if ray_up.is_colliding():
+	if  ray_up_r.is_colliding() || ray_up_l.is_colliding():
 		head_room = 1
 	else:
 		head_room = 0
@@ -856,7 +874,7 @@ func speedtimer():
 	is_speed_up = false
 	speed_power_up = 1
 
-func jumptimer():
+func jumpuptimer():
 	is_jump_up = false
 	jump_power_up = 1
 
@@ -869,7 +887,10 @@ func stuntimer():
 
 func knockbacktimer():
 	knocked_back = Vector2(0, 0)
-
+	
+func jumptimer():
+	print("jump timer timed out dont know why in pawn 02 player stats says its pawn ",Player_Stats.get_pawn_num(player))
+	
 ##-------------------------------------------------------------[The in and outs]
 
 func _on_Pick_Up_Area_body_entered(body):

@@ -29,7 +29,8 @@ onready var anim = $AnimationPlayer
 
 onready var ladder_count = [] #shouldnt be here??!!??
 
-onready var ray_up = $Raycasts/Up
+onready var ray_up_r = $Raycasts/UpR
+onready var ray_up_l = $Raycasts/UpL
 onready var ray_down_l = $Raycasts/Left
 onready var ray_down_r = $Raycasts/Right
 onready var ray_down_l2 = $Raycasts/Left2
@@ -170,7 +171,9 @@ func _process(delta):
 
 func _physics_process(delta):
 	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
-	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
+	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta)) + head_room * int(!on_ladder))# + (map_movement * delta)
+	if head_room == 0:
+		movement.y == -movement.y
 	vel = movement
 	if on_floor:
 		vel.y = vel.y / 1.1
@@ -225,6 +228,23 @@ func move_x(_moving, _right):
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
 func jump(down_input, left_input, right_input):
+	pass
+#	if can_move:
+#		if down_input && on_floor && !left_input && !right_input:
+#			SFX.play("Move_Jump_08")
+#			vel.y += 1.5
+#			self.position.y += 3
+#		elif !is_jump_pressed && on_floor:# && !down_input:
+#			SFX.play("Move_Jump_01")
+#			vel.y = -max_jump_power * jump_power_up
+#		elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
+#			SFX.play("Move_Jump_05")
+#			vel.y = -max_air_jump_power * jump_power_up
+#			air_jump_count += 1
+#		is_jump_pressed = true
+#		on_ladder = false
+
+func jump_j(down_input, left_input, right_input):
 	if can_move:
 		if down_input && on_floor && !left_input && !right_input:
 			SFX.play("Move_Jump_08")
@@ -239,9 +259,6 @@ func jump(down_input, left_input, right_input):
 			air_jump_count += 1
 		is_jump_pressed = true
 		on_ladder = false
-
-func jump_j(_down_input, _left_input, _right_input):
-	pass
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
@@ -450,7 +467,7 @@ func _body_(_num: int):
 		wheel2.position.x = 0
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
-	if ray_up.is_colliding():
+	if  ray_up_r.is_colliding() || ray_up_l.is_colliding():
 		head_room = 1
 	else:
 		head_room = 0
@@ -631,7 +648,7 @@ func _anim_jump():
 		_body(2)
 
 func _anim_prone_idle():
-	anim.play("Idle")
+	anim.play("Prone")
 	neck.play("Idle")
 	wheel1.stop()
 	wheel2.stop()
@@ -643,7 +660,7 @@ func _anim_prone_idle():
 		_body(4)
 
 func _anim_prone_crawl():
-	anim.play("Idle")
+	anim.play("Prone")
 	neck.play("Idle")
 	if is_right:
 		wheel1.turn(true)
@@ -781,7 +798,7 @@ func speedtimer():
 	is_speed_up = false
 	speed_power_up = 1
 
-func jumptimer():
+func jumpuptimer():
 	is_jump_up = false
 	jump_power_up = 1
 
@@ -792,6 +809,8 @@ func nrguptimer():
 func stuntimer():
 	can_move = true
 
+func jumptimer():
+	print("jump timer timed out dont know why in pawn 03 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 ##-------------------------------------------------------------[The in and outs]
 
 func _on_Pick_Up_Area_body_entered(body):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -10,8 +10,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_01.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Guns/Pick/W_40_RPG_Pick.tscn" type="PackedScene" id=10]
-
-
+[ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=11]
 
 [node name="testmap-01" type="Node2D"]
 script = ExtResource( 1 )
@@ -71,40 +70,51 @@ __meta__ = {
 }
 
 [node name="Player_spawns" type="Node2D" parent="."]
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Position2D" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1800, 890 )
+[node name="MP-11-Player_Spawner-VS-00" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 450, 434 )
 
-[node name="Position2D2" type="Position2D" parent="Player_spawns"]
-position = Vector2( 970, 150 )
+[node name="MP-11-Player_Spawner-VS-01" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 730, 674 )
 
-[node name="Position2D3" type="Position2D" parent="Player_spawns"]
-position = Vector2( 670, 600 )
+[node name="MP-11-Player_Spawner-VS-02" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 1220, 674 )
 
-[node name="Position2D7" type="Position2D" parent="Player_spawns"]
-position = Vector2( 390, 385 )
+[node name="MP-11-Player_Spawner-VS-03" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 1610, 514 )
 
-[node name="Position2D6" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1645, 240 )
+[node name="MP-11-Player_Spawner-VS-04" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 1680, 290 )
 
-[node name="Position2D5" type="Position2D" parent="Player_spawns"]
-position = Vector2( 340, 870 )
+[node name="MP-11-Player_Spawner-VS-05" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 1100, 350 )
 
-[node name="Position2D4" type="Position2D" parent="Player_spawns"]
-position = Vector2( 170, 70 )
+[node name="MP-11-Player_Spawner-VS-06" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 890, 210 )
 
-[node name="Position2D8" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1535, 460 )
+[node name="MP-11-Player_Spawner-VS-07" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 600, 134 )
 
-[node name="Position2D9" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1240, 590 )
+[node name="MP-11-Player_Spawner-VS-08" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 130, 134 )
 
-[node name="Position2D10" type="Position2D" parent="Player_spawns"]
-position = Vector2( 1490, 880 )
+[node name="MP-11-Player_Spawner-VS-09" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 330, 434 )
+
+[node name="MP-11-Player_Spawner-VS-10" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 460, 930 )
+
+[node name="MP-11-Player_Spawner-VS-11" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 170, 930 )
+
+[node name="MP-11-Player_Spawner-VS-12" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 1380, 930 )
+
+[node name="MP-11-Player_Spawner-VS-13" parent="Player_spawns" instance=ExtResource( 11 )]
+position = Vector2( 1640, 930 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 __meta__ = {

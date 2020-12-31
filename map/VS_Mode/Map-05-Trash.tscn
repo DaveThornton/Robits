@@ -246,7 +246,7 @@ position = Vector2( 1930, 182 )
 spawn_time = 2.9
 
 [node name="MP-29-Trash_Spawner2" parent="Map_parts/Trash" instance=ExtResource( 12 )]
-position = Vector2( 1200, -12 )
+position = Vector2( 1190, -10 )
 spawn_time = 3.1
 
 [node name="MP-29-Trash_Spawner3" parent="Map_parts/Trash" instance=ExtResource( 12 )]
@@ -292,12 +292,12 @@ spawn_time = 3.2
 [node name="Weap_Spawn" type="Node2D" parent="Map_parts"]
 
 [node name="MP-29-Weap_Spawner" parent="Map_parts/Weap_Spawn" instance=ExtResource( 19 )]
-position = Vector2( 1930, 171 )
+position = Vector2( 1910, 190 )
 weap_num_01 = ExtResource( 24 )
 weap_num_02 = ExtResource( 25 )
 weap_num_03 = ExtResource( 24 )
 weap_num_04 = ExtResource( 27 )
-spawn_time = 8.0
+spawn_time = 8.2
 weap_num = 3
 
 [node name="MP-29-Weap_Spawner2" parent="Map_parts/Weap_Spawn" instance=ExtResource( 19 )]
@@ -319,7 +319,7 @@ spawn_time = 15.0
 weap_num = 3
 
 [node name="MP-29-Weap_Spawner8" parent="Map_parts/Weap_Spawn" instance=ExtResource( 19 )]
-position = Vector2( 1200, -6 )
+position = Vector2( 1200, 0 )
 weap_num_01 = ExtResource( 28 )
 weap_num_02 = ExtResource( 30 )
 weap_num_03 = ExtResource( 29 )
@@ -342,11 +342,20 @@ weap_num_01 = ExtResource( 32 )
 weap_num_02 = ExtResource( 21 )
 weap_num_03 = ExtResource( 26 )
 weap_num_04 = ExtResource( 22 )
-spawn_time = 6.75
+spawn_time = 9.0
 weap_num = 3
 
 [node name="MP-29-Weap_Spawner6" parent="Map_parts/Weap_Spawn" instance=ExtResource( 19 )]
-position = Vector2( 1210, -10 )
+position = Vector2( 1430, -8 )
+weap_num_01 = ExtResource( 20 )
+weap_num_02 = ExtResource( 21 )
+weap_num_03 = ExtResource( 26 )
+weap_num_04 = ExtResource( 35 )
+spawn_time = 6.5
+weap_num = 3
+
+[node name="MP-29-Weap_Spawner9" parent="Map_parts/Weap_Spawn" instance=ExtResource( 19 )]
+position = Vector2( 1670, -8 )
 weap_num_01 = ExtResource( 20 )
 weap_num_02 = ExtResource( 21 )
 weap_num_03 = ExtResource( 26 )
@@ -356,12 +365,21 @@ weap_num = 3
 
 [node name="MP-29-Weap_Spawner7" parent="Map_parts/Weap_Spawn" instance=ExtResource( 19 )]
 position = Vector2( 1690, -10 )
-weap_num_01 = ExtResource( 20 )
+weap_num_01 = ExtResource( 33 )
 weap_num_02 = ExtResource( 21 )
 weap_num_03 = ExtResource( 26 )
 weap_num_04 = ExtResource( 22 )
-spawn_time = 5.75
-weap_num = 3
+rand_weap = false
+spawn_time = 10.0
+
+[node name="MP-29-Weap_Spawner10" parent="Map_parts/Weap_Spawn" instance=ExtResource( 19 )]
+position = Vector2( 0, 664 )
+weap_num_01 = ExtResource( 33 )
+weap_num_02 = ExtResource( 21 )
+weap_num_03 = ExtResource( 26 )
+weap_num_04 = ExtResource( 22 )
+rand_weap = false
+spawn_time = 10.0
 
 [node name="Saw" type="Node2D" parent="Map_parts"]
 

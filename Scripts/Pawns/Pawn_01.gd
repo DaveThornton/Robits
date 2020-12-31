@@ -796,6 +796,8 @@ func stuntimer():
 func knockbacktimer():
 	knocked_back = Vector2(0, 0)
 
+func jumptimer():
+	print("jump timer timed out dont know why in pawn 01 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 ##-------------------------------------------------------------[The in and outs]
 
 func _on_Pick_Up_Area_body_entered(body):

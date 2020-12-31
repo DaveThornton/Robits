@@ -53,11 +53,18 @@ var move = false
 #signal start
 
 func _ready():
+#	var con = self.get_tree().get_current_scene().connect("second", self, "second")
+#	if con != 0:
+#		print("error on connecting second to second in MP-36-Moving omni")
 #	var test1 =  self.connect("start",self,"set_start")
 #	if test1 != 0:
 #		print("error in mp 36 moving omni connecting start")
 	if !delay_start:
 		started = true
+	else:
+		var con = self.get_tree().get_current_scene().connect("second", self, "second")
+		if con != 0:
+			print("error on connecting second to second in MP-36-Moving omni")
 #	last_pos = plat.global_position
 #	kill3_shape.position.x = how_left
 	if !kill_up_on && !kill_down_on && !kill_left_on && !kill_right_on:
@@ -103,11 +110,9 @@ func _ready():
 	if wait:
 		timer.wait_time = wait_time
 		timer.start()
-	
-	if delay_start:
-		started = false
-		start_timer.wait_time = start_time
-		start_timer.start()
+#		started = false
+#		start_timer.wait_time = start_time
+#		start_timer.start()
 #	else:
 #		started = true
 		
@@ -197,7 +202,13 @@ func _move_player(array_num, delta):
 	elif !going_left && going_right:
 		p.position.x += delta * speed
 #		p.map_movement.x = delta * speed
-		
+
+func second():
+#	if delay_start && !started:
+#	print("second")
+	self.disconnect("second", self, "second")
+	started = true
+
 func _on_Area2D_Player_body_entered(body):
 	if body.get_groups().has("player"):
 		print("player entered platform")
@@ -208,31 +219,6 @@ func _on_Area2D_Player_body_exited(body):
 	if body.get_groups().has("player"):
 		print("player exited platform")
 		occ_array.erase(body)
-
-#func _on_Area2Dkill01_body_entered(body):
-#	if body.get_groups().has("player"):
-#		if kill_array.has(body):
-#			if !going_up:
-#				body.killed_by_map(0, "map", "map", 100)
-#		else:
-#			kill_array.append(body)
-#
-#func _on_Area2Dkill01_body_exited(body):
-#	if body.get_groups().has("player"):
-#		kill_array.erase(body)
-#
-#
-#func _on_Area2Dkill02_body_entered(body):
-#	if body.get_groups().has("player"):
-#		if kill_array.has(body):
-#			if !going_up:
-#				body.killed_by_map(0, "map", "map", 100)
-#		else:
-#			kill_array.append(body)
-#
-#func _on_Area2Dkill02_body_exited(body):
-#	if body.get_groups().has("player"):
-#		kill_array.erase(body)
 
 func _on_Timer_timeout():
 	waiting = false

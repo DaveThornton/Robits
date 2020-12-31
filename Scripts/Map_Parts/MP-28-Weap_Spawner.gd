@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var timer = $Timer
+onready var sprite = $Sprite
 
 export(PackedScene) var weap_num_01
 export(PackedScene) var weap_num_02
@@ -9,13 +10,12 @@ export(PackedScene) var weap_num_04
 
 export var rand_weap = true
 export var spawn_time = 25.0
-#export var shoot_dir = Vector2(50,-10)
-#export var trash_time = 30.0
 export var weap_num = 1
 
 var rng = RandomNumberGenerator.new()
 
 func _ready():
+	sprite.visible = false
 	timer.wait_time = spawn_time
 	timer.start()
 	rng.randomize()
@@ -40,7 +40,6 @@ func _on_Timer_timeout():
 	weap.global_position = self.global_position
 #	weap.init(-1, -1, _time, _is_right, _dir, _just_shot)
 	Map_Hand.add_kid_to_map(weap)
-
 
 #	part.init(trash_num, self.global_position, shoot_dir, trash_time)
 #	part.init(1, 1, 1, true, (self.global_position + Vector2(-7, -7)), shoot_dir)# its for the robit wreckage

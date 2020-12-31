@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var timer = $Timer
-
+onready var sprite = $Sprite
 export(PackedScene) var trash_part
 
 export var rand_trash = true
@@ -13,6 +13,7 @@ export var trash_num = 3
 var rng = RandomNumberGenerator.new()
 
 func _ready():
+	sprite.visible = false
 	timer.wait_time = spawn_time
 	rng.randomize()
 
