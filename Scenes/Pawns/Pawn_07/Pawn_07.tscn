@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_07_Part_Body_Shield.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Pawns/Pawn_07.gd" type="Script" id=2]
@@ -2042,6 +2042,13 @@ tracks/14/keys = {
 "values": [ -30.0, 0.0 ]
 }
 
+[sub_resource type="CapsuleShape2D" id=14]
+radius = 11.0
+
+[sub_resource type="CapsuleShape2D" id=15]
+radius = 13.0
+height = 4.0
+
 [node name="Pawn_07" type="KinematicBody2D" groups=[
 "hittable",
 "ladder",
@@ -2049,7 +2056,7 @@ tracks/14/keys = {
 ]]
 position = Vector2( 0, -12 )
 collision_layer = 2
-collision_mask = 66206
+collision_mask = 67230
 script = ExtResource( 2 )
 
 [node name="Timers" parent="." instance=ExtResource( 9 )]
@@ -2138,24 +2145,32 @@ enabled = true
 cast_to = Vector2( 0, 5 )
 collision_mask = 14
 
-[node name="Shape_Left" type="CollisionPolygon2D" parent="."]
+[node name="Shape_Left_" type="CollisionPolygon2D" parent="."]
 visible = false
 position = Vector2( 0, 4 )
 polygon = PoolVector2Array( 3, -25, 12, 2, 10, 8, -8, 8, -14, 0, -14, -31 )
 
-[node name="Shape_Stand" type="CollisionPolygon2D" parent="."]
+[node name="Shape_Stand_" type="CollisionPolygon2D" parent="."]
 position = Vector2( 0, 4 )
 polygon = PoolVector2Array( 8, -31, 13, 1, 8, 8, -8, 8, -13, 1, -7, -31 )
 
-[node name="Shape_Right" type="CollisionPolygon2D" parent="."]
+[node name="Shape_Right_" type="CollisionPolygon2D" parent="."]
 visible = false
 position = Vector2( 0, 4 )
 polygon = PoolVector2Array( 14, -31, 13, 0, 8, 8, -10, 8, -12, 2, -3, -25 )
 
-[node name="Shape_Crouch" type="CollisionPolygon2D" parent="."]
+[node name="Shape_Crouch_" type="CollisionPolygon2D" parent="."]
 visible = false
 position = Vector2( 0, 4 )
 polygon = PoolVector2Array( 7, -19, 13, 0, 2, 8, -2, 8, -13, 0, -7, -19 )
+
+[node name="Shape_Stand" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -9 )
+shape = SubResource( 14 )
+
+[node name="Shape_Crouch" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -3 )
+shape = SubResource( 15 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

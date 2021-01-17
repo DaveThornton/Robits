@@ -2118,29 +2118,34 @@ show_behind_parent = true
 position = Vector2( -4, -19 )
 
 [node name="Shape_Left" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -7, -22 )
 rotation = -0.523599
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -24 )
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Shape_Right" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 7, -22 )
 rotation = 0.523599
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Shape_Down_Right" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 14, -10 )
 rotation = 1.5708
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Shape_Down_Left" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -14, -10 )
 rotation = 1.5708
 shape = SubResource( 1 )

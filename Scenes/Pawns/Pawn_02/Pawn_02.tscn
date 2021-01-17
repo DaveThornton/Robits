@@ -9,11 +9,10 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 18.0
-height = 26.0
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 12.0
-height = 24.0
+height = 26.0
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 13.0
@@ -2375,39 +2374,39 @@ script = ExtResource( 4 )
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 29, -1 )
+position = Vector2( 27, -1 )
 enabled = true
-cast_to = Vector2( -30, 2 )
+cast_to = Vector2( -20, 2 )
 collision_mask = 3358
 
 [node name="Down_L" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -30, -1 )
+position = Vector2( -26, -1 )
 enabled = true
-cast_to = Vector2( 30, 2 )
+cast_to = Vector2( 20, 2 )
 collision_mask = 3358
 
-[node name="LDown" type="RayCast2D" parent="Raycasts"]
+[node name="LDowni" type="RayCast2D" parent="Raycasts"]
 position = Vector2( 0, -13 )
 cast_to = Vector2( 0, 35 )
 collision_mask = 32
 collide_with_areas = true
 
-[node name="LUp" type="RayCast2D" parent="Raycasts"]
+[node name="LUpi" type="RayCast2D" parent="Raycasts"]
 position = Vector2( 0, -13.2 )
 cast_to = Vector2( 0, -45 )
 collision_mask = 32
 collide_with_areas = true
 
 [node name="UpL" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -30, -35 )
+position = Vector2( -27, -35 )
 enabled = true
-cast_to = Vector2( 50, -8 )
+cast_to = Vector2( 45, -8 )
 collision_mask = 3354
 
 [node name="UpR" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 30, -35 )
+position = Vector2( 27, -35 )
 enabled = true
-cast_to = Vector2( -50, -8 )
+cast_to = Vector2( -45, -8 )
 collision_mask = 3354
 
 [node name="Body" type="Sprite" parent="."]
@@ -2461,7 +2460,6 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -12 )
 rotation = 1.5708
 shape = SubResource( 2 )

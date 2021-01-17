@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_10/Parts/Pawn_10_Head.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_10/Parts/Pawn_10_Part_Wheel.tscn" type="PackedScene" id=2]
@@ -11,7 +11,7 @@
 height = 42.0
 
 [sub_resource type="CapsuleShape2D" id=2]
-height = 8.0
+height = 46.0
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 30.0
@@ -121,6 +121,42 @@ tracks/7/keys = {
 "update": 1,
 "values": [ 3 ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_L:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_R:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9, 9 ) ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Ladder-Move"
@@ -221,6 +257,42 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 3 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_L:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_R:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9, 9 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -323,6 +395,42 @@ tracks/7/keys = {
 "update": 1,
 "values": [ 3 ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_L:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_R:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9, 9 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "Left-Idle"
@@ -424,6 +532,42 @@ tracks/7/keys = {
 "update": 1,
 "values": [ 2 ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_L:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_R:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9, 9 ) ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "Left-Prone-Crawl"
@@ -439,7 +583,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 21, 0 ), Vector2( 21, 1 ), Vector2( 21, 0 ), Vector2( 21, -1 ), Vector2( 21, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pawn_10_Part_Body:rotation_degrees")
@@ -524,6 +668,42 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 2 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 21, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_R:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_L:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -32, 9 ) ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -540,7 +720,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1.5, 1.6, 1.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 21, 0 ), Vector2( 21, -1 ), Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pawn_10_Part_Body:rotation_degrees")
@@ -625,6 +805,42 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 2 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 21, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_L:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -32, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_R:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32, 9 ) ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -726,6 +942,42 @@ tracks/7/keys = {
 "update": 1,
 "values": [ 2 ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_L:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_R:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9, 9 ) ]
+}
 
 [sub_resource type="Animation" id=12]
 tracks/0/type = "value"
@@ -823,6 +1075,42 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 2 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_L:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_R:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9, 9 ) ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -924,6 +1212,42 @@ tracks/7/keys = {
 "update": 1,
 "values": [ 2 ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_L:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_R:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9, 9 ) ]
+}
 
 [sub_resource type="Animation" id=14]
 length = 0.8
@@ -938,7 +1262,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( -21, 0 ), Vector2( -21, 1 ), Vector2( -21, 0 ), Vector2( -21, -1 ), Vector2( -21, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pawn_10_Part_Body:rotation_degrees")
@@ -1023,6 +1347,42 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 2 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -21, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_R:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_L:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -32, 9 ) ]
 }
 
 [sub_resource type="Animation" id=15]
@@ -1038,7 +1398,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 1.5, 1.6, 1.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( -21, 0 ), Vector2( -21, -1 ), Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pawn_10_Part_Body:rotation_degrees")
@@ -1123,6 +1483,42 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 2 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -21, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_L:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -32, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_R:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 32, 9 ) ]
 }
 
 [sub_resource type="Animation" id=16]
@@ -1224,6 +1620,42 @@ tracks/7/keys = {
 "update": 1,
 "values": [ 2 ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_L:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_R:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9, 9 ) ]
+}
 
 [sub_resource type="Animation" id=17]
 length = 0.4
@@ -1323,8 +1755,42 @@ tracks/7/keys = {
 "update": 1,
 "values": [ 2 ]
 }
-
-[sub_resource type="CircleShape2D" id=18]
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pawn_10_Part_Wheel:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Raycast/Down_L:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -10, 9 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Raycast/Down_R:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 9, 9 ) ]
+}
 
 [node name="Pawn_10" type="KinematicBody2D" groups=[
 "hittable",
@@ -1341,15 +1807,15 @@ script = ExtResource( 4 )
 [node name="Raycast" type="Node2D" parent="."]
 
 [node name="Down_L" type="RayCast2D" parent="Raycast"]
-position = Vector2( -9, 8 )
+position = Vector2( -32, 9 )
 enabled = true
-cast_to = Vector2( 0, 3 )
+cast_to = Vector2( 15, 3 )
 collision_mask = 30
 
 [node name="Down_R" type="RayCast2D" parent="Raycast"]
-position = Vector2( 9, 8 )
+position = Vector2( 32, 9 )
 enabled = true
-cast_to = Vector2( 0, 3 )
+cast_to = Vector2( -15, 3 )
 collision_mask = 30
 
 [node name="Up" type="RayCast2D" parent="Raycast"]
@@ -1359,22 +1825,27 @@ cast_to = Vector2( 0, -10 )
 collision_mask = 8
 
 [node name="Pawn_10_Part_Wheel" parent="." instance=ExtResource( 2 )]
+position = Vector2( -21, 0 )
 
 [node name="Pawn_10_Part_Body" type="Sprite" parent="."]
 self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -21, 0 )
+rotation = 1.48353
 texture = ExtResource( 5 )
 offset = Vector2( 0, -18 )
 hframes = 4
 frame = 2
 
 [node name="POS_Head" type="Position2D" parent="Pawn_10_Part_Body"]
-position = Vector2( 0, -33 )
+position = Vector2( 2, -41 )
+rotation = -1.48353
 
 [node name="Pawn_10_Head" parent="Pawn_10_Part_Body/POS_Head" instance=ExtResource( 1 )]
 position = Vector2( 0, -8 )
 
 [node name="POS_Arm" type="Position2D" parent="Pawn_10_Part_Body"]
-position = Vector2( 0, -28 )
+position = Vector2( 5, -30 )
+rotation = -1.48353
 
 [node name="Pawn_10_Part_Arm" parent="Pawn_10_Part_Body/POS_Arm" instance=ExtResource( 3 )]
 
@@ -1387,29 +1858,12 @@ hframes = 4
 frame = 2
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -21 )
 shape = SubResource( 1 )
-
-[node name="Shape_Run_Right" type="CollisionShape2D" parent="."]
-position = Vector2( 9, -19 )
-rotation = 0.436332
-shape = SubResource( 1 )
 disabled = true
 
-[node name="Shape_Run_Left" type="CollisionShape2D" parent="."]
-position = Vector2( -9, -19.032 )
-rotation = -0.436332
-shape = SubResource( 1 )
-disabled = true
-
-[node name="Shape_Prone_Right" type="CollisionShape2D" parent="."]
-position = Vector2( 24, -6.77626e-21 )
-rotation = 1.5708
-shape = SubResource( 2 )
-disabled = true
-
-[node name="Shape_Prone_Left" type="CollisionShape2D" parent="."]
-position = Vector2( -24, 6.77626e-21 )
+[node name="Shape_Prone" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 2 )
 disabled = true
@@ -1447,9 +1901,6 @@ anims/Right-Prone-Crawl = SubResource( 14 )
 anims/Right-Prone-Idle = SubResource( 15 )
 anims/Right-Run = SubResource( 16 )
 anims/Right-Stun = SubResource( 17 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 18 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

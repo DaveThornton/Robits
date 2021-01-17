@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_09/Body.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_09/Parts/Pawn_09_Part_Legs.tscn" type="PackedScene" id=2]
@@ -11,8 +11,12 @@
 radius = 14.0
 height = 12.0
 
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 16.0
+height = 22.0
+
 [sub_resource type="CapsuleShape2D" id=2]
-height = 28.0
+height = 32.0
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 29.9999
@@ -603,17 +607,23 @@ position = Vector2( 0, -14 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
+[node name="CollisionShape2D-Down2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -27 )
+shape = SubResource( 11 )
+disabled = true
+
 [node name="CollisionShape2D_Right" type="CollisionShape2D" parent="."]
-position = Vector2( 10, -34 )
+position = Vector2( 10, -27 )
 shape = SubResource( 2 )
 disabled = true
 
 [node name="CollisionShape2D_Left" type="CollisionShape2D" parent="."]
-position = Vector2( -10, -34 )
+position = Vector2( -10, -27 )
 shape = SubResource( 2 )
 disabled = true
 
 [node name="Shield" type="Sprite" parent="."]
+visible = false
 
 [node name="POS_Body" type="Position2D" parent="."]
 position = Vector2( -7, -23 )
@@ -638,6 +648,7 @@ position = Vector2( 0, -12 )
 position = Vector2( 0, -28 )
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
+visible = false
 collision_layer = 262144
 collision_mask = 786432
 
@@ -647,6 +658,7 @@ rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 32
 

@@ -19,13 +19,13 @@ height = 220.0
 script = ExtResource( 2 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-visible = false
 amount = 25
-lifetime = 2.5
+lifetime = 2.75
 texture = ExtResource( 1 )
 emission_shape = 2
 emission_rect_extents = Vector2( 40, 2 )
 direction = Vector2( 0, -1 )
+spread = 15.0
 gravity = Vector2( 0, -200 )
 initial_velocity = 50.0
 initial_velocity_random = 1.0
@@ -50,12 +50,14 @@ shape = SubResource( 3 )
 position = Vector2( 0, -340 )
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-amount = 30
+position = Vector2( 0, -20 )
+amount = 3
 lifetime = 2.2
 texture = ExtResource( 3 )
 emission_shape = 2
-emission_rect_extents = Vector2( 50, 1 )
+emission_rect_extents = Vector2( 50, 20 )
 direction = Vector2( 0, -1 )
+spread = 10.0
 gravity = Vector2( 0, -98 )
 initial_velocity = 30.0
 hue_variation = 0.3

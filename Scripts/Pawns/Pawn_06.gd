@@ -800,6 +800,7 @@ func knockbacktimer():
 	knocked_back = Vector2(0, 0)
 
 func jumptimer():
+	is_jump_pressed = false
 	print("jump timer timed out dont know why in pawn 06 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 	
 ##-------------------------------------------------------------[The in and outs]

@@ -13,7 +13,7 @@ colors = PoolColorArray( 0, 0.588235, 1, 1, 0, 0.486489, 1, 1, 0, 0.00392157, 1,
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 60.0
-height = 40.0
+height = 0.0
 
 [node name="MP-39-Partical-Elevator-Puck" type="Node2D"]
 script = ExtResource( 2 )
@@ -21,7 +21,7 @@ script = ExtResource( 2 )
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 visible = false
 amount = 25
-lifetime = 1.4
+lifetime = 0.9
 texture = ExtResource( 3 )
 emission_shape = 2
 emission_rect_extents = Vector2( 40, 2 )
@@ -43,15 +43,15 @@ collision_layer = 2147745792
 collision_mask = 984066
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 0, -70 )
+position = Vector2( 0, -50 )
 shape = SubResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 0, -180 )
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-amount = 2
-lifetime = 1.5
+amount = 1
+lifetime = 1.25
 texture = ExtResource( 1 )
 emission_shape = 2
 emission_rect_extents = Vector2( 50, 1 )

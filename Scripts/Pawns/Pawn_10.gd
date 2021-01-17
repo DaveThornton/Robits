@@ -3,10 +3,10 @@ extends KinematicBody2D
 onready var gun_pos = $Pawn_10_Part_Body/POS_Arm/Pawn_10_Part_Arm/POS_Gun
 
 onready var body_shape_01 = $Shape_Stand
-onready var body_shape_02 = $Shape_Run_Left
-onready var body_shape_03 = $Shape_Run_Right
-onready var body_shape_04 = $Shape_Prone_Left
-onready var body_shape_05 = $Shape_Prone_Right
+onready var body_shape_02 = $Shape_Prone
+#onready var body_shape_03 = $Shape_Run_Right
+#onready var body_shape_04 = $Shape_Prone_Left
+#onready var body_shape_05 = $Shape_Prone_Right
 
 onready var head = $Pawn_10_Part_Body/POS_Head/Pawn_10_Head
 onready var head_pos = $Pawn_10_Part_Body/POS_Head
@@ -427,33 +427,33 @@ func _body_(_num: int):
 	if _num == 1:
 		body_shape_01.disabled = false
 		body_shape_02.disabled = true
-		body_shape_03.disabled = true
-		body_shape_04.disabled = true
-		body_shape_05.disabled = true
+#		body_shape_03.disabled = true
+#		body_shape_04.disabled = true
+#		body_shape_05.disabled = true
 	elif _num == 2:
-		body_shape_01.disabled = true
-		body_shape_02.disabled = false
-		body_shape_03.disabled = true
-		body_shape_04.disabled = true
-		body_shape_05.disabled = true
-	elif _num == 3:
-		body_shape_01.disabled = true
+		body_shape_01.disabled = false
 		body_shape_02.disabled = true
-		body_shape_03.disabled = false
-		body_shape_04.disabled = true
-		body_shape_05.disabled = true
+#		body_shape_03.disabled = true
+#		body_shape_04.disabled = true
+#		body_shape_05.disabled = true
+	elif _num == 3:
+		body_shape_01.disabled = false
+		body_shape_02.disabled = true
+#		body_shape_03.disabled = false
+#		body_shape_04.disabled = true
+#		body_shape_05.disabled = true
 	elif _num == 4:
 		body_shape_01.disabled = true
-		body_shape_02.disabled = true
-		body_shape_03.disabled = true
-		body_shape_04.disabled = false
-		body_shape_05.disabled = true
+		body_shape_02.disabled = false
+#		body_shape_03.disabled = true
+#		body_shape_04.disabled = false
+#		body_shape_05.disabled = true
 	elif _num == 5:
 		body_shape_01.disabled = true
-		body_shape_02.disabled = true
-		body_shape_03.disabled = true
-		body_shape_04.disabled = true
-		body_shape_05.disabled = false
+		body_shape_02.disabled = false
+#		body_shape_03.disabled = true
+#		body_shape_04.disabled = true
+#		body_shape_05.disabled = false
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
 	if ray_up.is_colliding():

@@ -246,6 +246,26 @@ func move_x(_moving, _right):
 
 func jump(down_input, left_input, right_input):
 	if can_move:
+		if !is_jump_pressed && on_floor && can_jump && !down_input:
+			SFX.play("Move_Jump_01")
+			vel.y = -max_jump_power * jump_power_up
+			jump_top_pos = global_position.y - jump_height
+		
+		elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count && !down_input:
+			SFX.play("Move_Jump_05")
+			vel.y = -max_air_jump_power * jump_power_up
+			air_jump_count += 1
+		
+		elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump && !down_input:
+			jump_top = true
+			can_jump = false
+			if jump_timer.is_stopped():
+				jump_timer.start()
+		is_jump_pressed = true
+		on_ladder = false
+
+func jump_j(down_input, left_input, right_input):
+	if can_move:
 		if down_input && ray_plat_check.is_colliding() && !left_input && !right_input:
 			SFX.play("Move_Jump_08")
 			var thing1 = ray_plat_check.get_collider()
@@ -254,28 +274,7 @@ func jump(down_input, left_input, right_input):
 					pass
 				else:
 					vel.y += terminal_vel / 5
-					self.position.y += 2
-		
-		elif !is_jump_pressed && on_floor && can_jump:
-			SFX.play("Move_Jump_01")
-			vel.y = -max_jump_power * jump_power_up
-			jump_top_pos = global_position.y - jump_height
-		
-		elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count:
-			SFX.play("Move_Jump_05")
-			vel.y = -max_air_jump_power * jump_power_up
-			air_jump_count += 1
-		
-		elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump:
-			jump_top = true
-			can_jump = false
-			if jump_timer.is_stopped():
-				jump_timer.start()
-		is_jump_pressed = true
-		on_ladder = false
-
-func jump_j(_down_input, _left_input, _right_input):
-	pass
+					self.position.y += 4
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
@@ -450,10 +449,10 @@ func _body_(_num: int):
 #	print("fix body in pawn 04")
 	if _num == 1:
 		body_s.disabled = false
-		body_p.disabled = true
+#		body_p.disabled = true
 	elif _num == 2:
-		body_s.disabled = true
-		body_p.disabled = false
+		body_s.disabled = false
+#		body_p.disabled = false
 	else:
 		print("Pawn 04 bad body number in func _body")
 ##--------------------------------------------------------------------[Raycasts]
@@ -551,6 +550,8 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 						self.position.y += ladder_speed * delta
 					elif on_floor:
 						is_down = true
+						vel.y += terminal_vel / 5
+						self.position.y += 12
 						shoot_spot = 6
 						_anim_prone_idle()
 					else:

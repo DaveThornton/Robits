@@ -13,6 +13,7 @@ var spawn_spots = []
 var nav_system
 var first = true
 var num_in_play = 0
+onready var pipes = $Pipes
 
 func _ready():
 #	Game.mode = 2
@@ -22,6 +23,10 @@ func _ready():
 		print("map nav system found")
 	else:
 		print("map has no navigation")
+	if $Pipes:
+		pipes = $Pipes
+	else:
+		print("map has no pipes")
 	FX.set_back(background)
 	FX.CAMERA.max_right = camera_max_right
 	FX.camera_move(camera_move)
@@ -77,6 +82,17 @@ func remove_map():
 
 func reset():
 	propagate_call("queue_free",[],false)
+
+func get_pipe(_num):
+	if pipes:
+		var pc = pipes.get_child_count()
+		if pc > 0:
+			for pipe in pc:
+				if pipes.get_child(pipe).my_pipe_number == _num:
+					return pipes.get_child(pipe)
+			return null
+		return null
+	return null
 
 #func delete_square(_pos):
 #	var _spot = map.world_to_map(_pos)

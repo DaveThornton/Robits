@@ -235,7 +235,7 @@ func jump_j(down_input, left_input, right_input):
 		if down_input && on_floor && !left_input && !right_input:
 			SFX.play("Move_Jump_08")
 			vel.y += 1.5
-			self.position.y += 1.5
+			self.position.y += 5
 		elif !is_jump_pressed && on_floor:# && !down_input:
 			SFX.play("Move_Jump_01")
 			vel.y = -max_jump_power * jump_power_up
@@ -435,6 +435,11 @@ func stun(_gun_num):
 	on_ladder = false
 	_anim_stun()
 	let_go()
+
+
+	
+	
+
 
 func knock_back(_amount, _time):
 	knockback_timer.wait_time = _time

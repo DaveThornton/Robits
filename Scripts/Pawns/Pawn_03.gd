@@ -488,6 +488,14 @@ func stun(_gun_num):
 	_anim_stun()
 	let_go()
 
+func knock_dir(_amount, _time, _dir):
+	knockback_timer.wait_time = _time
+	knockback_timer.start()
+	if _dir == 1:
+		knocked_back = Vector2(0, -_amount)
+
+
+
 func knock_back(_amount, _time):
 	knockback_timer.wait_time = _time
 	knockback_timer.start()

@@ -3,9 +3,9 @@ extends KinematicBody2D
 onready var arm = $Arm_POS/Pawn_07_Part_Arm
 onready var gun_pos = $Arm_POS/Pawn_07_Part_Arm/POS_Gun
 
-onready var body_shape_01 = $Shape_Left
+#onready var body_shape_01 = $Shape_Left
 onready var body_shape_02 = $Shape_Stand
-onready var body_shape_03 = $Shape_Right
+#onready var body_shape_03 = $Shape_Right
 onready var body_shape_04 = $Shape_Crouch
 
 onready var head = $Head_POS/Pawn_07_Part_Head
@@ -23,6 +23,7 @@ onready var stun_timer = $Timers/Stun
 onready var speed_timer = $Timers/Speed
 onready var jump_up_timer = $Timers/Jump_Up
 onready var nrg_up_timer = $Timers/NRG_Up
+onready var jump_timer = $Timers/Jump
 
 onready var anim = $AnimationPlayer
 
@@ -31,8 +32,6 @@ onready var ladder_count = [] #shouldnt be here??!!??
 onready var ray_up = $Raycast/Up
 onready var ray_down_l = $Raycast/Down_L 
 onready var ray_down_r = $Raycast/Down_R 
-
-onready var jump_timer = $Timer_Jump
 
 var player = 0
 var play_type = 2
@@ -237,30 +236,34 @@ func move_x(_moving, _right):
 
 func jump(down_input, left_input, right_input):
 	if can_move:
-		if down_input && on_floor && !left_input && !right_input:
-			SFX.play("Move_Jump_08")
-			vel.y += 1.5
-			self.position.y += 1.5
-		elif is_jump_pressed && air_jump_count == 0:
+#		if down_input && on_floor && !left_input && !right_input:
+#			SFX.play("Move_Jump_08")
+#			vel.y += 1.5
+#			self.position.y += 1.5
+		if is_jump_pressed && air_jump_count == 0 && !down_input:
 			if self.position.y <= jump_top_pos && !jump_top:
 				jump_top = true
 				jump_timer.start()
 			if jump_top:
 				vel.y = 0
 	#			print("airjumping pawn 07")
-		elif !is_jump_pressed && on_floor:# && !down_input:
+		elif !is_jump_pressed && on_floor && !down_input:# && !down_input:
 			SFX.play("Move_Jump_01")
 			jump_top_pos = self.position.y - 30
 			vel.y = -max_jump_power * jump_power_up
-		elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
+		elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count && !down_input:# && nrg >= 20:
 			SFX.play("Move_Jump_05")
 			vel.y = -max_air_jump_power * jump_power_up
 			air_jump_count += 1
 		is_jump_pressed = true
 		on_ladder = false
 
-func jump_j(_down_input, _left_input, _right_input):
-	pass
+func jump_j(down_input, left_input, right_input):
+	if can_move:
+		if down_input && on_floor && !left_input && !right_input:
+			SFX.play("Move_Jump_08")
+			vel.y += 1.5
+			self.position.y += 1.5
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
@@ -438,24 +441,24 @@ func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
 	if _num == 1:
-		body_shape_01.disabled = false
-		body_shape_02.disabled = true
-		body_shape_03.disabled = true
+#		body_shape_01.disabled = false
+		body_shape_02.disabled = false
+#		body_shape_03.disabled = true
 		body_shape_04.disabled = true
 	elif _num == 2:
-		body_shape_01.disabled = true
+#		body_shape_01.disabled = false
 		body_shape_02.disabled = false
-		body_shape_03.disabled = true
+#		body_shape_03.disabled = true
 		body_shape_04.disabled = true
 	elif _num == 3:
-		body_shape_01.disabled = true
-		body_shape_02.disabled = true
-		body_shape_03.disabled = false
+#		body_shape_01.disabled = false
+		body_shape_02.disabled = false
+#		body_shape_03.disabled = true
 		body_shape_04.disabled = true
 	elif _num == 4:
-		body_shape_01.disabled = true
+#		body_shape_01.disabled = true
 		body_shape_02.disabled = true
-		body_shape_03.disabled = true
+#		body_shape_03.disabled = true
 		body_shape_04.disabled = false
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():

@@ -177,7 +177,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 10 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:position")
@@ -240,7 +240,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 10 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body:position")
 tracks/0/interp = 1
@@ -402,8 +402,8 @@ shape = SubResource( 4 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Go = SubResource( 5 )
 anims/Idle = SubResource( 6 )
-anims/Prone = SubResource( 8 )
-anims/Stun = SubResource( 9 )
+anims/Prone = SubResource( 7 )
+anims/Stun = SubResource( 8 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

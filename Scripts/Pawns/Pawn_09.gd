@@ -208,7 +208,7 @@ func jump_j(down_input, left_input, right_input):
 		if down_input && on_floor && !left_input && !right_input:
 			SFX.play("Move_Jump_08")
 			vel.y += 1.5
-			self.position.y += 1.5
+			self.position.y += 3
 		elif !is_jump_pressed && on_floor:# && !down_input:
 			SFX.play("Move_Jump_01")
 			vel.y = -max_jump_power * jump_power_up
@@ -731,6 +731,7 @@ func _set_gun_dir():
 func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
+#	pass
 	if _num == 1:
 		body1.disabled = false
 		body2.disabled = true
