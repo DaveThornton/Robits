@@ -445,6 +445,32 @@ func stun(_gun_num):
 	_anim_stun()
 	let_go()
 
+func knock_dir(_amount, _time, _dir, _is_right):
+	knockback_timer.wait_time = _time
+	knockback_timer.start()
+	if _is_right:
+		if _dir == 1:
+			knocked_back = Vector2(-(_amount * .1), (_amount * .9))
+		if _dir == 2:
+			knocked_back = Vector2(-(_amount * .5), (_amount * .5))
+		if _dir == 3 ||shoot_spot == 6:
+			knocked_back = Vector2(-(_amount * .95), (_amount * .05))
+		if _dir == 4:
+			knocked_back = Vector2(-(_amount * .5), -(_amount * .5))
+		if _dir == 5:
+			knocked_back = Vector2(-(_amount * .1), -(_amount * .9))
+	else:
+		if _dir == 1:
+			knocked_back = Vector2((_amount * .1), (_amount * .9))
+		if _dir == 2:
+			knocked_back = Vector2((_amount * .5), (_amount * .5))
+		if _dir == 3 ||_dir == 6:
+			knocked_back = Vector2((_amount * .95), (_amount * .05))
+		if _dir == 4:
+			knocked_back = Vector2((_amount * .5), -(_amount * .5))
+		if _dir == 5:
+			knocked_back = Vector2((_amount * .1), -(_amount * .9))
+
 func knock_back(_amount, _time):
 	knockback_timer.wait_time = _time
 	knockback_timer.start()

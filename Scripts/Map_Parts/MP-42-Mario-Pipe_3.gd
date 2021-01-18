@@ -11,6 +11,9 @@ var occ_player_array_in = []
 var occ_player_array_out = []
 var speed = 500
 
+var test_num = 0
+
+
 func _ready():
 	get_partner()
 
@@ -36,6 +39,10 @@ func _process(delta):
 						occ_player_array_in[p].global_position.y += (speed / 4) * delta
 			else:
 				occ_player_array_in.remove(p)
+#	test_num += delta
+#	if test_num > 1:
+#		print("in ", occ_player_array_in, "           out", occ_player_array_out, "                     mp 42")
+#		test_num = 0
 #---------------------------------------------------------------trasnportation
 func transport_here(_body):
 	_body.global_position = pos_bottom.global_position

@@ -111,6 +111,7 @@ position = Vector2( -13, -8 )
 shape = SubResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 [connection signal="body_entered" from="Area2D-Inside" to="." method="_on_Area2DInside_body_entered"]
 [connection signal="body_exited" from="Area2D-Inside" to="." method="_on_Area2DInside_body_exited"]
 [connection signal="body_entered" from="Area2D-Outside" to="." method="_on_Area2DOutside_body_entered"]

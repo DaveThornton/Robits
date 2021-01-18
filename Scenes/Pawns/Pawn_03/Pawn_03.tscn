@@ -17,8 +17,8 @@ height = 12.0
 height = 8.0
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 20.0
-height = 64.0
+radius = 22.9999
+height = 32.0002
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 8.0
@@ -350,7 +350,6 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
-visible = false
 collision_layer = 262144
 collision_mask = 786432
 

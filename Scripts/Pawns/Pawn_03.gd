@@ -246,7 +246,7 @@ func jump(down_input, left_input, right_input):
 
 func jump_j(down_input, left_input, right_input):
 	if can_move:
-		if down_input && on_floor && !left_input && !right_input:
+		if down_input && on_floor && !left_input && !right_input && (knocked_back == Vector2(0,0)):
 			SFX.play("Move_Jump_08")
 			vel.y += 1.5
 			self.position.y += 3
@@ -488,13 +488,31 @@ func stun(_gun_num):
 	_anim_stun()
 	let_go()
 
-func knock_dir(_amount, _time, _dir):
+func knock_dir(_amount, _time, _dir, _is_right):
 	knockback_timer.wait_time = _time
 	knockback_timer.start()
-	if _dir == 1:
-		knocked_back = Vector2(0, -_amount)
-
-
+	if _is_right:
+		if _dir == 1:
+			knocked_back = Vector2(-(_amount * .1), (_amount * .9))
+		if _dir == 2:
+			knocked_back = Vector2(-(_amount * .5), (_amount * .5))
+		if _dir == 3 ||shoot_spot == 6:
+			knocked_back = Vector2(-(_amount * .95), (_amount * .05))
+		if _dir == 4:
+			knocked_back = Vector2(-(_amount * .5), -(_amount * .5))
+		if _dir == 5:
+			knocked_back = Vector2(-(_amount * .1), -(_amount * .9))
+	else:
+		if _dir == 1:
+			knocked_back = Vector2((_amount * .1), (_amount * .9))
+		if _dir == 2:
+			knocked_back = Vector2((_amount * .5), (_amount * .5))
+		if _dir == 3 ||_dir == 6:
+			knocked_back = Vector2((_amount * .95), (_amount * .05))
+		if _dir == 4:
+			knocked_back = Vector2((_amount * .5), -(_amount * .5))
+		if _dir == 5:
+			knocked_back = Vector2((_amount * .1), -(_amount * .9))
 
 func knock_back(_amount, _time):
 	knockback_timer.wait_time = _time
