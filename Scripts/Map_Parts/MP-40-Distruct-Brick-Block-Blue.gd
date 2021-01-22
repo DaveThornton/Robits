@@ -1,12 +1,14 @@
 extends StaticBody2D
 
 export(PackedScene) var brick_explode
+export(PackedScene) var brick_explode_red
 export(PackedScene) var head_explode
 
 export var frame = 0
 export var head_hit = false
 export var respawn = true
 export var respawn_time = 30.0
+export var blue = true
 
 onready var sprite = $Basic_Red_set
 onready var head_area = $Area2D/CollisionShape2D
@@ -20,6 +22,8 @@ var pos
 var player = 9
 
 func _ready():
+	if !blue:
+		sprite.frame = 4
 #	if frame == 0:
 #		sprite.frame = 49
 #	elif frame == 1: 
@@ -75,6 +79,8 @@ func _hit(_owned, my_name, damage_type, damage):
 	SFX.play("EX_Brick")
 #	print("hit bricks")
 	var e = brick_explode.instance()
+	if !blue:
+		e = brick_explode_red.instance()
 	var h = head_explode.instance()
 	pos = self.global_position
 #	call_deferred("_add_to_top_parent", e)

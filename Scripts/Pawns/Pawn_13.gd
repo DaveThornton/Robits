@@ -476,7 +476,7 @@ func add_ammo(_ammo):
 			my_gun.add_ammo(_ammo)
 
 ##-------------------------------------------------------------------[Animation]
-func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
+func anim_update(left_input, right_input, up_input, down_input, _jump_input, hold_input, delta):
 	if can_move:
 		if !down_input && is_down:
 			is_down = false

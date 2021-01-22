@@ -26,79 +26,74 @@ func _process(delta):
 		call_deferred("move_players_up",delta)
 	if occ_player_array_in.size() > 0:
 		call_deferred("move_players_center",delta)
-	test_num += delta
-	if test_num > 1:
-		print("in ", occ_player_array_in, "           out", occ_player_array_out, "                     mp 42")
-		test_num = 0
+#	test_num += delta
+#	if test_num > 1:
+#		print("in ", occ_player_array_in, "           out", occ_player_array_out, "                     mp 42")
+#		test_num = 0
 #---------------------------------------------------------------player movement
 func move_players_up(_delta):
 	if occ_player_array_out.size() > 0:
-#		print("next")
 		for p in occ_player_array_out.size():
-			if occ_player_array_out[p].global_position.y > pos_bottom.global_position.y:
-				occ_player_array_out[p].global_position.y = pos_bottom.global_position.y
-			if occ_player_array_out[p]:
-				occ_player_array_out[p].global_position.y -= speed * _delta
-				occ_player_array_out[p].global_position.x = pos_top.global_position.x
-				if occ_player_array_out[p].global_position.y < pos_top.global_position.y:
-					occ_player_array_out[p].can_move = true
-					occ_player_array_out_remove.append(occ_player_array_out[p])
+			var n = (occ_player_array_out.size() - p - 1)
+			var s = occ_player_array_out[n]
+			if s != null:
+				if s.global_position.y > pos_bottom.global_position.y:
+					s.global_position.y = pos_bottom.global_position.y - 5.0
+				elif s.global_position.y > pos_top.global_position.y:
+					s.global_position.y -= speed * _delta
+					if s.global_position.y <= pos_top.global_position.y:
+						s.can_move = true
+						occ_player_array_out.remove(n)
 			else:
-				occ_player_array_out_remove.append(occ_player_array_out[p])
-		remove_players_out()
-
-func remove_players_out():
-		if occ_player_array_out_remove.size() > 0:
-			for x in occ_player_array_out_remove.size():
-				var l = occ_player_array_out.find(occ_player_array_out_remove[x])
-				occ_player_array_out.remove(l)
-			occ_player_array_out_remove.clear()
+				occ_player_array_out.remove(n)
+				print("didnt crash when he died")
 
 func move_players_center(_delta):
 	if occ_player_array_in.size() > 0 && !clearing:
 		for p in occ_player_array_in.size():
-			if occ_player_array_in[p]:
-				if occ_player_array_in[p].is_down:
-					if (pos_top.global_position.x - occ_player_array_in[p].global_position.x) < 0:
+			var s = occ_player_array_in[p]
+			if s != null:
+				if s.is_down:
+					if (pos_top.global_position.x - s.global_position.x) < 0:
 						occ_player_array_in[p].global_position.x -= (speed / 4) * _delta
-					if (pos_top.global_position.x - occ_player_array_in[p].global_position.x) > 0:
-						occ_player_array_in[p].global_position.x += (speed / 4) * _delta
-			else:
-				occ_player_array_in_remove.append(p)
+					if (pos_top.global_position.x - s.global_position.x) > 0:
+						s.global_position.x += (speed / 4) * _delta
 		remove_players_in()
 
 func remove_players_in():
 		if occ_player_array_in_remove.size() > 0:
 			for x in occ_player_array_in_remove.size():
-				var l = occ_player_array_in.find(occ_player_array_in_remove[x])
-				occ_player_array_in.remove(l)
+				remove_in(occ_player_array_in.find(occ_player_array_in_remove[x]))
 			occ_player_array_in_remove.clear()
 #---------------------------------------------------------------trasnportation
 func transport_here(_body):
 	call_deferred("_transport_here",_body)
 func _transport_here(_body):
-	clearing = true
-	clear_area.disabled = false
-	timer_clear.start()
-	_body.global_position = pos_bottom.global_position
-	if occ_player_array_out.find(_body) == -1:
-		occ_player_array_out.append(_body)
-	for p in occ_player_array_in.size():
-		if occ_player_array_in[p].global_position.x > pos_top.global_position.x:
-			occ_player_array_in[p].knock_dir(-500, .2, 2, true)
-		elif occ_player_array_in[p].global_position.x < pos_top.global_position.x:
-			occ_player_array_in[p].knock_dir(-500, .2, 2, false)
-		elif occ_player_array_in[p].global_position.x == pos_top.global_position.x:
-			occ_player_array_in[p].knock_dir(-800, .3, 1, occ_player_array_in[p].is_right)
+	if _body != null:
+		clearing = true
+		clear_area.disabled = false
+		timer_clear.start()
+		_body.global_position = pos_bottom.global_position
+		add_to_out(_body)
+		for p in occ_player_array_in.size():
+			if occ_player_array_in[p].global_position.x > pos_top.global_position.x:
+				occ_player_array_in[p].knock_dir(-500, .2, 2, true)
+			elif occ_player_array_in[p].global_position.x < pos_top.global_position.x:
+				occ_player_array_in[p].knock_dir(-500, .2, 2, false)
+			elif occ_player_array_in[p].global_position.x == pos_top.global_position.x:
+				occ_player_array_in[p].knock_dir(-800, .3, 1, occ_player_array_in[p].is_right)
+
+			
 func transport_there(_body):
 	call_deferred("_transport_there",_body)
 func _transport_there(_body):
-	_body.can_move = false
-	_body.is_down = false
-	if partner:
-		partner.transport_here(_body)
-	else:
-		print("cant find partner in mp 42")
+	if _body != null:
+		_body.can_move = false
+		_body.is_down = false
+		if partner:
+			partner.transport_here(_body)
+		else:
+			print("cant find partner in mp 42")
 
 #---------------------------------------------------------------get partner pipe
 func get_partner():
@@ -116,31 +111,49 @@ func _on_Timer_timeout():
 #-----------------------------------------------------------------bodies entered
 func _on_Area2DTop_body_entered(body):
 	if body.get_groups().has("player"):
-		occ_player_array_in.append(body)
+		add_to_in(body)
 
 func _on_Area2DTop_body_exited(body):
 	if body.get_groups().has("player"):
-		occ_player_array_in.erase(body)
-
+		remove_in(body)
 
 func _on_Area2DBottom_body_entered(body):
 	if body.get_groups().has("player"):
-		var l = occ_player_array_in.find(body)
-		if l != -1:
-			occ_player_array_in.remove(l)
+		if occ_player_array_in.find(body) != -1:
+			remove_in(body)
 			transport_there(body)
-
-func _on_Area2DBottom_body_exited(body):
-	pass
 
 func _on_Area2DVery_Bottom_body_entered(body):
 	if body.get_groups().has("player"):
-		var l = occ_player_array_in.find(body)
-		if l != -1:
-			occ_player_array_in.remove(l)
+		remove_in(body)
 		transport_there(body)
 #-----------------------------------------------------------------extra funcs
 
 func _on_Timer_clear_space_timeout():
 	clearing = false
 	clear_area.disabled = true
+
+#--------------------------------------------------------------------add/remove
+func add_to_in(_body):
+	if occ_player_array_in.find(_body) == -1:
+		occ_player_array_in.append(_body)
+	if!_body.is_connected("explode_p", self, "remove_in"):
+		_body.connect("explode_p", self, "remove_in")
+
+func remove_in(_body):
+	if occ_player_array_in.find(_body) != -1:
+		occ_player_array_in.erase(_body)
+		_body.disconnect("explode_p", self, "remove_in")
+
+
+func add_to_out(_body):
+	if occ_player_array_out.find(_body) == -1:
+		occ_player_array_out.append(_body)
+	if !_body.is_connected("explode_p", self, "remove_out"):
+		_body.connect("explode_p", self, "remove_out")
+
+func remove_out(_body):
+	var b = occ_player_array_out.find(_body)
+	if b != -1:
+		occ_player_array_out.remove(b)
+		_body.disconnect("explode_p", self, "remove_out")

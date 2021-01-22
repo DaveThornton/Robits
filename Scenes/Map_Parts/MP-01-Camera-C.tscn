@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Scenes/Backgrounds/Back_03_Space.tscn" type="PackedScene" id=1]
 [ext_resource path="res://misc/CRT-Shader/crt_material.tres" type="Material" id=2]
@@ -65,6 +65,7 @@
 [ext_resource path="res://Scripts/Map_Parts/MP-01-Camera.gd" type="Script" id=63]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=64]
 [ext_resource path="res://Sprites/Background/Back_02_Blue_Sky_Tile.png" type="Texture" id=65]
+[ext_resource path="res://Sprites/Background/Back_04_Deep_Blue_Tile.png" type="Texture" id=66]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -118,7 +119,7 @@ position = Vector2( 960, 543 )
 scale = Vector2( 0.989583, 0.987132 )
 frames = SubResource( 1 )
 animation = "Real"
-frame = 48
+frame = 44
 speed_scale = 7.0
 playing = true
 
@@ -135,7 +136,6 @@ position = Vector2( 1934, 550 )
 shape = SubResource( 2 )
 
 [node name="Backs" type="Node2D" parent="."]
-visible = false
 z_index = -100
 
 [node name="Background" parent="Backs" instance=ExtResource( 1 )]
@@ -150,10 +150,18 @@ z_index = -100
 moving = false
 
 [node name="Back_02_Blue_Sky_Tile" type="Sprite" parent="Backs"]
+visible = false
 position = Vector2( 960, 540 )
 scale = Vector2( 0.78125, 0.445312 )
 z_index = -100
 texture = ExtResource( 65 )
+
+[node name="Back_04_Deep_Blue_Tile" type="Sprite" parent="Backs"]
+visible = false
+position = Vector2( 960, 530 )
+scale = Vector2( 0.78125, 0.445312 )
+z_index = -100
+texture = ExtResource( 66 )
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false

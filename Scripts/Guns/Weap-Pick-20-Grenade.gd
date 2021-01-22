@@ -41,7 +41,8 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
 	player = _player
 	timer_boom.wait_time = _time
-	ammo = int(clamp(_ammo,0,1))
+	if _ammo > -1:
+		ammo = int(clamp(_ammo,0,1))
 	if ammo == 0:
 		ammo = 0
 		pin.visible = false

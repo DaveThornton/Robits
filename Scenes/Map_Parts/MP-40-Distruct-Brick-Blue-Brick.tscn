@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Map_Parts/MP-40-Distruct-Brick-Block-Blue.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-mario.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Explosions/Ex-11-FX-Small-20x20.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/FX/FX-10-Blue-Brick-04.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/FX/FX-10-Red-Brick-04.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -16,9 +17,10 @@ height = 13.8053
 "map",
 ]]
 collision_layer = 393228
-collision_mask = 393740
+collision_mask = 983564
 script = ExtResource( 1 )
 brick_explode = ExtResource( 4 )
+brick_explode_red = ExtResource( 5 )
 head_explode = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

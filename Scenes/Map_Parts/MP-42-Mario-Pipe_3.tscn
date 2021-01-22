@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/Map_Parts/MP-41-Mario-Pipe_2.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Map_Parts/MP-42-Mario-Pipe_3.gd" type="Script" id=2]
@@ -10,16 +10,24 @@ extents = Vector2( 37, 2 )
 extents = Vector2( 2, 38 )
 
 [sub_resource type="CapsuleShape2D" id=3]
-height = 50.0
+radius = 7.0
+height = 64.0
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 28.0
+radius = 39.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 40.0
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 37, 35 )
 
 [node name="MP-42-Mario-Pipe_3" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0, 1, 0.0627451, 0.792157 )
+modulate = Color( 0, 1, 0.0627451, 1 )
 position = Vector2( 364, -81 )
 z_index = 51
 texture = ExtResource( 1 )
@@ -73,8 +81,8 @@ hframes = 4
 frame = 3
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 264
+collision_mask = 991114
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 27, -48 )
@@ -92,14 +100,14 @@ shape = SubResource( 2 )
 position = Vector2( 54, 25 )
 
 [node name="Position2D-Outside" type="Position2D" parent="."]
-position = Vector2( -14, 25 )
+position = Vector2( -26, 25 )
 
 [node name="Area2D-Inside" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Inside"]
-position = Vector2( 24, -7 )
+position = Vector2( 53, -7 )
 shape = SubResource( 3 )
 
 [node name="Area2D-Outside" type="Area2D" parent="."]
@@ -107,13 +115,37 @@ collision_layer = 2147483650
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Outside"]
-position = Vector2( -13, -8 )
+position = Vector2( -7, -8 )
+rotation = 1.5708
 shape = SubResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Timer_clear_space" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="Area2D_Clear_Space" type="Area2D" parent="."]
+space_override = 3
+gravity_point = true
+gravity = 300.0
+collision_layer = 262144
+collision_mask = 983552
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Clear_Space"]
+position = Vector2( -4, -8 )
+rotation = 1.5708
+shape = SubResource( 5 )
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D_Clear_Space"]
+position = Vector2( 24, -8 )
+rotation = 1.5708
+shape = SubResource( 6 )
 [connection signal="body_entered" from="Area2D-Inside" to="." method="_on_Area2DInside_body_entered"]
 [connection signal="body_exited" from="Area2D-Inside" to="." method="_on_Area2DInside_body_exited"]
 [connection signal="body_entered" from="Area2D-Outside" to="." method="_on_Area2DOutside_body_entered"]
 [connection signal="body_exited" from="Area2D-Outside" to="." method="_on_Area2DOutside_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer_clear_space" to="." method="_on_Timer_clear_space_timeout"]

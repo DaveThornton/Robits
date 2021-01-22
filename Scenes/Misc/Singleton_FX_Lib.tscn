@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_FX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-01-Camera-C.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Background/Back_02_Blue_Sky_Tile.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Background/Back_07_Sun_Set_Sky.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Background/Back_04_Deep_Blue_Tile.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 470, 549 )
@@ -71,7 +72,15 @@ z_index = -129
 z_as_relative = false
 texture = ExtResource( 7 )
 
+[node name="Back_04_Deep_Blue_Tile" type="Sprite" parent="MP-01-Camera/Back"]
+visible = false
+position = Vector2( 960.01, 530 )
+z_index = -129
+z_as_relative = false
+texture = ExtResource( 8 )
+
 [node name="Area2D_Respawn" type="Area2D" parent="MP-01-Camera"]
+visible = false
 collision_layer = 64
 collision_mask = 2147483712
 

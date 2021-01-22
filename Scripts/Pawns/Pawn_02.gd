@@ -24,8 +24,8 @@ onready var ray_up_r = $Raycasts/UpR
 onready var ray_up_l = $Raycasts/UpL
 onready var ray_down_l = $Raycasts/Down_L 
 onready var ray_down_r = $Raycasts/Down_R
-onready var lup = $Raycasts/LUp
-onready var ldown = $Raycasts/LDown
+#onready var lup = $Raycasts/LUp
+#onready var ldown = $Raycasts/LDown
 
 onready var knockback_timer = $Timers/Knock_Back
 onready var shield_hit_timer = $Timers/Shield_Hit
