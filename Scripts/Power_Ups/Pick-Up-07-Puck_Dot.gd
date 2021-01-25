@@ -4,7 +4,7 @@ export var respawn = true
 export var respawn_time = 5
 export var how_long = 12
 export var how_much_nrg = 3
-export var how_much_ammo = 5
+#export var how_much_ammo = 5
 onready var r_timer = $Respawn_Timer
 onready var shape = $CollisionShape2D
 onready var dot = $"FX-63-Puck_Dot"
@@ -19,9 +19,9 @@ func _on_PickUp07Puck_Dot_body_entered(body):
 	if body.get_groups().has("player"):
 		body.add_nrg(how_much_nrg)
 		
-		if body.take_ammo:
-#				print(body.take_ammo)
-			body.add_ammo(how_much_ammo)		
+#		if body.take_ammo:
+##				print(body.take_ammo)
+#			body.add_ammo(how_much_ammo)		
 		if respawn:
 			r_timer.start()
 			call_deferred("_disappear")

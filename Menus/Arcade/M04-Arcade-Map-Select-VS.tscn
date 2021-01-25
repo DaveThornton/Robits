@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Menus/Arcade/Scripts/M04-Arcade-Map-Select-VS.gd" type="Script" id=1]
 [ext_resource path="res://map/VS_Mode/Map-06-Monkey-Around.tscn" type="PackedScene" id=2]
@@ -8,9 +8,13 @@
 [ext_resource path="res://Menus/Grids/menu_8x4_01.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/Menu/Map_Select_8x4.png" type="Texture" id=7]
 [ext_resource path="res://map/VS_Mode/Map-04-Place_Holder.tscn" type="PackedScene" id=8]
+[ext_resource path="res://map/VS_Mode/Map-08-The_Final_Frontier.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Menus/Arcade/M03-Arcade-Player-Select-VS.tscn" type="PackedScene" id=10]
 [ext_resource path="res://map/VS_Mode/Map-13-Luftballons.tscn" type="PackedScene" id=11]
 [ext_resource path="res://map/VS_Mode/Map-11-Puck_Fan.tscn" type="PackedScene" id=12]
+[ext_resource path="res://map/VS_Mode/Map-02-OneDashTwo.tscn" type="PackedScene" id=13]
+[ext_resource path="res://map/VS_Mode/Map-03-Place_Holder.tscn" type="PackedScene" id=14]
+[ext_resource path="res://map/VS_Mode/Map-09-Nien.tscn" type="PackedScene" id=15]
 
 [node name="M04-Arcade-Map-Select-VS" type="Node2D"]
 position = Vector2( 0, 90 )
@@ -18,14 +22,14 @@ script = ExtResource( 1 )
 player_select_vs = ExtResource( 10 )
 map = ExtResource( 2 )
 map_01 = ExtResource( 3 )
-map_02 = ExtResource( 4 )
-map_03 = ExtResource( 2 )
+map_02 = ExtResource( 13 )
+map_03 = ExtResource( 14 )
 map_04 = ExtResource( 8 )
 map_05 = ExtResource( 5 )
 map_06 = ExtResource( 2 )
 map_07 = ExtResource( 4 )
-map_08 = ExtResource( 4 )
-map_09 = ExtResource( 5 )
+map_08 = ExtResource( 9 )
+map_09 = ExtResource( 15 )
 map_10 = ExtResource( 4 )
 map_11 = ExtResource( 12 )
 map_12 = ExtResource( 12 )

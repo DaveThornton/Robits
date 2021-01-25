@@ -9,7 +9,7 @@ var start_eq = false
 #var mode_vs = true
 var mode = 0 # 0 campaign | 1 lives | 2 score | 3 time
 var over = false
-var end_game_score = 2
+var end_game_score = 10
 
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")

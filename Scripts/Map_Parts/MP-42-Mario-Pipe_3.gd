@@ -58,8 +58,8 @@ func _process(delta):
 
 func move_players_out(_delta):
 		for p in occ_player_array_out.size():
-			var s = occ_player_array_out[p]
-			if s != null:
+			if occ_player_array_out[p] != null:
+				var s = occ_player_array_out[p]
 				s.global_position.x -= speed * _delta
 				s.global_position.y = pos_out.global_position.y
 				if s.global_position.x < pos_out.global_position.x:
@@ -144,6 +144,8 @@ func remove_in(_body):
 		occ_player_array_in.erase(_body)
 		_body.disconnect("explode_p", self, "remove_in")
 
+func just_remove():#write a func for removing from both with all 4 arguments
+	pass
 
 func add_to_out(_body):
 	if occ_player_array_out.find(_body) == -1:
