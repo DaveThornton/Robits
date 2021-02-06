@@ -131,7 +131,7 @@ func _process(delta):
 	if nrg != last_nrg:
 		nrg_update()
 		last_nrg = nrg
-	if my_gun:
+	if my_gun != null:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
 		
@@ -239,7 +239,7 @@ func jump_rel():
 
 ##-----------------------------------------------------------------------[Shoot]
 func shoot_j():
-	if my_gun:
+	if my_gun != null:
 		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_j()
@@ -248,7 +248,7 @@ func shoot_j():
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_j()
 func shoot():
-	if my_gun:
+	if my_gun != null:
 		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot()
@@ -257,7 +257,7 @@ func shoot():
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot()
 func shoot_r():
-	if my_gun:
+	if my_gun != null:
 		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_r()
@@ -477,7 +477,7 @@ func add_nrg(_nrg):
 
 func add_ammo(_ammo):
 	if take_ammo:
-		if my_gun:
+		if my_gun != null:
 			my_gun.add_ammo(_ammo)
 ##-------------------------------------------------------------------[Animation]
 # warning-ignore:unused_argument
@@ -698,7 +698,7 @@ func _set_gun_dir():
 		elif shoot_spot == 6:
 			arm.rotation_degrees = 0
 			arm.bend(3)
-		if my_gun:
+		if my_gun != null:
 			arm.rotation_degrees -= my_gun.walk
 	else:
 		if shoot_spot == 3:
@@ -719,7 +719,7 @@ func _set_gun_dir():
 		elif shoot_spot == 6:
 			arm.rotation_degrees = 0
 			arm.bend(3)
-		if my_gun:
+		if my_gun != null:
 			arm.rotation_degrees += my_gun.walk
 
 func _body(_num: int):

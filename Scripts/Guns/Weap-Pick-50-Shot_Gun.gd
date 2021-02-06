@@ -11,7 +11,7 @@ var dir = 3
 var gun_num = 50
 var ammo = 10
 var time = .7
-var my_scale = 1.5
+var my_scale = 1
 var just_shot = false
 
 func _ready():

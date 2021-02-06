@@ -47,7 +47,6 @@ collision_mask = 720896
 shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
 collision_layer = 524
 collision_mask = 524812
 

@@ -125,7 +125,7 @@ func _process(delta):
 	if nrg != last_nrg:
 		nrg_update()
 		last_nrg = nrg
-	if my_gun:
+	if my_gun != null:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
 		
@@ -237,7 +237,7 @@ func jump_rel():
 
 ##-----------------------------------------------------------------------[Shoot]
 func shoot_j():
-	if my_gun:
+	if my_gun != null:
 		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_j()
@@ -246,7 +246,7 @@ func shoot_j():
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_j()
 func shoot():
-	if my_gun:
+	if my_gun != null:
 		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot()
@@ -255,7 +255,7 @@ func shoot():
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot()
 func shoot_r():
-	if my_gun:
+	if my_gun != null:
 		my_gun.shoot_pos = shoot_spot
 		my_gun.is_right = is_right
 		my_gun.shoot_r()
@@ -267,16 +267,19 @@ func shoot_r():
 ##-----------------------------------------------------------------------[Throw]
 func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 	if is_holding == true:
-		my_gun.is_right = is_right
-		my_gun.shoot_pos = shoot_spot
+		if my_gun != null:
+			my_gun.is_right = is_right
+			my_gun.shoot_pos = shoot_spot
 		take_ammo = false
 		is_holding = false
 		if !left_input && !right_input && !up_input && !down_input && !hold_input:
 			SFX.play("Blip_11")
-			my_gun.drop()
+			if my_gun != null:
+				my_gun.drop()
 		else:
 			SFX.play("Blip_06")
-			my_gun.throw()
+			if my_gun != null:
+				my_gun.throw()
 		my_gun = null
 		if my_start_gun && start_equiped:
 			my_start_gun.visible = true
@@ -289,7 +292,8 @@ func let_go():
 	if is_holding == true:
 		take_ammo = false
 		is_holding = false
-		my_gun.drop()
+		if my_gun != null:
+			my_gun.drop()
 		my_gun = null
 
 func pick_up():
@@ -306,7 +310,8 @@ func no_gun():
 	if is_holding == true:
 		take_ammo = false
 		is_holding = false
-		my_gun = null
+		if my_gun != null:
+			my_gun = null
 
 ##-----------------------------------------------------------------------[Equip]
 func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
@@ -472,7 +477,7 @@ func add_nrg(_nrg):
 
 func add_ammo(_ammo):
 	if take_ammo:
-		if my_gun:
+		if my_gun != null:
 			my_gun.add_ammo(_ammo)
 
 ##-------------------------------------------------------------------[Animation]
@@ -735,7 +740,7 @@ func _set_gun_dir():
 			hbody.rotation_degrees = 0
 			arm.rotation_degrees = 0
 			arm.bend(3)
-		if my_gun:
+		if my_gun != null:
 			arm.rotation_degrees -= my_gun.walk
 	else:
 		if shoot_spot == 3:
@@ -768,7 +773,7 @@ func _set_gun_dir():
 			hbody.rotation_degrees = 0
 			arm.rotation_degrees = 0
 			arm.bend(3)
-		if my_gun:
+		if my_gun != null:
 			arm.rotation_degrees += my_gun.walk
 
 func _body(_num: int):

@@ -57,9 +57,9 @@ export(PackedScene) var gun_hold_53
 #export(PackedScene) var gun_hold_54
 #export(PackedScene) var gun_hold_55
 export(PackedScene) var gun_hold_56
-#export(PackedScene) var gun_hold_57
-#export(PackedScene) var gun_hold_58
-#export(PackedScene) var gun_hold_59
+export(PackedScene) var gun_hold_57
+export(PackedScene) var gun_hold_58
+export(PackedScene) var gun_hold_59
 export(PackedScene) var gun_hold_60
 export(PackedScene) var gun_hold_61
 export(PackedScene) var gun_hold_62
@@ -71,7 +71,7 @@ export(PackedScene) var gun_hold_67
 #export(PackedScene) var gun_hold_68
 export(PackedScene) var gun_hold_69
 export(PackedScene) var gun_hold_70
-#export(PackedScene) var gun_hold_71
+export(PackedScene) var gun_hold_71
 #export(PackedScene) var gun_hold_72
 #export(PackedScene) var gun_hold_73
 #export(PackedScene) var gun_hold_74
@@ -211,6 +211,12 @@ func get_weap_hold(_weap: int):
 			return gun_hold_53
 		elif _weap == 56:
 			return gun_hold_56
+		elif _weap == 57:
+			return gun_hold_57
+		elif _weap == 58:
+			return gun_hold_58
+		elif _weap == 59:
+			return gun_hold_59
 		elif _weap == 60:
 			return gun_hold_60
 		elif _weap == 61:
@@ -233,6 +239,8 @@ func get_weap_hold(_weap: int):
 			return gun_hold_69
 		elif _weap == 70:
 			return gun_hold_70
+		elif _weap == 71:
+			return gun_hold_71
 		else:
 			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 			return gun_hold_02

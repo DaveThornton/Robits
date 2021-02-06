@@ -1,0 +1,181 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Sprites/FX/shot-right-01.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Projectiles/Shell-01.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Projectiles/Proj-03-Sniper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Guns/Pick/W_57_Henry_Pick.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Guns/W_57_Henry.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Guns/Hold/W_57_Henry_Hold.gd" type="Script" id=6]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 11.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "Melee"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun/Gun_Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -35.0, -75.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun/Melee_Area/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.2
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "spawn_shell"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun/Gun_Sprite/Handle_Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -42.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun/Gun_Sprite/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 4, 3, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun/Gun_Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -2, 0 ), Vector2( 0, 0 ) ]
+}
+
+[node name="W_50_Henry_Hold" type="Node2D"]
+script = ExtResource( 6 )
+gun_pickup = ExtResource( 4 )
+projectile = ExtResource( 3 )
+shell = ExtResource( 2 )
+
+[node name="Shoot_Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="Melee_Timer" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="Pump_Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="POS_Gun" type="Node2D" parent="."]
+
+[node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
+texture = ExtResource( 5 )
+hframes = 2
+
+[node name="Handle_Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+show_behind_parent = true
+texture = ExtResource( 5 )
+hframes = 2
+frame = 1
+
+[node name="Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+position = Vector2( 32, -2 )
+texture = ExtResource( 1 )
+hframes = 5
+
+[node name="POS" type="Node2D" parent="POS_Gun"]
+visible = false
+
+[node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 40, -3 )
+
+[node name="Throw" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 44, 0 )
+
+[node name="Shell" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 6, -3 )
+
+[node name="Raycast" type="Node2D" parent="POS_Gun"]
+visible = false
+
+[node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( 21, -3 )
+enabled = true
+cast_to = Vector2( 25, 0 )
+collision_mask = 2562
+
+[node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( 2, -2 )
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 2562
+
+[node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
+enabled = true
+cast_to = Vector2( 50, 0 )
+collision_mask = 2826
+
+[node name="Melee_Area" type="Area2D" parent="POS_Gun"]
+visible = false
+collision_layer = 512
+collision_mask = 2562
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
+position = Vector2( 11, -2 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Melee = SubResource( 2 )
+anims/Reload = SubResource( 3 )
+anims/Shoot = SubResource( 4 )
+[connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
+[connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]
+[connection signal="timeout" from="Pump_Timer" to="." method="_on_Pump_Timer_timeout"]
+[connection signal="body_entered" from="POS_Gun/Melee_Area" to="." method="_on_Melee_Area_body_entered"]

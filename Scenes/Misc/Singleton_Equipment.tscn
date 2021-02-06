@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Hold/W_02-AK47_Hold.tscn" type="PackedScene" id=2]
@@ -65,6 +65,10 @@
 [ext_resource path="res://Scenes/Guns/Hold/W_06_Atom_Rifle_Hold.tscn" type="PackedScene" id=63]
 [ext_resource path="res://Scenes/Guns/Hold/W_42_G-Launcher_Hold.tscn" type="PackedScene" id=64]
 [ext_resource path="res://Scenes/Guns/Hold/W_70_Bat_Hold.tscn" type="PackedScene" id=65]
+[ext_resource path="res://Scenes/Guns/Hold/W_71_Tomahawk_Hold.tscn" type="PackedScene" id=66]
+[ext_resource path="res://Scenes/Guns/Hold/W_57_Henry_Hold.tscn" type="PackedScene" id=67]
+[ext_resource path="res://Scenes/Guns/Hold/W_58-Derringer_Hold.tscn" type="PackedScene" id=68]
+[ext_resource path="res://Scenes/Guns/Hold/W_59_Bow_Hold.tscn" type="PackedScene" id=69]
 
 [node name="Equipment" type="Node2D"]
 script = ExtResource( 1 )
@@ -100,6 +104,9 @@ gun_hold_42 = ExtResource( 64 )
 gun_hold_50 = ExtResource( 12 )
 gun_hold_51 = ExtResource( 41 )
 gun_hold_56 = ExtResource( 49 )
+gun_hold_57 = ExtResource( 67 )
+gun_hold_58 = ExtResource( 68 )
+gun_hold_59 = ExtResource( 69 )
 gun_hold_60 = ExtResource( 13 )
 gun_hold_61 = ExtResource( 14 )
 gun_hold_62 = ExtResource( 42 )
@@ -110,6 +117,7 @@ gun_hold_66 = ExtResource( 51 )
 gun_hold_67 = ExtResource( 62 )
 gun_hold_69 = ExtResource( 52 )
 gun_hold_70 = ExtResource( 65 )
+gun_hold_71 = ExtResource( 66 )
 gun_hold_80 = ExtResource( 15 )
 item_pick_01 = ExtResource( 16 )
 item_pick_02 = ExtResource( 17 )
