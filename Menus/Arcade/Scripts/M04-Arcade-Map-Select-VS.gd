@@ -17,6 +17,23 @@ export(PackedScene) var map_12
 export(PackedScene) var map_13
 export(PackedScene) var map_14
 export(PackedScene) var map_15
+export(PackedScene) var map_16
+export(PackedScene) var map_17
+export(PackedScene) var map_18
+export(PackedScene) var map_19
+export(PackedScene) var map_20
+export(PackedScene) var map_21
+export(PackedScene) var map_22
+export(PackedScene) var map_23
+export(PackedScene) var map_24
+export(PackedScene) var map_25
+export(PackedScene) var map_26
+export(PackedScene) var map_27
+export(PackedScene) var map_28
+export(PackedScene) var map_29
+export(PackedScene) var map_30
+export(PackedScene) var map_31
+
 
 onready var p1_menu = $Menu_8x4_01
 onready var p2_menu = $Menu_8x4_02
@@ -329,9 +346,40 @@ func _get_map(_num):
 	elif _num == 15:
 		return map_15
 	elif _num == 16:
-		return map
+		return map_16
+	elif _num == 17:
+		return map_17
+	elif _num == 18:
+		return map_18
+	elif _num == 19:
+		return map_19
+	elif _num == 20:
+		return map_20
+	elif _num == 21:
+		return map_21
+	elif _num == 22:
+		return map_22
+	elif _num == 23:
+		return map_23
+	elif _num == 24:
+		return map_24
+	elif _num == 25:
+		return map_25
+	elif _num == 26:
+		return map_26
+	elif _num == 27:
+		return map_27
+	elif _num == 28:
+		return map_28
+	elif _num == 29:
+		return map_29
+	elif _num == 30:
+		return map_30
+	elif _num == 31:
+		return map_31
 	else:
 		print("invalid _num on _map_get in Arcade Map Select VS")
+		return map
 
 func _set_ready(_player):
 	if _player == 1:

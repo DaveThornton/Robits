@@ -129,3 +129,5 @@ margin_top = 818.0
 margin_right = 1918.0
 margin_bottom = 832.0
 size_flags_horizontal = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

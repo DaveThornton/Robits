@@ -3,6 +3,7 @@ extends Node2D
 export var respawn_time = 18
 export var my_color = Color8(255,255,255,255)
 export var spawn_only_1 = true
+export var start_frame = 2
 export(PackedScene) var body_1
 export(PackedScene) var body_2
 export(PackedScene) var body_3
@@ -20,6 +21,7 @@ var spawn_next = 1
 
 func _ready():
 	sprite.self_modulate = my_color
+	sprite.frame = start_frame
 	timer_start.start()
 	timer.wait_time = respawn_time
 
