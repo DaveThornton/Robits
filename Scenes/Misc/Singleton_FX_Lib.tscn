@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_FX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Sprites/Background/Back_02_Blue_Sky_Tile.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Background/Back_07_Sun_Set_Sky.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Background/Back_04_Deep_Blue_Tile.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Misc/Parts/Splash_Screens_Part.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 470, 549 )
@@ -96,6 +97,8 @@ collision_mask = 2147487744
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MP-01-Camera/Area2D_Trigger"]
 position = Vector2( 1954, 540 )
 shape = SubResource( 2 )
+
+[node name="Splash_Screens_Part" parent="." instance=ExtResource( 9 )]
 [connection signal="area_entered" from="MP-01-Camera/Area2D_Respawn" to="." method="_on_Area2D_Respawn_area_entered"]
 [connection signal="area_exited" from="MP-01-Camera/Area2D_Respawn" to="." method="_on_Area2D_Respawn_area_exited"]
 [connection signal="area_entered" from="MP-01-Camera/Area2D_Trigger" to="." method="_on_Area2D_Trigger_area_entered"]

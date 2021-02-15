@@ -578,7 +578,7 @@ position = Vector2( 1460, 960 )
 position = Vector2( 1440, 960.045 )
 
 [node name="MP-31-Falling-Block3" parent="Map_parts/Falling_Blocks" instance=ExtResource( 32 )]
-position = Vector2( 720, 960.045 )
+position = Vector2( 720, 960 )
 
 [node name="MP-31-Falling-Block4" parent="Map_parts/Falling_Blocks" instance=ExtResource( 32 )]
 position = Vector2( 680, 960.045 )

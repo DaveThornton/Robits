@@ -2,6 +2,8 @@ extends Node2D
 
 export(PackedScene) var next_screen 
 
+onready var logo = $Sprite
+
 var p1_ready = false
 var p2_ready = false
 var p3_ready = false
@@ -10,6 +12,9 @@ var p5_ready = false
 var p6_ready = false
 var p7_ready = false
 var p8_ready = false
+var screen_count = 0
+
+
 
 func _ready():
 	var test = HUD.connect("input_to_screen", self, "movement")
@@ -21,6 +26,7 @@ func _ready():
 	Player_Stats.reset()
 	HUD.menu_state()
 	FX.set_back(0)
+	FX.splash(0)
 
 func movement(_player, _dir):
 	if _player == 1:
@@ -86,4 +92,14 @@ func movement(_player, _dir):
 func _next_screen():
 	SFX.play("Menu_Select_01")
 	HUD.load_screen(next_screen)
+	FX.splash(0)
 	queue_free()
+
+func _on_Timer_timeout():
+	screen_count += 1
+	if screen_count > FX.splash_screens.how_many_screens:
+		screen_count = 0
+		logo.visible = true
+	else:
+		logo.visible = false
+	FX.splash(screen_count)

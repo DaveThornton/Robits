@@ -2,6 +2,8 @@ extends Node2D
 
 onready var CAMERA = $"MP-01-Camera"
 onready var backs = $"MP-01-Camera/Back"
+onready var splash_screens = $Splash_Screens_Part
+
 var spot_to_add = []
 var spot_to_remove = []
 
@@ -11,6 +13,9 @@ func add_trauma(_amount):
 func set_back(_num):
 	back_blank()
 	backs.get_child(_num).visible = true
+
+func splash(_num):
+	splash_screens.screen(_num)
 
 func back_blank():
 	for b in backs.get_child_count():
