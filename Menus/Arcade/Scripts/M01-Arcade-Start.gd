@@ -3,6 +3,7 @@ extends Node2D
 export(PackedScene) var next_screen 
 
 onready var logo = $Sprite
+onready var timer = $Timer
 
 var p1_ready = false
 var p2_ready = false
@@ -13,8 +14,6 @@ var p6_ready = false
 var p7_ready = false
 var p8_ready = false
 var screen_count = 0
-
-
 
 func _ready():
 	var test = HUD.connect("input_to_screen", self, "movement")
@@ -100,6 +99,8 @@ func _on_Timer_timeout():
 	if screen_count > FX.splash_screens.how_many_screens:
 		screen_count = 0
 		logo.visible = true
+		timer.start(60)
 	else:
 		logo.visible = false
+		timer.start(6)
 	FX.splash(screen_count)

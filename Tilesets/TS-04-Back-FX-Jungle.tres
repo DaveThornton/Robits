@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=17 format=2]
+[gd_resource type="TileSet" load_steps=21 format=2]
 
 [ext_resource path="res://Sprites/Tile_Sets/TS-04-Back-FX.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tile_Sets/TS-G-06-Fence-2.png" type="Texture" id=2]
@@ -16,6 +16,10 @@
 [ext_resource path="res://Sprites/Tile_Sets/Background/Jungle_Back_03.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Tile_Sets/Background/Jungle_Tree_05.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Tile_Sets/Background/Jungle_Tree_06.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Tile_Sets/Background/Jungle_Tree_08.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Tile_Sets/Background/Jungle_Tree_10.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Tile_Sets/Background/Jungle_Tree_09.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Tile_Sets/Background/Jungle_Tree_07.png" type="Texture" id=20]
 
 [resource]
 0/name = "Exit"
@@ -764,3 +768,59 @@
 51/shape_one_way_margin = 0.0
 51/shapes = [  ]
 51/z_index = 0
+52/name = "Jungle_Tree_07.png 52"
+52/texture = ExtResource( 20 )
+52/tex_offset = Vector2( 0, 0 )
+52/modulate = Color( 1, 1, 1, 1 )
+52/region = Rect2( 0, 0, 160, 200 )
+52/tile_mode = 0
+52/occluder_offset = Vector2( 0, 0 )
+52/navigation_offset = Vector2( 0, 0 )
+52/shape_offset = Vector2( 0, 0 )
+52/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+52/shape_one_way = false
+52/shape_one_way_margin = 0.0
+52/shapes = [  ]
+52/z_index = 0
+53/name = "Jungle_Tree_08.png 53"
+53/texture = ExtResource( 17 )
+53/tex_offset = Vector2( 0, 0 )
+53/modulate = Color( 1, 1, 1, 1 )
+53/region = Rect2( 0, 0, 160, 200 )
+53/tile_mode = 0
+53/occluder_offset = Vector2( 0, 0 )
+53/navigation_offset = Vector2( 0, 0 )
+53/shape_offset = Vector2( 0, 0 )
+53/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+53/shape_one_way = false
+53/shape_one_way_margin = 0.0
+53/shapes = [  ]
+53/z_index = 0
+54/name = "Jungle_Tree_09.png 54"
+54/texture = ExtResource( 19 )
+54/tex_offset = Vector2( 0, 0 )
+54/modulate = Color( 1, 1, 1, 1 )
+54/region = Rect2( 0, 0, 160, 200 )
+54/tile_mode = 0
+54/occluder_offset = Vector2( 0, 0 )
+54/navigation_offset = Vector2( 0, 0 )
+54/shape_offset = Vector2( 0, 0 )
+54/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+54/shape_one_way = false
+54/shape_one_way_margin = 0.0
+54/shapes = [  ]
+54/z_index = 0
+55/name = "Jungle_Tree_10.png 55"
+55/texture = ExtResource( 18 )
+55/tex_offset = Vector2( 0, 0 )
+55/modulate = Color( 1, 1, 1, 1 )
+55/region = Rect2( 0, 20, 160, 180 )
+55/tile_mode = 0
+55/occluder_offset = Vector2( 0, 0 )
+55/navigation_offset = Vector2( 0, 0 )
+55/shape_offset = Vector2( 0, 0 )
+55/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+55/shape_one_way = false
+55/shape_one_way_margin = 0.0
+55/shapes = [  ]
+55/z_index = 0
