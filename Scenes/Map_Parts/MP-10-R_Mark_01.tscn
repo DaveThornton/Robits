@@ -130,7 +130,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=6]
 resource_name = "Hit_Brick"
 length = 0.2
 step = 0.05
@@ -171,7 +171,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=7]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -211,7 +211,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=8]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -251,7 +251,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=9]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -291,7 +291,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=10]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -331,7 +331,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=11]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -371,7 +371,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, -2 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=12]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -386,7 +386,7 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=13]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -401,7 +401,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=14]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -415,7 +415,7 @@ tracks/0/keys = {
 "values": [ 9 ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=15]
 resource_name = "Start_Brick"
 length = 0.1
 tracks/0/type = "value"
@@ -431,7 +431,7 @@ tracks/0/keys = {
 "values": [ 46 ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=16]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -446,7 +446,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=17]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -461,7 +461,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=18]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -476,7 +476,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=19]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -526,11 +526,24 @@ tracks/0/keys = {
 ]]
 script = ExtResource( 1 )
 spawn_01 = ExtResource( 2 )
+spawn_02 = ExtResource( 2 )
+spawn_03 = ExtResource( 2 )
+spawn_04 = ExtResource( 2 )
+spawn_05 = ExtResource( 2 )
+spawn_06 = ExtResource( 2 )
+spawn_07 = ExtResource( 2 )
+spawn_08 = ExtResource( 2 )
+spawn_09 = ExtResource( 2 )
+spawn_10 = ExtResource( 2 )
+spawn_11 = ExtResource( 2 )
+spawn_12 = ExtResource( 2 )
+spawn_13 = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 vframes = 5
 hframes = 10
+frame = 6
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
 "hittable",
@@ -558,20 +571,20 @@ shape = SubResource( 2 )
 anims/Hit_A = SubResource( 3 )
 anims/Hit_B = SubResource( 4 )
 anims/Hit_Bang = SubResource( 5 )
-anims/Hit_Brick = SubResource( 22 )
-anims/Hit_I = SubResource( 23 )
-anims/Hit_O = SubResource( 24 )
-anims/Hit_R = SubResource( 25 )
-anims/Hit_S = SubResource( 26 )
-anims/Hit_T = SubResource( 27 )
-anims/Start_A = SubResource( 28 )
-anims/Start_B = SubResource( 29 )
-anims/Start_Bang = SubResource( 30 )
-anims/Start_Brick = SubResource( 31 )
-anims/Start_I = SubResource( 32 )
-anims/Start_O = SubResource( 33 )
-anims/Start_R = SubResource( 34 )
-anims/Start_S = SubResource( 35 )
+anims/Hit_Brick = SubResource( 6 )
+anims/Hit_I = SubResource( 7 )
+anims/Hit_O = SubResource( 8 )
+anims/Hit_R = SubResource( 9 )
+anims/Hit_S = SubResource( 10 )
+anims/Hit_T = SubResource( 11 )
+anims/Start_A = SubResource( 12 )
+anims/Start_B = SubResource( 13 )
+anims/Start_Bang = SubResource( 14 )
+anims/Start_Brick = SubResource( 15 )
+anims/Start_I = SubResource( 16 )
+anims/Start_O = SubResource( 17 )
+anims/Start_R = SubResource( 18 )
+anims/Start_S = SubResource( 19 )
 anims/Start_T = SubResource( 20 )
 anims/Used = SubResource( 21 )
 

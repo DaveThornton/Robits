@@ -2,7 +2,19 @@ extends Node2D
 
 export var used = false
 export(PackedScene) var spawn_01
-#export var let = 1
+export(PackedScene) var spawn_02
+export(PackedScene) var spawn_03
+export(PackedScene) var spawn_04
+export(PackedScene) var spawn_05
+export(PackedScene) var spawn_06
+export(PackedScene) var spawn_07
+export(PackedScene) var spawn_08
+export(PackedScene) var spawn_09
+export(PackedScene) var spawn_10
+export(PackedScene) var spawn_11
+export(PackedScene) var spawn_12
+export(PackedScene) var spawn_13
+export var only_spawn_one = true
 export var spawn_nothing = false
 export var mark = 1
 export var my_color = Color8(255,255,0,255)
@@ -12,6 +24,8 @@ onready var spawn_pos = $Pos2D_Spawn
 #onready var hit_area = $Area2D_Hit
 onready var timer = $Timer
 onready var hit_timer = $Timer_Hit
+
+var thing_count = 1
 
 func _ready():
 	sprite.self_modulate = my_color
@@ -78,6 +92,36 @@ func start_gfx():
 func _spawn_thing():
 	if !spawn_nothing:
 		var t = spawn_01.instance()
+		if !only_spawn_one:
+			if thing_count == 1:
+				pass
+			elif thing_count == 2:
+				t = spawn_02.instance()
+			elif thing_count == 3:
+				t = spawn_03.instance()
+			elif thing_count == 4:
+				t = spawn_04.instance()
+			elif thing_count == 5:
+				t = spawn_05.instance()
+			elif thing_count == 6:
+				t = spawn_06.instance()
+			elif thing_count == 7:
+				t = spawn_07.instance()
+			elif thing_count == 8:
+				t = spawn_08.instance()
+			elif thing_count == 9:
+				t = spawn_09.instance()
+			elif thing_count == 10:
+				t = spawn_10.instance()
+			elif thing_count == 11:
+				t = spawn_11.instance()
+			elif thing_count == 12:
+				t = spawn_12.instance()
+			elif thing_count == 13:
+				t = spawn_13.instance()
+			thing_count += 1
+			if thing_count > 13:
+				thing_count = 1
 		Map_Hand.add_kid_to_map(t)
 		t.global_position = spawn_pos.global_position
 		t.set_collision_layer_bit( 1, false)

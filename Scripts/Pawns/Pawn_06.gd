@@ -16,6 +16,7 @@ onready var hover_part = $Pawn_06_Part_Hover/CPUParticles2D
 onready var body_sprite = $Body_Sprite
 onready var shield_sprite = $Shield_Sprite
 
+onready var timers = $Timers
 onready var knockback_timer = $Timers/Knock_Back
 onready var shield_hit_timer = $Timers/Shield_Hit
 onready var shield_up_timer = $Timers/Shield_Up
@@ -55,6 +56,7 @@ var current_x_speed = 0
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed: = false
 var jumping_up: = false
+var jump_time: = 1.0
 var can_jump = true
 var jump_top_pos = 0.0
 var jump_top = false
@@ -121,6 +123,7 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 	start_equiped = _start_equiped
 	if start_equiped:
 		equip_start_weap()
+	timers.set_jump(jump_time)
 	change_pos(_pos)
 	nrg_update()
 
@@ -238,7 +241,6 @@ func jump(down_input, left_input, right_input):
 		if down_input && ray_down_p.is_colliding() && !left_input && !right_input:
 			SFX.play("Move_Jump_08")
 			var thing1 = ray_down_p.get_collider()
-	#		print(thing1)
 			if thing1:
 				if thing1.get_groups().has("map"):
 					pass
@@ -249,15 +251,19 @@ func jump(down_input, left_input, right_input):
 			SFX.play("Move_Jump_01")
 			vel.y = -max_jump_power * jump_power_up
 			jump_top_pos = global_position.y - jump_height
+			jumping_up = true
 		elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count:
 			SFX.play("Move_Jump_05")
 			vel.y = -max_air_jump_power * jump_power_up
 			air_jump_count += 1
-		elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump:
+		elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump && jumping_up:
 			jump_top = true
 			can_jump = false
 			if jump_timer.is_stopped():
-				jump_timer.start()
+				print('jumptimer started')
+				timers.start_jump()
+			else:
+				print("jumptinmer not started")
 		is_jump_pressed = true
 		on_ladder = false
 
@@ -272,6 +278,7 @@ func jump_rel():
 	jump_top_pos = global_position.y - jump_height
 	is_jump_pressed = false
 	jump_top = false
+	jumping_up = false
 	can_jump = true
 	
 ##-----------------------------------------------------------------------[Shoot]
@@ -789,17 +796,7 @@ func _set_new_color(_pri, _sec):
 	body_sprite.self_modulate = _pri
 
 ##--------------------------------------------------------------------[Time Out]
-#func shieldhittimer()
-#
-#func shielduptimer()
-#
-#func nrguptimer()
-#knockbacktimer()
-#func speedtimer()
-#
-#func jumpuptimer()
-#
-#func stuntimer()
+
 func shielduptimer():
 	shield_sprite.visible = false
 	is_shield_up = false
@@ -829,6 +826,8 @@ func knockbacktimer():
 	knocked_back = Vector2(0, 0)
 
 func jumptimer():
+	jump_top = false
+	jumping_up = false
 	is_jump_pressed = false
 	print("jump timer timed out dont know why in pawn 06 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 	

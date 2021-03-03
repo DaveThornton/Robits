@@ -52,3 +52,6 @@ func set_stun(_time):
 
 func set_jump(_time):
 	$Jump.wait_time = _time
+
+func start_jump():
+	$Jump.start()

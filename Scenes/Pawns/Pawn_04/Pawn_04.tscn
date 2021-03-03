@@ -262,7 +262,6 @@ position = Vector2( 0, -26 )
 texture = ExtResource( 1 )
 
 [node name="POS_Arm" type="Position2D" parent="Body"]
-rotation = -0.698132
 
 [node name="Pawn_04_Part_Arm" parent="Body/POS_Arm" instance=ExtResource( 5 )]
 

@@ -58,6 +58,7 @@ var current_x_speed = 0
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed: = false
 var jumping_up: = false
+var jump_time = .7
 var can_jump = true
 var jump_top_pos = 0.0
 var jump_top = false
@@ -130,6 +131,7 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 	start_equiped = _start_equiped
 	if start_equiped:
 		equip_start_weap()
+	timers.set_jump(jump_time)
 	change_pos(_pos)
 	nrg_update()
 
@@ -250,17 +252,18 @@ func jump(down_input, _left_input, _right_input):
 			SFX.play("Move_Jump_01")
 			vel.y = -max_jump_power * jump_power_up
 			jump_top_pos = global_position.y - jump_height
+			jumping_up = true
 		
 		elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count && !down_input:
 			SFX.play("Move_Jump_05")
 			vel.y = -max_air_jump_power * jump_power_up
 			air_jump_count += 1
 		
-		elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump && !down_input:
+		elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump && !down_input && jumping_up:
 			jump_top = true
 			can_jump = false
 			if jump_timer.is_stopped():
-				jump_timer.start()
+				timers.start_jump()
 		is_jump_pressed = true
 		on_ladder = false
 
@@ -281,6 +284,7 @@ func jump_rel():
 		vel.y = -min_air_jump_power
 	elif vel.y < -min_jump_power:
 		vel.y = min_jump_power
+	jumping_up = false
 	jump_top_pos = global_position.y - jump_height
 	is_jump_pressed = false
 	jump_top = false
@@ -857,6 +861,7 @@ func knockbacktimer():
 
 func jumptimer():
 	jump_top = false
+	jumping_up = false
 	is_jump_pressed = false
 	
 ##-------------------------------------------------------------[The in and outs]

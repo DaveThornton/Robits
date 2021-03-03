@@ -1,9 +1,10 @@
 extends Node2D
 
 onready var winners = $Winners_Dont_use_Drugs
+onready var recycle = $Recycle_it_Dont_trash_it
 onready var company = $torpedohousegames
 onready var robits = $"ROBITS-Logo-04"
-onready var godot = $"Godot-Logo-01"
+onready var godot = $"Godot-Logo-02"
 
 var how_many_screens = 4
 
@@ -16,7 +17,7 @@ func screen(_num):
 	elif _num == 2:
 		company.visible = true
 	elif _num == 3:
-		robits.visible = true
+		recycle.visible = true
 	elif _num == 4:
 		godot.visible = true
 	else:
@@ -24,6 +25,8 @@ func screen(_num):
 
 func all_out():
 	winners.visible = false
+	recycle.visible = false
 	company.visible = false
 	robits.visible = false
 	godot.visible = false
+
