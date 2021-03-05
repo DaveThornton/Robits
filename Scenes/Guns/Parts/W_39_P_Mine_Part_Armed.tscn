@@ -6,7 +6,6 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "Flash"
-length = 0.7
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Mine:frame")
@@ -15,10 +14,22 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"times": PoolRealArray( 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 9, 12, 13, 14, 13, 12, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mine2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 16, 17, 18, 17, 16, 15 ]
 }
 
 [node name="W_39_P_Mine_Part_Armed" type="Node2D"]
@@ -31,11 +42,18 @@ boom = ExtResource( 3 )
 [node name="Mine" type="Sprite" parent="."]
 position = Vector2( 0, 3.5 )
 texture = ExtResource( 1 )
-hframes = 15
-frame = 9
+hframes = 19
+frame = 11
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Mine2" type="Sprite" parent="."]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 0, 1.5 )
+texture = ExtResource( 1 )
+hframes = 19
+frame = 15
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 0, 8 )

@@ -2100,8 +2100,10 @@ collision_mask = 67230
 script = ExtResource( 5 )
 
 [node name="Timers" parent="." instance=ExtResource( 9 )]
+visible = false
 
 [node name="Raycast" type="Node2D" parent="."]
+visible = false
 position = Vector2( 0, -27 )
 
 [node name="Up" type="RayCast2D" parent="Raycast"]
@@ -2135,22 +2137,23 @@ cast_to = Vector2( 0, 13 )
 collision_mask = 2078
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -27 )
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Shape_Down" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -15 )
 rotation = 1.5708
 shape = SubResource( 2 )
 disabled = true
 
 [node name="Shield_Sprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -1 )
+position = Vector2( 0, -27.504 )
 texture = ExtResource( 6 )
 hframes = 7
-frame = 1
+frame = 6
 
 [node name="Pawn_06_Part_Head" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -32 )
@@ -2159,11 +2162,11 @@ position = Vector2( 0, -32 )
 position = Vector2( 0, -28 )
 texture = ExtResource( 1 )
 hframes = 7
-frame = 1
+frame = 6
 
 [node name="Pawn_06_Part_Hover" parent="." instance=ExtResource( 4 )]
 show_behind_parent = true
-position = Vector2( -2, -14 )
+position = Vector2( 0, -12 )
 
 [node name="POS_Arm1" type="Sprite" parent="."]
 visible = false
@@ -2182,8 +2185,7 @@ position = Vector2( 0, -32 )
 
 [node name="Pawn_05_Part_Key" parent="." instance=ExtResource( 2 )]
 visible = false
-position = Vector2( 1, -4 )
-rotation = 3.14159
+position = Vector2( 5, -2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Ladder-Left = SubResource( 3 )
@@ -2201,6 +2203,7 @@ anims/Right-Run = SubResource( 14 )
 anims/Right-Stun = SubResource( 15 )
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
+visible = false
 collision_layer = 262144
 collision_mask = 786432
 
@@ -2210,6 +2213,7 @@ rotation = 1.5708
 shape = SubResource( 16 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 32
 

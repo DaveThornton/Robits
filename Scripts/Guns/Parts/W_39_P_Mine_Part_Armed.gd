@@ -1,7 +1,7 @@
 extends Node2D
 
 export(PackedScene) var boom
-export var time_out = 15.0
+export var time_out = 30.0
 onready var ex_spot = $Position2D
 onready var timer_out = $Timer_Out
 onready var anim = $AnimationPlayer

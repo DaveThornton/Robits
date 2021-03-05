@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Hold/W_02-AK47_Hold.tscn" type="PackedScene" id=2]
@@ -70,6 +70,8 @@
 [ext_resource path="res://Scenes/Guns/Hold/W_58-Derringer_Hold.tscn" type="PackedScene" id=68]
 [ext_resource path="res://Scenes/Guns/Hold/W_59_Bow_Hold.tscn" type="PackedScene" id=69]
 [ext_resource path="res://Scenes/Guns/Hold/W_14_TNG_Hold.tscn" type="PackedScene" id=70]
+[ext_resource path="res://Scenes/Guns/Hold/W_84_Luger_Hold.tscn" type="PackedScene" id=71]
+[ext_resource path="res://Scenes/Guns/Hold/W_83-Mauser_Hold.tscn" type="PackedScene" id=72]
 
 [node name="Equipment" type="Node2D"]
 script = ExtResource( 1 )
@@ -121,6 +123,8 @@ gun_hold_69 = ExtResource( 52 )
 gun_hold_70 = ExtResource( 65 )
 gun_hold_71 = ExtResource( 66 )
 gun_hold_80 = ExtResource( 15 )
+gun_hold_83 = ExtResource( 72 )
+gun_hold_84 = ExtResource( 71 )
 item_pick_01 = ExtResource( 16 )
 item_pick_02 = ExtResource( 17 )
 item_pick_03 = ExtResource( 18 )

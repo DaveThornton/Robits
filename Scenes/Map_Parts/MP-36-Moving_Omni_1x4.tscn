@@ -92,11 +92,6 @@ position = Vector2( 42, 10 )
 rotation = 1.5708
 shape = SubResource( 4 )
 disabled = true
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="Start_Timer" type="Timer" parent="."]
 [connection signal="body_entered" from="Plat/Area2D_Player" to="." method="_on_Area2D_Player_body_entered"]
 [connection signal="body_exited" from="Plat/Area2D_Player" to="." method="_on_Area2D_Player_body_exited"]
 [connection signal="body_entered" from="Plat/Area2D-Kill-plat" to="." method="_on_Area2DKillplat_body_entered"]
@@ -109,5 +104,3 @@ one_shot = true
 [connection signal="body_exited" from="Area2D-Kill-Left" to="." method="_on_Area2DKillLeft_body_exited"]
 [connection signal="body_entered" from="Area2D-Kill-Right" to="." method="_on_Area2DKillRight_body_entered"]
 [connection signal="body_exited" from="Area2D-Kill-Right" to="." method="_on_Area2DKillRight_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]

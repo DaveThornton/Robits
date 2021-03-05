@@ -10,7 +10,7 @@ p_mine_pickup = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-hframes = 15
+hframes = 19
 frame = 7
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

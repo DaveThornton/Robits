@@ -8,8 +8,12 @@ onready var w1 = $"MP-12-warp-spot-01-01"
 onready var w2 = $"MP-12-warp-spot-01-02"
 onready var w3 = $"MP-12-warp-spot-01-03"
 onready var w4 = $"MP-12-warp-spot-01-04"
+onready var cpup1 = $CPUParticles2D
+onready var cpup2 = $CPUParticles2D2
 
 func _ready():
+	cpup1.color = color
+	cpup2.color = color
 	sprite_warp.self_modulate = color
 	w1.self_modulate = color
 	w2.self_modulate = color

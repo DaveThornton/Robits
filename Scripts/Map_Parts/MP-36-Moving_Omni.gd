@@ -10,21 +10,13 @@ export var right = false
 export var kill_right_on = false
 
 export var how_far = 300
-#export var how_far_ver = 200
-#export var how_far_hor = 400
 export var speed = 75
 export var delay_start = false
 export var start_time = 1.0
 export var wait = true
-export var wait_time = 1.0
+export var wait_time = 1
 
 onready var plat = $Plat
-
-#onready var kill_plat = $"Plat/Area2D-Kill-plat"
-#onready var kill_up = $"Area2D-Kill-Up"
-#onready var kill_down = $"Area2D-Kill-Down"
-#onready var kill_left = $"Area2D-Kill-Left"
-#onready var kill_right = $"Area2D-Kill-Right"
 
 onready var kill_plat_shape = $"Plat/Area2D-Kill-plat/CollisionShape2D"
 onready var kill_up_shape = $"Area2D-Kill-Up/CollisionShape2D"
@@ -32,10 +24,7 @@ onready var kill_down_shape = $"Area2D-Kill-Down/CollisionShape2D"
 onready var kill_left_shape = $"Area2D-Kill-Left/CollisionShape2D"
 onready var kill_right_shape = $"Area2D-Kill-Right/CollisionShape2D"
 
-onready var timer = $Timer
-onready var start_timer = $Start_Timer
-
-var started = false
+var started = true
 
 var going_up = false
 var going_down = false
@@ -43,30 +32,17 @@ var going_left = false
 var going_right = false
 
 var waiting = false
+var is_waiting = true
+var wait_count = 0
 var occ_array = []
 var kill_array = []
 var last_move = true
-#var last_move_ver = false
-#var last_move_hor = false
 var move = false
 
-#signal start
-
 func _ready():
-#	var con = self.get_tree().get_current_scene().connect("second", self, "second")
-#	if con != 0:
-#		print("error on connecting second to second in MP-36-Moving omni")
-#	var test1 =  self.connect("start",self,"set_start")
-#	if test1 != 0:
-#		print("error in mp 36 moving omni connecting start")
-	if !delay_start:
-		started = true
-	else:
-		var con = self.get_tree().get_current_scene().connect("second", self, "second")
-		if con != 0:
-			print("error on connecting second to second in MP-36-Moving omni")
-#	last_pos = plat.global_position
-#	kill3_shape.position.x = how_left
+	var con = self.get_tree().get_current_scene().connect("second", self, "second")
+	if con != 0:
+		print("error on connecting second to second in MP-36-Moving omni")
 	if !kill_up_on && !kill_down_on && !kill_left_on && !kill_right_on:
 		kill_plat_shape.disabled = true
 		kill_up_shape.disabled = true
@@ -108,16 +84,9 @@ func _ready():
 				print(position)
 	
 	if wait:
-		timer.wait_time = wait_time
-		timer.start()
-#		started = false
-#		start_timer.wait_time = start_time
-#		start_timer.start()
-#	else:
-#		started = true
-		
+		waiting = true
+
 func _physics_process(delta):
-#func _process(delta):
 	if started:
 		if !waiting:
 			if up && !down:
@@ -180,10 +149,7 @@ func _physics_process(delta):
 			if wait:
 				if last_move != move:
 					waiting = true
-					timer.start()
 				move = last_move
-#			if last_move:
-#				plat.position.y = 0
 			if !occ_array.empty():
 				for j in range(occ_array.size()):
 					_move_player(j,delta)
@@ -198,16 +164,15 @@ func _move_player(array_num, delta):
 	
 	if going_left && !going_right:
 		p.position.x -= delta * speed
-#		p.map_movement.x = delta * -speed
 	elif !going_left && going_right:
 		p.position.x += delta * speed
-#		p.map_movement.x = delta * speed
 
 func second():
-#	if delay_start && !started:
-#	print("second")
-	self.disconnect("second", self, "second")
-	started = true
+	if waiting:
+		wait_count += 1
+		if wait_time == wait_count:
+			wait_count = 0
+			waiting = false
 
 func _on_Area2D_Player_body_entered(body):
 	if body.get_groups().has("player"):
@@ -220,17 +185,9 @@ func _on_Area2D_Player_body_exited(body):
 		print("player exited platform")
 		occ_array.erase(body)
 
-func _on_Timer_timeout():
-	waiting = false
-
-func _on_Start_Timer_timeout():
-	started = true
-	waiting = false
-
 func _check_add_body(body):
 	if body.get_groups().has("player"):
 		if kill_array.has(body):
-#			if !going_up:
 			body.killed_by_map(0, "map", "map", 100)
 		else:
 			kill_array.append(body)
@@ -248,13 +205,11 @@ func _on_Area2DKillplat_body_entered(body):
 func _on_Area2DKillplat_body_exited(body):
 	_remove_body(body)
 
-
 func _on_Area2DKillUp_body_entered(body):
 	_check_add_body(body)
 
 func _on_Area2DKillUp_body_exited(body):
 	_remove_body(body)
-
 
 func _on_Area2DKillDown_body_entered(body):
 	_check_add_body(body)
@@ -262,13 +217,11 @@ func _on_Area2DKillDown_body_entered(body):
 func _on_Area2DKillDown_body_exited(body):
 	_remove_body(body)
 
-
 func _on_Area2DKillLeft_body_entered(body):
 	_check_add_body(body)
 
 func _on_Area2DKillLeft_body_exited(body):
 	_remove_body(body)
-
 
 func _on_Area2DKillRight_body_entered(body):
 	_check_add_body(body)

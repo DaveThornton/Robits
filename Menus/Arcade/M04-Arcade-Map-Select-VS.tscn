@@ -14,15 +14,18 @@
 [ext_resource path="res://map/VS_Mode/Map-11-Puck_Fan.tscn" type="PackedScene" id=12]
 [ext_resource path="res://map/VS_Mode/Map-02-OneDashTwo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://map/VS_Mode/Map-03-Enchantment_Under_the_Sea.tscn" type="PackedScene" id=14]
-[ext_resource path="res://map/VS_Mode/Map-09-Nien.tscn" type="PackedScene" id=15]
+[ext_resource path="res://map/VS_Mode/Map-21-SirGregor.tscn" type="PackedScene" id=15]
 [ext_resource path="res://map/VS_Mode/Map-16-Scarab.tscn" type="PackedScene" id=16]
 [ext_resource path="res://map/VS_Mode/Map-12-Noon.tscn" type="PackedScene" id=17]
 [ext_resource path="res://map/VS_Mode/Map-15- Farm.tscn" type="PackedScene" id=18]
 [ext_resource path="res://map/VS_Mode/Map-10-SnoWhere_2_Hide.tscn" type="PackedScene" id=19]
-[ext_resource path="res://map/VS_Mode/Map-17-SirGregor.tscn" type="PackedScene" id=20]
+[ext_resource path="res://map/VS_Mode/Map-17-Place_Holder.tscn" type="PackedScene" id=20]
 [ext_resource path="res://map/VS_Mode/Map-18-Place_Holder.tscn" type="PackedScene" id=21]
 [ext_resource path="res://map/VS_Mode/Map-20-Computer.tscn" type="PackedScene" id=22]
 [ext_resource path="res://map/VS_Mode/Map-19-The_Knees.tscn" type="PackedScene" id=23]
+
+
+
 
 [node name="M04-Arcade-Map-Select-VS" type="Node2D"]
 position = Vector2( 0, 90 )

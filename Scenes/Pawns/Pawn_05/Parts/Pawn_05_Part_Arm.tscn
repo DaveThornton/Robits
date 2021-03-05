@@ -91,12 +91,12 @@ script = ExtResource( 2 )
 position = Vector2( 12, 4 )
 texture = ExtResource( 1 )
 hframes = 3
-frame = 2
+frame = 1
 
 [node name="Shield" type="Sprite" parent="."]
 
 [node name="POS_Gun" type="Position2D" parent="."]
-position = Vector2( 23, 0 )
+position = Vector2( 15, 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/135 = SubResource( 1 )
