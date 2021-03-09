@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_W_000_click_02.wav-4d93c0e1e8eafa4b2df1f0a9113e41db.sample"
+
+[deps]
+
+source_file="res://SFX/Weapons/SFX_W_000_click_02.wav"
+dest_files=[ "res://.import/SFX_W_000_click_02.wav-4d93c0e1e8eafa4b2df1f0a9113e41db.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

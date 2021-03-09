@@ -6,6 +6,7 @@ onready var sprite = $Back
 #onready var tip = $CollisionPolygon2D
 onready var timer = $Timer
 
+var hits = 0
 var ready = false
 var dir = 3
 var is_right = true
@@ -48,6 +49,9 @@ func _on_Des_Timer_timeout():
 	call_deferred("free")
 
 func _on_WeapPick40RPG_body_entered(body):
+	if hits < 3 :
+		hits += 1
+		SFX.play("FX_01_ObjHit")
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:#

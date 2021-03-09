@@ -94,6 +94,7 @@ visible = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Lit = SubResource( 3 )
 anims/Unlit = SubResource( 4 )
+[connection signal="body_entered" from="." to="." method="_on_W_24_TNT_Pick_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_WeapPick20Grenade_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]

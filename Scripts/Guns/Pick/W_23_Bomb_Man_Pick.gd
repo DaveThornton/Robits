@@ -17,6 +17,7 @@ var ammo = 1
 var ready = false
 # warning-ignore:unused_class_variable
 var just_shot = false
+var hits = 0
 
 func _ready():
 	self.set_collision_mask_bit( 1, just_shot)
@@ -71,6 +72,9 @@ func dont_hit_player():
 	self.set_collision_mask_bit( 1, false)
 
 func _on_W_23_Bomb_Man_Pick_body_shape_entered(_body_id, body, _body_shape, _local_shape):
+	if hits < 3 :
+		hits += 1
+		SFX.play("FX_01_ObjHit")
 	print("hitting body w 23")
 	if body.get_groups().has("player"):
 		body.stun(gun_num)

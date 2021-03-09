@@ -57,6 +57,7 @@ wait_time = 4.0
 
 [node name="FX-21-Timer_Label" parent="." instance=ExtResource( 7 )]
 visible = false
+[connection signal="body_entered" from="." to="." method="_on_WeapPick20Grenade_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_WeapPick20Grenade_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]

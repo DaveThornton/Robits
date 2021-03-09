@@ -22,6 +22,7 @@ var gun_num = 21
 var ammo = 1
 var is_right = false
 var just_shot = false
+var hits = 0
 
 func _ready():
 	if armed:
@@ -83,6 +84,9 @@ func _on_Timer_Spin_timeout():
 	self.applied_torque = 0
 
 func _on_WeapPick21NaziGrenade_body_entered(body):
+	if hits < 3 :
+		hits += 1
+		SFX.play("FX_01_ObjHit")
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:# body.get_groups().has("map_part"):

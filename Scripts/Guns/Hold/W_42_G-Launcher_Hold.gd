@@ -74,10 +74,12 @@ func shoot_r():
 		elif ammo > 0:
 			fire_projectile()
 		else:
+			SFX.play("W_00_Click_01")
 			print("need to add a click sound w 42 no ammo")
 
 func fire_projectile():
 	if !shoot_cast.is_colliding():
+		SFX.play("W_42_Thump")
 		anim_fire.play("Shoot")
 		var new_projectile = projectile.instance()
 		Map_Hand.add_kid_to_map(new_projectile)

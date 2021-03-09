@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_042_Launcher_Thump.wav-f9cbc7f75178aab459537624044c2cc9.sample"
+
+[deps]
+
+source_file="res://SFX/Weapons/SFX_042_Launcher_Thump.wav"
+dest_files=[ "res://.import/SFX_042_Launcher_Thump.wav-f9cbc7f75178aab459537624044c2cc9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

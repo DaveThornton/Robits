@@ -22,6 +22,7 @@ var gun_num = 24
 var ammo = 1
 var is_right = false
 var just_shot = false
+var hits = 0
 
 func _ready():
 	if armed:
@@ -113,3 +114,9 @@ func _on_Timer_timeout():
 	Map_Hand.add_kid_to_map(s)
 	s.start( 0 , self.global_position, 0, 0)
 	call_deferred("free")
+
+
+func _on_W_24_TNT_Pick_body_entered(body):
+	if hits < 3 :
+		hits += 1
+		SFX.play("FX_01_ObjHit")

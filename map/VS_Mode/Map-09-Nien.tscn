@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -16,8 +16,9 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner-Small.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Guns/Pick/W_21_Nazi_Grenade_Pick.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Guns/Pick/W_84_Luger_Pick.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Guns/Pick/W_83_Mauser_Pick.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=19]
 
 [node name="Map-09-Nien" type="Node2D"]
 script = ExtResource( 12 )
@@ -312,11 +313,70 @@ body_1 = ExtResource( 15 )
 position = Vector2( 1830, 390 )
 body_1 = ExtResource( 15 )
 
-[node name="RigidBody_Spawner" parent="." instance=ExtResource( 16 )]
+[node name="RigidBody_Spawner_Small7" parent="Map_parts/Weap_Spawns" instance=ExtResource( 14 )]
+position = Vector2( 660, 710 )
+body_1 = ExtResource( 15 )
+
+[node name="RigidBody_Spawner_Small8" parent="Map_parts/Weap_Spawns" instance=ExtResource( 14 )]
+position = Vector2( 720, 1030 )
+body_1 = ExtResource( 15 )
+
+[node name="RigidBody_Spawner_Small9" parent="Map_parts/Weap_Spawns" instance=ExtResource( 14 )]
+position = Vector2( 720, 390 )
+body_1 = ExtResource( 15 )
+
+[node name="RigidBody_Spawner_Small10" parent="Map_parts/Weap_Spawns" instance=ExtResource( 14 )]
+position = Vector2( 1260, 710 )
+body_1 = ExtResource( 15 )
+
+[node name="RigidBody_Spawner_Small11" parent="Map_parts/Weap_Spawns" instance=ExtResource( 14 )]
+position = Vector2( 1210, 1030 )
+body_1 = ExtResource( 15 )
+
+[node name="RigidBody_Spawner_Small12" parent="Map_parts/Weap_Spawns" instance=ExtResource( 14 )]
+position = Vector2( 1210, 390 )
+body_1 = ExtResource( 15 )
+
+[node name="RigidBody_Spawner_Small13" parent="Map_parts/Weap_Spawns" instance=ExtResource( 14 )]
 position = Vector2( 960, 390 )
+body_1 = ExtResource( 19 )
 
-[node name="W_83_Mauser_Pick" parent="." instance=ExtResource( 18 )]
-position = Vector2( 950, 650 )
+[node name="RigidBody_Spawner_Small14" parent="Map_parts/Weap_Spawns" instance=ExtResource( 14 )]
+position = Vector2( 960, 1030 )
+body_1 = ExtResource( 19 )
 
-[node name="W_84_Luger_Pick" parent="." instance=ExtResource( 17 )]
-position = Vector2( 1050, 650 )
+[node name="RigidBody_Spawner_Small15" parent="Map_parts/Weap_Spawns" instance=ExtResource( 14 )]
+position = Vector2( 900, 710 )
+body_1 = ExtResource( 19 )
+
+[node name="RigidBody_Spawner_Small16" parent="Map_parts/Weap_Spawns" instance=ExtResource( 14 )]
+position = Vector2( 1020, 710 )
+body_1 = ExtResource( 19 )
+
+[node name="RigidBody_Spawner" parent="." instance=ExtResource( 16 )]
+position = Vector2( 410, 390 )
+body_1 = ExtResource( 18 )
+
+[node name="RigidBody_Spawner2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1500, 390 )
+body_1 = ExtResource( 18 )
+
+[node name="RigidBody_Spawner3" parent="." instance=ExtResource( 16 )]
+position = Vector2( 410, 710 )
+body_1 = ExtResource( 18 )
+
+[node name="RigidBody_Spawner4" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1500, 710 )
+body_1 = ExtResource( 18 )
+
+[node name="RigidBody_Spawner5" parent="." instance=ExtResource( 16 )]
+position = Vector2( 410, 1030 )
+body_1 = ExtResource( 18 )
+
+[node name="RigidBody_Spawner6" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1500, 1030 )
+body_1 = ExtResource( 18 )
+
+[node name="RigidBody_Spawner8" parent="." instance=ExtResource( 16 )]
+position = Vector2( 960, 710 )
+body_1 = ExtResource( 17 )

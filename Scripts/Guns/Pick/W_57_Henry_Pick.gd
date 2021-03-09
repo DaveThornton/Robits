@@ -13,6 +13,7 @@ var ammo = 10
 var time = .7
 var my_scale = 1
 var just_shot = false
+var hits = 0
 
 func _ready():
 	ready = true
@@ -41,6 +42,9 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 #warning-ignore:unused_argument
 #warning-ignore:unused_argument
 func _on_WeapPick50Shot_Gun_body_shape_entered(body_id, body, body_shape, local_shape):
+	if hits < 3 :
+		hits += 1
+		SFX.play("FX_01_ObjHit")
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:

@@ -98,6 +98,7 @@ hframes = 3
 
 [node name="Pawn_04_Face" type="Sprite" parent="Pawn_04_Body/Pawn_04_Head"]
 texture = ExtResource( 3 )
+hframes = 5
 
 [node name="Pawn_04_Part_Arm" type="Sprite" parent="Pawn_04_Body"]
 position = Vector2( 0, -1 )

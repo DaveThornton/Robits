@@ -16,8 +16,8 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	position = _pos
 	scale = _scale
 	owned = _owner
-	print("make SFX for launcher")
-	SFX.play("RPG_Shoot")
+#	print("make SFX for launcher")
+#	SFX.play("RPG_Shoot")
 	if _scale.y < 0:
 		rotation *= -1
 

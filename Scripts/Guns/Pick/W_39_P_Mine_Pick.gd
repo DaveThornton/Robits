@@ -23,6 +23,7 @@ var just_shot = false
 var my_name = "Prox Mine"
 var dmg_type = "Boom"
 var damage = 120
+var hits = 0
 #func _ready():
 #	ready = true
 	
@@ -78,6 +79,9 @@ func _physics_process(_delta):
 			return
 
 func _on_W_39_P_Mine_body_shape_entered(_body_id, body, _body_shape, _local_shape):
+	if hits < 3 :
+		hits += 1
+		SFX.play("FX_01_ObjHit")
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:

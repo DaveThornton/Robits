@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_E_000.wav-a6e19190544bffeb03a0e6e641b47bcd.sample"
+
+[deps]
+
+source_file="res://SFX/Explosions/SFX_E_000.wav"
+dest_files=[ "res://.import/SFX_E_000.wav-a6e19190544bffeb03a0e6e641b47bcd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

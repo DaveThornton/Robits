@@ -31,7 +31,7 @@ var is_right = true
 var walk = 0.0
 var walk_amount = 1.0
 var time = 4.0
-
+var clicked = false 
 signal ammo_change(player, ammo)
 
 func _ready():
@@ -87,14 +87,17 @@ func shoot():
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
-			SFX.play("Laser_Shoot")
+			SFX.play("W_05_Laser")
 		else:
 			anim_fire.play("Click")
 			can_shoot = false
 			shoot_timer.start()
-			SFX.play("Laser_Empty")
+			if !clicked:
+				SFX.play("Laser_Empty")
+				clicked = true
 
 func shoot_r():
+	clicked = false
 	pass
 
 func melee():
