@@ -4,6 +4,10 @@ func play(sfx = null):
 	if sfx:
 		get_node(sfx).play()
 
+func stop(sfx = null):
+	if sfx:
+		get_node(sfx).stop()
+
 func set_master_vol(_db):
 	AudioServer.set_bus_volume_db(0,_db)
 

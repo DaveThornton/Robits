@@ -2594,7 +2594,7 @@ position = Vector2( 0, -15 )
 shape = SubResource( 2 )
 
 [node name="Pawn_08_Part_Body" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, -8 )
+position = Vector2( 0, 2 )
 
 [node name="Pawn_08_Part_Hip" parent="Pawn_08_Part_Body" instance=ExtResource( 3 )]
 position = Vector2( 0, 4 )
@@ -2607,20 +2607,20 @@ texture = ExtResource( 5 )
 centered = false
 offset = Vector2( -24, -8 )
 hframes = 35
-frame = 13
+frame = 31
 
 [node name="Legs" type="Sprite" parent="Pawn_08_Part_Body/Pawn_08_Part_Hip"]
 show_behind_parent = true
-position = Vector2( 1, -14 )
+position = Vector2( 0, -2 )
 rotation = 8.74228e-08
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( -24, -8 )
 hframes = 35
-frame = 13
+frame = 31
 
 [node name="POS_Arm" type="Position2D" parent="Pawn_08_Part_Body"]
-position = Vector2( 0, -4 )
+position = Vector2( 0, -5 )
 
 [node name="Pawn_09_Part_Arm" parent="Pawn_08_Part_Body/POS_Arm" instance=ExtResource( 6 )]
 

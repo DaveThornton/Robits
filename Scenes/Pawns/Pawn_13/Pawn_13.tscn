@@ -464,7 +464,7 @@ position = Vector2( 0, -21 )
 shape = SubResource( 3 )
 
 [node name="POS_Body" type="Position2D" parent="."]
-position = Vector2( 7, -24 )
+position = Vector2( -7, -24 )
 
 [node name="Shield" type="Sprite" parent="POS_Body"]
 visible = false
@@ -473,11 +473,13 @@ scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 4 )
 offset = Vector2( 0, -9 )
 hframes = 2
+frame = 1
 
 [node name="Pawn_13_Part_Body" type="Sprite" parent="POS_Body"]
 texture = ExtResource( 4 )
 offset = Vector2( 0, -9 )
 hframes = 2
+frame = 1
 
 [node name="POS_Head" type="Position2D" parent="POS_Body/Pawn_13_Part_Body"]
 position = Vector2( 0, -16 )

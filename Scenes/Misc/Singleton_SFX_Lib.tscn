@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
@@ -56,8 +56,10 @@
 [ext_resource path="res://SFX/Moving/Jumping/sfx_movement_jump19_landing.wav" type="AudioStream" id=54]
 [ext_resource path="res://SFX/Weapons/SFX_W_042_Thump_01.wav" type="AudioStream" id=55]
 [ext_resource path="res://SFX/Weapons/SFX_W_000_click_02.wav" type="AudioStream" id=56]
-[ext_resource path="res://SFX/FX/,SFX_FX_001_ObjHit.wav" type="AudioStream" id=57]
+[ext_resource path="res://SFX/FX/SFX_FX_001_ObjHit.wav" type="AudioStream" id=57]
 [ext_resource path="res://SFX/Weapons/SFX_W_005_Laser_01.wav" type="AudioStream" id=58]
+[ext_resource path="res://SFX/Weapons/SFX_W_006_Melee_01.wav" type="AudioStream" id=59]
+[ext_resource path="res://SFX/Weapons/SFX_W_019_Build_Up_01.wav" type="AudioStream" id=60]
 
 [node name="SFX_Lib" type="Node2D"]
 position = Vector2( 960, 540 )
@@ -277,10 +279,18 @@ bus = "SFX"
 
 [node name="FX_01_ObjHit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 57 )
-bus = "Quieter"
+bus = "SFX"
 
 [node name="W_05_Laser" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 58 )
+bus = "SFX"
+
+[node name="W_06_Melee" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 59 )
+bus = "SFX"
+
+[node name="W_19_Charge_Up" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 60 )
 bus = "SFX"
 
 [node name="W_42_Thump" type="AudioStreamPlayer2D" parent="."]

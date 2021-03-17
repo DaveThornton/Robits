@@ -16,6 +16,7 @@ var dir = 3
 # warning-ignore:unused_class_variable
 var just_shot = false
 var hits = 0
+var hits_max = 5
 
 func _ready():
 	ready = true

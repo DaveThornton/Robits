@@ -22,6 +22,7 @@ var ammo = 1
 var is_right = false
 var just_shot = false
 var hits = 0
+var hits_max = 5
 
 func _ready():
 	timer_boom.wait_time = time
@@ -32,7 +33,7 @@ func _ready():
 		timer_boom.wait_time = time
 		timer_boom.start()
 
-func _process(_delta):
+func _process(delta):
 	if ammo == 0:
 		time = timer_boom.time_left
 		print(time)
@@ -119,7 +120,7 @@ func _on_Timer_timeout():
 	call_deferred("free")
 
 
-func _on_WeapPick20Grenade_body_entered(body):
-	if hits < 3 :
+func _on_WeapPick20Grenade_body_entered(_body):
+	if hits < hits_max :
 		hits += 1
 		SFX.play("FX_01_ObjHit")

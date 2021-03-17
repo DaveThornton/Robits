@@ -65,6 +65,7 @@ func _physics_process(delta):
 func shoot_j():
 	shoot_pressed = true
 	anim_fire.play("ChargeUp")
+	SFX.play("W_19_Charge_Up")
 
 func shoot():
 	if shoot_pressed_time > 1 && shoot_pressed:
@@ -92,6 +93,7 @@ func shoot():
 
 func shoot_r():
 	anim_fire.play("Chargedown")
+	SFX.stop("W_19_Charge_Up")
 	shoot_pressed = false
 	shoot_pressed_time = 0 
 

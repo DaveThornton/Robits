@@ -308,6 +308,7 @@ anims/Stun = SubResource( 11 )
 
 [node name="Pawn_08_Part_Face" type="Sprite" parent="."]
 position = Vector2( 0, -8 )
+rotation = 0.872665
 texture = ExtResource( 3 )
 hframes = 4
 frame = 2

@@ -16,6 +16,7 @@ var frame = 0
 # warning-ignore:unused_class_variable
 var just_shot = false
 var hits = 0
+var hits_max = 5
 
 func _ready():
 	sprite.frame = frame
@@ -49,7 +50,7 @@ func _on_Des_Timer_timeout():
 	call_deferred("free")
 
 func _on_WeapPick40RPG_body_entered(body):
-	if hits < 3 :
+	if hits < hits_max :
 		hits += 1
 		SFX.play("FX_01_ObjHit")
 	if body.get_groups().has("player"):

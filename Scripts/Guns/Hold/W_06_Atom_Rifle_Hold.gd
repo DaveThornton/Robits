@@ -74,6 +74,7 @@ func shoot_j():
 #					melee()
 					can_shoot = false
 					anim_fire.play("Melee")
+					SFX.play("W_06_Melee")
 					melee_timer.start()
 		else:
 			SFX.play("Laser_Empty")

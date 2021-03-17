@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_W_019_Build_Up_01.wav-058474eff4ac661ff0dbe132c0d6868d.sample"
+
+[deps]
+
+source_file="res://SFX/Weapons/SFX_W_019_Build_Up_01.wav"
+dest_files=[ "res://.import/SFX_W_019_Build_Up_01.wav-058474eff4ac661ff0dbe132c0d6868d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

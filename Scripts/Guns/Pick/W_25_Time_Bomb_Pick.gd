@@ -21,6 +21,7 @@ var ammo = 1
 var is_right = false
 var just_shot = false
 var hits = 0 
+var hits_max = 5
 
 func _ready():
 	if armed:
@@ -111,7 +112,7 @@ func _on_Timer_timeout():
 	call_deferred("free")
 
 
-func _on_W_24_TNT_Pick_body_entered(body):
-	if hits < 3 :
+func _on_W_24_TNT_Pick_body_entered(_body):
+	if hits < hits_max :
 		hits += 1
 		SFX.play("FX_01_ObjHit")

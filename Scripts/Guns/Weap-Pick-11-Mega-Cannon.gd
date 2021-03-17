@@ -15,6 +15,7 @@ var dir = 3
 # warning-ignore:unused_class_variable
 var just_shot = false
 var hits = 0
+var hits_max = 5
 
 func _ready():
 	ready = true
@@ -41,7 +42,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 #warning-ignore:unused_argument
 #warning-ignore:unused_argument
 func _on_WeapPick11MegaCannon_body_shape_entered(body_id, body, body_shape, local_shape):
-	if hits < 3 :
+	if hits < hits_max :
 		hits += 1
 		SFX.play("FX_01_ObjHit")
 	if body.get_groups().has("player"):

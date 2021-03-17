@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Pawns/Pawn_16/Parts/Pawn_16_Head.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Pawns/Pawn_16/Parts/Pawn_16_Body.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Pawns/Pawn_16_Parts/Pawn_16_Pic.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Pawns/Pawn_16/Parts/Pawn_16_Part_Arm.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=7]
+
+
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 16.0
+height = 6.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 4.0
+height = 30.0
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 1054
+script = ExtResource( 3 )
+
+[node name="Timers" parent="." instance=ExtResource( 7 )]
+
+[node name="RayCasts" type="Node2D" parent="."]
+
+[node name="Pawn_16_Head" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -37 )
+
+[node name="Pawn_16_Part_Arm" parent="Pawn_16_Head" instance=ExtResource( 4 )]
+
+[node name="Pawn_16_Body" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -30 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -20 )
+rotation = 1.5708
+shape = SubResource( 2 )
