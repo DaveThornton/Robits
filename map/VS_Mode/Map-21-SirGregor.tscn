@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Guns/Pick/W_42_G-Launcher_Pick.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=2]
@@ -17,15 +17,6 @@
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Guns/Pick/W_24_TNT_Pick.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Guns/Pick/W_03_Sniper_Pick.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Guns/Pick/W_04_M16_Pick.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Guns/Pick/W_19-Rail_Gun_Pick.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Pawns/Pawn_16/Parts/Pawn_16_Body.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Scenes/Pawns/Pawn_16/Pawn_16_Pic.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Scenes/Pawns/Pawn_17/Pawn_17_Pic.tscn" type="PackedScene" id=26]
 
 [node name="Map-01-Disputed" type="Node2D"]
 script = ExtResource( 10 )
@@ -192,33 +183,6 @@ position = Vector2( 1180, 720 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
-[node name="Weap-Pick-02-Ak-47" parent="Power_Ups" instance=ExtResource( 20 )]
-position = Vector2( 660, 750 )
-
-[node name="Weap-Pick-03-Sniper" parent="Power_Ups" instance=ExtResource( 19 )]
-position = Vector2( 710, 740 )
-
-[node name="Weap-Pick-04-M_16" parent="Power_Ups" instance=ExtResource( 21 )]
-position = Vector2( 768.836, 740.63 )
-
-[node name="W_05_Laser_Assault_Pick" parent="Power_Ups" instance=ExtResource( 18 )]
-position = Vector2( 820, 740 )
-
-[node name="W_06_Atom_Rifle_Pick" parent="Power_Ups" instance=ExtResource( 22 )]
-position = Vector2( 890, 740 )
-
-[node name="Weap-Pick-03-Sniper2" parent="Power_Ups" instance=ExtResource( 23 )]
-position = Vector2( 930, 630 )
-
-[node name="Weap-Pick-03-Sniper3" parent="Power_Ups" instance=ExtResource( 23 )]
-position = Vector2( 890, 840 )
-
-[node name="Pawn_16_Body" parent="Power_Ups" instance=ExtResource( 24 )]
-position = Vector2( 670, 555 )
-
-[node name="KinematicBody2D" parent="Power_Ups/Pawn_16_Body" instance=ExtResource( 25 )]
-position = Vector2( 260, 25 )
-
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
@@ -285,6 +249,3 @@ body_1 = ExtResource( 16 )
 [node name="RigidBody_Spawner_Small6" parent="Map_parts/Ridged_Body_Spawners" instance=ExtResource( 13 )]
 position = Vector2( 670, 670 )
 body_2 = ExtResource( 17 )
-
-[node name="Pawn_17" parent="." instance=ExtResource( 26 )]
-position = Vector2( 1070, 720 )

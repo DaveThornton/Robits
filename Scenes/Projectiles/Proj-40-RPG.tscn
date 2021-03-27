@@ -62,6 +62,6 @@ anims/fire = SubResource( 2 )
 position = Vector2( -15, 0 )
 enabled = true
 cast_to = Vector2( 40, 0 )
-collision_mask = 24
+collision_mask = 522
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

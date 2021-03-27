@@ -28,7 +28,7 @@ func look(_pos: int, _right: bool):
 			anim_dir.play("Right_Down")
 			return
 		elif _pos == 5:
-			anim_dir.play("Down")
+			anim_dir.play("Down_Right")
 	else:
 		if _pos == 1:
 			anim_dir.play("Up_Left")
@@ -47,11 +47,11 @@ func look(_pos: int, _right: bool):
 
 func play_eye(_num:int):
 	if _num == 0:
-#		if anim_eye.current_animation != "Idle":
 		anim_eye.play("Idle")
 	elif _num == 1:
-#		if anim_eye.current_animation != "Stun":
-		anim_eye.play("Stun")
+		anim_eye.play("Wink")
+	elif _num == 2:
+		anim_eye.play("Blink")
 
 func shield_up():
 	shield.visible = true

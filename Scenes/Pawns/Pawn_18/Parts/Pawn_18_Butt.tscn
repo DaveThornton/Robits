@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Pawns/Pawn_18/Pawn_18_Butt.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Pawns/Pawn_18_Parts/Pawn_18_Butt.gd" type="Script" id=2]
+
+[node name="Pawn_18_Butt" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Pawn_18_Shield" type="Sprite" parent="."]
+visible = false
+position = Vector2( -10, 8 )
+texture = ExtResource( 1 )
+hframes = 2
+frame = 1
+
+[node name="Pawn_18_Butt" type="Sprite" parent="."]
+position = Vector2( -10, 8 )
+texture = ExtResource( 1 )
+hframes = 2

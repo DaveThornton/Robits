@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_17/Pawn_17_Pic.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Menus/Parts/Scripts/M20-Robit_Preview_01.gd" type="Script" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_13/Pawn_13_Pic.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Pawns/Pawn_14/Pawn_14_Pic.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Pawns/Pawn_15/Pawn_15_Pic.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Pawns/Pawn_18/Pawn_18_Pic.tscn" type="PackedScene" id=19]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -74,7 +75,6 @@ script = ExtResource( 2 )
 position = Vector2( 0, -200 )
 frames = SubResource( 11 )
 animation = "1"
-frame = 8
 playing = true
 
 [node name="Pawn_01_Pic" parent="." instance=ExtResource( 4 )]
@@ -153,4 +153,9 @@ scale = Vector2( 4.5, 4.5 )
 [node name="Pawn_15_Pic" parent="." instance=ExtResource( 18 )]
 visible = false
 position = Vector2( 30, -40 )
+scale = Vector2( 4.5, 4.5 )
+
+[node name="Pawn_18_Pic" parent="." instance=ExtResource( 19 )]
+visible = false
+position = Vector2( 0, -126 )
 scale = Vector2( 4.5, 4.5 )

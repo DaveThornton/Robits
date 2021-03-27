@@ -1,19 +1,24 @@
 extends KinematicBody2D
 
-onready var head = $Pawn_16_Head
-onready var arm = $Pawn_16_Head/Pawn_16_Part_Arm
-onready var legs = $Pawn_16_Body
+onready var head = $Body/POS_Head/Pawn_18_Head
+onready var head_pos = $Body/POS_Head
+onready var butt = $Body/Pawn_18_Butt
+onready var my_body = $Body
+onready var arm = $Body/POS_Arm/Pawn_18_Arm
+onready var legf = $Body/Pawn_18_Legs_F
+onready var legb = $Body/Pawn_18_Legs_B
+onready var legfs = $Body/Pawn_18_Legs_F_Shield
+onready var legbs = $Body/Pawn_18_Legs_B_Shield
+onready var shield = $Body/Shield
 onready var anim = $AnimationPlayer
-onready var gun_pos = $Pawn_16_Head/Pawn_16_Part_Arm/POS_Gun
+onready var gun_pos = $Body/POS_Arm/Pawn_18_Arm/POS_Gun
 
 onready var ray_up = $Raycasts/Up
-onready var ray_down_l = $Raycasts/Down_L
-onready var ray_down_c = $Raycasts/Down_C
+onready var ray_down_l = $Raycasts/Down_L 
 onready var ray_down_r = $Raycasts/Down_R
 
-onready var body1 = $"CollisionShape2D-Stand"
-onready var ladder_l = $"Ladder_Area/CollisionShape2D-L"
-onready var ladder_r = $"Ladder_Area/CollisionShape2D-R"
+onready var body1 = $CollisionShape2D_Up
+onready var body2 = $CollisionShape2D_Down
 
 onready var knockback_timer = $Timers/Knock_Back
 onready var shield_hit_timer = $Timers/Shield_Hit
@@ -37,29 +42,29 @@ var vel = Vector2()
 var grav = 8
 var terminal_vel = 5
 
-var max_x_speed = 100
+var max_x_speed = 300
 var current_x_speed = 0
 
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed: = false
 var can_jump = true
-var max_air_jump_power = 5
-var min_air_jump_power = 5
+var max_air_jump_power = 4
+var min_air_jump_power = 2
 var air_jump_count = 0
-var max_jump_power = 15
+var max_jump_power = 7
 var min_jump_power = 2
 var head_room = 0
 var ladder_count = [] #shouldnt be here??!!??
 
 #--------------------------------------------------------------------NRG--------
-var nrg_max = 125
-var nrg = 125
-var last_nrg = 125
-var nrg_regen_rate = 8
-var nrg_regen_max = 45
-var nrg_default_regen_rate = 8
-var nrg_default_regen_max = 45
-var light_on_nrg = 44
+var nrg_max = 90
+var nrg = 90
+var last_nrg = 90
+var nrg_regen_rate = 5
+var nrg_regen_max = 40
+var nrg_default_regen_rate = 4
+var nrg_default_regen_max = 40
+var light_on_nrg = 39
 
 var can_move = true
 var is_right = true
@@ -146,12 +151,19 @@ func _process(delta):
 			_set_new_color(_pri_color, _sec_color)
 			_hit_time = 0.0
 			_im_hit = false
+			
+	
+	if is_right:
+		my_body.scale.x = 1
+	else:
+		my_body.scale.x = -1
 
 func _physics_process(delta):
 	if on_floor:
 		vel.y = vel.y / 1.1
 	if vel.y > terminal_vel:
 		vel.y = terminal_vel
+
 	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
 	var movement = Vector2(0, ((vel.y + (grav * int(!on_floor)) * delta) + head_room) * int(!on_ladder))# + (map_movement * delta)
 	vel = movement
@@ -170,15 +182,14 @@ func move_x(_moving, _right):
 					current_x_speed = clamp(current_x_speed, -max_x_speed / 4 , max_x_speed / 4)
 				else:
 					if _right:
-						current_x_speed += max_x_speed / 4 * speed_power_up #* delta
+						current_x_speed += max_x_speed / 5 * speed_power_up #* delta
 					else:
-						current_x_speed -= max_x_speed / 4 * speed_power_up #* delta
+						current_x_speed += -max_x_speed / 5 * speed_power_up #* delta
 			else:
-				current_x_speed = 0
-#				if current_x_speed < 4 && current_x_speed > -4 || on_ladder:
-#					current_x_speed = 0
-#				else:
-#					current_x_speed -= current_x_speed / 5
+				if current_x_speed < 40 && current_x_speed > -40 || on_ladder:
+					current_x_speed = 0
+				else:
+					current_x_speed -= current_x_speed / 5
 		else:
 			if _moving:
 				if is_down:
@@ -204,23 +215,28 @@ func move_x(_moving, _right):
 			current_x_speed -= current_x_speed / 10
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
+##------------------------------------------------------------------------[Jump]
 func jump(down_input, left_input, right_input):
 	if can_move:
 		if down_input && on_floor && !left_input && !right_input:
 			SFX.play("Move_Jump_08")
 			vel.y += 1.5
-		if !is_jump_pressed && on_floor && !down_input:
-			SFX.play("Move_Jump_01")
-			vel.y = -max_jump_power * jump_power_up
-		is_jump_pressed = true
-		on_ladder = false
+			self.position.y += 3
 
-func jump_j(_down_input, _left_input, _right_input):
+func jump_j(down_input, left_input, right_input):
 	if can_move:
-		if _down_input && on_floor && !_left_input && !_right_input:
+		if down_input && on_floor && !left_input && !right_input:
 			SFX.play("Move_Jump_08")
 			vel.y += 1.5
-			self.position.y += 5
+			self.position.y += 3
+		elif !is_jump_pressed && on_floor:# && !down_input:
+			SFX.play("Move_Jump_01")
+			vel.y = -max_jump_power * jump_power_up
+		if on_floor:
+			is_jump_pressed = false
+		else:
+			is_jump_pressed = true
+		on_ladder = false
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
@@ -288,7 +304,7 @@ func let_go():
 		is_holding = false
 		if my_gun != null:
 			my_gun.drop()
-		my_gun = null
+			my_gun = null
 
 func pick_up():
 	SFX.play("Blip_04")
@@ -304,8 +320,7 @@ func no_gun():
 	if is_holding == true:
 		take_ammo = false
 		is_holding = false
-		if my_gun != null:
-			my_gun = null
+		my_gun = null
 
 ##-----------------------------------------------------------------------[Equip]
 func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
@@ -313,8 +328,9 @@ func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
 	gun_pos.add_child(g)
 	g.init(_ammo_pick_up, player, _time_left, _just_shot)
 	take_ammo = g.take_ammo
-	my_gun = g
-	is_holding = true
+	if g != null:
+		my_gun = g
+		is_holding = true
 
 func equip_start_weap():
 	var g = Equipment.get_weap_hold(0).instance()
@@ -362,6 +378,7 @@ func nrg_update():
 
 func put_shield_up(_how_long):
 	is_shield_up = true
+	shield.visible = true
 	if _how_long <= 0:
 		shield_up_timer.wait_time = 10
 	else:
@@ -397,10 +414,12 @@ func _test_headroom():
 		head_room = 0
 
 func _is_on_floor():
-	if ray_down_r.is_colliding() || ray_down_l.is_colliding() || ray_down_c.is_colliding():
-		if !on_floor: # && !is_jump_pressed:
-			SFX.play("Move_Jump_19_Land")
+#	if !is_jump_pressed:
+	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
 		on_floor = true
+#		if !on_floor && !is_jump_pressed:
+#			SFX.play("Move_Jump_19_Land")
+#			on_floor = true
 	else :
 		on_floor = false
 
@@ -474,7 +493,8 @@ func add_ammo(_ammo):
 			my_gun.add_ammo(_ammo)
 
 ##-------------------------------------------------------------------[Animation]
-func anim_update(left_input, right_input, up_input, down_input, _jump_input, hold_input, delta):
+# warning-ignore:unused_argument
+func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
 	if can_move:
 		if !down_input && is_down:
 			is_down = false
@@ -506,15 +526,6 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 			else:
 				_anim_jump()
 		else:# no hold input
-			if on_ladder:
-				ray_down_l.enabled = false
-#				ray_down_c.enabled = false
-				ray_down_r.enabled = false
-#				self.collision_mask = 67222
-			else:
-				ray_down_l.enabled = true
-#				ray_down_c.enabled = true
-				ray_down_r.enabled = true
 			if is_down:
 				shoot_spot = 6
 				if down_input && !left_input && !right_input:
@@ -585,7 +596,6 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 							on_ladder = true
 							self.position.y -= ladder_speed * delta
 							_anim_ladder_move()
-							shoot_spot = 1
 						else:
 							shoot_spot = 1
 							_anim_jump()
@@ -623,153 +633,168 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 							_anim_jump()
 
 func _anim_idle():
-	legs.play(1)
-	if is_right:
-		_body(2)
-		anim.play("Idle")
-	else:
-		_body(1)
-		anim.play("Idle")
+	new_anim = "Idle"
+	head.play("On")
+	_body(1)
+#	legs_right(is_right)
 
 func _anim_run():
-#	legs.run(is_right)
-	if is_right:
-		_body(2)
-		legs.play(2)
-		anim.play("Idle")
-	else:
-		_body(1)
-		legs.play(3)
-		anim.play("Idle")
+	new_anim = "Run"
+	head.play("On")
+	_body(1)
+#	legs_right(is_right)
 
 func _anim_jump():
-	anim.play("Idle")
+	if vel.y < 0:
+		new_anim = "Jump"
+	elif vel.y > 0:
+		new_anim = "Fall"
+	head.play("Flash")
+	_body(1)
+#	legs_right(is_right)
 
 func _anim_prone_idle():
-	legs.play(4)
-	_body(3)
-	anim.play("Crouch")
+	_body(2)
+	if is_right:
+		new_anim = "Prone"
+	else:
+		new_anim = "Prone"
+	head.play("On")
 
 func _anim_prone_crawl():
-	legs.play(5)
-	_body(3)
-	anim.play("Crouch")
+	_body(2)
+	if is_right:
+		new_anim = "Crawl"
+	else:
+		new_anim = "Crawl"
+	head.play("On")
 
 func _anim_stun():
-	head.play_eye(1)
-	head.look(1, is_right)
-	legs.play(7)
+	print("make stun animation pawn 18")
 	if is_right:
-		_body(2)
-		anim.play("Right_Stun")
+		_body(1)
+		new_anim = "Stun-Right"
 	else:
 		_body(1)
-		anim.play("Left_Stun")
+		new_anim = "Stun-Left"
+	head.play("Stun")
 
 func _anim_Knock():
+	print("make Knock back animation pawn 18")
 	if is_right:
-		_body(2)
+		_body(1)
 		new_anim = "Right"
 	else:
 		_body(1)
 		new_anim = "Left"
+	head.play("Stun")
 
 func _anim_ladder_move():
-#	_body(1)
-	print("there should be no ladders sucka")
+	print("make ladder animation pawn 18")
+	_body(1)
+	new_anim = "Ladder_Move"
+	head.play("Up")
 
 func _anim_ladder_right():
-	_body(2)
-	print("there should be no ladders sucka")
+#	print("make ladder animation pawn 01")
+	_body(1)
+#	hip.stop()
+	new_anim = "Ladder_Right"
+	head.play("On")
 
 func _anim_ladder_left():
+#	print("make ladder animation pawn 01")
 	_body(1)
-	print("there should be no ladders sucka")
+#	hip.stop()
+	new_anim = "Ladder_Left"
+	head.play("On")
 
 func _set_gun_dir():
-	if can_move:
-		arm.is_right(is_right)
-		head.look(shoot_spot, is_right)
-		if is_right:
-			if shoot_spot == 3:
-	#			head.rotation_degrees = 0
-				arm.rotation_degrees = 0
-				arm.bend(2)
-			elif shoot_spot == 1:
-	#			head.rotation_degrees = -43
-				arm.rotation_degrees = -88
-				arm.bend(2)
-			elif shoot_spot == 2:
-	#			head.rotation_degrees = -23
-				arm.rotation_degrees = -45
-				arm.bend(2)
-			elif shoot_spot == 4:
-	#			head.rotation_degrees = 18
-				arm.rotation_degrees = 45
-				arm.bend(3)
-			elif shoot_spot == 5:
-	#			head.rotation_degrees = 43
-				arm.rotation_degrees = 88
-				arm.bend(3)
-			elif shoot_spot == 6:
-				head.rotation_degrees = 0
-				arm.rotation_degrees = 0
-				arm.bend(2)
-			if my_gun != null:
-				arm.rotation_degrees -= my_gun.walk
-		else:
-			if shoot_spot == 3:
-	#			head.rotation_degrees = 0
-				arm.rotation_degrees = 0
-				arm.bend(2)
-			elif shoot_spot == 1:
-	#			head.rotation_degrees = 43
-				arm.rotation_degrees = 88
-				arm.bend(2)
-			elif shoot_spot == 2:
-	#			head.rotation_degrees = 23
-				arm.rotation_degrees = 45
-				arm.bend(2)
-			elif shoot_spot == 4:
-	#			head.rotation_degrees = -18
-				arm.rotation_degrees = -45
-				arm.bend(3)
-			elif shoot_spot == 5:
-	#			head.rotation_degrees = -43
-				arm.rotation_degrees = -88
-				arm.bend(3)
-			elif shoot_spot == 6:
-	#			head.rotation_degrees = 0
-				arm.rotation_degrees = 0
-				arm.bend(2)
-			if my_gun != null:
-				arm.rotation_degrees += my_gun.walk
+#	arm.is_right(is_right)
+#	head.is_right(is_right)
+#	if is_right:
+	if shoot_spot == 3:
+		arm.rotation_degrees = 0
+		arm.bend(2)
+	elif shoot_spot == 1:
+		arm.rotation_degrees = -85
+		arm.bend(3)
+	elif shoot_spot == 2:
+		arm.rotation_degrees = -45
+		arm.bend(3)
+	elif shoot_spot == 4:
+		arm.rotation_degrees = 35
+		arm.bend(3)
+	elif shoot_spot == 5:
+		arm.rotation_degrees = 85
+		arm.bend(3)
+	elif shoot_spot == 6:
+		arm.rotation_degrees = 0
+		arm.bend(3)
+	
+	head_pos.rotation_degrees = arm.rotation_degrees
+	
+	if my_gun != null:
+		arm.rotation_degrees -= my_gun.walk
+#	else:
+#		if shoot_spot == 3:
+#			arm.rotation_degrees = head.rotation_degrees
+#			arm.bend(2)
+#		elif shoot_spot == 1:
+#			arm.rotation_degrees = 85
+#			arm.bend(3)
+#		elif shoot_spot == 2:
+#			arm.rotation_degrees = 45
+#			arm.bend(3)
+#		elif shoot_spot == 4:
+#			arm.rotation_degrees = -35
+#			arm.bend(3)
+#		elif shoot_spot == 5:
+#			arm.rotation_degrees = -85
+#			arm.bend(3)
+#		elif shoot_spot == 6:
+#			arm.rotation_degrees = 0
+#			arm.bend(3)
+#		if my_gun != null:
+#			arm.rotation_degrees += my_gun.walk
 
 func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
-	pass
-#	print("fix body in pawn 13")
-#	if _num == 1:
-#		body1.disabled = false
-#		ladder_l.disabled = false
-#		ladder_r.disabled = true
-#	elif _num == 2:
-#		body1.disabled = false
-#		ladder_l.disabled = true
-#		ladder_r.disabled = false
-#	elif _num == 3:
-#		body1.disabled = true
-#		ladder_l.disabled = false
-#		ladder_r.disabled = false
+	if _num == 1:
+		body1.disabled = false
+		body2.disabled = true
+	elif _num == 2:
+		body1.disabled = true
+		body2.disabled = false
+	else: 
+		print("wrong body call in pawn 18")
 
 func shield_up():
 	head.shield_up()
-	legs.shield_up()
+	butt.shield_up()
+	legbs.visible = true
+	legfs.visible = true
+	shield.visible = true
 
 func shield_down():
 	head.shield_down()
-	legs.shield_down()
+	butt.shield_down()
+	legbs.visible = false
+	legfs.visible = false
+	shield.visible = false
+
+#func legs_right(_is_right):
+#	if _is_right:
+#		legf.scale.x = 1
+#		legb.scale.x = 1
+#		legfs.scale.x = 1
+#		legbs.scale.x = 1
+#	else:
+#		legf.scale.x = -1
+#		legb.scale.x = -1
+#		legfs.scale.x = -1
+#		legbs.scale.x = -1
 
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
@@ -779,9 +804,16 @@ func _set_color():
 
 func _set_new_color(_pri, _sec):
 	head.color(_pri, _sec)
-	legs.color(_pri, _sec)
+	butt.color(_pri, _sec)
 	arm.color(_pri, _sec)
+	my_body.self_modulate = _pri
+	legf.self_modulate = _pri
+	legb.self_modulate = _pri
+	legfs.self_modulate = _sec
+	legbs.self_modulate = _sec
+	shield.self_modulate = _sec
 ##--------------------------------------------------------------------[Time Out]
+
 func shielduptimer():
 	shield_down()
 	is_shield_up = false
@@ -808,7 +840,7 @@ func knockbacktimer():
 	knocked_back = Vector2(0, 0)
 
 func jumptimer():
-	print("jump timer timed out dont know why in pawn 13 player stats says its pawn ",Player_Stats.get_pawn_num(player))
+	print("jump timer timed out dont know why in pawn 01 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 ##-------------------------------------------------------------[The in and outs]
 
 func _on_Pick_Up_Area_body_entered(body):

@@ -298,7 +298,7 @@ script = ExtResource( 4 )
 texture = ExtResource( 2 )
 vframes = 6
 hframes = 8
-frame = 16
+frame = 9
 
 [node name="Pawn_16_Shield" type="Sprite" parent="."]
 visible = false
@@ -312,13 +312,12 @@ frame = 38
 texture = ExtResource( 3 )
 vframes = 6
 hframes = 8
-frame = 16
 
 [node name="Pawn_16_Front_Legs" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 vframes = 6
 hframes = 8
-frame = 16
+frame = 9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crawl = SubResource( 3 )
@@ -330,13 +329,13 @@ anims/Stun = SubResource( 7 )
 anims/Walk = SubResource( 2 )
 
 [node name="Ray_Down_Right" type="RayCast2D" parent="."]
-position = Vector2( -2, 15 )
+position = Vector2( 25, 16 )
 enabled = true
-cast_to = Vector2( -10, 6 )
+cast_to = Vector2( -50, 6 )
 collision_mask = 3102
 
 [node name="Ray_Down_Left" type="RayCast2D" parent="."]
-position = Vector2( 2, 15 )
+position = Vector2( -25, 16 )
 enabled = true
-cast_to = Vector2( 10, 6 )
+cast_to = Vector2( 50, 6 )
 collision_mask = 3102

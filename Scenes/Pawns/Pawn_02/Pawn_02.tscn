@@ -2372,6 +2372,7 @@ script = ExtResource( 4 )
 [node name="Timers" parent="." instance=ExtResource( 5 )]
 
 [node name="Raycasts" type="Node2D" parent="."]
+visible = false
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
 position = Vector2( 27, -1 )
@@ -2455,11 +2456,13 @@ front = false
 step_start_forward = false
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -18 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -12 )
 rotation = 1.5708
 shape = SubResource( 2 )

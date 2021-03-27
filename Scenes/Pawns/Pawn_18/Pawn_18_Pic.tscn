@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/Pawns/Pawn_18/Pawn_18_Head.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Pawns/Pawn_18/Pawn_18_Part_Arm.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Pawns/Pawn_18_Parts/Pawn_18_Pic.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Pawns/Pawn_18/Pawn_18_Mid_Body.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Pawns/Pawn_18/Pawn_18_Mid_Leg_Bot.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Pawns/Pawn_18/Pawn_18_Mid_Leg_Top.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Pawns/Pawn_18/Pawn_18_Butt.png" type="Texture" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Run"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pawn_18_Mid_Leg_Bot:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pawn_18_Mid_Leg_Top:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pawn_18_Mid_Body:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pawn_18_Butt:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -19, 11 ), Vector2( -19, 10 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pawn_18_Butt:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 6.13578 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Pawn_18_Part_Head:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 9, -17 ), Vector2( 10, -16 ) ]
+}
+
+[node name="Pawn_18_Pic" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Pawn_18_Butt" type="Sprite" parent="."]
+position = Vector2( -19, 11 )
+texture = ExtResource( 8 )
+hframes = 2
+
+[node name="Pawn_18_Mid_Leg_Bot" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+hframes = 24
+
+[node name="Pawn_18_Mid_Body" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+hframes = 24
+
+[node name="Pawn_18_Part_Arm" type="Sprite" parent="Pawn_18_Mid_Body"]
+position = Vector2( 15, -2 )
+texture = ExtResource( 2 )
+hframes = 3
+frame = 1
+
+[node name="Pawn_18_Mid_Leg_Top" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+hframes = 24
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Run = SubResource( 1 )
+
+[node name="Pawn_18_Part_Head" type="Sprite" parent="."]
+position = Vector2( 9, -17 )
+texture = ExtResource( 1 )
+hframes = 5
+
+[node name="Pawn_18_Part_Head_Eye" type="Sprite" parent="Pawn_18_Part_Head"]
+texture = ExtResource( 1 )
+hframes = 5
+frame = 1
+
+[node name="Pawn_18_Part_Head_Mouth" type="Sprite" parent="Pawn_18_Part_Head"]
+texture = ExtResource( 1 )
+hframes = 5
+frame = 2

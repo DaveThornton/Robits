@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var pawn_01 = $Pawn_01_Pic
-onready var pawn_02 = $Pawn_02_Pic
+onready var pawn_02 = $Pawn_18_Pic
 onready var pawn_03 = $Pawn_03_Pic
 onready var pawn_04 = $Pawn_17_Pic
 onready var pawn_05 = $Pawn_05_Pic

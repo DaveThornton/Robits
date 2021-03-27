@@ -3,10 +3,11 @@ extends Node2D
 onready var winners = $Winners_Dont_use_Drugs
 onready var recycle = $Recycle_it_Dont_trash_it
 onready var company = $torpedohousegames
+onready var dead = $Dead_Weight_Dave_inc_02
 onready var robits = $"ROBITS-Logo-04"
 onready var godot = $"Godot-Logo-02"
 
-var how_many_screens = 4
+var how_many_screens = 5
 
 func screen(_num):
 	all_out()
@@ -20,6 +21,8 @@ func screen(_num):
 		recycle.visible = true
 	elif _num == 4:
 		godot.visible = true
+	elif _num == 5:
+		dead.visible = true
 	else:
 		print("error in splash screen part invalid screen number")
 
@@ -29,4 +32,5 @@ func all_out():
 	company.visible = false
 	robits.visible = false
 	godot.visible = false
+	dead.visible = false
 
