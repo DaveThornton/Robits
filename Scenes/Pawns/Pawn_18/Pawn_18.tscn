@@ -12,22 +12,22 @@
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scripts/Pawns/Pawn_18.gd" type="Script" id=11]
 
-[sub_resource type="CapsuleShape2D" id=17]
+[sub_resource type="CapsuleShape2D" id=1]
 height = 26.0
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 9.99995
 height = 30.0001
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 25.0
 height = 28.0
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 4.0
 height = 52.0
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=5]
 resource_name = "Crawl"
 length = 0.8
 loop = true
@@ -176,7 +176,7 @@ tracks/11/keys = {
 "values": [ Vector2( 0, -21 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=6]
 resource_name = "Fall"
 length = 0.8
 loop = true
@@ -325,7 +325,7 @@ tracks/11/keys = {
 "values": [ Vector2( 0, -47 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=7]
 resource_name = "Idle"
 length = 5.0
 loop = true
@@ -474,7 +474,7 @@ tracks/11/keys = {
 "values": [ Vector2( 0, -47 ) ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=8]
 resource_name = "Jump"
 length = 1.5
 loop = true
@@ -624,7 +624,7 @@ tracks/11/keys = {
 "values": [ Vector2( 0, -47 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=9]
 resource_name = "Prone"
 length = 5.0
 loop = true
@@ -773,7 +773,7 @@ tracks/11/keys = {
 "values": [ Vector2( 0, -21 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=10]
 resource_name = "Run"
 length = 0.4
 loop = true
@@ -955,7 +955,6 @@ cast_to = Vector2( 0, -5 )
 collision_mask = 10
 
 [node name="Body" type="Sprite" parent="."]
-visible = false
 position = Vector2( 0, -24 )
 texture = ExtResource( 1 )
 hframes = 24
@@ -1015,12 +1014,12 @@ frame = 22
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -23 )
-shape = SubResource( 17 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -10 )
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
@@ -1032,7 +1031,7 @@ collision_mask = 786432
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
 position = Vector2( 0, 6 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
 visible = false
@@ -1042,15 +1041,15 @@ collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
 position = Vector2( 0, 6 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Crawl = SubResource( 19 )
-anims/Fall = SubResource( 22 )
-anims/Idle = SubResource( 18 )
-anims/Jump = SubResource( 23 )
-anims/Prone = SubResource( 21 )
-anims/Run = SubResource( 20 )
+anims/Crawl = SubResource( 5 )
+anims/Fall = SubResource( 6 )
+anims/Idle = SubResource( 7 )
+anims/Jump = SubResource( 8 )
+anims/Prone = SubResource( 9 )
+anims/Run = SubResource( 10 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

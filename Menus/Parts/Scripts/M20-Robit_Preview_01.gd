@@ -7,7 +7,7 @@ onready var pawn_04 = $Pawn_17_Pic
 onready var pawn_05 = $Pawn_05_Pic
 onready var pawn_06 = $Pawn_06_Pic
 onready var pawn_07 = $Pawn_07_Pic
-onready var pawn_08 = $Pawn_08_Pic
+onready var pawn_08 = $Pawn_16_Pic
 onready var pawn_09 = $Pawn_09_Pic
 onready var pawn_10 = $Pawn_10_Pic
 onready var pawn_11 = $Pawn_11_Pic
@@ -15,6 +15,7 @@ onready var pawn_12 = $Pawn_12_Pic
 onready var pawn_13 = $Pawn_13_Pic
 onready var pawn_14 = $Pawn_14_Pic
 onready var pawn_15 = $Pawn_15_Pic
+onready var pawn_rand = $Random_Pawn_Pic
 onready var outline = $AnimatedSprite
 export var player = 1
 
@@ -37,6 +38,7 @@ func _ready():
 	pawn_13.color(_pri, _sec)
 	pawn_14.color(_pri, _sec)
 	pawn_15.color(_pri, _sec)
+	pawn_rand.color(_pri, _sec)
 
 func set_pic(_pawn: int):
 	if _pawn < 17:
@@ -71,6 +73,8 @@ func set_pic(_pawn: int):
 			pawn_14.visible = true
 		elif _pawn == 15:
 			pawn_15.visible = true
+		elif _pawn == 16:
+			pawn_rand.visible = true
 	else:
 		print("error in Robit preview bad pawn number")
 
@@ -90,3 +94,4 @@ func all_off():
 	pawn_13.visible = false
 	pawn_14.visible = false
 	pawn_15.visible = false
+	pawn_rand.visible = false

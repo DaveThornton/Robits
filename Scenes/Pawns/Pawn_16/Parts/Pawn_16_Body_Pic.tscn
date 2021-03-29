@@ -3,7 +3,7 @@
 [ext_resource path="res://Sprites/Pawns/Pawn_16/Pawn_16_Front_Legs.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_16/Pawn_16_Back_Legs.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Pawns/Pawn_16/Pawn_16_Body.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/Pawns/Pawn_16_Parts/Pawn_16_Body.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Pawns/Pawn_16_Parts/Pawn_16_Body_Pic.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Crawl"

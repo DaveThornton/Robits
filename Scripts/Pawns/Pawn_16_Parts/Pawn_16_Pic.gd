@@ -1,16 +1,17 @@
-extends KinematicBody2D
+extends Node2D
+onready var body = $Pawn_16_Body
+onready var head = $Pawn_16_Head
+onready var arm = $Pawn_16_Head/Pawn_16_Part_Arm
+onready var anim = $AnimationPlayer
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	anim.play("Idle")
+	body.play(2)
 
+func init(_Player_num):
+	color(Player_Stats.get_body_color(_Player_num), Player_Stats.get_sec_color(_Player_num))
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func color(_pri, _sec):
+	head.color(_pri, _sec)
+	arm.color(_pri, _sec)
+	body.color(_pri, _sec)

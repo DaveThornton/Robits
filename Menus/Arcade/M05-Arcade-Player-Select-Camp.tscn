@@ -6,7 +6,6 @@
 [ext_resource path="res://Sprites/Menu/Player_Select_8x2.png" type="Texture" id=4]
 [ext_resource path="res://Menus/Parts/M20-Robit_Preview_01.tscn" type="PackedScene" id=5]
 
-
 [node name="M03-Arcade-Mode-Select" type="Node2D"]
 script = ExtResource( 1 )
 camp_map = ExtResource( 2 )
