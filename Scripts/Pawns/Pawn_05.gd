@@ -32,8 +32,8 @@ onready var ladder_count = [] #shouldnt be here??!!??
 
 onready var ray_up_l = $Raycast/Up_L
 onready var ray_up_r = $Raycast/Up_R
-onready var ray_down_l = $Raycast/Down_L 
-onready var ray_down_r = $Raycast/Down_R 
+onready var ray_down_l = $Raycast/Down_L
+onready var ray_down_r = $Raycast/Down_R
 
 var player = 3
 var play_type = 2
@@ -119,7 +119,7 @@ func _ready():
 #	wheel_player.play("Spin_Ground")
 #	face_player.play("Idle")
 #	_set_color()
-	
+
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
 	play_type = _play_type
@@ -158,11 +158,11 @@ func _process(delta):
 	if my_gun != null:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
-		
+
 	elif start_equiped:
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_pos = shoot_spot
-		
+
 	_set_gun_dir()
 	if _im_hit:
 		if _hit_time > 0.1:
@@ -444,8 +444,8 @@ func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
 	if _num == 1:
-		body_shape_01.disabled = false
-		body_shape_02.disabled = true
+		body_shape_01.disabled = true
+		body_shape_02.disabled = false
 		body_shape_03.disabled = true
 		body_shape_04.disabled = true
 		body_shape_05.disabled = true
@@ -457,8 +457,8 @@ func _body_(_num: int):
 		body_shape_05.disabled = true
 	elif _num == 3:
 		body_shape_01.disabled = true
-		body_shape_02.disabled = true
-		body_shape_03.disabled = false
+		body_shape_02.disabled = false
+		body_shape_03.disabled = true
 		body_shape_04.disabled = true
 		body_shape_05.disabled = true
 	elif _num == 4:
@@ -632,7 +632,7 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 				shoot_spot = 1
 			elif down_input && !left_input && !right_input:
 				shoot_spot = 5
-	
+
 	if on_ladder && !up_input && !down_input:
 		if is_right:
 			_anim_ladder_right()
@@ -838,7 +838,7 @@ func stuntimer():
 #	print("stun over in pawm 05")
 	can_move = true
 	head.flash_off()
-	
+
 func jumptimer():
 	print("jump timer timed out dont know why in pawn 05 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 

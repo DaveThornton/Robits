@@ -14,8 +14,13 @@ func set_back(_num):
 	back_blank()
 	backs.get_child(_num).visible = true
 
-func splash(_num):
-	splash_screens.screen(_num)
+func splash(_go, _num):
+	if _go:
+		splash_screens.go()
+		if _num != 0:
+			splash_screens.screen(_num)
+	else:
+		splash_screens.stop()
 
 func back_blank():
 	for b in backs.get_child_count():

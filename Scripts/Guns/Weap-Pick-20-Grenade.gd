@@ -33,12 +33,12 @@ func _ready():
 		timer_boom.wait_time = time
 		timer_boom.start()
 
-func _process(delta):
+func _process(_delta):
 	if ammo == 0:
 		time = timer_boom.time_left
 		print(time)
 		label.set_time(time)
-	
+
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
 	player = _player

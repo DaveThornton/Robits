@@ -1,0 +1,29 @@
+extends Node2D
+
+onready var shield = $Shield_Sprite
+onready var ray_right = $RayCast2D_Going_Right
+onready var ray_left = $RayCast2D_Going_Left
+onready var anim = $AnimationPlayer
+
+var player = 0
+var going_right = true
+var are_right = false
+
+func _ready():
+	pass # Replace with function body.
+
+func _process(_delta):
+	print(get_parent().is_right)
+	going_right = get_parent().is_right
+	if going_right:
+		var _spot = ray_right.get_collision_point()
+		shield.position.x = _spot.position.x
+		if !are_right:
+			are_right = true
+			anim.play("Block_Right")
+	else:
+		var _spot = ray_left.get_collsion_point()
+		shield.position.x = _spot.position.x
+		if are_right:
+			are_right = false
+			anim.play("Block_Left")

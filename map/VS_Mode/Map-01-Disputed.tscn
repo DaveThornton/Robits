@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://map/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -25,7 +25,6 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_20x120-01.tscn" type="PackedScene" id=25]
-[ext_resource path="res://Scenes/Pawns/Pawn_18/Pawn_18_Pic.tscn" type="PackedScene" id=26]
 
 [node name="Map-01-Disputed" type="Node2D"]
 script = ExtResource( 1 )
@@ -365,6 +364,3 @@ my_color = Color( 0.027451, 0.960784, 0.211765, 1 )
 [node name="MP-10-R_Mark_01_06" parent="Map_parts/R-marks" instance=ExtResource( 14 )]
 position = Vector2( 90, 710 )
 my_color = Color( 0.027451, 0.960784, 0.211765, 1 )
-
-[node name="Pawn_18_Pic" parent="." instance=ExtResource( 26 )]
-position = Vector2( 1624, 416 )

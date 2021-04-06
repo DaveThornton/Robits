@@ -1,6 +1,6 @@
 extends Node2D
 
-export(PackedScene) var next_screen 
+export(PackedScene) var next_screen
 
 onready var logo = $Sprite
 onready var timer = $Timer
@@ -25,7 +25,7 @@ func _ready():
 	Player_Stats.reset()
 	HUD.menu_state()
 	FX.set_back(0)
-	FX.splash(0)
+	FX.splash(true,0)
 
 func movement(_player, _dir):
 	if _player == 1:
@@ -91,7 +91,7 @@ func movement(_player, _dir):
 func _next_screen():
 	SFX.play("Menu_Select_01")
 	HUD.load_screen(next_screen)
-	FX.splash(0)
+	FX.splash(false,0)
 	queue_free()
 
 func _on_Timer_timeout():

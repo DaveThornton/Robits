@@ -163,6 +163,7 @@ anims/Right_Stun = SubResource( 12 )
 position = Vector2( 0, -11 )
 rotation = 1.5708
 shape = SubResource( 13 )
+disabled = true
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

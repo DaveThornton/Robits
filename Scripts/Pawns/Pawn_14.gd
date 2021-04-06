@@ -141,7 +141,7 @@ func _process(delta):
 	if my_gun != null:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
-		
+	
 	elif start_equiped:
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_pos = shoot_spot
