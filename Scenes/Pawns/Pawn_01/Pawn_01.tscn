@@ -2796,6 +2796,7 @@ cast_to = Vector2( 0, -5 )
 collision_mask = 10
 
 [node name="Pawn_01-Legs_B_Shield" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -13 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 6 )
@@ -2803,6 +2804,7 @@ hframes = 37
 frame = 16
 
 [node name="Pawn_01-Legs_F_Shield" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -13 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 7 )

@@ -42,3 +42,91 @@ func set_maps(_m01,_m02,_m03,_m04,_m05,_m06,_m07,_m08,_m09,_m10,_m11,_m12,_m13,_
 	s18.frame = _m18
 	s19.frame = _m19
 	s20.frame = _m20
+
+func set_map(_spot, _num):
+	if _spot == 1:
+		s01.frame = _num
+	elif _spot == 2:
+		s02.frame = _num
+	elif _spot == 3:
+		s03.frame = _num
+	elif _spot == 4:
+		s04.frame = _num
+	elif _spot == 5:
+		s05.frame = _num
+	elif _spot == 6:
+		s06.frame = _num
+	elif _spot == 7:
+		s07.frame = _num
+	elif _spot == 8:
+		s08.frame = _num
+	elif _spot == 9:
+		s09.frame = _num
+	elif _spot == 10:
+		s10.frame = _num
+	elif _spot == 11:
+		s11.frame = _num
+	elif _spot == 12:
+		s12.frame = _num
+	elif _spot == 13:
+		s13.frame = _num
+	elif _spot == 14:
+		s14.frame = _num
+	elif _spot == 15:
+		s15.frame = _num
+	elif _spot == 16:
+		s16.frame = _num
+	elif _spot == 17:
+		s17.frame = _num
+	elif _spot == 18:
+		s18.frame = _num
+	elif _spot == 19:
+		s19.frame = _num
+	elif _spot == 20:
+		s20.frame = _num
+	else:
+		print("menu 4x5 map vs error wrong number set_map", _spot, _num)
+
+func return_map_from_spot(_spot):
+	if _spot == 1:
+		return s01.frame
+	elif _spot == 2:
+		return s02.frame
+	elif _spot == 3:
+		return s03.frame
+	elif _spot == 4:
+		return s04.frame
+	elif _spot == 5:
+		return s05.frame
+	elif _spot == 6:
+		return s06.frame
+	elif _spot == 7:
+		return s07.frame
+	elif _spot == 8:
+		return s08.frame
+	elif _spot == 9:
+		return s09.frame
+	elif _spot == 10:
+		return s10.frame
+	elif _spot == 11:
+		return s11.frame
+	elif _spot == 12:
+		return s12.frame
+	elif _spot == 13:
+		return s13.frame
+	elif _spot == 14:
+		return s14.frame
+	elif _spot == 15:
+		return s15.frame
+	elif _spot == 16:
+		return s16.frame
+	elif _spot == 17:
+		return s17.frame
+	elif _spot == 18:
+		return s18.frame
+	elif _spot == 19:
+		return s19.frame
+	elif _spot == 20:
+		return s20.frame
+	else:
+		print("menu 4x5 map vs error wrong number return_map_from_spot")

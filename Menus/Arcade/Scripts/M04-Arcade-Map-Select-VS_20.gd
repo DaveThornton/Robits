@@ -51,7 +51,9 @@ onready var p5_menu = $Menu_5x4_05
 onready var p6_menu = $Menu_5x4_06
 onready var p7_menu = $Menu_5x4_07
 onready var p8_menu = $Menu_5x4_08
+onready var maps_pics = $Menu_5x4_Map
 
+var maps = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]
 var p1_ready = false
 var p2_ready = false
 var p3_ready = false
@@ -63,9 +65,6 @@ var p8_ready = false
 
 var map_array = []
 
-#func _init():
-#	HUD.menu_state()
-
 func _ready():
 	var test2 = HUD.connect("screen_update", self, "menu_check")
 	if test2 != 0:
@@ -75,6 +74,9 @@ func _ready():
 		print("error in arcade map select VS connect input to screen")
 	HUD.menu_state()
 	menu_check()
+	randomize()
+	maps.shuffle()
+	_set_maps()
 
 func _start(_player):
 	_set_ready(_player)
@@ -317,7 +319,7 @@ func _unvote(_player):
 		_remove_from_map_array(p8_menu.get_pos())
 
 func _add_to_map_array(_num):
-	map_array.append(_get_map(_num))
+	map_array.append(_get_map(maps_pics.return_map_from_spot(_num)))
 
 func _remove_from_map_array(_num):
 	map_array.erase(_get_map(_num))
@@ -363,6 +365,46 @@ func _get_map(_num):
 		return map_19
 	elif _num == 20:
 		return map_20
+	elif _num == 21:
+		return map_21
+	elif _num == 22:
+		return map_22
+	elif _num == 23:
+		return map_23
+	elif _num == 24:
+		return map_24
+	elif _num == 25:
+		return map_25
+	elif _num == 26:
+		return map_26
+	elif _num == 27:
+		return map_27
+	elif _num == 28:
+		return map_28
+	elif _num == 29:
+		return map_29
+	elif _num == 30:
+		return map_30
+	elif _num == 31:
+		return map_31
+	elif _num == 32:
+		return map_32
+	elif _num == 33:
+		return map_33
+	elif _num == 34:
+		return map_34
+	elif _num == 35:
+		return map_35
+	elif _num == 36:
+		return map_36
+	elif _num == 37:
+		return map_37
+	elif _num == 38:
+		return map_38
+	elif _num == 39:
+		return map_39
+	elif _num == 40:
+		return map_40
 	else:
 		print("invalid _num on _map_get in Arcade Map Select VS")
 		return map
@@ -426,6 +468,12 @@ func _get_ready_num():
 	if p8_ready:
 		_ready_num += 1
 	return _ready_num
+
+func _set_maps():
+	maps.resize(20)
+	for m in maps.size():
+		maps_pics.set_map( (m + 1) ,maps.pop_front())
+
 
 func menu_check():
 	if Player_Stats.p1["in_play"]:
