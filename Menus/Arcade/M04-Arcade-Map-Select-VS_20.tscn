@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Sprites/Menu/Map_Select_8x4.png" type="Texture" id=1]
 [ext_resource path="res://Menus/Arcade/Scripts/M04-Arcade-Map-Select-VS_20.gd" type="Script" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Menus/Arcade/Parts/menu_4x5_Map_VS.tscn" type="PackedScene" id=25]
 [ext_resource path="res://map/VS_Mode/Map-22-Frank.tscn" type="PackedScene" id=26]
 [ext_resource path="res://map/VS_Mode/Map-21-SirGregor.tscn" type="PackedScene" id=27]
+[ext_resource path="res://map/VS_Mode/Map-23-Template.tscn" type="PackedScene" id=28]
 
 [node name="M04-Arcade-Map-Select-VS" type="Node2D"]
 position = Vector2( 0, 90 )
@@ -54,6 +55,7 @@ map_19 = ExtResource( 12 )
 map_20 = ExtResource( 8 )
 map_21 = ExtResource( 27 )
 map_22 = ExtResource( 26 )
+map_23 = ExtResource( 28 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false

@@ -211,7 +211,7 @@ position = Vector2( 1080, 340 )
 position = Vector2( 1400, 970 )
 
 [node name="Jump_Power_Up8" parent="Power_Ups" instance=ExtResource( 12 )]
-position = Vector2( 940, 770 )
+position = Vector2( 960, 770 )
 
 [node name="Jump_Power_Up9" parent="Power_Ups" instance=ExtResource( 12 )]
 position = Vector2( 550, 1010 )
@@ -266,3 +266,5 @@ position = Vector2( 1016.51, 1127.47 )
 
 [node name="MP-51-Saw" parent="Map_parts" instance=ExtResource( 23 )]
 position = Vector2( 967, 1210 )
+
+[node name="Spawners" type="Node2D" parent="Map_parts"]
