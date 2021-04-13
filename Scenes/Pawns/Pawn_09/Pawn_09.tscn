@@ -9,25 +9,24 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 14.0
-height = 12.0
-
-[sub_resource type="CapsuleShape2D" id=11]
-radius = 16.0
-height = 22.0
+height = 5.64886
 
 [sub_resource type="CapsuleShape2D" id=2]
-height = 32.0
+radius = 17.0
+height = 20.546
 
 [sub_resource type="CapsuleShape2D" id=3]
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 29.9999
 height = 60.0003
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 7.0
 height = 56.0
 
-[sub_resource type="Animation" id=5]
-resource_name = "Left"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Body/Body/POS_Head:position")
 tracks/0/interp = 1
@@ -119,8 +118,7 @@ tracks/7/keys = {
 "values": [ Vector2( -8, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Left_Prone"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Body/Body/POS_Arm:rotation_degrees")
 tracks/0/interp = 1
@@ -204,7 +202,7 @@ tracks/6/keys = {
 "values": [ Vector2( -8, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -298,7 +296,7 @@ tracks/7/keys = {
 "values": [ Vector2( -8, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Body/Body/POS_Head:position")
 tracks/0/interp = 1
@@ -390,7 +388,7 @@ tracks/7/keys = {
 "values": [ Vector2( 8, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Body/Body/POS_Arm:rotation_degrees")
 tracks/0/interp = 1
@@ -476,8 +474,7 @@ tracks/6/keys = {
 "values": [ Vector2( 8, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "Right_Stun"
+[sub_resource type="Animation" id=11]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -591,42 +588,55 @@ cast_to = Vector2( 0, -5 )
 collision_mask = 2058
 
 [node name="Down_L" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -12, -1 )
+position = Vector2( -14, -1 )
 enabled = true
 cast_to = Vector2( 0, 2 )
+collision_mask = 2078
+
+[node name="Down_L2" type="RayCast2D" parent="Raycasts"]
+position = Vector2( -10, -5 )
+enabled = true
+cast_to = Vector2( -5, 5 )
 collision_mask = 2078
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 12, -1 )
+position = Vector2( 14, -1 )
 enabled = true
 cast_to = Vector2( 0, 2 )
 collision_mask = 2078
 
-[node name="CollisionShape2D-Down" type="CollisionShape2D" parent="."]
+[node name="Down_R2" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 10, -5 )
+enabled = true
+cast_to = Vector2( 5, 5 )
+collision_mask = 2078
+
+[node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -14 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D-Down2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D_Stand" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -27 )
-shape = SubResource( 11 )
-disabled = true
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D_Right" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 10, -27 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="CollisionShape2D_Left" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -10, -27 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="Shield" type="Sprite" parent="."]
 visible = false
 
 [node name="POS_Body" type="Position2D" parent="."]
-position = Vector2( -7, -23 )
+position = Vector2( 7, -23 )
 
 [node name="Body" type="Sprite" parent="POS_Body"]
 self_modulate = Color( 0.588235, 0.588235, 0.588235, 1 )
@@ -655,7 +665,7 @@ collision_mask = 786432
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
 position = Vector2( 1, -29 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
 visible = false
@@ -663,16 +673,16 @@ collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
-position = Vector2( 0, -28 )
-shape = SubResource( 4 )
+position = Vector2( 8, 0 )
+shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Left = SubResource( 5 )
-anims/Left_Prone = SubResource( 6 )
-anims/Left_Stun = SubResource( 7 )
-anims/Right = SubResource( 8 )
-anims/Right_Prone = SubResource( 9 )
-anims/Right_Stun = SubResource( 10 )
+anims/Left = SubResource( 6 )
+anims/Left_Prone = SubResource( 7 )
+anims/Left_Stun = SubResource( 8 )
+anims/Right = SubResource( 9 )
+anims/Right_Prone = SubResource( 10 )
+anims/Right_Stun = SubResource( 11 )
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

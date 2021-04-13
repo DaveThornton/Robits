@@ -1,7 +1,7 @@
 extends Node
 
 var p1 = {
-	my_name = "!!!!", 
+	my_name = "!!!!",
 	continuing = false,
 	can_spawn = true,
 	in_play = false,
@@ -24,7 +24,7 @@ var p1 = {
 }
 
 var p2 = {
-	my_name = "!!!!", 
+	my_name = "!!!!",
 	continuing = false,
 	can_spawn = true,
 	in_play = false,
@@ -47,7 +47,7 @@ var p2 = {
 }
 
 var p3 = {
-	my_name = "!!!!", 
+	my_name = "!!!!",
 	continuing = false,
 	can_spawn = true,
 	in_play = false,
@@ -70,7 +70,7 @@ var p3 = {
 }
 
 var p4 = {
-	my_name = "!!!!", 
+	my_name = "!!!!",
 	continuing = false,
 	can_spawn = true,
 	in_play = false,
@@ -192,14 +192,14 @@ func _ready():
 		print("error Singleton Player Stats connecting to reset from world gd")
 	if get_tree().get_current_scene().game_mode == 3:
 		print("pawns set in player stats")
-		p1["pawn_num"] = 8
-		p2["pawn_num"] = 2
-		p3["pawn_num"] = 4
-		p4["pawn_num"] = 5
-		p5["pawn_num"] = 6
-		p6["pawn_num"] = 7
+		p1["pawn_num"] = 13
+		p2["pawn_num"] = 9
+		p3["pawn_num"] = 11
+		p4["pawn_num"] = 12
+		p5["pawn_num"] = 13
+		p6["pawn_num"] = 14
 		p7["pawn_num"] = 15
-		p8["pawn_num"] = 11
+		p8["pawn_num"] = 8
 
 func add_kill(_killed, _killer, _point, _by_what):
 	print(_killed," by ",_killer," for ",_point, " points with ",_by_what)
@@ -227,7 +227,7 @@ func add_score(_player, _score_amount):
 
 func add_shot(_player, _shot_amount): get_player_stats(_player)["shot"] += _shot_amount
 
-func add_hit(_player, _hit_amount): 
+func add_hit(_player, _hit_amount):
 	if _player > 0:
 		get_player_stats(_player)["hit"] += _hit_amount
 
@@ -305,13 +305,13 @@ func check_lives():# might not be used look in to it
 		p8["in_game"] = false
 	HUD.state_machine()
 
-func set_in_play(_player, _in_play): 
+func set_in_play(_player, _in_play):
 	get_player_stats(_player)["in_play"] = _in_play
 	if Game.use_lives(): HUD.set_lives(_player,get_player_stats(_player)["lives"])
 
 func set_done(_player,_done): get_player_stats(_player)["done"] = _done
 
-func set_can_spawn(_player, _spawn): get_player_stats(_player)["can_spawn"] = _spawn #maybe do away with 
+func set_can_spawn(_player, _spawn): get_player_stats(_player)["can_spawn"] = _spawn #maybe do away with
 
 func set_continuing(_player, _continue): get_player_stats(_player)["continuing"] = _continue
 
@@ -494,7 +494,7 @@ func reset_player(_player):
 	get_player_stats(_player)["ammo"] = 0
 	get_player_stats(_player)["nrg"] = 100
 	get_player_stats(_player)["pawn_num"] = -1
-	
+
 func reset_player_not_score(_player):# or name
 	get_player_stats(_player)["continuing"] = false
 	get_player_stats(_player)["can_spawn"]= true

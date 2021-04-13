@@ -29,6 +29,10 @@ one_shot = true
 
 [node name="Jump" type="Timer" parent="."]
 one_shot = true
+
+[node name="Last_Hit_By" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 [connection signal="timeout" from="Knock_Back" to="." method="_on_Knock_Back_timeout"]
 [connection signal="timeout" from="Shield_Hit" to="." method="_on_Shield_Hit_timeout"]
 [connection signal="timeout" from="Shield_Up" to="." method="_on_Shield_Up_timeout"]
@@ -37,3 +41,4 @@ one_shot = true
 [connection signal="timeout" from="Speed" to="." method="_on_Speed_timeout"]
 [connection signal="timeout" from="Stun" to="." method="_on_Stun_timeout"]
 [connection signal="timeout" from="Jump" to="." method="_on_Jump_timeout"]
+[connection signal="timeout" from="Last_Hit_By" to="." method="_on_Last_Hit_By_timeout"]

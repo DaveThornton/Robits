@@ -29,6 +29,9 @@ func _on_Stun_timeout():
 func _on_Jump_timeout():
 	dad.jumptimer()
 
+func _on_Last_Hit_By_timeout():
+	dad.hitbytimer()
+
 func set_knock_back(_time):
 	$Knock_Back.wait_time = _time
 

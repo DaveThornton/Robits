@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Map_Parts/MP-08-Spawner.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 18.0
+radius = 20.0
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -31,10 +31,10 @@ body_5 = ExtResource( 2 )
 body_6 = ExtResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 0, -28 )
+position = Vector2( 0, -30 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 0, -25 )
+position = Vector2( 0, -30 )
 space_override = 3
 gravity_point = true
 gravity_vec = Vector2( 1, 1 )

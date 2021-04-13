@@ -433,6 +433,12 @@ enabled = true
 cast_to = Vector2( 0, 4 )
 collision_mask = 3102
 
+[node name="Down_L2" type="RayCast2D" parent="Raycasts"]
+position = Vector2( -11, -5 )
+enabled = true
+cast_to = Vector2( -6, 6 )
+collision_mask = 3102
+
 [node name="Down_C" type="RayCast2D" parent="Raycasts"]
 cast_to = Vector2( 0, 1 )
 collision_mask = 3102
@@ -441,6 +447,12 @@ collision_mask = 3102
 position = Vector2( 16, -3 )
 enabled = true
 cast_to = Vector2( 0, 4 )
+collision_mask = 3102
+
+[node name="Down_R2" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 11, -5 )
+enabled = true
+cast_to = Vector2( 6, 6 )
 collision_mask = 3102
 
 [node name="CollisionShape2D-Stand" type="CollisionShape2D" parent="."]

@@ -24,14 +24,15 @@ onready var speed_timer = $Timers/Speed
 onready var jump_up_timer = $Timers/Jump_Up
 onready var nrg_up_timer = $Timers/NRG_Up
 onready var jump_timer = $Timers/Jump
+onready var last_hit_timer = $Timers/Last_Hit_By
 
 onready var anim = $AnimationPlayer
 
 onready var ladder_count = [] #shouldnt be here??!!??
 
 onready var ray_up = $Raycast/Up
-onready var ray_down_l = $Raycast/Down_L 
-onready var ray_down_r = $Raycast/Down_R 
+onready var ray_down_l = $Raycast/Down_L
+onready var ray_down_r = $Raycast/Down_R
 
 var player = 0
 var play_type = 2
@@ -107,6 +108,7 @@ var _im_hit = false
 var _hit_time = 0.0
 var _hit_color_01 = Color8(255, 255, 255, 255)
 var _hit_color_02 = Color8(255, 106, 0, 130)
+var hit_last_by = -1
 
 signal explode_p
 
@@ -145,7 +147,7 @@ func _process(delta):
 	if my_gun != null:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
-		
+
 	elif start_equiped:
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_pos = shoot_spot
@@ -370,7 +372,41 @@ func equip_start_weap():
 	my_start_gun = g
 
 ##-------------------------------------------------------------------------[HIT]
+# func hit(_by_who, _by_what, _damage_type, _damage):
+# 	_im_hit = true
+# 	_hit_time += 0.11
+# 	if play_type == 1:
+# 		if is_shield_up:
+# 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+# 		else:
+# 			is_shield_up = true
+# 			print("ive been hit. I'm player ",player)
+# 			let_go()
+# 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
+# 			call_deferred("free")
+# 	elif play_type > 1:
+# 		key.shield_up()
+# 		head.shield_up()
+# 		trax.shield_up()
+# 		shield_sprite.visible = true
+# 		shield_hit_timer.start()
+# 		if !is_shield_up:
+# 			nrg = nrg - (_damage - armor)
+# 			nrg_update()
+# 			if nrg <= 0:
+# 				is_shield_up = true
+# 				print("ive been hit. I'm player ",player)
+# 				let_go()
+# 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
+# 				call_deferred("free")
+# 			elif nrg < light_on_nrg:
+# 				pass
+# 			else:
+# 				pass
 func hit(_by_who, _by_what, _damage_type, _damage):
+	if _by_who > 0:
+		hit_last_by = _by_who
+		last_hit_timer.start()
 	_im_hit = true
 	_hit_time += 0.11
 	if play_type == 1:
@@ -380,13 +416,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			is_shield_up = true
 			print("ive been hit. I'm player ",player)
 			let_go()
-			emit_signal("explode_p", player, self.position, _by_who, _by_what)
+			emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 			call_deferred("free")
 	elif play_type > 1:
-		key.shield_up()
-		head.shield_up()
-		trax.shield_up()
-		shield_sprite.visible = true
+		shield_up()
 		shield_hit_timer.start()
 		if !is_shield_up:
 			nrg = nrg - (_damage - armor)
@@ -395,12 +428,8 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 				is_shield_up = true
 				print("ive been hit. I'm player ",player)
 				let_go()
-				emit_signal("explode_p", player, self.position, _by_who, _by_what)
+				emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 				call_deferred("free")
-			elif nrg < light_on_nrg:
-				pass
-			else:
-				pass
 
 func change_pos(_pos):
 	self.position = _pos
@@ -439,6 +468,12 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_regen_max = _how_much
 	nrg_up_timer.wait_time = _how_long
 	nrg_up_timer.start()
+
+func shield_up():
+	key.shield_up()
+	head.shield_up()
+	trax.shield_up()
+	shield_sprite.visible = true
 
 func _body(_num: int):
 	call_deferred("_body_",_num)
@@ -836,6 +871,8 @@ func jumptimer():
 	jump_top = false
 	jump_top_pos -= 50
 
+func hitbytimer():
+	hit_last_by = -1
 ##-------------------------------------------------------------[The in and outs]
 
 func _on_Pick_Up_Area_body_entered(body):

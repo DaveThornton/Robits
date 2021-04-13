@@ -13,7 +13,7 @@ func _ready():
 func _process(delta):
 	if moving:
 		if going_right:
-			sp1.position.x += delta * 30
+			sp1.position.x += delta * 304
 			sp2.position.x += delta * 30
 			sp3.position.x += delta * 30
 			if sp3.position.x >= (square_size * 2):

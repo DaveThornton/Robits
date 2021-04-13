@@ -18,6 +18,7 @@ onready var speed_timer = $Timers/Speed
 onready var jump_timer = $Timers/Jump_Up
 onready var nrg_up_timer = $Timers/NRG_Up
 onready var jump_up_timer = $Timers/Jump_Up
+onready var last_hit_timer = $Timers/Last_Hit_By
 
 onready var anim = $AnimationPlayer
 onready var ladder_count = [] #shouldnt be here??!!??
@@ -115,6 +116,7 @@ var _im_hit = false
 var _hit_time = 0.0
 var _hit_color_01 = Color8(255, 255, 255, 255)
 var _hit_color_02 = Color8(255, 106, 0, 130)
+var hit_last_by = -1
 
 signal explode_p
 
@@ -161,11 +163,11 @@ func _process(delta):
 	if my_gun:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
-		
+
 	elif start_equiped:
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_pos = shoot_spot
-	
+
 	if _im_hit:
 		if _hit_time > 0.1:
 			shields_up()
@@ -255,13 +257,13 @@ func jump(down_input, _left_input, _right_input):
 			jumping_up = true
 			stinger.big_ring_on()
 #			stinger.big_ring()
-		
+
 		elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count && !down_input:
 			SFX.play("Move_Jump_05")
 			vel.y = -max_air_jump_power * jump_power_up
 			air_jump_count += 1
 			stinger.big_ring()
-		
+
 		elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump && !down_input && jumping_up:
 			jump_top = true
 			can_jump = false
@@ -294,7 +296,7 @@ func jump_rel():
 	is_jump_pressed = false
 	jump_top = false
 	can_jump = true
-	
+
 ##-----------------------------------------------------------------------[Shoot]
 func shoot_j():
 	if my_gun != null:
@@ -479,7 +481,7 @@ func _is_on_floor():
 			on_floor = true
 	else:
 		on_floor = false
-	
+
 	if ray_down_c.is_colliding():
 		going_up = true
 	else:
@@ -628,12 +630,12 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 				shoot_spot = 1
 			elif down_input && !left_input && !right_input:
 				shoot_spot = 5
-	
+
 #	if !on_floor && vel.y > 1:
 #		hover.play("Fall")
 #	elif !on_floor && vel.y > -1:
 #		hover.play("Jump")
-	
+
 	if on_ladder && !up_input && !down_input:
 		if is_right:
 			_anim_ladder_right()
@@ -747,7 +749,7 @@ func shields_up():
 	stinger.shield_up()
 
 func shields_down():
-	shield_sprite.visible = true
+	shield_sprite.visible = false
 	head.shield_down()
 	stinger.shield_down()
 
@@ -849,6 +851,8 @@ func jumptimer():
 	is_jump_pressed = false
 	stinger.big_ring_off()
 
+func hitbytimer():
+	hit_last_by = -1
 ##-------------------------------------------------------------[The in and outs]
 
 func _on_Pick_Up_Area_body_entered(body):

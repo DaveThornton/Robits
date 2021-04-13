@@ -12,8 +12,11 @@ onready var ray_up = $Raycasts/Up
 onready var ray_down_l = $Raycasts/Down_L
 onready var ray_down_c = $Raycasts/Down_C
 onready var ray_down_r = $Raycasts/Down_R
+onready var ray_down_l2 = $Raycasts/Down_L2
+onready var ray_down_r2 = $Raycasts/Down_R2
 
 onready var body1 = $"CollisionShape2D-Stand"
+onready var body2 = $"CollisionShape2D-Down"
 onready var ladder_l = $"Ladder_Area/CollisionShape2D-L"
 onready var ladder_r = $"Ladder_Area/CollisionShape2D-R"
 
@@ -24,6 +27,7 @@ onready var stun_timer = $Timers/Stun
 onready var speed_timer = $Timers/Speed
 onready var jump_up_timer = $Timers/Jump_Up
 onready var nrg_up_timer = $Timers/NRG_Up
+onready var last_hit_timer = $Timers/Last_Hit_By
 
 var player = 1
 var play_type = 2
@@ -92,6 +96,7 @@ var _im_hit = false
 var _hit_time = 0.0
 var _hit_color_01 = Color8(255, 255, 255, 255)
 var _hit_color_02 = Color8(255, 106, 0, 130)
+var hit_last_by = -1
 
 signal explode_p
 
@@ -128,7 +133,7 @@ func _process(delta):
 	if my_gun != null:
 		my_gun.is_right = is_right
 		my_gun.shoot_pos = shoot_spot
-		
+
 	elif start_equiped:
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_pos = shoot_spot
@@ -329,7 +334,39 @@ func equip_start_weap():
 	my_start_gun = g
 
 ##-------------------------------------------------------------------------[HIT]
+# func hit(_by_who, _by_what, _damage_type, _damage):
+# 	_im_hit = true
+# 	_hit_time += 0.11
+# 	if play_type == 1:
+# 		if is_shield_up:
+# 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+# 		else:
+# 			is_shield_up = true
+# 			print("ive been hit. I'm player ",player)
+# 			let_go()
+# 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
+# 			call_deferred("free")
+# 	elif play_type > 1:
+# 		shield_up()
+# 		shield_hit_timer.start()
+# 		if !is_shield_up:
+# 			nrg = nrg - (_damage - armor)
+# 			nrg_update()
+# 			if nrg <= 0:
+# 				is_shield_up = true
+# 				print("ive been hit. I'm player ",player)
+# 				let_go()
+# 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
+# 				call_deferred("free")
+# 			elif nrg < light_on_nrg:
+# 				pass
+# 			else:
+# 				pass
+
 func hit(_by_who, _by_what, _damage_type, _damage):
+	if _by_who > 0:
+		hit_last_by = _by_who
+		last_hit_timer.start()
 	_im_hit = true
 	_hit_time += 0.11
 	if play_type == 1:
@@ -339,24 +376,20 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			is_shield_up = true
 			print("ive been hit. I'm player ",player)
 			let_go()
-			emit_signal("explode_p", player, self.position, _by_who, _by_what)
+			emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 			call_deferred("free")
 	elif play_type > 1:
-		shield_up()
-		shield_hit_timer.start()
 		if !is_shield_up:
+			shield_up()
+			shield_hit_timer.start()
 			nrg = nrg - (_damage - armor)
 			nrg_update()
 			if nrg <= 0:
 				is_shield_up = true
 				print("ive been hit. I'm player ",player)
 				let_go()
-				emit_signal("explode_p", player, self.position, _by_who, _by_what)
+				emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 				call_deferred("free")
-			elif nrg < light_on_nrg:
-				pass
-			else:
-				pass
 
 func change_pos(_pos):
 	self.position = _pos
@@ -404,7 +437,7 @@ func _test_headroom():
 		head_room = 0
 
 func _is_on_floor():
-	if ray_down_r.is_colliding() || ray_down_l.is_colliding() || ray_down_c.is_colliding():
+	if ray_down_r.is_colliding() || ray_down_l.is_colliding() || ray_down_c.is_colliding() || ray_down_r2.is_colliding() || ray_down_l2.is_colliding():
 		if !on_floor: # && !is_jump_pressed:
 			SFX.play("Move_Jump_19_Land")
 		on_floor = true
@@ -631,39 +664,36 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 
 func _anim_idle():
 	legs.idle(is_right)
+	_body(1)
 	if is_right:
-		_body(2)
 		anim.play("Right")
 	else:
-		_body(1)
 		anim.play("Left")
 
 func _anim_run():
+	_body(1)
 	legs.run(is_right)
 	if is_right:
-		_body(2)
 		anim.play("Right")
 	else:
-		_body(1)
 		anim.play("Left")
 
 func _anim_jump():
+	_body(1)
 	if vel.y < 0:
 		legs.jump(is_right)
 	elif vel.y > 0:
 		legs.fall(is_right)
 	if is_right:
-		_body(2)
 		anim.play("Right")
 	else:
-		_body(1)
 		anim.play("Left")
 
 func _anim_prone_idle():
 	legs.prone(is_right)
 #	if vel.y > 1.1:
 #		legs.fall(is_right)
-	_body(3)
+	_body(2)
 	if is_right:
 		anim.play("Right_Prone")
 	else:
@@ -671,27 +701,25 @@ func _anim_prone_idle():
 
 func _anim_prone_crawl():
 	legs.crawl(is_right)
-	_body(3)
+	_body(2)
 	if is_right:
 		anim.play("Right_Prone")
 	else:
 		anim.play("Left_Prone")
 
 func _anim_stun():
+	_body(1)
 	legs.stun(is_right)
 	if is_right:
-		_body(2)
 		anim.play("Right_Stun")
 	else:
-		_body(1)
 		anim.play("Left_Stun")
 
 func _anim_Knock():
+	_body(1)
 	if is_right:
-		_body(2)
 		new_anim = "Right"
 	else:
-		_body(1)
 		new_anim = "Left"
 
 func _anim_ladder_move():
@@ -699,7 +727,7 @@ func _anim_ladder_move():
 	legs.ladder_move(is_right)
 
 func _anim_ladder_right():
-	_body(2)
+	_body(1)
 	legs.ladder(true)
 
 func _anim_ladder_left():
@@ -782,16 +810,16 @@ func _body_(_num: int):
 #	print("fix body in pawn 13")
 	if _num == 1:
 		body1.disabled = false
-		ladder_l.disabled = false
-		ladder_r.disabled = true
+		body2.disabled = true
+		# ladder_l.disabled = false
+		# ladder_r.disabled = true
 	elif _num == 2:
-		body1.disabled = false
-		ladder_l.disabled = true
-		ladder_r.disabled = false
-	elif _num == 3:
 		body1.disabled = true
-		ladder_l.disabled = false
-		ladder_r.disabled = false
+		body2.disabled = false
+		# ladder_l.disabled = true
+		# ladder_r.disabled = false
+	else:
+		print("wrong body called in pawn 13", _num)
 
 func shield_up():
 	head.shield_up()
@@ -843,6 +871,9 @@ func knockbacktimer():
 
 func jumptimer():
 	print("jump timer timed out dont know why in pawn 13 player stats says its pawn ",Player_Stats.get_pawn_num(player))
+
+func hitbytimer():
+	hit_last_by = -1
 ##-------------------------------------------------------------[The in and outs]
 
 func _on_Pick_Up_Area_body_entered(body):
