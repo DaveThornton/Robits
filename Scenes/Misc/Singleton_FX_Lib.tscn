@@ -41,7 +41,6 @@ texture = ExtResource( 4 )
 position = Vector2( -0.0100098, 0 )
 
 [node name="Space-00" parent="MP-01-Camera/Back" instance=ExtResource( 2 )]
-visible = false
 z_index = -129
 z_as_relative = false
 
