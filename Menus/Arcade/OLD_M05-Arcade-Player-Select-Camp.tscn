@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Menus/Arcade/Scripts/OLD_M05-Arcade-Player-Select-Camp.gd" type="Script" id=1]
-[ext_resource path="res://map/Campaign-mode/old/Map-C-01-Level-01.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Maps/Campaign-mode/old/Map-C-01-Level-01.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menus/Grids/menu_8x2_01.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Menu/Player_Select_8x2.png" type="Texture" id=4]
 

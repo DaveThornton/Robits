@@ -10,7 +10,7 @@
 [ext_resource path="res://Sprites/Tile_Sets/TS-04-Back-FX.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Bad_Guys/Boss/BG-101-Boss/BG-101-Boss-Exit-Back.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/gen-boom/Generic-boom-02-sheet.png" type="Texture" id=10]
-[ext_resource path="res://map/Campaign-mode/World_02/Map-C-W02-L01-Jungle.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Maps/Campaign-mode/World_02/Map-C-W02-L01-Jungle.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Boom"
