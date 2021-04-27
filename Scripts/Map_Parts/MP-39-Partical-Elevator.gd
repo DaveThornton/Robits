@@ -2,7 +2,7 @@ extends Node2D
 
 onready var area = $Area2D
 
-var speed = 500
+var speed = 650
 var occ_player_array = []
 
 func _ready():

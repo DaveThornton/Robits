@@ -15,7 +15,7 @@ func start(_rot, _pos, _scale, _owner):
 #	print(_pos)
 #	print(rotation)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_local_x(speed)
 
 func _on_Projectile_body_entered(body):

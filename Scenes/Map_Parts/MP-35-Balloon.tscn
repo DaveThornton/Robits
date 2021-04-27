@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
+[ext_resource path="res://Sprites/Map_Parts/MP-35-Balloon_03.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Map_Parts/MP-35-Balloon_01.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Map_Parts/MP-35-Balloon_02.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Map_Parts/MP-35-Balloon.gd" type="Script" id=5]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 89.0
+height = 230.0
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 59.0
+height = 252.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 13.9268
+height = 161.215
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 161.0
+height = 94.0
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 24.0
+height = 54.0
+
+[node name="MP-35-Balloon" type="KinematicBody2D"]
+collision_layer = 24
+collision_mask = 24
+script = ExtResource( 5 )
+
+[node name="MP-35-Balloon_01-01" type="Sprite" parent="."]
+z_index = -2
+texture = ExtResource( 3 )
+hframes = 4
+
+[node name="MP-35-Balloon_01-02" type="Sprite" parent="."]
+position = Vector2( 0, 130 )
+z_index = 20
+texture = ExtResource( 3 )
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="MP-35-Balloon_02" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="MP-35-Balloon_03" type="Sprite" parent="."]
+z_index = 20
+texture = ExtResource( 2 )
+
+[node name="TileMap-Plat-01" type="TileMap" parent="." groups=[
+"map_part",
+]]
+visible = false
+modulate = Color( 0.784314, 0, 0, 1 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 4
+collision_mask = 4
+format = 1
+tile_data = PoolIntArray( 851966, 2, 0, 851967, 2, 1, 786432, 2, 1, 786433, 2, 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -111 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -52 )
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -93, 63 )
+rotation = -0.612611
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( 96, 63 )
+rotation = 0.610865
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 262144
+collision_mask = 1026
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -1, -103 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -1, 198 )
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="RayCast2D_down" type="RayCast2D" parent="."]
+position = Vector2( 0, 262 )
+enabled = true
+cast_to = Vector2( 0, 40 )
+collision_mask = 30
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

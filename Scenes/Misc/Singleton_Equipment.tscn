@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=126 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Hold/W_02-AK47_Hold.tscn" type="PackedScene" id=2]
@@ -74,6 +74,57 @@
 [ext_resource path="res://Scenes/Guns/Hold/W_83-Mauser_Hold.tscn" type="PackedScene" id=72]
 [ext_resource path="res://Scenes/Guns/Hold/W_73_Youth_Knife_Hold.tscn" type="PackedScene" id=73]
 [ext_resource path="res://Scenes/Guns/Hold/W_72_Cleaver_Hold.tscn" type="PackedScene" id=74]
+[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=75]
+[ext_resource path="res://Scenes/Guns/Pick/W_03_Sniper_Pick.tscn" type="PackedScene" id=76]
+[ext_resource path="res://Scenes/Guns/Pick/W_39_P_Mine_Pick.tscn" type="PackedScene" id=77]
+[ext_resource path="res://Scenes/Guns/Pick/W_63_Crowbar_Pick.tscn" type="PackedScene" id=78]
+[ext_resource path="res://Scenes/Guns/Pick/W_68_D'k_Tahg_Pick.tscn" type="PackedScene" id=79]
+[ext_resource path="res://Scenes/Guns/Pick/W_04_M16_Pick.tscn" type="PackedScene" id=80]
+[ext_resource path="res://Scenes/Guns/Pick/W_20_Grenade_Pick.tscn" type="PackedScene" id=81]
+[ext_resource path="res://Scenes/Guns/Pick/W_10_Blaster_Pistol_Pick.tscn" type="PackedScene" id=82]
+[ext_resource path="res://Scenes/Guns/Pick/W_11_Mega_Cannon_Pick.tscn" type="PackedScene" id=83]
+[ext_resource path="res://Scenes/Guns/Pick/W_21_Nazi_Grenade_Pick.tscn" type="PackedScene" id=84]
+[ext_resource path="res://Scenes/Guns/Pick/W_22_Plasma_Grenade_Pick.tscn" type="PackedScene" id=85]
+[ext_resource path="res://Scenes/Guns/Pick/W_23_Bomb_Man_Pick.tscn" type="PackedScene" id=86]
+[ext_resource path="res://Scenes/Guns/Pick/W_40_RPG_Pick.tscn" type="PackedScene" id=87]
+[ext_resource path="res://Scenes/Guns/Pick/W_61_Sword_Pick.tscn" type="PackedScene" id=88]
+[ext_resource path="res://Scenes/Guns/Pick/W_60_Axe_Pick.tscn" type="PackedScene" id=89]
+[ext_resource path="res://Scenes/Guns/Pick/W_50_Shot_Gun_Pick.tscn" type="PackedScene" id=90]
+[ext_resource path="res://Scenes/Guns/Pick/W_51_Contradiction_S_Pick.tscn" type="PackedScene" id=91]
+[ext_resource path="res://Scenes/Guns/Pick/W_12_OpenCannon_Pick.tscn" type="PackedScene" id=92]
+[ext_resource path="res://Scenes/Guns/Pick/W_62_Diamond_PickAxe_Pick.tscn" type="PackedScene" id=93]
+[ext_resource path="res://Scenes/Guns/Pick/W_07_CrossBow_Pick.tscn" type="PackedScene" id=94]
+[ext_resource path="res://Scenes/Guns/Pick/W_27_Turtle_Pick.tscn" type="PackedScene" id=95]
+[ext_resource path="res://Scenes/Guns/Pick/W_15_Zapper_Pick.tscn" type="PackedScene" id=96]
+[ext_resource path="res://Scenes/Guns/Pick/W_16_Solo_Pick.tscn" type="PackedScene" id=97]
+[ext_resource path="res://Scenes/Guns/Pick/W_13_TOS_Pick.tscn" type="PackedScene" id=98]
+[ext_resource path="res://Scenes/Guns/Pick/W_41_SPNKr_Pick.tscn" type="PackedScene" id=99]
+[ext_resource path="res://Scenes/Guns/Pick/W_09_Magnum_Pick.tscn" type="PackedScene" id=100]
+[ext_resource path="res://Scenes/Guns/Pick/W_65_Knife_Pick.tscn" type="PackedScene" id=101]
+[ext_resource path="res://Scenes/Guns/Pick/W_56_BFG_9000_Pick.tscn" type="PackedScene" id=102]
+[ext_resource path="res://Scenes/Guns/Pick/W_64_ESword_Pick.tscn" type="PackedScene" id=103]
+[ext_resource path="res://Scenes/Guns/Pick/W_08_Uzi_Pick.tscn" type="PackedScene" id=104]
+[ext_resource path="res://Scenes/Guns/Pick/W_66_Hammer_Pick.tscn" type="PackedScene" id=105]
+[ext_resource path="res://Scenes/Guns/Pick/W_69_Bat'leth_Pick.tscn" type="PackedScene" id=106]
+[ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=107]
+[ext_resource path="res://Scenes/Guns/Pick/W_70_Bat_Pick.tscn" type="PackedScene" id=108]
+[ext_resource path="res://Scenes/Guns/Pick/W_24_TNT_Pick.tscn" type="PackedScene" id=109]
+[ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=110]
+[ext_resource path="res://Scenes/Guns/Pick/W_42_G-Launcher_Pick.tscn" type="PackedScene" id=111]
+[ext_resource path="res://Scenes/Guns/Pick/W_18_Cricket_Pick.tscn" type="PackedScene" id=112]
+[ext_resource path="res://Scenes/Guns/Pick/W_25_Time_Bomb_Pick.tscn" type="PackedScene" id=113]
+[ext_resource path="res://Scenes/Guns/Pick/W_17_Mars_Pick.tscn" type="PackedScene" id=114]
+[ext_resource path="res://Scenes/Guns/Pick/W_67_Wood_Sword_Pick.tscn" type="PackedScene" id=115]
+[ext_resource path="res://Scenes/Guns/Pick/W_19-Rail_Gun_Pick.tscn" type="PackedScene" id=116]
+[ext_resource path="res://Scenes/Guns/Pick/W_73_Youth_Knife_Pick.tscn" type="PackedScene" id=117]
+[ext_resource path="res://Scenes/Guns/Pick/W_14_TNG_Pick.tscn" type="PackedScene" id=118]
+[ext_resource path="res://Scenes/Guns/Pick/W_72_Cleaver_Pick.tscn" type="PackedScene" id=119]
+[ext_resource path="res://Scenes/Guns/Pick/W_83_Mauser_Pick.tscn" type="PackedScene" id=120]
+[ext_resource path="res://Scenes/Guns/Pick/W_84_Luger_Pick.tscn" type="PackedScene" id=121]
+[ext_resource path="res://Scenes/Guns/Pick/W_59_Bow_Pick.tscn" type="PackedScene" id=122]
+[ext_resource path="res://Scenes/Guns/Pick/W_58_Derringer_Pick.tscn" type="PackedScene" id=123]
+[ext_resource path="res://Scenes/Guns/Pick/W_71_Tomahawk_Pick.tscn" type="PackedScene" id=124]
+[ext_resource path="res://Scenes/Guns/Pick/W_57_Henry_Pick.tscn" type="PackedScene" id=125]
 
 [node name="Equipment" type="Node2D"]
 script = ExtResource( 1 )
@@ -129,6 +180,57 @@ gun_hold_73 = ExtResource( 73 )
 gun_hold_80 = ExtResource( 15 )
 gun_hold_83 = ExtResource( 72 )
 gun_hold_84 = ExtResource( 71 )
+gun_pick_02 = ExtResource( 75 )
+gun_pick_03 = ExtResource( 76 )
+gun_pick_04 = ExtResource( 80 )
+gun_pick_05 = ExtResource( 107 )
+gun_pick_06 = ExtResource( 110 )
+gun_pick_07 = ExtResource( 94 )
+gun_pick_08 = ExtResource( 104 )
+gun_pick_09 = ExtResource( 100 )
+gun_pick_10 = ExtResource( 82 )
+gun_pick_11 = ExtResource( 83 )
+gun_pick_12 = ExtResource( 92 )
+gun_pick_13 = ExtResource( 98 )
+gun_pick_14 = ExtResource( 118 )
+gun_pick_15 = ExtResource( 96 )
+gun_pick_16 = ExtResource( 97 )
+gun_pick_17 = ExtResource( 114 )
+gun_pick_18 = ExtResource( 112 )
+gun_pick_19 = ExtResource( 116 )
+gun_pick_20 = ExtResource( 81 )
+gun_pick_21 = ExtResource( 84 )
+gun_pick_22 = ExtResource( 85 )
+gun_pick_23 = ExtResource( 86 )
+gun_pick_24 = ExtResource( 109 )
+gun_pick_25 = ExtResource( 113 )
+gun_pick_27 = ExtResource( 95 )
+gun_pick_39 = ExtResource( 77 )
+gun_pick_40 = ExtResource( 87 )
+gun_pick_41 = ExtResource( 99 )
+gun_pick_42 = ExtResource( 111 )
+gun_pick_50 = ExtResource( 90 )
+gun_pick_51 = ExtResource( 91 )
+gun_pick_56 = ExtResource( 102 )
+gun_pick_57 = ExtResource( 125 )
+gun_pick_58 = ExtResource( 123 )
+gun_pick_59 = ExtResource( 122 )
+gun_pick_60 = ExtResource( 89 )
+gun_pick_61 = ExtResource( 88 )
+gun_pick_62 = ExtResource( 93 )
+gun_pick_63 = ExtResource( 78 )
+gun_pick_64 = ExtResource( 103 )
+gun_pick_65 = ExtResource( 101 )
+gun_pick_66 = ExtResource( 105 )
+gun_pick_67 = ExtResource( 115 )
+gun_pick_68 = ExtResource( 79 )
+gun_pick_69 = ExtResource( 106 )
+gun_pick_70 = ExtResource( 108 )
+gun_pick_71 = ExtResource( 124 )
+gun_pick_72 = ExtResource( 119 )
+gun_pick_73 = ExtResource( 117 )
+gun_pick_83 = ExtResource( 120 )
+gun_pick_84 = ExtResource( 121 )
 item_pick_01 = ExtResource( 16 )
 item_pick_02 = ExtResource( 17 )
 item_pick_03 = ExtResource( 18 )

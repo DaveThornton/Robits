@@ -126,8 +126,8 @@ func init(_player_num):
 
 func spawn_pawn():
 	if !Game.over && !Player_Stats.get_continuing(player):
-		if my_pawn:
-			my_pawn.queue_free()
+#		if my_pawn:
+#			my_pawn.queue_free()
 		print("spawning pawn bc game is not over in robit controller")
 		var z = Equipment.get_pawn(Player_Stats.get_pawn_num(player)).instance()
 		get_tree().get_current_scene().pawns.add_child(z)
@@ -153,6 +153,7 @@ func _explode_pawn(_player, _pos, _by_who, _by_what):
 	alive = false
 	var x = boom.instance()
 	add_child(x)
+	my_pawn.call_deferred("free")
 	x.init(_player, _pos, str("player ", player, "'s destruct system"), Player_Stats.get_pawn_num(player), 2)
 	if !Game.over:
 		Player_Stats.add_kill(player, _by_who , 1, _by_what)

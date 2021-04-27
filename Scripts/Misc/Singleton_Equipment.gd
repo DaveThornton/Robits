@@ -68,7 +68,7 @@ export(PackedScene) var gun_hold_64
 export(PackedScene) var gun_hold_65
 export(PackedScene) var gun_hold_66
 export(PackedScene) var gun_hold_67
-#export(PackedScene) var gun_hold_68
+export(PackedScene) var gun_hold_68
 export(PackedScene) var gun_hold_69
 export(PackedScene) var gun_hold_70
 export(PackedScene) var gun_hold_71
@@ -89,6 +89,98 @@ export(PackedScene) var gun_hold_84
 #export(PackedScene) var gun_hold_87
 #export(PackedScene) var gun_hold_88
 #export(PackedScene) var gun_hold_89
+
+export(PackedScene) var gun_pick_00
+export(PackedScene) var gun_pick_01
+export(PackedScene) var gun_pick_02
+export(PackedScene) var gun_pick_03
+export(PackedScene) var gun_pick_04
+export(PackedScene) var gun_pick_05
+export(PackedScene) var gun_pick_06
+export(PackedScene) var gun_pick_07
+export(PackedScene) var gun_pick_08
+export(PackedScene) var gun_pick_09
+export(PackedScene) var gun_pick_10
+export(PackedScene) var gun_pick_11
+export(PackedScene) var gun_pick_12
+export(PackedScene) var gun_pick_13
+export(PackedScene) var gun_pick_14
+export(PackedScene) var gun_pick_15
+export(PackedScene) var gun_pick_16
+export(PackedScene) var gun_pick_17
+export(PackedScene) var gun_pick_18
+export(PackedScene) var gun_pick_19
+export(PackedScene) var gun_pick_20
+export(PackedScene) var gun_pick_21
+export(PackedScene) var gun_pick_22
+export(PackedScene) var gun_pick_23
+export(PackedScene) var gun_pick_24
+export(PackedScene) var gun_pick_25
+#export(PackedScene) var gun_pick_26
+export(PackedScene) var gun_pick_27
+#export(PackedScene) var gun_pick_28
+#export(PackedScene) var gun_pick_29
+#export(PackedScene) var gun_pick_30
+#export(PackedScene) var gun_pick_31
+#export(PackedScene) var gun_pick_32
+#export(PackedScene) var gun_pick_33
+#export(PackedScene) var gun_pick_34
+#export(PackedScene) var gun_pick_35
+#export(PackedScene) var gun_pick_36
+#export(PackedScene) var gun_pick_37
+#export(PackedScene) var gun_pick_38
+export(PackedScene) var gun_pick_39
+export(PackedScene) var gun_pick_40
+export(PackedScene) var gun_pick_41
+export(PackedScene) var gun_pick_42
+#export(PackedScene) var gun_pick_43
+#export(PackedScene) var gun_pick_44
+#export(PackedScene) var gun_pick_45
+#export(PackedScene) var gun_pick_46
+#export(PackedScene) var gun_pick_47
+#export(PackedScene) var gun_pick_48
+#export(PackedScene) var gun_pick_49
+export(PackedScene) var gun_pick_50
+export(PackedScene) var gun_pick_51
+export(PackedScene) var gun_pick_52
+export(PackedScene) var gun_pick_53
+#export(PackedScene) var gun_pick_54
+#export(PackedScene) var gun_pick_55
+export(PackedScene) var gun_pick_56
+export(PackedScene) var gun_pick_57
+export(PackedScene) var gun_pick_58
+export(PackedScene) var gun_pick_59
+export(PackedScene) var gun_pick_60
+export(PackedScene) var gun_pick_61
+export(PackedScene) var gun_pick_62
+export(PackedScene) var gun_pick_63
+export(PackedScene) var gun_pick_64
+export(PackedScene) var gun_pick_65
+export(PackedScene) var gun_pick_66
+export(PackedScene) var gun_pick_67
+export(PackedScene) var gun_pick_68
+export(PackedScene) var gun_pick_69
+export(PackedScene) var gun_pick_70
+export(PackedScene) var gun_pick_71
+export(PackedScene) var gun_pick_72
+export(PackedScene) var gun_pick_73
+#export(PackedScene) var gun_pick_75
+#export(PackedScene) var gun_pick_76
+#export(PackedScene) var gun_pick_77
+#export(PackedScene) var gun_pick_78
+#export(PackedScene) var gun_pick_79
+export(PackedScene) var gun_pick_80
+#export(PackedScene) var gun_pick_81
+#export(PackedScene) var gun_pick_82
+export(PackedScene) var gun_pick_83
+export(PackedScene) var gun_pick_84
+#export(PackedScene) var gun_pick_85
+#export(PackedScene) var gun_pick_86
+#export(PackedScene) var gun_pick_87
+#export(PackedScene) var gun_pick_88
+#export(PackedScene) var gun_pick_89
+
+
 
 export(PackedScene) var item_pick_01
 export(PackedScene) var item_pick_02
@@ -258,9 +350,135 @@ func get_weap_hold(_weap: int):
 			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 			return gun_hold_02
 
-func get_weap_pick(_weap):
-	print("get_weap_pick is empty in singleton equipment")
-	pass
+func get_weap_pick(_weap: int):
+	if _weap < 26:
+		if _weap == 0:
+			return gun_pick_00
+		elif _weap == 1:
+			return gun_pick_01
+		elif _weap == 2:
+			return gun_pick_02
+		elif _weap == 3:
+			return gun_pick_03
+		elif _weap == 4:
+			return gun_pick_04
+		elif _weap == 5:
+			return gun_pick_05
+		elif _weap == 6:
+			return gun_pick_06
+		elif _weap == 7:
+			return gun_pick_07
+		elif _weap == 8:
+			return gun_pick_08
+		elif _weap == 9:
+			return gun_pick_09
+		elif _weap == 10:
+			return gun_pick_10
+		elif _weap == 11:
+			return gun_pick_11
+		elif _weap == 12:
+			return gun_pick_12
+		elif _weap == 13:
+			return gun_pick_13
+		elif _weap == 14:
+			return gun_pick_14
+		elif _weap == 15:
+			return gun_pick_15
+		elif _weap == 16:
+			return gun_pick_16
+		elif _weap == 17:
+			return gun_pick_17
+		elif _weap == 18:
+			return gun_pick_18
+		elif _weap == 19:
+			return gun_pick_19
+		elif _weap == 20:
+			return gun_pick_20
+		elif _weap == 21:
+			return gun_pick_21
+		elif _weap == 22:
+			return gun_pick_22
+		elif _weap == 23:
+			return gun_pick_23
+		elif _weap == 24:
+			return gun_pick_24
+		elif _weap == 25:
+			return gun_pick_25
+		else:
+			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			return gun_pick_02
+	elif _weap < 51:
+		if _weap == 27:
+			return gun_pick_27
+		elif _weap == 39:
+			return gun_pick_39
+		elif _weap == 40:
+			return gun_pick_40
+		elif _weap == 41:
+			return gun_pick_41
+		elif _weap == 42:
+			return gun_pick_42
+		elif _weap == 50:
+			return gun_pick_50
+		else:
+			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			return gun_pick_02
+	elif _weap < 75:
+		if _weap == 51:
+			return gun_pick_51
+		elif _weap == 52:
+			return gun_pick_52
+		elif _weap == 53:
+			return gun_pick_53
+		elif _weap == 56:
+			return gun_pick_56
+		elif _weap == 57:
+			return gun_pick_57
+		elif _weap == 58:
+			return gun_pick_58
+		elif _weap == 59:
+			return gun_pick_59
+		elif _weap == 60:
+			return gun_pick_60
+		elif _weap == 61:
+			return gun_pick_61
+		elif _weap == 62:
+			return gun_pick_62
+		elif _weap == 63:
+			return gun_pick_63
+		elif _weap == 64:
+			return gun_pick_64
+		elif _weap == 65:
+			return gun_pick_65
+		elif _weap == 66:
+			return gun_pick_66
+		elif _weap == 67:
+			return gun_pick_67
+#		elif _weap == 68:
+#			return gun_pick_68
+		elif _weap == 69:
+			return gun_pick_69
+		elif _weap == 70:
+			return gun_pick_70
+		elif _weap == 71:
+			return gun_pick_71
+		elif _weap == 72:
+			return gun_pick_72
+		elif _weap == 73:
+			return gun_pick_73
+		else:
+			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			return gun_pick_02
+	else:
+		if _weap == 80:
+			return gun_pick_80
+		elif _weap == 83:
+			return gun_pick_83
+		elif _weap == 84:
+			return gun_pick_84
+		else:
+			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			return gun_pick_02
 
 func get_item(_item):
 	if _item == 1:
