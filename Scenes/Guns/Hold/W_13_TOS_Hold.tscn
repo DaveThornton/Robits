@@ -261,6 +261,7 @@ texture = ExtResource( 2 )
 hframes = 2
 
 [node name="Laser_Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+visible = false
 self_modulate = Color( 1, 0, 0, 1 )
 material = SubResource( 1 )
 position = Vector2( 9, -4 )
@@ -315,4 +316,5 @@ anims/Click = SubResource( 3 )
 anims/Melee = SubResource( 4 )
 anims/Shoot = SubResource( 5 )
 anims/UnShoot = SubResource( 6 )
+
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]

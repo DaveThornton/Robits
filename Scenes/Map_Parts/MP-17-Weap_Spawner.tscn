@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/Map_Parts/MP-17-Weap_Spawner.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/FX/FX-20-plasma-cloud.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Map_Parts/MP-17-Weap_Spawner_top_01.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Map_Parts/MP-17-Weap_Spawner.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="Curve" id=2]
+max_value = 4.0
+_data = [ Vector2( 0.0517241, 0.320455 ), 0.0, 8.82406, 0, 0, Vector2( 0.349138, 2.59545 ), 6.38428, 6.38428, 0, 0, Vector2( 0.560345, 2.66818 ), -8.15515, -8.15515, 0, 0, Vector2( 0.887931, 0 ), -8.2899, 0.0, 0, 0 ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 26.0
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MP-17-Weap_Spawner_top_01:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.596078 ), Color( 1, 1, 1, 0.298039 ), Color( 1, 1, 1, 0.631373 ) ]
+}
+
+[node name="MP-17-Weap_Spawner" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite_01" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 4
+
+[node name="Sprite_02" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 4
+frame = 1
+
+[node name="Sprite_03" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 5
+vframes = 4
+frame = 15
+
+[node name="MP-17-Weap_Spawner_top_01" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.627576 )
+position = Vector2( 0, -40 )
+scale = Vector2( 1.5, 1 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 0, -10 )
+amount = 16
+lifetime = 0.5
+texture = ExtResource( 2 )
+direction = Vector2( 1, -98 )
+spread = 35.0
+gravity = Vector2( 0, -98 )
+initial_velocity = 98.0
+scale_amount_curve = SubResource( 2 )
+color = Color( 1, 1, 1, 0.235294 )
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 0, -40 )
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+position = Vector2( 0, -40 )
+space_override = 3
+gravity_point = true
+gravity_vec = Vector2( 1, 1 )
+gravity = 100.0
+linear_damp = 10.0
+angular_damp = 10.0
+collision_layer = 983040
+collision_mask = 720896
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 4 )
+
+[node name="Timer_Start" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer_Respawn" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="Timer_Start" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer_Respawn" to="." method="_on_Timer_Respawn_timeout"]

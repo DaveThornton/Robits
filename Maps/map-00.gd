@@ -6,6 +6,22 @@ export var body_text = "body_text testing levely stuff blah blah ... blah!!!"
 export var camera_move = false
 export var camera_max_right = 1920
 export var background = 1
+export(PackedScene) var gun_01
+export(PackedScene) var gun_02
+export(PackedScene) var gun_03
+export(PackedScene) var gun_04
+export(PackedScene) var gun_05
+export(PackedScene) var gun_06
+export(PackedScene) var gun_07
+export(PackedScene) var gun_08
+export(PackedScene) var nade_01
+export(PackedScene) var nade_02
+export(PackedScene) var nade_03
+export(PackedScene) var nade_04
+export(PackedScene) var power_up_01
+export(PackedScene) var power_up_02
+export(PackedScene) var power_up_03
+export(PackedScene) var power_up_04
 onready var player_spawns = $Player_spawns
 onready var parts = $Map_parts 
 var next_spawn_spot = 0
@@ -14,6 +30,8 @@ var nav_system
 var first = true
 var num_in_play = 0
 onready var pipes = $Pipes
+
+signal start
 
 func _ready():
 #	Game.mode = 2
@@ -39,34 +57,45 @@ func next_spawn_pos():
 			spawn_spots.append(player_spawns.get_child(i))
 		first = false
 	spawn_spots.shuffle()
-#	var spot = spawn_spots.pop_front()
 	return spawn_spots.pop_front().position
-#	if first:
-#		num_in_play += 1
-#		next_spawn_spot += 1
-#		if num_in_play >= Player_Stats.get_num_in_game():
-#			first = false
-#		print(num_in_play,"   ",next_spawn_spot, "   ",first)
-#		return player_spawns.get_child(next_spawn_spot).position
-#
-#	for i in player_spawns.get_child_count():
-#		if player_spawns.get_child(i).can_spawn():
-##			print("next spawn spot should be true  = ",player_spawns.get_child(i).can_spawn())
-#			spawn_spots.append(player_spawns.get_child(i))
 
-#	next_spawn_spot += 1
-#	if spawn_spots.size() <= next_spawn_spot:
-#		next_spawn_spot = 0 
-	
-#	var this_pos = randi() % (spawn_spots.size())
-#	print(this_pos)
-#	spawn_spots[this_pos].set_spawn(false)
-#	return spawn_spots[this_pos].position
-#	return spawn_spots[int(rand_range(0,spawn_spots.size()))].position
+func get_gun(_num):
+	if _num == 1:
+		return gun_01
+	elif _num == 2:
+		return gun_02
+	elif _num == 3:
+		return gun_03
+	elif _num == 4:
+		return gun_04
+	elif _num == 5:
+		return gun_05
+	elif _num == 6:
+		return gun_06
+	elif _num == 7:
+		return gun_07
+	elif _num == 8:
+		return gun_08
 
-#	if next_spawn_spot > player_spawns.get_child_count() - 1:
-#		next_spawn_spot = 0
-#	return player_spawns.get_child(next_spawn_spot).position
+func get_nade(_num):
+	if _num == 1:
+		return nade_01
+	elif _num == 2:
+		return nade_02
+	elif _num == 3:
+		return nade_03
+	elif _num == 4:
+		return nade_04
+
+func get_power_up(_num):
+	if _num == 1:
+		return power_up_01
+	elif _num == 2:
+		return power_up_02
+	elif _num == 3:
+		return power_up_03
+	elif _num == 4:
+		return power_up_04
 
 func remove_spawn_pos(_pos):
 	if spawn_spots.has(_pos):
@@ -75,7 +104,6 @@ func remove_spawn_pos(_pos):
 func add_spawn_pos(_pos):
 	if !spawn_spots.has(_pos):
 		spawn_spots.append(_pos)
-
 
 func remove_map():
 	reset()
@@ -94,9 +122,6 @@ func get_pipe(_num):
 		return null
 	return null
 
-#func delete_square(_pos):
-#	var _spot = map.world_to_map(_pos)
-#	map.set_cellv(_spot, -1, false, false, false)
-
 func _on_Start_Timer_timeout():
-	parts.propagate_call("start")
+	emit_signal("start")
+	# parts.propagate_call("start")

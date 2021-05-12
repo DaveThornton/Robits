@@ -83,6 +83,7 @@ emission_rect_extents = Vector2( 3, 1 )
 gravity = Vector2( 0, -98 )
 scale_amount_curve = SubResource( 4 )
 color = Color( 0.411765, 0.309804, 1, 1 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

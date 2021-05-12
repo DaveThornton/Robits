@@ -30,7 +30,7 @@
 [ext_resource path="res://Maps/VS_Mode/Map-23-Template.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Maps/VS_Mode/Map-25-Template.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Maps/VS_Mode/Map-24-Template.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Maps/VS_Mode/Map-26-Template.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Maps/VS_Mode/Map-26-Castles&Balloons.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Maps/VS_Mode/Map-27-Template.tscn" type="PackedScene" id=32]
 
 [node name="M04-Arcade-Map-Select-VS" type="Node2D"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -8,13 +8,13 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=11]
 [ext_resource path="res://Maps/map-00.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Guns/Pick/W_14_TNG_Pick.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner-Small.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Map_Parts/MP-19-PowerUp_Spawner.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Guns/Pick/W_11_Mega_Cannon_Pick.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Guns/Pick/W_22_Plasma_Grenade_Pick.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Guns/Pick/W_69_Bat'leth_Pick.tscn" type="PackedScene" id=18]
@@ -22,6 +22,8 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_18_Cricket_Pick.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery-AA-Small.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Map_Parts/MP-18-Nade_Spawner.tscn" type="PackedScene" id=24]
 
 [node name="Map-01-Disputed" type="Node2D"]
 script = ExtResource( 12 )
@@ -29,11 +31,31 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_vertical_guides_": [ 38.1926 ]
 }
+gun_01 = ExtResource( 14 )
+gun_02 = ExtResource( 14 )
+gun_03 = ExtResource( 16 )
+gun_04 = ExtResource( 14 )
+gun_05 = ExtResource( 19 )
+gun_06 = ExtResource( 13 )
+gun_07 = ExtResource( 20 )
+gun_08 = ExtResource( 16 )
+nade_01 = ExtResource( 17 )
+nade_02 = ExtResource( 17 )
+nade_03 = ExtResource( 17 )
+nade_04 = ExtResource( 17 )
+power_up_01 = ExtResource( 21 )
+power_up_02 = ExtResource( 9 )
+power_up_03 = ExtResource( 22 )
+power_up_04 = ExtResource( 21 )
+
+[node name="Start_Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
 
 [node name="TileMap-Backround-01" type="TileMap" parent="." groups=[
 "map_part",
 ]]
-modulate = Color( 1, 0.705882, 0.564706, 1 )
+modulate = Color( 1, 0.0745098, 0.0509804, 1 )
 z_index = -30
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 20, 20 )
@@ -220,112 +242,192 @@ position = Vector2( 1016.51, 1127.47 )
 
 [node name="Spawners" type="Node2D" parent="Map_parts"]
 
-[node name="RigidBody_Spawner" parent="Map_parts/Spawners" instance=ExtResource( 9 )]
+[node name="MP-17-Weap_Spawner" parent="Map_parts/Spawners" instance=ExtResource( 23 )]
 position = Vector2( 520, 890 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 14 )
+outline_color = Color( 0.0980392, 0.137255, 1, 1 )
+middle_color = Color( 0.360784, 1, 0.0980392, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.360784, 1, 0.0980392, 1 )
+top_02_color = Color( 0.360784, 1, 0.0980392, 1 )
 
-[node name="RigidBody_Spawner2" parent="Map_parts/Spawners" instance=ExtResource( 9 )]
+[node name="MP-17-Weap_Spawner3" parent="Map_parts/Spawners" instance=ExtResource( 23 )]
+position = Vector2( 200, 1050 )
+outline_color = Color( 0.0980392, 0.137255, 1, 1 )
+middle_color = Color( 0.360784, 1, 0.0980392, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.360784, 1, 0.0980392, 1 )
+top_02_color = Color( 0.360784, 1, 0.0980392, 1 )
+
+[node name="MP-17-Weap_Spawner4" parent="Map_parts/Spawners" instance=ExtResource( 23 )]
 position = Vector2( 1400, 890 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 14 )
+outline_color = Color( 0.0980392, 0.137255, 1, 1 )
+middle_color = Color( 0.360784, 1, 0.0980392, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.360784, 1, 0.0980392, 1 )
+top_02_color = Color( 0.360784, 1, 0.0980392, 1 )
 
-[node name="RigidBody_Spawner3" parent="Map_parts/Spawners" instance=ExtResource( 9 )]
-position = Vector2( 960, 890 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 16 )
-
-[node name="RigidBody_Spawner4" parent="Map_parts/Spawners" instance=ExtResource( 9 )]
+[node name="MP-17-Weap_Spawner5" parent="Map_parts/Spawners" instance=ExtResource( 23 )]
 position = Vector2( 1690, 250 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 14 )
+outline_color = Color( 0.0980392, 0.137255, 1, 1 )
+middle_color = Color( 0.360784, 1, 0.0980392, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.360784, 1, 0.0980392, 1 )
+top_02_color = Color( 0.360784, 1, 0.0980392, 1 )
 
-[node name="RigidBody_Spawner5" parent="Map_parts/Spawners" instance=ExtResource( 9 )]
+[node name="MP-17-Weap_Spawner7" parent="Map_parts/Spawners" instance=ExtResource( 23 )]
 position = Vector2( 230, 250 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 14 )
+outline_color = Color( 0.0980392, 0.137255, 1, 1 )
+middle_color = Color( 0.360784, 1, 0.0980392, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.360784, 1, 0.0980392, 1 )
+top_02_color = Color( 0.360784, 1, 0.0980392, 1 )
 
-[node name="RigidBody_Spawner6" parent="Map_parts/Spawners" instance=ExtResource( 9 )]
-position = Vector2( 960, 570 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 20 )
+[node name="MP-17-Weap_Spawner6" parent="Map_parts/Spawners" instance=ExtResource( 23 )]
+position = Vector2( 1720, 1049 )
+outline_color = Color( 0.0980392, 0.137255, 1, 1 )
+middle_color = Color( 0.360784, 1, 0.0980392, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.360784, 1, 0.0980392, 1 )
+top_02_color = Color( 0.360784, 1, 0.0980392, 1 )
 
-[node name="RigidBody_Spawner7" parent="Map_parts/Spawners" instance=ExtResource( 9 )]
-position = Vector2( 800, 410 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 19 )
+[node name="MP-17-Weap_Spawner8" parent="Map_parts/Spawners" instance=ExtResource( 23 )]
+position = Vector2( 960, 890 )
+gun_number = 3
+outline_color = Color( 0.0980392, 0.137255, 1, 1 )
+middle_color = Color( 0.360784, 1, 0.0980392, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.360784, 1, 0.0980392, 1 )
+top_02_color = Color( 0.360784, 1, 0.0980392, 1 )
 
-[node name="RigidBody_Spawner8" parent="Map_parts/Spawners" instance=ExtResource( 9 )]
-position = Vector2( 1120, 410 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 13 )
+[node name="MP-17-Weap_Spawner9" parent="Map_parts/Spawners" instance=ExtResource( 23 )]
+position = Vector2( 801, 409 )
+gun_number = 5
+outline_color = Color( 0.0980392, 0.137255, 1, 1 )
+middle_color = Color( 0.360784, 1, 0.0980392, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.360784, 1, 0.0980392, 1 )
+top_02_color = Color( 0.360784, 1, 0.0980392, 1 )
 
-[node name="RigidBody_Spawner9" parent="Map_parts/Spawners" instance=ExtResource( 9 )]
-position = Vector2( 230, 1050 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 14 )
+[node name="MP-17-Weap_Spawner10" parent="Map_parts/Spawners" instance=ExtResource( 23 )]
+position = Vector2( 1122, 410 )
+gun_number = 6
+outline_color = Color( 0.0980392, 0.137255, 1, 1 )
+middle_color = Color( 0.360784, 1, 0.0980392, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.360784, 1, 0.0980392, 1 )
+top_02_color = Color( 0.360784, 1, 0.0980392, 1 )
 
-[node name="RigidBody_Spawner10" parent="Map_parts/Spawners" instance=ExtResource( 9 )]
-position = Vector2( 1690, 1050 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 14 )
+[node name="MP-17-Weap_Spawner11" parent="Map_parts/Spawners" instance=ExtResource( 23 )]
+position = Vector2( 959, 570 )
+gun_number = 7
+outline_color = Color( 0.0980392, 0.137255, 1, 1 )
+middle_color = Color( 0.360784, 1, 0.0980392, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.360784, 1, 0.0980392, 1 )
+top_02_color = Color( 0.360784, 1, 0.0980392, 1 )
 
-[node name="RigidBody_Spawner_Small" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
+[node name="MP-18-Nade_Spawner" parent="Map_parts/Spawners" instance=ExtResource( 24 )]
 position = Vector2( 170, 570 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 17 )
+outline_color = Color( 1, 0.321569, 0, 1 )
+middle_color = Color( 0.0980392, 1, 0.4, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.0980392, 1, 0.4, 1 )
+top_02_color = Color( 0.0980392, 1, 0.4, 1 )
 
-[node name="RigidBody_Spawner_Small2" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
-position = Vector2( 1750, 570 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 17 )
+[node name="MP-18-Nade_Spawner2" parent="Map_parts/Spawners" instance=ExtResource( 24 )]
+position = Vector2( 1750, 569 )
+outline_color = Color( 1, 0.321569, 0, 1 )
+middle_color = Color( 0.0980392, 1, 0.4, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.0980392, 1, 0.4, 1 )
+top_02_color = Color( 0.0980392, 1, 0.4, 1 )
 
-[node name="RigidBody_Spawner_Small3" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
-position = Vector2( 1400, 250 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 17 )
+[node name="MP-18-Nade_Spawner3" parent="Map_parts/Spawners" instance=ExtResource( 24 )]
+position = Vector2( 1401, 249 )
+nade_number = 2
+outline_color = Color( 1, 0.321569, 0, 1 )
+middle_color = Color( 0.0980392, 1, 0.4, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.0980392, 1, 0.4, 1 )
+top_02_color = Color( 0.0980392, 1, 0.4, 1 )
 
-[node name="RigidBody_Spawner_Small4" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
-position = Vector2( 530, 250 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 17 )
+[node name="MP-18-Nade_Spawner4" parent="Map_parts/Spawners" instance=ExtResource( 24 )]
+position = Vector2( 530, 249 )
+nade_number = 2
+outline_color = Color( 1, 0.321569, 0, 1 )
+middle_color = Color( 0.0980392, 1, 0.4, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.0980392, 1, 0.4, 1 )
+top_02_color = Color( 0.0980392, 1, 0.4, 1 )
 
-[node name="RigidBody_Spawner_Small5" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
+[node name="MP-18-Nade_Spawner5" parent="Map_parts/Spawners" instance=ExtResource( 24 )]
 position = Vector2( 520, 1050 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 17 )
+nade_number = 3
+outline_color = Color( 1, 0.321569, 0, 1 )
+middle_color = Color( 0.0980392, 1, 0.4, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.0980392, 1, 0.4, 1 )
+top_02_color = Color( 0.0980392, 1, 0.4, 1 )
 
-[node name="RigidBody_Spawner_Small6" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
+[node name="MP-18-Nade_Spawner6" parent="Map_parts/Spawners" instance=ExtResource( 24 )]
 position = Vector2( 1400, 1050 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 17 )
+nade_number = 4
+outline_color = Color( 1, 0.321569, 0, 1 )
+middle_color = Color( 0.0980392, 1, 0.4, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.0980392, 1, 0.4, 1 )
+top_02_color = Color( 0.0980392, 1, 0.4, 1 )
 
-[node name="RigidBody_Spawner_Small7" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
-position = Vector2( 1120, 730 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 21 )
-
-[node name="RigidBody_Spawner_Small8" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
+[node name="MP-19-Power_Up_Spawner" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
 position = Vector2( 800, 730 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 21 )
+outline_color = Color( 0.0980392, 1, 0.4, 1 )
+middle_color = Color( 0.0980392, 0.137255, 1, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.0980392, 0.137255, 1, 1 )
+top_02_color = Color( 0.0980392, 0.137255, 1, 1 )
 
-[node name="RigidBody_Spawner_Small9" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
-position = Vector2( 880, 1050 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 22 )
+[node name="MP-19-Power_Up_Spawner2" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
+position = Vector2( 881, 1050 )
+power_up_number = 3
+outline_color = Color( 0.0980392, 1, 0.4, 1 )
+middle_color = Color( 0.0980392, 0.137255, 1, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.0980392, 0.137255, 1, 1 )
+top_02_color = Color( 0.0980392, 0.137255, 1, 1 )
 
-[node name="RigidBody_Spawner_Small10" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
+[node name="MP-19-Power_Up_Spawner3" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
+position = Vector2( 1120, 730 )
+outline_color = Color( 0.0980392, 1, 0.4, 1 )
+middle_color = Color( 0.0980392, 0.137255, 1, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.0980392, 0.137255, 1, 1 )
+top_02_color = Color( 0.0980392, 0.137255, 1, 1 )
+
+[node name="MP-19-Power_Up_Spawner4" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
 position = Vector2( 1040, 1050 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 22 )
+power_up_number = 3
+outline_color = Color( 0.0980392, 1, 0.4, 1 )
+middle_color = Color( 0.0980392, 0.137255, 1, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.0980392, 0.137255, 1, 1 )
+top_02_color = Color( 0.0980392, 0.137255, 1, 1 )
 
-[node name="RigidBody_Spawner_Small11" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
+[node name="MP-19-Power_Up_Spawner5" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
 position = Vector2( 1040, 250 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 22 )
+power_up_number = 2
+outline_color = Color( 0.0980392, 1, 0.4, 1 )
+middle_color = Color( 0.0980392, 0.137255, 1, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.0980392, 0.137255, 1, 1 )
+top_02_color = Color( 0.0980392, 0.137255, 1, 1 )
 
-[node name="RigidBody_Spawner_Small12" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
+[node name="MP-19-Power_Up_Spawner6" parent="Map_parts/Spawners" instance=ExtResource( 15 )]
 position = Vector2( 880, 250 )
-my_color = Color( 1, 0.321569, 0, 1 )
-body_1 = ExtResource( 22 )
+power_up_number = 2
+outline_color = Color( 0.0980392, 1, 0.4, 1 )
+middle_color = Color( 0.0980392, 0.137255, 1, 1 )
+back_color = Color( 0, 0, 0, 1 )
+top_01_color = Color( 0.0980392, 0.137255, 1, 1 )
+top_02_color = Color( 0.0980392, 0.137255, 1, 1 )
+
+[connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]

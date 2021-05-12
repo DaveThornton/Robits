@@ -31,6 +31,9 @@ func move_up(delta):
 
 func move_down(delta):
 	self.position.y += speed * delta * occ_player_array.size()
+	for j in range(occ_player_array.size()):
+		var p = occ_player_array[j]
+		p.position.y += delta * speed * occ_player_array.size()
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):

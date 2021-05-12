@@ -400,6 +400,7 @@ func get_player_stats(_num):
 		return p8
 	else:
 		print("invalid get player stats, get player stats thats dumb  -->  ", _num)
+		return p8
 
 func get_place_name(_place):
 	if _place == 0:
