@@ -324,8 +324,8 @@ func get_weap_hold(_weap: int):
 			return gun_hold_66
 		elif _weap == 67:
 			return gun_hold_67
-#		elif _weap == 68:
-#			return gun_hold_68
+		elif _weap == 68:
+			return gun_hold_68
 		elif _weap == 69:
 			return gun_hold_69
 		elif _weap == 70:

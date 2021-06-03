@@ -15,12 +15,13 @@ onready var back = $Sprite_02
 onready var top = $"MP-17-Weap_Spawner_top_01"
 onready var particles = $CPUParticles2D
 onready var anim = $AnimationPlayer
+onready var anim2 = $AnimationPlayer2
 onready var block = $StaticBody2D/CollisionShape2D
-# onready var timer_start = $Timer_Start
 onready var timer_respawn = $Timer_Respawn
 onready var spawn_area = $Area2D
 
 var obj
+var spawned_obj
 
 func _ready():
 	Map_Hand.map.connect("start",self ,"start")
@@ -41,34 +42,23 @@ func start():
 	else:
 		block.disabled = true
 	if spawn_area.get_overlapping_bodies().size() == 0:
-		spawn()
-
-func _process(_delta):
-	# print("in area ",spawn_area.get_overlapping_bodies().size())
-	if spawn_area.get_overlapping_bodies().size() == 0 && timer_respawn.is_stopped():
-		timer_respawn.start()
+		anim2.play("Spawn")
 
 func spawn():
 	if obj == null:
 		obj = Map_Hand.map.get_power_up(power_up_number)
-	var s = obj.instance()
-	Map_Hand.add_kid_to_map(s)
-	s.global_position = top.global_position
-	s.dont_hit_player()
-
-
-# func _on_Timer_timeout():
-# 	if obj == null:
-# 		obj = Map_Hand.map.get_gun(gun_number)
-# 	spawn()
+	spawned_obj = obj.instance()
+	Map_Hand.add_kid_to_map(spawned_obj)
+	spawned_obj.global_position = top.global_position
+	spawned_obj.dont_hit_player()
 
 func _on_Timer_Respawn_timeout():
 	if spawn_area.get_overlapping_bodies().size() == 0:
-		spawn()
+		anim2.play("Spawn")
 	else:
 		timer_respawn.start()
 
 func _on_Area2D_body_exited(_body):
-	# print("exited with ",spawn_area.get_overlapping_bodies().size(), " left in the area" )
-	if spawn_area.get_overlapping_bodies().size() == 0 && timer_respawn.is_stopped():
+	if !spawn_area.overlaps_body(spawned_obj):
 		timer_respawn.start()
+		anim2.play("Out")

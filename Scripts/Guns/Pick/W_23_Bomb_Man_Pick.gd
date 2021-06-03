@@ -76,7 +76,7 @@ func _on_W_23_Bomb_Man_Pick_body_shape_entered(_body_id, body, _body_shape, _loc
 	if hits < hits_max :
 		hits += 1
 		SFX.play("FX_01_ObjHit")
-	print("hitting body w 23")
+	# print("hitting body w 23")
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 		dont_hit_player()
@@ -86,7 +86,7 @@ func _on_W_23_Bomb_Man_Pick_body_shape_entered(_body_id, body, _body_shape, _loc
 
 
 func _on_W_23_Bomb_Man_Pick_body_entered(body):
-	print("hitting body w 23")
+	# print("hitting body w 23")
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 		dont_hit_player()

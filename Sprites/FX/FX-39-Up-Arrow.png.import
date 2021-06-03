@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TS-G-11-plat-01.png-8a80c97a3f337452297b05460f87d116.stex"
+path="res://.import/FX-39-Up-Arrow.png-369c8dff081751246d6958aa46624e9a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tile_Sets/TS-G-11-plat-01.png"
-dest_files=[ "res://.import/TS-G-11-plat-01.png-8a80c97a3f337452297b05460f87d116.stex" ]
+source_file="res://Sprites/FX/FX-39-Up-Arrow.png"
+dest_files=[ "res://.import/FX-39-Up-Arrow.png-369c8dff081751246d6958aa46624e9a.stex" ]
 
 [params]
 

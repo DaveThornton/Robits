@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -21,8 +21,12 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_72_Cleaver_Pick.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Guns/Pick/W_15_Zapper_Pick.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Guns/Pick/W_09_Magnum_Pick.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Map_Parts/MP-18-Nade_Spawner.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Map_Parts/MP-19-PowerUp_Spawner.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Guns/Pick/W_24_TNT_Pick.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=25]
 
-[node name="Map-01-Disputed" type="Node2D"]
+[node name="Map-26-Castles&Balloons" type="Node2D"]
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true,
@@ -37,6 +41,14 @@ gun_05 = ExtResource( 17 )
 gun_06 = ExtResource( 20 )
 gun_07 = ExtResource( 18 )
 gun_08 = ExtResource( 21 )
+nade_01 = ExtResource( 24 )
+nade_02 = ExtResource( 24 )
+nade_03 = ExtResource( 24 )
+nade_04 = ExtResource( 24 )
+power_up_01 = ExtResource( 25 )
+power_up_02 = ExtResource( 25 )
+power_up_03 = ExtResource( 25 )
+power_up_04 = ExtResource( 25 )
 
 [node name="Start_Timer" type="Timer" parent="."]
 one_shot = true
@@ -239,7 +251,7 @@ __meta__ = {
 position = Vector2( 221, 272 )
 
 [node name="MP-11-Player_Spawner-VS-01" parent="Player_spawns" instance=ExtResource( 10 )]
-position = Vector2( 488, 1040 )
+position = Vector2( 420, 1040 )
 
 [node name="MP-11-Player_Spawner-VS-02" parent="Player_spawns" instance=ExtResource( 10 )]
 position = Vector2( 269, 940 )
@@ -254,7 +266,7 @@ position = Vector2( 608, 1040 )
 position = Vector2( 1115, 1039 )
 
 [node name="MP-11-Player_Spawner-VS-06" parent="Player_spawns" instance=ExtResource( 10 )]
-position = Vector2( 1338, 1039 )
+position = Vector2( 1290, 1040 )
 
 [node name="MP-11-Player_Spawner-VS-07" parent="Player_spawns" instance=ExtResource( 10 )]
 position = Vector2( 1631, 920 )
@@ -272,6 +284,125 @@ position = Vector2( 1701, 292 )
 position = Vector2( 791, 1039 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
+
+[node name="Spawners" type="Node2D" parent="Power_Ups"]
+
+[node name="Weap" type="Node2D" parent="Power_Ups/Spawners"]
+
+[node name="MP-17-Weap_Spawner" parent="Power_Ups/Spawners/Weap" instance=ExtResource( 16 )]
+position = Vector2( 1770, 310 )
+solid_block = false
+outline_color = Color( 0.968627, 0.0235294, 1, 1 )
+middle_color = Color( 0.611765, 0, 0.615686, 1 )
+back_color = Color( 0, 0.439216, 0.407843, 1 )
+top_01_color = Color( 0.752941, 0, 0.839216, 1 )
+top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+
+[node name="MP-17-Weap_Spawner2" parent="Power_Ups/Spawners/Weap" instance=ExtResource( 16 )]
+position = Vector2( 149, 290 )
+gun_number = 5
+solid_block = false
+outline_color = Color( 0.968627, 0.0235294, 1, 1 )
+middle_color = Color( 0.611765, 0, 0.615686, 1 )
+back_color = Color( 0, 0.439216, 0.407843, 1 )
+top_01_color = Color( 0.752941, 0, 0.839216, 1 )
+top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+
+[node name="MP-17-Weap_Spawner3" parent="Power_Ups/Spawners/Weap" instance=ExtResource( 16 )]
+position = Vector2( 179, 1050 )
+gun_number = 2
+solid_block = false
+outline_color = Color( 0.968627, 0.0235294, 1, 1 )
+middle_color = Color( 0.611765, 0, 0.615686, 1 )
+back_color = Color( 0, 0.439216, 0.407843, 1 )
+top_01_color = Color( 0.752941, 0, 0.839216, 1 )
+top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+
+[node name="MP-17-Weap_Spawner4" parent="Power_Ups/Spawners/Weap" instance=ExtResource( 16 )]
+position = Vector2( 1740, 1050 )
+gun_number = 2
+solid_block = false
+outline_color = Color( 0.968627, 0.0235294, 1, 1 )
+middle_color = Color( 0.611765, 0, 0.615686, 1 )
+back_color = Color( 0, 0.439216, 0.407843, 1 )
+top_01_color = Color( 0.752941, 0, 0.839216, 1 )
+top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+
+[node name="MP-17-Weap_Spawner5" parent="Power_Ups/Spawners/Weap" instance=ExtResource( 16 )]
+position = Vector2( 960, 1050 )
+gun_number = 2
+solid_block = false
+outline_color = Color( 0.968627, 0.0235294, 1, 1 )
+middle_color = Color( 0.611765, 0, 0.615686, 1 )
+back_color = Color( 0, 0.439216, 0.407843, 1 )
+top_01_color = Color( 0.752941, 0, 0.839216, 1 )
+top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+
+[node name="MP-17-Weap_Spawner6" parent="Power_Ups/Spawners/Weap" instance=ExtResource( 16 )]
+position = Vector2( 960, 910 )
+gun_number = 2
+solid_block = false
+outline_color = Color( 0.968627, 0.0235294, 1, 1 )
+middle_color = Color( 0.611765, 0, 0.615686, 1 )
+back_color = Color( 0, 0.439216, 0.407843, 1 )
+top_01_color = Color( 0.752941, 0, 0.839216, 1 )
+top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+
+[node name="Nade" type="Node2D" parent="Power_Ups/Spawners"]
+
+[node name="MP-18-Nade_Spawner" parent="Power_Ups/Spawners/Nade" instance=ExtResource( 22 )]
+position = Vector2( 870, 910 )
+outline_color = Color( 1, 1, 1, 0 )
+middle_color = Color( 0.611765, 0, 0.615686, 1 )
+back_color = Color( 1, 1, 1, 0 )
+top_01_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+
+[node name="MP-18-Nade_Spawner2" parent="Power_Ups/Spawners/Nade" instance=ExtResource( 22 )]
+position = Vector2( 700, 1050 )
+nade_number = 2
+outline_color = Color( 1, 1, 1, 0 )
+middle_color = Color( 0.611765, 0, 0.615686, 1 )
+back_color = Color( 1, 1, 1, 0 )
+top_01_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+
+[node name="MP-18-Nade_Spawner3" parent="Power_Ups/Spawners/Nade" instance=ExtResource( 22 )]
+position = Vector2( 1220, 1050 )
+nade_number = 3
+outline_color = Color( 1, 1, 1, 0 )
+middle_color = Color( 0.611765, 0, 0.615686, 1 )
+back_color = Color( 1, 1, 1, 0 )
+top_01_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+
+[node name="MP-18-Nade_Spawner4" parent="Power_Ups/Spawners/Nade" instance=ExtResource( 22 )]
+position = Vector2( 1050, 910 )
+nade_number = 4
+outline_color = Color( 1, 1, 1, 0 )
+middle_color = Color( 0.611765, 0, 0.615686, 1 )
+back_color = Color( 1, 1, 1, 0 )
+top_01_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+
+[node name="Power" type="Node2D" parent="Power_Ups/Spawners"]
+
+[node name="MP-19-Power_Up_Spawner" parent="Power_Ups/Spawners/Power" instance=ExtResource( 23 )]
+position = Vector2( 320, 1050 )
+outline_color = Color( 1, 1, 1, 0 )
+middle_color = Color( 0, 0.439216, 0.407843, 1 )
+back_color = Color( 1, 1, 1, 0 )
+top_01_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+
+[node name="MP-19-Power_Up_Spawner2" parent="Power_Ups/Spawners/Power" instance=ExtResource( 23 )]
+position = Vector2( 1520, 1050 )
+power_up_number = 2
+outline_color = Color( 1, 1, 1, 0 )
+middle_color = Color( 0, 0.439216, 0.407843, 1 )
+back_color = Color( 1, 1, 1, 0 )
+top_01_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
+top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
 
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
@@ -307,67 +438,6 @@ color_set = 3
 
 [node name="MP-17-Weap_Spawner9" parent="Map_parts/MP-35-Balloon2" instance=ExtResource( 16 )]
 position = Vector2( 0, 250 )
-gun_number = 2
-solid_block = false
-outline_color = Color( 0.968627, 0.0235294, 1, 1 )
-middle_color = Color( 0.611765, 0, 0.615686, 1 )
-back_color = Color( 0, 0.439216, 0.407843, 1 )
-top_01_color = Color( 0.752941, 0, 0.839216, 1 )
-top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
-
-[node name="Weap_Spawners" type="Node2D" parent="Map_parts"]
-
-[node name="MP-17-Weap_Spawner" parent="Map_parts/Weap_Spawners" instance=ExtResource( 16 )]
-position = Vector2( 1770, 310 )
-solid_block = false
-outline_color = Color( 0.968627, 0.0235294, 1, 1 )
-middle_color = Color( 0.611765, 0, 0.615686, 1 )
-back_color = Color( 0, 0.439216, 0.407843, 1 )
-top_01_color = Color( 0.752941, 0, 0.839216, 1 )
-top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
-
-[node name="MP-17-Weap_Spawner2" parent="Map_parts/Weap_Spawners" instance=ExtResource( 16 )]
-position = Vector2( 149, 290 )
-gun_number = 5
-solid_block = false
-outline_color = Color( 0.968627, 0.0235294, 1, 1 )
-middle_color = Color( 0.611765, 0, 0.615686, 1 )
-back_color = Color( 0, 0.439216, 0.407843, 1 )
-top_01_color = Color( 0.752941, 0, 0.839216, 1 )
-top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
-
-[node name="MP-17-Weap_Spawner3" parent="Map_parts/Weap_Spawners" instance=ExtResource( 16 )]
-position = Vector2( 210, 1050 )
-gun_number = 2
-solid_block = false
-outline_color = Color( 0.968627, 0.0235294, 1, 1 )
-middle_color = Color( 0.611765, 0, 0.615686, 1 )
-back_color = Color( 0, 0.439216, 0.407843, 1 )
-top_01_color = Color( 0.752941, 0, 0.839216, 1 )
-top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
-
-[node name="MP-17-Weap_Spawner4" parent="Map_parts/Weap_Spawners" instance=ExtResource( 16 )]
-position = Vector2( 1710, 1050 )
-gun_number = 2
-solid_block = false
-outline_color = Color( 0.968627, 0.0235294, 1, 1 )
-middle_color = Color( 0.611765, 0, 0.615686, 1 )
-back_color = Color( 0, 0.439216, 0.407843, 1 )
-top_01_color = Color( 0.752941, 0, 0.839216, 1 )
-top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
-
-[node name="MP-17-Weap_Spawner5" parent="Map_parts/Weap_Spawners" instance=ExtResource( 16 )]
-position = Vector2( 960, 1050 )
-gun_number = 2
-solid_block = false
-outline_color = Color( 0.968627, 0.0235294, 1, 1 )
-middle_color = Color( 0.611765, 0, 0.615686, 1 )
-back_color = Color( 0, 0.439216, 0.407843, 1 )
-top_01_color = Color( 0.752941, 0, 0.839216, 1 )
-top_02_color = Color( 0.701961, 0.0156863, 0.760784, 1 )
-
-[node name="MP-17-Weap_Spawner6" parent="Map_parts/Weap_Spawners" instance=ExtResource( 16 )]
-position = Vector2( 960, 910 )
 gun_number = 2
 solid_block = false
 outline_color = Color( 0.968627, 0.0235294, 1, 1 )

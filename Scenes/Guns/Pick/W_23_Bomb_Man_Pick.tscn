@@ -134,6 +134,7 @@ anims/Lit = SubResource( 7 )
 [node name="FX-21-Timer_Label" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 0, -24 )
+
 [connection signal="body_entered" from="." to="." method="_on_W_23_Bomb_Man_Pick_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_W_23_Bomb_Man_Pick_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

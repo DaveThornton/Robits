@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Map_Parts/Parts/AnimationPlayer_Door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Map_Parts/MP-06-Trap_Door-80x20.png" type="Texture" id=2]
@@ -98,7 +98,90 @@ func _on_Area2DLeft_body_exited(body):
 func _on_Area2DRight_body_exited(body):
 	if open_on_bot:
 #		if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
-		_on_exited(body)"
+		_on_exited(body)
+"
+
+[sub_resource type="Animation" id=6]
+resource_name = "Door_Close"
+length = 0.3
+step = 0.05
+
+[sub_resource type="Animation" id=7]
+resource_name = "Door_Open"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("StaticBody2D/Door_Bottom:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("StaticBody2D/Door_Top:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("StaticBody2D/Door_Top2:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("StaticBody2D/Very_Top:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("StaticBody2D/Very_Top2:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 21.147
@@ -118,6 +201,8 @@ extents = Vector2( 6, 13 )
 script = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 1 )]
+anims/Door_Close = SubResource( 6 )
+anims/Door_Open = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -187,6 +272,7 @@ one_shot = true
 stream = ExtResource( 3 )
 volume_db = -22.0
 bus = "SFX"
+
 [connection signal="body_entered" from="Area2D-Top" to="." method="_on_Area2DLeft_body_entered"]
 [connection signal="body_exited" from="Area2D-Top" to="." method="_on_Area2DLeft_body_exited"]
 [connection signal="body_entered" from="Area2D-Bot" to="." method="_on_Area2DRight_body_entered"]

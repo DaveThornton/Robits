@@ -210,3 +210,7 @@ position = Vector2( 1016.51, 1127.47 )
 
 [node name="MP-51-Saw" parent="Map_parts" instance=ExtResource( 9 )]
 position = Vector2( 1690, 620 )
+
+[node name="Start_Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true

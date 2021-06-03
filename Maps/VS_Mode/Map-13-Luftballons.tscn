@@ -14,7 +14,7 @@
 [ext_resource path="res://Tilesets/TS-04-Back-FX-Balloon.tres" type="TileSet" id=12]
 [ext_resource path="res://Tilesets/TS-06-Main-FX-Balloon.tres" type="TileSet" id=13]
 
-[node name="Map-01-Disputed" type="Node2D"]
+[node name="Map-13-Luftballons" type="Node2D"]
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_lock_": true,
@@ -211,7 +211,10 @@ position = Vector2( 1080, 340 )
 position = Vector2( 1400, 970 )
 
 [node name="Jump_Power_Up8" parent="Power_Ups" instance=ExtResource( 1 )]
-position = Vector2( 960, 770 )
+position = Vector2( 908, 768 )
+
+[node name="Jump_Power_Up23" parent="Power_Ups" instance=ExtResource( 1 )]
+position = Vector2( 1017, 768 )
 
 [node name="Jump_Power_Up9" parent="Power_Ups" instance=ExtResource( 1 )]
 position = Vector2( 550, 1010 )
@@ -268,3 +271,9 @@ position = Vector2( 1016.51, 1127.47 )
 position = Vector2( 967, 1210 )
 
 [node name="Spawners" type="Node2D" parent="Map_parts"]
+
+[node name="Start_Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]

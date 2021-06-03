@@ -91,7 +91,8 @@ func throw():
 		_throw_where(t)
 	_throw_where(t)
 	emit_signal("ammo_change",player,0)
-	emit_signal("shot", player, 1)
+	Player_Stats.add_shot(player, 1)
+	# emit_signal("shot", player, 1)
 	queue_free()
 
 func drop():
