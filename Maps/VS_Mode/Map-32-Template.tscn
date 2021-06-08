@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -12,13 +12,20 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=11]
 [ext_resource path="res://Maps/map-00.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Map_Parts/MP-19-PowerUp_Spawner.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Map_Parts/MP-18-Nade_Spawner.tscn" type="PackedScene" id=15]
 
-[node name="Map-01-Disputed" type="Node2D"]
+[node name="Map-00-Temp" type="Node2D"]
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_vertical_guides_": [ 38.1926 ]
 }
+
+[node name="Start_Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
 
 [node name="TileMap-Backround-01" type="TileMap" parent="." groups=[
 "map_part",
@@ -153,6 +160,43 @@ __meta__ = {
 
 [node name="MP-04-Nav2D" parent="." instance=ExtResource( 7 )]
 
+[node name="Power_Ups" type="Node2D" parent="."]
+
+[node name="Spawners" type="Node2D" parent="Power_Ups"]
+
+[node name="Weap" type="Node2D" parent="Power_Ups/Spawners"]
+
+[node name="MP-17-Weap_Spawner" parent="Power_Ups/Spawners/Weap" instance=ExtResource( 13 )]
+position = Vector2( 1775, 1050 )
+gun_number = 3
+outline_color = Color( 1, 1, 1, 0 )
+middle_color = Color( 0, 0, 0, 1 )
+back_color = Color( 1, 1, 1, 0 )
+top_01_color = Color( 0.27451, 0.27451, 0.27451, 0.47451 )
+top_02_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+
+[node name="Nade" type="Node2D" parent="Power_Ups/Spawners"]
+
+[node name="MP-18-Nade_Spawner" parent="Power_Ups/Spawners/Nade" instance=ExtResource( 15 )]
+position = Vector2( 1190, 630 )
+outline_color = Color( 1, 1, 1, 0 )
+middle_color = Color( 0, 0, 0, 1 )
+back_color = Color( 1, 1, 1, 0 )
+top_01_color = Color( 0.27451, 0.27451, 0.27451, 0.47451 )
+top_02_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+
+[node name="Power" type="Node2D" parent="Power_Ups/Spawners"]
+position = Vector2( 9, -3 )
+
+[node name="MP-19-Power_Up_Spawner" parent="Power_Ups/Spawners/Power" instance=ExtResource( 14 )]
+position = Vector2( 181, 772 )
+power_up_number = 4
+outline_color = Color( 1, 1, 1, 0 )
+middle_color = Color( 0, 0, 0, 1 )
+back_color = Color( 1, 1, 1, 0 )
+top_01_color = Color( 0.27451, 0.27451, 0.27451, 0.47451 )
+top_02_color = Color( 0.396078, 0.396078, 0.396078, 1 )
+
 [node name="Player_spawns" type="Node2D" parent="."]
 
 [node name="MP-11-Player_Spawner-VS-00" parent="Player_spawns" instance=ExtResource( 10 )]
@@ -197,8 +241,6 @@ position = Vector2( 1780, 210 )
 [node name="MP-11-Player_Spawner-VS-13" parent="Player_spawns" instance=ExtResource( 10 )]
 position = Vector2( 990, 450 )
 
-[node name="Power_Ups" type="Node2D" parent="."]
-
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
@@ -210,9 +252,5 @@ position = Vector2( 1016.51, 1127.47 )
 
 [node name="MP-51-Saw" parent="Map_parts" instance=ExtResource( 9 )]
 position = Vector2( 1690, 620 )
-
-[node name="Start_Timer" type="Timer" parent="."]
-one_shot = true
-autostart = true
 
 [connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]

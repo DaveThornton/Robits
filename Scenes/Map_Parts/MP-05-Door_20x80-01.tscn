@@ -13,6 +13,7 @@ export var open_on_far_left = false
 export var open_on_far_right = false 
 export var open_for_bg = true
 export var open_for_player = true
+export var time_open = 1.0
 export var always_open = false
 export var open_in_time = false
 export var open_in_time_time = 10
@@ -34,6 +35,7 @@ var open_last = false
 var open_in_time_left = 0
 
 func _ready():
+	timer.wait_time = time_open
 	far_left.disabled = !open_on_far_left
 	far_right.disabled = !open_on_far_right
 	area_left.set_collision_mask_bit(1,open_for_player)
@@ -355,6 +357,7 @@ one_shot = true
 stream = ExtResource( 2 )
 volume_db = -22.0
 bus = "SFX"
+
 [connection signal="body_entered" from="Area2D-Left" to="." method="_on_Area2DLeft_body_entered"]
 [connection signal="body_exited" from="Area2D-Left" to="." method="_on_Area2DLeft_body_exited"]
 [connection signal="body_entered" from="Area2D-Right" to="." method="_on_Area2DRight_body_entered"]
