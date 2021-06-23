@@ -13,4 +13,5 @@ script = ExtResource( 1 )
 visible = false
 
 [node name="Splash_Timer" type="Timer" parent="."]
+
 [connection signal="timeout" from="Splash_Timer" to="." method="_on_Splash_Timer_timeout"]

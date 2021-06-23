@@ -67,6 +67,9 @@ func hit(_owned, _my_name, _damage_type, _damage1):
 		player =  _owned
 
 func _on_Timer_timeout():
+	fade_out()
+
+func fade_out():
 	var s = smoke.instance()
 	Map_Hand.add_kid_to_map(s)
 #	get_tree().get_current_scene().add_child(s)

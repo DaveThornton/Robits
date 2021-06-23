@@ -1,6 +1,7 @@
 extends Node2D
 export var gun_number = 1
 export var solid_block = true
+export var rotate_spawn = false
 export var outline_color = Color8(255,255,255,255)
 export var middle_color = Color8(255,255,255,255)
 export var back_color = Color8(255,255,255,255)
@@ -51,6 +52,11 @@ func spawn():
 	Map_Hand.add_kid_to_map(spawned_obj)
 	spawned_obj.global_position = top.global_position
 	spawned_obj.dont_hit_player()
+	if rotate_spawn:
+		gun_number += 1
+		if gun_number > 8:
+			gun_number = 1
+		obj = Map_Hand.map.get_gun(gun_number)
 
 func _on_Timer_Respawn_timeout():
 	if spawn_area.get_overlapping_bodies().size() == 0:

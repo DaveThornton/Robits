@@ -49,6 +49,10 @@ power_up_02 = ExtResource( 6 )
 power_up_03 = ExtResource( 7 )
 power_up_04 = ExtResource( 26 )
 
+[node name="Start_Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
 [node name="TileMap-Backround-01" type="TileMap" parent="." groups=[
 "map_part",
 ]]
@@ -501,9 +505,5 @@ position = Vector2( 1016.51, 1127.47 )
 [node name="RidgedBody_Spawners" type="Node2D" parent="Map_parts"]
 
 [node name="RidgedBody_SpawnersSmall" type="Node2D" parent="Map_parts"]
-
-[node name="Start_Timer" type="Timer" parent="."]
-one_shot = true
-autostart = true
 
 [connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]

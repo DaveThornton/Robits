@@ -43,6 +43,9 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		set_dir(is_right, dir)
 
 func _on_Des_Timer_timeout():
+	fade_out()
+
+func fade_out():
 	var s = smoke.instance()
 	Map_Hand.add_kid_to_map(s)
 #	get_tree().get_current_scene().add_child(s)

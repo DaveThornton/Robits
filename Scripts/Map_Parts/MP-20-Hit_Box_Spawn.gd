@@ -22,7 +22,7 @@ onready var spawn_pos = $Pos2D_Spawn
 
 var used = false
 var obj
-
+var s_obj
 func _ready():
 	Map_Hand.map.connect("start",self ,"start")
 
@@ -43,10 +43,16 @@ func start():
 func spawn():
 	if obj == null:
 		set_obj()
+	if is_instance_valid(s_obj):
+		if s_obj.has_method("fade_out"):
+			s_obj.fade_out()
+		print("old one deleted in mp 20 spawn")
 	var s = obj.instance()
+	s_obj = s
 	Map_Hand.add_kid_to_map(s)
 	s.global_position = spawn_pos.global_position
 	s.dont_hit_player()
+	s.init(-1, 0, 1, true, 3, false)
 	if rotate_spawn:
 		spawn_number += 1
 		print("spawn number  ",spawn_number)

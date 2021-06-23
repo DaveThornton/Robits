@@ -1,5 +1,8 @@
 extends RigidBody2D
 
+export(PackedScene) var smoke
+export var expire_time = 30.0
+
 onready var sprite = $Sprite
 onready var timer = $Timer
 onready var spin_timer = $Timer_Spin
@@ -83,3 +86,10 @@ func set_dir(_is_right, _dir):
 			sprite.scale.y = -1
 func dont_hit_player():
 	self.set_collision_mask_bit( 1, false)
+
+func fade_out():
+	print("gun number: ", gun_num, " *poof*")
+	var s = smoke.instance()
+	Map_Hand.add_kid_to_map(s)
+	s.start( 0 , self.global_position, 0, 0)
+	call_deferred("free")

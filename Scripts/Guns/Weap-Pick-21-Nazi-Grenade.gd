@@ -126,6 +126,9 @@ func set_dir(_is_right, _dir):
 			self.rotation_degrees = -265
 
 func _on_Timer_timeout():
+	fade_out()
+
+func fade_out():
 	var s = smoke.instance()
 	Map_Hand.add_kid_to_map(s)
 	s.start( 0 , self.global_position, 0, 0)

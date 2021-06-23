@@ -10,4 +10,5 @@ start_screen = ExtResource( 2 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 20.0
 one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

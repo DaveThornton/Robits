@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Guns/Weap-Pick-22-Plasma-Grenade.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Guns/Weap-22-Plasma-Grenade.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Guns/Parts/Weap-Part-22-DetParticles.tscn" type="PackedScene" id=6]
@@ -70,6 +70,7 @@ shape = SubResource( 4 )
 [node name="22-plasma-det" parent="." instance=ExtResource( 6 )]
 visible = false
 material = SubResource( 5 )
+
 [connection signal="body_entered" from="." to="." method="_on_WeapPick22PlasmaGrenade_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Spin" to="." method="_on_Timer_Spin_timeout"]

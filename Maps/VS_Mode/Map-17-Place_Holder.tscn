@@ -53,6 +53,10 @@ power_up_02 = ExtResource( 6 )
 power_up_03 = ExtResource( 28 )
 power_up_04 = ExtResource( 5 )
 
+[node name="Start_Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
 [node name="TileMap-Backround-01" type="TileMap" parent="." groups=[
 "map_part",
 ]]
@@ -449,9 +453,5 @@ top_02_color = Color( 0, 1, 0.647059, 0.560784 )
 position = Vector2( 1016.51, 1127.47 )
 
 [node name="Weap_Spawners" type="Node2D" parent="Map_parts"]
-
-[node name="Start_Timer" type="Timer" parent="."]
-one_shot = true
-autostart = true
 
 [connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]

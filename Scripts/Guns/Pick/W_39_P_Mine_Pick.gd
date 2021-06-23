@@ -90,6 +90,9 @@ func _on_W_39_P_Mine_body_shape_entered(_body_id, body, _body_shape, _local_shap
 		self.set_collision_mask_bit( 1, false)
 
 func _on_Timer_timeout():
+	fade_out()
+
+func fade_out():
 	print("gun number: ", gun_num, " *poof*")
 	var s = smoke.instance()
 	Map_Hand.add_kid_to_map(s)

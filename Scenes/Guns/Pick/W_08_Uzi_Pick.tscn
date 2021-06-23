@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Guns/Pick/W_08_Uzi_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/W_08_Uzi.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.35672
@@ -44,6 +44,7 @@ one_shot = true
 
 [node name="Timer_Hit" type="Timer" parent="."]
 wait_time = 0.1
+
 [connection signal="body_shape_entered" from="." to="." method="_on_WeapPick08Uzi_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]

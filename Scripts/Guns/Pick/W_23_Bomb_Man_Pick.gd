@@ -60,6 +60,9 @@ func hit(_owned, _my_name, _damage_type, _damage1):
 		player =  _owned
 
 func _on_TimerBoom_timeout():
+	fade_out()
+
+func fade_out():
 	var b = boom.instance()
 	Map_Hand.add_kid_to_map(b)
 	b.position = self.global_position

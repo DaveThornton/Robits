@@ -103,4 +103,4 @@ func _on_Timer_timeout():
 	else:
 		logo.visible = false
 		timer.start(6)
-	FX.splash(screen_count)
+	FX.splash(screen_count,0)

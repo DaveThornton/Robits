@@ -53,7 +53,7 @@ onready var p7_menu = $Menu_5x4_07
 onready var p8_menu = $Menu_5x4_08
 onready var maps_pics = $Menu_5x4_Map
 
-var maps = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,26,27]
+var maps = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,26,27,28,29,30,31,32,33,34,35,36]
 var p1_ready = false
 var p2_ready = false
 var p3_ready = false
