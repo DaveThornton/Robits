@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Sprites/Menu/Map_Select_8x4.png" type="Texture" id=1]
 [ext_resource path="res://Menus/Arcade/Scripts/M04-Arcade-Map-Select-VS_20.gd" type="Script" id=2]
@@ -41,6 +41,10 @@
 [ext_resource path="res://Maps/VS_Mode/Map-35-Template.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Maps/VS_Mode/Map-34-Template.tscn" type="PackedScene" id=40]
 [ext_resource path="res://Maps/VS_Mode/Map-36-Template.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Maps/VS_Mode/Map-40-Template.tscn" type="PackedScene" id=42]
+[ext_resource path="res://Maps/VS_Mode/Map-37-Template.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Maps/VS_Mode/Map-39-Template.tscn" type="PackedScene" id=44]
+[ext_resource path="res://Maps/VS_Mode/Map-38-Template.tscn" type="PackedScene" id=45]
 
 [node name="M04-Arcade-Map-Select-VS" type="Node2D"]
 position = Vector2( 0, 90 )
@@ -82,6 +86,10 @@ map_33 = ExtResource( 36 )
 map_34 = ExtResource( 40 )
 map_35 = ExtResource( 39 )
 map_36 = ExtResource( 41 )
+map_37 = ExtResource( 43 )
+map_38 = ExtResource( 45 )
+map_39 = ExtResource( 44 )
+map_40 = ExtResource( 42 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
