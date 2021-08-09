@@ -63,7 +63,7 @@ func shoot_j():
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
-			SFX.play("Laser_Shoot")
+			SFX.play("W_06_Shoot")
 			walk += walk_amount
 		elif shoot_cast.is_colliding():
 			

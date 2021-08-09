@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Pawns/Pawn_14/Pawn_14_Pic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://misc/line-text-96.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Menus/Parts/Info/Info.tscn" type="PackedScene" id=3]
+[ext_resource path="res://misc/line-text-160.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Menus/Parts/About/Pawn_About.gd" type="Script" id=5]
+
+[node name="Pawn_14_About" type="Node2D"]
+script = ExtResource( 5 )
+player_color = 3
+
+[node name="Pawn_Pic" parent="." instance=ExtResource( 1 )]
+position = Vector2( 402, 928 )
+scale = Vector2( 10, 10 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 26.0
+margin_top = 118.0
+margin_right = 961.0
+margin_bottom = 284.0
+custom_fonts/font = ExtResource( 4 )
+text = "CRUSHIN-8r"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Model" type="Label" parent="."]
+margin_left = 1049.0
+margin_top = 137.0
+margin_right = 2007.0
+margin_bottom = 262.0
+custom_fonts/font = ExtResource( 2 )
+text = "Model # 994501"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1291, 272 )
+weight = 10
+hops = 5
+speed = 3
+armor = 10
+hp = 8
+about = "the prettiest sleekest smoothest robit in the game. she is also the toughest robit around."
+
+[connection signal="visibility_changed" from="." to="." method="_on_Pawn_09_About_visibility_changed"]

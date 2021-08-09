@@ -92,11 +92,11 @@ func shoot():
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
 			print("make cross bow have its own sound weap 07")
-			SFX.play("AK_Shoot")
+			SFX.play("W_07_Shoot")
 		else:
 			can_shoot = false
 			shoot_timer.start()
-			SFX.play("Gun_Click")
+			SFX.play("W_07_Empty")
 
 func shoot_r():
 	pass

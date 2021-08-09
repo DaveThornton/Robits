@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://misc/line-text-64.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menus/Parts/Info/Attribute_Bar_10.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menus/Parts/Info/Info.gd" type="Script" id=3]
+
+[node name="Info" type="Node2D"]
+script = ExtResource( 3 )
+weight = 3
+speed = 5
+armor = 2
+hp = 7
+
+[node name="Label" type="Label" parent="."]
+margin_left = -451.0
+margin_top = 1.0
+margin_right = -187.0
+margin_bottom = 418.0
+custom_fonts/font = ExtResource( 1 )
+text = "Weight :
+Hops :
+Speed :
+Armor :
+H/p :
+About :"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attribute_Bar_10_1" parent="." instance=ExtResource( 2 )]
+position = Vector2( -139, 32 )
+
+[node name="Attribute_Bar_10_2" parent="." instance=ExtResource( 2 )]
+position = Vector2( -139, 104 )
+
+[node name="Attribute_Bar_10_3" parent="." instance=ExtResource( 2 )]
+position = Vector2( -139, 176 )
+
+[node name="Attribute_Bar_10_4" parent="." instance=ExtResource( 2 )]
+position = Vector2( -139, 246 )
+
+[node name="Attribute_Bar_10_5" parent="." instance=ExtResource( 2 )]
+position = Vector2( -139, 315 )
+
+[node name="Label2" type="Label" parent="."]
+margin_left = -169.0
+margin_top = 351.0
+margin_right = 581.0
+margin_bottom = 769.0
+custom_fonts/font = ExtResource( 1 )
+text = "dgjkahsfg;lakjshg;ahjr;glkhjasddf;gklhas;fklgjha;sflkdghja;slkfhgj;alskfhjg;asdlkhj;alsdkjg;laksfg;aldfsg"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer_Next_Char" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="Timer_Next_Char" to="." method="_on_Timer_Next_Char_timeout"]

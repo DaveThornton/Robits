@@ -71,10 +71,10 @@ func shoot_j():
 				print("gun 00 dont know what im hitting but no projectile spawned")
 		anim_fire.play("Shoot")
 		Player_Stats.add_shot(player, 1)
-		SFX.play("Mega_Shoot")
+		SFX.play("W_11_Shoot")
 		walk += walk_amount
 	else:
-		SFX.play("Gun_Click")
+		SFX.play("W_11_Empty")
 
 func shoot():
 	pass

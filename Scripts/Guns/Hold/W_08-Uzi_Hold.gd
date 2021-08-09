@@ -93,7 +93,7 @@ func shoot():
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
-			SFX.play("AK_Shoot")
+			SFX.play("W_08_Shoot")
 		elif melee_cast.is_colliding() && shoot_pos == 3:
 #			print("uzi trying to melee")
 			melee()
@@ -102,7 +102,7 @@ func shoot():
 			anim_fire.play("Click")
 			can_shoot = false
 			shoot_timer.start()
-			SFX.play("Gun_Click")
+			SFX.play("W_08_Empty")
 #		print("Uzi end of shoot")
 
 func walk_where():

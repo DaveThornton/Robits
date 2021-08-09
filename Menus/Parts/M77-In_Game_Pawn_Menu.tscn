@@ -12,10 +12,10 @@ __meta__ = {
 
 [node name="Pawn01" type="Label" parent="."]
 visible = false
-margin_right = 100.0
+margin_right = 120.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
-text = "au-do"
+text = "otto-a"
 align = 1
 
 [node name="Pawn02" type="Label" parent="."]
@@ -28,10 +28,10 @@ align = 1
 
 [node name="Pawn03" type="Label" parent="."]
 visible = false
-margin_right = 120.0
+margin_right = 128.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
-text = "Torque"
+text = "Joe-Bit"
 align = 1
 
 [node name="Pawn04" type="Label" parent="."]
@@ -43,7 +43,9 @@ text = "AMOX"
 align = 1
 
 [node name="Pawn05" type="Label" parent="."]
-margin_right = 148.0
+visible = false
+margin_left = 132.0
+margin_right = 280.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
 text = "Robit 05"
@@ -51,18 +53,18 @@ align = 1
 
 [node name="Pawn06" type="Label" parent="."]
 visible = false
-margin_right = 120.0
+margin_right = 140.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
-text = "FLYBIT"
+text = "FLY-BIT"
 align = 1
 
 [node name="Pawn07" type="Label" parent="."]
 visible = false
-margin_right = 80.0
+margin_right = 120.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
-text = "BULK"
+text = "BULK-e"
 align = 1
 
 [node name="Pawn08" type="Label" parent="."]
@@ -83,8 +85,7 @@ align = 1
 
 [node name="Pawn10" type="Label" parent="."]
 visible = false
-margin_left = 118.0
-margin_right = 306.0
+margin_right = 188.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
 text = "Rusty Nail"
@@ -92,8 +93,7 @@ align = 1
 
 [node name="Pawn11" type="Label" parent="."]
 visible = false
-margin_left = 192.0
-margin_right = 292.0
+margin_right = 100.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
 text = "KT-K8"
@@ -101,7 +101,7 @@ align = 1
 
 [node name="Pawn12" type="Label" parent="."]
 visible = false
-margin_right = 136.0
+margin_right = 100.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
 text = "TITAN"
@@ -109,10 +109,10 @@ align = 1
 
 [node name="Pawn13" type="Label" parent="."]
 visible = false
-margin_right = 100.0
+margin_right = 68.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
-text = "N.1.7.3."
+text = "N173"
 align = 1
 
 [node name="Pawn14" type="Label" parent="."]
@@ -125,8 +125,7 @@ align = 1
 
 [node name="Pawn15" type="Label" parent="."]
 visible = false
-margin_left = 72.0
-margin_right = 172.0
+margin_right = 100.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 19 )
 text = "ZR-77"

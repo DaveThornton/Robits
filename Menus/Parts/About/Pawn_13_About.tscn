@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Pawns/Pawn_13/Pawn_13_Pic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://misc/line-text-96.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Menus/Parts/Info/Info.tscn" type="PackedScene" id=3]
+[ext_resource path="res://misc/line-text-160.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Menus/Parts/About/Pawn_About.gd" type="Script" id=5]
+
+[node name="Pawn_13_About" type="Node2D"]
+script = ExtResource( 5 )
+player_color = 3
+
+[node name="Pawn_Pic" parent="." instance=ExtResource( 1 )]
+position = Vector2( 378, 652 )
+scale = Vector2( 10, 10 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 275.0
+margin_top = 116.0
+margin_right = 865.0
+margin_bottom = 282.0
+custom_fonts/font = ExtResource( 4 )
+text = "N173"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Model" type="Label" parent="."]
+margin_left = 907.0
+margin_top = 145.0
+margin_right = 1865.0
+margin_bottom = 270.0
+custom_fonts/font = ExtResource( 2 )
+text = "Model # 13373"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1291, 272 )
+weight = 7
+hops = 4
+speed = 8
+armor = 4
+hp = 5
+about = "This Noble Robit on a search for honor for both him and the robit pope. Deus Vult!!!"
+
+[connection signal="visibility_changed" from="." to="." method="_on_Pawn_09_About_visibility_changed"]

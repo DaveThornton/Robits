@@ -1,0 +1,119 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Menu/attribute_square_64.png" type="Texture" id=1]
+[ext_resource path="res://Menus/Parts/Info/Attribute_Bar_10.gd" type="Script" id=2]
+
+[node name="Attribute_Bar_10" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Back" type="Node2D" parent="."]
+
+[node name="attribute_square_64_1" type="Sprite" parent="Back"]
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="attribute_square_64_2" type="Sprite" parent="Back"]
+position = Vector2( 64, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="attribute_square_64_3" type="Sprite" parent="Back"]
+position = Vector2( 128, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="attribute_square_64_4" type="Sprite" parent="Back"]
+position = Vector2( 192, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="attribute_square_64_5" type="Sprite" parent="Back"]
+position = Vector2( 256, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="attribute_square_64_6" type="Sprite" parent="Back"]
+position = Vector2( 320, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="attribute_square_64_7" type="Sprite" parent="Back"]
+position = Vector2( 384, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="attribute_square_64_8" type="Sprite" parent="Back"]
+position = Vector2( 448, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="attribute_square_64_9" type="Sprite" parent="Back"]
+position = Vector2( 512, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="attribute_square_64_10" type="Sprite" parent="Back"]
+position = Vector2( 576, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="Top" type="Node2D" parent="."]
+
+[node name="attribute_square_64_1" type="Sprite" parent="Top"]
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2
+
+[node name="attribute_square_64_2" type="Sprite" parent="Top"]
+position = Vector2( 64, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2
+
+[node name="attribute_square_64_3" type="Sprite" parent="Top"]
+position = Vector2( 128, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2
+
+[node name="attribute_square_64_4" type="Sprite" parent="Top"]
+position = Vector2( 192, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2
+
+[node name="attribute_square_64_5" type="Sprite" parent="Top"]
+position = Vector2( 256, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2
+
+[node name="attribute_square_64_6" type="Sprite" parent="Top"]
+position = Vector2( 320, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2
+
+[node name="attribute_square_64_7" type="Sprite" parent="Top"]
+position = Vector2( 384, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2
+
+[node name="attribute_square_64_8" type="Sprite" parent="Top"]
+position = Vector2( 448, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2
+
+[node name="attribute_square_64_9" type="Sprite" parent="Top"]
+position = Vector2( 512, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2
+
+[node name="attribute_square_64_10" type="Sprite" parent="Top"]
+position = Vector2( 576, 0 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 2

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Pawns/Pawn_17/Pawn_17_Pic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://misc/line-text-96.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Menus/Parts/Info/Info.tscn" type="PackedScene" id=3]
+[ext_resource path="res://misc/line-text-160.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Menus/Parts/About/Pawn_About.gd" type="Script" id=5]
+
+[node name="Pawn_17_About" type="Node2D"]
+script = ExtResource( 5 )
+player_color = 3
+
+[node name="Pawn_Pic" parent="." instance=ExtResource( 1 )]
+position = Vector2( 407, 901 )
+scale = Vector2( 10, 10 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 99.0
+margin_top = 113.0
+margin_right = 689.0
+margin_bottom = 279.0
+custom_fonts/font = ExtResource( 4 )
+text = "Bumble"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Model" type="Label" parent="."]
+margin_left = 907.0
+margin_top = 145.0
+margin_right = 1865.0
+margin_bottom = 270.0
+custom_fonts/font = ExtResource( 2 )
+text = "Model # 123456"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1291, 272 )
+weight = 4
+hops = 8
+speed = 6
+armor = 3
+hp = 3
+about = "originaly developed to be a pollinator when the last bees died off in 2034 this scaled up version is a formatable opponent."
+
+[connection signal="visibility_changed" from="." to="." method="_on_Pawn_09_About_visibility_changed"]

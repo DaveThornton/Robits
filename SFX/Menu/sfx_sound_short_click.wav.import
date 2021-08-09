@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_sound_short_click.wav-813d17ac011d238cdbe0e068e979ca2b.sample"
+
+[deps]
+
+source_file="res://SFX/Menu/sfx_sound_short_click.wav"
+dest_files=[ "res://.import/sfx_sound_short_click.wav-813d17ac011d238cdbe0e068e979ca2b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

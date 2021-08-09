@@ -409,6 +409,21 @@ position = Vector2( 1820, 300 )
 [node name="MP-11-Player_Spawner-VS-13" parent="Player_spawns" instance=ExtResource( 10 )]
 position = Vector2( 850, 1060 )
 
+[node name="MP-11-Player_Spawner-VS-14" parent="Player_spawns" instance=ExtResource( 10 )]
+position = Vector2( 1490, 854 )
+
+[node name="MP-11-Player_Spawner-VS-15" parent="Player_spawns" instance=ExtResource( 10 )]
+position = Vector2( 1710, 540 )
+
+[node name="MP-11-Player_Spawner-VS-16" parent="Player_spawns" instance=ExtResource( 10 )]
+position = Vector2( 1280, 210 )
+
+[node name="MP-11-Player_Spawner-VS-17" parent="Player_spawns" instance=ExtResource( 10 )]
+position = Vector2( 500, 310 )
+
+[node name="MP-11-Player_Spawner-VS-18" parent="Player_spawns" instance=ExtResource( 10 )]
+position = Vector2( 1360, 1055 )
+
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
