@@ -45,7 +45,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 func _on_WeapPick50Shot_Gun_body_shape_entered(body_id, body, body_shape, local_shape):
 	if hits < hits_max :
 		hits += 1
-		SFX.play("FX_01_ObjHit")
+		SFX.hit()
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:

@@ -29,7 +29,7 @@ func start(_rot, _pos, _scale, _owner):
 #	# Initialization here
 #	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_local_x(speed)
 	if going_up:
 		if first_time:

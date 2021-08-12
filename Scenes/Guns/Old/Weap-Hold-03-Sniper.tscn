@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Scripts/Guns/Weap-Hold-03-Sniper.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Guns/Old/Weap-Hold-03-Sniper.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Pick/W_03_Sniper_Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Projectiles/Proj-03-Sniper.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Projectiles/Shell-01.tscn" type="PackedScene" id=4]

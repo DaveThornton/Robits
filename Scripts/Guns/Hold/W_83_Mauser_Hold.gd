@@ -94,9 +94,9 @@ func shoot_j():
 			Player_Stats.add_shot(player, 1)
 			walk += walk_amount
 			just_shot = true
-			SFX.play("Sniper_Shoot")
+			SFX.play("W_83_Shoot")
 		else:
-			SFX.play("Gun_Click")
+			SFX.play("W_83_Empty")
 
 func shoot():
 	pass

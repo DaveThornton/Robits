@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_W_013_Shoot_03.wav-6332cec7d4506800171b3df1f9dd94f4.sample"
+
+[deps]
+
+source_file="res://SFX/Weapons/SFX_W_013_Shoot_03.wav"
+dest_files=[ "res://.import/SFX_W_013_Shoot_03.wav-6332cec7d4506800171b3df1f9dd94f4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://Scripts/Guns/Weap-Hold-02-Ak-47.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Guns/Old/Weap-Hold-02-Ak-47.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Projectiles/Proj-02-AK_47.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Projectiles/Shell-01.tscn" type="PackedScene" id=4]

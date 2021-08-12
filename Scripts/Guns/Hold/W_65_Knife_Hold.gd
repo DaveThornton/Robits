@@ -73,6 +73,7 @@ func shoot_r():
 	swinging = false
 	time_swing = 0.0
 	hit_area.disabled = true
+	SFX.swing()
 
 func melee():
 	print("i dont know how this got called W_63_Bar Melee?")

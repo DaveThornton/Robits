@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Guns/Weap-Pick-80-Leaf_Blower.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Guns/Pick/W_80_Leaf_Blower_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/Weap-80-Leaf_Blower.png" type="Texture" id=3]
 

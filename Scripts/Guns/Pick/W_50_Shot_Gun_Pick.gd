@@ -1,19 +1,17 @@
 extends RigidBody2D
 
 export(PackedScene) var smoke
-export var expire_time = 30.0
-
+export var expire_time = 30
 onready var sprite = $Sprite
 onready var timer = $Timer
 
 var ready = false
-var gun_num = 4
-var ammo = 30
-var time = .1
-var my_scale = 1.5
 var is_right = true
 var dir = 3
-# warning-ignore:unused_class_variable
+var gun_num = 50
+var ammo = 10
+var time = .7
+var my_scale = 1
 var just_shot = false
 var hits = 0
 var hits_max = 5
@@ -21,7 +19,7 @@ var hits_max = 5
 func _ready():
 	ready = true
 	set_dir(is_right, dir)
-	
+
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if ammo != _ammo:
 		if ammo < _ammo:
@@ -30,25 +28,27 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 			expire_time = expire_time * .75
 		elif _ammo == 0:
 			expire_time = expire_time * .1
-		
 		if _ammo != -1: 
 			ammo = _ammo
 	timer.wait_time = expire_time
 	timer.start()
 	time = _time
+	dir = _dir
 	if ready:
 		set_dir(is_right, dir)
+	just_shot = _just_shot
+#	print(just_shot)
 
 #warning-ignore:unused_argument
 #warning-ignore:unused_argument
 #warning-ignore:unused_argument
-func _on_WeapPick04M_16_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_WeapPick50Shot_Gun_body_shape_entered(body_id, body, body_shape, local_shape):
 	if hits < hits_max :
 		hits += 1
-		SFX.play("FX_01_ObjHit")
+		SFX.hit()
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
-	else:#
+	else:
 		self.set_collision_mask_bit( 1, false)
 
 func set_dir(_is_right, _dir):
@@ -91,12 +91,11 @@ func _on_Timer_timeout():
 	fade_out()
 
 func fade_out():
-	print("gun number: ", gun_num, " *poof*")
 	var s = smoke.instance()
 	Map_Hand.add_kid_to_map(s)
 #	get_tree().get_current_scene().add_child(s)
 	s.start( 0 , self.global_position, 0, 0)
-	queue_free()
+	call_deferred("free")
 
 func dont_hit_player():
 	self.set_collision_mask_bit( 1, false)

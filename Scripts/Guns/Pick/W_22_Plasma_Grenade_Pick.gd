@@ -62,7 +62,7 @@ func _on_Timer_Spin_timeout():
 func _on_WeapPick22PlasmaGrenade_body_entered(body):
 	if hits < hits_max :
 		hits += 1
-		SFX.play("FX_01_ObjHit")
+		SFX.hit()
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:# body.get_groups().has("map_part"):

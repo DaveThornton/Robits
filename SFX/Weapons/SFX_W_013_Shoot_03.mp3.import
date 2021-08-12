@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SFX_W_013_Shoot_03.mp3-f29fd7951aad118f0024d8bcd1263f25.mp3str"
+
+[deps]
+
+source_file="res://SFX/Weapons/SFX_W_013_Shoot_03.mp3"
+dest_files=[ "res://.import/SFX_W_013_Shoot_03.mp3-f29fd7951aad118f0024d8bcd1263f25.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

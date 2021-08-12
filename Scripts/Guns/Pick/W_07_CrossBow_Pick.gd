@@ -40,7 +40,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 func _on_W_07_CrossBow_Pick_body_shape_entered(_body_id, _body, _body_shape, _local_shape):
 	if hits < hits_max :
 		hits += 1
-		SFX.play("FX_01_ObjHit")
+		SFX.hit()
 	if _body.get_groups().has("player"):
 		_body.stun(gun_num)
 	else:

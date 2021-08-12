@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_S_000_Swing.wav-3a4a6f95416af0c6ab18473d3bc8dad4.sample"
+
+[deps]
+
+source_file="res://SFX/Weapons/Swings/SFX_S_000_Swing.wav"
+dest_files=[ "res://.import/SFX_S_000_Swing.wav-3a4a6f95416af0c6ab18473d3bc8dad4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

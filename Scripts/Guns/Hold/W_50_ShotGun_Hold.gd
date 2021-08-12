@@ -89,11 +89,12 @@ func shoot_j():
 				Player_Stats.add_shot(player, 1)
 				walk += walk_amount
 				just_shot = true
-				SFX.play("Sniper_Shoot")
+				SFX.play("W_50_Shoot")
 			else:
-				SFX.play("Gun_Click")
+				SFX.play("W_50_Empty")
 		else:
 			anim_fire.play("Reload")
+			SFX.play("W_50_Reload")
 			just_shot = false
 			can_shoot = false
 			shoot_timer.start()

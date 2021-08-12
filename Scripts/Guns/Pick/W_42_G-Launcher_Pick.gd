@@ -55,7 +55,7 @@ func fade_out():
 func _on_WeapPick40RPG_body_entered(body):
 	if hits < hits_max :
 		hits += 1
-		SFX.play("FX_01_ObjHit")
+		SFX.hit()
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:#

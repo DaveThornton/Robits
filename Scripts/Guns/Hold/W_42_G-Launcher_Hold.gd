@@ -66,16 +66,16 @@ func shoot_r():
 				if melee_cast.get_collider().player == player && ammo > 0:
 					fire_projectile()
 				elif melee_cast.get_collider().player != player:
-					melee()
+					melee()	
 				else:
-					print("need to add a click sound w 42 no ammo")
+					SFX.play("W_42_Empty")
+					print("need to add a click sound w 42 no ammo maybe this is in melee in w42 check it out if it seems weird or delete this")
 			else:
 				melee()
 		elif ammo > 0:
 			fire_projectile()
 		else:
-			SFX.play("W_00_Click_01")
-			print("need to add a click sound w 42 no ammo")
+			SFX.play("W_42_Empty")
 
 func fire_projectile():
 	if !shoot_cast.is_colliding():

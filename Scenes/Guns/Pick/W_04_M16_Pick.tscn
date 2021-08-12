@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Guns/Weap-Pick-04-M_16.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Guns/Pick/W_04_M_16_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_04_M16.png" type="Texture" id=3]
 

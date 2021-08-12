@@ -64,6 +64,7 @@ func shoot_j():
 	Player_Stats.add_shot(player, 1)
 	hit_area.disabled = false
 	time_swing = 0.5
+	SFX.swing()
 
 func shoot():
 	pass

@@ -58,6 +58,7 @@ func _physics_process(delta):
 	beam.region_rect.end.x = beam_end.position.length() * 5
 	if shoot_pressed && can_shoot && ammo >= 1:
 		beam.visible = true
+		SFX.play("W_13_Shoot")
 		if shoot_cast.is_colliding() && time >.05:
 			if shoot_cast.get_collider().get_groups().has("player"):
 				Player_Stats.add_hit(player, 1)
@@ -83,6 +84,7 @@ func _physics_process(delta):
 		time += delta
 	else:
 		beam.visible = false
+		SFX.stop("W_13_Shoot")
 
 func shoot_j():
 	if can_shoot:
@@ -95,6 +97,8 @@ func shoot():
 func shoot_r():
 	shoot_pressed = false
 	anim_fire.play("UnShoot")
+	SFX.stop("W_13_Shoot")
+
 
 func melee():
 	if can_shoot:

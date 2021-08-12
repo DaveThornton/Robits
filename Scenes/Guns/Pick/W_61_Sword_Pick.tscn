@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Guns/Weap-Pick-61-Sword.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Guns/Pick/W_61_Sword_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/Weap-61-Sword.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=3]
 

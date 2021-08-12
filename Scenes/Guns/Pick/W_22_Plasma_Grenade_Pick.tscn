@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scripts/Guns/Weap-Pick-22-Plasma-Grenade.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Guns/Pick/W_22_Plasma_Grenade_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=4]

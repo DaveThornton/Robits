@@ -49,6 +49,7 @@ func _on_WeapPick60Axe_body_entered(body):
 	if body.get_groups().has("hittable"):
 		body.hit(owned, my_name, damage_type,damage)
 	else:
+		SFX.hit()
 		timer.start()
 
 func set_dir(_is_right, _dir):

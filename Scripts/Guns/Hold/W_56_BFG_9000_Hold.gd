@@ -90,7 +90,7 @@ func fire_projectile():
 			print("gun 65 hitting wall not fireing projectile", _thing)
 		else:
 			print("gun 65 dont know what im hitting but no projectile spawned")
-	
+	SFX.play("W_56_Shoot")
 	ammo = clamp(ammo - 1, 0, ammo_max)
 	sprite_gun.frame = 1
 	emit_signal("ammo_change",player,ammo)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Guns/Weap-Pick-50-Shot_Gun.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Guns/Pick/W_50_Shot_Gun_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/Smoke_Blank.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_50_ShotGun.png" type="Texture" id=3]
 

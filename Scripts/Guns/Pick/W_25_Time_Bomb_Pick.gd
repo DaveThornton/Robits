@@ -118,4 +118,4 @@ func fade_out():
 func _on_W_24_TNT_Pick_body_entered(_body):
 	if hits < hits_max :
 		hits += 1
-		SFX.play("FX_01_ObjHit")
+		SFX.hit()

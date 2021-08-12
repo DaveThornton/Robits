@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Guns/Weap-Pick-10-Blaster_Pistol.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Guns/Pick/W_10_Blaster_Pistol_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_10_BlasterPistol.png" type="Texture" id=3]
 

@@ -18,7 +18,7 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	scale = _scale
 	owned = _owner
 	anim.play("Move")
-#	SFX.play("RPG_Shoot")
+	SFX.play("W_56_Projectile")
 	print("make sfx for BFG 9000 projectile")
 	if _scale.y < 0:
 		rotation *= -1
@@ -48,4 +48,5 @@ func _explode(_pos):
 	var x = boom.instance()
 	get_tree().get_current_scene().add_child(x)
 	x.init(owned, _pos, my_name, 0, damage)
+	SFX.stop("W_56_Projectile")
 	call_deferred("free")
