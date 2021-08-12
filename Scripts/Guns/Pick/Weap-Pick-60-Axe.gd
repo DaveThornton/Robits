@@ -1,4 +1,4 @@
-xtends RigidBody2D
+extends RigidBody2D
 
 export(PackedScene) var smoke
 export var expire_time = 30.0

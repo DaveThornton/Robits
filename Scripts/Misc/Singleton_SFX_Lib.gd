@@ -35,3 +35,4 @@ func set_sfx_vol(_db):
 
 func set_menu_vol(_db):
 	AudioServer.set_bus_volume_db(2,_db)
+	
