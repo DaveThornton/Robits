@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Maps/map-00.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Guns/Pick/W_18_Cricket_Pick.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Guns/Pick/W_14_TNG_Pick.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Guns/Pick/W_08_Uzi_Pick.tscn" type="PackedScene" id=15]
 
 [node name="Map-01-Disputed" type="Node2D"]
 script = ExtResource( 12 )
@@ -222,3 +223,9 @@ position = Vector2( 656, 800 )
 
 [node name="W_14_TNG_Pick" parent="." instance=ExtResource( 14 )]
 position = Vector2( 312, 824 )
+
+[node name="Weap-Pick-08-Uzi" parent="." instance=ExtResource( 15 )]
+position = Vector2( 344, 712.051 )
+
+[node name="Weap-Pick-08-Uzi2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 400, 744.051 )

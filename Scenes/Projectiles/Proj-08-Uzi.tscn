@@ -39,4 +39,5 @@ position = Vector2( -16, 0 )
 enabled = true
 cast_to = Vector2( 45, 0 )
 collision_mask = 2147486474
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -10,4 +10,4 @@ func _on_Timer_timeout():
 # warning-ignore:unused_argument
 func _on_Area2D_body_entered(body):
 #	print("ding shell")
-	SFX.play("Shell_Ding")
+	SFX.shell()

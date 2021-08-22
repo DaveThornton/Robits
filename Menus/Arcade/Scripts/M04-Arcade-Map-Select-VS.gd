@@ -71,7 +71,7 @@ func _ready():
 func _start(_player):
 	_set_ready(_player)
 	HUD.set_pri(_player, 5)
-	SFX.play("Menu_Select_02")
+	SFX.menu(3)
 	if _get_ready_num() == Player_Stats.get_num_in_play():
 		_next_screen()
 
@@ -402,7 +402,7 @@ func _set_ready(_player):
 	
 func _back(_player):
 	HUD.set_pri(_player,4)
-	SFX.play("Menu_Error_13")
+	SFX.menu(4)
 	if _player == 1:
 		p1_ready = false
 	elif _player == 2:

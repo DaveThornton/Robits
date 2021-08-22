@@ -89,7 +89,7 @@ func movement(_player, _dir):
 	HUD.menu_state()
 
 func _next_screen():
-	SFX.play("Menu_Select_01")
+	SFX.menu(1)
 	HUD.load_screen(next_screen)
 	FX.splash(false,0)
 	queue_free()

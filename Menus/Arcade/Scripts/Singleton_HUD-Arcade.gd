@@ -463,7 +463,7 @@ func get_game_over_done_count():
 	return _done
 
 func coin_up(_player):
-	SFX.play("Menu_Coin")
+	SFX.menu(0)
 	coin_update(_player)
 	
 func coin_update(_player):

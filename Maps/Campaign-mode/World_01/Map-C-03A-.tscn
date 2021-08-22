@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Maps/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-13-Spike_block.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Bad_Guys/BG-24-Turret-Wall-Left.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Bad_Guys/BG-03.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Maps/Campaign-mode/World_01/Map-C-04A-Boss.tscn" type="PackedScene" id=18]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 30.0984
@@ -163,6 +164,7 @@ shape = SubResource( 1 )
 
 [node name="MP-15-Level_Change-01-Door" parent="Map_parts" instance=ExtResource( 14 )]
 position = Vector2( 1700, 640 )
+level_to_load_1 = ExtResource( 18 )
 
 [node name="MP-13-Spike_Block" parent="Map_parts" instance=ExtResource( 15 )]
 position = Vector2( 740, 840 )
