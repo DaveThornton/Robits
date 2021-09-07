@@ -36,6 +36,7 @@ onready var ray_down_l = $Raycast/Down_L
 onready var ray_down_c = $Raycast/Down_C
 onready var ray_down_r = $Raycast/Down_R
 onready var ray_down_p = $Raycast/Down_Plat
+onready var ray_plat = $Raycast/Plat_Test
 
 var player = 1
 var play_type = 2
@@ -238,39 +239,42 @@ func move_x(_moving, _right):
 			current_x_speed -= current_x_speed / 10
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
-func jump(down_input, left_input, right_input):
+func jump(down_input, _left_input, _right_input):
 	if can_move:
-		if down_input && ray_down_p.is_colliding() && !left_input && !right_input:
-			SFX.play("Move_Jump_08")
-			var thing1 = ray_down_p.get_collider()
-			if thing1:
-				if thing1.get_groups().has("map"):
-					pass
+		if is_down:
+			if down_input && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y = terminal_vel / 4
+				self.position.y += 5
+		else:
+			if is_jump_pressed && global_position.y <= jump_top_pos && can_jump && jumping_up:
+				jump_top = true
+				can_jump = false
+				if jump_timer.is_stopped():
+					print('jumptimer started')
+					timers.start_jump()
 				else:
-					vel.y += terminal_vel / 3
-					self.position.y += 2
-		elif !is_jump_pressed && on_floor && can_jump:
-			SFX.play("Move_Jump_01")
-			vel.y = -max_jump_power * jump_power_up
-			jump_top_pos = global_position.y - jump_height
-			jumping_up = true
-		elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count:
-			SFX.play("Move_Jump_05")
-			vel.y = -max_air_jump_power * jump_power_up
-			air_jump_count += 1
-		elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump && jumping_up:
-			jump_top = true
-			can_jump = false
-			if jump_timer.is_stopped():
-				print('jumptimer started')
-				timers.start_jump()
-			else:
-				print("jumptinmer not started")
+					print("jumptinmer not started")
+
+func jump_j(down_input, _left_input, _right_input):
+	if can_move:
+		if is_down:
+			if down_input && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y = terminal_vel / 4
+				self.position.y += 5
+		else:
+			if !is_jump_pressed && on_floor && can_jump:
+				SFX.play("Move_Jump_01")
+				vel.y = -max_jump_power * jump_power_up
+				jump_top_pos = global_position.y - jump_height
+				jumping_up = true
+			elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count:
+				SFX.play("Move_Jump_05")
+				vel.y = -max_air_jump_power * jump_power_up
+				air_jump_count += 1
 		is_jump_pressed = true
 		on_ladder = false
-
-func jump_j(_down_input, _left_input, _right_input):
-	pass
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:

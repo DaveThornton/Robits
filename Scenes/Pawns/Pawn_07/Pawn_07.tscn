@@ -2145,6 +2145,12 @@ enabled = true
 cast_to = Vector2( 0, 5 )
 collision_mask = 14
 
+[node name="Plat_Test" type="RayCast2D" parent="Raycast"]
+position = Vector2( 0, 12 )
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 4
+
 [node name="Shape_Left_" type="CollisionPolygon2D" parent="."]
 visible = false
 position = Vector2( 0, 4 )
@@ -2171,6 +2177,7 @@ shape = SubResource( 14 )
 [node name="Shape_Crouch" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -3 )
 shape = SubResource( 15 )
+
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

@@ -31,6 +31,7 @@ onready var ladder_count = [] #shouldnt be here??!!??
 onready var ray_up = $Raycasts/Up
 onready var ray_down_l = $Raycasts/Down_L
 onready var ray_down_r = $Raycasts/Down_R
+onready var ray_plat = $Raycasts/Plat_Test
 
 var player = 0
 var play_type = 2
@@ -221,24 +222,41 @@ func move_x(_moving, _right):
 			current_x_speed -= current_x_speed / 10
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
-func jump(down_input, left_input, right_input):
+func jump(down_input, _left_input, _right_input):
 	if can_move:
-		if down_input && on_floor && !left_input && !right_input:
-			SFX.play("Move_Jump_08")
-			vel.y += 1.5
-			self.position.y += 1.5
-		elif !is_jump_pressed && on_floor:# && !down_input:
-			SFX.play("Move_Jump_01")
-			vel.y = -max_jump_power * jump_power_up
-		elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
-			SFX.play("Move_Jump_05")
-			vel.y = -max_air_jump_power * jump_power_up
-			air_jump_count += 1
-		is_jump_pressed = true
-		on_ladder = false
+		if is_down:
+			if down_input && on_floor && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y += 2
+				self.position.y += 7
+		# elif !is_jump_pressed && on_floor:# && !down_input:
+		# 	SFX.play("Move_Jump_01")
+		# 	vel.y = -max_jump_power * jump_power_up
+		# elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
+		# 	SFX.play("Move_Jump_05")
+		# 	vel.y = -max_air_jump_power * jump_power_up
+		# 	air_jump_count += 1
+		# is_jump_pressed = true
+		# on_ladder = false
 
-func jump_j(_down_input, _left_input, _right_input):
-	pass
+func jump_j(down_input, _left_input, _right_input):
+	if can_move:
+		if is_down:
+			if down_input && on_floor && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y += 2
+				self.position.y += 7
+		else:
+			if !is_jump_pressed && on_floor:
+				SFX.play("Move_Jump_01")
+				vel.y = -max_jump_power * jump_power_up
+			elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
+				SFX.play("Move_Jump_05")
+				vel.y = -max_air_jump_power * jump_power_up
+				air_jump_count += 1
+			is_jump_pressed = true
+			on_ladder = false
+
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:

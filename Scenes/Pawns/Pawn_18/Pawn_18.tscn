@@ -12,14 +12,14 @@
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scripts/Pawns/Pawn_18.gd" type="Script" id=11]
 
-[sub_resource type="CapsuleShape2D" id=11]
+[sub_resource type="CapsuleShape2D" id=1]
 height = 26.0
 
-[sub_resource type="CapsuleShape2D" id=12]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 9.99995
 height = 30.0001
 
-[sub_resource type="CapsuleShape2D" id=13]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 25.0
 height = 28.0
 
@@ -954,6 +954,11 @@ enabled = true
 cast_to = Vector2( 0, -5 )
 collision_mask = 10
 
+[node name="Plat_Test" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 4
+
 [node name="Body" type="Sprite" parent="."]
 position = Vector2( 0, -24 )
 texture = ExtResource( 1 )
@@ -1014,12 +1019,12 @@ frame = 22
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -23 )
-shape = SubResource( 11 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -10 )
 rotation = 1.5708
-shape = SubResource( 12 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
@@ -1031,7 +1036,7 @@ collision_mask = 786432
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_Up_Area"]
 position = Vector2( 0, 6 )
 rotation = 1.5708
-shape = SubResource( 13 )
+shape = SubResource( 3 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
 visible = false
@@ -1050,6 +1055,7 @@ anims/Idle = SubResource( 7 )
 anims/Jump = SubResource( 8 )
 anims/Prone = SubResource( 9 )
 anims/Run = SubResource( 10 )
+
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

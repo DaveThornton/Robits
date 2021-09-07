@@ -967,6 +967,11 @@ enabled = true
 cast_to = Vector2( 0, -5 )
 collision_mask = 10
 
+[node name="Plat_Test" type="RayCast2D" parent="Raycast"]
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 4
+
 [node name="Robit_11" type="Node2D" parent="."]
 position = Vector2( -0.191589, -22 )
 
@@ -1041,6 +1046,7 @@ anims/Right-Prone-Crawl = SubResource( 12 )
 anims/Right-Run = SubResource( 13 )
 anims/Right-Run_Old = SubResource( 14 )
 anims/Right-Stun = SubResource( 15 )
+
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

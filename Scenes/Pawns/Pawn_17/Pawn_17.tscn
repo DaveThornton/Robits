@@ -489,6 +489,11 @@ enabled = true
 cast_to = Vector2( 0, 20 )
 collision_mask = 4
 
+[node name="Plat_Test2" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 4
+
 [node name="Body" type="Sprite" parent="."]
 position = Vector2( 0, -27 )
 texture = ExtResource( 8 )
@@ -555,6 +560,7 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
 position = Vector2( 0, -26 )
 shape = SubResource( 11 )
+
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

@@ -611,6 +611,11 @@ enabled = true
 cast_to = Vector2( 5, 5 )
 collision_mask = 2078
 
+[node name="Plat_Test" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 4
+
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -14 )
 rotation = 1.5708
@@ -683,6 +688,7 @@ anims/Left_Stun = SubResource( 8 )
 anims/Right = SubResource( 9 )
 anims/Right_Prone = SubResource( 10 )
 anims/Right_Stun = SubResource( 11 )
+
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

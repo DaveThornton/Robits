@@ -27,6 +27,7 @@ onready var last_hit_timer = $Timers/Last_Hit_By
 onready var ray_up = $Raycasts/Up
 onready var ray_down_l = $Raycasts/Left
 onready var ray_down_r = $Raycasts/Right
+onready var ray_plat = $Raycasts/Plat_Test
 
 onready var body_shape_01 = $CollisionShape2D_Stand
 onready var body_shape_02 = $CollisionShape2D_Prone
@@ -214,23 +215,28 @@ func move_x(_moving, _right):
 			current_x_speed -= current_x_speed / 10
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
-##------------------------------------------------------------------------[Jump]
-func jump(down_input, left_input, right_input):
+##-------------------------------------------------------------[Jump]
+func jump(down_input, _left_input, _right_input):
 	if can_move:
-		if down_input && on_floor && !left_input && !right_input:
-			SFX.play("Move_Jump_08")
-			vel.y += 1.5
-			self.position.y += 1.5
+		if is_down:
+			if down_input && on_floor && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y += 1.5
+				self.position.y += 3
 
-func jump_j(_down_input, _left_input, _right_input):
+func jump_j(down_input, _left_input, _right_input):
 	if can_move:
-		if is_down && on_floor:
-			pass
-		elif !is_jump_pressed && on_floor && !is_down:# && !down_input:
-			SFX.play("Move_Jump_01")
-			vel.y = -max_jump_power * jump_power_up
-		is_jump_pressed = true
-		on_ladder = false
+		if is_down:
+			if down_input && on_floor && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y += 1.5
+				self.position.y += 3
+		else:
+			if !is_jump_pressed && on_floor:# && !is_down:# && !down_input:
+				SFX.play("Move_Jump_01")
+				vel.y = -max_jump_power * jump_power_up
+			is_jump_pressed = true
+			on_ladder = false
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
@@ -239,7 +245,7 @@ func jump_rel():
 		vel.y = min_jump_power
 	is_jump_pressed = false
 
-##-----------------------------------------------------------------------[Shoot]
+##------------------------------------------------------------[Shoot]
 func shoot_j():
 	if my_gun != null:
 		my_gun.shoot_pos = shoot_spot

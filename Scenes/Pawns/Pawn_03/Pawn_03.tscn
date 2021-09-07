@@ -301,6 +301,11 @@ enabled = true
 cast_to = Vector2( -20, -5 )
 collision_mask = 8
 
+[node name="Plat_Test" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 4
+
 [node name="Pawn_03_Part_Big_Wheel" parent="." instance=ExtResource( 4 )]
 show_behind_parent = true
 position = Vector2( 0.263362, -15 )
@@ -350,6 +355,7 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
+visible = false
 collision_layer = 262144
 collision_mask = 786432
 
@@ -371,6 +377,7 @@ shape = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 anims/Prone = SubResource( 6 )
 anims/Stun = SubResource( 7 )
+
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

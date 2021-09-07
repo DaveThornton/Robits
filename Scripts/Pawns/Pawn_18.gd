@@ -16,6 +16,7 @@ onready var gun_pos = $Body/POS_Arm/Pawn_18_Arm/POS_Gun
 onready var ray_up = $Raycasts/Up
 onready var ray_down_l = $Raycasts/Down_L
 onready var ray_down_r = $Raycasts/Down_R
+onready var ray_plat = $Raycasts/Plat_Test
 
 onready var body1 = $CollisionShape2D_Up
 onready var body2 = $CollisionShape2D_Down

@@ -2103,7 +2103,6 @@ script = ExtResource( 5 )
 visible = false
 
 [node name="Raycast" type="Node2D" parent="."]
-visible = false
 position = Vector2( 0, -27 )
 
 [node name="Up" type="RayCast2D" parent="Raycast"]
@@ -2136,14 +2135,18 @@ enabled = true
 cast_to = Vector2( 0, 13 )
 collision_mask = 2078
 
+[node name="Plat_Test" type="RayCast2D" parent="Raycast"]
+position = Vector2( 0, 27 )
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 4
+
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -27 )
 shape = SubResource( 1 )
 disabled = true
 
 [node name="Shape_Down" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -15 )
 rotation = 1.5708
 shape = SubResource( 2 )
@@ -2154,16 +2157,14 @@ visible = false
 position = Vector2( 0, -27.504 )
 texture = ExtResource( 6 )
 hframes = 7
-frame = 6
 
 [node name="Pawn_06_Part_Head" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -32 )
+position = Vector2( 0, -31 )
 
 [node name="Body_Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -28 )
+position = Vector2( 0, -27 )
 texture = ExtResource( 1 )
 hframes = 7
-frame = 6
 
 [node name="Pawn_06_Part_Hover" parent="." instance=ExtResource( 4 )]
 show_behind_parent = true
@@ -2180,13 +2181,13 @@ frame = 7
 position = Vector2( 14, 7 )
 
 [node name="POS_Arm" type="Position2D" parent="."]
-position = Vector2( 0, -32 )
+position = Vector2( 0, -31 )
 
 [node name="Pawn_06_Part_Arm" parent="POS_Arm" instance=ExtResource( 8 )]
 
 [node name="Pawn_05_Part_Key" parent="." instance=ExtResource( 2 )]
 visible = false
-position = Vector2( 5, -2 )
+position = Vector2( -1, -4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Ladder-Left = SubResource( 3 )
@@ -2221,6 +2222,7 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
 position = Vector2( 0, -26 )
 shape = SubResource( 17 )
+
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

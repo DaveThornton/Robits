@@ -34,6 +34,7 @@ onready var ray_down_l_prone = $Raycasts/Down_L2
 onready var ray_down_c_prone = $Raycasts/Down_C2
 onready var ray_down_r_prone = $Raycasts/Down_R2
 onready var ray_plat_check = $Raycasts/Plat_Test
+onready var ray_plat = $Raycasts/Plat_Test
 
 var ray_down_l
 var ray_down_c

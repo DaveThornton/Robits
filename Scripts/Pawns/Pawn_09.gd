@@ -13,6 +13,7 @@ onready var ray_down_l = $Raycasts/Down_L
 onready var ray_down_r = $Raycasts/Down_R
 onready var ray_down_l2 = $Raycasts/Down_L2
 onready var ray_down_r2 = $Raycasts/Down_R2
+onready var ray_plat = $Raycasts/Plat_Test
 
 onready var body1 = $CollisionShape2D_Stand
 onready var body2 = $CollisionShape2D_Down
@@ -204,18 +205,25 @@ func move_x(_moving, _right):
 			current_x_speed -= current_x_speed / 10
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
-func jump(_down_input, _left_input, _right_input):
-	pass
-
-func jump_j(down_input, left_input, right_input):
+func jump(down_input, _left_input, _right_input):
 	if can_move:
-		if down_input && on_floor && !left_input && !right_input:
-			SFX.play("Move_Jump_08")
-			vel.y += 1.5
-			self.position.y += 3
-		elif !is_jump_pressed && on_floor:# && !down_input:
-			SFX.play("Move_Jump_01")
-			vel.y = -max_jump_power * jump_power_up
+		if is_down:
+			if down_input && on_floor && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y += 1.5
+				self.position.y += 3
+
+func jump_j(down_input, _left_input, _right_input):
+	if can_move:
+		if is_down:
+			if down_input && on_floor && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y += 1.5
+				self.position.y += 3
+		else:
+			if !is_jump_pressed && on_floor:# && !down_input:
+				SFX.play("Move_Jump_01")
+				vel.y = -max_jump_power * jump_power_up
 		if on_floor:
 			is_jump_pressed = false
 		else:

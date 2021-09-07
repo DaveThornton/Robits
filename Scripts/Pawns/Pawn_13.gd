@@ -14,6 +14,7 @@ onready var ray_down_c = $Raycasts/Down_C
 onready var ray_down_r = $Raycasts/Down_R
 onready var ray_down_l2 = $Raycasts/Down_L2
 onready var ray_down_r2 = $Raycasts/Down_R2
+onready var ray_plat = $Raycasts/Plat_Test
 
 onready var body1 = $"CollisionShape2D-Stand"
 onready var body2 = $"CollisionShape2D-Down"
@@ -49,10 +50,10 @@ var current_x_speed = 0
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed: = false
 var can_jump = true
-var max_air_jump_power = 5
+var max_air_jump_power = 7
 var min_air_jump_power = 5
 var air_jump_count = 0
-var max_jump_power = 9
+var max_jump_power = 10
 var min_jump_power = 2
 var head_room = 0
 var ladder_count = [] #shouldnt be here??!!??
@@ -211,27 +212,29 @@ func move_x(_moving, _right):
 			current_x_speed -= current_x_speed / 10
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
-func jump(down_input, left_input, right_input):
-	if can_move:
-		if down_input && on_floor && !left_input && !right_input:
-			SFX.play("Move_Jump_08")
-			vel.y += 1.5
-#			self.position.y += 1.5
-		if !is_jump_pressed && on_floor && !down_input:# && !down_input:
-			SFX.play("Move_Jump_01")
-			vel.y = -max_jump_power * jump_power_up
-		is_jump_pressed = true
-		on_ladder = false
+##-------------------------------------------------------------[Jump]
 
-func jump_j(_down_input, _left_input, _right_input):
+func jump(down_input, _left_input, _right_input):
 	if can_move:
-		if _down_input && on_floor && !_left_input && !_right_input:
-			SFX.play("Move_Jump_08")
-			vel.y += 1.5
-			self.position.y += 5
-#	if can_move:
-#		if !_down_input && on_floor:
-#			vel.y -= 3
+		if is_down:
+			if down_input && on_floor && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y += 1
+				self.position.y += 4
+
+func jump_j(down_input, _left_input, _right_input):
+	if can_move:
+		if is_down:
+			if down_input && on_floor && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y += 2
+				self.position.y += 4
+		else:
+			if !is_jump_pressed && on_floor && !down_input:# && !down_input:
+				SFX.play("Move_Jump_01")
+				vel.y = -max_jump_power * jump_power_up
+			is_jump_pressed = true
+			on_ladder = false
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
@@ -240,7 +243,7 @@ func jump_rel():
 		vel.y = min_jump_power
 	is_jump_pressed = false
 
-##-----------------------------------------------------------------------[Shoot]
+##------------------------------------------------------------[Shoot]
 func shoot_j():
 	if my_gun != null:
 		my_gun.shoot_pos = shoot_spot

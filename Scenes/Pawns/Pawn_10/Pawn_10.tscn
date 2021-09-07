@@ -1807,13 +1807,13 @@ script = ExtResource( 4 )
 [node name="Raycast" type="Node2D" parent="."]
 
 [node name="Down_L" type="RayCast2D" parent="Raycast"]
-position = Vector2( -32, 9 )
+position = Vector2( -10, 9 )
 enabled = true
 cast_to = Vector2( 15, 3 )
 collision_mask = 30
 
 [node name="Down_R" type="RayCast2D" parent="Raycast"]
-position = Vector2( 32, 9 )
+position = Vector2( 9, 9 )
 enabled = true
 cast_to = Vector2( -15, 3 )
 collision_mask = 30
@@ -1824,28 +1824,29 @@ enabled = true
 cast_to = Vector2( 0, -10 )
 collision_mask = 8
 
+[node name="Plat_Test" type="RayCast2D" parent="Raycast"]
+position = Vector2( 0, 10 )
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 4
+
 [node name="Pawn_10_Part_Wheel" parent="." instance=ExtResource( 2 )]
-position = Vector2( -21, 0 )
 
 [node name="Pawn_10_Part_Body" type="Sprite" parent="."]
 self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( -21, 0 )
-rotation = 1.48353
 texture = ExtResource( 5 )
 offset = Vector2( 0, -18 )
 hframes = 4
 frame = 2
 
 [node name="POS_Head" type="Position2D" parent="Pawn_10_Part_Body"]
-position = Vector2( 2, -41 )
-rotation = -1.48353
+position = Vector2( 0, -33 )
 
 [node name="Pawn_10_Head" parent="Pawn_10_Part_Body/POS_Head" instance=ExtResource( 1 )]
 position = Vector2( 0, -8 )
 
 [node name="POS_Arm" type="Position2D" parent="Pawn_10_Part_Body"]
-position = Vector2( 5, -30 )
-rotation = -1.48353
+position = Vector2( 0, -28 )
 
 [node name="Pawn_10_Part_Arm" parent="Pawn_10_Part_Body/POS_Arm" instance=ExtResource( 3 )]
 
@@ -1901,6 +1902,7 @@ anims/Right-Prone-Crawl = SubResource( 14 )
 anims/Right-Prone-Idle = SubResource( 15 )
 anims/Right-Run = SubResource( 16 )
 anims/Right-Stun = SubResource( 17 )
+
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

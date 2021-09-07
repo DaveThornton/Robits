@@ -3634,6 +3634,11 @@ enabled = true
 cast_to = Vector2( 0, -5 )
 collision_mask = 8
 
+[node name="Plat_Test" type="RayCast2D" parent="Raycasts"]
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 4
+
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -27 )
 shape = SubResource( 1 )
@@ -3710,6 +3715,7 @@ anims/Right-Run = SubResource( 17 )
 anims/Right-Stun = SubResource( 18 )
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]
+visible = false
 collision_layer = 262144
 collision_mask = 786432
 
@@ -3719,12 +3725,14 @@ rotation = 1.5708
 shape = SubResource( 19 )
 
 [node name="Ladder_Area" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
 position = Vector2( 0, -29 )
 shape = SubResource( 20 )
+
 [connection signal="timeout" from="Timers_old/Knock_Back" to="." method="_on_Knock_Back_timeout"]
 [connection signal="timeout" from="Timers_old/Shield_Hit" to="." method="_on_Shield_Hit_timeout"]
 [connection signal="timeout" from="Timers_old/Shield_Up" to="." method="_on_Shield_Up_timeout"]
