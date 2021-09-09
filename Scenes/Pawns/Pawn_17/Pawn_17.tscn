@@ -442,40 +442,40 @@ script = ExtResource( 4 )
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="Down_L" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -7, -11 )
+position = Vector2( -10, -14 )
 enabled = true
-cast_to = Vector2( 0, 12 )
+cast_to = Vector2( 0, 15 )
 collision_mask = 2078
 
 [node name="Down_L2" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -10, -16 )
+position = Vector2( -10, -14 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 collision_mask = 2078
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 7, -11 )
+position = Vector2( 10, -14 )
 enabled = true
-cast_to = Vector2( 0, 12 )
+cast_to = Vector2( 0, 15 )
 collision_mask = 2078
 
 [node name="Down_R2" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 10, -16 )
+position = Vector2( 10, -14 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 collision_mask = 2078
 
 [node name="Down_C" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -14 )
 enabled = true
-cast_to = Vector2( 0, 7 )
-collision_mask = 2078
+cast_to = Vector2( 0, 12 )
+collision_mask = 2076
 
 [node name="Down_C2" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -16 )
+position = Vector2( 0, -14 )
 enabled = true
 cast_to = Vector2( 0, 1 )
-collision_mask = 2078
+collision_mask = 2076
 
 [node name="Up" type="RayCast2D" parent="Raycasts"]
 position = Vector2( 0, -40 )
@@ -484,14 +484,9 @@ cast_to = Vector2( 0, -3 )
 collision_mask = 8
 
 [node name="Plat_Test" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -16 )
+position = Vector2( 0, -14 )
 enabled = true
-cast_to = Vector2( 0, 20 )
-collision_mask = 4
-
-[node name="Plat_Test2" type="RayCast2D" parent="Raycasts"]
-enabled = true
-cast_to = Vector2( 0, 2 )
+cast_to = Vector2( 0, 17 )
 collision_mask = 4
 
 [node name="Body" type="Sprite" parent="."]
@@ -530,14 +525,11 @@ anims/Stun = SubResource( 6 )
 anims/Up = SubResource( 7 )
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -28 )
 shape = SubResource( 8 )
-disabled = true
 
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, -28 )
+position = Vector2( 0, -26 )
 rotation = 1.5708
 shape = SubResource( 9 )
 disabled = true

@@ -219,27 +219,30 @@ func move_x(_moving, _right):
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
 ##------------------------------------------------------------------------[Jump]
-func jump(down_input, left_input, right_input):
+func jump(down_input, _left_input, _right_input):
 	if can_move:
-		if down_input && on_floor && !left_input && !right_input:
-			SFX.play("Move_Jump_08")
-			vel.y += 1.5
-			self.position.y += 3
+		if is_down:
+			if down_input && on_floor && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y += 1.5
+				self.position.y += 3
 
-func jump_j(down_input, left_input, right_input):
+func jump_j(down_input, _left_input, _right_input):
 	if can_move:
-		if down_input && on_floor && !left_input && !right_input:
-			SFX.play("Move_Jump_08")
-			vel.y += 1.5
-			self.position.y += 3
-		elif !is_jump_pressed && on_floor:# && !down_input:
-			SFX.play("Move_Jump_01")
-			vel.y = -max_jump_power * jump_power_up
-		if on_floor:
-			is_jump_pressed = false
+		if is_down:
+			if down_input && on_floor && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y += 1.5
+				self.position.y += 3
 		else:
+			if !is_jump_pressed && on_floor:# && !down_input:
+				SFX.play("Move_Jump_01")
+				vel.y = -max_jump_power * jump_power_up
+			# if on_floor:
+			# 	is_jump_pressed = false
+			# else:
 			is_jump_pressed = true
-		on_ladder = false
+			on_ladder = false
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:

@@ -57,7 +57,7 @@ var terminal_vel = 5
 var max_x_speed = 180
 var current_x_speed = 0
 
-#-------------------------------------------------------------------JUMP--------
+#----------------------------------------------------------------JUMP--------
 var is_jump_pressed: = false
 var jumping_up: = false
 var jump_time = .7
@@ -76,7 +76,7 @@ var move_step = 0
 var dec_step = 0
 
 
-#--------------------------------------------------------------------NRG--------
+#-----------------------------------------------------------------NRG--------
 var nrg_max = 90
 var nrg = 90
 var last_nrg = 90
@@ -118,13 +118,12 @@ var _hit_time = 0.0
 var _hit_color_01 = Color8(255, 255, 255, 255)
 var _hit_color_02 = Color8(255, 106, 0, 130)
 var hit_last_by = -1
+var current_body = 0
 
 signal explode_p
 
 func _ready():
-	ray_down_l = ray_down_l_stand
-	ray_down_c = ray_down_c_stand
-	ray_down_r = ray_down_r_stand
+	_body(1)
 	timers.set_jump_up(.8)
 
 func init(_player_num, _pos, _start_equiped, _play_type):
@@ -158,6 +157,10 @@ func _process(delta):
 		else:
 			head.play_face("On")
 		nrg = clamp(nrg + (nrg_regen_rate * delta), 0, 100)
+	
+	# if ray_down_c.is_colliding() && !is_jump_pressed:
+	# 	vel.y -= 1
+
 	if nrg != last_nrg:
 		nrg_update()
 		last_nrg = nrg
@@ -251,40 +254,50 @@ func move_x(_moving, _right):
 
 func jump(down_input, _left_input, _right_input):
 	if can_move:
-		if !is_jump_pressed && on_floor && can_jump && !down_input:
-			SFX.play("Move_Jump_01")
-			vel.y = -max_jump_power * jump_power_up
-			jump_top_pos = global_position.y - jump_height
-			jumping_up = true
-			stinger.big_ring_on()
-#			stinger.big_ring()
+		if is_down:
+			if down_input && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y = terminal_vel / 4
+				self.position.y += 5
 
-		elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count && !down_input:
-			SFX.play("Move_Jump_05")
-			vel.y = -max_air_jump_power * jump_power_up
-			air_jump_count += 1
-			stinger.big_ring()
-
-		elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump && !down_input && jumping_up:
-			jump_top = true
-			can_jump = false
-			if jump_timer.is_stopped():
-				timers.start_jump()
-			stinger.big_ring_on()
+func jump_j(down_input, _left_input, _right_input):
+	if can_move:
+		if is_down:
+			if down_input && ray_plat.is_colliding():
+				SFX.play("Move_Jump_08")
+				vel.y = terminal_vel / 4
+				self.position.y += 5
+		else:
+			if !is_jump_pressed && on_floor && can_jump && !down_input:
+				SFX.play("Move_Jump_01")
+				vel.y = -max_jump_power * jump_power_up
+				jump_top_pos = global_position.y - jump_height
+				jumping_up = true
+				stinger.big_ring_on()
+			elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count && !down_input:
+				SFX.play("Move_Jump_05")
+				vel.y = -max_air_jump_power * jump_power_up
+				air_jump_count += 1
+				stinger.big_ring()
+			elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump && !down_input && jumping_up:
+				jump_top = true
+				can_jump = false
+				if jump_timer.is_stopped():
+					timers.start_jump()
+				stinger.big_ring_on()
 		is_jump_pressed = true
 		on_ladder = false
-
-func jump_j(down_input, left_input, right_input):
-	if can_move:
-		if down_input && ray_plat_check.is_colliding() && !left_input && !right_input:
-			SFX.play("Move_Jump_08")
-			var thing1 = ray_plat_check.get_collider()
-			if thing1:
-				if thing1.get_groups().has("map"):
-					pass
-				else:
-					vel.y += terminal_vel / 5
-					self.position.y += 4
+		print("is down : ",is_down, "  DLR : ",down_input, _left_input, _right_input, "  ray platform test : ", ray_plat.is_colliding())
+	# if can_move:
+	# 	if down_input && ray_plat_check.is_colliding() && !left_input && !right_input:
+	# 		SFX.play("Move_Jump_08")
+	# 		var thing1 = ray_plat_check.get_collider()
+	# 		if thing1:
+	# 			if thing1.get_groups().has("map"):
+	# 				pass
+	# 			else:
+	# 				vel.y += terminal_vel / 5
+	# 				self.position.y += 4
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
@@ -461,29 +474,39 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
-#	print("fix body in pawn 04")
-	if _num == 1:
-		body_s.disabled = false
-#		body_p.disabled = true
-	elif _num == 2:
-		body_s.disabled = false
-#		body_p.disabled = false
-	else:
-		print("Pawn 04 bad body number in func _body")
+	if _num != current_body:
+		print("body changing in pawn 17")
+		if _num == 1:
+			body_s.disabled = false
+			body_p.disabled = true
+			_rays_stand()
+		elif _num == 2:
+			body_s.disabled = true
+			body_p.disabled = false
+			_rays_prone()
+		else:
+			print("Pawn 17 bad body number in func _body")
+		current_body = _num
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
 	if ray_up.is_colliding():
 		jump_top_pos = position.y
 
 func _is_on_floor():
-	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
+	if ray_down_r_stand.is_colliding() || ray_down_l_stand.is_colliding() && !is_down:
+		if !on_floor && !is_jump_pressed:
+			SFX.play("Move_Jump_19_Land")
+			on_floor = true
+	elif ray_down_r_prone.is_colliding() || ray_down_l_prone.is_colliding() && is_down:
 		if !on_floor && !is_jump_pressed:
 			SFX.play("Move_Jump_19_Land")
 			on_floor = true
 	else:
 		on_floor = false
 
-	if ray_down_c.is_colliding():
+	if ray_down_c_stand.is_colliding() && !is_down:
+		going_up = true
+	elif ray_down_c_prone.is_colliding() && is_down:
 		going_up = true
 	else:
 		going_up = false
@@ -647,7 +670,6 @@ func _anim_idle():
 	_body(1)
 	head.play_face("On")
 	new_anim = "Idle"
-	_rays_stand()
 	if is_right:
 		head.is_right(true)
 	else:
@@ -656,7 +678,6 @@ func _anim_idle():
 func _anim_run():
 	_body(1)
 	head.play_face("On")
-	_rays_stand()
 	if is_right:
 		head.is_right(true)
 		new_anim = "Run_Right"
@@ -668,7 +689,6 @@ func _anim_jump():
 	_body(1)
 	head.play_face("Flash")
 	new_anim = "Idle"
-	_rays_stand()
 	if is_right:
 		head.is_right(true)
 #		new_anim = "Run_Right"
@@ -678,7 +698,6 @@ func _anim_jump():
 
 func _anim_prone_idle():
 	_body(2)
-	_rays_prone()
 	head.play_face("On")
 	if is_right:
 		head.is_right(true)
@@ -689,7 +708,6 @@ func _anim_prone_idle():
 
 func _anim_prone_crawl():
 	_body(2)
-	_rays_prone()
 	head.play_face("Flash")
 	if is_right:
 		head.is_right(true)
@@ -702,7 +720,6 @@ func _anim_stun():
 	_body(1)
 	head.play_face("Stun")
 	new_anim = "Stun"
-	_rays_stand()
 	print("make stun anim for pawn 17")
 	head.play_face("Stun")
 	if is_right:
@@ -713,7 +730,6 @@ func _anim_stun():
 func _anim_Knock():
 	_body(1)
 	new_anim = "Up"
-	_rays_stand()
 	print("make knock back anim for pawn 17")
 	if is_right:
 		head.is_right(true)
@@ -722,7 +738,6 @@ func _anim_Knock():
 
 func _anim_ladder_move():
 	_body(1)
-	_rays_stand()
 	head.play_face("On")
 	print("make ladder anim for pawn 17")
 	new_anim = "Up"
@@ -730,7 +745,6 @@ func _anim_ladder_move():
 
 func _anim_ladder_right():
 	_body(1)
-	_rays_stand()
 	head.play_face("On")
 	print("make ladder anim for pawn 17")
 	new_anim = "Up"
@@ -738,7 +752,6 @@ func _anim_ladder_right():
 
 func _anim_ladder_left():
 	_body(1)
-	_rays_stand()
 	head.play_face("On")
 	print("make ladder anim for pawn 17")
 	new_anim = "Up"
@@ -755,13 +768,11 @@ func shields_down():
 	stinger.shield_down()
 
 func _rays_stand():
-	_body(1)
 	ray_down_l = ray_down_l_stand
 	ray_down_c = ray_down_c_stand
 	ray_down_r = ray_down_r_stand
 
 func _rays_prone():
-	_body(1)
 	ray_down_l = ray_down_l_prone
 	ray_down_c = ray_down_c_prone
 	ray_down_r = ray_down_r_prone
