@@ -1,5 +1,4 @@
 extends KinematicBody2D
-extends KinematicBody2D
 #testing if i can look at this in the web page with out kraken freeking out and making me pull some shit
 const FLOOR = Vector2(0, -1)
 const speed = 6000

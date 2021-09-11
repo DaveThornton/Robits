@@ -186,6 +186,8 @@ var p8 = {
 
 var p_in_p = 0
 
+signal player_count_change
+
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
@@ -254,6 +256,7 @@ func use_credit( _player):
 	_ps["in_play"] = true
 	_ps["done"] = false
 	HUD.coin_update(_player)
+	emit_signal("player_count_change")
 
 func nrg_update(_player, _nrg, _nrg_max):
 	var _current_nrg = int((float(_nrg) / _nrg_max)* 100)

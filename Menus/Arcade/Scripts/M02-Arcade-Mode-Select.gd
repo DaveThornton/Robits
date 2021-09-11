@@ -4,6 +4,10 @@ export(PackedScene) var campaign
 export(PackedScene) var vs_mode
 
 onready var menu = $menu_1X3_01
+onready var label_camp = $Labels/Label1
+onready var label_choose = $Labels/Label2
+onready var label_vs = $Labels/Label3
+onready var label_text = $Labels/Label4
 
 var p1_ready = false
 var p2_ready = false
@@ -14,12 +18,18 @@ var p6_ready = false
 var p7_ready = false
 var p8_ready = false
 
+var des_camp = "play the campaign to free the robits from their current oppression and fight to see who can get the high score"
+var des_choose = "make a selection"
+var des_vs_yes = "fight head to head in an up to a 8 player melee"
+var des_vs_no = "this selection requires addtional players"
+
 var menu_pos = 2
 
 func _ready():
 	var test3 = HUD.connect("input_to_screen", self, "movement")
 	if test3 != 0:
 		print("error in arcade game select connect input to screen")
+	Player_Stats.connect("player_count_change",self,"menu_pos_changed")
 	HUD.menu_state()
 
 func _start(_player):
@@ -32,11 +42,26 @@ func _start(_player):
 	elif menu_pos == 2:
 		SFX.menu(3)
 	elif menu_pos == 3:
-		SFX.menu(2)
-		Game.mode = 2
-		Game.start_eq = false
-		HUD.load_screen(vs_mode)
-		call_deferred("free")
+		if Player_Stats.get_num_in_play() > 1:
+			SFX.menu(2)
+			Game.mode = 2
+			Game.start_eq = false
+			HUD.load_screen(vs_mode)
+			call_deferred("free")
+		else:
+			SFX.menu(3)
+
+func menu_pos_changed():
+	menu_pos = menu.pos
+	if menu_pos == 2:
+		label_text.text = des_choose
+	elif menu_pos == 1:
+		label_text.text = des_camp
+	elif menu_pos == 3 && Player_Stats.get_num_in_play() > 1:
+		label_text.text = des_vs_yes
+	elif menu_pos == 3 && Player_Stats.get_num_in_play() <= 1:
+		label_text.text = des_vs_no
+	print(Player_Stats.get_num_in_play())
 
 func movement(_player, _dir):
 	if _player == 1:
@@ -193,3 +218,4 @@ func movement(_player, _dir):
 			HUD.ask_insert_coin(_player)
 	else:
 		print("error invald player in arcade mode select")
+	menu_pos_changed()

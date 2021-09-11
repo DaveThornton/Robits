@@ -1,11 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menus/Arcade/Scripts/M02-Arcade-Mode-Select.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/M05-Arcade-Player-Select-Camp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menus/Arcade/M04-Arcade-Map-Select-VS_20.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menus/Grids/menu_1X3_01.tscn" type="PackedScene" id=4]
 [ext_resource path="res://misc/line-text-big.tres" type="DynamicFont" id=5]
-
+[ext_resource path="res://misc/line-text-64.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Sprites/Misc/White_Pixel.png" type="Texture" id=7]
 
 [node name="M02-Arcade-Mode-Select" type="Node2D"]
 script = ExtResource( 1 )
@@ -13,9 +14,76 @@ campaign = ExtResource( 2 )
 vs_mode = ExtResource( 3 )
 
 [node name="menu_1X3_01" parent="." instance=ExtResource( 4 )]
-position = Vector2( 960, 540 )
+position = Vector2( 960, 476 )
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="Label1" type="Label" parent="Labels"]
+margin_left = 389.0
+margin_top = 157.0
+margin_right = 1531.0
+margin_bottom = 794.0
+custom_fonts/font = ExtResource( 5 )
+text = "campaign
+"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Labels"]
+margin_left = 389.0
+margin_top = 412.0
+margin_right = 1531.0
+margin_bottom = 1049.0
+custom_fonts/font = ExtResource( 5 )
+text = "choose game type"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Labels"]
+margin_left = 389.0
+margin_top = 667.0
+margin_right = 1531.0
+margin_bottom = 1304.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "V.s. mode"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="White_Pixel" type="Sprite" parent="Labels"]
+position = Vector2( 960, 828.724 )
+scale = Vector2( 1500, 2 )
+texture = ExtResource( 7 )
+
+[node name="Label4" type="Label" parent="Labels"]
+margin_top = 850.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 6 )
+text = "make a selection"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = 389.0
 margin_top = 221.5
 margin_right = 1531.0
@@ -27,5 +95,8 @@ choose game type
 
 V.s. mode"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Timer" type="Timer" parent="."]
