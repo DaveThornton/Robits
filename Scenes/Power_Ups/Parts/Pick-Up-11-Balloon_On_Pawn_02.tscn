@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Power_Ups/Pick_Up_11_Balloon.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 8.0
+height = 12.0
+
+[node name="Pick-Up-10-Back_Shield" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 5.0
+linear_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Balloon_Body" type="RigidBody2D" parent="."]
+position = Vector2( 0, -73 )
+collision_layer = 512
+collision_mask = 131584
+mass = 0.5
+gravity_scale = -10.0
+contact_monitor = true
+can_sleep = false
+linear_damp = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Balloon_Body"]
+shape = SubResource( 2 )
+
+[node name="White_Pixel" type="Sprite" parent="Balloon_Body/CollisionShape2D"]
+self_modulate = Color( 1, 0.184314, 0.184314, 1 )
+position = Vector2( 0, 3 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="PinJoint2D8" type="PinJoint2D" parent="."]
+position = Vector2( 0, -33 )
+node_a = NodePath("../Balloon_Body")
+node_b = NodePath("..")

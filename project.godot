@@ -16,8 +16,6 @@ _global_script_class_icons={
 
 config/name="ROBITS"
 run/main_scene="res://Scenes/World.tscn"
-boot_splash/image="res://Sprites/Misc/ROBITS-Logo-01.png"
-boot_splash/bg_color=Color( 0, 0, 0, 1 )
 
 [autoload]
 
@@ -672,10 +670,10 @@ limits/message_queue/max_size_kb=2048
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
 threads/thread_model=2
-quality/reflections/high_quality_ggx=false
 environment/default_clear_color=Color( 0, 0.929412, 1, 1 )
 quality/depth/hdr=false
 environment/default_environment="res://default_env.tres"

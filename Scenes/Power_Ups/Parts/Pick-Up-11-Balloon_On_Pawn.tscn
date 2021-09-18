@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Power_Ups/parts/Pick-Up-11-Balloon_On_Pawn.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Power_Ups/Pick_Up_11_Balloon.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/FX/Balloon_pop_01.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.0
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 8.0
+height = 12.0
+
+[node name="Pick-Up-11-Balloon_On_Pawn" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 5.0
+linear_damp = 1.0
+script = ExtResource( 1 )
+popped = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Balloon_Body" type="RigidBody2D" parent="."]
+position = Vector2( 0, -59 )
+collision_layer = 512
+collision_mask = 131584
+gravity_scale = -50.0
+can_sleep = false
+linear_damp = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Balloon_Body"]
+position = Vector2( 0, -14 )
+shape = SubResource( 2 )
+
+[node name="Balloon_Sprite" type="Sprite" parent="Balloon_Body/CollisionShape2D"]
+self_modulate = Color( 1, 0.184314, 0.184314, 1 )
+position = Vector2( 0, 3 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="PinJoint2D8" type="PinJoint2D" parent="."]
+node_a = NodePath("../Balloon_Body")
+node_b = NodePath("..")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 0, 0, 0 )
+width = 2.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_18_Cricket_Pick.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Guns/Pick/W_14_TNG_Pick.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Guns/Pick/W_08_Uzi_Pick.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-11-Balloon_Tanks.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-04-Jump_Power_Up.tscn" type="PackedScene" id=17]
 
 [node name="Map-01-Disputed" type="Node2D"]
 script = ExtResource( 12 )
@@ -177,13 +179,13 @@ position = Vector2( 520, 210 )
 position = Vector2( 690, 210 )
 
 [node name="MP-11-Player_Spawner-VS-05" parent="Player_spawns" instance=ExtResource( 10 )]
-position = Vector2( 840, 210 )
+position = Vector2( 584, 232 )
 
 [node name="MP-11-Player_Spawner-VS-06" parent="Player_spawns" instance=ExtResource( 10 )]
-position = Vector2( 990, 210 )
+position = Vector2( 1576, 208 )
 
 [node name="MP-11-Player_Spawner-VS-07" parent="Player_spawns" instance=ExtResource( 10 )]
-position = Vector2( 1120, 210 )
+position = Vector2( 1448, 208 )
 
 [node name="MP-11-Player_Spawner-VS-08" parent="Player_spawns" instance=ExtResource( 10 )]
 position = Vector2( 1240, 210 )
@@ -201,7 +203,7 @@ position = Vector2( 1660, 210 )
 position = Vector2( 1780, 210 )
 
 [node name="MP-11-Player_Spawner-VS-13" parent="Player_spawns" instance=ExtResource( 10 )]
-position = Vector2( 990, 450 )
+position = Vector2( 200, 592 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
@@ -232,3 +234,9 @@ position = Vector2( 344, 712.051 )
 
 [node name="Weap-Pick-08-Uzi2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 400, 744.051 )
+
+[node name="Jump_Power_Up" parent="." instance=ExtResource( 17 )]
+position = Vector2( 984, 1016 )
+
+[node name="Pick-Up-11-Balloon_Tanks" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1032, 1024 )
