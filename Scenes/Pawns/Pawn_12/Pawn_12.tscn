@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_12/Parts/Pawn_12_Part_Arm.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_12/Parts/Pawn_12_Part_Head.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sprites/Pawns/Pawn_12/Pawn_12_Part_Legs_F_Shield.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Pawns/Pawn_12/Pawn_12_Part_Legs_B_Shield.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Pawns/Parts/Attachment_Point.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 9.0
@@ -3695,6 +3696,10 @@ texture = ExtResource( 10 )
 offset = Vector2( 0, 10 )
 hframes = 31
 frame = 8
+
+[node name="Attachment_Point" parent="Pawn_12_Part_Body" instance=ExtResource( 13 )]
+visible = false
+position = Vector2( 0, -7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Ladder-Move = SubResource( 3 )

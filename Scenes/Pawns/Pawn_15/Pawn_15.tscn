@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_15/Parts/Pawn_15_Part_Head.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_15/Parts/Pawn_15_Part_Hub.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Sprites/Pawns/Pawn_15/Pawn_15_Leg_B.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Pawns/Pawn_15/Pawn_15_Leg_BS.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Pawns/Parts/Attachment_Point.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 17.0
@@ -2350,6 +2351,10 @@ frame = 32
 
 [node name="Pawn_15_Part_Head" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -38 )
+
+[node name="Attachment_Point" parent="Pawn_15_Part_Head" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 3.04785, -0.494598 )
 
 [node name="Pawn_15_Leg_F" type="Sprite" parent="."]
 self_modulate = Color( 0.490196, 0.490196, 0.490196, 1 )

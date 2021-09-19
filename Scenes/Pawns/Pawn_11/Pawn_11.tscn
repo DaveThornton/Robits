@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_11/Parts/Pawn_11_Part_Tracks.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Pawns/Pawn_11/Parts/Pawn_11_Part_Head.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Pawns/Parts/Attachment_Point.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Pawns/Pawn_11.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Key.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Pawns/Pawn_07/Parts/Pawn_07_Part_Fire.tscn" type="PackedScene" id=7]
@@ -983,6 +984,10 @@ frame = 6
 
 [node name="Pawn_11_Part_Head" parent="Robit_11/Pawn_11_Body" instance=ExtResource( 3 )]
 position = Vector2( 0, -9 )
+
+[node name="Attachment_Point" parent="Robit_11/Pawn_11_Body/Pawn_11_Part_Head" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 0.191589, -7 )
 
 [node name="Pawn_05_Part_Key" parent="Robit_11/Pawn_11_Body" instance=ExtResource( 6 )]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Body.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_05/Parts/Pawn_05_Part_Key.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/Guns/Weap-02-AK-47.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Pawns/Pawn_06/Parts/Pawn_06_Part_Arm.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Pawns/Parts/Attachment_Point.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 12.0
@@ -2165,6 +2166,10 @@ position = Vector2( 0, -31 )
 position = Vector2( 0, -27 )
 texture = ExtResource( 1 )
 hframes = 7
+
+[node name="Attachment_Point" parent="Body_Sprite" instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 0, -5 )
 
 [node name="Pawn_06_Part_Hover" parent="." instance=ExtResource( 4 )]
 show_behind_parent = true

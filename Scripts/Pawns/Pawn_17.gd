@@ -35,6 +35,7 @@ onready var ray_down_c_prone = $Raycasts/Down_C2
 onready var ray_down_r_prone = $Raycasts/Down_R2
 onready var ray_plat_check = $Raycasts/Plat_Test
 onready var ray_plat = $Raycasts/Plat_Test
+onready var attachment_point = $Body/Pos_Head/Attachment_Point
 
 var ray_down_l
 var ray_down_c
@@ -128,6 +129,7 @@ func _ready():
 
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
+	attachment_point.set_player(_player_num)
 	play_type = _play_type
 	_set_color()
 	start_equiped = _start_equiped

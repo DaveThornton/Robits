@@ -29,6 +29,7 @@ onready var speed_timer = $Timers/Speed
 onready var jump_up_timer = $Timers/Jump_Up
 onready var nrg_up_timer = $Timers/NRG_Up
 onready var last_hit_timer = $Timers/Last_Hit_By
+onready var attachment_point = $POS_Body/Pawn_13_Part_Body/Attachment_Point
 
 var player = 1
 var play_type = 2
@@ -103,6 +104,7 @@ signal explode_p
 
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
+	attachment_point.set_player(_player_num)
 	play_type = _play_type
 	_set_color()
 	start_equiped = _start_equiped

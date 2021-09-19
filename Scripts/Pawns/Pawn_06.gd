@@ -37,6 +37,7 @@ onready var ray_down_c = $Raycast/Down_C
 onready var ray_down_r = $Raycast/Down_R
 onready var ray_down_p = $Raycast/Down_Plat
 onready var ray_plat = $Raycast/Plat_Test
+onready var attachment_point = $Body_Sprite/Attachment_Point
 
 var player = 1
 var play_type = 2
@@ -121,6 +122,7 @@ signal explode_p
 
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
+	attachment_point.set_player(_player_num)
 	play_type = _play_type
 	_set_color()
 	start_equiped = _start_equiped

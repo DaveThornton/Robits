@@ -2503,6 +2503,7 @@ anims/Stand_Left = SubResource( 11 )
 anims/Stand_Right = SubResource( 12 )
 anims/Stun_Left = SubResource( 13 )
 anims/Stun_Right = SubResource( 14 )
+
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

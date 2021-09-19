@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_10/Parts/Pawn_10_Head.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_10/Parts/Pawn_10_Part_Wheel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Pawns/Pawn_10/Parts/Pawn_10_Part_Arm.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Pawns/Pawn_10.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/Pawns/Pawn_10/Pawn_10_Part_Body.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Pawns/Parts/Attachment_Point.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -1857,6 +1858,10 @@ scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 5 )
 hframes = 4
 frame = 2
+
+[node name="Attachment_Point" parent="Pawn_10_Part_Body" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 0, -28 )
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
 visible = false

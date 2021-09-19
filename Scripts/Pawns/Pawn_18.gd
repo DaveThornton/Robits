@@ -29,6 +29,7 @@ onready var speed_timer = $Timers/Speed
 onready var jump_up_timer = $Timers/Jump_Up
 onready var nrg_up_timer = $Timers/NRG_Up
 onready var last_hit_timer = $Timers/Last_Hit_By
+onready var attachment_point = $Body/Attachment_Point
 
 var player = 1
 var play_type = 2

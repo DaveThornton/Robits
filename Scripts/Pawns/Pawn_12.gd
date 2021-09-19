@@ -34,6 +34,7 @@ onready var ray_plat = $Raycasts/Plat_Test
 
 onready var body_shape_01 = $Shape_Stand
 onready var body_shape_02 = $Shape_Crouch
+onready var attachment_point = $Pawn_12_Part_Body/Attachment_Point
 
 var player = 1
 var play_type = 2
@@ -109,6 +110,7 @@ signal explode_p
 
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
+	attachment_point.set_player(_player_num)
 	play_type = _play_type
 	head.idle()
 	_set_color()
