@@ -2101,6 +2101,9 @@ hframes = 3
 [node name="Pawn_05_Part_Wheel" parent="." instance=ExtResource( 8 )]
 position = Vector2( 0, -10 )
 
+[node name="Attachment_Point" parent="Pawn_05_Part_Wheel" instance=ExtResource( 9 )]
+z_index = 1
+
 [node name="Pawn_05_Part_Body" type="Sprite" parent="."]
 self_modulate = Color( 0.631373, 0.631373, 0.631373, 1 )
 position = Vector2( 0, -10 )
@@ -2112,10 +2115,6 @@ hframes = 3
 position = Vector2( 0, -26 )
 
 [node name="Pawn_05_Part_Head" parent="Pawn_05_Part_Body/POS_Head" instance=ExtResource( 3 )]
-
-[node name="Attachment_Point" parent="Pawn_05_Part_Body" instance=ExtResource( 9 )]
-visible = false
-position = Vector2( 0.0105963, -25.0484 )
 
 [node name="POS_Arm" type="Position2D" parent="Pawn_05_Part_Body"]
 position = Vector2( 0, -22 )

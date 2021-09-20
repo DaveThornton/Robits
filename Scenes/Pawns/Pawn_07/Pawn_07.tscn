@@ -2180,8 +2180,8 @@ position = Vector2( 0, -3 )
 shape = SubResource( 15 )
 
 [node name="Attachment_Point" parent="." instance=ExtResource( 10 )]
-visible = false
-position = Vector2( 0, -18 )
+position = Vector2( 0, -9 )
+z_index = -1
 
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]

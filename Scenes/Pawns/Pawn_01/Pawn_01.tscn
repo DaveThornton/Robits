@@ -2779,13 +2779,13 @@ script = ExtResource( 11 )
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 6, -2 )
+position = Vector2( 5, -2 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 collision_mask = 30
 
 [node name="Down_L" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -6, -2 )
+position = Vector2( -5, -2 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 collision_mask = 30
@@ -2807,7 +2807,7 @@ position = Vector2( 0, -13 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 6 )
 hframes = 37
-frame = 16
+frame = 6
 
 [node name="Pawn_01-Legs_F_Shield" type="Sprite" parent="."]
 visible = false
@@ -2815,17 +2815,21 @@ position = Vector2( 0, -13 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 7 )
 hframes = 37
-frame = 16
+frame = 6
 
 [node name="Pawn_01-Legs_B" type="Sprite" parent="."]
 position = Vector2( 0, -13 )
 texture = ExtResource( 5 )
 hframes = 37
-frame = 16
+frame = 6
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( 0, -29 )
+position = Vector2( 0, -28 )
 texture = ExtResource( 2 )
+
+[node name="Attachment_Point" parent="Body" instance=ExtResource( 8 )]
+position = Vector2( 0, -1 )
+z_index = 1
 
 [node name="POS_Head" type="Position2D" parent="Body"]
 position = Vector2( 0, -8 )
@@ -2844,20 +2848,17 @@ show_behind_parent = true
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 2 )
 
-[node name="Attachment_Point" parent="Body" instance=ExtResource( 8 )]
-visible = false
-position = Vector2( 0, -1 )
-
 [node name="Pawn_01-Legs_F" type="Sprite" parent="."]
 position = Vector2( 0, -13 )
 texture = ExtResource( 3 )
 hframes = 37
-frame = 7
+frame = 6
 
 [node name="Pawn_01-Legs_Hip" type="Sprite" parent="."]
 position = Vector2( 0, -13 )
 texture = ExtResource( 4 )
 hframes = 37
+frame = 6
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -23 )

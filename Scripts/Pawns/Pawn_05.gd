@@ -36,7 +36,7 @@ onready var ray_up_r = $Raycast/Up_R
 onready var ray_down_l = $Raycast/Down_L
 onready var ray_down_r = $Raycast/Down_R
 onready var ray_plat = $Raycast/Plat_Test
-onready var attachment_point = $Pawn_05_Part_Body/Attachment_Point
+onready var attachment_point = $Pawn_05_Part_Wheel/Attachment_Point
 
 var player = 3
 var play_type = 2
@@ -465,6 +465,16 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_up_timer.wait_time = _how_long
 	nrg_up_timer.start()
 
+func balloon_on():
+	grav -= 2
+	max_jump_power += 2
+	min_jump_power += 2
+
+func balloon_off():
+	grav +=2
+	max_jump_power -= 2
+	min_jump_power -= 2
+	
 func shield_up():
 	key.shield_up()
 	wheel.shield_up()

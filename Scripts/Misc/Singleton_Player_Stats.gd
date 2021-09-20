@@ -194,10 +194,10 @@ func _ready():
 		print("error Singleton Player Stats connecting to reset from world gd")
 	if get_tree().get_current_scene().game_mode == 3:
 		print("pawns set in player stats")
-		p1["pawn_num"] = 10
-		p2["pawn_num"] = 11
-		p3["pawn_num"] = 12
-		p4["pawn_num"] = 14
+		p1["pawn_num"] = 6
+		p2["pawn_num"] = 7
+		p3["pawn_num"] = 8
+		p4["pawn_num"] = 1
 		p5["pawn_num"] = 1
 		p6["pawn_num"] = 1
 		p7["pawn_num"] = 1

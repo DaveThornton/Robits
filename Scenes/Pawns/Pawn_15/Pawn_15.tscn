@@ -2353,8 +2353,7 @@ frame = 32
 position = Vector2( 0, -38 )
 
 [node name="Attachment_Point" parent="Pawn_15_Part_Head" instance=ExtResource( 9 )]
-visible = false
-position = Vector2( 3.04785, -0.494598 )
+position = Vector2( 0, 8 )
 
 [node name="Pawn_15_Leg_F" type="Sprite" parent="."]
 self_modulate = Color( 0.490196, 0.490196, 0.490196, 1 )

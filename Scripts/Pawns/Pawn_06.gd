@@ -37,7 +37,7 @@ onready var ray_down_c = $Raycast/Down_C
 onready var ray_down_r = $Raycast/Down_R
 onready var ray_down_p = $Raycast/Down_Plat
 onready var ray_plat = $Raycast/Plat_Test
-onready var attachment_point = $Body_Sprite/Attachment_Point
+onready var attachment_point = $Attachment_Point
 
 var player = 1
 var play_type = 2
@@ -70,7 +70,7 @@ var min_air_jump_power = 1.5
 var air_jump_count = 0
 var max_jump_power = 7.5
 var min_jump_power = 1.5
-
+var balloon_count = 0
 var move_step = 0
 var dec_step = 0
 
@@ -474,6 +474,19 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_up_timer.wait_time = _how_long
 	nrg_up_timer.start()
 
+func balloon_on():
+	grav -= 2
+	jump_height *= 3
+	jump_top_pos += 1000
+	max_jump_power += 2
+	min_jump_power += 2
+
+func balloon_off():
+	grav +=2
+	jump_height /= 3
+	max_jump_power -= 2
+	min_jump_power -= 2
+	
 func shield_up():
 	shield_sprite.visible = true
 	head.shield_up()

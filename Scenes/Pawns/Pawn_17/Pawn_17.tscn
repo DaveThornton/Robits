@@ -507,7 +507,7 @@ position = Vector2( 0, -12 )
 show_behind_parent = true
 
 [node name="Attachment_Point" parent="Body/Pos_Head" instance=ExtResource( 7 )]
-visible = false
+z_index = 1
 
 [node name="Shield" type="Sprite" parent="Body"]
 visible = false

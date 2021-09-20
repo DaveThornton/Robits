@@ -12,13 +12,14 @@ radius = 1.0
 [node name="Attachment_Point" type="RigidBody2D"]
 collision_layer = 0
 collision_mask = 0
-mode = 3
+mode = 1
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="Attach" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -3 )
 texture = ExtResource( 1 )
 

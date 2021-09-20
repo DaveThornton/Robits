@@ -334,8 +334,8 @@ position = Vector2( 0, -10 )
 [node name="Shield" type="Sprite" parent="Body"]
 
 [node name="Attachment_Point" parent="Body" instance=ExtResource( 9 )]
-visible = false
 position = Vector2( 0, -10 )
+z_index = 1
 
 [node name="CollisionShape2D_Stand" type="CollisionShape2D" parent="."]
 position = Vector2( 0.263362, -21 )

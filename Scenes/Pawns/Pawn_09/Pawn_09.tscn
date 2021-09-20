@@ -661,8 +661,8 @@ position = Vector2( 0, -12 )
 [node name="Pawn_09_Part_Arm" parent="POS_Body/Body/POS_Arm" instance=ExtResource( 4 )]
 
 [node name="Attachment_Point" parent="POS_Body/Body" instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 0, -15 )
+position = Vector2( 0, -6 )
+z_index = 1
 
 [node name="Pawn_09_Part_Legs" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -28 )

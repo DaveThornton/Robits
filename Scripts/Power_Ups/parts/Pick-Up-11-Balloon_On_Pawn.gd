@@ -9,6 +9,8 @@ onready var timer = $Timer
 var is_popped = false
 var my_color
 var type = "balloon"
+var pawn
+var player
 
 signal death
 
@@ -18,12 +20,15 @@ func _ready():
 
 func _process(_delta):
 	if !is_popped:
-		line.set_point_position(1, Vector2(0,0))
+		line.set_point_position(1, get_parent().position)
 		line.set_point_position(0,Vector2(balloon_body.position))
 
 
 func on_player(_player):
-	pass
+	player = _player
+	pawn = Controllers.get_pawn(player)
+	# self.connect("death",pawn.attachment_point.
+	pawn.balloon_on()
 
 func pop():
 	if !is_popped:
@@ -33,9 +38,9 @@ func pop():
 		x.global_position = Vector2(balloon_body.global_position.x, balloon_body.global_position.y - 14)
 		emit_signal("death",type)
 		balloon_body.call_deferred("free")
-		# overweight()
 		line_on(false)
 		timer.start(0.1)
+		pawn.balloon_off()
 	else:
 		self.queue_free()
 

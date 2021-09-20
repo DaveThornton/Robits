@@ -43,14 +43,16 @@ texture = ExtResource( 2 )
 [node name="PinJoint2D8" type="PinJoint2D" parent="."]
 node_a = NodePath("../Balloon_Body")
 node_b = NodePath("..")
+bias = 0.9
 
 [node name="Line2D" type="Line2D" parent="."]
+z_index = -2
 points = PoolVector2Array( 0, 0, 0, 0 )
 width = 2.0
 default_color = Color( 1, 1, 1, 1 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 

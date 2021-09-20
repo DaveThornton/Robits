@@ -2096,6 +2096,7 @@ height = 40.0
 "ladder",
 "player",
 ]]
+z_index = 1
 collision_layer = 2
 collision_mask = 67230
 script = ExtResource( 5 )
@@ -2167,10 +2168,6 @@ position = Vector2( 0, -27 )
 texture = ExtResource( 1 )
 hframes = 7
 
-[node name="Attachment_Point" parent="Body_Sprite" instance=ExtResource( 10 )]
-visible = false
-position = Vector2( 0, -5 )
-
 [node name="Pawn_06_Part_Hover" parent="." instance=ExtResource( 4 )]
 show_behind_parent = true
 position = Vector2( 0, -12 )
@@ -2227,6 +2224,10 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
 position = Vector2( 0, -26 )
 shape = SubResource( 17 )
+
+[node name="Attachment_Point" parent="." instance=ExtResource( 10 )]
+position = Vector2( 0, -5 )
+z_index = -1
 
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]

@@ -1833,6 +1833,8 @@ collision_mask = 4
 
 [node name="Pawn_10_Part_Wheel" parent="." instance=ExtResource( 2 )]
 
+[node name="Attachment_Point" parent="Pawn_10_Part_Wheel" instance=ExtResource( 6 )]
+
 [node name="Pawn_10_Part_Body" type="Sprite" parent="."]
 self_modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 5 )
@@ -1858,10 +1860,6 @@ scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 5 )
 hframes = 4
 frame = 2
-
-[node name="Attachment_Point" parent="Pawn_10_Part_Body" instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 0, -28 )
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
 visible = false

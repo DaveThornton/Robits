@@ -3698,7 +3698,6 @@ hframes = 31
 frame = 8
 
 [node name="Attachment_Point" parent="Pawn_12_Part_Body" instance=ExtResource( 13 )]
-visible = false
 position = Vector2( 0, -7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

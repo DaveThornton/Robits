@@ -1018,10 +1018,6 @@ texture = ExtResource( 4 )
 hframes = 24
 frame = 22
 
-[node name="Attachment_Point" parent="Body" instance=ExtResource( 12 )]
-visible = false
-position = Vector2( -3, -1 )
-
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -23 )
 shape = SubResource( 1 )
@@ -1060,6 +1056,9 @@ anims/Idle = SubResource( 7 )
 anims/Jump = SubResource( 8 )
 anims/Prone = SubResource( 9 )
 anims/Run = SubResource( 10 )
+
+[node name="Attachment_Point" parent="." instance=ExtResource( 12 )]
+position = Vector2( 0, -12 )
 
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]

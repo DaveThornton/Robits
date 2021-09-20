@@ -236,7 +236,7 @@ position = Vector2( 344, 712.051 )
 position = Vector2( 400, 744.051 )
 
 [node name="Jump_Power_Up" parent="." instance=ExtResource( 17 )]
-position = Vector2( 984, 1016 )
+position = Vector2( 1280, 936 )
 
 [node name="Pick-Up-11-Balloon_Tanks" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1032, 1024 )

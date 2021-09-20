@@ -479,6 +479,16 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_up_timer.wait_time = _how_long
 	nrg_up_timer.start()
 
+func balloon_on():
+	grav -= 2
+	max_jump_power += 2
+	min_jump_power += 2
+
+func balloon_off():
+	grav +=2
+	max_jump_power -= 2
+	min_jump_power -= 2
+	
 func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):

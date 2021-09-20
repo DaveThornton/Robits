@@ -130,8 +130,7 @@ position = Vector2( 0, -34 )
 [node name="Pawn_16_Part_Arm" parent="Pawn_16_Head" instance=ExtResource( 4 )]
 
 [node name="Attachment_Point" parent="Pawn_16_Head" instance=ExtResource( 5 )]
-visible = false
-position = Vector2( 0, -9 )
+z_index = 1
 
 [node name="Pawn_16_Body" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -16 )

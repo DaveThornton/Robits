@@ -27,9 +27,13 @@ func _ready():
 	balloons = Node2D.new()
 	Map_Hand.add_child(balloons)
 	timer.wait_time = spawn_time
+	spawn_balloon()
+	spawn_balloon()
+	spawn_balloon()
+	spawn_balloon()
 
 func spawn_balloon():
-	print(balloons.get_child_count())
+	# print(balloons.get_child_count())
 	var new_balloon = balloon.instance()
 	balloons.add_child(new_balloon)
 	new_balloon.on_map()
@@ -52,30 +56,71 @@ func spawn_balloon():
 	balloon_count += 1
 	if balloon_count > 4:
 		balloon_count = 1
-	# print(balloons.get_child_count())
 
 func get_next_balloon():
 	next_balloon += 1
 	if balloon_count == 1:
-		return balloon_02
+		if balloon_02:
+			return balloon_02
+		elif balloon_03:
+			return balloon_03
+		elif balloon_04:
+			return balloon_04
+		elif balloon_01:
+			return balloon_01
+		else:
+			return null
 	elif balloon_count == 2:
-		return balloon_03
+		if balloon_03:
+			return balloon_03
+		elif balloon_03:
+			return balloon_04
+		elif balloon_04:
+			return balloon_01
+		elif balloon_01:
+			return balloon_02
+		else:
+			return null
 	elif balloon_count == 3:
-		return balloon_04
+		if balloon_04:
+			return balloon_04
+		elif balloon_03:
+			return balloon_01
+		elif balloon_04:
+			return balloon_02
+		elif balloon_01:
+			return balloon_03
+		else:
+			return null
 	elif balloon_count == 4:
-		return balloon_01
-
+		if balloon_01:
+			return balloon_01
+		elif balloon_03:
+			return balloon_02
+		elif balloon_04:
+			return balloon_03
+		elif balloon_01:
+			return balloon_04
+		else:
+			return null
 
 func _on_PickUp11Balloon_Tanks_body_entered(body):
 	if body.get_groups().has("player"):
+		# var attach = body.attachment_point
 		bye_balloon = get_next_balloon()
-		var new_balloon = balloon_on_player.instance()
-		new_balloon.color(bye_balloon.get_color(),Color(0,0,0))
-		pin_01.node_a = no_balloon.get_path()
-		balloons.add_child(new_balloon)
-		new_balloon.position = body.attachment_point.position
-		body.attachment_point.attach_to_pin(new_balloon)
-		bye_balloon.queue_free()
+		if bye_balloon:
+			var new_balloon = balloon_on_player.instance()
+			# new_balloon.color(bye_balloon.get_color(),Color(0,0,0))
+			pin_01.node_a = no_balloon.get_path()
+			new_balloon.on_player(body.player)
+			# body.attachment_point.add_child(new_balloon)
+			# balloons.add_child(new_balloon)
+			# body.attachment_point.attach_to_pin(new_balloon)
+			# new_balloon.global_position = body.attachment_point.global_position
+			body.attachment_point.attach_to_pin(new_balloon)
+			# bye_balloon.queue_free()
+		else:
+			pass
 
 
 
