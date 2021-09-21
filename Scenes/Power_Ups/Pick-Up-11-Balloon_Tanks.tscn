@@ -28,6 +28,9 @@ shape = SubResource( 1 )
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 5.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="Balloons" type="Node2D" parent="."]
@@ -51,8 +54,8 @@ node_b = NodePath("../RigidBody2D")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2( 0, -1 )
-collision_layer = 0
-collision_mask = 0
+collision_layer = 131072
+collision_mask = 131072
 mode = 1
 gravity_scale = 100.0
 
@@ -70,3 +73,4 @@ texture = ExtResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_PickUp11Balloon_Tanks_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]

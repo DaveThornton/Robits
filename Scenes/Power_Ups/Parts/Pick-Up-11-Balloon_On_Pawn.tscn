@@ -1,14 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Power_Ups/parts/Pick-Up-11-Balloon_On_Pawn.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Power_Ups/Pick_Up_11_Balloon.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/FX/Balloon_pop_01.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Power_Ups/parts/11-01-Balloon_Body.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 1.0
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 8.0
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.0
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 9.0
 height = 12.0
 
 [node name="Pick-Up-11-Balloon_On_Pawn" type="RigidBody2D"]
@@ -22,20 +26,25 @@ popped = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Balloon_Body" type="RigidBody2D" parent="."]
-position = Vector2( 0, -59 )
+[node name="Balloon_Body" type="RigidBody2D" parent="." groups=[
+"hittable",
+]]
+position = Vector2( 0, -58 )
 collision_layer = 512
 collision_mask = 131584
+physics_material_override = SubResource( 3 )
 gravity_scale = -50.0
 can_sleep = false
 linear_damp = 4.0
+angular_damp = 50.0
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Balloon_Body"]
-position = Vector2( 0, -14 )
-shape = SubResource( 2 )
+position = Vector2( 0, -15 )
+shape = SubResource( 4 )
 
 [node name="Balloon_Sprite" type="Sprite" parent="Balloon_Body/CollisionShape2D"]
-self_modulate = Color( 1, 0.184314, 0.184314, 1 )
+show_behind_parent = true
 position = Vector2( 0, 3 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )

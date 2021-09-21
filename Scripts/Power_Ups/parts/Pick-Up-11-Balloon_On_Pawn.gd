@@ -30,6 +30,9 @@ func on_player(_player):
 	# self.connect("death",pawn.attachment_point.
 	pawn.balloon_on()
 
+func hit(_by_who, _by_what, _damage_type, _damage):
+	pop()
+
 func pop():
 	if !is_popped:
 		is_popped = true

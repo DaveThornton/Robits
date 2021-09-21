@@ -6,18 +6,18 @@
 [ext_resource path="res://Scenes/FX/Balloon_pop_01.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Power_Ups/parts/11-01-Balloon_Body.gd" type="Script" id=5]
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 2.0
-height = 40.0
+height = 0.0
 
-[sub_resource type="PhysicsMaterial" id=7]
+[sub_resource type="PhysicsMaterial" id=5]
 friction = 0.0
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=6]
 radius = 9.0
 height = 12.0
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 2.0
 height = 6.0
 
@@ -34,17 +34,16 @@ color_02 = Color( 0, 0, 1, 1 )
 color_03 = Color( 0, 1, 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -22 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="Balloon_Body" type="RigidBody2D" parent="." groups=[
 "hittable",
 ]]
 position = Vector2( 0, -73 )
-collision_layer = 512
-collision_mask = 512
+collision_layer = 131584
+collision_mask = 131584
 mass = 0.5
-physics_material_override = SubResource( 7 )
+physics_material_override = SubResource( 5 )
 gravity_scale = -11.0
 can_sleep = false
 linear_damp = 4.0
@@ -52,7 +51,7 @@ angular_damp = 50.0
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Balloon_Body"]
-shape = SubResource( 2 )
+shape = SubResource( 6 )
 
 [node name="Balloon" type="Sprite" parent="Balloon_Body/CollisionShape2D"]
 show_behind_parent = true
@@ -70,14 +69,13 @@ disable_collision = false
 position = Vector2( 0, -52 )
 collision_layer = 0
 collision_mask = 0
-mass = 0.102041
 linear_damp = 1.0
 angular_damp = 7.0
 applied_force = Vector2( 0, -30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2( 0, -2 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="White_Pixel" type="Sprite" parent="RigidBody2D/CollisionShape2D"]
 scale = Vector2( 2, 12 )
@@ -93,14 +91,14 @@ disable_collision = false
 position = Vector2( 0, -44 )
 collision_layer = 0
 collision_mask = 0
-mass = 0.102041
+mass = 0.9
 linear_damp = 1.0
 angular_damp = 7.0
 applied_force = Vector2( 0, -30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
 position = Vector2( 0, -2 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="White_Pixel" type="Sprite" parent="RigidBody2D2/CollisionShape2D"]
 scale = Vector2( 2, 12 )
@@ -116,14 +114,14 @@ disable_collision = false
 position = Vector2( 0, -36 )
 collision_layer = 0
 collision_mask = 0
-mass = 0.102041
+mass = 0.7
 linear_damp = 1.0
 angular_damp = 7.0
 applied_force = Vector2( 0, -30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
 position = Vector2( 0, -2 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="White_Pixel" type="Sprite" parent="RigidBody2D3/CollisionShape2D"]
 scale = Vector2( 2, 12 )
@@ -139,14 +137,14 @@ disable_collision = false
 position = Vector2( 0, -28 )
 collision_layer = 0
 collision_mask = 0
-mass = 0.102041
+mass = 0.5
 linear_damp = 1.0
 angular_damp = 7.0
 applied_force = Vector2( 0, -30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
 position = Vector2( 0, -2 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="White_Pixel" type="Sprite" parent="RigidBody2D4/CollisionShape2D"]
 scale = Vector2( 2, 12 )
@@ -162,14 +160,14 @@ disable_collision = false
 position = Vector2( 0, -20 )
 collision_layer = 0
 collision_mask = 0
-mass = 0.102041
+mass = 0.3
 linear_damp = 1.0
 angular_damp = 7.0
 applied_force = Vector2( 0, -30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D5"]
 position = Vector2( 0, -2 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="White_Pixel" type="Sprite" parent="RigidBody2D5/CollisionShape2D"]
 scale = Vector2( 2, 12 )
@@ -185,13 +183,14 @@ disable_collision = false
 position = Vector2( 0, -12 )
 collision_layer = 0
 collision_mask = 0
+mass = 0.2
 linear_damp = 1.0
 angular_damp = 7.0
 applied_force = Vector2( 0, -30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D6"]
 position = Vector2( 0, -2 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="White_Pixel" type="Sprite" parent="RigidBody2D6/CollisionShape2D"]
 scale = Vector2( 2, 12 )
@@ -204,16 +203,17 @@ node_b = NodePath("../RigidBody2D7")
 disable_collision = false
 
 [node name="RigidBody2D7" type="RigidBody2D" parent="."]
-position = Vector2( 0, -4 )
+position = Vector2( 3, -5 )
 collision_layer = 0
 collision_mask = 0
+mass = 0.1
 linear_damp = 1.0
 angular_damp = 7.0
 applied_force = Vector2( 0, -30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D7"]
-position = Vector2( 0, -2 )
-shape = SubResource( 3 )
+position = Vector2( -3, -2 )
+shape = SubResource( 4 )
 
 [node name="White_Pixel" type="Sprite" parent="RigidBody2D7/CollisionShape2D"]
 scale = Vector2( 2, 12 )
@@ -225,7 +225,7 @@ node_b = NodePath("..")
 disable_collision = false
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 4.0
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

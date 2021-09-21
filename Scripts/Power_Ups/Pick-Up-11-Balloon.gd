@@ -29,8 +29,8 @@ var is_popped = false
 var player = 0
 var popped_count = 1
 var current_color = 1
-var type = "balloon"
 var point_01
+var tank_pos = 0
 
 signal death
 signal clear
@@ -60,7 +60,7 @@ func pop():
 		var x = popped.instance()
 		self.get_tree().get_current_scene().add_child(x)
 		x.global_position = balloon_body.global_position
-		emit_signal("death",type)
+		emit_signal("death", self)
 		balloon_body.call_deferred("free")
 		overweight()
 		line_on(false)
@@ -98,6 +98,12 @@ func pop():
 	else:
 		emit_signal("clear")
 		self.call_deferred("free")
+
+func set_tank_pos(_num):
+	pass
+		
+func get_tank_pos(_num):
+	pass
 
 func on_map():
 	balloon_body.mass = 1.0
