@@ -7,7 +7,7 @@ export var duration = 1
 var players = []
 var timers = []
 
-func _process(delta):
+func _process(_delta):
 	#yeah this whole this is dumb right
 	if players.size() > 0:
 		for p in players.size():

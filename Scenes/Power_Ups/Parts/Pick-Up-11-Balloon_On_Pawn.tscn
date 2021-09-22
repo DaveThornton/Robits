@@ -8,10 +8,10 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 1.0
 
-[sub_resource type="PhysicsMaterial" id=3]
+[sub_resource type="PhysicsMaterial" id=2]
 friction = 0.0
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 9.0
 height = 12.0
 
@@ -32,7 +32,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, -58 )
 collision_layer = 512
 collision_mask = 131584
-physics_material_override = SubResource( 3 )
+physics_material_override = SubResource( 2 )
 gravity_scale = -50.0
 can_sleep = false
 linear_damp = 4.0
@@ -41,7 +41,7 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Balloon_Body"]
 position = Vector2( 0, -15 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Balloon_Sprite" type="Sprite" parent="Balloon_Body/CollisionShape2D"]
 show_behind_parent = true

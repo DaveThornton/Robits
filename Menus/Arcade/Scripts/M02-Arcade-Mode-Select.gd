@@ -29,7 +29,9 @@ func _ready():
 	var test3 = HUD.connect("input_to_screen", self, "movement")
 	if test3 != 0:
 		print("error in arcade game select connect input to screen")
-	Player_Stats.connect("player_count_change",self,"menu_pos_changed")
+	var test2 = Player_Stats.connect("player_count_change",self,"menu_pos_changed")
+	if test2 != 0:
+		print("error in arcade game select connect player_count_change")
 	HUD.menu_state()
 
 func _start(_player):

@@ -48,19 +48,19 @@ func spawn_balloon():
 func _on_PickUp11Balloon_Tanks_body_entered(body):
 	if body.get_groups().has("player"):
 		if balloons.size() > 0:
-			var new_balloon = balloon_on_player.instance()
-			new_balloon.color(balloons[0].get_color(),Color(0,0,0))
-			new_balloon.on_player(body.player)
-			body.attachment_point.attach_to_pin(new_balloon)
-			var _balloon = balloons[0]
-			var _pin = _balloon.get_parent()
-			balloons.erase(_balloon)
-			_pin.queue_free()
-			timer.start()
+			call_deferred("put_on_player",body)
 		else:
 			pass
-
-
+func put_on_player(body):
+	var new_balloon = balloon_on_player.instance()
+	new_balloon.color(balloons[0].get_color(),Color(0,0,0))
+	new_balloon.on_player(body.player)
+	body.attachment_point.attach_to_pin(new_balloon)
+	var _balloon = balloons[0]
+	var _pin = _balloon.get_parent()
+	balloons.erase(_balloon)
+	_pin.queue_free()
+	timer.start()
 
 func _on_Timer_timeout():
 		spawn_balloon()

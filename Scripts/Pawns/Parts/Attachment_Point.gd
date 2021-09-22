@@ -16,7 +16,7 @@ func attach(the_thing):
 # 	self.global_rotation = 0.0
 
 func attach_to_pin(the_thing):
-	print(the_thing, "   ", self.get_child_count(), "    " )
+	print(the_thing, "   ", self.get_child_count(), "    in attachment point" )
 	var pin = PinJoint2D.new()
 	self.add_child(pin)
 	self.add_child(the_thing)

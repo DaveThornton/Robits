@@ -13,11 +13,11 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if falling:
 		block_fall.position.y += -1
 
-func _on_Area2D_area_entered(area):
+func _on_Area2D_area_entered(_area):
 	print("mp 30 entered area")
 	falling = true
 #	call_deferred("_start")

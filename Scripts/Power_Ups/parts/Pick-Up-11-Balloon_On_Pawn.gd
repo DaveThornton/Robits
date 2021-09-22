@@ -35,6 +35,20 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 
 func pop():
 	if !is_popped:
+		_pop()
+		# is_popped = true
+		# var x = popped.instance()
+		# self.get_tree().get_current_scene().add_child(x)
+		# x.global_position = Vector2(balloon_body.global_position.x, balloon_body.global_position.y - 14)
+		# emit_signal("death",type)
+		# balloon_body.call_deferred("free")
+		# line_on(false)
+		# timer.start(0.1)
+		# pawn.balloon_off()
+	else:
+		self.queue_free()
+
+func _pop():
 		is_popped = true
 		var x = popped.instance()
 		self.get_tree().get_current_scene().add_child(x)
@@ -44,8 +58,6 @@ func pop():
 		line_on(false)
 		timer.start(0.1)
 		pawn.balloon_off()
-	else:
-		self.queue_free()
 
 func line_on(_on):
 	line.visible = _on

@@ -15,6 +15,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	line.set_point_position(1,pos.position)
 	line.set_point_position(0,head.position)

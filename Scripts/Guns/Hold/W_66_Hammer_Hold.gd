@@ -76,7 +76,7 @@ func shoot_r():
 	hit_area.disabled = true
 
 func melee():
-	print("i dont know how this got called W_63_Bar Melee?")
+	print("i dont know how this got called W_66_Hammer Melee?")
 
 func throw():
 	var t = hammer_pickup.instance()

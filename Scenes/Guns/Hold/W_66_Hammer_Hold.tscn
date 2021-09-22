@@ -36,4 +36,5 @@ disabled = true
 enabled = true
 cast_to = Vector2( 45, 0 )
 collision_mask = 3850
+
 [connection signal="body_entered" from="Melee_Area" to="." method="_on_Melee_Area_body_entered"]
