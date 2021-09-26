@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-11-Balloon_Tanks.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=2]
@@ -10,7 +10,7 @@
 [ext_resource path="res://Maps/map-00.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-12-Bubble_Spawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Tilesets/TS-04-Back-FX-Balloon.tres" type="TileSet" id=12]
 [ext_resource path="res://Tilesets/TS-06-Main-FX-Balloon.tres" type="TileSet" id=13]
 [ext_resource path="res://Scenes/Guns/Pick/W_66_Hammer_Pick.tscn" type="PackedScene" id=14]
@@ -23,6 +23,8 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Guns/Pick/W_24_TNT_Pick.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner-Small.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Guns/Pick/W_59_Bow_Pick.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Map_Parts/MP-46-Balloon_Fish.tscn" type="PackedScene" id=25]
 
 [node name="Map-13-Luftballons" type="Node2D"]
 script = ExtResource( 8 )
@@ -332,10 +334,20 @@ body_6 = ExtResource( 18 )
 [node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 2 )]
 position = Vector2( 1016.51, 1127.47 )
 
-[node name="MP-51-Saw" parent="Map_parts" instance=ExtResource( 11 )]
-position = Vector2( 967, 1210 )
-
 [node name="Spawners" type="Node2D" parent="Map_parts"]
+
+[node name="MP-46-Balloon-Fish" parent="Map_parts" instance=ExtResource( 25 )]
+position = Vector2( 820, 1059 )
+
+[node name="MP-46-Balloon-Fish2" parent="Map_parts" instance=ExtResource( 25 )]
+position = Vector2( 1100, 1059 )
+scale = Vector2( -1, 1 )
+
+[node name="Pick-Up-12-Bubble_Spawner" parent="Map_parts" instance=ExtResource( 11 )]
+position = Vector2( -10, 1039 )
+
+[node name="W_59_Bow_Pick" parent="Map_parts/Pick-Up-12-Bubble_Spawner" instance=ExtResource( 24 )]
+position = Vector2( 292, -154 )
 
 [node name="Start_Timer" type="Timer" parent="."]
 one_shot = true

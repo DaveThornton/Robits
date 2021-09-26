@@ -9,14 +9,13 @@ var attached_to_pin
 var old_pin
 
 func attach(the_thing):
-	the_thing.global_position = self.global_position
+	# print(the_thing.global_position)
 	self.add_child(the_thing)
-
-# func _process(_delta):
-# 	self.global_rotation = 0.0
+	the_thing.global_position = self.global_position - Vector2(0,20)
+	print(the_thing.global_position)
 
 func attach_to_pin(the_thing):
-	print(the_thing, "   ", self.get_child_count(), "    in attachment point" )
+	# print(the_thing, "   ", self.get_child_count(), "    in attachment point" )
 	var pin = PinJoint2D.new()
 	self.add_child(pin)
 	self.add_child(the_thing)

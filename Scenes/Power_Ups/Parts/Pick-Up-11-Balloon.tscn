@@ -10,10 +10,10 @@
 radius = 2.0
 height = 0.0
 
-[sub_resource type="PhysicsMaterial" id=5]
+[sub_resource type="PhysicsMaterial" id=2]
 friction = 0.0
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 9.0
 height = 12.0
 
@@ -40,10 +40,10 @@ shape = SubResource( 1 )
 "hittable",
 ]]
 position = Vector2( 0, -73 )
-collision_layer = 131584
-collision_mask = 131584
+collision_layer = 164352
+collision_mask = 164352
 mass = 0.5
-physics_material_override = SubResource( 5 )
+physics_material_override = SubResource( 2 )
 gravity_scale = -11.0
 can_sleep = false
 linear_damp = 4.0
@@ -51,7 +51,7 @@ angular_damp = 50.0
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Balloon_Body"]
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="Balloon" type="Sprite" parent="Balloon_Body/CollisionShape2D"]
 show_behind_parent = true

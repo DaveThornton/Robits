@@ -22,4 +22,5 @@ rotation = -0.174533
 
 [node name="Projectile5" parent="." instance=ExtResource( 2 )]
 rotation = -0.349066
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,153 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/Power_Ups/Pick_Up_12_Bubble.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Power_Ups/Pick-Up-12-Bubble.gd" type="Script" id=2]
+[ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Bounce"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pick_Up_12_Bubble:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Popped"
+length = 2.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pick_Up_12_Bubble:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 5, 6, 7, 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Position2D/Point_Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Position2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.35, 0.55, 0.75, 0.95, 1.15, 1.35, 1.55 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 10, 0 ), Vector2( -10, 0 ), Vector2( 7, 0 ), Vector2( -7, 0 ), Vector2( 4, 0 ), Vector2( -4, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Popped_Time_Out"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pick_Up_12_Bubble:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 5, 6, 7, 8 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.25 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 32.249
+
+[node name="Pick-Up-12-Bubble" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Pick_Up_12_Bubble" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 9
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Bounce = SubResource( 1 )
+anims/Popped = SubResource( 5 )
+anims/Popped_Time_Out = SubResource( 3 )
+
+[node name="Pop_Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pop_Area2D"]
+shape = SubResource( 4 )
+
+[node name="Position2D" type="Position2D" parent="."]
+
+[node name="Point_Label" type="Label" parent="Position2D"]
+visible = false
+margin_left = -29.0
+margin_top = -19.0
+margin_right = 31.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 3 )
+text = "500"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 16.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Pop_Area2D" to="." method="_on_Pop_Area2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Guns/Parts/Weap-Part-22-DetParticles.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Explosions/Ex-10-Directional-Basic.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Explosions/Ex-40-RPG.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/Weap-22-Plasma-Grenade.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/FX/22-plasma-cloud.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Misc/White_Pixel.png" type="Texture" id=5]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -23,8 +24,14 @@ linear_accel_random = 0.18
 scale = 1.5
 color = Color( 0.34902, 0.368627, 0.992157, 1 )
 
+[sub_resource type="Curve" id=3]
+max_value = 5.0
+_data = [ Vector2( 0, 2.5 ), 0.0, 0.0, 0, 0, Vector2( 0.868726, 1.59091 ), -0.0535124, 0.0, 0, 0 ]
+
 [node name="22_plasma_det" type="Node2D"]
 material = SubResource( 1 )
+z_index = 8
+z_as_relative = false
 script = ExtResource( 1 )
 boom = ExtResource( 2 )
 
@@ -39,9 +46,29 @@ frame = 1
 one_shot = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
-visible = false
 amount = 100
 local_coords = false
 process_material = SubResource( 2 )
 texture = ExtResource( 4 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+amount = 15
+local_coords = false
+texture = ExtResource( 4 )
+direction = Vector2( 0, -1 )
+spread = 5.29
+gravity = Vector2( 0, -50 )
+initial_velocity_random = 0.25
+angular_velocity = 90.0
+angular_velocity_random = 1.0
+orbit_velocity_random = 1.0
+scale_amount_curve = SubResource( 3 )
+color = Color( 0, 0, 1, 0.67451 )
+
+[node name="White_Pixel" type="Sprite" parent="CPUParticles2D"]
+modulate = Color( 0, 0, 1, 0.67451 )
+scale = Vector2( 12, 12 )
+texture = ExtResource( 5 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

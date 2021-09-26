@@ -7,8 +7,6 @@
 [ext_resource path="res://Scenes/Projectiles/Shell-02-Pin.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Guns/Pick/W_22_Plasma_Grenade_Pick.tscn" type="PackedScene" id=7]
 
-
-
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 
@@ -47,4 +45,5 @@ cast_to = Vector2( 20, 0 )
 collision_mask = 3850
 
 [node name="22_plasma_det" parent="." instance=ExtResource( 1 )]
+visible = false
 material = SubResource( 1 )

@@ -46,6 +46,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		timer_boom.start()
 
 func add_det(_det):
+	# det.queue_free()
 	self.add_child(_det)
 	det = _det
 
@@ -106,14 +107,12 @@ func fade_out():
 	call_deferred("free")#queue_free()
 
 func _on_Area2D_body_entered(body):
-	print(det.part.visible, body)
-#	if ammo == 0:
-	if det.part.visible == true:
-		if body.get_groups().has("player"):
-			self.remove_child(det)
-			body.add_child(det)
-			print("hit person")
-			call_deferred("free")#queue_free()
+	# print(det.part.visible, body)
+	if ammo == 0 && body.get_groups().has("player"):
+		self.remove_child(det)
+		body.attachment_point.attach(det)
+		print("hit person")
+		call_deferred("free")
 
 func booming():
 	call_deferred("free")

@@ -119,6 +119,7 @@ autostart = true
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 9.0
 autostart = true
+
 [connection signal="body_entered" from="Area2D-outer" to="." method="_on_Area2Douter_body_entered"]
 [connection signal="body_entered" from="Area2D2-inner" to="." method="_on_Area2D2inner_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

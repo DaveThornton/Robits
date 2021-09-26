@@ -2,9 +2,7 @@ extends Node2D
 
 export(PackedScene) var grenade_pickup
 export(PackedScene) var pin
-#export(PackedScene) var boom
 
-#onready var timer = $Timer
 onready var pos_throw = $POS_Gun/POS/Position2D
 onready var sprite_pin = $POS_Gun/Pin
 onready var throw_cast = $POS_Gun/Raycast/RayCast2D
@@ -36,12 +34,6 @@ func init(_ammo, _player, _time, _just_shot):
 	ammo = _ammo
 	if _ammo <= 0:
 		print("something has gone wrong W_22 this shouldnt happen")
-#		ammo = 0
-#		sprite_pin.visible = false
-#		timer.wait_time = _time
-#		timer.start()
-#	else:
-#		timer.wait_time = time
 	emit_signal("ammo_change",player,ammo)
 	
 func shoot_j():
@@ -61,8 +53,6 @@ func shoot_r():
 			p.scale = pos_throw.scale 
 			can_shoot = false
 			det.start(time)
-#			timer.start()
-#			det.visible = true
 			sprite_pin.visible = false
 			emit_signal("ammo_change",player, ammo)
 			Player_Stats.add_shot(player, 1)
@@ -76,10 +66,10 @@ func throw():
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
 	t.position = pos_throw.global_position
-	self.remove_child(det)
-	t.add_det(det)
-	t.init(ammo, player, time, is_right, shoot_pos, false)
-#	print("w 22 hold throw ammo =",ammo)
+	if ammo == 0:
+		self.remove_child(det)
+		t.add_det(det)
+		t.init(ammo, player, time, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
 		t.position = self.global_position
 		_drop_where(t)
@@ -133,12 +123,3 @@ func booming():
 	p.my_gun = null
 	p.is_holding = false
 	queue_free()	
-
-#func _on_Timer_timeout():
-#	var p = Controllers.get_pawn(player)
-#	p.my_gun = null
-#	p.is_holding = false
-##	var b = boom.instance()
-##	Map_Hand.add_kid_to_map(b)
-##	b.init(player, self.global_position, my_name, 0, damage)
-#	queue_free()

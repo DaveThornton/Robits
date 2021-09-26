@@ -659,6 +659,7 @@ Menu={
 2d_physics/layer_11="Just Players nothin else -- Campaign only"
 2d_physics/layer_12="Bad Guys nothin else"
 2d_physics/layer_13="Camera_Trigger"
+2d_physics/layer_16="Balloons"
 2d_physics/layer_17="Power Ups"
 2d_physics/layer_18="Obj For FX!"
 2d_physics/layer_19="Area interaction"

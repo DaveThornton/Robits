@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Power_Ups/Pick-Up-12-Bubble_Spawner.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Power_Ups/Parts/Pick-Up-12-Bubble.tscn" type="PackedScene" id=2]
+
+[node name="Pick-Up-12-Bubble_Spawner" type="Node2D"]
+script = ExtResource( 1 )
+bubble = ExtResource( 2 )
+
+[node name="Pos" type="Node2D" parent="."]
+
+[node name="Position2D_01" type="Position2D" parent="Pos"]
+position = Vector2( 189, 0 )
+
+[node name="Position2D_02" type="Position2D" parent="Pos"]
+position = Vector2( 329, 0 )
+
+[node name="Position2D_03" type="Position2D" parent="Pos"]
+position = Vector2( 469, 0 )
+
+[node name="Position2D_04" type="Position2D" parent="Pos"]
+position = Vector2( 609, 0 )
+
+[node name="Position2D_05" type="Position2D" parent="Pos"]
+position = Vector2( 749, 0 )
+
+[node name="Position2D_06" type="Position2D" parent="Pos"]
+position = Vector2( 1169, 0 )
+
+[node name="Position2D_07" type="Position2D" parent="Pos"]
+position = Vector2( 1309, 0 )
+
+[node name="Position2D_08" type="Position2D" parent="Pos"]
+position = Vector2( 1449, 0 )
+
+[node name="Position2D_09" type="Position2D" parent="Pos"]
+position = Vector2( 1589, 0 )
+
+[node name="Position2D_10" type="Position2D" parent="Pos"]
+position = Vector2( 1729, 0 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

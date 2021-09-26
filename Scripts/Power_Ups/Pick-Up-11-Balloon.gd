@@ -52,7 +52,8 @@ func _ready():
 
 
 func hit(_by_who, _by_what, _damage_type, _damage):
-	pop()
+	call_deferred("pop")
+	# pop()
 
 func pop():
 	if !is_popped:

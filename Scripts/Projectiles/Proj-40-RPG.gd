@@ -35,7 +35,7 @@ func _on_Projectile_04_body_entered(body):
 	entered(body)
 
 func entered(_body):
-	call_deferred("_explode",self.global_position)
+	call_deferred("_explode",self.position)
 
 func _on_Timer_timeout():
 	_explode(self.global_position)

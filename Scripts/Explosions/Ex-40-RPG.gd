@@ -15,6 +15,7 @@ func _ready():
 
 func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	owned = _owner
+	self.global_position = _pos
 	anim.play("Explode")
 	weap_name = _weap_name
 	damage1 = (_dmg * .5)

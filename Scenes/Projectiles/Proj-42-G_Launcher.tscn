@@ -13,7 +13,7 @@ height = 8.0
 "projectile",
 ]]
 collision_layer = 2147484160
-collision_mask = 134922
+collision_mask = 167690
 mass = 5.0
 gravity_scale = 10.0
 contacts_reported = 8
@@ -32,6 +32,7 @@ shape = SubResource( 1 )
 wait_time = 2.0
 
 [node name="CPUParticles2D" parent="." instance=ExtResource( 4 )]
+
 [connection signal="body_entered" from="." to="." method="_on_Proj42G_Launcher_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_Proj42G_Launcher_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
