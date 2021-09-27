@@ -543,8 +543,9 @@ func get_player_hud(_player):
 	elif _player == 8:
 		return p8
 	else:
-		print("get player hud error invaild player in hud")
-
+		print("get player hud error invaild player in hud so I'll return player 1")
+		return p1
+		
 func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 	print(_player, Game.started,"   ",Player_Stats.get_in_play(_player),"   ", Player_Stats.get_in_game(_player),"  ",Player_Stats.get_continuing(_player))
 	if !Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-11-Balloon_Tanks.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=2]
@@ -15,7 +15,7 @@
 [ext_resource path="res://Tilesets/TS-06-Main-FX-Balloon.tres" type="TileSet" id=13]
 [ext_resource path="res://Scenes/Guns/Pick/W_66_Hammer_Pick.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Guns/Pick/W_13_TOS_Pick.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Guns/Pick/W_11_Mega_Cannon_Pick.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Guns/Pick/W_22_Plasma_Grenade_Pick.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Guns/Pick/W_21_Nazi_Grenade_Pick.tscn" type="PackedScene" id=19]
@@ -23,7 +23,6 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Guns/Pick/W_24_TNT_Pick.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner-Small.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Guns/Pick/W_59_Bow_Pick.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Map_Parts/MP-46-Balloon_Fish.tscn" type="PackedScene" id=25]
 
 [node name="Map-13-Luftballons" type="Node2D"]
@@ -345,9 +344,6 @@ scale = Vector2( -1, 1 )
 
 [node name="Pick-Up-12-Bubble_Spawner" parent="Map_parts" instance=ExtResource( 11 )]
 position = Vector2( -10, 1039 )
-
-[node name="W_59_Bow_Pick" parent="Map_parts/Pick-Up-12-Bubble_Spawner" instance=ExtResource( 24 )]
-position = Vector2( 292, -154 )
 
 [node name="Start_Timer" type="Timer" parent="."]
 one_shot = true

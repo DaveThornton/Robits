@@ -71,7 +71,7 @@ func shoot():
 				#---------------------------------------------------------------
 				var _sss = pos_shoot.global_scale
 				new_projectile.start( _sr , _ss, _sss, player, damage)
-			else:
+			elif shoot_cast.is_colliding():
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
 					_thing.hit(player, my_name, dmg_type, damage)

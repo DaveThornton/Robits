@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Maps/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_20_Grenade_Pick.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Guns/Pick/W_21_Nazi_Grenade_Pick.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Guns/Pick/W_22_Plasma_Grenade_Pick.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Bad_Guys/BG-08-Shield_Guy.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Guns/Pick/W_40_RPG_Pick.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Guns/Pick/W_50_Shot_Gun_Pick.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Guns/Pick/W_60_Axe_Pick.tscn" type="PackedScene" id=17]
@@ -210,3 +211,6 @@ position = Vector2( 580, 110 )
 
 [node name="BG-22-Turret-Ceiling4" parent="." instance=ExtResource( 29 )]
 position = Vector2( 1550, 110 )
+
+[node name="BG-08-Shield_Guy" parent="." instance=ExtResource( 14 )]
+position = Vector2( 882, 720 )

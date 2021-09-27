@@ -336,8 +336,9 @@ anims/Shoot-Up = SubResource( 12 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -30 )
 texture = ExtResource( 4 )
-vframes = 4
 hframes = 20
+vframes = 4
+
 [connection signal="timeout" from="Timer_Shoot" to="." method="_on_Timer_Shoot_timeout"]
 [connection signal="body_entered" from="Area2D-On_Ladder" to="." method="_on_Area2DOn_Ladder_body_entered"]
 [connection signal="body_exited" from="Area2D-On_Ladder" to="." method="_on_Area2DOn_Ladder_body_exited"]
