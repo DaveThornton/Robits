@@ -15,7 +15,7 @@ height = 15.0
 ]]
 z_index = -1
 collision_layer = 2048
-collision_mask = 3612
+collision_mask = 3100
 script = ExtResource( 2 )
 projectile = ExtResource( 3 )
 explode = ExtResource( 4 )
@@ -28,8 +28,9 @@ shape = SubResource( 1 )
 
 [node name="Anim_BG_03" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -30 )
-gun_color = Color( 0, 1, 0.976471, 1 )
-accent_color = Color( 1, 0.447059, 0.447059, 1 )
+body_color = Color( 0, 0.694118, 1, 1 )
+gun_color = Color( 1, 0.788235, 0.788235, 1 )
+accent_color = Color( 0, 0.235294, 0.603922, 1 )
 
 [node name="Raycasts" type="Node2D" parent="."]
 position = Vector2( 0, -31 )
@@ -49,7 +50,7 @@ collision_mask = 28
 [node name="Right" type="RayCast2D" parent="Raycasts"]
 position = Vector2( 16, 0 )
 enabled = true
-cast_to = Vector2( 30, 25 )
+cast_to = Vector2( 20, 0 )
 collision_mask = 3080
 
 [node name="Down_Right" type="RayCast2D" parent="Raycasts"]
@@ -67,7 +68,7 @@ collision_mask = 3080
 [node name="Left" type="RayCast2D" parent="Raycasts"]
 position = Vector2( -16, 0 )
 enabled = true
-cast_to = Vector2( -30, 25 )
+cast_to = Vector2( -20, 0 )
 collision_mask = 3080
 
 [node name="Shoot_Right" type="RayCast2D" parent="Raycasts"]
@@ -163,4 +164,5 @@ position = Vector2( -20, -11 )
 rotation = 2.35619
 
 [node name="Timer_Shoot" type="Timer" parent="."]
+
 [connection signal="timeout" from="Timer_Shoot" to="." method="_on_Timer_Shoot_timeout"]

@@ -2,9 +2,9 @@ extends RigidBody2D
 
 export(PackedScene) var projectile
 export(PackedScene) var explode
-export var health = 500
+export var health = 200
 export var armor = 10
-export var damage = 20
+export var damage = 50
 export var shoot_speed = 2.0
 
 onready var anim = $AnimationPlayer

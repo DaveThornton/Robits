@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Projectiles/BadGuy/Proj-BG-104-Cannon_Ball.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/FX/Bullet_Hit_Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Projectiles/Proj.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="Projectile" type="Area2D" groups=[
+"projectile",
+]]
+z_index = 2
+collision_layer = 128
+collision_mask = 128
+script = ExtResource( 1 )
+hit = ExtResource( 2 )
+speed = 400
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+hframes = 12
+frame = 8
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_Projectile_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_Projectile_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

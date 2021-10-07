@@ -76,3 +76,43 @@ func get_controller(_num: int):
 		return p8
 	else:
 		print("error in controllers singleton get controller invalid number")
+
+func player_equip_start_weap(_player):
+	if _player == 1:
+		p1.player_equip_start_weap()
+	elif _player == 2:
+		p2.player_equip_start_weap()
+	elif _player == 3:
+		p3.player_equip_start_weap()
+	elif _player == 4:
+		p4.player_equip_start_weap()
+	elif _player == 5:
+		p5.player_equip_start_weap()
+	elif _player == 6:
+		p6.player_equip_start_weap()
+	elif _player == 7:
+		p7.player_equip_start_weap()
+	elif _player == 8:
+		p8.player_equip_start_weap()
+	else:
+		print("invalid player number in singlton controllers player_equip_start_weap player #: " ,_player)
+
+func player_remove_start_weap(_player):
+	if _player == 1:
+		p1.player_remove_start_weap()
+	elif _player == 2:
+		p2.player_remove_start_weap()
+	elif _player == 3:
+		p3.player_remove_start_weap()
+	elif _player == 4:
+		p4.player_remove_start_weap()
+	elif _player == 5:
+		p5.player_remove_start_weap()
+	elif _player == 6:
+		p6.player_remove_start_weap()
+	elif _player == 7:
+		p7.player_remove_start_weap()
+	elif _player == 8:
+		p8.player_remove_start_weap()
+	else:
+		print("invalid player number in singlton controllers player_remove_start_weap player #: " ,_player)

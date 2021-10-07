@@ -15,6 +15,7 @@ export var text_body_2 = "Body of text discribing the next level 2"
 export var splash_time_2 = 3
 onready var exit_shape = $Area2D/CollisionShape2D
 onready var anim = $AnimationPlayer
+var bodies = []
 
 func off():
 	exit_shape.disabled = true
@@ -26,11 +27,42 @@ func on():
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
-		get_tree().paused = true
-		anim.play("Door-Open-Close")
-		print("pause")
+		print("body entered in area 1 ")
+		if bodies.find(body) >= 0:
+			print("entered 1 already in bodies mp15", bodies.size())
+			go()
+		else:
+			print("entered 1 appending in bodies mp15", bodies.size())
+			bodies.append(body)
+	# if body.get_groups().has("player"):
+	# 	get_tree().paused = true
+	# 	anim.play("Door-Open-Close")
+	# 	print("pause")
+
+func _on_Area2D_body_exited(body):
+	if bodies.find(body) >= 0:
+		bodies.remove(bodies.find(body))
+
+func _on_Area2D2_body_entered(body):
+	if body.get_groups().has("player"):
+		print("body entered in area 2 ")
+		if bodies.find(body) >= 0:
+			print("entered 2 already in bodies mp15", bodies.size())
+			go()
+		else:
+			print("entered 2 appending in bodies mp15", bodies.size())
+
+func _on_Area2D2_body_exited(body):
+	if bodies.find(body) >= 0:
+		bodies.remove(bodies.find(body))
+
+func go():
+	get_tree().paused = true
+	anim.play("Door-Open-Close")
+	print("pause in go on mp 15 door thing")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
+	FX.CAMERA.reset()
 	if anim_name == "Door-Open-Close":
 		if !load_random:
 			if load_level_1:

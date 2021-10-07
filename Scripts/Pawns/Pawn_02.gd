@@ -344,11 +344,13 @@ func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
 	my_gun = g
 	is_holding = true
 
-func equip_start_weap():
-	var g = Equipment.get_weap_hold(0).instance()
-	gun_pos.add_child(g)
-	g.init(false, player, 0, false)
-	my_start_gun = g
+func remove_start_weap():
+	if start_equiped:
+		print(gun_pos.get_child_count())
+		start_equiped = false
+		my_start_gun = null
+		for i in gun_pos.get_child_count():
+			gun_pos.get_child(i).call_deferred("free")
 
 ##-------------------------------------------------------------------------[HIT]
 # func hit(_by_who, _by_what, _damage_type, _damage):

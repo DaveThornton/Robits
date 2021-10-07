@@ -38,7 +38,7 @@ func _start(_player):
 	if menu_pos == 1:
 		SFX.menu(2)
 		Game.mode = 0
-		Game.start_eq = true
+		Game.start_eq = false
 		HUD.load_screen(campaign)
 		call_deferred("free")
 	elif menu_pos == 2:

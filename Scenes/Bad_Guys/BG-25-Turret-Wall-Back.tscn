@@ -127,14 +127,12 @@ visible = false
 texture = ExtResource( 5 )
 offset = Vector2( 30, 0 )
 hframes = 3
-frame = 2
 
 [node name="BG-25-Turret-Wall-Back-Light" type="Sprite" parent="BG-25-Turret-Wall-Back-Turret"]
 modulate = Color( 0.831373, 0, 0, 1 )
 position = Vector2( 30, 0 )
 texture = ExtResource( 2 )
 hframes = 3
-frame = 2
 
 [node name="BG-25-Turret-Wall-Back-White" type="Sprite" parent="BG-25-Turret-Wall-Back-Turret"]
 visible = false
@@ -147,10 +145,8 @@ frame = 2
 position = Vector2( 40, 0 )
 texture = ExtResource( 1 )
 hframes = 5
-frame = 4
 
 [node name="RayCast2D" type="RayCast2D" parent="BG-25-Turret-Wall-Back-Turret"]
-visible = false
 position = Vector2( 40, 0 )
 enabled = true
 cast_to = Vector2( 350, 0 )
@@ -171,6 +167,7 @@ anims/Shoot = SubResource( 3 )
 anims/Open = SubResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

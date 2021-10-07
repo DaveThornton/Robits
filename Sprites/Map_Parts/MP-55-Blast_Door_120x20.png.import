@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Boss-01.png-a438aa5ea92b6bb3fae67de70f6188e1.stex"
+path="res://.import/MP-55-Blast_Door_120x20.png-9c4b976cf4be6ebf67a27ccda3a145f8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Bad_Guys/Boss/Temp/Boss-01.png"
-dest_files=[ "res://.import/Boss-01.png-a438aa5ea92b6bb3fae67de70f6188e1.stex" ]
+source_file="res://Sprites/Map_Parts/MP-55-Blast_Door_120x20.png"
+dest_files=[ "res://.import/MP-55-Blast_Door_120x20.png-9c4b976cf4be6ebf67a27ccda3a145f8.stex" ]
 
 [params]
 

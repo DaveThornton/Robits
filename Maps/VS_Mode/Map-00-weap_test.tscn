@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -17,6 +17,11 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_08_Uzi_Pick.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-11-Balloon_Tanks.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-04-Jump_Power_Up.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Bad_Guys/Boss/BG-101-Boss.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=19]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 128.0
 
 [node name="Map-01-Disputed" type="Node2D"]
 script = ExtResource( 12 )
@@ -188,10 +193,10 @@ position = Vector2( 1576, 208 )
 position = Vector2( 1448, 208 )
 
 [node name="MP-11-Player_Spawner-VS-08" parent="Player_spawns" instance=ExtResource( 10 )]
-position = Vector2( 1240, 210 )
+position = Vector2( 1792, 408 )
 
 [node name="MP-11-Player_Spawner-VS-09" parent="Player_spawns" instance=ExtResource( 10 )]
-position = Vector2( 1380, 210 )
+position = Vector2( 1640, 496 )
 
 [node name="MP-11-Player_Spawner-VS-10" parent="Player_spawns" instance=ExtResource( 10 )]
 position = Vector2( 1520, 210 )
@@ -240,3 +245,15 @@ position = Vector2( 1280, 936 )
 
 [node name="Pick-Up-11-Balloon_Tanks" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1032, 1024 )
+
+[node name="BG-101-Boss" parent="." instance=ExtResource( 18 )]
+position = Vector2( 792, 1040 )
+activation_num = 1
+
+[node name="MP-25-Activate_Area" parent="." instance=ExtResource( 19 )]
+position = Vector2( 424, 824 )
+activation_num = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MP-25-Activate_Area"]
+position = Vector2( 800, -72 )
+shape = SubResource( 1 )

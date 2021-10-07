@@ -1,36 +1,36 @@
 [gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Maps/map-C-00.gd" type="Script" id=1]
-[ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=2]
-[ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Tilesets/10xTest.tres" type="TileSet" id=7]
-[ext_resource path="res://Tilesets/TS-08-Ladder.tres" type="TileSet" id=8]
-[ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=9]
-[ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=10]
-[ext_resource path="res://Tilesets/TS-06-Main-FX.tres" type="TileSet" id=11]
-[ext_resource path="res://Tilesets/TS-05-Main-Brick.tres" type="TileSet" id=12]
-[ext_resource path="res://Scenes/Bad_Guys/BG-24-Turret-Wall-Right.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Map_Parts/MP-15-Level_Change-01-Door.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Map_Parts/MP-13-Spike_block.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Bad_Guys/BG-24-Turret-Wall-Left.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Bad_Guys/BG-03.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Maps/Campaign-mode/World_01/Map-C-04A-Boss.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Tilesets/TS-05-Main-Brick.tres" type="TileSet" id=1]
+[ext_resource path="res://Tilesets/TS-06-Main-FX.tres" type="TileSet" id=2]
+[ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=3]
+[ext_resource path="res://Tilesets/TS-08-Ladder.tres" type="TileSet" id=4]
+[ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=5]
+[ext_resource path="res://Tilesets/10xTest.tres" type="TileSet" id=6]
+[ext_resource path="res://Maps/map-C-00.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Map_Parts/MP-13-Spike_block.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Map_Parts/MP-15-Level_Change-01-Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Bad_Guys/BG-24-Turret-Wall-Left.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Maps/Campaign-mode/World_01/Old/Map-C-04A-Boss.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Bad_Guys/BG-03.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Bad_Guys/BG-24-Turret-Wall-Right.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=18]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 30.0984
 
 [node name="testmap-01" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_vertical_guides_": [ 38.1926 ]
 }
 
 [node name="TileMap-Backround" type="TileMap" parent="."]
 z_index = -13
-tile_set = ExtResource( 10 )
+tile_set = ExtResource( 5 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 0
 collision_mask = 0
@@ -42,7 +42,7 @@ __meta__ = {
 
 [node name="TileMap-Back-FX" type="TileMap" parent="."]
 z_index = -9
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 18 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 0
 collision_mask = 0
@@ -55,7 +55,7 @@ __meta__ = {
 [node name="TileMap-Back-FX2" type="TileMap" parent="."]
 modulate = Color( 0, 1, 0, 1 )
 z_index = -9
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 18 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 0
 collision_mask = 0
@@ -70,7 +70,7 @@ __meta__ = {
 "map_part",
 ]]
 z_index = -4
-tile_set = ExtResource( 12 )
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 8
 collision_mask = 1018399
@@ -84,7 +84,7 @@ __meta__ = {
 "map_part",
 ]]
 z_index = -2
-tile_set = ExtResource( 9 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 4
 collision_mask = 4
@@ -95,7 +95,7 @@ __meta__ = {
 }
 
 [node name="TileMap-Ladders" type="TileMap" parent="."]
-tile_set = ExtResource( 8 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 32
 collision_mask = 32
@@ -104,16 +104,16 @@ tile_data = PoolIntArray( 1507362, 0, 0, 1507389, 0, 0, 1572898, 0, 65536, 15729
 
 [node name="TileMap-FX-Top" type="TileMap" parent="."]
 z_index = 10
-tile_set = ExtResource( 11 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 20, 20 )
 format = 1
 tile_data = PoolIntArray( 458760, 1, 0, 458761, 1, 1, 458762, 1, 1, 458763, 1, 2, 458772, 1, 0, 458773, 1, 1, 458774, 1, 1, 458775, 1, 2, 458824, 1, 0, 458825, 1, 1, 458826, 1, 1, 458827, 1, 1, 458828, 1, 2, 458834, 1, 0, 458835, 1, 1, 458836, 1, 1, 458837, 1, 1, 458838, 1, 2, 524296, 1, 65536, 524297, 1, 65537, 524298, 1, 65537, 524299, 1, 65538, 524308, 1, 65536, 524309, 1, 65537, 524310, 1, 65537, 524311, 1, 65538, 524360, 1, 65536, 524361, 1, 65537, 524362, 1, 65537, 524363, 1, 65537, 524364, 1, 65538, 524370, 1, 65536, 524371, 1, 65537, 524372, 1, 65537, 524373, 1, 65537, 524374, 1, 65538, 589832, 1, 65536, 589833, 1, 65537, 589834, 1, 65537, 589835, 1, 65538, 589844, 1, 65536, 589845, 1, 65537, 589846, 1, 65537, 589847, 1, 65538, 589896, 1, 65536, 589897, 1, 65537, 589898, 1, 65537, 589899, 1, 65537, 589900, 1, 65538, 589906, 1, 65536, 589907, 1, 65537, 589908, 1, 65537, 589909, 1, 65537, 589910, 1, 65538, 655368, 1, 131072, 655369, 1, 131073, 655370, 1, 131073, 655371, 1, 131074, 655380, 1, 131072, 655381, 1, 131073, 655382, 1, 131073, 655383, 1, 131074, 655432, 1, 131072, 655433, 1, 131073, 655434, 1, 131073, 655435, 1, 131073, 655436, 1, 131074, 655442, 1, 131072, 655443, 1, 131073, 655444, 1, 131073, 655445, 1, 131073, 655446, 1, 131074, 786440, 1, 0, 786441, 1, 1, 786442, 1, 1, 786443, 1, 2, 786452, 1, 0, 786453, 1, 1, 786454, 1, 1, 786455, 1, 2, 786504, 1, 0, 786505, 1, 1, 786506, 1, 1, 786507, 1, 1, 786508, 1, 2, 786514, 1, 0, 786515, 1, 1, 786516, 1, 1, 786517, 1, 1, 786518, 1, 2, 851976, 1, 65536, 851977, 1, 65537, 851978, 1, 65537, 851979, 1, 65538, 851988, 1, 65536, 851989, 1, 65537, 851990, 1, 65537, 851991, 1, 65538, 852040, 1, 65536, 852041, 1, 65537, 852042, 1, 65537, 852043, 1, 65537, 852044, 1, 65538, 852050, 1, 65536, 852051, 1, 65537, 852052, 1, 65537, 852053, 1, 65537, 852054, 1, 65538, 917512, 1, 65536, 917513, 1, 65537, 917514, 1, 65537, 917515, 1, 65538, 917524, 1, 65536, 917525, 1, 65537, 917526, 1, 65537, 917527, 1, 65538, 917576, 1, 65536, 917577, 1, 65537, 917578, 1, 65537, 917579, 1, 65537, 917580, 1, 65538, 917586, 1, 65536, 917587, 1, 65537, 917588, 1, 65537, 917589, 1, 65537, 917590, 1, 65538, 983048, 1, 131072, 983049, 1, 131073, 983050, 1, 131073, 983051, 1, 131074, 983060, 1, 131072, 983061, 1, 131073, 983062, 1, 131073, 983063, 1, 131074, 983112, 1, 131072, 983113, 1, 131073, 983114, 1, 131073, 983115, 1, 131073, 983116, 1, 131074, 983122, 1, 131072, 983123, 1, 131073, 983124, 1, 131073, 983125, 1, 131073, 983126, 1, 131074, 2359308, 1, 0, 2359309, 1, 1, 2359310, 1, 1, 2359311, 1, 2, 2359316, 1, 0, 2359317, 1, 1, 2359318, 1, 1, 2359319, 1, 2, 2359369, 1, 0, 2359370, 1, 1, 2359371, 1, 1, 2359372, 1, 1, 2359373, 1, 2, 2359380, 1, 0, 2359381, 1, 1, 2359382, 1, 1, 2359383, 1, 1, 2359384, 1, 2, 2424844, 1, 65536, 2424845, 1, 65537, 2424846, 1, 65537, 2424847, 1, 65538, 2424852, 1, 65536, 2424853, 1, 65537, 2424854, 1, 65537, 2424855, 1, 65538, 2424905, 1, 65536, 2424906, 1, 65537, 2424907, 1, 65537, 2424908, 1, 65537, 2424909, 1, 65538, 2424916, 1, 65536, 2424917, 1, 65537, 2424918, 1, 65537, 2424919, 1, 65537, 2424920, 1, 65538, 2490380, 1, 65536, 2490381, 1, 65537, 2490382, 1, 65537, 2490383, 1, 65538, 2490388, 1, 65536, 2490389, 1, 65537, 2490390, 1, 65537, 2490391, 1, 65538, 2490441, 1, 65536, 2490442, 1, 65537, 2490443, 1, 65537, 2490444, 1, 65537, 2490445, 1, 65538, 2490452, 1, 65536, 2490453, 1, 65537, 2490454, 1, 65537, 2490455, 1, 65537, 2490456, 1, 65538, 2555916, 1, 131072, 2555917, 1, 131073, 2555918, 1, 131073, 2555919, 1, 131074, 2555924, 1, 131072, 2555925, 1, 131073, 2555926, 1, 131073, 2555927, 1, 131074, 2555977, 1, 131072, 2555978, 1, 131073, 2555979, 1, 131073, 2555980, 1, 131073, 2555981, 1, 131074, 2555988, 1, 131072, 2555989, 1, 131073, 2555990, 1, 131073, 2555991, 1, 131073, 2555992, 1, 131074, 2686988, 1, 0, 2686989, 1, 1, 2686990, 1, 1, 2686991, 1, 2, 2686996, 1, 0, 2686997, 1, 1, 2686998, 1, 1, 2686999, 1, 2, 2687049, 1, 0, 2687050, 1, 1, 2687051, 1, 1, 2687052, 1, 1, 2687053, 1, 2, 2687060, 1, 0, 2687061, 1, 1, 2687062, 1, 1, 2687063, 1, 1, 2687064, 1, 2, 2752524, 1, 65536, 2752525, 1, 65537, 2752526, 1, 65537, 2752527, 1, 65538, 2752532, 1, 65536, 2752533, 1, 65537, 2752534, 1, 65537, 2752535, 1, 65538, 2752585, 1, 65536, 2752586, 1, 65537, 2752587, 1, 65537, 2752588, 1, 65537, 2752589, 1, 65538, 2752596, 1, 65536, 2752597, 1, 65537, 2752598, 1, 65537, 2752599, 1, 65537, 2752600, 1, 65538, 2818060, 1, 65536, 2818061, 1, 65537, 2818062, 1, 65537, 2818063, 1, 65538, 2818068, 1, 65536, 2818069, 1, 65537, 2818070, 1, 65537, 2818071, 1, 65538, 2818121, 1, 65536, 2818122, 1, 65537, 2818123, 1, 65537, 2818124, 1, 65537, 2818125, 1, 65538, 2818132, 1, 65536, 2818133, 1, 65537, 2818134, 1, 65537, 2818135, 1, 65537, 2818136, 1, 65538, 2883596, 1, 131072, 2883597, 1, 131073, 2883598, 1, 131073, 2883599, 1, 131074, 2883604, 1, 131072, 2883605, 1, 131073, 2883606, 1, 131073, 2883607, 1, 131074, 2883657, 1, 131072, 2883658, 1, 131073, 2883659, 1, 131073, 2883660, 1, 131073, 2883661, 1, 131074, 2883668, 1, 131072, 2883669, 1, 131073, 2883670, 1, 131073, 2883671, 1, 131073, 2883672, 1, 131074, 3014668, 1, 0, 3014669, 1, 1, 3014670, 1, 1, 3014671, 1, 2, 3014676, 1, 0, 3014677, 1, 1, 3014678, 1, 1, 3014679, 1, 2, 3014729, 1, 0, 3014730, 1, 1, 3014731, 1, 1, 3014732, 1, 1, 3014733, 1, 2, 3014740, 1, 0, 3014741, 1, 1, 3014742, 1, 1, 3014743, 1, 1, 3014744, 1, 2, 3080204, 1, 65536, 3080205, 1, 65537, 3080206, 1, 65537, 3080207, 1, 65538, 3080212, 1, 65536, 3080213, 1, 65537, 3080214, 1, 65537, 3080215, 1, 65538, 3080265, 1, 65536, 3080266, 1, 65537, 3080267, 1, 65537, 3080268, 1, 65537, 3080269, 1, 65538, 3080276, 1, 65536, 3080277, 1, 65537, 3080278, 1, 65537, 3080279, 1, 65537, 3080280, 1, 65538, 3145740, 1, 65536, 3145741, 1, 65537, 3145742, 1, 65537, 3145743, 1, 65538, 3145748, 1, 65536, 3145749, 1, 65537, 3145750, 1, 65537, 3145751, 1, 65538, 3145801, 1, 131072, 3145802, 1, 131073, 3145803, 1, 131073, 3145804, 1, 131073, 3145805, 1, 131074, 3145812, 1, 131072, 3145813, 1, 131073, 3145814, 1, 131073, 3145815, 1, 131073, 3145816, 1, 131074, 3211276, 1, 131072, 3211277, 1, 131073, 3211278, 1, 131073, 3211279, 1, 131074, 3211284, 1, 131072, 3211285, 1, 131073, 3211286, 1, 131073, 3211287, 1, 131074 )
 
-[node name="MP-04-Nav2D" parent="." instance=ExtResource( 3 )]
+[node name="MP-04-Nav2D" parent="." instance=ExtResource( 14 )]
 visible = false
 
 [node name="TileMap" type="TileMap" parent="MP-04-Nav2D"]
-tile_set = ExtResource( 7 )
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 1, 1 )
 format = 1
 tile_data = PoolIntArray( 69469301, 2, 0, 69469302, 2, 0, 69469303, 2, 0, 69469304, 2, 0, 69469305, 2, 0, 69469306, 2, 0, 69469307, 2, 0, 69469308, 2, 0, 69469309, 2, 0, 69469310, 2, 0, 69469311, 2, 0, 69469312, 2, 0, 69469313, 2, 0, 69469314, 2, 0, 69469315, 2, 0, 69469316, 2, 0, 69469317, 2, 0, 69469318, 2, 0, 69469319, 2, 0, 69469320, 2, 0, 69469321, 2, 0, 69469322, 2, 0, 69469323, 2, 0, 69469324, 2, 0, 69469325, 2, 0, 69469326, 2, 0, 69469327, 2, 0, 69469328, 2, 0, 69469329, 2, 0, 69469330, 2, 0, 69469331, 2, 0, 69469332, 2, 0, 69469333, 2, 0 )
@@ -150,56 +150,56 @@ position = Vector2( 410, 620 )
 "map_part",
 ]]
 
-[node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 4 )]
+[node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 15 )]
 
-[node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 5 )]
+[node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 12 )]
 position = Vector2( 1016.51, 1127.47 )
 
-[node name="MP-25-Activate_Area" parent="Map_parts" instance=ExtResource( 6 )]
+[node name="MP-25-Activate_Area" parent="Map_parts" instance=ExtResource( 16 )]
 position = Vector2( 708.886, 724.388 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map_parts/MP-25-Activate_Area"]
 position = Vector2( 1141.11, 85.612 )
 shape = SubResource( 1 )
 
-[node name="MP-15-Level_Change-01-Door" parent="Map_parts" instance=ExtResource( 14 )]
+[node name="MP-15-Level_Change-01-Door" parent="Map_parts" instance=ExtResource( 9 )]
 position = Vector2( 1700, 640 )
-level_to_load_1 = ExtResource( 18 )
+level_to_load_1 = ExtResource( 11 )
 
-[node name="MP-13-Spike_Block" parent="Map_parts" instance=ExtResource( 15 )]
+[node name="MP-13-Spike_Block" parent="Map_parts" instance=ExtResource( 8 )]
 position = Vector2( 740, 840 )
 
-[node name="MP-13-Spike_Block2" parent="Map_parts" instance=ExtResource( 15 )]
+[node name="MP-13-Spike_Block2" parent="Map_parts" instance=ExtResource( 8 )]
 position = Vector2( 780, 840 )
 
-[node name="MP-13-Spike_Block3" parent="Map_parts" instance=ExtResource( 15 )]
+[node name="MP-13-Spike_Block3" parent="Map_parts" instance=ExtResource( 8 )]
 position = Vector2( 890, 840 )
 
-[node name="MP-13-Spike_Block4" parent="Map_parts" instance=ExtResource( 15 )]
+[node name="MP-13-Spike_Block4" parent="Map_parts" instance=ExtResource( 8 )]
 position = Vector2( 1030, 840 )
 
-[node name="MP-13-Spike_Block5" parent="Map_parts" instance=ExtResource( 15 )]
+[node name="MP-13-Spike_Block5" parent="Map_parts" instance=ExtResource( 8 )]
 position = Vector2( 1140, 840 )
 
-[node name="MP-13-Spike_Block6" parent="Map_parts" instance=ExtResource( 15 )]
+[node name="MP-13-Spike_Block6" parent="Map_parts" instance=ExtResource( 8 )]
 position = Vector2( 1180, 840 )
 
-[node name="MP-13-Spike_Block7" parent="Map_parts" instance=ExtResource( 15 )]
+[node name="MP-13-Spike_Block7" parent="Map_parts" instance=ExtResource( 8 )]
 position = Vector2( 960, 680 )
 
 [node name="BadGuys" type="Node2D" parent="."]
 
-[node name="BG-23-Turret-Wall-Right" parent="BadGuys" instance=ExtResource( 13 )]
+[node name="BG-23-Turret-Wall-Right" parent="BadGuys" instance=ExtResource( 17 )]
 position = Vector2( 1350, 380 )
 
-[node name="BG-24-Turret-Wall-Left" parent="BadGuys" instance=ExtResource( 16 )]
+[node name="BG-24-Turret-Wall-Left" parent="BadGuys" instance=ExtResource( 10 )]
 position = Vector2( 570, 380 )
 
-[node name="BG-03-04" parent="BadGuys" instance=ExtResource( 17 )]
+[node name="BG-03-04" parent="BadGuys" instance=ExtResource( 13 )]
 position = Vector2( 830, 480 )
 
-[node name="BG-03-02" parent="BadGuys" instance=ExtResource( 17 )]
+[node name="BG-03-02" parent="BadGuys" instance=ExtResource( 13 )]
 position = Vector2( 1630, 640 )
 
-[node name="BG-03-03" parent="BadGuys" instance=ExtResource( 17 )]
+[node name="BG-03-03" parent="BadGuys" instance=ExtResource( 13 )]
 position = Vector2( 1100, 480 )

@@ -32,6 +32,7 @@ var num_in_play = 0
 onready var pipes = $Pipes
 
 signal start
+signal activate(_num, _player)
 
 func _ready():
 #	Game.mode = 2
@@ -110,6 +111,10 @@ func remove_map():
 
 func reset():
 	propagate_call("queue_free",[],false)
+
+func activate_BG(_num, _player):
+	emit_signal("activate",_num, _player)
+	print("map calling BGs go kill")
 
 func get_pipe(_num):
 	if pipes:

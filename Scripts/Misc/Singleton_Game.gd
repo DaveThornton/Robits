@@ -48,7 +48,6 @@ func set_game_over(_over):
 		timer.start()
 	elif over && mode == 0:
 		HUD.state_machine()
-#		High_Score.set_visible(true)
 		print("game over in game for campaign and nothing?")
 		timer.start()
 
@@ -73,9 +72,7 @@ func check_over():
 			set_game_over(true)
 	elif mode == 0:
 		print("check over mode 0 in game singleton")
-#		var num_in_play = Player_Stats.get_num_in_play()
 		if Player_Stats.get_num_in_game() == 0:
-#			High_Score.set_visible(true)
 			set_game_over(true)
 	else:
 		print("check over mode wrong in game singleton havent made game type ", mode)

@@ -1,26 +1,26 @@
 [gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Bad_Guys/BG-04-Sniper.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Bad_Guys/BG-04-Sniper.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Bad_Guys/Boss/BG-103-Boss.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Map_Parts/MP-16-Badguy_Spawn.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Map_Parts/MP-13-Spike_block.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Map_Parts/MP-05-Door_20x80-01.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawn-Camp.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Bad_Guys/BG-03.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scenes/Bad_Guys/BG-25-Turret-Wall-Back.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Bad_Guys/BG-25-Turret-Wall-Back.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Map_Parts/MP-13-Spike_block.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawn-Camp.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_01.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Bad_Guys/BG-03.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_01.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=15]
-[ext_resource path="res://Tilesets/TS-06-Main-FX.tres" type="TileSet" id=16]
-[ext_resource path="res://Tilesets/TS-05-Main-Brick.tres" type="TileSet" id=17]
-[ext_resource path="res://Tilesets/TS-08-Ladder.tres" type="TileSet" id=18]
-[ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=19]
-[ext_resource path="res://Tilesets/10xTest.tres" type="TileSet" id=20]
-[ext_resource path="res://Tilesets/TS-04-Back-FX-Jungle.tres" type="TileSet" id=21]
+[ext_resource path="res://Scenes/Map_Parts/MP-05-Door_20x80-01.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Tilesets/TS-04-Back-FX-Jungle.tres" type="TileSet" id=15]
+[ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=16]
+[ext_resource path="res://Tilesets/TS-06-Main-FX.tres" type="TileSet" id=17]
+[ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=18]
+[ext_resource path="res://Tilesets/TS-08-Ladder.tres" type="TileSet" id=19]
+[ext_resource path="res://Tilesets/TS-05-Main-Brick.tres" type="TileSet" id=20]
+[ext_resource path="res://Tilesets/10xTest.tres" type="TileSet" id=21]
 [ext_resource path="res://Maps/map-C-00.gd" type="Script" id=22]
 [ext_resource path="res://Sprites/Map_Parts/MP-15-Level_exit-01-door-cave-Jungle.png" type="Texture" id=23]
 
@@ -37,7 +37,7 @@ background = 2
 
 [node name="TileMap-Backround" type="TileMap" parent="."]
 z_index = -10
-tile_set = ExtResource( 19 )
+tile_set = ExtResource( 18 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 0
 collision_mask = 0
@@ -49,7 +49,7 @@ __meta__ = {
 
 [node name="TileMap-Back-FX2" type="TileMap" parent="."]
 z_index = -9
-tile_set = ExtResource( 21 )
+tile_set = ExtResource( 15 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 0
 collision_mask = 0
@@ -61,7 +61,7 @@ __meta__ = {
 
 [node name="TileMap-Back-FX" type="TileMap" parent="."]
 z_index = -9
-tile_set = ExtResource( 21 )
+tile_set = ExtResource( 15 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 0
 collision_mask = 0
@@ -76,7 +76,7 @@ __meta__ = {
 "map_part",
 ]]
 z_index = -4
-tile_set = ExtResource( 17 )
+tile_set = ExtResource( 20 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 8
 collision_mask = 1016351
@@ -90,7 +90,7 @@ __meta__ = {
 "map_part",
 ]]
 z_index = -2
-tile_set = ExtResource( 15 )
+tile_set = ExtResource( 16 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 4
 collision_mask = 4
@@ -105,7 +105,7 @@ __meta__ = {
 ]]
 modulate = Color( 0.384314, 0.247059, 0.247059, 1 )
 z_index = -2
-tile_set = ExtResource( 15 )
+tile_set = ExtResource( 16 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 4
 collision_mask = 4
@@ -116,7 +116,7 @@ __meta__ = {
 }
 
 [node name="TileMap-Ladders" type="TileMap" parent="."]
-tile_set = ExtResource( 18 )
+tile_set = ExtResource( 19 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 32
 collision_mask = 32
@@ -124,7 +124,7 @@ format = 1
 
 [node name="TileMap-FX-Top" type="TileMap" parent="."]
 z_index = 10
-tile_set = ExtResource( 16 )
+tile_set = ExtResource( 17 )
 cell_size = Vector2( 20, 20 )
 format = 1
 tile_data = PoolIntArray( 2228347, 0, 0, 2228348, 0, 1, 2228349, 0, 1, 2228350, 0, 1, 2228351, 0, 1, 2228352, 0, 1, 2228353, 0, 1, 2228354, 0, 1, 2228355, 0, 1, 2228356, 0, 1, 2228357, 0, 1, 2228358, 0, 1, 2228359, 0, 2, 2293883, 0, 65536, 2293884, 0, 65537, 2293885, 0, 65537, 2293886, 0, 65537, 2293887, 0, 65537, 2293888, 0, 65537, 2293889, 0, 65537, 2293890, 0, 65537, 2293891, 0, 65537, 2293892, 0, 65537, 2293893, 0, 65537, 2293894, 0, 65537, 2293895, 0, 65538, 2359419, 0, 65536, 2359420, 0, 65537, 2359421, 0, 65537, 2359422, 0, 65537, 2359423, 0, 65537, 2359424, 0, 65537, 2359425, 0, 65537, 2359426, 0, 65537, 2359427, 0, 65537, 2359428, 0, 65537, 2359429, 0, 65537, 2359430, 0, 65537, 2359431, 0, 65538, 2424955, 0, 65536, 2424956, 0, 65537, 2424957, 0, 65537, 2424958, 0, 65537, 2424959, 0, 65537, 2424960, 0, 65537, 2424961, 0, 65537, 2424962, 0, 65537, 2424963, 0, 65537, 2424964, 0, 65537, 2424965, 0, 65537, 2424966, 0, 65537, 2424967, 0, 65538, 2490491, 0, 65536, 2490492, 0, 65537, 2490493, 0, 65537, 2490494, 0, 65537, 2490495, 0, 65537, 2490496, 0, 65537, 2490497, 0, 65537, 2490498, 0, 65537, 2490499, 0, 65537, 2490500, 0, 65537, 2490501, 0, 65537, 2490502, 0, 65537, 2490503, 0, 65538, 2556027, 0, 65536, 2556028, 0, 65537, 2556029, 0, 65537, 2556030, 0, 65537, 2556031, 0, 65537, 2556032, 0, 65537, 2556033, 0, 65537, 2556034, 0, 65537, 2556035, 0, 65537, 2556036, 0, 65537, 2556037, 0, 65537, 2556038, 0, 65537, 2556039, 0, 65538, 2621563, 0, 65536, 2621564, 0, 65537, 2621565, 0, 65537, 2621566, 0, 65537, 2621567, 0, 65537, 2621568, 0, 65537, 2621569, 0, 65537, 2621570, 0, 65537, 2621571, 0, 65537, 2621572, 0, 65537, 2621573, 0, 65537, 2621574, 0, 65537, 2621575, 0, 65538, 2687099, 0, 65536, 2687100, 0, 65537, 2687101, 0, 65537, 2687102, 0, 65537, 2687103, 0, 65537, 2687104, 0, 65537, 2687105, 0, 65537, 2687106, 0, 65537, 2687107, 0, 65537, 2687108, 0, 65537, 2687109, 0, 65537, 2687110, 0, 65537, 2687111, 0, 65538, 2752635, 0, 65536, 2752636, 0, 65537, 2752637, 0, 65537, 2752638, 0, 65537, 2752639, 0, 65537, 2752640, 0, 65537, 2752641, 0, 65537, 2752642, 0, 65537, 2752643, 0, 65537, 2752644, 0, 65537, 2752645, 0, 65537, 2752646, 0, 65537, 2752647, 0, 65538, 2818171, 0, 65536, 2818172, 0, 65537, 2818173, 0, 65537, 2818174, 0, 65537, 2818175, 0, 65537, 2818176, 0, 65537, 2818177, 0, 65537, 2818178, 0, 65537, 2818179, 0, 65537, 2818180, 0, 65537, 2818181, 0, 65537, 2818182, 0, 65537, 2818183, 0, 65538, 2883707, 0, 65536, 2883708, 0, 65537, 2883709, 0, 65537, 2883710, 0, 65537, 2883711, 0, 65537, 2883712, 0, 65537, 2883713, 0, 65537, 2883714, 0, 65537, 2883715, 0, 65537, 2883716, 0, 65537, 2883717, 0, 65537, 2883718, 0, 65537, 2883719, 0, 65538, 2949243, 0, 65536, 2949244, 0, 65537, 2949245, 0, 65537, 2949246, 0, 65537, 2949247, 0, 65537, 2949248, 0, 65537, 2949249, 0, 65537, 2949250, 0, 65537, 2949251, 0, 65537, 2949252, 0, 65537, 2949253, 0, 65537, 2949254, 0, 65537, 2949255, 0, 65538, 3014779, 0, 65536, 3014780, 0, 65537, 3014781, 0, 65537, 3014782, 0, 65537, 3014783, 0, 65537, 3014784, 0, 65537, 3014785, 0, 65537, 3014786, 0, 65537, 3014787, 0, 65537, 3014788, 0, 65537, 3014789, 0, 65537, 3014790, 0, 65537, 3014791, 0, 65538, 3080315, 0, 65536, 3080316, 0, 65537, 3080317, 0, 65537, 3080318, 0, 65537, 3080319, 0, 65537, 3080320, 0, 65537, 3080321, 0, 65537, 3080322, 0, 65537, 3080323, 0, 65537, 3080324, 0, 65537, 3080325, 0, 65537, 3080326, 0, 65537, 3080327, 0, 65538, 3145851, 0, 65536, 3145852, 0, 65537, 3145853, 0, 65537, 3145854, 0, 65537, 3145855, 0, 65537, 3145856, 0, 65537, 3145857, 0, 65537, 3145858, 0, 65537, 3145859, 0, 65537, 3145860, 0, 65537, 3145861, 0, 65537, 3145862, 0, 65537, 3145863, 0, 65538, 3211387, 0, 65536, 3211388, 0, 65537, 3211389, 0, 65537, 3211390, 0, 65537, 3211391, 0, 65537, 3211392, 0, 65537, 3211393, 0, 65537, 3211394, 0, 65537, 3211395, 0, 65537, 3211396, 0, 65537, 3211397, 0, 65537, 3211398, 0, 65537, 3211399, 0, 65538, 3276923, 0, 65536, 3276924, 0, 65537, 3276925, 0, 65537, 3276926, 0, 65537, 3276927, 0, 65537, 3276928, 0, 65537, 3276929, 0, 65537, 3276930, 0, 65537, 3276931, 0, 65537, 3276932, 0, 65537, 3276933, 0, 65537, 3276934, 0, 65537, 3276935, 0, 65538, 3342459, 0, 65536, 3342460, 0, 65537, 3342461, 0, 65537, 3342462, 0, 65537, 3342463, 0, 65537, 3342464, 0, 65537, 3342465, 0, 65537, 3342466, 0, 65537, 3342467, 0, 65537, 3342468, 0, 65537, 3342469, 0, 65537, 3342470, 0, 65537, 3342471, 0, 65538, 3407995, 0, 131072, 3407996, 0, 131073, 3407997, 0, 131073, 3407998, 0, 131073, 3407999, 0, 131073, 3408000, 0, 131073, 3408001, 0, 131073, 3408002, 0, 131073, 3408003, 0, 131073, 3408004, 0, 131073, 3408005, 0, 131073, 3408006, 0, 131073, 3408007, 0, 131074 )
@@ -133,7 +133,7 @@ tile_data = PoolIntArray( 2228347, 0, 0, 2228348, 0, 1, 2228349, 0, 1, 2228350, 
 visible = false
 
 [node name="TileMap" type="TileMap" parent="MP-04-Nav2D"]
-tile_set = ExtResource( 20 )
+tile_set = ExtResource( 21 )
 cell_size = Vector2( 1, 1 )
 format = 1
 tile_data = PoolIntArray( 69469301, 2, 0, 69469302, 2, 0, 69469303, 2, 0, 69469304, 2, 0, 69469305, 2, 0, 69469306, 2, 0, 69469307, 2, 0, 69469308, 2, 0, 69469309, 2, 0, 69469310, 2, 0, 69469311, 2, 0, 69469312, 2, 0, 69469313, 2, 0, 69469314, 2, 0, 69469315, 2, 0, 69469316, 2, 0, 69469317, 2, 0, 69469318, 2, 0, 69469319, 2, 0, 69469320, 2, 0, 69469321, 2, 0, 69469322, 2, 0, 69469323, 2, 0, 69469324, 2, 0, 69469325, 2, 0, 69469326, 2, 0, 69469327, 2, 0, 69469328, 2, 0, 69469329, 2, 0, 69469330, 2, 0, 69469331, 2, 0, 69469332, 2, 0, 69469333, 2, 0 )
@@ -142,148 +142,148 @@ tile_data = PoolIntArray( 69469301, 2, 0, 69469302, 2, 0, 69469303, 2, 0, 694693
 
 [node name="Player_Spawns" type="Node2D" parent="."]
 
-[node name="MP-11-Player_Spawn-01" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-01" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 201, 1035 )
 
-[node name="MP-11-Player_Spawn-02" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-02" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 258, 1036 )
 
-[node name="MP-11-Player_Spawn-03" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-03" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 316, 1036 )
 
-[node name="MP-11-Player_Spawn-04" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-04" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 372, 1036 )
 
-[node name="MP-11-Player_Spawn-05" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-05" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 428, 1036 )
 
-[node name="MP-11-Player_Spawn-06" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-06" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 549, 1036 )
 
-[node name="MP-11-Player_Spawn-07" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-07" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 606, 1036 )
 
-[node name="MP-11-Player_Spawn-08" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-08" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 663, 1036 )
 
-[node name="MP-11-Player_Spawn-47" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-47" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 717, 1036 )
 
-[node name="MP-11-Player_Spawn-48" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-48" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 772, 1036 )
 
-[node name="MP-11-Player_Spawn-09" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-09" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 3182, 996 )
 
-[node name="MP-11-Player_Spawn-10" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-10" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 3288, 935 )
 
-[node name="MP-11-Player_Spawn-11" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-11" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 3516, 853 )
 
-[node name="MP-11-Player_Spawn-12" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-12" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 3714, 855 )
 
-[node name="MP-11-Player_Spawn-13" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-13" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 4118, 855 )
 
-[node name="MP-11-Player_Spawn-14" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-14" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 4430, 853 )
 
-[node name="MP-11-Player_Spawn-15" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-15" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 3878, 855 )
 
-[node name="MP-11-Player_Spawn-16" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-16" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 2762, 1034 )
 
-[node name="MP-11-Player_Spawn-17" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-17" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 4762, 853 )
 
-[node name="MP-11-Player_Spawn-18" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-18" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 5080, 756 )
 
-[node name="MP-11-Player_Spawn-19" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-19" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 5466, 712 )
 
-[node name="MP-11-Player_Spawn-20" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-20" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 5980, 855 )
 
-[node name="MP-11-Player_Spawn-21" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-21" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 6416, 853 )
 
-[node name="MP-11-Player_Spawn-22" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-22" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 6850, 855 )
 
-[node name="MP-11-Player_Spawn-23" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-23" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 7222, 855 )
 
-[node name="MP-11-Player_Spawn-24" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-24" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 7508, 855 )
 
-[node name="MP-11-Player_Spawn-25" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-25" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 7930, 853 )
 
-[node name="MP-11-Player_Spawn-29" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-29" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 8246, 853 )
 
-[node name="MP-11-Player_Spawn-30" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-30" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 8564, 853 )
 
-[node name="MP-11-Player_Spawn-31" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-31" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 8882, 853 )
 
-[node name="MP-11-Player_Spawn-32" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-32" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 9276, 853 )
 
-[node name="MP-11-Player_Spawn-33" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-33" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 9732, 853 )
 
-[node name="MP-11-Player_Spawn-34" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-34" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 10122, 853 )
 
-[node name="MP-11-Player_Spawn-35" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-35" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 10592, 853 )
 
-[node name="MP-11-Player_Spawn-36" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-36" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 11016, 926 )
 
-[node name="MP-11-Player_Spawn-37" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-37" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 10765, 851 )
 
-[node name="MP-11-Player_Spawn-38" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-38" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 11226, 972 )
 
-[node name="MP-11-Player_Spawn-39" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-39" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 11604, 1037 )
 
-[node name="MP-11-Player_Spawn-40" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-40" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 11994, 1037 )
 
-[node name="MP-11-Player_Spawn-41" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-41" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 12464, 1037 )
 
-[node name="MP-11-Player_Spawn-42" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-42" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 12846, 1036 )
 
-[node name="MP-11-Player_Spawn-43" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-43" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 13272, 1036 )
 
-[node name="MP-11-Player_Spawn-44" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-44" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 13530, 1034 )
 
-[node name="MP-11-Player_Spawn-26" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-26" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 1822, 1035 )
 
-[node name="MP-11-Player_Spawn-45" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-45" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 1282, 1033 )
 
-[node name="MP-11-Player_Spawn-46" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-46" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 1592, 1033 )
 
-[node name="MP-11-Player_Spawn-27" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-27" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 2104, 1035 )
 
-[node name="MP-11-Player_Spawn-28" parent="Player_Spawns" instance=ExtResource( 9 )]
+[node name="MP-11-Player_Spawn-28" parent="Player_Spawns" instance=ExtResource( 10 )]
 position = Vector2( 2342, 1033 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
@@ -292,59 +292,59 @@ position = Vector2( 2342, 1033 )
 "map_part",
 ]]
 
-[node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 10 )]
+[node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 4 )]
 position = Vector2( 10873, 1141 )
 
-[node name="MP-25-Activate_Area" parent="Map_parts" instance=ExtResource( 2 )]
+[node name="MP-25-Activate_Area" parent="Map_parts" instance=ExtResource( 8 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map_parts/MP-25-Activate_Area"]
 position = Vector2( 3200, 515 )
 shape = SubResource( 1 )
 
-[node name="Door-80_Tall" parent="Map_parts" instance=ExtResource( 8 )]
+[node name="Door-80_Tall" parent="Map_parts" instance=ExtResource( 14 )]
 position = Vector2( 1930, 1021 )
 open_on_right = false
 
-[node name="Door-80_Tall2" parent="Map_parts" instance=ExtResource( 8 )]
+[node name="Door-80_Tall2" parent="Map_parts" instance=ExtResource( 14 )]
 position = Vector2( 2470, 1019 )
 open_on_right = false
 
 [node name="Spikes" type="Node2D" parent="Map_parts"]
 
-[node name="MP-13-Spike_Block" parent="Map_parts/Spikes" instance=ExtResource( 7 )]
+[node name="MP-13-Spike_Block" parent="Map_parts/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 2450, 685 )
 
-[node name="MP-13-Spike_Block2" parent="Map_parts/Spikes" instance=ExtResource( 7 )]
+[node name="MP-13-Spike_Block2" parent="Map_parts/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 2402, 685 )
 
-[node name="MP-13-Spike_Block3" parent="Map_parts/Spikes" instance=ExtResource( 7 )]
+[node name="MP-13-Spike_Block3" parent="Map_parts/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 2356, 685 )
 
-[node name="MP-13-Spike_Block4" parent="Map_parts/Spikes" instance=ExtResource( 7 )]
+[node name="MP-13-Spike_Block4" parent="Map_parts/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 2308, 685 )
 
-[node name="MP-13-Spike_Block5" parent="Map_parts/Spikes" instance=ExtResource( 7 )]
+[node name="MP-13-Spike_Block5" parent="Map_parts/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 2260, 685 )
 
-[node name="MP-13-Spike_Block6" parent="Map_parts/Spikes" instance=ExtResource( 7 )]
+[node name="MP-13-Spike_Block6" parent="Map_parts/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 2212, 685 )
 
-[node name="MP-13-Spike_Block7" parent="Map_parts/Spikes" instance=ExtResource( 7 )]
+[node name="MP-13-Spike_Block7" parent="Map_parts/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 2166, 685 )
 
-[node name="MP-13-Spike_Block8" parent="Map_parts/Spikes" instance=ExtResource( 7 )]
+[node name="MP-13-Spike_Block8" parent="Map_parts/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 2118, 685 )
 
-[node name="MP-13-Spike_Block9" parent="Map_parts/Spikes" instance=ExtResource( 7 )]
+[node name="MP-13-Spike_Block9" parent="Map_parts/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 2068, 685 )
 
-[node name="MP-13-Spike_Block10" parent="Map_parts/Spikes" instance=ExtResource( 7 )]
+[node name="MP-13-Spike_Block10" parent="Map_parts/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 2020, 685 )
 
-[node name="MP-13-Spike_Block11" parent="Map_parts/Spikes" instance=ExtResource( 7 )]
+[node name="MP-13-Spike_Block11" parent="Map_parts/Spikes" instance=ExtResource( 9 )]
 position = Vector2( 1974, 685 )
 
-[node name="RigidBody_Spawner" parent="Map_parts" instance=ExtResource( 4 )]
+[node name="RigidBody_Spawner" parent="Map_parts" instance=ExtResource( 3 )]
 position = Vector2( 9064, 1030 )
 
 [node name="MP-15-Level_exit-01-door-cave-Jungle" type="Sprite" parent="Map_parts"]
@@ -353,67 +353,67 @@ texture = ExtResource( 23 )
 
 [node name="MP-16-Badguy_Spawn-01" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 3222, 996 )
-badguy = ExtResource( 11 )
+badguy = ExtResource( 12 )
 
 [node name="MP-16-Badguy_Spawn-02" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 2824, 1056 )
-badguy = ExtResource( 11 )
+badguy = ExtResource( 12 )
 
 [node name="MP-16-Badguy_Spawn-03" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 3412, 872 )
-badguy = ExtResource( 11 )
+badguy = ExtResource( 12 )
 
 [node name="MP-16-Badguy_Spawn-12" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 6374, 458 )
-badguy = ExtResource( 3 )
+badguy = ExtResource( 2 )
 
 [node name="MP-16-Badguy_Spawn-13" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 6086, 458 )
-badguy = ExtResource( 3 )
+badguy = ExtResource( 2 )
 
 [node name="MP-16-Badguy_Spawn-14" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 7744, 458 )
-badguy = ExtResource( 3 )
+badguy = ExtResource( 2 )
 
 [node name="MP-16-Badguy_Spawn-15" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 8500, 658 )
-badguy = ExtResource( 3 )
+badguy = ExtResource( 2 )
 
 [node name="MP-16-Badguy_Spawn-16" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 8850, 538 )
-badguy = ExtResource( 3 )
+badguy = ExtResource( 2 )
 
 [node name="MP-16-Badguy_Spawn-17" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 9152, 498 )
-badguy = ExtResource( 3 )
+badguy = ExtResource( 2 )
 
 [node name="MP-16-Badguy_Spawn-18" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 9810, 618 )
-badguy = ExtResource( 3 )
+badguy = ExtResource( 2 )
 
 [node name="MP-16-Badguy_Spawn-19" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 10090, 678 )
-badguy = ExtResource( 3 )
+badguy = ExtResource( 2 )
 
 [node name="MP-16-Badguy_Spawn-06" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 4602, 876 )
-badguy = ExtResource( 11 )
+badguy = ExtResource( 12 )
 
 [node name="MP-16-Badguy_Spawn-07" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 4976, 673 )
-badguy = ExtResource( 11 )
+badguy = ExtResource( 12 )
 
 [node name="MP-16-Badguy_Spawn-08" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 4230, 867 )
-badguy = ExtResource( 11 )
+badguy = ExtResource( 12 )
 
 [node name="MP-16-Badguy_Spawn-09" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 5824, 869 )
-badguy = ExtResource( 11 )
+badguy = ExtResource( 12 )
 
 [node name="MP-16-Badguy_Spawn-10" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 6304, 867 )
-badguy = ExtResource( 11 )
+badguy = ExtResource( 12 )
 
 [node name="MP-16-Badguy_Spawn-11" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 13638, 1060 )
@@ -421,58 +421,58 @@ badguy = ExtResource( 5 )
 
 [node name="MP-16-Badguy_Spawn-04" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 3140, 1037 )
-badguy = ExtResource( 11 )
+badguy = ExtResource( 12 )
 
 [node name="MP-16-Badguy_Spawn-05" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 2210, 1049 )
-badguy = ExtResource( 11 )
+badguy = ExtResource( 12 )
 
-[node name="BG-25-Turret-Wall-Back" parent="Map_parts" instance=ExtResource( 12 )]
+[node name="BG-25-Turret-Wall-Back" parent="Map_parts" instance=ExtResource( 7 )]
 position = Vector2( 3532, 943 )
 
-[node name="MP-10-R_Mark_01_00" parent="Map_parts" instance=ExtResource( 14 )]
+[node name="MP-10-R_Mark_01_00" parent="Map_parts" instance=ExtResource( 11 )]
 position = Vector2( 354, 952 )
 spawn_01 = ExtResource( 1 )
 
-[node name="MP-10-R_Mark_01_01" parent="Map_parts" instance=ExtResource( 14 )]
+[node name="MP-10-R_Mark_01_01" parent="Map_parts" instance=ExtResource( 11 )]
 position = Vector2( 438, 954 )
 spawn_01 = ExtResource( 1 )
 
-[node name="MP-10-R_Mark_01_02" parent="Map_parts" instance=ExtResource( 14 )]
+[node name="MP-10-R_Mark_01_02" parent="Map_parts" instance=ExtResource( 11 )]
 position = Vector2( 538, 954 )
 spawn_01 = ExtResource( 1 )
 
-[node name="MP-10-R_Mark_01_03" parent="Map_parts" instance=ExtResource( 14 )]
+[node name="MP-10-R_Mark_01_03" parent="Map_parts" instance=ExtResource( 11 )]
 position = Vector2( 620, 954 )
 spawn_01 = ExtResource( 1 )
 
 [node name="BadGuys" type="Node2D" parent="."]
 z_index = -2
 
-[node name="BG-03-01" parent="BadGuys" instance=ExtResource( 11 )]
+[node name="BG-03-01" parent="BadGuys" instance=ExtResource( 12 )]
 position = Vector2( 3070, 633 )
 go_off_edge = false
 
-[node name="BG-03-02" parent="BadGuys" instance=ExtResource( 3 )]
+[node name="BG-03-02" parent="BadGuys" instance=ExtResource( 2 )]
 position = Vector2( 3656, 513 )
 just_stand = true
 
-[node name="BG-03-03" parent="BadGuys" instance=ExtResource( 3 )]
+[node name="BG-03-03" parent="BadGuys" instance=ExtResource( 2 )]
 position = Vector2( 3654, 573 )
 just_stand = true
 
-[node name="BG-03-04" parent="BadGuys" instance=ExtResource( 3 )]
+[node name="BG-03-04" parent="BadGuys" instance=ExtResource( 2 )]
 position = Vector2( 4230, 414 )
 just_stand = true
 
-[node name="BG-03-05" parent="BadGuys" instance=ExtResource( 11 )]
+[node name="BG-03-05" parent="BadGuys" instance=ExtResource( 12 )]
 position = Vector2( 218, 820 )
 
-[node name="BG-03-06" parent="BadGuys" instance=ExtResource( 11 )]
+[node name="BG-03-06" parent="BadGuys" instance=ExtResource( 12 )]
 position = Vector2( 340, 826 )
 
-[node name="BG-03-07" parent="BadGuys" instance=ExtResource( 11 )]
+[node name="BG-03-07" parent="BadGuys" instance=ExtResource( 12 )]
 position = Vector2( 570, 820 )
 
-[node name="BG-03-08" parent="BadGuys" instance=ExtResource( 11 )]
+[node name="BG-03-08" parent="BadGuys" instance=ExtResource( 12 )]
 position = Vector2( 694, 840 )

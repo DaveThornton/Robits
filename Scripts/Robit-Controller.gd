@@ -283,6 +283,17 @@ func _on_RespawnTimer_timeout():
 func get_pawn():
 	if my_pawn:
 		return my_pawn
+	else:
+		return false
+
+func player_equip_start_weap():
+	if my_pawn:
+		# my_pawn.start_equiped = true
+		my_pawn.equip_start_weap()
+
+func player_remove_start_weap():
+	if my_pawn:
+		my_pawn.remove_start_weap()
 
 func reset():
 	print("reset called in controller")

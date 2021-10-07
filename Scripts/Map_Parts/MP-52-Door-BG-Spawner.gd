@@ -2,6 +2,7 @@ extends Area2D
 
 export(PackedScene) var bg
 export(PackedScene) var explode
+export var activation_num = 0
 export var right = true
 export var delayed_start = true
 export var delay = 3.0
@@ -17,6 +18,7 @@ var activated = false
 var dead = false
 var cbg 
 var hit_time = 0.0
+var can_spawn = true
 
 func _ready():
 	timer.wait_time = delay
@@ -26,13 +28,14 @@ func _ready():
 		print("error in mp 52 not connecting to map")
 
 func activate(_num, _player):
-	if !activated:
-		activated = true
-		shape.disabled = false
-		if delayed_start:
-			timer.start()
-		else:
-			anim.play("Spawn")
+	if activation_num == _num:
+		if !activated:
+			activated = true
+			shape.disabled = false
+			if delayed_start:
+				timer.start()
+			else:
+				anim.play("Spawn")
 
 #func _process(delta):
 #	pass
@@ -55,22 +58,33 @@ func _explode():
 	e.init(9, self.position, str("MP-52 Distruction"), 0, 0)
 	
 func spawn():
-	cbg = bg.instance()
-	Map_Hand.add_kid_to_map(cbg)
-	cbg.right = right
-	cbg.global_position = spawn_spot.global_position
+	if can_spawn:
+		cbg = bg.instance()
+		Map_Hand.add_kid_to_map(cbg)
+		cbg.right = right
+		cbg.global_position = spawn_spot.global_position
 
+func set_can_spawn(_can):
+	can_spawn = _can
+	if _can:
+		timer.start()
+
+func set_activation_num(_num):
+	activation_num = _num
+		
 func pause():
-	if cbg:
+	if cbg is Node2D:
 		cbg.stop()
+
 func unpause():
-	if cbg:
+	# var valid = get_node_or_null(cbg)
+	if cbg is Node2D:
 		cbg.go()
 
 func _on_Timer_timeout():
-	if !dead:
+	if !dead && can_spawn:
 		anim.play("Spawn")
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
-	if !dead:
+	if !dead && can_spawn:
 		timer.start()

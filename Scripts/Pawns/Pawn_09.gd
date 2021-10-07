@@ -329,8 +329,18 @@ func equip_start_weap():
 	var g = Equipment.get_weap_hold(0).instance()
 	gun_pos.add_child(g)
 	g.init(false, player, 0, false)
+	start_equiped = true
 	my_start_gun = g
+	if is_holding:
+		my_start_gun.visible = false
 
+func remove_start_weap():
+	print(gun_pos.get_child_count())
+	no_gun()
+	start_equiped = false
+	my_start_gun = null
+	for i in gun_pos.get_child_count():
+		gun_pos.get_child(i).call_deferred("free")
 ##-------------------------------------------------------------------------[HIT]
 # func hit(_by_who, _by_what, _damage_type, _damage):
 # 	_im_hit = true

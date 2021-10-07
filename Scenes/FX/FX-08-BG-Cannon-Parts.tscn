@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/FX/FX-08-BG-Cannon_Parts.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Bad_Guys/Boss/BG-104-Boss/BG_104_Boss_Cannon_01.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="FX-08-BG-Cannon_Parts" type="RigidBody2D" groups=[
+"FX",
+]]
+collision_layer = 131072
+collision_mask = 131100
+mass = 0.1
+gravity_scale = 6.0
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.45098, 0.298039, 0.298039, 1 )
+position = Vector2( -3, 0 )
+rotation = 0.438983
+texture = ExtResource( 2 )
+hframes = 9
+frame = 7
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

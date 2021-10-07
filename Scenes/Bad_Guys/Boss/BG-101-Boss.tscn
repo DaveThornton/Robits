@@ -10,7 +10,7 @@
 [ext_resource path="res://Sprites/Tile_Sets/TS-04-Back-FX.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Bad_Guys/Boss/BG-101-Boss/BG-101-Boss-Exit-Back.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/gen-boom/Generic-boom-02-sheet.png" type="Texture" id=10]
-[ext_resource path="res://Maps/Campaign-mode/World_02/Map-C-W02-L01-Jungle.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Maps/Campaign-mode/World_02/Map_C_W02_A_01_Jungle.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Boom"
@@ -127,6 +127,7 @@ hframes = 9
 anims/Boom = SubResource( 1 )
 
 [node name="Exit" type="Node2D" parent="."]
+position = Vector2( 0, 20 )
 scale = Vector2( 0.002, 0.002 )
 
 [node name="BG-101-Boss-Exit-Back" type="Sprite" parent="Exit"]
@@ -139,8 +140,8 @@ modulate = Color( 0.0901961, 1, 0, 1 )
 position = Vector2( 0, -110 )
 z_index = -3
 texture = ExtResource( 8 )
-vframes = 8
 hframes = 4
+vframes = 8
 
 [node name="MP-15-Level_Change-01-Door" parent="Exit" instance=ExtResource( 7 )]
 position = Vector2( 0, -20 )

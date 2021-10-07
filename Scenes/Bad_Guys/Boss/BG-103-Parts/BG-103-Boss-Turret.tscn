@@ -10,12 +10,12 @@ radius = 19.0
 [sub_resource type="Animation" id=2]
 resource_name = "Hit"
 
-[node name="BG-103-Turret" type="StaticBody2D" groups=[
+[node name="BG-103-Turret" type="KinematicBody2D" groups=[
 "badguy",
 "hittable",
 ]]
-collision_layer = 0
-collision_mask = 133120
+collision_layer = 2048
+collision_mask = 2560
 script = ExtResource( 3 )
 
 [node name="BG-103-Body-Turret" type="Sprite" parent="."]

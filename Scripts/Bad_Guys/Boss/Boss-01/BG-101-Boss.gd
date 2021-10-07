@@ -1,5 +1,6 @@
 extends Node2D
 export (PackedScene) var level_to_load
+export var activation_num = 0
 
 onready var top = $"Tops/BG-101-Boss-Top"
 onready var boxes = $Boxes
@@ -8,6 +9,8 @@ onready var tops = $Tops
 onready var exit = $Exit
 onready var exit_door = $"Exit/MP-15-Level_Change-01-Door"
 onready var anim_boom = $Boom_Stuff/AnimationPlayer
+onready var turret_01 = $"Turrets/BG-25-Turret-Wall-Back"
+onready var turret_02 = $"Turrets/BG-25-Turret-Wall-Back2"
 
 var map
 var activated = false
@@ -23,12 +26,14 @@ func _ready():
 	var map_connected = map.connect("activate", self, "activate")
 	if !map_connected:
 		print("error in BG 101 Boss not connecting to map")
+	turret_01.activation_number = activation_num
+	turret_02.activation_number = activation_num
 
 #func _process(delta):
 #	pass
 
 func activate(_num, _player):
-	if !activated:
+	if !activated && activation_num == _num:
 		activated = true
 		for i in boxes.get_child_count():
 			boxes.get_child(i).activate()

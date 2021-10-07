@@ -1,5 +1,5 @@
-#extends KinematicBody2D
-extends StaticBody2D
+extends KinematicBody2D
+# extends StaticBody2D
 
 export(PackedScene) var projectile
 #export(PackedScene) var explode

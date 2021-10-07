@@ -7,7 +7,7 @@
 radius = 4.82172
 height = 7.41851
 
-[node name="FX-05-Robit-Wreckage" type="RigidBody2D" groups=[
+[node name="FX-07-Open_Gunner-Wreckage" type="RigidBody2D" groups=[
 "FX",
 ]]
 collision_layer = 131072
@@ -26,4 +26,5 @@ wait_time = 30.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource( 1 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

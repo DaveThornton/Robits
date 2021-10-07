@@ -23,6 +23,7 @@ func _on_Area2D_body_entered(body):
 		print("pause")
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
+	FX.CAMERA.reset()
 	if !load_random:
 		if load_level_1:
 			_load_level(level_to_load_1, text_title_1, text_body_1, splash_time_1, show_splash_1)
