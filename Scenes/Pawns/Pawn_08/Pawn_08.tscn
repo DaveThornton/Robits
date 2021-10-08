@@ -2530,7 +2530,7 @@ tracks/8/keys = {
 "player",
 ]]
 collision_layer = 2
-collision_mask = 67230
+collision_mask = 66718
 script = ExtResource( 1 )
 
 [node name="Timers" parent="." instance=ExtResource( 7 )]
@@ -2662,6 +2662,7 @@ anims/Right-Run = SubResource( 21 )
 anims/Right-Stun = SubResource( 22 )
 anims/Right_Kick = SubResource( 23 )
 anims/Right_Wall = SubResource( 24 )
+
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]

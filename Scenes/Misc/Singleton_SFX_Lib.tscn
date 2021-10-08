@@ -98,587 +98,574 @@ script = ExtResource( 1 )
 
 [node name="Old" type="Node2D" parent="."]
 
-[node name="EX_Brick" type="AudioStreamPlayer2D" parent="."]
+[node name="EX_Brick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 bus = "SFX"
 
-[node name="EX_Pawn" type="AudioStreamPlayer2D" parent="."]
+[node name="EX_Pawn" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 bus = "SFX"
 
-[node name="EX_Standard" type="AudioStreamPlayer2D" parent="."]
+[node name="EX_Standard" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 bus = "SFX"
 
-[node name="Blip_01" type="AudioStreamPlayer2D" parent="."]
+[node name="Blip_01" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 49 )
 bus = "SFX"
 
-[node name="Blip_02" type="AudioStreamPlayer2D" parent="."]
+[node name="Blip_02" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 40 )
 bus = "SFX"
 
-[node name="Blip_03" type="AudioStreamPlayer2D" parent="."]
+[node name="Blip_03" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 41 )
 bus = "SFX"
 
-[node name="Blip_04" type="AudioStreamPlayer2D" parent="."]
+[node name="Blip_04" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 50 )
 bus = "SFX"
 
-[node name="Blip_05" type="AudioStreamPlayer2D" parent="."]
+[node name="Blip_05" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 42 )
 bus = "SFX"
 
-[node name="Blip_06" type="AudioStreamPlayer2D" parent="."]
+[node name="Blip_06" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 48 )
 bus = "SFX"
 
-[node name="Blip_07" type="AudioStreamPlayer2D" parent="."]
+[node name="Blip_07" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 44 )
 bus = "SFX"
 
-[node name="Blip_08" type="AudioStreamPlayer2D" parent="."]
+[node name="Blip_08" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 47 )
 bus = "SFX"
 
-[node name="Blip_09" type="AudioStreamPlayer2D" parent="."]
+[node name="Blip_09" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 43 )
 bus = "SFX"
 
-[node name="Blip_10" type="AudioStreamPlayer2D" parent="."]
+[node name="Blip_10" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 45 )
 bus = "SFX"
 
-[node name="Blip_11" type="AudioStreamPlayer2D" parent="."]
+[node name="Blip_11" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 46 )
 bus = "SFX"
 
-[node name="Move_Jump_01" type="AudioStreamPlayer2D" parent="."]
+[node name="Move_Jump_01" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 52 )
 bus = "SFX"
 
-[node name="Move_Jump_05" type="AudioStreamPlayer2D" parent="."]
+[node name="Move_Jump_05" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 51 )
 bus = "SFX"
 
-[node name="Move_Jump_08" type="AudioStreamPlayer2D" parent="."]
+[node name="Move_Jump_08" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 53 )
 bus = "SFX"
 
-[node name="Move_Jump_19_Land" type="AudioStreamPlayer2D" parent="."]
+[node name="Move_Jump_19_Land" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 54 )
 volume_db = 3.0
 bus = "SFX"
 
-[node name="FX_01_ObjHit" type="AudioStreamPlayer2D" parent="."]
+[node name="FX_01_ObjHit" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 57 )
 bus = "SFX"
 
-[node name="W_05_Laser" type="AudioStreamPlayer2D" parent="."]
+[node name="W_05_Laser" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 58 )
 bus = "SFX"
 
-[node name="W_06_Melee" type="AudioStreamPlayer2D" parent="."]
+[node name="W_06_Melee" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 59 )
 bus = "SFX"
 
-[node name="W_06_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_06_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 65 )
 bus = "SFX"
 
-[node name="W_07_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_07_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 63 )
 bus = "SFX"
 
-[node name="W_07_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_07_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"
 
-[node name="W_08_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_08_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 bus = "SFX"
 
-[node name="W_08_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_08_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"
 
-[node name="W_09_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_09_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 bus = "SFX"
 
-[node name="W_09_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_09_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 64 )
 bus = "SFX"
 
-[node name="W_10_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_10_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 bus = "SFX"
 
-[node name="W_10_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_10_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 bus = "SFX"
 
-[node name="W_11_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_11_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 bus = "SFX"
 
-[node name="W_11_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_11_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"
 
-[node name="W_12_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_12_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 bus = "SFX"
 
-[node name="W_12_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_12_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"
 
-[node name="W_13_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_13_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 67 )
 bus = "SFX"
 
-[node name="W_14_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_14_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 70 )
 bus = "SFX"
 
-[node name="W_15_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_15_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 66 )
 bus = "SFX"
 
-[node name="W_15_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_15_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"
 
-[node name="W_16_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_16_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 bus = "SFX"
 
-[node name="W_16_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_16_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 bus = "SFX"
 
-[node name="W_17_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_17_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 bus = "SFX"
 
-[node name="W_17_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_17_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 bus = "SFX"
 
-[node name="W_18_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_18_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 bus = "SFX"
 
-[node name="W_18_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_18_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 bus = "SFX"
 
-[node name="W_19_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_19_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 bus = "SFX"
 
-[node name="W_19_Charge_Up" type="AudioStreamPlayer2D" parent="."]
+[node name="W_19_Charge_Up" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 60 )
 bus = "SFX"
 
-[node name="W_19_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_19_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"
 
-[node name="W_42_Thump" type="AudioStreamPlayer2D" parent="."]
+[node name="W_42_Thump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 55 )
 bus = "SFX"
 
-[node name="W_42_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_42_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 56 )
 bus = "SFX"
 
-[node name="W_50_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_50_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 bus = "SFX"
 
-[node name="W_50_Reload" type="AudioStreamPlayer2D" parent="."]
+[node name="W_50_Reload" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 69 )
 bus = "SFX"
 
-[node name="W_50_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_50_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"
 
-[node name="W_51_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_51_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 68 )
 bus = "SFX"
 
-[node name="W_51_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_51_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"
 
-[node name="W_56_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_56_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 68 )
 bus = "SFX"
 
-[node name="W_56_Projectile" type="AudioStreamPlayer2D" parent="."]
+[node name="W_56_Projectile" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 72 )
 bus = "SFX"
 
-[node name="W_56_Exp" type="AudioStreamPlayer2D" parent="."]
+[node name="W_56_Exp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 73 )
 bus = "SFX"
 
-[node name="W_57_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_57_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 bus = "SFX"
 
-[node name="W_57_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_57_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"
 
-[node name="W_58_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_58_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 bus = "SFX"
 
-[node name="W_83_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_83_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 bus = "SFX"
 
-[node name="W_83_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_83_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"
 
-[node name="W_84_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="W_84_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 74 )
 bus = "SFX"
 
-[node name="W_84_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="W_84_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 75 )
 bus = "SFX"
 
-[node name="W_00_Click_01" type="AudioStreamPlayer2D" parent="."]
+[node name="W_00_Click_01" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 71 )
 bus = "SFX"
 
-[node name="W_20_Beep_01" type="AudioStreamPlayer2D" parent="."]
+[node name="W_20_Beep_01" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 61 )
 bus = "SFX"
 
-[node name="Menu_Click_Short" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Click_Short" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 62 )
 
-[node name="Menu_Move_01" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Move_01" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 bus = "Menu"
 
-[node name="Menu_Move_02" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Move_02" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
 bus = "Menu"
 
-[node name="Menu_Move_03" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Move_03" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
 bus = "Menu"
 
-[node name="Menu_Move_04" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Move_04" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 bus = "Menu"
 
-[node name="Menu_Move_05" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Move_05" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
 bus = "Menu"
 
-[node name="Menu_Select_03" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Select_03" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
 bus = "Menu"
 
-[node name="Menu_Select_04" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Select_04" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 22 )
 bus = "Menu"
 
-[node name="Menu_Select_05" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Select_05" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 23 )
 bus = "Menu"
 
-[node name="Menu_Error_01" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_01" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 24 )
 bus = "Menu"
 
-[node name="Menu_Error_02" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_02" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 28 )
 bus = "Menu"
 
-[node name="Menu_Error_03" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_03" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 35 )
 bus = "Menu"
 
-[node name="Menu_Error_04" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_04" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 29 )
 bus = "Menu"
 
-[node name="Menu_Error_05" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_05" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )
 bus = "Menu"
 
-[node name="Menu_Error_06" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_06" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )
 bus = "Menu"
 
-[node name="Menu_Error_07" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_07" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 33 )
 bus = "Menu"
 
-[node name="Menu_Error_08" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_08" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 37 )
 bus = "Menu"
 
-[node name="Menu_Error_09" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_09" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 26 )
 bus = "Menu"
 
-[node name="Menu_Error_10" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_10" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 36 )
 bus = "Menu"
 
-[node name="Menu_Error_11" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_11" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 31 )
 bus = "Menu"
 
-[node name="Menu_Error_12" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_12" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 38 )
 bus = "Menu"
 
-[node name="Menu_Error_13" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_13" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 32 )
 bus = "Menu"
 
-[node name="Menu_Error_14" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_14" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 34 )
 bus = "Menu"
 
-[node name="Menu_Error_15" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Error_15" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 27 )
 bus = "Menu"
 
-[node name="Menu_Nagger_02" type="AudioStreamPlayer2D" parent="."]
+[node name="Menu_Nagger_02" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 39 )
 bus = "Menu"
 
 [node name="Hits" type="Node2D" parent="."]
 
-[node name="H_00" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_00" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 77 )
 bus = "SFX"
 
-[node name="H_01" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_01" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 76 )
 bus = "SFX"
 
-[node name="H_02" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_02" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 78 )
 bus = "SFX"
 
-[node name="H_03" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_03" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 76 )
 bus = "SFX"
 
-[node name="H_04" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_04" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 77 )
 bus = "SFX"
 
-[node name="H_05" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_05" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 78 )
 bus = "SFX"
 
-[node name="H_06" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_06" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 76 )
 bus = "SFX"
 
-[node name="H_07" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_07" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 77 )
 bus = "SFX"
 
-[node name="H_08" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_08" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 76 )
 bus = "SFX"
 
-[node name="H_09" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_09" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 78 )
 bus = "SFX"
 
-[node name="H_10" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_10" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 77 )
 bus = "SFX"
 
-[node name="H_11" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_11" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 76 )
 bus = "SFX"
 
-[node name="H_12" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_12" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 78 )
 bus = "SFX"
 
-[node name="H_13" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_13" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 77 )
 bus = "SFX"
 
-[node name="H_14" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_14" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 76 )
 bus = "SFX"
 
-[node name="H_15" type="AudioStreamPlayer2D" parent="Hits"]
+[node name="H_15" type="AudioStreamPlayer" parent="Hits"]
 stream = ExtResource( 78 )
 bus = "SFX"
 
 [node name="Swings" type="Node2D" parent="."]
 
-[node name="S_00" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_00" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 85 )
 bus = "SFX"
 
-[node name="S_01" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_01" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 89 )
 bus = "SFX"
 
-[node name="S_02" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_02" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 79 )
 bus = "SFX"
 
-[node name="S_03" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_03" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 90 )
 bus = "SFX"
 
-[node name="S_04" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_04" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 91 )
 bus = "SFX"
 
-[node name="S_05" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_05" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 80 )
 bus = "SFX"
 
-[node name="S_06" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_06" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 86 )
 bus = "SFX"
 
-[node name="S_07" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_07" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 81 )
 bus = "SFX"
 
-[node name="S_08" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_08" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 82 )
 bus = "SFX"
 
-[node name="S_09" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_09" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 83 )
 bus = "SFX"
 
-[node name="S_10" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_10" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 88 )
 bus = "SFX"
 
-[node name="S_11" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_11" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 84 )
 bus = "SFX"
 
-[node name="S_12" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_12" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 87 )
 bus = "SFX"
 
-[node name="S_13" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_13" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 80 )
 bus = "SFX"
 
-[node name="S_14" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_14" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 81 )
 bus = "SFX"
 
-[node name="S_15" type="AudioStreamPlayer2D" parent="Swings"]
+[node name="S_15" type="AudioStreamPlayer" parent="Swings"]
 stream = ExtResource( 83 )
 bus = "SFX"
 
 [node name="Shells" type="Node2D" parent="."]
 
-[node name="FX_Shell_01" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_01" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
-[node name="FX_Shell_02" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_02" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
-[node name="FX_Shell_03" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_03" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
-[node name="FX_Shell_04" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_04" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
-[node name="FX_Shell_05" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_05" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
-[node name="FX_Shell_06" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_06" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
-[node name="FX_Shell_07" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_07" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
-[node name="FX_Shell_08" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_08" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
-[node name="FX_Shell_09" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_09" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
-[node name="FX_Shell_10" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_10" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
-[node name="FX_Shell_11" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_11" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
-[node name="FX_Shell_12" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_12" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
-[node name="FX_Shell_13" type="AudioStreamPlayer2D" parent="Shells"]
-position = Vector2( 0, -1 )
+[node name="FX_Shell_13" type="AudioStreamPlayer" parent="Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
 
 [node name="Menus" type="Node2D" parent="."]
 
-[node name="M_00_Coin" type="AudioStreamPlayer2D" parent="Menus"]
+[node name="M_00_Coin" type="AudioStreamPlayer" parent="Menus"]
 stream = ExtResource( 13 )
 
-[node name="M_01_Start" type="AudioStreamPlayer2D" parent="Menus"]
+[node name="M_01_Start" type="AudioStreamPlayer" parent="Menus"]
 stream = ExtResource( 14 )
 bus = "Menu"
 
-[node name="M_02_Select" type="AudioStreamPlayer2D" parent="Menus"]
+[node name="M_02_Select" type="AudioStreamPlayer" parent="Menus"]
 stream = ExtResource( 21 )
 bus = "Menu"
 
-[node name="M_03_Error" type="AudioStreamPlayer2D" parent="Menus"]
+[node name="M_03_Error" type="AudioStreamPlayer" parent="Menus"]
 stream = ExtResource( 28 )
 bus = "Menu"
 
-[node name="M_04_Back" type="AudioStreamPlayer2D" parent="Menus"]
+[node name="M_04_Back" type="AudioStreamPlayer" parent="Menus"]
 stream = ExtResource( 32 )
 bus = "Menu"
 
@@ -692,26 +679,26 @@ bus = "Menu"
 
 [node name="04" type="Node2D" parent="Explosions"]
 
-[node name="Laser_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="Laser_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 bus = "SFX"
 
-[node name="Laser_Empty" type="AudioStreamPlayer2D" parent="."]
+[node name="Laser_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 bus = "SFX"
 
-[node name="RPG_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="RPG_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 bus = "SFX"
 
-[node name="AK_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="AK_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 bus = "SFX"
 
-[node name="Sniper_Shoot" type="AudioStreamPlayer2D" parent="."]
+[node name="Sniper_Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 bus = "SFX"
 
-[node name="Gun_Click" type="AudioStreamPlayer2D" parent="."]
+[node name="Gun_Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"

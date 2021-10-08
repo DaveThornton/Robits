@@ -126,3 +126,4 @@ func _c_static(_delta):
 
 func reset():
 	position.x = 0
+	HUD.set_position(self.position)

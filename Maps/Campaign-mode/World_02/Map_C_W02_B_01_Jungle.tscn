@@ -28,10 +28,10 @@
 [ext_resource path="res://Maps/Campaign-mode/World_01/Map_C_W01_A_01_Jail_Break.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 566 )
+extents = Vector2( 40, 566 )
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 220.0
+radius = 298.0
 height = 394.0
 
 [node name="testmap-01" type="Node2D"]
@@ -156,7 +156,6 @@ collision_mask = 32
 format = 1
 
 [node name="TileMap-FX-Top" type="TileMap" parent="."]
-visible = false
 z_index = 10
 tile_set = ExtResource( 17 )
 cell_size = Vector2( 20, 20 )
@@ -434,7 +433,7 @@ position = Vector2( 10892, 1186 )
 [node name="MP-25-Activate_Area" parent="Map_parts" instance=ExtResource( 13 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map_parts/MP-25-Activate_Area"]
-position = Vector2( 3460, 470 )
+position = Vector2( 3630, 480 )
 shape = SubResource( 1 )
 
 [node name="Spikes" type="Node2D" parent="Map_parts"]
@@ -542,11 +541,7 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 21 )
 
 [node name="Test_Grx_02" type="Sprite" parent="Map_parts"]
-position = Vector2( 14952, 622 )
-texture = ExtResource( 22 )
-
-[node name="Test_Grx_03" type="Sprite" parent="Map_parts"]
-position = Vector2( 14646, 625 )
+position = Vector2( 14640, 615 )
 texture = ExtResource( 22 )
 
 [node name="MP-15-Level-Change-02-Area" parent="Map_parts" instance=ExtResource( 24 )]
@@ -562,12 +557,11 @@ level_to_load_1 = ExtResource( 25 )
 z_index = -2
 
 [node name="MP-25-Activate_Area" parent="BadGuys" instance=ExtResource( 13 )]
-visible = false
 position = Vector2( 13722, 728 )
 activation_num = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BadGuys/MP-25-Activate_Area"]
-position = Vector2( -579, -87 )
+position = Vector2( -787, -119 )
 shape = SubResource( 2 )
 
 [node name="BG-25-Turret-Wall-Back" parent="BadGuys" instance=ExtResource( 6 )]
@@ -575,6 +569,14 @@ position = Vector2( 3483, 768 )
 
 [node name="BG-25-Turret-Wall-Back2" parent="BadGuys" instance=ExtResource( 6 )]
 position = Vector2( 4057, 828 )
+
+[node name="BG-25-Turret-Wall-Back3" parent="BadGuys" instance=ExtResource( 6 )]
+position = Vector2( 13141, 780 )
+activation_number = 3
+
+[node name="BG-25-Turret-Wall-Back4" parent="BadGuys" instance=ExtResource( 6 )]
+position = Vector2( 12740, 940 )
+activation_number = 3
 
 [node name="BG_104_Boss" parent="BadGuys" instance=ExtResource( 23 )]
 position = Vector2( 13630, 601 )

@@ -192,7 +192,7 @@ height = 44.0
 "player",
 ]]
 collision_layer = 2
-collision_mask = 67230
+collision_mask = 66718
 script = ExtResource( 4 )
 
 [node name="Shield" type="Sprite" parent="."]
@@ -306,6 +306,7 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
 position = Vector2( 0, -26 )
 shape = SubResource( 7 )
+
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
 [connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]
