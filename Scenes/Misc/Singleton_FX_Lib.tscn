@@ -80,6 +80,15 @@ z_index = -129
 z_as_relative = false
 texture = ExtResource( 8 )
 
+[node name="Back_05_Black" type="Sprite" parent="MP-01-Camera/Back"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 960.01, 520 )
+scale = Vector2( 1, 0.546875 )
+z_index = -129
+z_as_relative = false
+texture = ExtResource( 8 )
+
 [node name="Area2D_Respawn" type="Area2D" parent="MP-01-Camera"]
 visible = false
 collision_layer = 64

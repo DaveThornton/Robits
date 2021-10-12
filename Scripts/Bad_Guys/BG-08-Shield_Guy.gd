@@ -6,7 +6,7 @@ export var health = 200
 export var armor = 10
 export var damage = 50
 export var shoot_speed = 2.0
-
+export var is_right = true
 onready var anim = $AnimationPlayer
 onready var anim2 = $AnimationPlayer2
 onready var collsion_shape = $CollisionShape2D
@@ -17,7 +17,9 @@ var exp_damage = 20
 var my_name = "Shield Gunner"
 
 func _ready():
-	pass
+	if is_right:
+		self.scale.x = -1
+
 
 func _process(delta):
 	time_to_shoot += delta

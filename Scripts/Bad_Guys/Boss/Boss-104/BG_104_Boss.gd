@@ -46,7 +46,7 @@ func activate(_num, _player):
 		bg_spawn.set_can_spawn(true)
 		
 
-func dead():
+func dead(): 
 	is_dead = true
 	anim.play("Hit")
 	cannon_01.set_can_shoot(false)

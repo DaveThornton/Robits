@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/FX/FX-09-Log.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Tile_Sets/Background/Ever_Tree_00.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/FX/FX-09-Log.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=2]
+height = 26.198
+
+[sub_resource type="CapsuleShape2D" id=3]
+height = 107.668
+
+[node name="FX-09-Log" type="RigidBody2D" groups=[
+"FX",
+"PickUp",
+]]
+collision_layer = 131072
+collision_mask = 524296
+gravity_scale = 6.0
+can_sleep = false
+applied_force = Vector2( 0, 1 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 524296
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 3
+
+[node name="Ever_Tree_00" type="Sprite" parent="."]
+visible = false
+position = Vector2( -47.3792, 0.0486488 )
+rotation = -1.5708
+texture = ExtResource( 2 )
+hframes = 5
+frame = 4

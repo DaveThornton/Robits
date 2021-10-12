@@ -25,6 +25,7 @@ collision_mask = 526850
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ER_EL"]
 position = Vector2( 2, 10 )
 shape = SubResource( 1 )
+
 [connection signal="area_shape_entered" from="EL_ER" to="." method="_on_EL_ER_area_shape_entered"]
 [connection signal="body_entered" from="EL_ER" to="." method="_on_EL_ER_body_entered"]
 [connection signal="area_shape_entered" from="ER_EL" to="." method="_on_ER_EL_area_shape_entered"]

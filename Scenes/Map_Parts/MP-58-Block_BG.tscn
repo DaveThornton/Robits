@@ -1,0 +1,5 @@
+[gd_scene format=2]
+
+[node name="MP-58-Block_BG" type="StaticBody2D"]
+collision_layer = 2048
+collision_mask = 2048

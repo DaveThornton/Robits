@@ -34,7 +34,7 @@ extents = Vector2( 3.58397, 5.48194 )
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 5.04941, 5.79597 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 3.84004, 4.78797 )
 
 [sub_resource type="CapsuleShape2D" id=12]
@@ -50,7 +50,7 @@ extents = Vector2( 6.93353, 4.4352 )
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 2.74658, 6.94738 )
 
-[sub_resource type="CapsuleShape2D" id=22]
+[sub_resource type="CapsuleShape2D" id=16]
 radius = 4.10467
 height = 8.62805
 
@@ -77,8 +77,8 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-vframes = 4
 hframes = 8
+vframes = 4
 frame = 16
 
 [node name="col_2d_00" type="CollisionShape2D" parent="."]
@@ -144,7 +144,7 @@ disabled = true
 visible = false
 position = Vector2( 0.628044, -2.51217 )
 rotation = 0.93026
-shape = SubResource( 21 )
+shape = SubResource( 11 )
 disabled = true
 
 [node name="col_2d_11" type="CollisionShape2D" parent="."]
@@ -181,7 +181,7 @@ disabled = true
 [node name="col_2d_16" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2( -0.104675, 0.418697 )
-shape = SubResource( 22 )
+shape = SubResource( 16 )
 disabled = true
 
 [node name="col_2d_17" type="CollisionShape2D" parent="."]
@@ -210,4 +210,5 @@ disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 30.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

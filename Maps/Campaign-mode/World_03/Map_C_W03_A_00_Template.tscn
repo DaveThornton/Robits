@@ -1,0 +1,164 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Maps/map-C-00.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawn-Camp.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Tilesets/TS-05-Main-Brick.tres" type="TileSet" id=7]
+[ext_resource path="res://Tilesets/TS-08-Ladder.tres" type="TileSet" id=8]
+[ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=9]
+[ext_resource path="res://Tilesets/TS-06-Main-FX.tres" type="TileSet" id=10]
+[ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=11]
+[ext_resource path="res://Tilesets/10xTest.tres" type="TileSet" id=12]
+[ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=13]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 30.0984
+
+[node name="testmap-01" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 38.1926 ]
+}
+
+[node name="TileMap-Backround" type="TileMap" parent="."]
+z_index = -10
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 131072, 49, 0, 131073, 49, 0, 131074, 49, 0, 131075, 49, 0, 131076, 49, 0, 131077, 49, 0, 131078, 49, 0, 131079, 49, 0, 131080, 49, 0, 131081, 49, 0, 131082, 49, 0, 131083, 49, 0, 131084, 49, 0, 131085, 49, 0, 131086, 49, 0, 131087, 49, 0, 131088, 49, 0, 131089, 49, 0, 131090, 49, 0, 131104, 49, 0, 131105, 49, 0, 131106, 49, 0, 131107, 49, 0, 131108, 49, 0, 131109, 49, 0, 131110, 49, 0, 196608, 49, 0, 196609, 49, 0, 196610, 49, 0, 196611, 49, 0, 196612, 49, 0, 196613, 49, 0, 196614, 49, 0, 196615, 49, 0, 196616, 49, 0, 196617, 49, 0, 196618, 49, 0, 196619, 49, 0, 196620, 49, 0, 196621, 49, 0, 196622, 49, 0, 196623, 49, 0, 196624, 49, 0, 196625, 49, 0, 196626, 49, 0, 196627, 49, 0, 196628, 49, 0, 196629, 49, 0, 196630, 49, 0, 196643, 49, 0, 196644, 49, 0, 196645, 49, 0, 196646, 49, 0, 262150, 49, 0, 262151, 49, 0, 262152, 49, 0, 262153, 49, 0, 262154, 49, 0, 262155, 49, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap-Back-FX" type="TileMap" parent="."]
+z_index = -9
+tile_set = ExtResource( 13 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 131072, 49, 0, 131073, 49, 0, 131074, 49, 0, 131075, 49, 0, 131076, 49, 0, 131077, 49, 0, 131078, 49, 0, 131079, 49, 0, 131080, 49, 0, 131081, 49, 0, 131082, 49, 0, 131083, 49, 0, 131084, 49, 0, 131085, 49, 0, 131086, 49, 0, 131087, 49, 0, 131088, 49, 0, 131089, 49, 0, 131090, 49, 0, 131104, 49, 0, 131105, 49, 0, 196608, 49, 0, 196609, 49, 0, 196610, 49, 0, 196611, 49, 0, 196612, 49, 0, 196613, 49, 0, 196614, 49, 0, 196615, 49, 0, 196616, 49, 0, 196617, 49, 0, 196618, 49, 0, 196643, 49, 0, 262146, 49, 0, 262147, 49, 0, 262148, 49, 0, 262149, 49, 0, 262155, 49, 0, 262156, 49, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap-Main" type="TileMap" parent="." groups=[
+"map",
+"map_part",
+]]
+z_index = -4
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 8
+collision_mask = 1018399
+format = 1
+tile_data = PoolIntArray( 3473408, 7, 196608, 3473409, 7, 196609, 3473410, 7, 196609, 3473411, 7, 196609, 3473412, 7, 196609, 3473413, 7, 196609, 3473414, 7, 196609, 3473415, 7, 196609, 3473416, 7, 196609, 3473417, 7, 196609, 3473418, 7, 196609, 3473419, 7, 196609, 3473420, 7, 196609, 3473421, 7, 196609, 3473422, 7, 196609, 3473423, 7, 196609, 3473424, 7, 196609, 3473425, 7, 196609, 3473426, 7, 196609, 3473427, 7, 196609, 3473428, 7, 196609, 3473429, 7, 196609, 3473430, 7, 196609, 3473431, 7, 196609, 3473432, 7, 196609, 3473433, 7, 196609, 3473434, 7, 196609, 3473435, 7, 196609, 3473436, 7, 196609, 3473437, 7, 196609, 3473438, 7, 196609, 3473439, 7, 196609, 3473440, 7, 196609, 3473441, 7, 196609, 3473442, 7, 196609, 3473443, 7, 196609, 3473444, 7, 196609, 3473445, 7, 196609, 3473446, 7, 196609, 3473447, 7, 196609, 3473448, 7, 196609, 3473449, 7, 196609, 3473450, 7, 196609, 3473451, 7, 196609, 3473452, 7, 196609, 3473453, 7, 196609, 3473454, 7, 196609, 3473455, 7, 196609, 3473456, 7, 196609, 3473457, 7, 196609, 3473458, 7, 196609, 3473459, 7, 196609, 3473460, 7, 196609, 3473461, 7, 196609, 3473462, 7, 196609, 3473463, 7, 196609, 3473464, 7, 196609, 3473465, 7, 196609, 3473466, 7, 196609, 3473467, 7, 196609, 3473468, 7, 196609, 3473469, 7, 196609, 3473470, 7, 196609, 3473471, 7, 196609, 3473472, 7, 196609, 3473473, 7, 196609, 3473474, 7, 196609, 3473475, 7, 196609, 3473476, 7, 196609, 3473477, 7, 196609, 3473478, 7, 196609, 3473479, 7, 196609, 3473480, 7, 196609, 3473481, 7, 196609, 3473482, 7, 196609, 3473483, 7, 196609, 3473484, 7, 196609, 3473485, 7, 196609, 3473486, 7, 196609, 3473487, 7, 196609, 3473488, 7, 196609, 3473489, 7, 196609, 3473490, 7, 196609, 3473491, 7, 196609, 3473492, 7, 196609, 3473493, 7, 196609, 3473494, 7, 196609, 3473495, 7, 196609, 3473496, 7, 196609, 3473497, 7, 196609, 3473498, 7, 196609, 3473499, 7, 196609, 3473500, 7, 196609, 3473501, 7, 196609, 3473502, 7, 196609, 3473503, 7, 196610 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap-Main2" type="TileMap" parent="." groups=[
+"map",
+"map_part",
+]]
+z_index = -4
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 8
+collision_mask = 1018399
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap-Platforms" type="TileMap" parent="." groups=[
+"map_part",
+]]
+z_index = -2
+tile_set = ExtResource( 11 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 4
+collision_mask = 4
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap-Ladders" type="TileMap" parent="."]
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 20, 20 )
+collision_layer = 32
+collision_mask = 32
+format = 1
+
+[node name="TileMap-FX-Top" type="TileMap" parent="."]
+z_index = 10
+tile_set = ExtResource( 10 )
+cell_size = Vector2( 20, 20 )
+format = 1
+
+[node name="MP-04-Nav2D" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="TileMap" type="TileMap" parent="MP-04-Nav2D"]
+tile_set = ExtResource( 12 )
+cell_size = Vector2( 1, 1 )
+format = 1
+tile_data = PoolIntArray( 69469301, 2, 0, 69469302, 2, 0, 69469303, 2, 0, 69469304, 2, 0, 69469305, 2, 0, 69469306, 2, 0, 69469307, 2, 0, 69469308, 2, 0, 69469309, 2, 0, 69469310, 2, 0, 69469311, 2, 0, 69469312, 2, 0, 69469313, 2, 0, 69469314, 2, 0, 69469315, 2, 0, 69469316, 2, 0, 69469317, 2, 0, 69469318, 2, 0, 69469319, 2, 0, 69469320, 2, 0, 69469321, 2, 0, 69469322, 2, 0, 69469323, 2, 0, 69469324, 2, 0, 69469325, 2, 0, 69469326, 2, 0, 69469327, 2, 0, 69469328, 2, 0, 69469329, 2, 0, 69469330, 2, 0, 69469331, 2, 0, 69469332, 2, 0, 69469333, 2, 0 )
+
+[node name="Power_Ups" type="Node2D" parent="."]
+
+[node name="Player_Spawns" type="Node2D" parent="."]
+
+[node name="MP-11-Player_Spawn-01" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 900, 982 )
+
+[node name="MP-11-Player_Spawn-02" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 1243, 883 )
+
+[node name="MP-11-Player_Spawn-03" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 1243, 982 )
+
+[node name="MP-11-Player_Spawn-04" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 900, 882 )
+
+[node name="MP-11-Player_Spawn-05" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 900, 782 )
+
+[node name="MP-11-Player_Spawn-06" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 1240, 782 )
+
+[node name="MP-11-Player_Spawn-07" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 900, 681 )
+
+[node name="MP-11-Player_Spawn-08" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 901, 580 )
+
+[node name="MP-11-Player_Spawn-09" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 1240, 580 )
+
+[node name="MP-11-Player_Spawn-10" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 1240, 681 )
+
+[node name="Map_parts" type="Node2D" parent="." groups=[
+"map_part",
+]]
+
+[node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 4 )]
+
+[node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 3 )]
+position = Vector2( 1016.51, 1127.47 )
+
+[node name="MP-25-Activate_Area" parent="Map_parts" instance=ExtResource( 6 )]
+position = Vector2( 708.886, 724.388 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map_parts/MP-25-Activate_Area"]
+position = Vector2( 385.367, 94.7624 )
+shape = SubResource( 1 )
+
+[node name="BadGuys" type="Node2D" parent="."]

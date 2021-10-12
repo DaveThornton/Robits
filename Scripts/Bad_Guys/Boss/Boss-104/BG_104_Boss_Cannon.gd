@@ -59,7 +59,7 @@ func explode():
 	dead = true
 	var e = boom.instance()
 	Map_Hand.add_kid_to_map(e)
-	e.init(9, self.global_position,"cannons destruct system", 0, 0)
+	e.init(9, self.global_rposition,"cannons destruct system", 0, 0)
 	self.visible = false
 	anim_hit.play("Dead")
 	emit_signal("cannon_death",cannon_num)

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/FX/FX-43-Furness_fire.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/FX/FX-43-Furness.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 15, 71 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 15, 0, 15, 71 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 30, 0, 15, 71 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 9.0
+} ]
+
+[node name="FX-43-Furness" type="Node2D"]
+
+[node name="Furness" type="Sprite" parent="."]
+position = Vector2( 0, -100 )
+texture = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Furness"]
+position = Vector2( -29, 8 )
+frames = SubResource( 4 )
+frame = 2
+playing = true
+
+[node name="Pipes" type="Node2D" parent="."]

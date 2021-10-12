@@ -192,7 +192,7 @@ tracks/14/keys = {
 extents = Vector2( 150, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 150, 5 )
+extents = Vector2( 150, 11.1078 )
 
 [node name="MP-33-Belt-15-00" type="Node2D"]
 script = ExtResource( 1 )
@@ -200,105 +200,105 @@ script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -140, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 1
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( -40, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 5
 
 [node name="Sprite4" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 5
 
 [node name="Sprite5" type="Sprite" parent="."]
 position = Vector2( -120, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 5
 
 [node name="Sprite6" type="Sprite" parent="."]
 position = Vector2( -80, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 5
 
 [node name="Sprite11" type="Sprite" parent="."]
 position = Vector2( 40, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 5
 
 [node name="Sprite13" type="Sprite" parent="."]
 position = Vector2( 80, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 5
 
 [node name="Sprite15" type="Sprite" parent="."]
 position = Vector2( 120, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 5
 
 [node name="Sprite7" type="Sprite" parent="."]
 position = Vector2( -20, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 9
 
 [node name="Sprite14" type="Sprite" parent="."]
 position = Vector2( 100, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 9
 
 [node name="Sprite12" type="Sprite" parent="."]
 position = Vector2( 60, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 9
 
 [node name="Sprite8" type="Sprite" parent="."]
 position = Vector2( -100, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 9
 
 [node name="Sprite9" type="Sprite" parent="."]
 position = Vector2( -60, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 9
 
 [node name="Sprite10" type="Sprite" parent="."]
 position = Vector2( 20, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 9
 
 [node name="Sprite3" type="Sprite" parent="."]
 position = Vector2( 140, 0 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 13
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -314,9 +314,8 @@ collision_mask = 24
 shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 position = Vector2( 0, -15 )
-space_override = 3
+space_override = 2
 gravity_point = true
 gravity_vec = Vector2( 1, 1 )
 linear_damp = 10.0
@@ -325,12 +324,14 @@ collision_layer = 917504
 collision_mask = 917506
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -6 )
 shape = SubResource( 3 )
 
 [node name="Position2D-Left" type="Position2D" parent="."]
-position = Vector2( -170, 0 )
+position = Vector2( -200, 0 )
 
 [node name="Position2D-Right" type="Position2D" parent="."]
-position = Vector2( 170, 0 )
+position = Vector2( 200, 0 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
