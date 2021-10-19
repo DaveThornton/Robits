@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/Bad_Guys/Parts/BG-09/Window_01_Frames.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Bad_Guys/Parts/BG-09/Window_01_Back.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Bad_Guys/Parts/BG-09/Window_01_Glass.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Map_Parts/MP-71-Window.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 21.0238
+
+[sub_resource type="Animation" id=2]
+resource_name = "Broken"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Window_01_Glass:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 7 ]
+}
+
+[node name="MP-71-Window" type="Area2D" groups=[
+"hittable",
+]]
+collision_layer = 2560
+collision_mask = 2560
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Window_01_Back" type="Sprite" parent="."]
+modulate = Color( 0.360784, 0.105882, 0.105882, 1 )
+scale = Vector2( 0.75, 1 )
+texture = ExtResource( 2 )
+
+[node name="Window_01_Glass" type="Sprite" parent="."]
+self_modulate = Color( 0.580392, 0.803922, 1, 1 )
+scale = Vector2( 0.75, 1 )
+texture = ExtResource( 3 )
+hframes = 8
+
+[node name="Window_01_Frames" type="Sprite" parent="."]
+modulate = Color( 0.823529, 0.823529, 0.823529, 1 )
+scale = Vector2( 0.75, 1 )
+texture = ExtResource( 1 )
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Broken = SubResource( 2 )

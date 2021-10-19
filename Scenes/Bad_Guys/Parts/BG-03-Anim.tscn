@@ -902,7 +902,7 @@ tracks/4/keys = {
 "values": [ -90.0 ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=15]
 resource_name = "Prone"
 length = 0.1
 tracks/0/type = "value"
@@ -966,7 +966,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=16]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -1030,7 +1030,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=17]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Body:frame")
@@ -1093,7 +1093,7 @@ tracks/4/keys = {
 "values": [ 30.0 ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=18]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -1157,7 +1157,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=19]
 length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Body:frame")
@@ -1220,7 +1220,7 @@ tracks/4/keys = {
 "values": [ -30.0 ]
 }
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=20]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Body:frame")
@@ -1283,7 +1283,7 @@ tracks/4/keys = {
 "values": [ 90.0 ]
 }
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=21]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Body:frame")
@@ -1346,7 +1346,7 @@ tracks/4/keys = {
 "values": [ 45.0 ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=22]
 length = 0.1
 loop = true
 step = 0.05
@@ -1423,7 +1423,7 @@ tracks/5/keys = {
 "values": [ 0.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=23]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Body:frame")
@@ -1486,7 +1486,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=24]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Body:frame")
@@ -1549,7 +1549,7 @@ tracks/4/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="Animation" id=25]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Body:frame")
@@ -1612,7 +1612,7 @@ tracks/4/keys = {
 "values": [ -90.0 ]
 }
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=26]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Body:frame")
@@ -1720,18 +1720,18 @@ script = ExtResource( 4 )
 
 [node name="Sprite_Body" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-vframes = 4
 hframes = 20
+vframes = 4
 
 [node name="Sprite_Gun" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-vframes = 4
 hframes = 20
+vframes = 4
 
 [node name="Sprite_Accent" type="Sprite" parent="."]
 texture = ExtResource( 3 )
-vframes = 4
 hframes = 20
+vframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crawl = SubResource( 1 )
@@ -1748,18 +1748,18 @@ anims/Jump-Side = SubResource( 11 )
 anims/Jump-Up = SubResource( 12 )
 anims/Jump-Up-Side = SubResource( 13 )
 anims/Ladder = SubResource( 14 )
-anims/Prone = SubResource( 28 )
-anims/Roll = SubResource( 29 )
-anims/Run-Down = SubResource( 30 )
-anims/Run-Mid = SubResource( 31 )
-anims/Run-Up = SubResource( 32 )
-anims/Shoot-Down = SubResource( 33 )
-anims/Shoot-Down-Side = SubResource( 34 )
-anims/Shoot-Side = SubResource( 35 )
-anims/Shoot-Side-Crawl = SubResource( 36 )
-anims/Shoot-Side-Knee = SubResource( 37 )
-anims/Shoot-Up = SubResource( 38 )
-anims/Shoot-Up-Side = SubResource( 39 )
+anims/Prone = SubResource( 15 )
+anims/Roll = SubResource( 16 )
+anims/Run-Down = SubResource( 17 )
+anims/Run-Mid = SubResource( 18 )
+anims/Run-Up = SubResource( 19 )
+anims/Shoot-Down = SubResource( 20 )
+anims/Shoot-Down-Side = SubResource( 21 )
+anims/Shoot-Side = SubResource( 22 )
+anims/Shoot-Side-Crawl = SubResource( 23 )
+anims/Shoot-Side-Knee = SubResource( 24 )
+anims/Shoot-Up = SubResource( 25 )
+anims/Shoot-Up-Side = SubResource( 26 )
 
 [node name="Sprite_Shoot" type="Sprite" parent="."]
 position = Vector2( 28, -1 )

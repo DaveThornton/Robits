@@ -26,17 +26,21 @@ func _ready():
 	var map_connected = map.connect("activate", self, "activate")
 	if !map_connected:
 		print("error in mp 52 not connecting to map")
+	shape.disabled = true
 
 func activate(_num, _player):
 	if activation_num == _num:
 		if !activated:
 			activated = true
-			shape.disabled = false
+			call_deferred("set_shape_disabled",false)
+			# shape.disabled = false
 			if delayed_start:
 				timer.start()
 			else:
 				anim.play("Spawn")
 
+func set_shape_disabled(_disabled):
+	shape.disabled = _disabled
 #func _process(delta):
 #	pass
 
@@ -46,7 +50,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		health -= (_damage - armor)
 		if health <= 0:
 			print("mp 52 dead")
-			shape.disabled = true
+			call_deferred("set_shape_disabled",true)
 			call_deferred("_explode")
 			anim.play("Broke")
 			timer.stop()
@@ -63,6 +67,7 @@ func spawn():
 		Map_Hand.add_kid_to_map(cbg)
 		cbg.right = right
 		cbg.global_position = spawn_spot.global_position
+
 
 func set_can_spawn(_can):
 	can_spawn = _can

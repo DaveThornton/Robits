@@ -75,7 +75,6 @@ cell_size = Vector2( 20, 20 )
 format = 1
 
 [node name="MP-04-Nav2D" parent="." instance=ExtResource( 7 )]
-editor/display_folded = true
 
 [node name="TileMap" type="TileMap" parent="MP-04-Nav2D"]
 tile_set = ExtResource( 8 )
@@ -83,7 +82,6 @@ cell_size = Vector2( 1, 1 )
 format = 1
 
 [node name="Player_spawns" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Position2D20" type="Position2D" parent="Player_spawns"]
 position = Vector2( 80, 310 )
@@ -114,7 +112,6 @@ position = Vector2( 100, 350 )
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
-editor/display_folded = true
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 9 )]
 
@@ -150,7 +147,6 @@ how_far = 680
 delay_start = true
 
 [node name="Spikes" type="Node2D" parent="Map_parts"]
-editor/display_folded = true
 
 [node name="MP-13-Spike_Block" parent="Map_parts/Spikes" instance=ExtResource( 12 )]
 position = Vector2( 740, 410 )
@@ -222,7 +218,6 @@ position = Vector2( 570, 249 )
 position = Vector2( 770, 410 )
 
 [node name="BadGuys" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="BG-23-Turret-Ground4" parent="BadGuys" instance=ExtResource( 13 )]
 position = Vector2( 480, 1050 )

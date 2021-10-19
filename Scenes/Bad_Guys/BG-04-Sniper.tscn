@@ -162,4 +162,5 @@ position = Vector2( -20, -11 )
 rotation = 2.35619
 
 [node name="Timer_Shoot" type="Timer" parent="."]
+
 [connection signal="timeout" from="Timer_Shoot" to="." method="_on_Timer_Shoot_timeout"]
