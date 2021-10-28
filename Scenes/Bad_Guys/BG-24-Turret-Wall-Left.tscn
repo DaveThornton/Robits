@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Bad_Guys/BG-22-Turret-Ceiling.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Bad_Guys/BG-20-Turret-Ground.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -52,14 +51,13 @@ rotation = -1.5708
 collision_mask = 131594
 script = ExtResource( 1 )
 projectile = ExtResource( 2 )
-explode = ExtResource( 3 )
 
 [node name="Sprite-Base" type="Sprite" parent="."]
 position = Vector2( 0, 4 )
 rotation = 3.14159
 texture = ExtResource( 4 )
-vframes = 4
 hframes = 10
+vframes = 4
 frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -75,8 +73,8 @@ rotation = 1.5708
 position = Vector2( 0, -3.5 )
 rotation = 3.14159
 texture = ExtResource( 4 )
-vframes = 4
 hframes = 10
+vframes = 4
 
 [node name="RayCast2D" type="RayCast2D" parent="Gun_Arm"]
 enabled = true
@@ -134,6 +132,7 @@ anims/Shoot = SubResource( 3 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 anims/Hit = SubResource( 4 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="Timer_Shoot" to="." method="_on_Timer_Shoot_timeout"]

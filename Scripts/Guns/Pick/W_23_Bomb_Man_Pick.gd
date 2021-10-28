@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export(PackedScene) var boom
+# export(PackedScene) var boom
 export(PackedScene) var smoke
 
 onready var timer = $Timer
@@ -63,10 +63,11 @@ func _on_TimerBoom_timeout():
 	fade_out()
 
 func fade_out():
-	var b = boom.instance()
-	Map_Hand.add_kid_to_map(b)
-	b.position = self.global_position
-	b.init(player, self.global_position, my_name, 0, damage)
+	FX.explode(25, player, self.global_position, my_name, 0, damage)
+	# var b = boom.instance()
+	# Map_Hand.add_kid_to_map(b)
+	# b.position = self.global_position
+	# b.init(player, self.global_position, my_name, 0, damage)
 	call_deferred("free")
 
 func _on_Timer_timeout():

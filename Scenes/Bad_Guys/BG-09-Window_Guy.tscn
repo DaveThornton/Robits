@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Sprites/Bad_Guys/Parts/BG-09/Window_01_BG.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Bad_Guys/Parts/BG-09/Window_01_Frames.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Sprites/Bad_Guys/Parts/BG-09/Window_01_Glass.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Bad_Guys/BG-09-Window_Guy.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-04-Sniper-Laser.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Explosions/Ex-09-BG-OG_Window.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Bad_Guys/Parts/BG-09/Window_01_BG_Top.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Bad_Guys/Parts/BG-09/Window_01_BG_Gun.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Bad_Guys/Parts/BG-09/Window_01_BG_2.png" type="Texture" id=10]
@@ -1082,7 +1081,6 @@ collision_layer = 2048
 collision_mask = 2048
 script = ExtResource( 5 )
 projectile = ExtResource( 6 )
-explode = ExtResource( 7 )
 body_color = Color( 0, 0.694118, 1, 1 )
 gun_color = Color( 1, 0.788235, 0.788235, 1 )
 accent_color = Color( 0, 0.235294, 0.603922, 1 )

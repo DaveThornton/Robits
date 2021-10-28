@@ -93,14 +93,15 @@ func fire_projectile():
 		new_projectile.start( _sr , _ss, _sss, player, damage)
 		new_projectile.apply_impulse(pos_shoot.position, (pos_shoot.global_position - pawn.arm.global_position) * Vector2(power,power))
 	else:
-		var _thing = shoot_cast.get_collider()
-		if _thing.get_groups().has("hittable"):
-			_thing.hit(player, my_name, dmg_type, damage)
-			print("gun 42 shot happened but no projectile spawned hit anyways")
-		elif _thing.get_groups().has("map"):
-			print("gun 42 hitting wall not fireing projectile", _thing)
-		else:
-			print("gun 42 dont know what im hitting but no projectile spawned")
+		FX.explode(40, player, shoot_cast.get_collision_point(), my_name, 0, damage)
+		# var _thing = shoot_cast.get_collider()
+		# if _thing.get_groups().has("hittable"):
+		# 	_thing.hit(player, my_name, dmg_type, damage)
+		# 	print("gun 42 shot happened but no projectile spawned hit anyways")
+		# elif _thing.get_groups().has("map"):
+		# 	print("gun 42 hitting wall not fireing projectile", _thing)
+		# else:
+		# 	print("gun 42 dont know what im hitting but no projectile spawned")
 	can_shoot = false
 	ammo = clamp(ammo - 1, 0, ammo_max)
 #			sprite_gun.frame = 1

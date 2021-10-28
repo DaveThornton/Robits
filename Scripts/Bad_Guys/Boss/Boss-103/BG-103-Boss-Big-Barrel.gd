@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export(PackedScene) var projectile
-export(PackedScene) var explode
+# export(PackedScene) var explode
 
 onready var shoot_spot = $Position2D
 onready var shoot_timer = $Timer
@@ -40,16 +40,20 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		health -= (_damage - armor)
 		if health <= 0:
 			emit_signal("dead_cannon")
-			print("BG-103-Dead")
-			call_deferred("_explode")
-
-func _explode():
-	dead = true
-	var e = explode.instance()
-	shape.disabled = true
-	Map_Hand.add_kid_to_map(e)
-	e.init(0, self.position, str("player ", e, "'s destruct system"), 0, 0)
-	anim_hit.play("Dead")
+			# print("BG-103-Dead")
+			FX.explode(2, -1, self.position, str(self, "'s destruct system"), 0, 0)
+# 	anim_hit.play("Dead")
+			# explode()
+			dead = true
+			shape.disabled = true
+			anim_hit.play("Dead")
+# func explode():
+# 	dead = true
+# 	# var e = explode.instance()
+# 	shape.disabled = true
+# 	# Map_Hand.add_kid_to_map(e)
+# 	# e.init(0, self.position, str("player ", e, "'s destruct system"), 0, 0)
+# 	anim_hit.play("Dead")
 
 func _on_Timer_timeout():
 	can_shoot = true

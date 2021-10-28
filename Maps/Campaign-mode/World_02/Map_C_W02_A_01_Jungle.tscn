@@ -34,6 +34,7 @@ __meta__ = {
 }
 camera_move = true
 background = 2
+set_equip_weap_on = true
 
 [node name="TileMap-Backround" type="TileMap" parent="."]
 z_index = -10

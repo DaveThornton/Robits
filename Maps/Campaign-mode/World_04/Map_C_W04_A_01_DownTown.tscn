@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Maps/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Scenes/Bad_Guys/BG-09-Window_Guy.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Map_Parts/MP-71-Window.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Map_Parts/MP-52-Door-BG-Spawner_Wood.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Map_Parts/MP-73-Truck.tscn" type="PackedScene" id=18]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 30.0984
@@ -251,6 +252,51 @@ position = Vector2( 510, 900 )
 [node name="MP-11-Player_Spawn-10" parent="Player_Spawns" instance=ExtResource( 5 )]
 position = Vector2( 460, 900 )
 
+[node name="MP-11-Player_Spawn-11" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 1470, 895 )
+
+[node name="MP-11-Player_Spawn-12" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 2190, 714 )
+
+[node name="MP-11-Player_Spawn-13" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 2390, 905 )
+
+[node name="MP-11-Player_Spawn-14" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 2970, 610 )
+
+[node name="MP-11-Player_Spawn-15" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 3045, 890 )
+
+[node name="MP-11-Player_Spawn-16" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 3140, 617 )
+
+[node name="MP-11-Player_Spawn-17" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 3490, 890 )
+
+[node name="MP-11-Player_Spawn-18" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 3510, 470 )
+
+[node name="MP-11-Player_Spawn-19" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 4140, 635 )
+
+[node name="MP-11-Player_Spawn-20" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 4499, 630 )
+
+[node name="MP-11-Player_Spawn-21" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 4250, 890 )
+
+[node name="MP-11-Player_Spawn-22" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 4790, 450 )
+
+[node name="MP-11-Player_Spawn-23" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 5200, 460 )
+
+[node name="MP-11-Player_Spawn-24" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 4790, 887 )
+
+[node name="MP-11-Player_Spawn-25" parent="Player_Spawns" instance=ExtResource( 5 )]
+position = Vector2( 5210, 885 )
+
 [node name="Map_parts" type="Node2D" parent="." groups=[
 "map_part",
 ]]
@@ -261,7 +307,7 @@ position = Vector2( 1016.51, 1127.47 )
 [node name="MP-25-Activate_Area" parent="Map_parts" instance=ExtResource( 6 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map_parts/MP-25-Activate_Area"]
-position = Vector2( 670, 480 )
+position = Vector2( 670, 450 )
 shape = SubResource( 1 )
 
 [node name="MP-25-Activate_Area2" parent="Map_parts" instance=ExtResource( 6 )]
@@ -269,7 +315,7 @@ position = Vector2( 2960, -10 )
 activation_num = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map_parts/MP-25-Activate_Area2"]
-position = Vector2( 370, 500 )
+position = Vector2( 350, 470 )
 shape = SubResource( 1 )
 
 [node name="MP-70-Bridge_01" parent="Map_parts" instance=ExtResource( 4 )]
@@ -343,11 +389,20 @@ position = Vector2( 5675, 847 )
 [node name="MP-71-Window18" parent="Map_parts/Windows" instance=ExtResource( 16 )]
 position = Vector2( 6190, 847 )
 
+[node name="MP-71-Window25" parent="Map_parts/Windows" instance=ExtResource( 16 )]
+position = Vector2( 7601, 644 )
+
+[node name="MP-71-Window26" parent="Map_parts/Windows" instance=ExtResource( 16 )]
+position = Vector2( 8000, 644 )
+
+[node name="MP-71-Window27" parent="Map_parts/Windows" instance=ExtResource( 16 )]
+position = Vector2( 7840, 850 )
+
 [node name="MP-71-Window23" parent="Map_parts/Windows" instance=ExtResource( 16 )]
 position = Vector2( 5675, 790 )
 
 [node name="MP-71-Window17" parent="Map_parts/Windows" instance=ExtResource( 16 )]
-position = Vector2( 5810, 847 )
+position = Vector2( 5780, 850 )
 
 [node name="BadGuys" type="Node2D" parent="."]
 z_index = -9
@@ -395,7 +450,15 @@ position = Vector2( 4480, 720 )
 activation_number = 1
 
 [node name="BG-09-Window_Guy12" parent="BadGuys" instance=ExtResource( 15 )]
-position = Vector2( 6150, 685 )
+position = Vector2( 8000, 850 )
+activation_number = 1
+
+[node name="BG-09-Window_Guy14" parent="BadGuys" instance=ExtResource( 15 )]
+position = Vector2( 7601, 850 )
+activation_number = 1
+
+[node name="BG-09-Window_Guy15" parent="BadGuys" instance=ExtResource( 15 )]
+position = Vector2( 7840, 644 )
 activation_number = 1
 
 [node name="BG-09-Window_Guy13" parent="BadGuys" instance=ExtResource( 15 )]
@@ -406,3 +469,26 @@ activation_number = 1
 position = Vector2( 884.672, 920 )
 delayed_start = false
 delay = 10.0
+
+[node name="MP-52-BG-3-Spawner_Wood2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 6690, 918 )
+delayed_start = false
+delay = 10.0
+
+[node name="MP-52-BG-3-Spawner_Wood3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 6990, 920 )
+delayed_start = false
+delay = 10.0
+
+[node name="MP-52-BG-3-Spawner_Wood4" parent="." instance=ExtResource( 17 )]
+position = Vector2( 7720, 918 )
+delayed_start = false
+delay = 10.0
+
+[node name="MP-52-BG-3-Spawner_Wood5" parent="." instance=ExtResource( 17 )]
+position = Vector2( 5840, 914.997 )
+delayed_start = false
+delay = 10.0
+
+[node name="MP-73-Truck" parent="." instance=ExtResource( 18 )]
+position = Vector2( 8400, 920 )

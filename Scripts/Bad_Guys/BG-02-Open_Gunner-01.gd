@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export(PackedScene) var projectile
-export(PackedScene) var explode
+# export(PackedScene) var explode
 export var armor = 0
 export var active = true
 export var active_number = 1
@@ -306,14 +306,15 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	if health <= 0:
 		print("Open Gunner dead")
-		call_deferred("_explode")
+		FX.explode(-7, 1, self.position, "Open Gunner #2 Self Destruct System", 0, 0)
+		# call_deferred("_explode")
 		call_deferred("free")
 
-func _explode():
-	var e = explode.instance()
-	Map_Hand.add_kid_to_map(e)
-#	get_tree().get_current_scene().map.add_child(x)
-	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
+# func _explode():
+# 	var e = explode.instance()
+# 	Map_Hand.add_kid_to_map(e)
+# #	get_tree().get_current_scene().map.add_child(x)
+# 	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
 
 func _on_floor():
 	on_floor = cast_down.is_colliding()

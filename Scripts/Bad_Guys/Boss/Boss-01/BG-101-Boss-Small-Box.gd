@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 export(PackedScene) var projectile
-export(PackedScene) var explode
+# export(PackedScene) var explode
 export var light_color = Color8(255, 255, 255, 255)
 export var hit_color = Color8(255, 255, 255, 255)
 export var speed = 6500
@@ -77,7 +77,8 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			health -= (_damage - armor)
 			if health <= 0:
 #				print("small box in bg 101 boss killed")
-				call_deferred("_explode")
+				# call_deferred("_explode")
+				FX.explode(2, -1, self.position, str(2, self, "'s destruct system"), 0, 0)
 				broken()
 #				call_deferred("free")
 
@@ -87,10 +88,10 @@ func broken():
 	dead = true
 	anim.play("Broken")
 
-func _explode():
-	var e = explode.instance()
-	Map_Hand.add_kid_to_map(e)
-	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
+# func _explode():
+# 	var e = explode.instance()
+# 	Map_Hand.add_kid_to_map(e)
+# 	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

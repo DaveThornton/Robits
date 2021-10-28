@@ -1,0 +1,42 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Scripts/Misc/Parts/Explosions.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Explosions/Ex-18-Cricket.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Explosions/Ex-19-Rail_Gun.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Explosions/Ex-07-BG-OG.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Explosions/Ex-11-FX-Small-20x20.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Explosions/Ex-10-Directional-Basic.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Explosions/Ex-05-Bomb_Man.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Explosions/Ex-03-Pawn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Explosions/Ex-04-Directional.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Explosions/Ex-09-BG-OG_Window.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Explosions/Ex-56-BFG-Sec.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Explosions/Ex-56-BFG-Pri.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Explosions/Ex-55-Blast_Door.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Explosions/Ex-103-BG.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Explosions/Ex-40-RPG.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Explosions/Ex-104-BG-Cannon.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Explosions/Ex-24-Directional-TNT.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Explosions/Ex-25-Directional-Time_Bomb.tscn" type="PackedScene" id=19]
+
+[node name="Explosions" type="Node2D"]
+script = ExtResource( 1 )
+ex002 = ExtResource( 6 )
+ex003 = ExtResource( 9 )
+ex004 = ExtResource( 10 )
+ex005 = ExtResource( 8 )
+ex007 = ExtResource( 4 )
+ex009 = ExtResource( 11 )
+ex010 = ExtResource( 7 )
+ex011 = ExtResource( 5 )
+ex018 = ExtResource( 2 )
+ex019 = ExtResource( 3 )
+ex024 = ExtResource( 18 )
+ex025 = ExtResource( 19 )
+ex040 = ExtResource( 16 )
+ex055 = ExtResource( 14 )
+ex056_1 = ExtResource( 13 )
+ex056_2 = ExtResource( 12 )
+ex103 = ExtResource( 15 )
+ex104 = ExtResource( 17 )

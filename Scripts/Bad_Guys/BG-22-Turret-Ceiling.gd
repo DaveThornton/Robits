@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 export(PackedScene) var projectile
-export(PackedScene) var explode
+# export(PackedScene) var explode
 export var armor = 0
 export var far_disabled = false
 export var area_1_disabled = false
@@ -92,13 +92,14 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	anim2.play("Hit")
 	if health <= 0:
 		print("BG-20-Turrent-Ground dead")
-		call_deferred("_explode")
+		FX.explode(2,player, self.position, str("player ", self, "'s destruct system"), player, ex_dmg)
+		# call_deferred("_explode")
 		call_deferred("free")
 
-func _explode():
-	var x = explode.instance()
-	Map_Hand.add_kid_to_map(x)
-	x.init(player, self.position, str("player ", x, "'s destruct system"), player, ex_dmg)
+# func _explode():
+# 	var x = explode.instance()
+# 	Map_Hand.add_kid_to_map(x)
+# 	x.init(player, self.position, str("player ", x, "'s destruct system"), player, ex_dmg)
 
 func sort_distance(_a, _b):
 	if (abs(_a.global_position.x - self.global_position.x) + abs(_a.global_position.y - self.global_position.y)) < (abs(_b.global_position.x - self.global_position.x) + abs(_b.global_position.y - self.global_position.y)):

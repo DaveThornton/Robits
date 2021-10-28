@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var r_timer = $"Respawn-Timer"
-export(PackedScene) var boom
+# export(PackedScene) var boom
 var spawn_spot
 var my_pawn
 var player = 1
@@ -147,14 +147,9 @@ func _init_pawn():
 	my_pawn.init(player, Map_Hand.spawn_pos(), Game.start_eq, play_type)
 
 func explode_pawn(_player, _pos, _by_who, _by_what):
-	call_deferred("_explode_pawn",_player, _pos, _by_who, _by_what)
-
-func _explode_pawn(_player, _pos, _by_who, _by_what):
+	FX.explode(3, player, _pos, str("player ", player, "'s destruct system"), Player_Stats.get_pawn_num(player), 2)
 	alive = false
-	var x = boom.instance()
-	add_child(x)
 	my_pawn.call_deferred("free")
-	x.init(_player, _pos, str("player ", player, "'s destruct system"), Player_Stats.get_pawn_num(player), 2)
 	if !Game.over:
 		Player_Stats.add_kill(player, _by_who , 1, _by_what)
 		if Game.mode != 0:

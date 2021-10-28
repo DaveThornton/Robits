@@ -1,6 +1,6 @@
 extends Node2D
 
-export(PackedScene) var boom
+# export(PackedScene) var boom
 
 onready var timer = $Timer
 onready var part = $CPUParticles2D
@@ -20,10 +20,11 @@ func start(_time):
 	part.visible = true
 
 func _on_Timer_timeout():
-	print(global_position)
-	var b = boom.instance()
-	Map_Hand.add_kid_to_map(b)
-	b.init(player, self.global_position, my_name, 0, damage)
+	# print(global_position)
+	FX.explode(40, player, self.global_position, my_name, 0, damage)
+	# var b = boom.instance()
+	# Map_Hand.add_kid_to_map(b)
+	# b.init(player, self.global_position, my_name, 0, damage)
 	if get_parent().has_method("booming"):
 		get_parent().booming()
 	call_deferred("free")

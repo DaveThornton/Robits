@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export(PackedScene) var boom
+# export(PackedScene) var boom
 
 export var health = 100
 export var points = 20
@@ -24,12 +24,13 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			Player_Stats.add_score(_by_who, points)
 			# anim_hit.play("Dead")
 			emit_signal("dead_hit_spot")
-			call_deferred("explode")
+			FX.explode(103, -1, self.position, str(self, "'s self destruction system BG_104 but calling 103?"), 0, 0)
+			# call_deferred("explode")
 
-func explode():
-	dead = true
-	var e = boom.instance()
-	Map_Hand.add_kid_to_map(e)
-	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
-	self.visible = false
-	anim_hit.play("Dead")
+# func explode():
+# 	dead = true
+# 	var e = boom.instance()
+# 	Map_Hand.add_kid_to_map(e)
+# 	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
+# 	self.visible = false
+# 	anim_hit.play("Dead")

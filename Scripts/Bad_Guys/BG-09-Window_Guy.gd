@@ -1,6 +1,6 @@
 extends StaticBody2D
 export(PackedScene) var projectile
-export(PackedScene) var explode
+# export(PackedScene) var explode
 export var activation_number = 0
 export var activated = false
 export var damage = 20
@@ -165,14 +165,15 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		shoot = false
 		call_deferred("set_shape_disabled",true)
 		dead = true
-		call_deferred("_explode")
+		FX.explode(9, player, self.global_position, "BG 09 Self Destruction", player, 0)
+		# call_deferred("_explode")
 		# call_deferred("free")
 
-func _explode():
-	var x = explode.instance()
-	Map_Hand.add_kid_to_map(x)
-	x.init(player, self.global_position, str("player ", x, "'s destruct system"), player, 0)
-	death()
+# func _explode():
+# 	var x = explode.instance()
+# 	Map_Hand.add_kid_to_map(x)
+# 	x.init(player, self.global_position, str("player ", x, "'s destruct system"), player, 0)
+# 	death()
 
 func set_shape_disabled(_disabled):
 	c_shape.disabled = _disabled

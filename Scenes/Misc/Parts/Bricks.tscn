@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Misc/Parts/Bricks.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/FX/FX-10-Brick-04.tscn" type="PackedScene" id=2]
+
+[node name="Bricks" type="Node2D"]
+script = ExtResource( 1 )
+four_bricks = ExtResource( 2 )
+color_1_red = Color( 0.6, 0.305882, 0, 1 )
+color_2_blue = Color( 0, 0.486275, 0.552941, 1 )
+color_3_yellow = Color( 0.615686, 0.635294, 0, 1 )
+color_4_green = Color( 0, 0.372549, 0.0235294, 1 )

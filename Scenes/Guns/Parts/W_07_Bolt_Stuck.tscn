@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/Projectiles/W_07_CrossBow_Arrow.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Parts/W_07_Bolt_Stuck.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Explosions/Ex-10-Directional-Basic.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Blink"
@@ -23,7 +22,6 @@ tracks/0/keys = {
 
 [node name="W_07_Bolt_Stuck" type="Node2D"]
 script = ExtResource( 2 )
-boom = ExtResource( 3 )
 
 [node name="Bolt" type="Sprite" parent="."]
 position = Vector2( -14, 2 )
@@ -34,4 +32,5 @@ hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Blink = SubResource( 1 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

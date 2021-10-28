@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_25_Time_Bomb_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Explosions/Ex-25-Directional-Time_Bomb.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/W_25_Time_Bomb.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=7]
@@ -26,7 +25,6 @@ contacts_reported = 12
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
-boom = ExtResource( 2 )
 smoke = ExtResource( 3 )
 
 [node name="Sprite_Body" type="Sprite" parent="."]

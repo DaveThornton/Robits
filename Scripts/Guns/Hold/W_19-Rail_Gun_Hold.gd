@@ -1,7 +1,7 @@
 extends Node2D
 
 export(PackedScene) var rail_pickup
-export(PackedScene) var projectile
+# export(PackedScene) var projectile
 
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
@@ -56,7 +56,7 @@ func _physics_process(delta):
 		beam_end.global_position = shoot_cast.get_collision_point()
 	else: 
 		beam_end.global_position = shoot_cast.cast_to
-	beam.region_rect.end.x = beam_end.position.length() * 4
+	beam.region_rect.end.x = beam_end.position.length()
 	if shoot_pressed && can_shoot:
 		shoot_pressed_time += delta
 	if can_shoot && !beam.visible:
@@ -76,9 +76,10 @@ func shoot():
 				if !shoot_cast.is_colliding():
 					print("shoot cast not colliding why gun 19")
 				else: 
-					var e = projectile.instance()
-					Map_Hand.add_kid_to_map(e)
-					e.init(player, shoot_cast.get_collision_point(), my_name, pawn, damage)
+					FX.explode(19, player, shoot_cast.get_collision_point(), my_name, pawn, damage)
+					# var e = projectile.instance()
+					# Map_Hand.add_kid_to_map(e)
+					# e.init(player, shoot_cast.get_collision_point(), my_name, pawn, damage)
 				anim_fire.play("Shoot")
 				ammo = clamp(ammo - 1, 0, ammo_max)
 				emit_signal("ammo_change",player,ammo)

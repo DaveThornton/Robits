@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/Bad_Guys/Boss/BG-101-Boss/BG-101-Boss-Small-Box-Light.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Bad_Guys/Boss/BG-101-Boss/BG-101-Boss-Small-Box-Back.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Bad_Guys/Boss/Boss-01/BG-101-Boss-Small-Box.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -167,7 +166,6 @@ collision_layer = 2048
 collision_mask = 3590
 script = ExtResource( 3 )
 projectile = ExtResource( 6 )
-explode = ExtResource( 5 )
 light_color = Color( 1, 0, 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -207,5 +205,6 @@ rotation = 0.785398
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.4
 one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

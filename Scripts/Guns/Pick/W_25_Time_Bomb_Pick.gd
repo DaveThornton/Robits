@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export(PackedScene) var boom
+# export(PackedScene) var boom
 export(PackedScene) var smoke
 export var expire_time = 30.0
 export var armed = false
@@ -49,9 +49,10 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		timer.start()
 
 func _on_Timer_Boom_timeout():
-	var b = boom.instance()
-	Map_Hand.add_kid_to_map(b)
-	b.init(player, self.global_position, my_name, 0, damage)
+	FX.explode(25, player, self.global_position, my_name, 0, damage)
+	# var b = boom.instance()
+	# Map_Hand.add_kid_to_map(b)
+	# b.init(player, self.global_position, my_name, 0, damage)
 	call_deferred("free")
 
 func _on_WeapPick20Grenade_body_exited(body):

@@ -2,7 +2,7 @@ extends Node2D
 
 export(PackedScene) var grenade_pickup
 export(PackedScene) var pin
-export(PackedScene) var boom
+# export(PackedScene) var boom
 
 onready var timer = $Timer
 onready var pos_throw = $POS_Gun/POS/Position2D
@@ -137,7 +137,8 @@ func go_boom():
 	var p = Controllers.get_pawn(player)
 	p.my_gun = null
 	p.is_holding = false
-	var b = boom.instance()
-	Map_Hand.add_kid_to_map(b)
-	b.init(player, self.global_position, my_name, 0, damage)
+	FX.explode(10, player, self.global_position, my_name, 0, damage)
+	# var b = boom.instance()
+	# Map_Hand.add_kid_to_map(b)
+	# b.init(player, self.global_position, my_name, 0, damage)
 	call_deferred("free")

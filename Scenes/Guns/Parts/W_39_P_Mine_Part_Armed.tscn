@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_39_P_Mine.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Parts/W_39_P_Mine_Part_Armed.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Flash"
@@ -37,7 +36,6 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
-boom = ExtResource( 3 )
 
 [node name="Mine" type="Sprite" parent="."]
 position = Vector2( 0, 3.5 )
@@ -74,6 +72,7 @@ autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Flash = SubResource( 1 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Timer_In" to="." method="_on_Timer_In_timeout"]
 [connection signal="timeout" from="Timer_Out" to="." method="_on_Timer_Out_timeout"]

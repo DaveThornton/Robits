@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/FX/FX-10-Red-Brick-08.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/FX/FX-10-Brick-01.tscn" type="PackedScene" id=2]
+
+[node name="FX-10-Brick_4" type="Node2D"]
+script = ExtResource( 1 )
+brick = ExtResource( 2 )
+
+[node name="spots" type="Node2D" parent="."]
+
+[node name="pos01" type="Position2D" parent="spots"]
+position = Vector2( -6, -7 )
+
+[node name="pos03" type="Position2D" parent="spots"]
+position = Vector2( 7, -7 )
+
+[node name="pos06" type="Position2D" parent="spots"]
+position = Vector2( -6, 6 )
+
+[node name="pos08" type="Position2D" parent="spots"]
+position = Vector2( 7, 6 )

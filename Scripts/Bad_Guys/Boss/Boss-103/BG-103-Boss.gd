@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export(PackedScene) var explode
+# export(PackedScene) var explode
 export(PackedScene) var debris_scene
 
 export var speed = 1500
@@ -80,9 +80,10 @@ func _dead_turret():
 		FX.add_kid(deb)
 		deb.init(tankbody.self_modulate, d, true, debris.get_child(d).global_position, Vector2(0,0))
 #		debris.get_child(d).init(tankbody.self_modulate, d, true, , _impulse)
-	var e = explode.instance()
-	Map_Hand.add_kid_to_map(e)
-	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
+	FX.explode(103, -1 , self.position, "Boss 103 Self Distruct", 0, 0)
+	# var e = explode.instance()
+	# Map_Hand.add_kid_to_map(e)
+	# e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
 #	print("dead turret BG 103,   BG-103-Dead")
 	call_deferred("free")
 

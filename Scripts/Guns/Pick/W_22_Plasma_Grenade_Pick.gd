@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export(PackedScene) var boom
+# export(PackedScene) var boom
 export(PackedScene) var smoke
 export var armed = false 
 

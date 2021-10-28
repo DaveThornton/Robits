@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export(PackedScene) var boom
+# export(PackedScene) var boom
 onready var timer = $Timer
 onready var parts = $CPUParticles2D
 var speed = 800
@@ -28,9 +28,7 @@ func _on_Timer_timeout():
 	entered()
 
 func _explode(_pos):
-	var x = boom.instance()
-	get_tree().get_current_scene().add_child(x)
-	x.init(owned, _pos, my_name , 0, damage)
+	FX.explode(10, owned, _pos, "G_Launcher", 0, damage)
 	remove_child(parts)
 	Map_Hand.add_kid_to_map(parts)
 	parts.time_out()

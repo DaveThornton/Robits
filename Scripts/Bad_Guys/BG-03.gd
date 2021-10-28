@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export(PackedScene) var projectile
-export(PackedScene) var explode
+# export(PackedScene) var explode
 export var right = true
 export var idle = true
 export var just_stand = false
@@ -174,7 +174,8 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	if health <= 0:
 		Player_Stats.add_score(_by_who, points)
 		print("Open Gunner dead BG-03")
-		call_deferred("_explode")
+		FX.explode(7, -1, self.position, "BG 03 Self Distruction", 0, 0)
+		# call_deferred("_explode")
 		call_deferred("free")
 
 func _on_edge():
@@ -185,10 +186,10 @@ func _on_edge():
 		if !ray_edge_left.is_colliding():
 			right = true
 
-func _explode():
-	var e = explode.instance()
-	Map_Hand.add_kid_to_map(e)
-	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
+# func _explode():
+# 	var e = explode.instance()
+# 	Map_Hand.add_kid_to_map(e)
+# 	e.init(-1, self.position, str("player ", e, "'s destruct system"), 0, 0)
 
 func stop():
 	idle = true

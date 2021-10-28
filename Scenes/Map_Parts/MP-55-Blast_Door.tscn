@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/Map_Parts/MP-55-Blast_Door_120x20.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Map_Parts/MP-55-Blast_Door.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Explosions/Ex-55-Blast_Door.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 60 )
@@ -85,7 +84,6 @@ tracks/0/keys = {
 collision_layer = 520
 collision_mask = 1678
 script = ExtResource( 2 )
-explosion = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

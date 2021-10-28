@@ -22,7 +22,6 @@
 [ext_resource path="res://Maps/map-00.gd" type="Script" id=20]
 [ext_resource path="res://Scenes/Map_Parts/MP-42-Mario-Pipe_3.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Map_Parts/MP-42-Mario-Pipe_2.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Map_Parts/MP-40-Distruct-Brick-Blue-Brick.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Map_Parts/MP-45-Mario-Move-Plat-Up.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=26]
@@ -35,6 +34,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-20-Hit_Box_Spawn_01.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-08-Ridged-Coin.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Scenes/Map_Parts/MP-40-Distruct-Brick_Block.tscn" type="PackedScene" id=36]
 
 [node name="Map-02-One_Dash_Two" type="Node2D"]
 script = ExtResource( 20 )
@@ -100,7 +100,7 @@ z_index = -29
 tile_set = ExtResource( 19 )
 cell_size = Vector2( 20, 20 )
 format = 1
-tile_data = PoolIntArray( -655391, 20, 0, -655390, 20, 2, -655389, 20, 2, -655388, 20, 2, -655387, 20, 2, -655386, 20, 2, -655385, 20, 2, -655384, 20, 2, -655383, 20, 2, -655382, 20, 2, -655381, 20, 2, -655380, 20, 2, -655379, 20, 2, -655378, 20, 2, -655377, 20, 2, -655376, 20, 2, -655375, 20, 2, -655374, 20, 2, -655373, 20, 2, -655372, 20, 2, -655371, 20, 2, -655370, 20, 2, -655369, 20, 2, -655368, 20, 2, -655367, 20, 2, -655366, 20, 2, -655365, 20, 2, -655364, 20, 2, -655363, 20, 2, -655362, 20, 2, -655361, 20, 2, -720896, 20, 2, -720895, 20, 2, -720894, 20, 2, -720893, 20, 2, -720892, 20, 2, -720891, 20, 2, -720890, 20, 2, -720889, 20, 2, -720888, 20, 2, -720887, 20, 2, -720886, 20, 2, -720885, 20, 2, -720884, 20, 2, -720883, 20, 2, -720882, 20, 2, -720881, 20, 2, -720880, 20, 2, -720879, 20, 2, -720878, 20, 2, -720877, 20, 2, -720876, 20, 2, -720875, 20, 2, -720874, 20, 2, -720873, 20, 2, -720872, 20, 2, -720871, 20, 2, -720870, 20, 2, -720869, 20, 2, -720868, 20, 2, -720867, 20, 2, -720866, 20, 2, -720865, 20, 2, -720864, 20, 2, -720863, 20, 2, -720862, 20, 2, -720861, 20, 2, -720860, 20, 2, -720859, 20, 2, -720858, 20, 2, -720857, 20, 2, -720856, 20, 2, -720855, 20, 2, -720854, 20, 2, -720853, 20, 2, -720852, 20, 2, -720851, 20, 2, -720850, 20, 2, -720849, 20, 2, -720848, 20, 2, -720847, 20, 2, -720846, 20, 2, -720845, 20, 2, -720844, 20, 2, -720843, 20, 2, -720842, 20, 2, -720841, 20, 2, -720840, 20, 2, -720839, 20, 2, -720838, 20, 2, -720837, 20, 2, -720836, 20, 2, -720835, 20, 2, -720834, 20, 2, -720833, 20, 2, -720832, 20, 2, -720831, 20, 2, -720830, 20, 2, -720829, 20, 2, -720828, 20, 2, -720827, 20, 2, -720826, 20, 2, -720825, 20, 2, -720824, 20, 2, -720823, 20, 2, -720822, 20, 2, -720821, 20, 2, -720820, 20, 2, -720819, 20, 2, -720818, 20, 2, -720817, 20, 2, -720816, 20, 2, -720815, 20, 2, -720814, 20, 2, -720813, 20, 2, -720812, 20, 2, -720811, 20, 2, -720810, 20, 2, -720809, 20, 2, -720808, 20, 2, -720807, 20, 2, -720806, 20, 2, -720805, 20, 2, -720804, 20, 2, -720803, 20, 2, -720802, 20, 2, -720801, 20, 2, -720800, 20, 2, -720799, 20, 2, -720798, 20, 2, -720797, 20, 2, -720796, 20, 2, -720795, 20, 2, -720794, 20, 2, -720793, 20, 2, -720792, 20, 2, -720791, 20, 2, -720790, 20, 2, -720789, 20, 2, -720788, 20, 3, -655264, 21, 0, -589728, 21, 131072, -524192, 21, 131072, -458656, 21, 131072, -393120, 21, 131072, -327584, 21, 131072, -262048, 21, 131072, -196512, 21, 131072, -130976, 21, 131072, -65440, 21, 131072, 96, 21, 131072, 65632, 21, 131072, 131168, 21, 131072, 196704, 21, 131072, 262240, 21, 131072, 327776, 21, 131072, 393312, 21, 131072, 458848, 21, 131072, 524299, 14, 0, 524300, 14, 1, 524301, 14, 1, 524302, 14, 1, 524303, 14, 2, 524384, 21, 131072, 589920, 21, 131072, 655456, 21, 131072, 720934, 14, 0, 720935, 14, 1, 720936, 14, 2, 720992, 21, 131072, 786528, 21, 131072, 852064, 21, 131072, 917600, 21, 131072, 983136, 21, 131072, 1048645, 14, 0, 1048646, 14, 1, 1048647, 14, 2, 1048672, 21, 131072, 1114133, 14, 0, 1114134, 14, 1, 1114135, 14, 2, 1114208, 21, 131072, 1179744, 21, 131072, 1245280, 21, 131072, 1310754, 19, 0, 1310755, 19, 1, 1310816, 21, 131072, 1376291, 19, 65537, 1376352, 21, 131072, 1441827, 19, 65537, 1441888, 21, 131072, 1507363, 19, 65537, 1507424, 21, 131072, 1572899, 19, 65537, 1572960, 21, 131072, 1638435, 19, 65537, 1638445, 13, 0, 1638496, 21, 131072, 1703971, 19, 65537, 1704032, 21, 131072, 1769507, 19, 65537, 1769568, 21, 131072, 1835033, 16, 0, 1835043, 19, 131073, 1835047, 16, 0, 1835077, 16, 0, 1835104, 21, 131072, 1900544, 16, 0, 1900551, 18, 0, 1900552, 18, 1, 1900553, 18, 1, 1900554, 18, 1, 1900555, 18, 2, 1900575, 16, 0, 1900580, 18, 0, 1900581, 18, 1, 1900582, 18, 2, 1900598, 15, 0, 1900599, 15, 0, 1900604, 18, 0, 1900605, 18, 1, 1900606, 18, 1, 1900607, 18, 1, 1900608, 18, 1, 1900609, 18, 1, 1900610, 18, 1, 1900611, 18, 2, 1900622, 18, 0, 1900623, 18, 1, 1900624, 18, 1, 1900625, 18, 2, 1900626, 16, 0, 1900640, 21, 0, 2031610, 20, 0, 2031611, 20, 2, 2031612, 20, 2, 2031613, 20, 3, 1966087, 18, 65536, 1966088, 18, 65537, 1966089, 18, 65537, 1966090, 18, 65537, 1966091, 18, 65538, 1966095, 20, 0, 1966116, 18, 65536, 1966117, 18, 65537, 1966118, 18, 65538, 1966140, 18, 65536, 1966141, 18, 65537, 1966142, 18, 65537, 1966143, 18, 65537, 1966144, 18, 65537, 1966145, 18, 65537, 1966146, 18, 65537, 1966147, 18, 65538, 1966149, 18, 0, 1966150, 18, 0, 1966158, 18, 65536, 1966159, 18, 65537, 1966160, 18, 65537, 1966161, 18, 65538 )
+tile_data = PoolIntArray( -655391, 20, 0, -655390, 20, 2, -655389, 20, 2, -655388, 20, 2, -655387, 20, 2, -655386, 20, 2, -655385, 20, 2, -655384, 20, 2, -655383, 20, 2, -655382, 20, 2, -655381, 20, 2, -655380, 20, 2, -655379, 20, 2, -655378, 20, 2, -655377, 20, 2, -655376, 20, 2, -655375, 20, 2, -655374, 20, 2, -655373, 20, 2, -655372, 20, 2, -655371, 20, 2, -655370, 20, 2, -655369, 20, 2, -655368, 20, 2, -655367, 20, 2, -655366, 20, 2, -655365, 20, 2, -655364, 20, 2, -655363, 20, 2, -655362, 20, 2, -655361, 20, 2, -720896, 20, 2, -720895, 20, 2, -720894, 20, 2, -720893, 20, 2, -720892, 20, 2, -720891, 20, 2, -720890, 20, 2, -720889, 20, 2, -720888, 20, 2, -720887, 20, 2, -720886, 20, 2, -720885, 20, 2, -720884, 20, 2, -720883, 20, 2, -720882, 20, 2, -720881, 20, 2, -720880, 20, 2, -720879, 20, 2, -720878, 20, 2, -720877, 20, 2, -720876, 20, 2, -720875, 20, 2, -720874, 20, 2, -720873, 20, 2, -720872, 20, 2, -720871, 20, 2, -720870, 20, 2, -720869, 20, 2, -720868, 20, 2, -720867, 20, 2, -720866, 20, 2, -720865, 20, 2, -720864, 20, 2, -720863, 20, 2, -720862, 20, 2, -720861, 20, 2, -720860, 20, 2, -720859, 20, 2, -720858, 20, 2, -720857, 20, 2, -720856, 20, 2, -720855, 20, 2, -720854, 20, 2, -720853, 20, 2, -720852, 20, 2, -720851, 20, 2, -720850, 20, 2, -720849, 20, 2, -720848, 20, 2, -720847, 20, 2, -720846, 20, 2, -720845, 20, 2, -720844, 20, 2, -720843, 20, 2, -720842, 20, 2, -720841, 20, 2, -720840, 20, 2, -720839, 20, 2, -720838, 20, 2, -720837, 20, 2, -720836, 20, 2, -720835, 20, 2, -720834, 20, 2, -720833, 20, 2, -720832, 20, 2, -720831, 20, 2, -720830, 20, 2, -720829, 20, 2, -720828, 20, 2, -720827, 20, 2, -720826, 20, 2, -720825, 20, 2, -720824, 20, 2, -720823, 20, 2, -720822, 20, 2, -720821, 20, 2, -720820, 20, 2, -720819, 20, 2, -720818, 20, 2, -720817, 20, 2, -720816, 20, 2, -720815, 20, 2, -720814, 20, 2, -720813, 20, 2, -720812, 20, 2, -720811, 20, 2, -720810, 20, 2, -720809, 20, 2, -720808, 20, 2, -720807, 20, 2, -720806, 20, 2, -720805, 20, 2, -720804, 20, 2, -720803, 20, 2, -720802, 20, 2, -720801, 20, 2, -720800, 20, 2, -720799, 20, 2, -720798, 20, 2, -720797, 20, 2, -720796, 20, 2, -720795, 20, 2, -720794, 20, 2, -720793, 20, 2, -720792, 20, 2, -720791, 20, 2, -720790, 20, 2, -720789, 20, 2, -720788, 20, 3, -655264, 21, 0, -589728, 21, 131072, -524192, 21, 131072, -458656, 21, 131072, -393120, 21, 131072, -327584, 21, 131072, -262048, 21, 131072, -196512, 21, 131072, -130976, 21, 131072, -65440, 21, 131072, 96, 21, 131072, 65632, 21, 131072, 131168, 21, 131072, 196704, 21, 131072, 262240, 21, 131072, 327776, 21, 131072, 393312, 21, 131072, 458848, 21, 131072, 524299, 14, 0, 524300, 14, 1, 524301, 14, 1, 524302, 14, 1, 524303, 14, 2, 524384, 21, 131072, 589920, 21, 131072, 655456, 21, 131072, 720934, 14, 0, 720935, 14, 1, 720936, 14, 2, 720992, 21, 131072, 786528, 21, 131072, 852064, 21, 131072, 917600, 21, 131072, 983136, 21, 131072, 1048645, 14, 0, 1048646, 14, 1, 1048647, 14, 2, 1048672, 21, 131072, 1114133, 14, 0, 1114134, 14, 1, 1114135, 14, 2, 1114208, 21, 131072, 1179744, 21, 131072, 1245280, 21, 131072, 1310754, 19, 0, 1310755, 19, 1, 1310816, 21, 131072, 1376291, 19, 65537, 1376352, 21, 131072, 1441827, 19, 65537, 1441888, 21, 131072, 1507363, 19, 65537, 1507424, 21, 131072, 1572899, 19, 65537, 1572960, 21, 131072, 1638435, 19, 65537, 1638445, 13, 0, 1638496, 21, 131072, 1703971, 19, 65537, 1704032, 21, 131072, 1769507, 19, 65537, 1769568, 21, 131072, 1835033, 16, 0, 1835043, 19, 131073, 1835047, 16, 0, 1835077, 16, 0, 1835104, 21, 131072, 1900544, 16, 0, 1900551, 18, 0, 1900552, 18, 1, 1900553, 18, 1, 1900554, 18, 1, 1900555, 18, 2, 1900575, 16, 0, 1900580, 18, 0, 1900581, 18, 1, 1900582, 18, 2, 1900598, 15, 0, 1900599, 15, 0, 1900604, 18, 0, 1900605, 18, 1, 1900606, 18, 1, 1900607, 18, 1, 1900608, 18, 1, 1900609, 18, 1, 1900610, 18, 1, 1900611, 18, 2, 1900622, 18, 0, 1900623, 18, 1, 1900624, 18, 1, 1900625, 18, 2, 1900626, 16, 0, 1900640, 21, 131072, 2031610, 20, 0, 2031611, 20, 2, 2031612, 20, 2, 2031613, 20, 3, 1966087, 18, 65536, 1966088, 18, 65537, 1966089, 18, 65537, 1966090, 18, 65537, 1966091, 18, 65538, 1966095, 20, 0, 1966116, 18, 65536, 1966117, 18, 65537, 1966118, 18, 65538, 1966140, 18, 65536, 1966141, 18, 65537, 1966142, 18, 65537, 1966143, 18, 65537, 1966144, 18, 65537, 1966145, 18, 65537, 1966146, 18, 65537, 1966147, 18, 65538, 1966149, 18, 0, 1966150, 18, 0, 1966158, 18, 65536, 1966159, 18, 65537, 1966160, 18, 65537, 1966161, 18, 65538, 1966176, 21, 131072, 2031712, 21, 0, 2031713, 21, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -382,551 +382,430 @@ spent_color_02 = Color( 0.203922, 0.137255, 0, 1 )
 [node name="Bricks" type="Node2D" parent="Map_parts"]
 position = Vector2( 0, -20 )
 
-[node name="MP-40-Dis--B-Brick_98" parent="Map_parts/Bricks" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_175" parent="Map_parts/Bricks" instance=ExtResource( 36 )]
 position = Vector2( 590, 970 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
 [node name="Top" type="Node2D" parent="Map_parts/Bricks"]
 
-[node name="MP-40-Dis--B-Brick_00" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_80" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 150, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_01" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 170, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_81" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 170.063, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_02" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_82" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 190, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_03" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_83" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 210, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_04" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_84" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 230, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_05" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_85" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 250, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_06" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_86" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 270, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_07" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 290, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_87" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 290.063, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_08" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_88" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 310, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_09" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_89" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 330, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_10" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_90" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 350, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_11" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_91" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 370, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_12" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_92" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 390, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_13" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 410, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_93" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 410.063, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_14" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_94" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 430, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_15" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_95" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 450, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_16" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_96" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 470, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_17" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_97" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 490, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_18" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_98" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 510, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_19" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 530, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_99" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 530.063, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_20" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_100" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 550, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_21" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_101" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 570, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_22" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_102" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 590, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_23" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_103" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 610, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_24" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_104" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 630, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_25" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 650, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_105" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 650.063, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_26" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_106" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 670, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_27" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_107" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 690, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_28" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_108" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 710, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_29" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_109" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 730, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_30" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 750, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_110" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 750.126, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_31" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 770, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_111" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 770.188, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_32" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 790, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_112" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 790.126, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_33" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 810, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_113" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 810.126, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_34" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 830.063, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_114" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 830.126, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_35" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 850, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_115" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 850.126, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_36" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 870, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_116" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 870.126, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_37" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 890, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_117" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 890.188, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_38" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 910, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_118" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 910.126, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_39" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 930, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_119" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 930.126, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_40" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 950, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_120" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 950.126, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_41" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 970, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_121" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 970.126, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_42" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 990, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_122" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 990.126, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_43" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1010.06, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_123" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1010.19, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_44" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1030, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_124" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1030.13, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_45" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1050, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_125" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1050.13, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_46" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1070, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_126" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1070.13, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_47" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1000.12, 1220 )
-head_hit = true
-respawn_time = 10.0
-
-[node name="MP-40-Dis--B-Brick_48" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_127" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1110, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_49" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_128" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1130, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_50" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_129" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1150, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_51" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1170.06, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_130" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1170, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_52" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1190, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_131" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1190.06, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_53" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_132" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1210, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_54" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_133" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1230, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_55" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_134" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1250, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_56" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_135" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1270, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_57" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_136" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1290, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_58" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1310, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_137" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1310.06, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_59" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_138" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1330, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_60" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_139" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1350, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_61" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_140" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1370, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_62" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_141" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1390, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_63" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1410.06, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_142" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1410, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_64" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_143" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1430, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_65" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1450, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_144" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1450.06, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_66" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_145" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1470, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_67" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_146" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1490, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_68" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_147" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1510, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_69" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_148" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1530, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_70" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_149" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1550, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_71" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_150" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1570.06, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_72" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_151" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1590, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_73" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_152" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1610, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_74" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_153" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1630, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_75" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_154" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
 position = Vector2( 1650, 750 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_76" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1670, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_155" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1670.06, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_77" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1690.06, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_156" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1690, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_78" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1710.06, 750 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_157" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1710, 750 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_79" parent="Map_parts/Bricks/Top" instance=ExtResource( 23 )]
-position = Vector2( 1730.06, 750 )
-head_hit = true
-respawn_time = 10.0
-
-[node name="MP-40-Dis--B-Brick_82" parent="Map_parts/Bricks" instance=ExtResource( 23 )]
-position = Vector2( 2320, 690 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_158" parent="Map_parts/Bricks/Top" instance=ExtResource( 36 )]
+position = Vector2( 1730, 750 )
+brick_color = 2
 
 [node name="Mid" type="Node2D" parent="Map_parts/Bricks"]
 
-[node name="MP-40-Dis--B-Brick_82" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_159" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
 position = Vector2( 750, 930 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_83" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
-position = Vector2( 750, 950 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_160" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
+position = Vector2( 750.188, 950 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_84" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
-position = Vector2( 750.063, 970 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_161" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
+position = Vector2( 750, 970 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_85" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
-position = Vector2( 770, 970 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_162" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
+position = Vector2( 770.188, 970 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_86" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
-position = Vector2( 790.063, 970 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_163" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
+position = Vector2( 790.188, 970 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_87" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_164" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
 position = Vector2( 790, 950 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_88" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
-position = Vector2( 790.125, 930 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_165" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
+position = Vector2( 790, 930 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_89" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_166" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
 position = Vector2( 810, 930 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_90" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_167" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
 position = Vector2( 830, 930 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_91" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_168" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
 position = Vector2( 850, 930 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_92" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_169" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
 position = Vector2( 850, 950 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_93" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
-position = Vector2( 850.063, 970 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_170" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
+position = Vector2( 850, 970 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_94" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_171" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
 position = Vector2( 870, 970 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_95" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_172" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
 position = Vector2( 890, 970 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_96" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_173" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
 position = Vector2( 890, 950 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_97" parent="Map_parts/Bricks/Mid" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_174" parent="Map_parts/Bricks/Mid" instance=ExtResource( 36 )]
 position = Vector2( 890, 930 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
 [node name="Mid_Right" type="Node2D" parent="Map_parts/Bricks"]
 
-[node name="MP-40-Dis--B-Brick_99" parent="Map_parts/Bricks/Mid_Right" instance=ExtResource( 23 )]
-position = Vector2( 1510, 1010 )
-head_hit = true
-respawn_time = 10.0
-
-[node name="MP-40-Dis--B-Brick_100" parent="Map_parts/Bricks/Mid_Right" instance=ExtResource( 23 )]
-position = Vector2( 1510, 1030 )
-head_hit = true
-respawn_time = 10.0
-
-[node name="MP-40-Dis--B-Brick_101" parent="Map_parts/Bricks/Mid_Right" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_176" parent="Map_parts/Bricks/Mid_Right" instance=ExtResource( 36 )]
 position = Vector2( 1510, 1050 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_102" parent="Map_parts/Bricks/Mid_Right" instance=ExtResource( 23 )]
+[node name="MP-40-Dis--B-Brick_177" parent="Map_parts/Bricks/Mid_Right" instance=ExtResource( 36 )]
+position = Vector2( 1510, 1030 )
+brick_color = 2
+
+[node name="MP-40-Dis--B-Brick_178" parent="Map_parts/Bricks/Mid_Right" instance=ExtResource( 36 )]
+position = Vector2( 1510, 1010 )
+brick_color = 2
+
+[node name="MP-40-Dis--B-Brick_179" parent="Map_parts/Bricks/Mid_Right" instance=ExtResource( 36 )]
 position = Vector2( 1530, 1010 )
-head_hit = true
-respawn_time = 10.0
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_103" parent="Map_parts/Bricks/Mid_Right" instance=ExtResource( 23 )]
-position = Vector2( 1529.94, 1030 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_180" parent="Map_parts/Bricks/Mid_Right" instance=ExtResource( 36 )]
+position = Vector2( 1530, 1030 )
+brick_color = 2
 
-[node name="MP-40-Dis--B-Brick_104" parent="Map_parts/Bricks/Mid_Right" instance=ExtResource( 23 )]
-position = Vector2( 1529.94, 1050 )
-head_hit = true
-respawn_time = 10.0
+[node name="MP-40-Dis--B-Brick_181" parent="Map_parts/Bricks/Mid_Right" instance=ExtResource( 36 )]
+position = Vector2( 1530, 1050 )
+brick_color = 2
 
 [node name="Top-Left" type="Node2D" parent="Map_parts/Bricks"]
 
-[node name="MP-40-Dis--B-Brick_83" parent="Map_parts/Bricks/Top-Left" instance=ExtResource( 23 )]
-position = Vector2( 110.063, 526.986 )
-head_hit = true
-respawn_time = 10.0
-blue = false
+[node name="MP-40-Dis--B-Brick_182" parent="Map_parts/Bricks/Top-Left" instance=ExtResource( 36 )]
+position = Vector2( 90, 527 )
 
-[node name="MP-40-Dis--B-Brick_84" parent="Map_parts/Bricks/Top-Left" instance=ExtResource( 23 )]
-position = Vector2( 90.0627, 526.986 )
-head_hit = true
-respawn_time = 10.0
-blue = false
+[node name="MP-40-Dis--B-Brick_183" parent="Map_parts/Bricks/Top-Left" instance=ExtResource( 36 )]
+position = Vector2( 110, 527 )
 
-[node name="MP-40-Dis--B-Brick_85" parent="Map_parts/Bricks/Top-Left" instance=ExtResource( 23 )]
-position = Vector2( 150, 526.986 )
-head_hit = true
-respawn_time = 10.0
-blue = false
+[node name="MP-40-Dis--B-Brick_184" parent="Map_parts/Bricks/Top-Left" instance=ExtResource( 36 )]
+position = Vector2( 150, 527 )
 
 [node name="Bricks_marks" type="Node2D" parent="Map_parts"]
 
@@ -1042,108 +921,6 @@ my_color = Color( 0, 0.486275, 0.552941, 1 )
 
 [node name="MP-10-R_Mark_01_23" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
 position = Vector2( 10, 1029.75 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_25" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 690 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_26" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 710 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_27" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 729.749 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_28" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 750 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_29" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 770 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_30" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 790 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_31" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 810 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_32" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 830 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_33" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 850 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_34" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 870 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_35" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 889.749 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_36" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 910 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_37" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 930 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_38" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 950 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_39" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 970 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_40" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 989.749 )
-spawn_nothing = true
-mark = 46
-my_color = Color( 0, 0.486275, 0.552941, 1 )
-
-[node name="MP-10-R_Mark_01_41" parent="Map_parts/Bricks_marks/Outside" instance=ExtResource( 12 )]
-position = Vector2( 2320, 1009.75 )
 spawn_nothing = true
 mark = 46
 my_color = Color( 0, 0.486275, 0.552941, 1 )

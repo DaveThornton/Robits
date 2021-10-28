@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=2]
+[gd_scene load_steps=126 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Hold/W_02-AK47_Hold.tscn" type="PackedScene" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://Scenes/Guns/Hold/W_50_ShotGun_hold.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Guns/Hold/W_60_Axe_Hold.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Guns/Hold/W_61_Sword_Hold.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Guns/Old/Weap-Hold-80-Leaf_Blower.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-02-Shield_Power_Up.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-03-Speed_Power_Up.tscn" type="PackedScene" id=18]
@@ -179,7 +178,6 @@ gun_hold_70 = ExtResource( 65 )
 gun_hold_71 = ExtResource( 66 )
 gun_hold_72 = ExtResource( 74 )
 gun_hold_73 = ExtResource( 73 )
-gun_hold_80 = ExtResource( 15 )
 gun_hold_83 = ExtResource( 72 )
 gun_hold_84 = ExtResource( 71 )
 gun_pick_02 = ExtResource( 75 )

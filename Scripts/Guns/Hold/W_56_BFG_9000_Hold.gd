@@ -82,14 +82,15 @@ func fire_projectile():
 		var _sss = pos_shoot.global_scale
 		new_projectile.start( _sr , _ss, _sss, player, damage)
 	else:
-		var _thing = shoot_cast.get_collider()
-		if _thing.get_groups().has("hittable"):
-			_thing.hit(player, my_name, dmg_type, damage)
-			print("gun 65 shot happened but no projectile spawned hit anyways")
-		elif _thing.get_groups().has("map"):
-			print("gun 65 hitting wall not fireing projectile", _thing)
-		else:
-			print("gun 65 dont know what im hitting but no projectile spawned")
+		FX.explode(56.1, player, shoot_cast.get_collision_point(), my_name, 0, damage)
+		# var _thing = shoot_cast.get_collider()
+		# if _thing.get_groups().has("hittable"):
+		# 	_thing.hit(player, my_name, dmg_type, damage)
+		# 	print("gun 65 shot happened but no projectile spawned hit anyways")
+		# elif _thing.get_groups().has("map"):
+		# 	print("gun 65 hitting wall not fireing projectile", _thing)
+		# else:
+		# 	print("gun 65 dont know what im hitting but no projectile spawned")
 	SFX.play("W_56_Shoot")
 	ammo = clamp(ammo - 1, 0, ammo_max)
 	sprite_gun.frame = 1

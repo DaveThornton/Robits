@@ -1,6 +1,6 @@
 extends Area2D
 
-export(PackedScene) var boom
+# export(PackedScene) var boom
 onready var timer = $Timer
 onready var cast_forward = $RayCast2D
 var speed = 800
@@ -26,6 +26,7 @@ func _physics_process(delta):
 	move_local_x(speed * delta)
 	speed = speed * 1.01
 	if cast_forward.is_colliding():
+		FX.explode(40, owned, self.global_position, my_name, 0, damage)
 		call_deferred("_explode", position)
 
 func _on_Projectile_04_area_entered(area):
@@ -44,7 +45,8 @@ func _on_Timer2_timeout():
 	_explode(self.global_position)
 
 func _explode(_pos):
-	var x = boom.instance()
-	get_tree().get_current_scene().add_child(x)
-	x.init(owned, _pos, "RPG", 0, damage)
+	FX.explode(10, owned, _pos, "RPG", 0, damage)
+	# var x = boom.instance()
+	# get_tree().get_current_scene().add_child(x)
+	# x.init(owned, _pos, "RPG", 0, damage)
 	call_deferred("free")

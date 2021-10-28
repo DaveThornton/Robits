@@ -4,7 +4,7 @@ const FLOOR = Vector2(0, -1)
 const speed = 6000
 
 export(PackedScene) var projectile
-export(PackedScene) var explode
+# export(PackedScene) var explode
 export var going_right = true
 export var damage = 21
 
@@ -140,14 +140,13 @@ func shoot():
 func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	if health <= 0:
-		print("Yellow suit dead")
-		call_deferred("_explode")
+		FX.explode(2,9, self.position, "Yellow Space Suit Self Distruct", 0, 0)
 		call_deferred("free")
 
-func _explode():
-	var x = explode.instance()
-	get_tree().get_current_scene().add_child(x)
-	x.init(9, self.position, str("player ", x, "'s destruct system"), 0, 0)
+# func _explode():
+# 	var x = explode.instance()
+# 	get_tree().get_current_scene().add_child(x)
+# 	x.init(9, self.position, str("player ", x, "'s destruct system"), 0, 0)
 
 func _on_floor():
 	on_floor = cast_down.is_colliding()

@@ -30,7 +30,11 @@ var hits_max = 5
 #	ready = true
 	
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
-	if _ammo < 1:
+	if _ammo == -1:
+		ammo = 1
+	else:
+		ammo = _ammo
+	if ammo < 1:
 		armed = true
 		shape.disabled = true
 		print("mine 30 armed = ", armed)

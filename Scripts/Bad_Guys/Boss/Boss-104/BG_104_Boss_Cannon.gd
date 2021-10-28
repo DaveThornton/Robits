@@ -1,6 +1,6 @@
 extends Node2D
 
-export(PackedScene) var boom
+# export(PackedScene) var boom
 export(PackedScene) var projectile
 
 onready var sprite = $BG_104_Boss_Cannon_01
@@ -43,11 +43,14 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		anim_hit.play("Hit")
 		health -= (_damage - armor)
 		if health <= 0:
+			FX.explode(104, -1, self.global_rposition,"cannons destruct system", 0, 0)
 			dead = true
 			Player_Stats.add_score(_by_who, points)
-			# anim_hit.play("Dead")
 			emit_signal("dead_hit_spot")
-			call_deferred("explode")
+			dead = true
+			self.visible = false
+			anim_hit.play("Dead")
+			emit_signal("cannon_death",cannon_num)
 
 
 func set_can_shoot(_can):
@@ -57,9 +60,9 @@ func set_can_shoot(_can):
 
 func explode():
 	dead = true
-	var e = boom.instance()
-	Map_Hand.add_kid_to_map(e)
-	e.init(9, self.global_rposition,"cannons destruct system", 0, 0)
+	# var e = boom.instance()
+	# Map_Hand.add_kid_to_map(e)
+	# e.init(9, self.global_rposition,"cannons destruct system", 0, 0)
 	self.visible = false
 	anim_hit.play("Dead")
 	emit_signal("cannon_death",cannon_num)

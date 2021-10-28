@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Guns/Hold/W_19-Rail_Gun_Hold.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Explosions/Ex-19-Rail_Gun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_19_Rail_Gun.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Guns/Pick/W_19-Rail_Gun_Pick.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/FX/FX-19-Laser_Beam.png" type="Texture" id=5]
@@ -301,7 +300,6 @@ tracks/7/keys = {
 [node name="W_19-Rail_Gun_Hold" type="Node2D"]
 script = ExtResource( 1 )
 rail_pickup = ExtResource( 4 )
-projectile = ExtResource( 2 )
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -327,17 +325,14 @@ hframes = 5
 frame = 4
 
 [node name="Beam" type="Sprite" parent="POS_Gun/Gun_Sprite"]
-visible = false
 self_modulate = Color( 1, 0, 0, 0.294118 )
 show_behind_parent = true
 position = Vector2( -1, 0 )
 texture = ExtResource( 5 )
 centered = false
 offset = Vector2( 0, -2 )
-hframes = 7
-frame = 4
 region_enabled = true
-region_rect = Rect2( 0.055, 0.13, 1080, 4 )
+region_rect = Rect2( 1, 0.13, 1920, 4 )
 
 [node name="Beam_End" type="Position2D" parent="POS_Gun/Gun_Sprite"]
 visible = false
@@ -371,13 +366,12 @@ position = Vector2( 51, -3 )
 position = Vector2( 45, -3 )
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
-visible = false
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
 position = Vector2( 8, -2 )
 enabled = true
 cast_to = Vector2( 2000, 0 )
-collision_mask = 2570
+collision_mask = 3594
 
 [node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
 position = Vector2( 8, 0 )
@@ -408,6 +402,7 @@ anims/Chargedown = SubResource( 4 )
 anims/Click = SubResource( 5 )
 anims/Melee = SubResource( 6 )
 anims/Shoot = SubResource( 7 )
+
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]
 [connection signal="body_entered" from="POS_Gun/Melee_Area" to="." method="_on_Melee_Area_body_entered"]

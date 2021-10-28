@@ -1,6 +1,6 @@
 extends Node2D
 
-export(PackedScene) var boom
+# export(PackedScene) var boom
 export var time_out = 30.0
 onready var ex_spot = $Position2D
 onready var timer_out = $Timer_Out
@@ -25,12 +25,14 @@ func init(_player, _dmg, _pos, _rot):
 #func _process(delta):
 #	pass
 func destruct():
-	call_deferred("_destruct")
-func _destruct():
-	var b = boom.instance()
-	Map_Hand.add_kid_to_map(b)
-	b.init(player, ex_spot.global_position, my_name, 0, damage)
-	queue_free()
+	FX.explode(10, player, ex_spot.global_position, my_name, 0, damage)
+	call_deferred("free")
+# 	call_deferred("_destruct")
+# func _destruct():
+# 	var b = boom.instance()
+# 	Map_Hand.add_kid_to_map(b)
+# 	b.init(player, ex_spot.global_position, my_name, 0, damage)
+# 	queue_free()
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):

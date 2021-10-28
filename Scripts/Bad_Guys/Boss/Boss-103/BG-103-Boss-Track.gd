@@ -1,7 +1,6 @@
 #extends KinematicBody2D
 extends StaticBody2D
 
-export(PackedScene) var explode
 export(PackedScene) var debris_scene
 
 export var front = true
@@ -28,27 +27,22 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		anim_hit.play("Hit")
 		health -= (_damage - armor)
 		if health <= 0:
+			shape.disabled = true
+			dead = true
+			for d in debris.get_child_count():
+				var deb = debris_scene.instance()
+				FX.add_kid(deb)
+				deb.init(Color8(255,255,255,255), 5, true, debris.get_child(d).global_position, Vector2(0,0))
+			FX.explode(2, -1, self.position, str(self, "'s destruct system"), 0, 0)
+			self.visible = false
+			anim_hit.play("Dead")
 			Player_Stats.add_score(_by_who, points)
 			if front:
 				print("BG-103-Front-Track-Dead")
 			else:
 				print("BG-103-Back-Track-Dead")
-			call_deferred("_explode")
+			# call_deferred("_explode")
 			emit_signal("dead_track")
-
-func _explode():
-	for d in debris.get_child_count():
-#		debris.get_child(d).position
-		var deb = debris_scene.instance()
-		FX.add_kid(deb)
-		deb.init(Color8(255,255,255,255), 5, true, debris.get_child(d).global_position, Vector2(0,0))
-	shape.disabled = true
-	dead = true
-	var e = explode.instance()
-	Map_Hand.add_kid_to_map(e)
-	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
-	self.visible = false
-	anim_hit.play("Dead")
 
 func move(_right):
 	if !dead:

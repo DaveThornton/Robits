@@ -1,7 +1,7 @@
 extends Area2D
 
 export(PackedScene) var bg
-export(PackedScene) var explode
+# export(PackedScene) var explode
 export var activation_num = 0
 export var right = true
 export var delayed_start = true
@@ -51,15 +51,16 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		if health <= 0:
 			print("mp 52 dead")
 			call_deferred("set_shape_disabled",true)
-			call_deferred("_explode")
+			FX.explode(2, -1, self.position, str("MP-52 Distruction"), 0, 0)
+			# call_deferred("_explode")
 			anim.play("Broke")
 			timer.stop()
 			dead = true
 
-func _explode():
-	var e = explode.instance()
-	Map_Hand.add_kid_to_map(e)
-	e.init(9, self.position, str("MP-52 Distruction"), 0, 0)
+# func _explode():
+# 	var e = explode.instance()
+# 	Map_Hand.add_kid_to_map(e)
+# 	e.init(9, self.position, str("MP-52 Distruction"), 0, 0)
 	
 func spawn():
 	if can_spawn:

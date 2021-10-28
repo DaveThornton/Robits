@@ -54,15 +54,16 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			Player_Stats.add_score(_by_who, points)
 			dead = true	
 			emit_signal("dead_turret")
+			FX.explode(103, -1, self.position, str(self, "'s destruct system"), 0, 0)
 			call_deferred("_explode")
 
-func _explode():
-	dead = true
-#	var e = explode.instance()
-	shape.disabled = false
-#	Map_Hand.add_kid_to_map(e)
-#	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
-	anim_hit.play("Dead")
+# func _explode():
+# 	dead = true
+# #	var e = explode.instance()
+# 	shape.disabled = false
+# #	Map_Hand.add_kid_to_map(e)
+# #	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
+# 	anim_hit.play("Dead")
 
 func sort_distance(_a, _b):
 	if (abs(_a.global_position.x - self.global_position.x) + abs(_a.global_position.y - self.global_position.y)) < (abs(_b.global_position.x - self.global_position.x) + abs(_b.global_position.y - self.global_position.y)):

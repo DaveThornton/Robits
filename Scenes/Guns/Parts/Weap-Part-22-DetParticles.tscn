@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Guns/Parts/Weap-Part-22-DetParticles.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Explosions/Ex-40-RPG.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/Weap-22-Plasma-Grenade.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/FX/22-plasma-cloud.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Misc/White_Pixel.png" type="Texture" id=5]
@@ -33,7 +32,6 @@ material = SubResource( 1 )
 z_index = 8
 z_as_relative = false
 script = ExtResource( 1 )
-boom = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false

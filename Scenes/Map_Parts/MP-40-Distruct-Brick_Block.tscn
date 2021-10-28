@@ -1,10 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Map_Parts/MP-40-Distruct-Brick-Block-Blue.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Map_Parts/MP-40-Distruct-Brick_Block.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-mario.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Explosions/Ex-11-FX-Small-20x20.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/FX/FX-10-Blue-Brick-04.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/FX/FX-10-Red-Brick-04.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/FX/FX-10-Brick-04.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -16,17 +14,18 @@ height = 13.8053
 "hittable",
 "map",
 ]]
-collision_layer = 393228
+collision_layer = 393740
 collision_mask = 983564
 script = ExtResource( 1 )
-brick_explode = ExtResource( 4 )
-brick_explode_red = ExtResource( 5 )
-head_explode = ExtResource( 3 )
+bricks = ExtResource( 3 )
+head_hit = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 position = Vector2( 0.0626717, -0.25069 )
 collision_layer = 8
 collision_mask = 2
@@ -37,11 +36,11 @@ rotation = 1.5708
 shape = SubResource( 2 )
 disabled = true
 
-[node name="Basic_Red_set" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-vframes = 10
 hframes = 5
-frame = 1
+vframes = 10
+frame = 11
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.01
@@ -50,6 +49,7 @@ one_shot = true
 [node name="Timer_respawn" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_respawn" to="." method="_on_Timer_respawn_timeout"]

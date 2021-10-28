@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_21_Nazi_Grenade_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Explosions/Ex-02-Standard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Guns/Weap-21-Nazi-Grenade.png" type="Texture" id=5]
@@ -34,7 +33,6 @@ contacts_reported = 9
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
-boom = ExtResource( 2 )
 smoke = ExtResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]

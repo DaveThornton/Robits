@@ -1,5 +1,5 @@
 extends StaticBody2D
-export(PackedScene) var explosion
+
 export var health = 100
 onready var anim = $AnimationPlayer
 var player = -1
@@ -15,35 +15,4 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		anim.queue("Hit")
 
 func explode():
-	call_deferred("_explode")
-
-func _explode():
-	var e = explosion.instance()
-	Map_Hand.add_kid_to_map(e)
-#	get_tree().get_current_scene().map.add_child(x)
-	e.init(9, self.position, str("Blast Door Destruct System"), 0, 0)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	FX.explode(55, -1, self.global_position, "Blast Door Destruct System", 0, 0)

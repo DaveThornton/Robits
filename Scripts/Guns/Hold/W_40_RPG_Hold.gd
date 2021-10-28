@@ -2,7 +2,7 @@ extends Node2D
 
 export(PackedScene) var RPG_Pickup
 export(PackedScene) var projectile
-export(PackedScene) var boom
+# export(PackedScene) var boom
 onready var sprite_gun = $POS_Gun/Gun_Sprite
 onready var anim_fire = $AnimationPlayer
 onready var shoot_timer = $Shoot_Timer
@@ -64,9 +64,10 @@ func shoot_j():
 				var _sss = pos_shoot.global_scale
 				new_projectile.start( _sr , _ss, _sss, player, damage)
 			else:
-				var x = boom.instance()
-				get_tree().get_current_scene().add_child(x)
-				x.init(player, shoot_cast.get_collision_point(), "RPG", 0, damage)
+				FX.explode(40, player, shoot_cast.get_collision_point(), "RPG", 0, damage)
+				# var x = boom.instance()
+				# get_tree().get_current_scene().add_child(x)
+				# x.init(player, shoot_cast.get_collision_point(), "RPG", 0, damage)
 #				var _thing = shoot_cast.get_collider()
 #				if _thing.get_groups().has("hittable"):
 #					_thing.hit(player, my_name, dmg_type, damage)
