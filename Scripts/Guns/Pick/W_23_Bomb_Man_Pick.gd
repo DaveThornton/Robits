@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 # export(PackedScene) var boom
-export(PackedScene) var smoke
+# export(PackedScene) var smoke
 
 onready var timer = $Timer
 onready var timer_boom = $Timer_Boom

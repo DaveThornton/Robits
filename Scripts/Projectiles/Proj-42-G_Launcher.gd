@@ -1,11 +1,10 @@
 extends RigidBody2D
 
-# export(PackedScene) var boom
 onready var timer = $Timer
 onready var parts = $CPUParticles2D
+
 var speed = 800
 var owned = 0
-# warning-ignore:unused_class_variable
 var my_name = "Grenade Launcher"
 var damage = 0
 
@@ -16,8 +15,6 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	position = _pos
 	scale = _scale
 	owned = _owner
-#	print("make SFX for launcher")
-#	SFX.play("RPG_Shoot")
 	if _scale.y < 0:
 		rotation *= -1
 
@@ -33,7 +30,6 @@ func _explode(_pos):
 	Map_Hand.add_kid_to_map(parts)
 	parts.time_out()
 	call_deferred("free")
-
 
 func _on_Proj42G_Launcher_body_entered(_body):
 	entered()

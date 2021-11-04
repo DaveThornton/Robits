@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_06_Atom_Rifle.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Hold/W_06_Atom_Rifle_Hold.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Projectiles/Proj-06-Atom.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Tank_Idle"
@@ -178,8 +176,6 @@ tracks/5/keys = {
 
 [node name="W_06_Atom_Rifle" type="Node2D"]
 script = ExtResource( 2 )
-atom_rifle_pickup = ExtResource( 4 )
-projectile = ExtResource( 3 )
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 
@@ -255,6 +251,7 @@ disabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Melee = SubResource( 3 )
 anims/Shoot = SubResource( 4 )
+
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="body_entered" from="POS_Gun/Area2D" to="." method="_on_Area2D_body_entered"]

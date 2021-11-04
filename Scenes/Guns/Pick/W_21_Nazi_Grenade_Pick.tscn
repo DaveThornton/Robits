@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_21_Nazi_Grenade_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Guns/Weap-21-Nazi-Grenade.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=6]

@@ -1,7 +1,7 @@
 extends Node2D
 
-export(PackedScene) var grenade_pickup
-export(PackedScene) var pin
+# export(PackedScene) var grenade_pickup
+# export(PackedScene) var pin
 
 onready var pos_throw = $POS_Gun/POS/Position2D
 onready var sprite_pin = $POS_Gun/Pin
@@ -46,11 +46,12 @@ func shoot_r():
 	if can_shoot:
 		if ammo > 0:
 			ammo = 0
-			var p = pin.instance()
-			Map_Hand.add_kid_to_map(p)
-			p.position = pos_throw.global_position
-			p.rotation = pos_throw.global_rotation
-			p.scale = pos_throw.scale 
+			FX.shell(gun_num, pos_throw.global_position, pos_throw.global_rotation)
+			# var p = pin.instance()
+			# Map_Hand.add_kid_to_map(p)
+			# p.position = pos_throw.global_position
+			# p.rotation = pos_throw.global_rotation
+			# p.scale = pos_throw.scale 
 			can_shoot = false
 			det.start(time)
 			sprite_pin.visible = false
@@ -61,7 +62,7 @@ func melee():
 	pass
 
 func throw():
-	var t = grenade_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
@@ -82,7 +83,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = grenade_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, time, is_right, shoot_pos, false)

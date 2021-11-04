@@ -1,12 +1,10 @@
 extends Area2D
 
-# export(PackedScene) var boom
 onready var timer = $Timer
 onready var cast_forward = $RayCast2D
 onready var anim = $AnimationPlayer
 var speed = 300
 var owned = 0
-# warning-ignore:unused_class_variable
 var my_name = "BFG 9000"
 var damage
 
@@ -46,8 +44,5 @@ func _on_Timer2_timeout():
 
 func _explode(_pos):
 	FX.explode(56.1, owned, _pos, my_name, 0, damage)
-	# var x = boom.instance()
-	# get_tree().get_current_scene().add_child(x)
-	# x.init(owned, _pos, my_name, 0, damage)
 	SFX.stop("W_56_Projectile")
 	call_deferred("free")

@@ -1,8 +1,8 @@
 extends Node2D
 
-export(PackedScene) var gun_pickup
-export(PackedScene) var projectile
-export(PackedScene) var shell
+# export(PackedScene) var gun_pickup
+# export(PackedScene) var projectile
+# export(PackedScene) var shell
 
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
@@ -62,8 +62,8 @@ func shoot_j():
 				melee()
 			elif ammo > 0:
 				if !shoot_cast.is_colliding():
-					var new_projectile = projectile.instance()
-					Map_Hand.add_kid_to_map(new_projectile)
+					# var new_projectile = projectile.instance()
+					# Map_Hand.add_kid_to_map(new_projectile)
 					var _ss = pos_shoot.global_position
 					var _sr = pos_shoot.global_rotation
 					if is_right:
@@ -71,7 +71,8 @@ func shoot_j():
 					else:
 						_sr = pos_shoot.global_rotation * -1
 					var _sss = pos_shoot.global_scale
-					new_projectile.start( _sr , _ss, _sss, player, damage)
+					# new_projectile.start( _sr , _ss, _sss, player, damage)
+					FX.proj(gun_num, _sr, _ss, _sss, player, damage)
 				else:
 					var _thing = shoot_cast.get_collider()
 					if _thing.get_groups().has("hittable"):
@@ -105,10 +106,11 @@ func shoot_r():
 	pass
 
 func spawn_shell():
-	var s = shell.instance()
-	Map_Hand.add_kid_to_map(s)
-	s.position = pos_shell.global_position
-	s.rotation = pos_shell.global_rotation
+	FX.shell(gun_num, pos_shell.global_position, pos_shell.global_rotation)
+	# var s = shell.instance()
+	# Map_Hand.add_kid_to_map(s)
+	# s.position = pos_shell.global_position
+	# s.rotation = pos_shell.global_rotation
 
 func melee():
 	if can_shoot:
@@ -125,7 +127,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting your self")
 
 func throw():
-	var t = gun_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
@@ -142,7 +144,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = gun_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

@@ -4,7 +4,10 @@ onready var CAMERA = $"MP-01-Camera"
 onready var backs = $"MP-01-Camera/Back"
 onready var splash_screens = $Splash_Screens_Part
 onready var explosions = $Explosions
+onready var projectiles = $Projectlies
+onready var shells = $Shells
 onready var bricks = $Bricks
+onready var misc = $MiscFX
 
 
 var spot_to_add = []
@@ -38,12 +41,23 @@ func add_kid(_kid):
 func explode(_num, _owner, _pos, _weap_name, _pawn_num, _dmg):
 	explosions.call_deferred("boom",_num, _owner, _pos, _weap_name, _pawn_num, _dmg)
 
-func smoke(_num, _time):
-	if _num == 0:
-		pass
+func proj_hit(_num, _pos, _moving):
+	explosions.call_deferred("proj_hit",_num, _pos, _moving)
 
-func proj(_num,_rot, _pos, _scale, _owner, _right, _speed, _col, _dmg, _hit, _ex):
-	pass
+func smoke(_pos):
+	misc.poof(_pos)
+
+func stuck_arrow():
+	return misc.stuck_arrow()
+
+func stuck_bolt():
+	return misc.stuck_bolt()
+
+func shell(_num, _pos, _rot):
+	shells.spawn(_num, _pos, _rot)
+
+func proj(_num,_rot, _pos, _scale, _owner, _dmg):
+	projectiles.make_vs(_num,_rot, _pos, _scale, _owner, _dmg)
 
 func get_brick_color(_color):
 	return bricks.get_color(_color)

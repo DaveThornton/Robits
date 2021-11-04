@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_24_TNT_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/W_24_TNT.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=7]
 

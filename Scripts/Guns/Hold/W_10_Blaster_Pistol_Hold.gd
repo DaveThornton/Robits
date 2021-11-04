@@ -1,7 +1,7 @@
 extends Node2D
 
-export(PackedScene) var blaster_pistol_pickup
-export(PackedScene) var projectile
+# export(PackedScene) var blaster_pistol_pickup
+# export(PackedScene) var projectile
 
 onready var anim_fire = $AnimationPlayer
 onready var shoot_timer = $Shoot_Timer
@@ -87,8 +87,8 @@ func shoot_r():
 	pass
 
 func _fire_projectile():
-	var new_projectile = projectile.instance()
-	Map_Hand.add_kid_to_map(new_projectile)
+	# var new_projectile = projectile.instance()
+	# Map_Hand.add_kid_to_map(new_projectile)
 	var _ss = pos_shoot.global_position
 	var _sr = pos_shoot.global_rotation
 	if is_right:
@@ -96,10 +96,11 @@ func _fire_projectile():
 	else:
 		_sr = pos_shoot.global_rotation * -1
 	var _sss = pos_shoot.global_scale
-	new_projectile.start( _sr , _ss, _sss, player, damage)
+	FX.proj(gun_num, _sr, _ss, _sss, player, damage)
+	# new_projectile.start( _sr , _ss, _sss, player, damage)
 
 func throw():
-	var t = blaster_pistol_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
@@ -114,7 +115,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = blaster_pistol_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = self.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

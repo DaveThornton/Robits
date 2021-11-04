@@ -38,6 +38,9 @@ export(PackedScene) var ex056_2
 export(PackedScene) var ex103
 export(PackedScene) var ex104
 
+export(PackedScene) var projhit_013
+export(PackedScene) var projhit_014
+
 func boom(_num, _owner, _pos, _weap_name, _pawn_num, _dmg):
 	var x
 	if _num < 100:
@@ -82,3 +85,17 @@ func boom(_num, _owner, _pos, _weap_name, _pawn_num, _dmg):
 	if x:
 		Map_Hand.add_kid_to_map(x)
 		x.init(_owner, _pos, _weap_name, _pawn_num, _dmg)
+
+func proj_hit(_num, _pos, _moving):
+	var y
+	if _num == 13:
+		# if _moving:
+		y = projhit_013.instance()
+		# else:
+		# 	y = projhit_013.instance()
+	if _num == 14:#-------------still using 13
+		# if _moving:
+		y = projhit_013.instance()
+
+	Map_Hand.add_kid_to_map(y)
+	y.global_position = _pos

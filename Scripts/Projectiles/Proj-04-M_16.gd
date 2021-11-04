@@ -1,5 +1,5 @@
 extends Area2D
-#export(PackedScene) var hit
+
 export(PackedScene) var hit_anim_map
 export(PackedScene) var hit_anim_move
 onready var timer = $Timer
@@ -42,32 +42,11 @@ func _physics_process(delta):
 			call_deferred("free")
 	move_local_x(speed * delta)
 
-#func _on_Projectile_area_entered(area):
-#	entered(area)
-#
-#func _on_Projectile_body_entered(body):
-#	entered(body)
-#
-#func entered(body):
-#	if body.get_groups().has("hittable"):
-#		Player_Stats.add_hit(owned, 1)
-#		_hit_move()
-#		body.hit(owned, my_name, damage_type, damage)
-#		call_deferred("free")
-##		queue_free()
-#	elif body.get_groups().has("projectile"):
-#		_hit_move()
-#		call_deferred("free")
-#	elif body.get_groups().has("map"):
-#		_hit_map()
-#		call_deferred("free")
+func set_frame(_num):
+	sprite.frame = _num
 
 func _on_Timer_timeout():
 	call_deferred("free")
-
-#func _on_Area2D_body_entered(body):
-#	if body.get_groups().has("map"):
-#		queue_free()
 
 func _hit_map(_pos):
 	var x = hit_anim_map.instance()

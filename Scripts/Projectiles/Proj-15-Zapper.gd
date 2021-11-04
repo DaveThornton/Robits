@@ -46,7 +46,6 @@ func entered(body):
 		_hit_move(self.global_position)
 		body.hit(owned, my_name, damage_type, damage)
 		call_deferred("free")
-#		queue_free()
 	elif body.get_groups().has("projectile"):
 		_hit_move(self.global_position)
 		call_deferred("free")

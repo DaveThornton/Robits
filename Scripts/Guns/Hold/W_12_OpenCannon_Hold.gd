@@ -57,17 +57,17 @@ func shoot():
 			melee()
 		elif ammo > 0:
 			if !shoot_cast.is_colliding():
-				var new_projectile = projectile.instance()
-				Map_Hand.add_kid_to_map(new_projectile)
+				# var new_projectile = projectile.instance()
+				# Map_Hand.add_kid_to_map(new_projectile)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				if is_right:
 					_sr = pos_shoot.global_rotation
 				else:
 					_sr = pos_shoot.global_rotation * -1
-				#---------------------------------------------------------------
 				var _sss = pos_shoot.global_scale
-				new_projectile.start( _sr , _ss, _sss, player, damage)
+				FX.proj(gun_num, _sr, _ss, _sss, player, damage)
+				# new_projectile.start( _sr , _ss, _sss, player, damage)
 			else:
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
@@ -109,7 +109,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting your self")
 
 func throw():
-	var t = opencannon_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
@@ -127,7 +127,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = opencannon_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

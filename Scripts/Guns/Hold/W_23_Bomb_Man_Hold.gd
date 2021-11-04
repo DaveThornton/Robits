@@ -1,6 +1,6 @@
 extends Node2D
 
-export(PackedScene) var bomb_man_pickup
+# export(PackedScene) var bomb_man_pickup
 # export(PackedScene) var boom
 
 onready var timer = $Timer
@@ -68,7 +68,7 @@ func melee():
 	pass
 
 func throw():
-	var t = bomb_man_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
@@ -86,7 +86,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = bomb_man_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, timer.get_time_left(), is_right, shoot_pos, false)

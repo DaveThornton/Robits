@@ -1,8 +1,8 @@
 extends Node2D
 
-export(PackedScene) var stuck_bolt
-export(PackedScene) var cbow_pickup
-export(PackedScene) var projectile
+# export(PackedScene) var stuck_bolt
+# export(PackedScene) var cbow_pickup
+# export(PackedScene) var projectile
 
 onready var anim = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
@@ -74,20 +74,21 @@ func shoot():
 				walk += walk_amount
 				if shoot_cast.get_collider().get_groups().has("map"):
 					var spot = shoot_cast.get_collision_point()
-					var x = stuck_bolt.instance()
+					var x = FX.stuck_bolt().instance()
 					Map_Hand.add_kid_to_map(x)
 					x.init(player, damage, spot, rotation, scale, 2)
 					print("map")
 				else:
 					var spot = shoot_cast.get_collision_point()
 					print(spot)
-					var x = stuck_bolt.instance()
+					var x = FX.stuck_bolt().instance()
 					shoot_cast.get_collider().add_child(x)
 					x.init(player, damage, spot, rotation, scale, 2)
 					print("not map")
 #			walk += walk_amount
 			can_shoot = false
-#			reload_timer.start()
+			shoot_timer.start()
+			# reload_timer.start()
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
@@ -120,7 +121,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting your self")
 
 func throw():
-	var t = cbow_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
@@ -135,7 +136,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = cbow_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
@@ -181,8 +182,8 @@ func _drop_where(_obj):
 	_obj.set_collision_mask_bit( 1, false)
 
 func _on_Shoot_Timer_timeout():
-	var new_projectile = projectile.instance()
-	Map_Hand.add_kid_to_map(new_projectile)
+	# var new_projectile = projectile.instance()
+	# Map_Hand.add_kid_to_map(new_projectile)
 	var _ss = pos_shoot.global_position
 	var _sr = pos_shoot.global_rotation
 	#---------------------------------------------------------------
@@ -192,7 +193,8 @@ func _on_Shoot_Timer_timeout():
 		_sr = pos_shoot.global_rotation * -1
 	#---------------------------------------------------------------
 	var _sss = pos_shoot.global_scale
-	new_projectile.start( _sr , _ss, _sss, player, damage)
+	FX.proj(gun_num, _sr, _ss, _sss, player, damage)
+	# new_projectile.start( _sr , _ss, _sss, player, damage)
 	walk += walk_amount
 	just_shot = true
 	reload_timer.start()

@@ -1,11 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sprites/FX/FX-19-Laser_Beam.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Guns/W_13_TOS.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Guns/Hold/W_13_TOS_Hold.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/FX/FX-13-Phaser-Hit_Particle.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Guns/Pick/W_13_TOS_Pick.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/FX/FX-13-Phaser-Hit.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -246,9 +243,6 @@ tracks/4/keys = {
 
 [node name="W_13_TOS_Hold" type="Node2D"]
 script = ExtResource( 3 )
-tos_pickup = ExtResource( 5 )
-hit_anim = ExtResource( 7 )
-hit_anim_nothing = ExtResource( 4 )
 
 [node name="Melee_Timer" type="Timer" parent="."]
 wait_time = 0.5

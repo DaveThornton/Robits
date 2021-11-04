@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Guns/Hold/W_17_Mars_Hold.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/Pick/W_17_Mars_Pick.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Projectiles/Proj-17-Mars.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/W_17_Mars.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
@@ -24,8 +22,6 @@ tracks/0/keys = {
 
 [node name="W_17_Mars_Hold" type="Node2D"]
 script = ExtResource( 1 )
-solo_pistol_pickup = ExtResource( 2 )
-projectile = ExtResource( 3 )
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -60,4 +56,5 @@ collision_mask = 2570
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Shoot = SubResource( 1 )
+
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]

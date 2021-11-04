@@ -1,8 +1,5 @@
 extends Node2D
 
-export(PackedScene) var spnkr_pickup
-export(PackedScene) var projectile
-
 onready var sprite_gun = $POS_Gun/Gun_Sprite
 onready var anim_fire = $AnimationPlayer
 onready var shoot_timer = $Shoot_Timer
@@ -15,7 +12,7 @@ onready var pos_shoot = $POS_Gun/POS/Shoot
 
 var player = 1
 var pawn = 0
-var gun_num = 2
+var gun_num = 41
 var ammo = 3
 var ammo_max = 9
 var take_ammo = true
@@ -53,8 +50,8 @@ func shoot_j():
 			melee()
 		elif ammo > 0:
 			if !shoot_cast.is_colliding():
-				var new_projectile = projectile.instance()
-				Map_Hand.add_kid_to_map(new_projectile)
+				# var new_projectile = projectile.instance()
+				# Map_Hand.add_kid_to_map(new_projectile)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				if is_right:
@@ -62,7 +59,8 @@ func shoot_j():
 				else:
 					_sr = pos_shoot.global_rotation * -1
 				var _sss = pos_shoot.global_scale
-				new_projectile.start( _sr , _ss, _sss, player, damage)
+				FX.proj(gun_num, _sr, _ss, _sss, player, damage)
+				# new_projectile.start( _sr , _ss, _sss, player, damage)
 			else:
 				FX.explode(40, player, shoot_cast.get_collision_point(), my_name, 0, damage)
 				# var _thing = shoot_cast.get_collider()
@@ -101,7 +99,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting your self")
 
 func throw():
-	var t = spnkr_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
@@ -116,7 +114,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = spnkr_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

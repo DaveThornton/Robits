@@ -1,7 +1,7 @@
 extends Node2D
 
-export(PackedScene) var Contradiction_S_Pickup
-export(PackedScene) var projectile
+# export(PackedScene) var Contradiction_S_Pickup
+# export(PackedScene) var projectile
 
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
@@ -13,7 +13,7 @@ onready var pos_shoot = $POS_Gun/POS/Shoot
 onready var pos_throw = $POS_Gun/POS/Throw
 
 var player = 1
-var gun_num = 2
+var gun_num = 51
 var ammo = 35
 var ammo_max = 90
 var take_ammo = true
@@ -57,16 +57,16 @@ func shoot():
 		elif ammo > 0:
 			can_shoot = false
 			if !shoot_cast.is_colliding():
-				var a = projectile.instance()
-				var b = projectile.instance()
-				var c = projectile.instance()
-				var d = projectile.instance()
-				var e = projectile.instance()
-				Map_Hand.add_kid_to_map(a)
-				Map_Hand.add_kid_to_map(b)
-				Map_Hand.add_kid_to_map(c)
-				Map_Hand.add_kid_to_map(d)
-				Map_Hand.add_kid_to_map(e)
+				# var a = projectile.instance()
+				# var b = projectile.instance()
+				# var c = projectile.instance()
+				# var d = projectile.instance()
+				# var e = projectile.instance()
+				# Map_Hand.add_kid_to_map(a)
+				# Map_Hand.add_kid_to_map(b)
+				# Map_Hand.add_kid_to_map(c)
+				# Map_Hand.add_kid_to_map(d)
+				# Map_Hand.add_kid_to_map(e)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				if is_right:
@@ -74,11 +74,16 @@ func shoot():
 				else:
 					_sr = pos_shoot.global_rotation * -1
 				var _sss = pos_shoot.global_scale
-				a.start( _sr - .2 , _ss, _sss, player, damage)
-				b.start( _sr - .1, _ss, _sss, player, damage)
-				c.start( _sr , _ss, _sss, player, damage)
-				d.start( _sr + .1, _ss, _sss, player, damage)
-				e.start( _sr + .2, _ss, _sss, player, damage)
+				FX.proj(gun_num, _sr - .2 , _ss, _sss, player, damage)
+				FX.proj(gun_num, _sr - .1 , _ss, _sss, player, damage)
+				FX.proj(gun_num, _sr, _ss, _sss, player, damage)
+				FX.proj(gun_num, _sr + .1 , _ss, _sss, player, damage)
+				FX.proj(gun_num, _sr + .2 , _ss, _sss, player, damage)
+				# a.start( _sr - .2 , _ss, _sss, player, damage)
+				# b.start( _sr - .1, _ss, _sss, player, damage)
+				# c.start( _sr , _ss, _sss, player, damage)
+				# d.start( _sr + .1, _ss, _sss, player, damage)
+				# e.start( _sr + .2, _ss, _sss, player, damage)
 			else:
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
@@ -120,7 +125,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting your self")
 
 func throw():
-	var t = Contradiction_S_Pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
@@ -138,7 +143,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = Contradiction_S_Pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

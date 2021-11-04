@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/Guns/W_23_Bomb.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Guns/Pick/W_23_Bomb_Man_Pick.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.99997

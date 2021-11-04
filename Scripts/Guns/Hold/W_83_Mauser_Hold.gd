@@ -1,9 +1,5 @@
 extends Node2D
 
-export(PackedScene) var sniper_pickup
-export(PackedScene) var projectile
-export(PackedScene) var shell
-
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
@@ -60,16 +56,6 @@ func shoot_j():
 		elif ammo > 0:
 			if !shoot_cast.is_colliding():
 				spawm_proj()
-#				var new_projectile = projectile.instance()
-#				Map_Hand.add_kid_to_map(new_projectile)
-#				var _ss = pos_shoot.global_position
-#				var _sr = pos_shoot.global_rotation
-#				if is_right:
-#					_sr = pos_shoot.global_rotation
-#				else:
-#					_sr = pos_shoot.global_rotation * -1
-#				var _sss = pos_shoot.global_scale
-#				new_projectile.start( _sr , _ss, _sss, player, damage)
 			elif shoot_cast.is_colliding() && shoot_cast.get_collider().player == player:
 				spawm_proj()
 			else:
@@ -81,13 +67,6 @@ func shoot_j():
 						shoot_no_proj(_thing)
 				else:
 					shoot_no_proj(_thing)
-#				elif _thing.get_groups().has("hittable"):
-#					_thing.hit(player, my_name, dmg_type, damage)
-#					print("gun 03 shot happened but no projectile spawned hit anyways")
-#				elif _thing.get_groups().has("map"):
-#					print("gun 03 hitting wall not fireing projectile", _thing)
-#				else:
-#					print("gun 03 dont know what im hitting but no projectile spawned")
 			anim_fire.play("Shoot")
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
@@ -108,8 +87,6 @@ func shoot_r():
 		shoot_timer.start()
 
 func spawm_proj():
-	var new_projectile = projectile.instance()
-	Map_Hand.add_kid_to_map(new_projectile)
 	var _ss = pos_shoot.global_position
 	var _sr = pos_shoot.global_rotation
 	if is_right:
@@ -117,7 +94,7 @@ func spawm_proj():
 	else:
 		_sr = pos_shoot.global_rotation * -1
 	var _sss = pos_shoot.global_scale
-	new_projectile.start( _sr , _ss, _sss, player, damage)
+	FX.proj(gun_num, _sr, _ss, _sss, player, damage)
 
 func shoot_no_proj(_thing):
 	if _thing.get_groups().has("hittable"):
@@ -129,13 +106,7 @@ func shoot_no_proj(_thing):
 		print("gun 03 dont know what im hitting but no projectile spawned")
 
 func spawn_shell():
-		var s = shell.instance()
-		Map_Hand.add_kid_to_map(s)
-		s.position = pos_shell.global_position
-		s.rotation = pos_shell.global_rotation
-		just_shot = false
-		can_shoot = false
-		shoot_timer.start()
+	FX.shell(gun_num, pos_shell.global_position, pos_shell.global_rotation)
 
 func melee():
 	if can_shoot:
@@ -152,7 +123,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting your self")
 
 func throw():
-	var t = sniper_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
@@ -167,7 +138,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = sniper_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

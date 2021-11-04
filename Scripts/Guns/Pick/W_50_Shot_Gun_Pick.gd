@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export(PackedScene) var smoke
+# export(PackedScene) var smoke
 export var expire_time = 30
 onready var sprite = $Sprite
 onready var timer = $Timer
@@ -91,10 +91,7 @@ func _on_Timer_timeout():
 	fade_out()
 
 func fade_out():
-	var s = smoke.instance()
-	Map_Hand.add_kid_to_map(s)
-#	get_tree().get_current_scene().add_child(s)
-	s.start( 0 , self.global_position, 0, 0)
+	FX.smoke(self.global_position)
 	call_deferred("free")
 
 func dont_hit_player():

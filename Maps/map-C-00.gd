@@ -26,8 +26,12 @@ signal activate(_num, _player)
 
 func _ready():
 #	print(Game.mode)
-	FX.set_back(background)
-	FX.CAMERA.max_right = camera_max_right
+	call_deferred("set_back",background)
+	# FX.set_back(background)
+	call_deferred("set_camera_max_right", camera_max_right)
+	# FX.CAMERA.max_right = camera_max_right
+	call_deferred("set_camera_move", camera_move)
+	# FX.camera_move(camera_move)
 	Game.use_lives()
 	if show_splash:
 		HUD.splash(title_text, body_text, splash_time, true)
@@ -36,7 +40,6 @@ func _ready():
 		print("map nav system found")
 	else:
 		print("map has no navigation")
-	FX.camera_move(camera_move)
 	if set_equip_weap_on:
 		Game.start_eq = true
 		for i in Settings.max_num_of_player: 
@@ -99,6 +102,15 @@ func activate_BG(_num, _player):
 func _on_Start_Timer_timeout():
 	emit_signal("start")
 	# parts.propagate_call("start")
+
+func set_back(_back):
+	FX.set_back(_back)
+
+func set_camera_move(_move):
+	FX.CAMERA.move(_move)
+
+func set_camera_max_right(_amount):
+	FX.CAMERA.max_right = _amount
 
 class MyCustomSorter:
 	static func sort_distance(a,b):

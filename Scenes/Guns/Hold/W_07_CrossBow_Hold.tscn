@@ -1,16 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_07_CrossBow.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Projectiles/W_07_CrossBow_Arrow.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Guns/Hold/W_07_CrossBow_Hold.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Projectiles/Proj-07-Bolt.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Guns/Pick/W_07_CrossBow_Pick.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Guns/Parts/W_07_Bolt_Stuck.tscn" type="PackedScene" id=6]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 radius = 11.0
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "Melee"
 length = 0.4
 step = 0.05
@@ -51,8 +48,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 3, 0 ), Vector2( 7, 0 ), Vector2( 3, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Reload"
+[sub_resource type="Animation" id=3]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("POS_Gun/Bow/Arrow:visible")
@@ -103,8 +99,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Shoot"
+[sub_resource type="Animation" id=4]
 length = 0.6
 step = 0.05
 tracks/0/type = "value"
@@ -158,9 +153,6 @@ tracks/3/keys = {
 
 [node name="W_07_CrossBow_Hold" type="Node2D"]
 script = ExtResource( 3 )
-stuck_bolt = ExtResource( 6 )
-cbow_pickup = ExtResource( 5 )
-projectile = ExtResource( 4 )
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -215,13 +207,14 @@ collision_mask = 2570
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Area2D"]
 position = Vector2( 12, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Melee = SubResource( 4 )
-anims/Reload = SubResource( 1 )
-anims/Shoot = SubResource( 2 )
+anims/Melee = SubResource( 2 )
+anims/Reload = SubResource( 3 )
+anims/Shoot = SubResource( 4 )
+
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Reload_Timer" to="." method="_on_Reload_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]

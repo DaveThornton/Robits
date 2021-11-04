@@ -1,8 +1,8 @@
 extends Node2D
 
-export(PackedScene) var M16_Pickup
-export(PackedScene) var projectile
-export(PackedScene) var shell
+# export(PackedScene) var M16_Pickup
+# export(PackedScene) var projectile
+# export(PackedScene) var shell
 
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
@@ -16,7 +16,7 @@ onready var pos_throw = $POS_Gun/POS/Throw
 
 var player = 1
 var pawn = 0
-var gun_num = 2
+var gun_num = 4
 var ammo = 30
 var ammo_max = 90
 var take_ammo = true
@@ -67,8 +67,6 @@ func shoot():
 			melee()
 		elif ammo > 0 && burst <= (how_many_burst - 1):
 			if !shoot_cast.is_colliding():
-				var new_projectile = projectile.instance()
-				Map_Hand.add_kid_to_map(new_projectile)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				#---------------------------------------------------------------
@@ -79,11 +77,7 @@ func shoot():
 					_sr = pos_shoot.global_rotation * -1
 				#---------------------------------------------------------------
 				var _sss = pos_shoot.global_scale
-				new_projectile.start( _sr , _ss, _sss, player, damage)
-				if color_change == 1:
-					new_projectile.sprite.frame = 0
-				elif color_change == 2:
-					new_projectile.sprite.frame = 3
+				FX.proj(gun_num, _sr, _ss, _sss, player, damage)
 				color_change += 1
 				if color_change == 3:
 					color_change = 0
@@ -96,10 +90,7 @@ func shoot():
 					print("gun 02 hitting wall not fireing projectile", _thing)
 				else:
 					print("gun 02 dont know what im hitting but no projectile spawned")
-			var s = shell.instance()
-			Map_Hand.add_kid_to_map(s)
-			s.position = pos_shell.global_position
-			s.rotation = pos_shell.global_rotation
+			FX.shell(gun_num, pos_shell.global_position, pos_shell.global_rotation)
 			burst += 1
 			walk += walk_amount
 			can_shoot = false
@@ -133,7 +124,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting your self")
 
 func throw():
-	var t = M16_Pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
@@ -148,7 +139,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = M16_Pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

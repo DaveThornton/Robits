@@ -1,9 +1,5 @@
 extends Node
 
-#var vol_master = 100
-#var vol_music = 100
-#var vol_sfx = 100
-#var is_game_over = false
 var max_num_of_player = 8
 var lives_per_credit = 3
 #var end_game_score = 10

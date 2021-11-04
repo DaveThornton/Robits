@@ -1,8 +1,5 @@
 extends Node2D
 
-export(PackedScene) var rail_pickup
-# export(PackedScene) var projectile
-
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
@@ -113,7 +110,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting your self")
 
 func throw():
-	var t = rail_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
@@ -128,7 +125,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = rail_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

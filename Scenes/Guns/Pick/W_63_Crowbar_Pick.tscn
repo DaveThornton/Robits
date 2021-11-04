@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Guns/Pick/W_63_Crowbar_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/W_63_Crowbar.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.78738

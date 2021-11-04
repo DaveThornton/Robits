@@ -1,7 +1,5 @@
 extends Node2D
 
-export(PackedScene) var sword_pickup
-
 onready var gun_pos = $POS_Gun
 onready var pos_throw = $POS_Throw
 onready var cast_throw = $RayCast2D
@@ -9,7 +7,7 @@ onready var axe = $POS_Gun/Axe
 onready var hit_area = $Melee_Area/CollisionShape2D
 
 var player = 1
-var gun_num = 60
+var gun_num = 62
 var ammo = 1
 var take_ammo = false
 var my_name = "Sword"
@@ -78,7 +76,7 @@ func melee():
 	print("i dont know how this got called W_60_Axe Melee?")
 
 func throw():
-	var t = sword_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, .5, is_right, shoot_pos, true)
@@ -96,7 +94,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = sword_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

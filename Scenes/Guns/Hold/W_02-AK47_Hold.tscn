@@ -1,13 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/FX/shot-right-01.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Hold/W_02-AK47_Hold.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Guns/W_02-AK47.png" type="Texture" id=3]
-[ext_resource path="res://Scenes/Projectiles/Proj-02-AK_47.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Projectiles/Shell-01.tscn" type="PackedScene" id=6]
-
-
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -172,9 +167,6 @@ tracks/3/keys = {
 
 [node name="W_02-AK47_Hold" type="Node2D"]
 script = ExtResource( 2 )
-ak47_Pickup = ExtResource( 5 )
-projectile = ExtResource( 4 )
-shell = ExtResource( 6 )
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.16
@@ -241,6 +233,7 @@ disabled = true
 anims/Click = SubResource( 2 )
 anims/Melee = SubResource( 3 )
 anims/Shoot = SubResource( 4 )
+
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]
 [connection signal="body_entered" from="POS_Gun/Melee_Area" to="." method="_on_Melee_Area_body_entered"]

@@ -337,10 +337,13 @@ func pick_up():
 	poss_pick_obj.queue_free()
 
 func no_gun():
-		if is_holding == true:
-			take_ammo = false
-			is_holding = false
-			my_gun = null
+	if is_holding == true:
+		take_ammo = false
+		is_holding = false
+		my_gun.call_deferred("free")
+		my_gun = null
+		if my_start_gun && start_equiped:
+			my_start_gun.visible = true
 
 ##-----------------------------------------------------------------------[Equip]
 func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):

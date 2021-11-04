@@ -38,33 +38,6 @@ func _physics_process(delta):
 			call_deferred("free")
 	move_local_x(speed * delta)
 
-#func _on_Projectile_area_entered(area):
-#	entered(area)
-#
-#func _on_Projectile_body_entered(body):
-#	entered(body)
-#
-#func entered(body):
-#	pass
-#	var _hit = true
-#	if body.get_groups().has("player"):
-#		if body.player == owned:
-#			print("hit your self?!?!")
-#			_hit = false
-#	if _hit:
-#		if body.get_groups().has("hittable"):
-#			Player_Stats.add_hit(owned, 1)
-#			_hit_move()
-#			body.hit(owned, my_name, damage_type, damage)
-#			call_deferred("free")
-#	#		queue_free()
-#		elif body.get_groups().has("projectile"):
-#			_hit_move()
-#			call_deferred("free")
-#		elif body.get_groups().has("map"):
-#			_hit_move()
-#			call_deferred("free")
-
 func _hit_map(_pos):
 	var x = hit_anim_map.instance()
 	self.get_tree().get_current_scene().add_child(x)

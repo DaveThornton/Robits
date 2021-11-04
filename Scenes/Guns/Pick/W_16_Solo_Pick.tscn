@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_16_Solo_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Projectiles/Poof.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_16_Solo.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]

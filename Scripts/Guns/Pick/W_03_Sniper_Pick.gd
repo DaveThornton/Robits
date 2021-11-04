@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export(PackedScene) var smoke
+# export(PackedScene) var smoke
 export var expire_time = 30.0
 
 onready var sprite = $Sprite
@@ -42,7 +42,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 #warning-ignore:unused_argument
 #warning-ignore:unused_argument
 #warning-ignore:unused_argument
-func _on_WeapPick03Sniper_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_WeapPick03Sniper_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 	if hits < hits_max :
 		hits += 1
 		SFX.hit()
@@ -91,11 +91,7 @@ func _on_Timer_timeout():
 	fade_out()
 
 func fade_out():
-	print("gun number: ", gun_num, " *poof*")
-	var s = smoke.instance()
-	Map_Hand.add_kid_to_map(s)
-#	get_tree().get_current_scene().add_child(s)
-	s.start( 0 , self.global_position, 0, 0)
+	FX.smoke(self.global_position)
 	call_deferred("free")
 	
 func dont_hit_player():

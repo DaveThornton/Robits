@@ -27,11 +27,9 @@ func _physics_process(delta):
 		var _col = ray.get_collider()
 		if _col:
 			if ray.get_collider().get_groups().has("map"):
-#				var spot = ray.get_collision_point()
 				var x = hit_anim_map.instance()
 				self.get_tree().get_current_scene().add_child(x)
 				x.global_position = ray.get_collision_point()
-	#			print("map")
 			else:
 				if ray.get_collider().get_groups().has("player"):
 					Player_Stats.add_hit(owned,.1)
@@ -39,7 +37,6 @@ func _physics_process(delta):
 				var x = hit_anim_move.instance()
 				self.get_tree().get_current_scene().add_child(x)
 				x.global_position = ray.get_collision_point()
-	#			print("not map")
 			call_deferred("free")
 	move_local_x(speed * delta)
 	
@@ -55,7 +52,6 @@ func entered(body):
 		_hit_move()
 		body.hit(owned, my_name, damage_type, damage)
 		call_deferred("free")
-#		queue_free()
 	elif body.get_groups().has("projectile"):
 		_hit_move()
 		call_deferred("free")

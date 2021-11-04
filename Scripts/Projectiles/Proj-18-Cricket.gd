@@ -1,10 +1,8 @@
 extends Area2D
 
-export var speed = 1800
-
 onready var cast = $RayCast2D
 onready var timer = $Timer
-#var speed = 1800
+var speed = 1800
 var owned = 1
 var my_name = "Cricket"
 var damage = 150
@@ -25,14 +23,6 @@ func _physics_process(delta):
 		FX.explode(18, owned, cast.get_collision_point(), "Cricket", 0, damage)
 		call_deferred("free")
 	move_local_x(speed * delta)
-
-# func _hit_map(_pos):
-# 	FX.explode(18, owned, cast.get_collision_point(), "Cricket", 0, damage)
-# 	call_deferred("free")
-
-# func _hit_move(_pos):
-# 	FX.explode(18, owned, cast.get_collision_point(), "Cricket", 0, damage)
-# 	call_deferred("free")
 
 func _on_Timer_timeout():
 	call_deferred("free")

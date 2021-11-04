@@ -21,11 +21,12 @@ var pos
 var player = -1
 
 func _ready():
-	if !is_custom_color:
-		my_color = FX.get_brick_color(brick_color)
-	else:
-		my_color = custom_color
-	sprite.self_modulate = my_color
+	# if !is_custom_color:
+	call_deferred("set_my_start_color")
+	# 	my_color = FX.get_brick_color(brick_color)
+	# else:
+	# 	my_color = custom_color
+	# sprite.self_modulate = my_color
 	# self.self_modulate = my_color
 	if head_hit:
 		head_area.disabled = false
@@ -66,3 +67,10 @@ func _on_Timer_respawn_timeout():
 		box_shape.disabled = false
 		if head_hit:
 			head_area.disabled = false
+
+func set_my_start_color():
+	if !is_custom_color:
+		my_color = FX.get_brick_color(brick_color)
+	else:
+		my_color = custom_color
+	sprite.self_modulate = my_color

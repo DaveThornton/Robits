@@ -1,6 +1,5 @@
 extends Area2D
 
-#export(PackedScene) var hit
 export var speed = 1800
 export(PackedScene) var hit_anim_map
 export(PackedScene) var hit_anim_move
@@ -8,7 +7,7 @@ export(PackedScene) var hit_anim_move
 onready var cast = $RayCast2D
 onready var timer = $Timer
 onready var anim = $AnimationPlayer
-#var speed = 1800
+
 var owned = 1
 var my_name = "Atom"
 var damage = 0
@@ -50,7 +49,6 @@ func entered(body):
 		_hit_move(self.global_position)
 		body.hit(owned, my_name, damage_type, damage)
 		call_deferred("free")
-#		queue_free()
 	elif body.get_groups().has("projectile"):
 		_hit_move(self.global_position)
 		call_deferred("free")

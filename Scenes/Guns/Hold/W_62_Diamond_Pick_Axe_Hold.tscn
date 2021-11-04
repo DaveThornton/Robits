@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Guns/Hold/W_62_PickAxe_Hold.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/Pick/W_62_Diamond_PickAxe_Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_62_Diamond_PickAxe.png" type="Texture" id=3]
-
-
-
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.7846
@@ -13,7 +9,6 @@ height = 7.89017
 
 [node name="W_60_Axe_Hold" type="Node2D"]
 script = ExtResource( 1 )
-sword_pickup = ExtResource( 2 )
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
@@ -39,4 +34,5 @@ disabled = true
 enabled = true
 cast_to = Vector2( 45, 0 )
 collision_mask = 3850
+
 [connection signal="body_entered" from="Melee_Area" to="." method="_on_Melee_Area_body_entered"]

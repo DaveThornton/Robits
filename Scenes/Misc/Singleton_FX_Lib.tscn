@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_FX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=2]
@@ -10,8 +10,13 @@
 [ext_resource path="res://Sprites/Background/Back_04_Deep_Blue_Tile.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Misc/Parts/Splash_Screens_Part.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Misc/Parts/Explosions.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/FX/FX-10-Brick-04.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Misc/Parts/Projectlies.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Misc/Parts/Bricks.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Misc/Parts/Shells.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Guns/Parts/W_07_Bolt_Stuck.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Guns/Parts/W_59_Arrow_Stuck.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Misc/Parts/MiscFX.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 470, 549 )
@@ -113,11 +118,19 @@ shape = SubResource( 2 )
 [node name="Splash_Screens_Part" parent="." instance=ExtResource( 9 )]
 
 [node name="Explosions" parent="." instance=ExtResource( 10 )]
-position = Vector2( 0, -21 )
+
+[node name="Projectlies" parent="." instance=ExtResource( 11 )]
+position = Vector2( 0, -1 )
+
+[node name="Shells" parent="." instance=ExtResource( 13 )]
 
 [node name="Bricks" parent="." instance=ExtResource( 12 )]
-position = Vector2( -10, 9 )
-four_bricks = ExtResource( 11 )
+
+[node name="MiscFX" parent="." instance=ExtResource( 17 )]
+position = Vector2( 0, -1 )
+arrow = ExtResource( 15 )
+bolt = ExtResource( 14 )
+disappear = ExtResource( 16 )
 
 [connection signal="area_entered" from="MP-01-Camera/Area2D_Respawn" to="." method="_on_Area2D_Respawn_area_entered"]
 [connection signal="area_exited" from="MP-01-Camera/Area2D_Respawn" to="." method="_on_Area2D_Respawn_area_exited"]

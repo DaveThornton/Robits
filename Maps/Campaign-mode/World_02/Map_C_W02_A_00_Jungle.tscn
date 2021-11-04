@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Maps/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-04-Back-FX-Jungle.tres" type="TileSet" id=2]
@@ -13,18 +13,25 @@
 [ext_resource path="res://Tilesets/TS-06-Main-FX.tres" type="TileSet" id=11]
 [ext_resource path="res://Tilesets/TS-05-Main-Brick.tres" type="TileSet" id=12]
 [ext_resource path="res://Scenes/Guns/Pick/W_23_Bomb_Man_Pick.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Guns/Pick/W_39_P_Mine_Pick.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Guns/Pick/W_70_Bat_Pick.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Bad_Guys/BG-03.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Guns/Pick/W_25_Time_Bomb_Pick.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Guns/Pick/W_71_Tomahawk_Pick.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawn-Camp.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Map_Parts/MP-16-Badguy_Spawn.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Guns/Pick/W_24_TNT_Pick.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Guns/Pick/W_69_Bat'leth_Pick.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_01.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Bad_Guys/BG-25-Turret-Wall-Back.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Map_Parts/MP-55-Blast_Door.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Bad_Guys/Boss/BG-103-Boss.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Guns/Pick/W_57_Henry_Pick.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Guns/Pick/W_68_D'k_Tahg_Pick.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Map_Parts/MP-40-Distruct-Brick_Block.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Guns/Pick/W_42_G-Launcher_Pick.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/Guns/Pick/W_07_CrossBow_Pick.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Scenes/Guns/Pick/W_59_Bow_Pick.tscn" type="PackedScene" id=32]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 566 )
@@ -294,24 +301,29 @@ position = Vector2( 9070, 570 )
 position = Vector2( 3650, 1089 )
 
 [node name="MP-10-R_Mark_01_00" parent="Map_parts" instance=ExtResource( 21 )]
-position = Vector2( 354.205, 951.924 )
-spawn_01 = ExtResource( 20 )
+position = Vector2( 360.205, 949.922 )
+spawn_01 = ExtResource( 26 )
 spawn_02 = ExtResource( 13 )
 
 [node name="MP-10-R_Mark_01_01" parent="Map_parts" instance=ExtResource( 21 )]
-position = Vector2( 438.206, 954.906 )
-spawn_01 = ExtResource( 13 )
+position = Vector2( 440.205, 949.905 )
+spawn_01 = ExtResource( 20 )
 
 [node name="MP-10-R_Mark_01_02" parent="Map_parts" instance=ExtResource( 21 )]
-position = Vector2( 538, 954 )
-spawn_01 = ExtResource( 17 )
-
-[node name="MP-10-R_Mark_01_03" parent="Map_parts" instance=ExtResource( 21 )]
-position = Vector2( 620, 954 )
+position = Vector2( 540.205, 949.883 )
 spawn_01 = ExtResource( 14 )
 
-[node name="MP-55-Blast_Door" parent="Map_parts/MP-10-R_Mark_01_03" instance=ExtResource( 23 )]
-position = Vector2( 340.216, 45.7929 )
+[node name="W_42_G-Launcher" parent="Map_parts" instance=ExtResource( 29 )]
+position = Vector2( 440.196, 909.905 )
+
+[node name="Weap-Pick-02-Ak-47" parent="Map_parts" instance=ExtResource( 28 )]
+position = Vector2( 360.194, 899.922 )
+expire_time = null
+
+[node name="MP-10-R_Mark_01_03" parent="Map_parts" instance=ExtResource( 21 )]
+position = Vector2( 620.205, 949.866 )
+spawn_01 = ExtResource( 17 )
+spawn_02 = ExtResource( 25 )
 
 [node name="BadGuy_Spawners" type="Node2D" parent="Map_parts"]
 
@@ -400,5 +412,20 @@ position = Vector2( 1070.2, 929.769 )
 [node name="MP-40-Dis--B-Brick_02" parent="Map_parts" instance=ExtResource( 27 )]
 position = Vector2( 1090.2, 929.765 )
 
+[node name="MP-55-Blast_Door" parent="." instance=ExtResource( 23 )]
+position = Vector2( 960.421, 995.659 )
+
 [node name="BadGuys" type="Node2D" parent="."]
 z_index = -2
+
+[node name="W_59_Bow_Pick" parent="." instance=ExtResource( 32 )]
+position = Vector2( 530.194, 899.886 )
+
+[node name="W_07_CrossBow_Pick" parent="." instance=ExtResource( 31 )]
+position = Vector2( 620.198, 919.866 )
+
+[node name="Pick-Up-01-Ammo" parent="." instance=ExtResource( 30 )]
+position = Vector2( 1020.22, 1019.78 )
+
+[node name="Pick-Up-01-Ammo2" parent="." instance=ExtResource( 30 )]
+position = Vector2( 1070.2, 909.769 )

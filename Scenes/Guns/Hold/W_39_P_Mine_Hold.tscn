@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_39_P_Mine.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Guns/Pick/W_39_P_Mine_Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Guns/Hold/W_39_P_Mine_Hold.gd" type="Script" id=3]
 
 [node name="W_39_P_Mine_Hold" type="Node2D"]
 script = ExtResource( 3 )
-p_mine_pickup = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

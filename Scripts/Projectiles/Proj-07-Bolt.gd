@@ -1,6 +1,6 @@
 extends Area2D
 
-export(PackedScene) var stuck_bolt
+# export(PackedScene) var stuck_bolt
 export(PackedScene) var hit_anim_map
 export(PackedScene) var hit_anim_move
 
@@ -26,7 +26,7 @@ func _physics_process(delta):
 	if ray.is_colliding():
 		if ray.get_collider().get_groups().has("map"):
 			var spot = ray.get_collision_point()
-			var x = stuck_bolt.instance()
+			var x = FX.stuck_bolt().instance()
 			Map_Hand.add_kid_to_map(x)
 			x.init(player, damage, spot, rotation, scale, 2)
 			print("map")
@@ -35,7 +35,7 @@ func _physics_process(delta):
 				Player_Stats.add_hit(player,1)
 			var spot = ray.get_collision_point()
 			print(spot)
-			var x = stuck_bolt.instance()
+			var x = FX.stuck_bolt().instance()
 			ray.get_collider().add_child(x)
 			x.init(player, damage, spot, rotation, scale, 2)
 			print("not map")

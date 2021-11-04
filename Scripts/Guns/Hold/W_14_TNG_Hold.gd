@@ -2,9 +2,9 @@ extends Node2D
 
 const MAX_LENGTH = 750
 
-export(PackedScene) var tng_pickup
-export(PackedScene) var hit_anim
-export(PackedScene) var hit_anim_nothing
+# export(PackedScene) var tng_pickup
+# export(PackedScene) var hit_anim
+# export(PackedScene) var hit_anim_nothing
 
 
 onready var anim_fire = $AnimationPlayer
@@ -114,7 +114,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting your self")
 
 func throw():
-	var t = tng_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
@@ -132,7 +132,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = tng_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
@@ -178,15 +178,17 @@ func _drop_where(_obj):
 	_obj.set_collision_mask_bit( 1, false)
 
 func _hit(_pos):
-	var x = hit_anim.instance()
-	self.get_tree().get_current_scene().add_child(x)
-	x.global_position = _pos
+	FX.proj_hit(gun_num, _pos, true)
+	# var x = hit_anim.instance()
+	# self.get_tree().get_current_scene().add_child(x)
+	# x.global_position = _pos
 
 func _hit_nothing(_pos):
-	var x = hit_anim_nothing.instance()
-	Map_Hand.add_kid_to_map(x)
-	x.global_position = beam_end.global_position
-	x.emitting = true
+	FX.proj_hit(gun_num, _pos, false)
+	# var x = hit_anim_nothing.instance()
+	# Map_Hand.add_kid_to_map(x)
+	# x.global_position = beam_end.global_position
+	# x.emitting = true
 
 func _on_Melee_Timer_timeout():
 	can_shoot = true

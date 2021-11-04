@@ -1,9 +1,5 @@
 extends Node2D
 
-export(PackedScene) var sniper_pickup
-export(PackedScene) var projectile
-export(PackedScene) var shell
-
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
@@ -16,8 +12,8 @@ onready var pos_throw = $POS_Gun/POS/Throw
 
 var player = 1
 var pawn = 0
-var gun_num = 2
-var ammo = 30
+var gun_num = 3
+var ammo = 10
 var ammo_max = 90
 var take_ammo = true
 var my_name = "Sniper"
@@ -59,8 +55,6 @@ func shoot_j():
 			melee()
 		elif ammo > 0:
 			if !shoot_cast.is_colliding():
-				var new_projectile = projectile.instance()
-				Map_Hand.add_kid_to_map(new_projectile)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				if is_right:
@@ -68,7 +62,7 @@ func shoot_j():
 				else:
 					_sr = pos_shoot.global_rotation * -1
 				var _sss = pos_shoot.global_scale
-				new_projectile.start( _sr , _ss, _sss, player, damage)
+				FX.proj(gun_num, _sr, _ss, _sss, player, damage)
 			else:
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
@@ -93,10 +87,7 @@ func shoot():
 
 func shoot_r():
 	if just_shot:
-		var s = shell.instance()
-		Map_Hand.add_kid_to_map(s)
-		s.position = pos_shell.global_position
-		s.rotation = pos_shell.global_rotation
+		FX.shell(gun_num, pos_shell.global_position, pos_shell.global_rotation)
 		just_shot = false
 		can_shoot = false
 		shoot_timer.start()
@@ -116,7 +107,7 @@ func _on_Melee_Area_body_entered(body):
 			print("quit hitting your self")
 
 func throw():
-	var t = sniper_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
@@ -131,7 +122,7 @@ func throw():
 func drop():
 	call_deferred("_drop")
 func _drop():
-	var t = sniper_pickup.instance()
+	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

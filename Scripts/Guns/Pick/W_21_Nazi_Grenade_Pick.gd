@@ -1,12 +1,11 @@
 extends RigidBody2D
 
 # export(PackedScene) var boom
-export(PackedScene) var smoke
+# export(PackedScene) var smoke
 export var armed = false 
 
 onready var timer = $Timer
 onready var spin_timer = $Timer_Spin
-#onready var hit_timer =  $Timer_Hit
 onready var timer_boom = $Timer_Boom
 onready var sprite = $Sprite_Body
 onready var pin = $Sprite_Pin
@@ -47,32 +46,12 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		ammo = 0
 		pin.visible = false
 		label.visible = true
-#		timer_boom.wait_time = _time
 		timer_boom.start()
 	else:
 		label.visible = false
-#		timer.wait_time = expire_time
 		timer.start()
-#func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
-#	set_dir(_is_right, _dir)
-#	print(_time)
-#	player = _player
-#	if _ammo  == 0:
-#		ammo = 0
-#		pin.visible = false
-#		label.visible = true
-#		timer_boom.wait_time = _time
-#		timer_boom.start()
-#	else:
-#		label.visible = false
-#		timer.wait_time = 30
-#		timer.start()
-
 func _on_Timer_Boom_timeout():
 	FX.explode(10,player, self.global_position, my_name, 0, damage)
-	# var b = boom.instance()
-	# Map_Hand.add_kid_to_map(b)
-	# b.init(player, self.global_position, my_name, 0, damage)
 	call_deferred("free")
 
 func spin(_how_much):
@@ -130,9 +109,7 @@ func _on_Timer_timeout():
 	fade_out()
 
 func fade_out():
-	var s = smoke.instance()
-	Map_Hand.add_kid_to_map(s)
-	s.start( 0 , self.global_position, 0, 0)
+	FX.smoke(self.global_position)
 	call_deferred("free")
 
 func _on_Timer_Hit_timeout():

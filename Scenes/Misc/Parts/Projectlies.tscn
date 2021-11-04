@@ -1,3 +1,67 @@
-[gd_scene format=2]
+[gd_scene load_steps=32 format=2]
 
-[node name="Projectlie" type="Node2D"]
+[ext_resource path="res://Scripts/Misc/Parts/Projectlies.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Projectiles/Proj-02-AK_47.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Projectiles/Proj-03-Sniper.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Projectiles/Proj-04-M_16.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Projectiles/Proj-11-Mega-Cannon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Projectiles/Proj-10-Laser.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Projectiles/Proj-40-RPG.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Projectiles/Proj-50-Shot_Gun_A.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Projectiles/Proj-50-Shot_Gun_Main.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Projectiles/Proj-07-Bolt.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Projectiles/Proj-51-Contradiction_S_01.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Projectiles/Proj-12-Laser.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Projectiles/Proj-17-Mars.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Projectiles/Proj-18-Cricket.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Projectiles/Proj-08-Uzi.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Projectiles/Proj-56-BFG_9000.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Projectiles/Proj-16-Solo.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Projectiles/Proj-41-SPNKr.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Projectiles/Proj-15-Zapper.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Projectiles/Proj-84-Luger.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Projectiles/Proj-59-Arrow.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Projectiles/Proj-58-Derringer.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Projectiles/Proj-42-G_Launcher.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Projectiles/Proj-06-Atom.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Projectiles/Proj-09-Mag.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Projectiles/Proj-13-TOS.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Projectiles/Campaign/Proj-00-Mega-Cannon.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-04-Sniper-Laser.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-103-Laser.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-104-Cannon_Ball.tscn" type="PackedScene" id=31]
+
+[node name="Projectlies" type="Node2D"]
+script = ExtResource( 1 )
+proj002 = ExtResource( 2 )
+proj003 = ExtResource( 3 )
+proj004 = ExtResource( 4 )
+proj005 = ExtResource( 12 )
+proj006 = ExtResource( 24 )
+proj007 = ExtResource( 10 )
+proj008 = ExtResource( 15 )
+proj009 = ExtResource( 25 )
+proj010 = ExtResource( 6 )
+proj011 = ExtResource( 5 )
+proj012 = ExtResource( 12 )
+proj013 = ExtResource( 26 )
+proj015 = ExtResource( 19 )
+proj016 = ExtResource( 17 )
+proj017 = ExtResource( 13 )
+proj018 = ExtResource( 14 )
+proj040 = ExtResource( 7 )
+proj041 = ExtResource( 18 )
+proj042 = ExtResource( 23 )
+proj050_1 = ExtResource( 9 )
+proj050_2 = ExtResource( 8 )
+proj051 = ExtResource( 11 )
+proj056 = ExtResource( 16 )
+proj058 = ExtResource( 22 )
+proj059 = ExtResource( 21 )
+proj084 = ExtResource( 20 )
+bg_proj004 = ExtResource( 28 )
+bg_proj010 = ExtResource( 29 )
+bg_proj103 = ExtResource( 30 )
+bg_proj104 = ExtResource( 31 )
+camp_proj000 = ExtResource( 27 )
