@@ -9,9 +9,7 @@ onready var throw_cast = $RayCast2D
 var player = 1
 var gun_num = 39
 var ammo = 1
-# warning-ignore:unused_class_variable
 var take_ammo = false
-#var armed = false
 var my_name = "Prox Mine"
 var dmg_type = "Boom"
 var damage = 120
@@ -32,12 +30,6 @@ func _ready():
 func init(_ammo, _player, _time, _just_shot):
 	player = _player
 	ammo = _ammo
-#	if _ammo <= 0:
-#		ammo = 0
-#		timer.wait_time = _time
-#		timer.start()
-#	else:
-#		timer.wait_time = time
 	emit_signal("ammo_change",player,ammo)
 	
 func shoot_j():

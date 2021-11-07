@@ -24,7 +24,6 @@ func init(_player, _pawn, _part_num, _move, _pos, _impulse):
 		sprite.frame = 17
 	if _move:
 		self.position = _pos
-	# self.self_modulate = _color
 	self.apply_impulse(Vector2(),_impulse)
 
 func _on_Timer_timeout():

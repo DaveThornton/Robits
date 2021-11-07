@@ -57,8 +57,6 @@ func shoot():
 			melee()
 		elif ammo > 0:
 			if !shoot_cast.is_colliding():
-				# var new_projectile = projectile.instance()
-				# Map_Hand.add_kid_to_map(new_projectile)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				if is_right:
@@ -67,7 +65,6 @@ func shoot():
 					_sr = pos_shoot.global_rotation * -1
 				var _sss = pos_shoot.global_scale
 				FX.proj(gun_num, _sr, _ss, _sss, player, damage)
-				# new_projectile.start( _sr , _ss, _sss, player, damage)
 			else:
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):

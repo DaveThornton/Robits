@@ -29,10 +29,7 @@ func boom_sec(_player):
 	if _player:
 		var _pos = _player.position
 		FX.explode(56.2, owned, _pos, my_name, 0, damage1)
-		# var x = boom.instance()
-		# Map_Hand.add_kid_to_map(x)
 		Player_Stats.add_hit(owned,1)
-		# x.init(owned, _pos, my_name, 0, damage1)
 
 func _on_Area2Douter_body_entered(body):
 	if body.get_groups().has("player"):

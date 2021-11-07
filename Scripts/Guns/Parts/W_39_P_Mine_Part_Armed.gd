@@ -1,6 +1,5 @@
 extends Node2D
 
-# export(PackedScene) var boom
 export var time_out = 30.0
 onready var ex_spot = $Position2D
 onready var timer_out = $Timer_Out
@@ -13,7 +12,6 @@ var damage = 0
 
 func _ready():
 	anim.play("Flash")
-#	pass # Replace with function body.
 
 func init(_player, _dmg, _pos, _rot):
 	player = _player 
@@ -21,27 +19,14 @@ func init(_player, _dmg, _pos, _rot):
 	self.position = _pos
 	self.rotation_degrees = _rot
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 func destruct():
 	FX.explode(10, player, ex_spot.global_position, my_name, 0, damage)
 	call_deferred("free")
-# 	call_deferred("_destruct")
-# func _destruct():
-# 	var b = boom.instance()
-# 	Map_Hand.add_kid_to_map(b)
-# 	b.init(player, ex_spot.global_position, my_name, 0, damage)
-# 	queue_free()
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
 		if armed:
 			destruct()
-#		var b = boom.instance()
-#		Map_Hand.add_kid_to_map(b)
-#		b.init(player, ex_spot.global_position, my_name, 0, damage)
-#		queue_free()
 
 func _on_Timer_In_timeout():
 	armed = true

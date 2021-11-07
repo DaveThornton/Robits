@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-export(PackedScene) var projectile
-# export(PackedScene) var explode
 export var armor = 0
 export var active = true
 export var active_number = 1
@@ -11,7 +9,6 @@ export var points = 3
 onready var anim = $AnimationPlayer3
 onready var sprite = $Sprite
 onready var cast_down = $Casts/RayCast2D_Down 
-#onready var sfx = $SFX_Lib
 onready var shoot_timer = $Timer_Shoot
 
 onready var s_pos_up_l = $"Casts/Shoot_Casts/Shoot-Up-Left-Pos"
@@ -33,13 +30,6 @@ onready var cast_shoot_left_up = $"Casts/Shoot_Casts/Shoot-LeftUp-RayCast2D"
 onready var cast_shoot_right_up = $"Casts/Shoot_Casts/Shoot-RightUp-RayCast2D"
 onready var cast_shoot_left_down = $"Casts/Shoot_Casts/Shoot-LeftDown-RayCast2D"
 onready var cast_shoot_right_down = $"Casts/Shoot_Casts/Shoot-RightDown-RayCast2D"
-
-#onready var cast_bg_right_top = $"Casts/BG_Casts/RayCast2D-Right_Top"
-#onready var cast_bg_right_bot = $"Casts/BG_Casts/RayCast2D-Right_Bot"
-#onready var cast_bg_left_top = $"Casts/BG_Casts/RayCast2D-Left_Top"
-#onready var cast_bg_left_bot = $"Casts/BG_Casts/RayCast2D-Left_Bot"
-#onready var cast_bg_up = $"Casts/BG_Casts/RayCast2D-Up"
-#onready var cast_bg_down = $"Casts/BG_Casts/RayCast2D-Down"
 
 var path : = PoolVector2Array() setget set_path
 var nav_system
@@ -71,34 +61,6 @@ func _ready():
 	time_to_check = rand_range(.5, .75)
 
 func _process(delta: float) -> void:
-#	if on_ladder:
-#		if up_ladder == true && cast_bg_up.is_colliding():
-#			can_move = false
-#			print(can_move)
-#		elif up_ladder == true && !cast_bg_up.is_colliding():
-#			can_move = true
-#			print(can_move)
-#		if up_ladder == false && cast_bg_down.is_colliding():
-#			can_move = false
-#			print(can_move)
-#		elif up_ladder == false && !cast_bg_down.is_colliding():
-#			can_move = true
-#			print(can_move)
-#	else:
-#		if is_right:
-#			if cast_bg_right_top.is_colliding() || cast_bg_right_bot.is_colliding():
-#				can_move = false
-#				print(can_move)
-#			else:
-#				can_move = true
-#				print(can_move)
-#		else:
-#			if cast_bg_left_top.is_colliding() || cast_bg_left_bot.is_colliding():
-#				can_move = false
-#				print(can_move)
-#			else:
-#				can_move = true
-#				print(can_move)
 	current_time_to_check += delta
 	var shot = _get_shot()
 	if shot != 0 && !on_ladder && on_floor:
@@ -111,7 +73,6 @@ func _process(delta: float) -> void:
 	else:
 		can_move = true
 		if !nav_system:
-#			if self.get_tree().get_current_scene().map.nav_system:
 			if Map_Hand.map.nav_system:
 				nav_system = Map_Hand.map.nav_system
 				var map = Map_Hand.map
@@ -120,30 +81,24 @@ func _process(delta: float) -> void:
 				nav_system.found_me()
 		else:
 			if current_time_to_check >= time_to_check:
-#				print(path)
-#				print(hunted[0].global_position)
 				current_time_to_check = 0.0
 				if !find_all:
 					remove_dead(hunted)
 					hunted.sort_custom(self, "sort_distance")
 					if hunted.size() > 0:
-#						print(hunted[0].global_position)
 						nav_system.find_path(self, hunted[0])
 					else:
 						active = false
 				else:
 					var g = self.get_tree().get_current_scene().pawns.get_child_count()
-#					print(g)
 					if g > 0:
 						remove_dead(hunted_all)
 						hunted_all = null
 						hunted_all = []
 						for h in g:
 							hunted_all.append(self.get_tree().get_current_scene().pawns.get_child(h))
-#							print("adding to hunted_all (open gunner - 01)")
 						hunted_all.sort_custom(self, "sort_distance")
 						nav_system.find_path(self, hunted_all[0])
-#						print(hunted_all[0],hunted_all[0].global_position)
 					else:
 						active = false
 	_on_floor()
@@ -178,7 +133,6 @@ func move_along_path(distance : float) -> void:
 # warning-ignore:unused_variable
 	for i in range (path.size()):
 		var distance_to_next : = start_point.distance_to(path[0])
-#		print(distance_to_next)
 		var hor_move = int(self.global_position.x) - int(path[0].x)
 		var vert_move = int(self.global_position.y) - int(path[0].y)
 		if hor_move < 0:# && !cast_bg_right_top.is_colliding() && !cast_bg_right_bot.is_colliding():
@@ -253,12 +207,10 @@ func _get_shoot_anim(_shoot_pos):
 
 func shoot(_pos_shoot):
 	can_shoot = false 
-	var new_projectile = projectile.instance()
-	get_tree().get_current_scene().add_child(new_projectile)
 	var _ss = _pos_shoot.global_position
 	var _sr = _pos_shoot.global_rotation
 	var _sss = _pos_shoot.scale
-	new_projectile.start(_sr , _ss, _sss, player, damage)
+	FX.proj_bad(4, _sr , _ss, _sss, -1, damage)
 	SFX.play("Laser_Shoot")
 	shoot_timer.start()
 
@@ -285,13 +237,11 @@ func _go_jump_down(_s):
 	position.y += 2
 
 func _go_up_ladder(_s):
-#	on_ladder = true
 	up_ladder = true
 	current_speed_y = -_s 
 	current_speed_x = 0
 	
 func _go_down_ladder(_s):
-#	on_ladder = true
 	up_ladder = false
 	current_speed_y = _s *.5
 	current_speed_x = 0
@@ -307,18 +257,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	if health <= 0:
 		print("Open Gunner dead")
 		FX.explode(-7, 1, self.position, "Open Gunner #2 Self Destruct System", 0, 0)
-		# call_deferred("_explode")
 		call_deferred("free")
-
-# func _explode():
-# 	var e = explode.instance()
-# 	Map_Hand.add_kid_to_map(e)
-# #	get_tree().get_current_scene().map.add_child(x)
-# 	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
 
 func _on_floor():
 	on_floor = cast_down.is_colliding()
-#	print(on_floor)
 
 func _over_ladders():
 	if ladder_count > 0:
@@ -352,8 +294,6 @@ func _change_shoot_pos(_pos_num):
 		return s_pos_left_u
 
 func _get_shot():
-#	if !cast_shoot_up.is_colliding() && !cast_shoot_left_up.is_colliding() && !cast_shoot_right_up.is_colliding() && !cast_shoot_down.is_colliding() && !cast_shoot_left_down.is_colliding() && !cast_shoot_right_down.is_colliding() && !cast_shoot_left.is_colliding() && !cast_shoot_right.is_colliding():
-#		return 0
 	if cast_shoot_left.is_colliding():
 		var body = cast_shoot_left.get_collider()
 		if is_instance_valid(body):
@@ -409,12 +349,10 @@ func _on_Timer_Shoot_timeout():
 
 # warning-ignore:unused_argument
 func _on_Area2DOn_Ladder_body_entered(body):
-#	print(body.position)
 	ladder_count += 1
 
 # warning-ignore:unused_argument
 func _on_Area2DOn_Ladder_body_exited(body):
-#	print(body.position)
 	ladder_count -= 1
 	
 func activate(_num, _player):
@@ -440,7 +378,5 @@ func sort_distance(_a, _b):
 func remove_dead(_array):
 	var h_size = (_array.size() - 1)
 	for h in _array.size():
-#		print(h, h_size, hunted.size())
 		if !is_instance_valid(_array[h_size - h]):
 			_array.remove(h_size - h)
-#	print(hunted.size())

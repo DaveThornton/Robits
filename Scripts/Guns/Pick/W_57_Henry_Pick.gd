@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-# export(PackedScene) var smoke
 export var expire_time = 30
 onready var sprite = $Sprite
 onready var timer = $Timer
@@ -37,11 +36,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if ready:
 		set_dir(is_right, dir)
 	just_shot = _just_shot
-#	print(just_shot)
 
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
 func _on_WeapPick50Shot_Gun_body_shape_entered(body_id, body, body_shape, local_shape):
 	if hits < hits_max :
 		hits += 1

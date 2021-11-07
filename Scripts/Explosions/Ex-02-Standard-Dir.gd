@@ -10,7 +10,6 @@ onready var poly_up = $"Area2D-outer/CollisionPolygon2D_UP"
 onready var poly_right = $"Area2D-outer/CollisionPolygon2D_Right"
 onready var poly_down = $"Area2D-outer/CollisionPolygon2D_Down"
 onready var poly_left = $"Area2D-outer/CollisionPolygon2D_Left"
-#onready var sfx = $SFX_Lib
 
 var hit_already = []
 var owned = 0
@@ -19,10 +18,6 @@ var weap_name = "Explosion"
 var damage1 = 50
 var damage2 = 100
 var damage_type = "Explosion"
-
-func _ready():
-#	my_name = weap_name
-	pass
 
 func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	damage1 = _dmg / 2
@@ -57,23 +52,13 @@ func _check_dir():
 	cast_down.force_raycast_update()
 	cast_left.force_raycast_update()
 	if !cast_up.is_colliding():
-#		print(!cast_up.is_colliding())
-#		if cast_up.get_collider().get_groups().has("hittable"):
 		poly_up.disabled = false
 	if !cast_right.is_colliding():
-#		if cast_right.get_collider().get_groups().has("hittable"):
 		poly_right.disabled = false
 	if !cast_down.is_colliding():
-#		print(!cast_down.is_colliding())
-#		if cast_down.get_collider().get_groups().has("map"):
 		poly_down.disabled = false
 	if !cast_left.is_colliding():
-#		if cast_left.get_collider().get_groups().has("hittable"):
 		poly_left.disabled = false
-#	print("cast up  ",cast_up.is_colliding())
-#	print("cast right  ",cast_right.is_colliding())
-#	print("cast down  ",cast_down.is_colliding())
-#	print("cast left  ",cast_left.is_colliding())
 
 func start( _sr , _ss, _sss, _player):
 	_check_dir()

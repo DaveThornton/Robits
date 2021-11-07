@@ -13,8 +13,6 @@ onready var throw_cast = $RayCast2D_Throw
 onready var pos_throw = $Position2D
 
 var player = 1
-#var pawn = 0
-#warning-ignore:unused_class_variable
 var gun_num = 27
 var ammo = 1
 var ammo_max = 90

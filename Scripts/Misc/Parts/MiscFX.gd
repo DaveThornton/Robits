@@ -3,8 +3,6 @@ extends Node2D
 export(PackedScene) var arrow
 export(PackedScene) var bolt
 export(PackedScene) var disappear
-# export(PackedScene) var proj005
-# export(PackedScene) var proj006
 
 func stuck_arrow():
 	return arrow

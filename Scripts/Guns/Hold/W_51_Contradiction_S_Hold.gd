@@ -57,16 +57,6 @@ func shoot():
 		elif ammo > 0:
 			can_shoot = false
 			if !shoot_cast.is_colliding():
-				# var a = projectile.instance()
-				# var b = projectile.instance()
-				# var c = projectile.instance()
-				# var d = projectile.instance()
-				# var e = projectile.instance()
-				# Map_Hand.add_kid_to_map(a)
-				# Map_Hand.add_kid_to_map(b)
-				# Map_Hand.add_kid_to_map(c)
-				# Map_Hand.add_kid_to_map(d)
-				# Map_Hand.add_kid_to_map(e)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				if is_right:
@@ -79,11 +69,6 @@ func shoot():
 				FX.proj(gun_num, _sr, _ss, _sss, player, damage)
 				FX.proj(gun_num, _sr + .1 , _ss, _sss, player, damage)
 				FX.proj(gun_num, _sr + .2 , _ss, _sss, player, damage)
-				# a.start( _sr - .2 , _ss, _sss, player, damage)
-				# b.start( _sr - .1, _ss, _sss, player, damage)
-				# c.start( _sr , _ss, _sss, player, damage)
-				# d.start( _sr + .1, _ss, _sss, player, damage)
-				# e.start( _sr + .2, _ss, _sss, player, damage)
 			else:
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):

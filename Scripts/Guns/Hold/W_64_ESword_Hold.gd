@@ -42,7 +42,6 @@ func init(_ammo, _player, _time, _just_shot):
 	emit_signal("ammo_change",player,ammo)
 
 func _process(delta):
-	#Sword swinging
 	if swinging:
 		walk = walk - down_swing * delta
 		walk = clamp(walk,0,walk_back)
@@ -66,7 +65,6 @@ func shoot_j():
 		pawn.knock_back(-500, .2)
 		swung = true
 	timer.start()
-#	time = 0.0
 	swung = true
 	Player_Stats.add_shot(player, 1)
 	hit_area.disabled = false

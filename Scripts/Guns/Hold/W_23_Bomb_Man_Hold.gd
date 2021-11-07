@@ -35,9 +35,6 @@ func init(_ammo, _player, _time, _just_shot):
 	ammo = _ammo
 	if _ammo <= 0:
 		ammo = 0
-#		sprite_pin.visible = false
-#		timer.wait_time = _time
-#		timer.start()
 		_armed(_time)
 	else:
 		timer.wait_time = time
@@ -76,7 +73,6 @@ func throw():
 	t.init(ammo, player,timer.get_time_left(), is_right, shoot_pos, true)
 	if throw_cast.is_colliding():
 		t.position = self.global_position
-#		_drop_where(t)
 	else:
 		t.position = pos_throw.global_position
 		_throw_where(t)
@@ -90,7 +86,6 @@ func _drop():
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, timer.get_time_left(), is_right, shoot_pos, false)
-#	_drop_where(t)
 	emit_signal("ammo_change",player,0)
 	call_deferred("free")
 
@@ -118,16 +113,9 @@ func _throw_where(_obj):
 		if shoot_pos == 5:
 			_obj.apply_impulse(pos_throw.position, Vector2(-50, 350))
 
-#func _drop_where(_obj):
-#	_obj.set_collision_layer_bit( 1, false)
-#	_obj.set_collision_mask_bit( 1, false)
-
 func _on_Timer_timeout():
 	var p = Controllers.get_pawn(player)
 	p.my_gun = null
 	p.is_holding = false
 	FX.explode(25, player, self.global_position, my_name, 0, damage)
-	# var b = boom.instance()
-	# Map_Hand.add_kid_to_map(b)
-	# b.init(player, self.global_position, my_name, 0, damage)
 	call_deferred("free")

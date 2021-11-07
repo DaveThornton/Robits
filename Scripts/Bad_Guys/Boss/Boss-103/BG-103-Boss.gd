@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-# export(PackedScene) var explode
 export(PackedScene) var debris_scene
 
 export var speed = 1500
@@ -38,8 +37,6 @@ func _ready():
 		else:
 			print("connect worked dead cannon in BG-103")
 
-#func _process(delta):
-#	pass
 func _physics_process(delta):
 	var campos = FX.CAMERA.global_position.x
 	var vel = Vector2(0,-gravity * -delta)
@@ -47,11 +44,9 @@ func _physics_process(delta):
 	if campos + from_left < self.position.x:
 		vel = Vector2( -speed * delta, -gravity * -delta)
 		move_tracks(false)
-#		print("go left")
 	elif campos + from_left > self.position.x + -from_right:
 		vel = Vector2( speed * delta, -gravity * -delta)
 		move_tracks(true)
-#		print("go right")
 	else:
 		stop_tracks()
 	var m = move_and_slide(vel)
@@ -75,16 +70,10 @@ func dead_turret():
 	call_deferred("_dead_turret")
 func _dead_turret():
 	for d in debris.get_child_count():
-#		debris.get_child(d).position
 		var deb = debris_scene.instance()
 		FX.add_kid(deb)
 		deb.init(tankbody.self_modulate, d, true, debris.get_child(d).global_position, Vector2(0,0))
-#		debris.get_child(d).init(tankbody.self_modulate, d, true, , _impulse)
 	FX.explode(103, -1 , self.position, "Boss 103 Self Distruct", 0, 0)
-	# var e = explode.instance()
-	# Map_Hand.add_kid_to_map(e)
-	# e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
-#	print("dead turret BG 103,   BG-103-Dead")
 	call_deferred("free")
 
 func dead_track():
@@ -93,7 +82,6 @@ func dead_track():
 		speed = speed / 2
 	if deadtrack_count == 2:
 		speed = 0
-#	print("dead track BG 103")
 
 func dead_cannon():
 	print("dead cannon BG 103")

@@ -1,6 +1,5 @@
 extends Area2D
 
-# export(PackedScene) var stuck_bolt
 export(PackedScene) var hit_anim_map
 export(PackedScene) var hit_anim_move
 

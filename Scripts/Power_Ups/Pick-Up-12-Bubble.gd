@@ -13,8 +13,6 @@ func _ready():
 	anim.play("Bounce")
 	middle_point = self.global_position.x
 
-
-
 func _process(delta):
 	if !im_popped:
 		self.global_position.y += -speed * delta
@@ -25,13 +23,9 @@ func _process(delta):
 		else:
 			is_right = !is_right
 			print("bubble changing direction")
-#	pass
-
 
 func done():
 	pass
-
-
 
 func _on_Pop_Area2D_body_entered(body):
 	if body.get_groups().has("player") && !im_popped:
@@ -40,10 +34,6 @@ func _on_Pop_Area2D_body_entered(body):
 		point_label.self_modulate = Player_Stats.get_body_color(body.player)
 		anim.play("Popped")
 
-
 func _on_Timer_timeout():
 	if !im_popped:
 		anim.play("Popped_Time_Out")
-
-
-

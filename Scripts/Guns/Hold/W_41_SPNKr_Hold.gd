@@ -39,10 +39,6 @@ func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
 	emit_signal("ammo_change",player,ammo)
-#	if ammo <= 0:
-#		sprite_gun.frame = 1
-#	else:
-#		sprite_gun.frame = 0
 
 func shoot_j():
 	if can_shoot:
@@ -50,8 +46,6 @@ func shoot_j():
 			melee()
 		elif ammo > 0:
 			if !shoot_cast.is_colliding():
-				# var new_projectile = projectile.instance()
-				# Map_Hand.add_kid_to_map(new_projectile)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				if is_right:
@@ -60,20 +54,9 @@ func shoot_j():
 					_sr = pos_shoot.global_rotation * -1
 				var _sss = pos_shoot.global_scale
 				FX.proj(gun_num, _sr, _ss, _sss, player, damage)
-				# new_projectile.start( _sr , _ss, _sss, player, damage)
 			else:
-				FX.explode(40, player, shoot_cast.get_collision_point(), my_name, 0, damage)
-				# var _thing = shoot_cast.get_collider()
-				# if _thing.get_groups().has("hittable"):
-				# 	_thing.hit(player, my_name, dmg_type, damage)
-				# 	print("gun 40 shot happened but no projectile spawned hit anyways")
-				# elif _thing.get_groups().has("map"):
-				# 	print("gun 40 hitting wall not fireing projectile", _thing)
-				# else:
-				# 	print("gun 40 dont know what im hitting but no projectile spawned")
-			
+				FX.explode(40, player, shoot_cast.get_collision_point(), my_name, 0, damage)	
 			ammo = clamp(ammo - 1, 0, ammo_max)
-#			sprite_gun.frame = 1
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
 			shoot_timer.start()
@@ -124,7 +107,6 @@ func _drop():
 
 func add_ammo(_ammo):
 	ammo = clamp(ammo + int(round(_ammo / 10)), 0, ammo_max)
-#	_tip_update()
 	emit_signal("ammo_change",player,ammo)
 
 func set_shoot_pos(_num, _is_right):
@@ -160,16 +142,8 @@ func _drop_where(_obj):
 	_obj.set_collision_layer_bit( 1, false)
 	_obj.set_collision_mask_bit( 1, false)
 
-#func _tip_update():
-#	if ammo > 0:
-#		sprite_gun.frame = 0
-#	else:
-#		sprite_gun.frame = 1
-
 func _on_Shoot_Timer_timeout():
 	can_shoot = true
-#	_tip_update()
 
 func _on_Melee_Timer_timeout():
 	can_shoot = true
-#	_tip_update()

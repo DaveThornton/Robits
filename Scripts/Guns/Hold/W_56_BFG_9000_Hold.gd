@@ -71,8 +71,6 @@ func shoot_r():
 
 func fire_projectile():
 	if !shoot_cast.is_colliding():
-		# var new_projectile = projectile.instance()
-		# Map_Hand.add_kid_to_map(new_projectile)
 		var _ss = pos_shoot.global_position
 		var _sr = pos_shoot.global_rotation
 		if is_right:
@@ -81,17 +79,8 @@ func fire_projectile():
 			_sr = pos_shoot.global_rotation * -1
 		var _sss = pos_shoot.global_scale
 		FX.proj(gun_num, _sr, _ss, _sss, player, damage)
-		# new_projectile.start( _sr , _ss, _sss, player, damage)
 	else:
 		FX.explode(56.1, player, shoot_cast.get_collision_point(), my_name, 0, damage)
-		# var _thing = shoot_cast.get_collider()
-		# if _thing.get_groups().has("hittable"):
-		# 	_thing.hit(player, my_name, dmg_type, damage)
-		# 	print("gun 65 shot happened but no projectile spawned hit anyways")
-		# elif _thing.get_groups().has("map"):
-		# 	print("gun 65 hitting wall not fireing projectile", _thing)
-		# else:
-		# 	print("gun 65 dont know what im hitting but no projectile spawned")
 	SFX.play("W_56_Shoot")
 	ammo = clamp(ammo - 1, 0, ammo_max)
 	sprite_gun.frame = 1

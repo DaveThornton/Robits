@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-# export(PackedScene) var smoke
 export var expire_time = 30.0
 
 onready var sprite = $Sprite
@@ -36,7 +35,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	timer.wait_time = expire_time
 	timer.start()
 	time = _time
-	
 	is_right = _is_right
 	dir = _dir
 	if ready:

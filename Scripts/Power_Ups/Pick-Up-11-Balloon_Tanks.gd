@@ -67,6 +67,3 @@ func _on_Timer_timeout():
 
 func _on_Timer2_timeout():
 	pass
-	# spawn_balloon_num(next_balloon)
-	# next_balloon += 1
-	# if next_balloon > 4: next_balloon = 1

@@ -1,7 +1,6 @@
 extends Node2D
 
 export(PackedScene) var player_controller
-#export(PackedScene) var net_controller
 
 onready var players = $Players
 

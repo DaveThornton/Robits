@@ -64,7 +64,6 @@ func melee():
 	pass
 
 func throw():
-	# Controllers.get_pawn(player)
 	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	if shoot_pos == 6:
@@ -124,7 +123,4 @@ func _on_Timer_timeout():
 	p.my_gun = null
 	p.is_holding = false
 	FX.explode(25, player, self.global_position, my_name, 0, damage)
-	# var b = boom.instance()
-	# Map_Hand.add_kid_to_map(b)
-	# b.init(player, self.global_position, my_name, 0, damage)
 	queue_free()

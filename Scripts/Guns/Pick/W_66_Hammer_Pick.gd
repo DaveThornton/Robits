@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-# export(PackedScene) var smoke
 export var expire_time = 30.0
 
 onready var sprite = $Sprite

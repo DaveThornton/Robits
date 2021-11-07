@@ -1,7 +1,5 @@
 extends StaticBody2D
 
-export(PackedScene) var projectile
-# export(PackedScene) var explode
 export var armor = 0
 export var far_disabled = false
 export var area_1_disabled = false
@@ -33,6 +31,7 @@ var player = -1
 var bodies_in_range = []
 var current_look_time = 0
 var look_time = .25
+var gun_num = 10
 
 func _ready():
 	area_1.disabled = area_1_disabled
@@ -63,12 +62,8 @@ func _process(delta):
 			remove_dead()
 			if bodies_in_range.size() > 0:
 				if bodies_in_range.size() > 1:
-#					print(bodies_in_range)
-	#					bodies_in_range.sort_custom(self, "sort_distance")
 					bodies_in_range.sort_custom(self, "sort_distance")
-#					print(bodies_in_range)
 				gun_arm.look_at(bodies_in_range[0].global_position)
-	#				gun_arm.look_at(bodies_in_range[0].position)
 				if can_shoot:
 					if shoot_cast.is_colliding():
 						if shoot_cast.get_collider().get_groups().has("player"):
@@ -76,13 +71,11 @@ func _process(delta):
 
 func _shoot(_pos):
 	can_shoot = false 
-	var new_projectile = projectile.instance()
-	get_tree().get_current_scene().add_child(new_projectile)
 	var _ss = _pos.global_position
 	var _sr = _pos.global_rotation
 	_sr = _pos.global_rotation
 	var _sss = _pos.scale
-	new_projectile.start(_sr , _ss, _sss, player, damage)
+	FX.proj_bad(gun_num, _sr , _ss, _sss, -1, damage)
 	anim.play("Shoot")
 	SFX.play("Laser_Shoot")
 	shoot_timer.start()
@@ -93,13 +86,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	if health <= 0:
 		print("BG-20-Turrent-Ground dead")
 		FX.explode(2,player, self.position, str("player ", self, "'s destruct system"), player, ex_dmg)
-		# call_deferred("_explode")
 		call_deferred("free")
-
-# func _explode():
-# 	var x = explode.instance()
-# 	Map_Hand.add_kid_to_map(x)
-# 	x.init(player, self.position, str("player ", x, "'s destruct system"), player, ex_dmg)
 
 func sort_distance(_a, _b):
 	if (abs(_a.global_position.x - self.global_position.x) + abs(_a.global_position.y - self.global_position.y)) < (abs(_b.global_position.x - self.global_position.x) + abs(_b.global_position.y - self.global_position.y)):

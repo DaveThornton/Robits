@@ -1,5 +1,9 @@
 extends Node
 
+
+#yeah i know nothing i hope to put something here someday
+
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

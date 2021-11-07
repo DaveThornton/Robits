@@ -1,6 +1,5 @@
 extends Area2D
 
-#export(PackedScene) var hit
 export var speed = 1800
 export(PackedScene) var hit_anim_map
 export(PackedScene) var hit_anim_move

@@ -50,8 +50,6 @@ func shoot_j():
 			melee()
 		elif ammo > 0:
 			if !shoot_cast.is_colliding():
-				# var new_projectile = projectile.instance()
-				# Map_Hand.add_kid_to_map(new_projectile)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				if is_right:
@@ -60,21 +58,8 @@ func shoot_j():
 					_sr = pos_shoot.global_rotation * -1
 				var _sss = pos_shoot.global_scale
 				FX.proj(gun_num, _sr, _ss, _sss, player, damage)
-				# new_projectile.start( _sr , _ss, _sss, player, damage)
 			else:
 				FX.explode(40, player, shoot_cast.get_collision_point(), "RPG", 0, damage)
-				# var x = boom.instance()
-				# get_tree().get_current_scene().add_child(x)
-				# x.init(player, shoot_cast.get_collision_point(), "RPG", 0, damage)
-#				var _thing = shoot_cast.get_collider()
-#				if _thing.get_groups().has("hittable"):
-#					_thing.hit(player, my_name, dmg_type, damage)
-#					print("gun 40 shot happened but no projectile spawned hit anyways")
-#				elif _thing.get_groups().has("map"):
-#					print("gun 40 hitting wall not fireing projectile", _thing)
-#				else:
-#					print("gun 40 dont know what im hitting but no projectile spawned")
-			
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			sprite_gun.frame = 1
 			emit_signal("ammo_change",player,ammo)
@@ -103,7 +88,6 @@ func _on_Melee_Area_body_entered(body):
 
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()
-	# var t = RPG_Pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
@@ -119,7 +103,6 @@ func drop():
 	call_deferred("_drop")
 func _drop():
 	var t = Equipment.get_weap_pick(gun_num).instance()
-	# var t = RPG_Pickup.instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)

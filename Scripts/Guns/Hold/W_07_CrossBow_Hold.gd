@@ -1,9 +1,5 @@
 extends Node2D
 
-# export(PackedScene) var stuck_bolt
-# export(PackedScene) var cbow_pickup
-# export(PackedScene) var projectile
-
 onready var anim = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
@@ -85,10 +81,8 @@ func shoot():
 					shoot_cast.get_collider().add_child(x)
 					x.init(player, damage, spot, rotation, scale, 2)
 					print("not map")
-#			walk += walk_amount
 			can_shoot = false
 			shoot_timer.start()
-			# reload_timer.start()
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
@@ -101,10 +95,6 @@ func shoot():
 
 func shoot_r():
 	pass
-#	reload_timer.start()
-#	if just_Shot:
-#		anim.play("Reload")
-#	can_shoot = true
 
 func melee():
 	if can_shoot:
@@ -182,8 +172,6 @@ func _drop_where(_obj):
 	_obj.set_collision_mask_bit( 1, false)
 
 func _on_Shoot_Timer_timeout():
-	# var new_projectile = projectile.instance()
-	# Map_Hand.add_kid_to_map(new_projectile)
 	var _ss = pos_shoot.global_position
 	var _sr = pos_shoot.global_rotation
 	#---------------------------------------------------------------
@@ -194,7 +182,6 @@ func _on_Shoot_Timer_timeout():
 	#---------------------------------------------------------------
 	var _sss = pos_shoot.global_scale
 	FX.proj(gun_num, _sr, _ss, _sss, player, damage)
-	# new_projectile.start( _sr , _ss, _sss, player, damage)
 	walk += walk_amount
 	just_shot = true
 	reload_timer.start()

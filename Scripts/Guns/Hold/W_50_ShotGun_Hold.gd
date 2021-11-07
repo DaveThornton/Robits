@@ -58,8 +58,6 @@ func shoot_j():
 				melee()
 			elif ammo > 0:
 				if !shoot_cast.is_colliding():
-					# var new_projectile = projectile.instance()
-					# Map_Hand.add_kid_to_map(new_projectile)
 					var _ss = pos_shoot.global_position
 					var _sr = pos_shoot.global_rotation
 					if is_right:
@@ -68,7 +66,6 @@ func shoot_j():
 						_sr = pos_shoot.global_rotation * -1
 					var _sss = pos_shoot.global_scale
 					FX.proj(gun_num, _sr, _ss, _sss, player, damage)
-					# new_projectile.start( _sr , _ss, _sss, player, damage)
 				else:
 					var _thing = shoot_cast.get_collider()
 					if _thing.get_groups().has("hittable"):
@@ -101,14 +98,9 @@ func shoot():
 
 func shoot_r():
 	pass
-	# FX.shell(gun_num, pos_shell.global_position, pos_shell.global_rotation)
 
 func spawn_shell():
 	FX.shell(gun_num, pos_shell.global_position, pos_shell.global_rotation)
-	# var s = shell.instance()
-	# Map_Hand.add_kid_to_map(s)
-	# s.position = pos_shell.global_position
-	# s.rotation = pos_shell.global_rotation
 
 func melee():
 	if can_shoot:

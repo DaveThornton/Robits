@@ -1,7 +1,5 @@
 extends RigidBody2D
 
-export(PackedScene) var projectile
-# export(PackedScene) var explode
 export var health = 200
 export var armor = 10
 export var damage = 50
@@ -15,6 +13,7 @@ onready var pos = $Position2D_Shoot
 var time_to_shoot = 0.0
 var exp_damage = 20
 var my_name = "Shield Gunner"
+var gun_num = 4
 
 func _ready():
 	if is_right:
@@ -29,13 +28,11 @@ func _process(delta):
 		shoot()
 
 func shoot():
-	var new_projectile = projectile.instance()
-	Map_Hand.add_kid_to_map(new_projectile)
 	var _ss = pos.global_position
 	var _sr = pos.global_rotation
 	_sr = pos.global_rotation
 	var _sss = pos.scale
-	new_projectile.start(_sr , _ss, _sss, 9, damage)
+	FX.proj_bad(gun_num, _sr , _ss, _sss, -1, damage)
 	anim.play("Shoot")
 
 func hit(_by_who, _by_what, _damage_type, _damage):

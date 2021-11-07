@@ -105,3 +105,17 @@ func make_vs(_num,_rot, _pos, _scale, _owner, _dmg):
 		new_projectile = proj084.instance()
 	Map_Hand.add_kid_to_map(new_projectile)
 	new_projectile.start( _rot , _pos, _scale, _owner, _dmg)
+
+func make_bad(_num,_rot, _pos, _scale, _owner, _dmg):
+	var new_projectile
+	if _num == 4:
+		new_projectile = bg_proj004.instance()
+	elif _num == 10:
+		new_projectile = bg_proj010.instance()
+	elif _num == 103:
+		new_projectile = bg_proj103.instance()
+	elif _num == 104:
+		new_projectile = bg_proj103.instance()
+
+	Map_Hand.add_kid_to_map(new_projectile)
+	new_projectile.start( _rot , _pos, _scale, _owner, _dmg)

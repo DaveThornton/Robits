@@ -1,10 +1,10 @@
 extends KinematicBody2D
-#testing if i can look at this in the web page with out kraken freeking out and making me pull some shit
+
 const FLOOR = Vector2(0, -1)
 const speed = 6000
 
 export(PackedScene) var projectile
-# export(PackedScene) var explode
+
 export var going_right = true
 export var damage = 21
 
@@ -23,7 +23,6 @@ onready var anim = $AnimationPlayer
 onready var sprite = $Sprite
 onready var shoot_timer = $Timer_Shoot
 onready var pos_shoot = $Sprite/Pos_Shoot
-#onready var sfx = $SFX_Lib
 
 var grav = 10
 var terminal_vel = 9
@@ -114,8 +113,6 @@ func _physics_process(delta):
 func shoot():
 	if !melee_cast.is_colliding():
 		can_shoot = false
-		var new_projectile = projectile.instance()
-		get_tree().get_current_scene().add_child(new_projectile)
 		var _ss = pos_shoot.global_position
 		var _sr = pos_shoot.global_rotation
 		if is_right:
@@ -123,7 +120,7 @@ func shoot():
 		else:
 			_sr = pos_shoot.global_rotation * -1
 		var _sss = pos_shoot.scale
-		new_projectile.start(_sr , _ss, _sss, player, damage)
+		FX.proj_bad(4, _sr , _ss, _sss, -1, damage)
 		SFX.play("Laser_Shoot")
 		shoot_timer.start()
 	else:
@@ -135,18 +132,11 @@ func shoot():
 		can_shoot = false
 		shoot_timer.start()
 
-#func hit(_by_who, _by_what, _damage_type, _damage):
-#	call_deferred("hit",_by_who, _by_what, _damage_type, _damage)
 func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	if health <= 0:
 		FX.explode(2,9, self.position, "Yellow Space Suit Self Distruct", 0, 0)
 		call_deferred("free")
-
-# func _explode():
-# 	var x = explode.instance()
-# 	get_tree().get_current_scene().add_child(x)
-# 	x.init(9, self.position, str("player ", x, "'s destruct system"), 0, 0)
 
 func _on_floor():
 	on_floor = cast_down.is_colliding()

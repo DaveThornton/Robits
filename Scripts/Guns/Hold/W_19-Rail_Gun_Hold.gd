@@ -74,9 +74,6 @@ func shoot():
 					print("shoot cast not colliding why gun 19")
 				else: 
 					FX.explode(19, player, shoot_cast.get_collision_point(), my_name, pawn, damage)
-					# var e = projectile.instance()
-					# Map_Hand.add_kid_to_map(e)
-					# e.init(player, shoot_cast.get_collision_point(), my_name, pawn, damage)
 				anim_fire.play("Shoot")
 				ammo = clamp(ammo - 1, 0, ammo_max)
 				emit_signal("ammo_change",player,ammo)

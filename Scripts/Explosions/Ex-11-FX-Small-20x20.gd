@@ -33,14 +33,9 @@ func _body_entered(body):
 	if body.get_groups().has("hittable"):
 		body.hit(owned, my_name, damage_type, damage1)
 	elif body.get_groups().has("FX"):
-#		print("hit FX")
 		var r = rand_range(.25, 2)
-#		var a = Vector2( 0, 0)
-#		var b = self.position
 		var f = body.global_position - self.global_position
 		f.y = -(abs(f.y))
-
-#		var e = self.global_position - body.global_position
 		var ex = 0
 		var ey = 0
 
@@ -173,8 +168,6 @@ func _body_entered(body):
 
 func _on_Area2D2inner_body_entered(body):
 	_body_entered(body)
-#	if body.get_groups().has("player"):
-#		body.hit(owned, my_name, damage_type, damage2)
 
 func _on_Timer_timeout():
 	anim.play("fade")

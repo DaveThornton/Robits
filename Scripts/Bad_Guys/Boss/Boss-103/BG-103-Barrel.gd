@@ -11,18 +11,17 @@ onready var raycast = $RayCast2D
 var player = -1
 var can_shoot = false
 var ring_count = 0
+var gun_num = 103
 func _ready():
 	pass
 
 func shoot():
 	can_shoot = false 
-	var new_projectile = projectile.instance()
-	get_tree().get_current_scene().add_child(new_projectile)
 	var _ss = pos.global_position
 	var _sr = pos.global_rotation
 	_sr = pos.global_rotation
 	var _sss = pos.scale
-	new_projectile.start(_sr , _ss, _sss, player, damage)
+	FX.proj_bad(gun_num, _sr , _ss, _sss, -1, damage)
 	anim.play("Shoot")
 	SFX.play("Laser_Shoot")
 	shoot_timer.start()
@@ -54,7 +53,5 @@ func _process(_delta):
 				can_shoot = false
 				shoot_timer.start()
 		
-		
-
 func _on_Timer_timeout():
 	can_shoot = true

@@ -1,5 +1,5 @@
 extends Area2D
-#export(PackedScene) var hit
+
 export(PackedScene) var hit_anim_map
 export(PackedScene) var hit_anim_move
 onready var cast = $RayCast2D

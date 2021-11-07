@@ -45,12 +45,6 @@ func _ready():
 		color(color_03,Color8(255,255,255,255))
 	point_01 = self.position
 
-# func _process(_delta):
-# 	if !is_popped:
-# 		line.set_point_position(1, point_01)
-# 		line.set_point_position(0,Vector2(balloon_body.position.x,balloon_body.position.y + 15))
-
-
 func hit(_by_who, _by_what, _damage_type, _damage):
 	call_deferred("pop")
 	# pop()

@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-# export(PackedScene) var smoke
 export var expire_time = 30.0
 
 onready var sprite = $Sprite
@@ -15,7 +14,6 @@ var gun_num = 72
 var ammo = 0
 var time = .1
 var is_right = true
-# warning-ignore:unused_class_variable
 var just_shot = false
 
 func _ready():

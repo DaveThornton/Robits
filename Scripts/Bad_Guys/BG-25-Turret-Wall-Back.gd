@@ -1,7 +1,6 @@
 extends StaticBody2D
 
 export(PackedScene) var projectile
-# export(PackedScene) var explode
 export var activation_number = 0
 export var armor = 0
 
@@ -24,6 +23,7 @@ var bodies_in_range = []
 var current_look_time = 0
 var look_time = .15
 var hit_time = 0
+var gun_num = 10
 
 func _ready():
 	Map_Hand.map.connect("activate", self, "activate")
@@ -64,13 +64,11 @@ func self_destruct():
 
 func _shoot(_pos):
 	can_shoot = false 
-	var new_projectile = projectile.instance()
-	get_tree().get_current_scene().add_child(new_projectile)
 	var _ss = _pos.global_position
 	var _sr = _pos.global_rotation
 	_sr = _pos.global_rotation
 	var _sss = _pos.scale
-	new_projectile.start(_sr , _ss, _sss, player, damage)
+	FX.proj_bad(gun_num, _sr , _ss, _sss, -1, damage)
 	anim_gun.play("Shoot")
 	SFX.play("Laser_Shoot")
 	shoot_timer.start()

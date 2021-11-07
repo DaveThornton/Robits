@@ -1,8 +1,5 @@
 extends RigidBody2D
 
-# export(PackedScene) var boom
-# export(PackedScene) var smoke
-
 onready var timer = $Timer
 onready var timer_boom = $Timer_Boom
 onready var anim = $AnimationPlayer
@@ -15,7 +12,6 @@ var time = 3.8
 var gun_num = 23
 var ammo = 1
 var ready = false
-# warning-ignore:unused_class_variable
 var just_shot = false
 var hits = 0
 var hits_max = 5
@@ -40,12 +36,10 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	self.set_collision_mask_bit( 9, just_shot)
 	self.set_collision_mask_bit( 11, just_shot)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if ready:
 		time = timer_boom.get_time_left()
 		label_time.set_time(time)
-#	pass
 
 func _armed(_time):
 	ready = true
@@ -64,10 +58,6 @@ func _on_TimerBoom_timeout():
 
 func fade_out():
 	FX.explode(25, player, self.global_position, my_name, 0, damage)
-	# var b = boom.instance()
-	# Map_Hand.add_kid_to_map(b)
-	# b.position = self.global_position
-	# b.init(player, self.global_position, my_name, 0, damage)
 	call_deferred("free")
 
 func _on_Timer_timeout():
@@ -80,17 +70,11 @@ func _on_W_23_Bomb_Man_Pick_body_shape_entered(_body_id, body, _body_shape, _loc
 	if hits < hits_max :
 		hits += 1
 		SFX.hit()
-	# print("hitting body w 23")
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 		dont_hit_player()
-#	else:
-#		self.set_collision_layer_bit( 1, false)
-#		self.set_collision_mask_bit( 1, false)
-
 
 func _on_W_23_Bomb_Man_Pick_body_entered(body):
-	# print("hitting body w 23")
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 		dont_hit_player()

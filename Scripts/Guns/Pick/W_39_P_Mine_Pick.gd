@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-# export(PackedScene) var smoke
 export(PackedScene) var mine
 export var expire_time = 30.0
 
@@ -26,9 +25,6 @@ var damage = 120
 var hits = 0
 var hits_max = 5
 
-#func _ready():
-#	ready = true
-	
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if _ammo == -1:
 		ammo = 1
@@ -53,7 +49,6 @@ func _physics_process(_delta):
 			var b = mine.instance()
 			Map_Hand.add_kid_to_map(b)
 			b.init(player, damage, a, 0)
-#			b.init(player, a, my_name, 0, damage)
 			queue_free()
 			return
 		if ray_left.is_colliding():
@@ -62,7 +57,6 @@ func _physics_process(_delta):
 			var b = mine.instance()
 			Map_Hand.add_kid_to_map(b)
 			b.init(player, damage, a, -90)
-#			b.init(player, a, my_name, 0, damage)
 			queue_free()
 			return
 		if ray_right.is_colliding():
@@ -71,7 +65,6 @@ func _physics_process(_delta):
 			var b = mine.instance()
 			Map_Hand.add_kid_to_map(b)
 			b.init(player, damage, a, 90)
-#			b.init(player, a, my_name, 0, damage)
 			queue_free()
 			return
 		if ray_down.is_colliding():
@@ -80,7 +73,6 @@ func _physics_process(_delta):
 			var b = mine.instance()
 			Map_Hand.add_kid_to_map(b)
 			b.init(player, damage, a, 180)
-#			b.init(player, a, my_name, 0, damage)
 			queue_free()
 			return
 

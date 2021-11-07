@@ -31,15 +31,3 @@ func _disappear():
 func _on_Respawn_Timer_timeout():
 	dot.visible = true 
 	shape.disabled = false 
-
-
-#func _on_Shield_Power_Up_area_shape_entered(area_id, area, area_shape, self_shape):
-#	if area.get_groups().has("player"):
-#		if !area.is_shield_up:
-#			area.put_shield_up(how_long)
-#			if respawn:
-#				r_timer.start()
-#				dot.visible = false 
-#				shape.disabled = true 
-#			else:
-#				queue_free()

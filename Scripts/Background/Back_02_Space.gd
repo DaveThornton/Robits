@@ -7,9 +7,6 @@ onready var sp1 = $Sprite_01
 onready var sp2 = $Sprite_02
 onready var sp3 = $Sprite_03
 
-func _ready():
-	pass # Replace with function body.
-
 func _process(delta):
 	if moving:
 		if going_right:

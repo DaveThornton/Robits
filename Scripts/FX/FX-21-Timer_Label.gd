@@ -9,7 +9,6 @@ func _ready():
 func set_time(_time):
 	label.text = String(stepify(_time,0.1))
 
-# warning-ignore:unused_argument
-func _process(delta):
+func _process(_delta):
 	if stay_straight:
 		global_rotation_degrees = 0

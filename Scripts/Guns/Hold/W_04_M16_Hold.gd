@@ -1,9 +1,5 @@
 extends Node2D
 
-# export(PackedScene) var M16_Pickup
-# export(PackedScene) var projectile
-# export(PackedScene) var shell
-
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer

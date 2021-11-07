@@ -90,8 +90,6 @@ func shoot_r():
 	pass
 
 func _fire_projectile():
-	# var new_projectile = projectile.instance()
-	# Map_Hand.add_kid_to_map(new_projectile)
 	var _ss = pos_shoot.global_position
 	var _sr = pos_shoot.global_rotation
 	if is_right:
@@ -100,7 +98,6 @@ func _fire_projectile():
 		_sr = pos_shoot.global_rotation * -1
 	var _sss = pos_shoot.global_scale
 	FX.proj(gun_num, _sr, _ss, _sss, player, damage)
-	# new_projectile.start( _sr , _ss, _sss, player, damage)
 
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()
@@ -113,7 +110,7 @@ func throw():
 		t.position = pos_throw.global_position
 		_throw_where(t)
 	emit_signal("ammo_change",player,0)
-	call_deferred("free") #queue_free()
+	call_deferred("free")
 
 func drop():
 	call_deferred("_drop")

@@ -3,7 +3,6 @@ extends Node2D
 export(PackedScene) var pawn_part
 
 onready var anim = $AnimationPlayer
-#onready var sfx = $SFX_Lib
 var owned = 0
 var my_name = "Explosion"
 var weap_name = "Explosion"

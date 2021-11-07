@@ -60,7 +60,6 @@ func shoot_j():
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
 					if _thing.player == player:
-#						_thing.hit(player, my_name, dmg_type, damage)
 						_fire_projectile()
 					else:
 						_thing.hit(player, my_name, dmg_type, damage)
@@ -85,8 +84,6 @@ func shoot_r():
 	pass
 
 func _fire_projectile():
-	# var new_projectile = projectile.instance()
-	# Map_Hand.add_kid_to_map(new_projectile)
 	var _ss = pos_shoot.global_position
 	var _sr = pos_shoot.global_rotation
 	if is_right:
@@ -94,8 +91,7 @@ func _fire_projectile():
 	else:
 		_sr = pos_shoot.global_rotation * -1
 	var _sss = pos_shoot.global_scale
-	FX.proj(gun_num, _sr, _ss, _sss, player, damage)
-	# new_projectile.start( _sr , _ss, _sss, player, damage)
+
 
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()

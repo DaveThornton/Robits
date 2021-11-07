@@ -15,6 +15,8 @@ export var armor = 2
 export var time = 1.0
 export var damage = 40
 export var points = 3
+
+var gun_num = 104
 var can_shoot = true
 var dead = false
 signal cannon_death
@@ -28,13 +30,10 @@ func start(_time):
 
 func shoot():
 	if can_shoot && !dead:
-		var new_projectile = projectile.instance()
-		Map_Hand.add_kid_to_map(new_projectile)
-		# get_tree().get_current_scene().add_child(new_projectile)
 		var _ss = pos_shoot.global_position
 		var _sr = pos_shoot.global_rotation
 		var _sss = pos_shoot.scale
-		new_projectile.start(_sr , _ss, _sss, -1, damage)
+		FX.proj_bad(gun_num, _sr , _ss, _sss, -1, damage)
 		SFX.play("Laser_Shoot")
 		timer.start()
 
@@ -60,9 +59,6 @@ func set_can_shoot(_can):
 
 func explode():
 	dead = true
-	# var e = boom.instance()
-	# Map_Hand.add_kid_to_map(e)
-	# e.init(9, self.global_rposition,"cannons destruct system", 0, 0)
 	self.visible = false
 	anim_hit.play("Dead")
 	emit_signal("cannon_death",cannon_num)

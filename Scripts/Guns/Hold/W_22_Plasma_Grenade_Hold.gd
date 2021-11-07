@@ -47,11 +47,6 @@ func shoot_r():
 		if ammo > 0:
 			ammo = 0
 			FX.shell(gun_num, pos_throw.global_position, pos_throw.global_rotation)
-			# var p = pin.instance()
-			# Map_Hand.add_kid_to_map(p)
-			# p.position = pos_throw.global_position
-			# p.rotation = pos_throw.global_rotation
-			# p.scale = pos_throw.scale 
 			can_shoot = false
 			det.start(time)
 			sprite_pin.visible = false

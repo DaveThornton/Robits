@@ -52,16 +52,10 @@ func shoot():
 func shoot_r():
 	if can_shoot:
 		if ammo > 0:
-#			var p = pin.instance()
-#			Map_Hand.add_kid_to_map(p)
-#			p.position = pos_throw.global_position
-#			p.rotation = pos_throw.global_rotation
-#			p.scale = pos_throw.scale 
 			anim.play("Lit")
 			can_shoot = false
 			timer.start()
 			ammo = 0
-#			sprite_pin.visible = false
 			emit_signal("ammo_change",player, ammo)
 			Player_Stats.add_shot(player, 1)
 
@@ -129,7 +123,4 @@ func _on_Timer_timeout():
 	p.my_gun = null
 	p.is_holding = false
 	FX.explode(24, player, self.global_position, my_name, 0, damage)
-	# var b = boom.instance()
-	# Map_Hand.add_kid_to_map(b)
-	# b.init(player, self.global_position, my_name, 0, damage)
 	call_deferred("free")

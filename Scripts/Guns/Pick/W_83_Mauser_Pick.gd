@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-# export(PackedScene) var smoke
 export var expire_time = 30.0
 
 onready var sprite = $Sprite
@@ -13,7 +12,6 @@ var time = .7
 var my_scale = 1.5
 var is_right = true
 var dir = 3
-# warning-ignore:unused_class_variable
 var just_shot = false
 var hits = 0
 var hits_max = 5
@@ -39,10 +37,8 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if ready:
 		set_dir(is_right, dir)
 
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-func _on_WeapPick03Sniper_body_shape_entered(body_id, body, body_shape, local_shape):
+
+func _on_WeapPick03Sniper_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 	if hits < 3 :
 		hits += 1
 		SFX.hit()

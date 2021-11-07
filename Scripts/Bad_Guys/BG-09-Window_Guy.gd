@@ -1,6 +1,5 @@
 extends StaticBody2D
-export(PackedScene) var projectile
-# export(PackedScene) var explode
+
 export var activation_number = 0
 export var activated = false
 export var damage = 20
@@ -41,7 +40,7 @@ var player = -1
 var opened = false
 var can_shoot = true
 var shoot = false
-# var time = 0.0
+var gun_num = 4
 
 func _ready():
 	bg_body.self_modulate = body_color
@@ -52,10 +51,6 @@ func _ready():
 	Map_Hand.map.connect("activate", self, "activate")
 
 func _process(_delta):
-	# time += _delta
-	# if time >= 1:
-	# 	time = 0.0
-	# 	print(opened, activated, shoot ,can_shoot)
 	if activated:
 		if shoot:
 			_shoot()
@@ -137,12 +132,10 @@ func _shoot_spot():
 				shoot = true
 func _shoot():
 	if shoot:
-		var new_projectile = projectile.instance()
-		get_tree().get_current_scene().add_child(new_projectile)
 		var _ss = shoot_spot.global_position
 		var _sr = shoot_spot.global_rotation
 		var _sss = shoot_spot.scale
-		new_projectile.start(_sr , _ss, _sss, 0, damage)
+		FX.proj_bad(gun_num, _sr , _ss, _sss, -1, damage)
 		SFX.play("Laser_Shoot")
 		shoot_timer.start()
 		can_shoot = false
@@ -166,14 +159,6 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		call_deferred("set_shape_disabled",true)
 		dead = true
 		FX.explode(9, player, self.global_position, "BG 09 Self Destruction", player, 0)
-		# call_deferred("_explode")
-		# call_deferred("free")
-
-# func _explode():
-# 	var x = explode.instance()
-# 	Map_Hand.add_kid_to_map(x)
-# 	x.init(player, self.global_position, str("player ", x, "'s destruct system"), player, 0)
-# 	death()
 
 func set_shape_disabled(_disabled):
 	c_shape.disabled = _disabled

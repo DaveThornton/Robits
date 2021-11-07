@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-# export(PackedScene) var smoke
 export var expire_time = 30.0
 
 onready var sprite = $Sprite
@@ -12,7 +11,6 @@ var ammo = 150
 var time = .1
 var is_right = true
 var dir = 3
-# warning-ignore:unused_class_variable
 var just_shot = false
 var hits = 0
 var hits_max = 5
@@ -38,10 +36,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if ready:
 		set_dir(is_right, dir)
 	
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-func _on_WeapPick11MegaCannon_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_WeapPick11MegaCannon_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 	if hits < hits_max :
 		hits += 1
 		SFX.hit()
@@ -49,11 +44,6 @@ func _on_WeapPick11MegaCannon_body_shape_entered(body_id, body, body_shape, loca
 		body.stun(gun_num)
 	else:
 		self.set_collision_mask_bit( 1, false)
-
-
-#func _on_Timer_Hit_timeout():
-#	self.set_collision_layer_bit( 1, false)
-#	self.set_collision_mask_bit( 1, false)
 
 func set_dir(_is_right, _dir):
 	is_right = _is_right

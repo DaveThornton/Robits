@@ -1,8 +1,5 @@
 extends Node2D
 
-# export(PackedScene) var atom_rifle_pickup
-# export(PackedScene) var projectile
-
 onready var anim_fire = $AnimationPlayer
 onready var shoot_timer = $Shoot_Timer
 onready var melee_timer = $Melee_Timer
@@ -86,8 +83,6 @@ func shoot_r():
 	pass
 
 func _fire_projectile():
-	# var new_projectile = projectile.instance()
-	# Map_Hand.add_kid_to_map(new_projectile)
 	var _ss = pos_shoot.global_position
 	var _sr = pos_shoot.global_rotation
 	if is_right:
@@ -96,7 +91,6 @@ func _fire_projectile():
 		_sr = pos_shoot.global_rotation * -1
 	var _sss = pos_shoot.global_scale
 	FX.proj(gun_num, _sr, _ss, _sss, player, damage)
-	# new_projectile.start( _sr , _ss, _sss, player, damage)
 
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()

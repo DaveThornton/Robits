@@ -1,11 +1,8 @@
 extends RigidBody2D
 
-# export(PackedScene) var boom
-# export(PackedScene) var smoke
 export var armed = false 
 
 onready var spin_timer = $Timer_Spin
-#onready var timer_boom = $Timer_Boom
 onready var timer_boom = $"22-plasma-det/Timer"
 onready var sprite = $Sprite_Body
 onready var pin = $Sprite_Pin
@@ -46,7 +43,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		timer_boom.start()
 
 func add_det(_det):
-	# det.queue_free()
 	self.add_child(_det)
 	det = _det
 
@@ -105,7 +101,6 @@ func fade_out():
 	call_deferred("free")
 
 func _on_Area2D_body_entered(body):
-	# print(det.part.visible, body)
 	if ammo == 0 && body.get_groups().has("player"):
 		self.remove_child(det)
 		body.attachment_point.attach(det)

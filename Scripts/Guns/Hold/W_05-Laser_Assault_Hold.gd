@@ -54,10 +54,7 @@ func shoot():
 		if melee_cast.is_colliding() && shoot_pos == 3:
 			melee()
 		elif ammo > 0:
-#			particles.emitting = true
 			if !shoot_cast.is_colliding():
-				# var new_projectile = projectile.instance()
-				# Map_Hand.add_kid_to_map(new_projectile)
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				if is_right:

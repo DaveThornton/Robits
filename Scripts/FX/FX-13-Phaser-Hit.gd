@@ -2,7 +2,6 @@ extends Node2D
 
 export(PackedScene) var part
 onready var sprite = $AnimatedSprite
-#onready var sfx = $SFX_Lib
 
 func _ready():
 	sprite.play("default")

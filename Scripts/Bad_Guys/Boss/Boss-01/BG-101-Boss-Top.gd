@@ -1,6 +1,5 @@
 extends StaticBody2D
 
-# export(PackedScene) var explode
 export var light_color = Color8(255, 255, 255, 255)
 export var hit_color = Color8(255, 255, 255, 255)
 export var speed = 6500
@@ -45,12 +44,6 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 				print("top box in bg 101 boss killed")
 				broken()
 				FX.explode(5, -1, self.position, str(self, "'s destruct system"), 0, 0)
-				# call_deferred("_explode")
-
-# func _explode():
-# 	var e = explode.instance()
-# 	Map_Hand.add_kid_to_map(e)
-# 	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
 
 func broken():
 	dead = true

@@ -1,5 +1,4 @@
 extends RigidBody2D
-#onready var sfx = $SFX_Lib
 
 func _ready():
 	self.apply_impulse(self.position,Vector2(0,-100))

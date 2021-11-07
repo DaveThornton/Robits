@@ -43,8 +43,6 @@ func _process(delta):
 	if walk_count == 0:
 		if walk > 0.0:
 			walk -= delta * 10
-	#		if walk < 0.0:
-	#			walk = 0.0
 		elif walk < 0.0:
 			walk += delta * 10
 func shoot_j():

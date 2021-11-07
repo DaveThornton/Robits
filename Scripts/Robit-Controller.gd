@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var r_timer = $"Respawn-Timer"
-# export(PackedScene) var boom
+
 var spawn_spot
 var my_pawn
 var player = 1
@@ -126,8 +126,6 @@ func init(_player_num):
 
 func spawn_pawn():
 	if !Game.over && !Player_Stats.get_continuing(player):
-#		if my_pawn:
-#			my_pawn.queue_free()
 		print("spawning pawn bc game is not over in robit controller")
 		var z = Equipment.get_pawn(Player_Stats.get_pawn_num(player)).instance()
 		get_tree().get_current_scene().pawns.add_child(z)
@@ -140,9 +138,6 @@ func spawn_pawn():
 	elif !Game.over && Player_Stats.get_continuing(player):
 		print("robit controller not working when tring to spawn maybe try to spawn again")
 	
-#	else:
-#		Player_Stats.set_in_game(player, false)
-
 func _init_pawn():
 	my_pawn.init(player, Map_Hand.spawn_pos(), Game.start_eq, play_type)
 
@@ -182,8 +177,11 @@ func _process(delta):
 	var start_input_j = Input.is_action_just_pressed(player_input_start)
 	var coin_input_j = Input.is_action_just_pressed(player_input_coin)
 
+	#--------------------------------------------------------------------------------
 	#delete me when done please!!!!
 	var test_button = Input.is_action_just_pressed("test_button")
+	#--------------------------------------------------------------------------------
+	
 	if player == 1:
 		if test_button:
 			print("test button add trama pressed in controller")

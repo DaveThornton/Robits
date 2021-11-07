@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-# export(PackedScene) var smoke
 export var expire_time = 30.0
 
 onready var timer = $Timer
@@ -22,10 +21,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		timer.start()
 	time = _time
 
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
-func _on_WeapPick80Leaf_Blower_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_WeapPick80Leaf_Blower_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:

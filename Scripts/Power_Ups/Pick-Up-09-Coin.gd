@@ -20,7 +20,6 @@ func _on_PickUp07Puck_Dot_body_entered(body):
 		body.add_nrg(how_much_nrg)
 		
 		if body.take_ammo:
-#				print(body.take_ammo)
 			body.add_ammo(how_much_ammo)		
 		if respawn:
 			r_timer.start()

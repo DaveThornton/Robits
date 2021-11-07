@@ -3,7 +3,6 @@ extends Node2D
 export(PackedScene) var pawn_part
 
 onready var anim = $AnimationPlayer
-#onready var sfx = $SFX_Lib
 var owned = 0
 var my_name = "Explosion"
 var weap_name = "Explosion"
@@ -21,22 +20,10 @@ func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	var part1 = pawn_part.instance()
 	Map_Hand.add_kid_to_map(part1)
 	part1.init(_owner, _pawn_num, 0, true, (_pos + Vector2(-2, -2)), Vector2(-200, -200))
-# 	var part2 = pawn_part.instance()
-# 	Map_Hand.add_kid_to_map(part2)
-# 	part2.init(_owner, _pawn_num, 1, true, (_pos + Vector2(2, -2)), Vector2(200, -200))
-# 	var part3 = pawn_part.instance()
-# 	Map_Hand.add_kid_to_map(part3)
-# 	part3.init(_owner, _pawn_num, 2, true, (_pos + Vector2(-2, 2)), Vector2(-200, -150))
-# 	var part4 = pawn_part.instance()
-# 	Map_Hand.add_kid_to_map(part4)
-# #	get_tree().get_current_scene().add_kid_to_map(part4)
-# 	part4.init(_owner, _pawn_num, 3, true, (_pos + Vector2(2, 2)), Vector2(100, -200))
 	owned = _owner
 	anim.play("Explode")
 	weap_name = _weap_name
-#	anim.play()
 	SFX.play("EX_Pawn")
-#	FX.CAMERA.shake(.3, 25, 9)
 
 func start( _sr , _ss, _sss, _player):
 	owned = _player

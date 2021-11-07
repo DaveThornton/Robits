@@ -29,25 +29,18 @@ func start( _sr , _ss, _sss, _player):
 func _on_Area2D2inner_body_entered(body):
 	if body.get_groups().has("player"):
 		call_deferred("_hit", body, damage2)
-#		call_deferred("body.hit", owned, str(weap_name, " ", my_name), damage_type, damage2)
 
 func _hit(body,_dmg):
 		body.hit(owned, str(weap_name, " ", my_name), damage_type, _dmg)
-#		body.hit(owned, weap_name, damage_type, damage1)
 
 func _on_Area2Douter_body_entered(body):
 	if body.get_groups().has("hittable"):
 		print("calling a hit ex-40-rpg")
 		body.hit(owned, weap_name, damage_type, damage1)
-#		call_deferred("_hit", body, damage1)
-#		call_deferred("body.hit", owned, str(weap_name, " ", my_name), damage_type, damage1)
+
 	elif body.get_groups().has("FX"):
-#		print("hit Pick Up")
-#		var a = Vector2( 0, 0)
-#		var b = self.position
 		var f = body.global_position - self.global_position
 		f.y =abs(f.y)
-#		var e = self.global_position - body.global_position
 		var ex = 0
 		var ey = 0
 

@@ -1,9 +1,7 @@
 extends RigidBody2D
 
-# export(PackedScene) var smoke
 export var expire_time= 30.0
 onready var sprite = $Back
-#onready var tip = $CollisionPolygon2D
 onready var timer = $Timer
 
 var hits = 0
@@ -13,13 +11,10 @@ var is_right = true
 var gun_num = 42
 var ammo = 50
 var time = 4.0
-#var frame = 0
-# warning-ignore:unused_class_variable
 var just_shot = false
 var hits_max = 5
 
 func _ready():
-#	sprite.frame = frame
 	ready = true
 	set_dir(is_right, dir)
 
@@ -28,8 +23,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		if ammo < _ammo:
 			expire_time = expire_time * 2
 		elif _ammo == 0:
-#			frame = 1
-#			sprite.frame = 1
 			expire_time = expire_time * .1
 		elif ammo > _ammo:
 			expire_time = expire_time * .75

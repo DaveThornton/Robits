@@ -29,9 +29,6 @@ func _ready():
 	turret_01.activation_number = activation_num
 	turret_02.activation_number = activation_num
 
-#func _process(delta):
-#	pass
-
 func activate(_num, _player):
 	if !activated && activation_num == _num:
 		activated = true
@@ -42,14 +39,11 @@ func activate(_num, _player):
 			tops.get_child(j).connect("dead", self, "dead_top")
 
 func dead_box():
-#	print("dead box in boss BG 101")
 	dead_boxes += 1
 	if dead_boxes == boxes.get_child_count():
 		top.activate()
 		for i in turrets.get_child_count():
 			turrets.get_child(i).activate(0,0)
-#			turrets.get_child(i).connect("dead", self, "dead_box")
-#		print("Activate the turrets !!!! BG 101 Boss")
 
 func dead_top():
 	dead()
@@ -60,7 +54,3 @@ func dead_top():
 
 func dead():
 	anim_boom.play("Boom")
-#	print("dead--------------------------------------------------------------------dead")
-#	exit.scale = Vector2(1,1)
-#	exit.visible = true
-#	exit_door.on()

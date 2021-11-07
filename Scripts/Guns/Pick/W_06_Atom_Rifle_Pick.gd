@@ -1,11 +1,9 @@
 extends RigidBody2D
 
-# export(PackedScene) var smoke
 export var expire_time = 30.0
 
 onready var sprite = $Sprite
 onready var timer = $Timer
-#onready var timer_hit = $Timer_Hit
 
 var ready = false
 var gun_num = 6

@@ -1,7 +1,5 @@
 extends Area2D
 
-# export(PackedScene) var stuck_arrow
-
 onready var ray = $RayCast2D
 onready var timer = $Timer
 var speed = 800

@@ -10,7 +10,6 @@ func _ready():
 		$Timer.start()
 
 func init(_player, _pawn, _part_num, _move, _pos, _impulse):
-	# sprite.frame = _part_num
 	if _move:
 		self.position = _pos
 	self.apply_impulse(Vector2(),_impulse)

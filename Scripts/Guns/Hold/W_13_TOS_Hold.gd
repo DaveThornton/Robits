@@ -180,16 +180,9 @@ func _drop_where(_obj):
 
 func _hit(_pos):
 	FX.proj_hit(gun_num, _pos, true)
-	# var x = hit_anim.instance()
-	# self.get_tree().get_current_scene().add_child(x)
-	# x.global_position = _pos
 
 func _hit_nothing(_pos):
 	FX.proj_hit(gun_num, _pos, false)
-	# var x = hit_anim_nothing.instance()
-	# Map_Hand.add_kid_to_map(x)
-	# x.global_position = beam_end.global_position
-	# x.emitting = true
 
 func _on_Melee_Timer_timeout():
 	can_shoot = true

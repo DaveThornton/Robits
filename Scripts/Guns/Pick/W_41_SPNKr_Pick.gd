@@ -1,9 +1,7 @@
 extends RigidBody2D
 
-# export(PackedScene) var smoke
 export var expire_time= 30.0
 onready var sprite = $Sprite
-#onready var tip = $CollisionPolygon2D
 onready var timer = $Timer
 
 var ready = false
@@ -13,7 +11,6 @@ var gun_num = 41
 var ammo = 4
 var time = 4.0
 var frame = 0
-# warning-ignore:unused_class_variable
 var just_shot = false
 var hits = 0
 var hits_max = 5

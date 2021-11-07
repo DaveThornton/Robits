@@ -1,11 +1,9 @@
 extends RigidBody2D
 
-# export(PackedScene) var smoke
 export var expire_time = 30.0
 
 onready var sprite = $Sprite
 onready var timer = $Timer
-#onready var timer_hit = $Timer_Hit
 
 var ready = false
 var gun_num = 84
@@ -13,7 +11,6 @@ var ammo = 12
 var time = .5
 var is_right = true
 var dir = 3
-# warning-ignore:unused_class_variable
 var just_shot = false
 var hits = 0
 var hits_max = 5
@@ -64,7 +61,6 @@ func set_dir(_is_right, _dir):
 			sprite.scale.y = 1
 		elif _dir == 3 || _dir == 6:
 			self.rotation_degrees = 9
-#			sprite.scale.y = 1
 		elif _dir == 4:
 			self.rotation_degrees = 45
 			sprite.scale.y = 1

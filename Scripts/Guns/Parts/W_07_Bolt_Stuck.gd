@@ -1,7 +1,5 @@
 extends Node2D
 
-# export(PackedScene) var boom
-
 onready var anim = $AnimationPlayer
 onready var bolt = $Bolt
 onready var timer = $Timer

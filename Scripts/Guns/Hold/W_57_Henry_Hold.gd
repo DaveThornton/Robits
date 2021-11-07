@@ -45,7 +45,6 @@ func _ready():
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
-#	pawn = Controllers.get_pawn(player)
 	just_shot = _just_shot
 	emit_signal("ammo_change",player,ammo)
 
@@ -62,8 +61,6 @@ func shoot_j():
 				melee()
 			elif ammo > 0:
 				if !shoot_cast.is_colliding():
-					# var new_projectile = projectile.instance()
-					# Map_Hand.add_kid_to_map(new_projectile)
 					var _ss = pos_shoot.global_position
 					var _sr = pos_shoot.global_rotation
 					if is_right:
@@ -71,7 +68,6 @@ func shoot_j():
 					else:
 						_sr = pos_shoot.global_rotation * -1
 					var _sss = pos_shoot.global_scale
-					# new_projectile.start( _sr , _ss, _sss, player, damage)
 					FX.proj(gun_num, _sr, _ss, _sss, player, damage)
 				else:
 					var _thing = shoot_cast.get_collider()
@@ -83,8 +79,6 @@ func shoot_j():
 					else:
 						print("gun 50 dont know what im hitting but no projectile spawned")
 				anim_fire.play("Shoot")
-#				if pawn != null:
-#					pawn.knock_back(1000, .05)
 				ammo = clamp(ammo - 1, 0, ammo_max)
 				emit_signal("ammo_change",player,ammo)
 				Player_Stats.add_shot(player, 1)
@@ -107,10 +101,6 @@ func shoot_r():
 
 func spawn_shell():
 	FX.shell(gun_num, pos_shell.global_position, pos_shell.global_rotation)
-	# var s = shell.instance()
-	# Map_Hand.add_kid_to_map(s)
-	# s.position = pos_shell.global_position
-	# s.rotation = pos_shell.global_rotation
 
 func melee():
 	if can_shoot:

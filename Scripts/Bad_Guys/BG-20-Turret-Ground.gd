@@ -1,10 +1,7 @@
 extends StaticBody2D
-#test upload from laptop  now change on desktop trying to figure out merge
-export(PackedScene) var projectile
-export(PackedScene) var explode
+
 export var armor = 0
 
-#onready var sfx = $SFX_Lib
 onready var sprite = $Sprite
 onready var sprite2 = $Sprite2
 onready var shoot_timer = $Timer_shoot
@@ -42,7 +39,7 @@ onready var shoot_pos_7 = $"Shoot_Spots/Position2D-7"
 onready var shoot_pos_8 = $"Shoot_Spots/Position2D-8"
 
 var shoot_poss = []
-#var current_shoot_pos
+var gun_num = 10
 var can_shoot = true
 var player = -1
 var damage = 3
@@ -58,7 +55,6 @@ func _ready():
 	shoot_poss.append(shoot_pos_6)
 	shoot_poss.append(shoot_pos_7)
 	shoot_poss.append(shoot_pos_8)
-#	sprite.look_at(Vector2(5000,0))
 
 # warning-ignore:unused_argument
 func _process(delta):
@@ -68,25 +64,17 @@ func _process(delta):
 				var shoot_spot= _shoot_where()
 				sprite.frame = shoot_spot
 				_animation(shoot_spot)
-#				anim.play("Shoot_0")
 				_shoot(shoot_poss[shoot_spot])
-#				_shoot(shoot_poss[3])
 			else:
 				sprite.frame = _look_where()
-#				print(_look_where())
 
 func _shoot(_pos):
 	can_shoot = false 
-	var new_projectile = projectile.instance()
-	get_tree().get_current_scene().add_child(new_projectile)
 	var _ss = _pos.global_position
 	var _sr = _pos.global_rotation
-#	if is_right:
 	_sr = _pos.global_rotation
-#	else:
-#		_sr = _pos.global_rotation * -1
 	var _sss = _pos.scale
-	new_projectile.start(_sr , _ss, _sss, player, damage)
+	FX.proj_bad(gun_num, _sr , _ss, _sss, -1, damage)
 	SFX.play("Laser_Shoot")
 	shoot_timer.start()
 
@@ -94,14 +82,9 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	anim2.play("Hit-Orange")
 	if health <= 0:
-		print("BG-20-Turrent-Ground dead")
-		call_deferred("_explode")
+		FX.explode(2,player, self.position, "Turret self distrution system", player, damage)
 		call_deferred("free")
 
-func _explode():
-	var x = explode.instance()
-	get_tree().get_current_scene().map.add_child(x)
-	x.init(9, self.position, str("player ", x, "'s destruct system"))
 
 func _is_look_col():
 	if look_cast_0.is_colliding() || look_cast_1.is_colliding()  || look_cast_2.is_colliding()  || look_cast_3.is_colliding()  || look_cast_4.is_colliding() || look_cast_5.is_colliding()  || look_cast_6.is_colliding()  || look_cast_7.is_colliding()  || look_cast_8.is_colliding():
@@ -179,4 +162,3 @@ func _animation(_spot):
 
 func _on_Timer_shoot_timeout():
 	can_shoot = true
-#	_shoot(shoot_poss[1])

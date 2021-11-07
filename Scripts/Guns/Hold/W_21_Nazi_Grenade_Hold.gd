@@ -35,11 +35,6 @@ func init(_ammo, _player, _time, _just_shot):
 	ammo = int(clamp(_ammo,0,1))
 	if ammo <= 0:
 		sprite_pin.visible = false
-#		timer.wait_time = _time
-#		timer.start()
-#	else:
-#		timer.wait_time = _time
-
 	time = _time
 	emit_signal("ammo_change",player,ammo)
 
@@ -60,11 +55,6 @@ func shoot_r():
 	if can_shoot:
 		if ammo > 0:
 			FX.shell(gun_num, pos_throw.global_position, pos_throw.global_rotation)
-			# var p = pin.instance()
-			# Map_Hand.add_kid_to_map(p)
-			# p.position = pos_throw.global_position
-			# p.rotation = pos_throw.global_rotation
-			# p.scale = pos_throw.scale 
 			can_shoot = false
 			timer.start()
 			ammo = 0
@@ -138,7 +128,4 @@ func go_boom():
 	p.my_gun = null
 	p.is_holding = false
 	FX.explode(10, player, self.global_position, my_name, 0, damage)
-	# var b = boom.instance()
-	# Map_Hand.add_kid_to_map(b)
-	# b.init(player, self.global_position, my_name, 0, damage)
 	call_deferred("free")

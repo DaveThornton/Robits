@@ -1,7 +1,5 @@
 extends RigidBody2D
 
-# export(PackedScene) var boom
-# export(PackedScene) var smoke
 export var expire_time = 30.0
 export var armed = false
 
@@ -10,7 +8,6 @@ onready var hit_timer =  $Timer_Hit
 onready var spin_timer = $Timer_Spin
 onready var timer_boom = $Timer_Boom
 onready var sprite = $Sprite_Body
-#onready var pin = $Sprite_Pin
 onready var label= $"FX-21-Timer_Label"
 onready var anim = $AnimationPlayer
 
@@ -55,9 +52,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 
 func _on_Timer_Boom_timeout():
 	FX.explode(24, player, self.global_position, my_name, 0, damage)
-	# var b = boom.instance()
-	# Map_Hand.add_kid_to_map(b)
-	# b.init(player, self.global_position, my_name, 0, damage)
 	call_deferred("free")
 
 func _on_WeapPick20Grenade_body_exited(body):
@@ -85,7 +79,6 @@ func _on_Timer_Spin_timeout():
 func set_dir(_is_right, _dir):
 	is_right = _is_right
 	if _is_right:
-#		pin.position = Vector2(-6, -6)
 		sprite.scale.y = 1
 		if _dir == 1:
 			self.rotation_degrees = -85
@@ -99,7 +92,6 @@ func set_dir(_is_right, _dir):
 			self.rotation_degrees = 85
 	else:
 		self.scale.y = -1
-#		pin.position   = Vector2(-6, 6)
 		if _dir == 1:
 			self.rotation_degrees = -95
 		elif _dir == 2:

@@ -1,7 +1,5 @@
 extends StaticBody2D
 
-export(PackedScene) var projectile
-# export(PackedScene) var explode
 export var light_color = Color8(255, 255, 255, 255)
 export var hit_color = Color8(255, 255, 255, 255)
 export var speed = 6500
@@ -19,6 +17,7 @@ onready var shoot_spot_2 = $Shoot_Spots/Pos_Shoot_02
 onready var shoot_spot_3 = $Shoot_Spots/Pos_Shoot_03
 onready var hit_box = $CollisionShape2D
 
+var gun_num = 10
 var activated = false
 var dead = false
 var hit_time = 0.0
@@ -48,26 +47,20 @@ func _process(delta):
 			light.self_modulate = light_color
 
 func shoot():
-	var new_projectile1 = projectile.instance()
-	get_tree().get_current_scene().add_child(new_projectile1)
 	var _ss = shoot_spot_1.global_position
 	var _sr = shoot_spot_1.global_rotation
 	var _sss = shoot_spot_1.scale
-	new_projectile1.start(_sr , _ss, _sss, 0, damage)
-	
-	var new_projectile2 = projectile.instance()
-	get_tree().get_current_scene().add_child(new_projectile2)
+	FX.proj_bad(gun_num, _sr, _ss, _sss, -1, damage)
+
 	var _ss2 = shoot_spot_2.global_position
 	var _sr2 = shoot_spot_2.global_rotation
 	var _sss2 = shoot_spot_2.scale
-	new_projectile2.start(_sr2 , _ss2, _sss2, 0, damage)
-	
-	var new_projectile3 = projectile.instance()
-	get_tree().get_current_scene().add_child(new_projectile3)
+	FX.proj_bad(gun_num, _sr2 , _ss2, _sss2, -1, damage)
+
 	var _ss3 = shoot_spot_3.global_position
 	var _sr3 = shoot_spot_3.global_rotation
 	var _sss3 = shoot_spot_3.scale
-	new_projectile3.start(_sr3 , _ss3, _sss3, 0, damage)
+	FX.proj_bad(gun_num, _sr3 , _ss3, _sss3, -1, damage)
 	SFX.play("Laser_Shoot")
 
 func hit(_by_who, _by_what, _damage_type, _damage):
@@ -76,23 +69,14 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			hit_time += .1
 			health -= (_damage - armor)
 			if health <= 0:
-#				print("small box in bg 101 boss killed")
-				# call_deferred("_explode")
 				FX.explode(2, -1, self.position, str(2, self, "'s destruct system"), 0, 0)
 				broken()
-#				call_deferred("free")
 
 func broken():
 	emit_signal("dead")
 	timer.stop()
 	dead = true
 	anim.play("Broken")
-
-# func _explode():
-# 	var e = explode.instance()
-# 	Map_Hand.add_kid_to_map(e)
-# 	e.init(9, self.position, str("player ", e, "'s destruct system"), 0, 0)
-
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Open_Can_Shoot":

@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-export(PackedScene) var projectile
-# export(PackedScene) var explode
 export var right = true
 export var idle = true
 export var just_stand = false
@@ -156,15 +154,12 @@ func _shoot():
 			grfx.play_anim("shoot", shoot_num)
 			vel.x = 0
 			can_shoot = false 
-			var new_projectile = projectile.instance()
-			get_tree().get_current_scene().add_child(new_projectile)
 			var _ss = shoot_spot.global_position
 			var _sr = shoot_spot.global_rotation
 			var _sss = shoot_spot.scale
-			new_projectile.start(_sr , _ss, _sss, 0, damage)
+			FX.proj_bad(4, _sr , _ss, _sss, -1, damage)
 			SFX.play("Laser_Shoot")
 			shoot_timer.start()
-#			print("shoot")
 			idle = false
 			can_shoot = false
 			shoot_spot = null
@@ -175,7 +170,6 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		Player_Stats.add_score(_by_who, points)
 		print("Open Gunner dead BG-03")
 		FX.explode(7, -1, self.position, "BG 03 Self Distruction", 0, 0)
-		# call_deferred("_explode")
 		call_deferred("free")
 
 func _on_edge():
@@ -185,11 +179,6 @@ func _on_edge():
 	else:
 		if !ray_edge_left.is_colliding():
 			right = true
-
-# func _explode():
-# 	var e = explode.instance()
-# 	Map_Hand.add_kid_to_map(e)
-# 	e.init(-1, self.position, str("player ", e, "'s destruct system"), 0, 0)
 
 func stop():
 	idle = true

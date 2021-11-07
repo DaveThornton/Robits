@@ -16,7 +16,6 @@ func color(_my_color):
 
 func _color(_my_color):
 	sprite.self_modulate = _my_color
-	# self.self_modulate = _my_color
 
 func _on_Timer_timeout():
 	queue_free()

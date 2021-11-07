@@ -55,9 +55,7 @@ func _process(delta):
 		hit_area.disabled = true
 		time_swing = 0.0
 	time_swing -= delta
-#	print(time_swing)
 		
-	
 func shoot_j():
 	swinging = true
 	Player_Stats.add_shot(player, 1)
