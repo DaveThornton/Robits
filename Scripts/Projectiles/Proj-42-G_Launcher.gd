@@ -3,6 +3,7 @@ extends RigidBody2D
 onready var timer = $Timer
 onready var parts = $CPUParticles2D
 
+var power = 25
 var speed = 800
 var owned = 0
 var my_name = "Grenade Launcher"
@@ -15,6 +16,7 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	position = _pos
 	scale = _scale
 	owned = _owner
+	self.apply_impulse(self.global_position,(self.global_position - Controllers.get_pawn(owned).arm.global_position) * Vector2(power,power))
 	if _scale.y < 0:
 		rotation *= -1
 

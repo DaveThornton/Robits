@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_39_P_Mine.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Pick/W_39_P_Mine_Pick.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Guns/Parts/W_39_P_Mine_Part_Armed.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -10,17 +9,13 @@
 [sub_resource type="CircleShape2D" id=2]
 radius = 3.53553
 
-[node name="W_39_P_Mine" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="W_39_P_Mine" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 917532
 physics_material_override = SubResource( 1 )
 gravity_scale = 6.0
 continuous_cd = 1
 script = ExtResource( 2 )
-smoke = ExtResource( 3 )
 mine = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="."]
@@ -39,10 +34,12 @@ hframes = 19
 frame = 7
 
 [node name="Big_CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0.5, 0.5 )
 shape = SubResource( 2 )
 
 [node name="Raycast" type="Node2D" parent="."]
+visible = false
 
 [node name="Up" type="RayCast2D" parent="Raycast"]
 position = Vector2( 0.5, -1.2 )

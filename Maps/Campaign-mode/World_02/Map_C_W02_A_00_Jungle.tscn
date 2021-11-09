@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Maps/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-04-Back-FX-Jungle.tres" type="TileSet" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Scenes/Guns/Pick/W_03_Sniper_Pick.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Scenes/Guns/Pick/W_42_G-Launcher_Pick.tscn" type="PackedScene" id=34]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 566 )
@@ -271,6 +272,9 @@ position = Vector2( 2103, 434 )
 [node name="MP-11-Player_Spawn-28" parent="Player_Spawns" instance=ExtResource( 18 )]
 position = Vector2( 2341, 432 )
 
+[node name="W_42_G-Launcher" parent="Player_Spawns" instance=ExtResource( 34 )]
+position = Vector2( 270.203, 939.942 )
+
 [node name="Power_Ups" type="Node2D" parent="."]
 
 [node name="Map_parts" type="Node2D" parent="." groups=["map_part"]]
@@ -398,13 +402,13 @@ position = Vector2( 1070.2, 929.769 )
 position = Vector2( 1090.2, 929.765 )
 
 [node name="MP-55-Blast_Door" parent="." instance=ExtResource( 23 )]
-position = Vector2( 960.421, 995.659 )
+position = Vector2( 960.216, 999.793 )
 
 [node name="BadGuys" type="Node2D" parent="."]
 z_index = -2
 
 [node name="Pick-Up-01-Ammo" parent="." instance=ExtResource( 30 )]
-position = Vector2( 1020.22, 1019.78 )
+position = Vector2( 1060.23, 1049.77 )
 
 [node name="Pick-Up-01-Ammo2" parent="." instance=ExtResource( 30 )]
 position = Vector2( 1070.2, 909.769 )

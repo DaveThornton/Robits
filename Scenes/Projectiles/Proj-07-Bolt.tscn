@@ -1,25 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Projectiles/Proj-07-Bolt.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/FX/Bullet_Hit_Map.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/FX/Bullet_Hit_Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Projectiles/W_07_CrossBow_Arrow.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Guns/Parts/W_07_Bolt_Stuck.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.39871
 height = 11.2026
 
-[node name="Projectile" type="Area2D" groups=[
-"projectile",
-]]
+[node name="Projectile" type="Area2D" groups=["projectile"]]
 z_index = -3
 collision_layer = 512
 collision_mask = 33280
 script = ExtResource( 1 )
-stuck_bolt = ExtResource( 5 )
-hit_anim_map = ExtResource( 2 )
-hit_anim_move = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -5.68434e-13 )

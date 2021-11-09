@@ -1,6 +1,6 @@
 extends Node2D
 
-export(PackedScene) var launcher_pickup
+# export(PackedScene) var launcher_pickup
 export(PackedScene) var projectile
 export var power = 25
 onready var sprite_gun = $POS_Gun/Gun_Sprite
@@ -81,8 +81,6 @@ func fire_projectile():
 	if !shoot_cast.is_colliding():
 		SFX.play("W_42_Thump")
 		anim_fire.play("Shoot")
-		var new_projectile = projectile.instance()
-		Map_Hand.add_kid_to_map(new_projectile)
 		var _ss = pos_shoot.global_position
 		var _sr = pos_shoot.global_rotation
 		if is_right:
@@ -90,8 +88,7 @@ func fire_projectile():
 		else:
 			_sr = pos_shoot.global_rotation * -1
 		var _sss = pos_shoot.global_scale
-		new_projectile.start( _sr , _ss, _sss, player, damage)
-		new_projectile.apply_impulse(pos_shoot.position, (pos_shoot.global_position - pawn.arm.global_position) * Vector2(power,power))
+		FX.proj(42, _sr , _ss, _sss, player, damage)
 	else:
 		FX.explode(40, player, shoot_cast.get_collision_point(), my_name, 0, damage)
 
