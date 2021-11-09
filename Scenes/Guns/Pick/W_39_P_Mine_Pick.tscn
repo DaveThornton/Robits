@@ -20,14 +20,12 @@ mine = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 0.290196 )
-position = Vector2( 0.5, 0.5 )
 scale = Vector2( 2.4, 2.4 )
 texture = ExtResource( 1 )
 hframes = 19
 frame = 7
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0.5, 0.5 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 19
@@ -39,28 +37,27 @@ position = Vector2( 0.5, 0.5 )
 shape = SubResource( 2 )
 
 [node name="Raycast" type="Node2D" parent="."]
-visible = false
 
 [node name="Up" type="RayCast2D" parent="Raycast"]
-position = Vector2( 0.5, -1.2 )
+position = Vector2( 0, -2 )
 enabled = true
 cast_to = Vector2( 0, -16 )
 collision_mask = 12
 
 [node name="Left" type="RayCast2D" parent="Raycast"]
-position = Vector2( -1.2, 0.5 )
+position = Vector2( -2, 0 )
 enabled = true
 cast_to = Vector2( -16, 0 )
 collision_mask = 12
 
 [node name="Right" type="RayCast2D" parent="Raycast"]
-position = Vector2( 2.2, 0.5 )
+position = Vector2( 2, 0 )
 enabled = true
 cast_to = Vector2( 16, 0 )
 collision_mask = 12
 
 [node name="Down" type="RayCast2D" parent="Raycast"]
-position = Vector2( 0.5, 2.2 )
+position = Vector2( 0, 2 )
 enabled = true
 cast_to = Vector2( 0, 16 )
 collision_mask = 12

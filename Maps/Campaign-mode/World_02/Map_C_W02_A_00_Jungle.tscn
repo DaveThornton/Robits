@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Maps/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-04-Back-FX-Jungle.tres" type="TileSet" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_03_Sniper_Pick.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Guns/Pick/W_42_G-Launcher_Pick.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Scenes/Guns/Pick/W_39_P_Mine_Pick.tscn" type="PackedScene" id=35]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 566 )
@@ -273,7 +274,7 @@ position = Vector2( 2103, 434 )
 position = Vector2( 2341, 432 )
 
 [node name="W_42_G-Launcher" parent="Player_Spawns" instance=ExtResource( 34 )]
-position = Vector2( 270.203, 939.942 )
+position = Vector2( 130.226, 1049.97 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
@@ -417,13 +418,16 @@ position = Vector2( 1070.2, 909.769 )
 position = Vector2( 360.192, 889.922 )
 
 [node name="Weap-Pick-02-Ak-47" parent="." instance=ExtResource( 31 )]
-position = Vector2( 1240.19, 879.732 )
+position = Vector2( 1120.22, 1029.76 )
 
 [node name="Weap-Pick-03-Sniper2" parent="." instance=ExtResource( 32 )]
-position = Vector2( 1200.2, 939.741 )
+position = Vector2( 1010.22, 1039.78 )
 
 [node name="Weap-Pick-50-Shot_Gun" parent="." instance=ExtResource( 29 )]
-position = Vector2( 180.216, 999.961 )
+position = Vector2( 790.22, 1019.83 )
 
 [node name="W_05_Laser_Assault_Pick" parent="." instance=ExtResource( 33 )]
-position = Vector2( 1160.19, 899.75 )
+position = Vector2( 860.22, 1019.81 )
+
+[node name="W_39_P_Mine" parent="." instance=ExtResource( 35 )]
+position = Vector2( 210.211, 979.955 )

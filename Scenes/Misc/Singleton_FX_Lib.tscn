@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_FX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Scenes/Guns/Parts/W_59_Arrow_Stuck.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Misc/Parts/MiscFX.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Guns/Parts/W_39_P_Mine_Part_Armed.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 470, 549 )
@@ -130,6 +131,7 @@ position = Vector2( 0, -1 )
 position = Vector2( 0, -1 )
 arrow = ExtResource( 15 )
 bolt = ExtResource( 14 )
+mine = ExtResource( 18 )
 disappear = ExtResource( 16 )
 
 [connection signal="area_entered" from="MP-01-Camera/Area2D_Respawn" to="." method="_on_Area2D_Respawn_area_entered"]

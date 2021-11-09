@@ -1,6 +1,5 @@
 extends RigidBody2D
 
-export(PackedScene) var mine
 export var expire_time = 30.0
 
 onready var sprite = $Sprite
@@ -44,33 +43,29 @@ func _physics_process(_delta):
 	if armed:
 		self.rotation_degrees = 0
 		if ray_up.is_colliding():
-			print("up")
 			var a = ray_up.get_collision_point()
-			var b = mine.instance()
+			var b = FX.misc.armed_mine().instance()
 			Map_Hand.add_kid_to_map(b)
 			b.init(player, damage, a, 0)
 			queue_free()
 			return
 		if ray_left.is_colliding():
-			print("left")
 			var a = ray_left.get_collision_point()
-			var b = mine.instance()
+			var b = FX.misc.armed_mine().instance()
 			Map_Hand.add_kid_to_map(b)
 			b.init(player, damage, a, -90)
 			queue_free()
 			return
 		if ray_right.is_colliding():
-			print("right")
 			var a = ray_right.get_collision_point()
-			var b = mine.instance()
+			var b = FX.misc.armed_mine().instance()
 			Map_Hand.add_kid_to_map(b)
 			b.init(player, damage, a, 90)
 			queue_free()
 			return
 		if ray_down.is_colliding():
-			print("down")
 			var a = ray_down.get_collision_point()
-			var b = mine.instance()
+			var b = FX.misc.armed_mine().instance()
 			Map_Hand.add_kid_to_map(b)
 			b.init(player, damage, a, 180)
 			queue_free()
