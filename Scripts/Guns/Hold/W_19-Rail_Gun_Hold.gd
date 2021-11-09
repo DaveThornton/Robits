@@ -56,8 +56,8 @@ func _physics_process(delta):
 	beam.region_rect.end.x = beam_end.position.length()
 	if shoot_pressed && can_shoot:
 		shoot_pressed_time += delta
-	if can_shoot && !beam.visible:
-		beam.visible = true
+	# if can_shoot && !beam.visible:
+	# 	beam.visible = true
 
 func shoot_j():
 	shoot_pressed = true

@@ -5,12 +5,17 @@ export(PackedScene) var hit_anim_move
 onready var cast = $RayCast2D
 
 var speed = 1400
-var owned = 1
+var owned = -1
 var my_name = "12 Gauge"
 var damage = 16
 var damage_type = "Bullet"
+var life_time = .1
 
-func start(_owner , _dmg):
+func start( _rot , _pos, _scale, _owner, _dmg):
+	self.global_rotation = _rot# + rand_range(-.01, .01)
+	self.global_position = _pos
+	# self.global_scale = _scale
+	print( _rot , _pos, _scale, _owner, _dmg)
 	owned = _owner
 	damage = _dmg
 
@@ -30,6 +35,9 @@ func _physics_process(delta):
 			_hit_map(cast.get_collision_point())
 			call_deferred("free")
 	move_local_x(speed * delta)
+	life_time -= delta
+	if life_time <= 0.0:
+		call_deferred("free")
 
 
 func _hit_map(_pos):

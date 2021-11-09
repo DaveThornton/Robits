@@ -1,8 +1,5 @@
 extends Node2D
 
-export(PackedScene) var opencannon_pickup
-export(PackedScene) var projectile
-
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
@@ -49,9 +46,6 @@ func _process(delta):
 			walk = 0.0
 
 func shoot_j():
-	pass
-
-func shoot():
 	if can_shoot:
 		if melee_cast.is_colliding() && shoot_pos == 3:
 			melee()
@@ -88,6 +82,9 @@ func shoot():
 			shoot_timer.start()
 			SFX.play("W_12_Empty")
 
+func shoot():
+	pass
+
 func shoot_r():
 	pass
 
@@ -97,6 +94,7 @@ func melee():
 		anim_fire.play("Melee")
 		melee_timer.start()
 		Player_Stats.add_shot(player, 1)
+
 
 func _on_Melee_Area_body_entered(body):
 	if body.get_groups().has("player"):

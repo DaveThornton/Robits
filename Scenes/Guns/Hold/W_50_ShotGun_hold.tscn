@@ -124,16 +124,31 @@ texture = ExtResource( 1 )
 hframes = 5
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
-visible = false
-
-[node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 40, -3 )
 
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( 44, 0 )
 
 [node name="Shell" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( 6, -3 )
+
+[node name="Position2D" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 39.8171, -3.18287 )
+rotation = -0.349066
+
+[node name="Position2D2" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 39.8171, -3.18287 )
+rotation = -0.174533
+
+[node name="Position2D3" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 39.8171, -3.18287 )
+
+[node name="Position2D4" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 39.8171, -3.18287 )
+rotation = 0.174533
+
+[node name="Position2D5" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 39.8171, -3.18287 )
+rotation = 0.349066
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 

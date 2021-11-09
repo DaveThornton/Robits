@@ -51,6 +51,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("POS_Gun/Gun_Sprite/Beam:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "Chargedown"
@@ -86,6 +98,18 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("POS_Gun/Gun_Sprite/Beam:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -254,10 +278,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.025, 1.975 ),
+"times": PoolRealArray( 0, 0.05 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false, true ]
+"values": [ true, false ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("POS_Gun/Gun_Sprite/Beam_End/Sprite:visible")
@@ -315,14 +339,13 @@ hframes = 5
 
 [node name="Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
 modulate = Color( 1, 0, 0, 1 )
-self_modulate = Color( 1, 1, 1, 0 )
 show_behind_parent = true
 texture = ExtResource( 3 )
 offset = Vector2( 0, 2 )
 hframes = 5
-frame = 4
 
 [node name="Beam" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+visible = false
 self_modulate = Color( 1, 0, 0, 0.294118 )
 show_behind_parent = true
 position = Vector2( -1, 0 )

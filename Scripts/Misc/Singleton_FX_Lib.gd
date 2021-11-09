@@ -57,10 +57,13 @@ func shell(_num, _pos, _rot):
 	shells.spawn(_num, _pos, _rot)
 
 func proj(_num,_rot, _pos, _scale, _owner, _dmg):
-	projectiles.make_vs(_num,_rot, _pos, _scale, _owner, _dmg)
+	projectiles.call_deferred("make_vs", _num,_rot, _pos, _scale, _owner, _dmg)
 
 func proj_bad(_num,_rot, _pos, _scale, _owner, _dmg):
-	projectiles.make_bad(_num,_rot, _pos, _scale, _owner, _dmg)
+	projectiles.call_deferred("make_bad", _num,_rot, _pos, _scale, _owner, _dmg)
+
+func four_brick(_owner, _pos, _color):
+	bricks.add_four(_owner, _pos, _color)
 
 func get_brick_color(_color):
 	return bricks.get_color(_color)

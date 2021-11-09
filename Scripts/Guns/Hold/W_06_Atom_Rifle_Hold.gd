@@ -68,7 +68,6 @@ func shoot_j():
 				if shoot_cast.get_collider().player == player:
 					_fire_projectile()
 				else:
-#					melee()
 					can_shoot = false
 					anim_fire.play("Melee")
 					SFX.play("W_06_Melee")

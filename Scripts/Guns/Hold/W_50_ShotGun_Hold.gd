@@ -7,10 +7,14 @@ onready var pump_timer = $Pump_Timer
 onready var shoot_cast = $POS_Gun/Raycast/Shoot
 onready var melee_cast = $POS_Gun/Raycast/Melee
 onready var throw_cast = $POS_Gun/Raycast/Throw
-onready var pos_shoot = $POS_Gun/POS/Shoot
+# onready var pos_shoot = $POS_Gun/POS/Shoot
 onready var pos_shell = $POS_Gun/POS/Shell
 onready var pos_throw = $POS_Gun/POS/Throw
-
+onready var pos_shoot = $POS_Gun/POS/Position2D
+onready var pos_shoot2 = $POS_Gun/POS/Position2D2
+onready var pos_shoot3 = $POS_Gun/POS/Position2D3
+onready var pos_shoot4 = $POS_Gun/POS/Position2D4
+onready var pos_shoot5 = $POS_Gun/POS/Position2D5
 var player = 1
 var pawn
 var gun_num = 50
@@ -60,12 +64,21 @@ func shoot_j():
 				if !shoot_cast.is_colliding():
 					var _ss = pos_shoot.global_position
 					var _sr = pos_shoot.global_rotation
-					if is_right:
-						_sr = pos_shoot.global_rotation
-					else:
-						_sr = pos_shoot.global_rotation * -1
-					var _sss = pos_shoot.global_scale
-					FX.proj(gun_num, _sr, _ss, _sss, player, damage)
+					var _sr2 = pos_shoot2.global_rotation
+					var _sr3 = pos_shoot3.global_rotation
+					var _sr4 = pos_shoot4.global_rotation
+					var _sr5 = pos_shoot5.global_rotation
+					# if is_right:
+					# 	_sr = pos_shoot.global_rotation
+					# else:
+					# 	_sr = pos_shoot.global_rotation * -1
+					var _sss = pos_shoot.scale
+					FX.proj(50.5,_sr, _ss, _sss, player, damage)
+					FX.proj(50.5,_sr2, _ss, _sss, player, damage)
+					FX.proj(50.5,_sr3, _ss, _sss, player, damage)
+					FX.proj(50.5,_sr4, _ss, _sss, player, damage)
+					FX.proj(50.5,_sr5, _ss, _sss, player, damage)
+					# FX.proj(gun_num, _sr, _ss, _sss, player, damage)
 				else:
 					var _thing = shoot_cast.get_collider()
 					if _thing.get_groups().has("hittable"):

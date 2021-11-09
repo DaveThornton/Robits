@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_19-Rail_Gun_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_19_Rail_Gun.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -11,10 +10,7 @@ bounce = 0.1
 radius = 4.99995
 height = 28.0002
 
-[node name="Weap-Pick-03-Sniper" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="Weap-Pick-03-Sniper" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 917534
 physics_material_override = SubResource( 1 )
@@ -23,7 +19,6 @@ continuous_cd = 1
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
-smoke = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.0969925, -0.0969887 )

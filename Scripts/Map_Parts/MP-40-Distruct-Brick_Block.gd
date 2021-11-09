@@ -21,13 +21,7 @@ var pos
 var player = -1
 
 func _ready():
-	# if !is_custom_color:
 	call_deferred("set_my_start_color")
-	# 	my_color = FX.get_brick_color(brick_color)
-	# else:
-	# 	my_color = custom_color
-	# sprite.self_modulate = my_color
-	# self.self_modulate = my_color
 	if head_hit:
 		head_area.disabled = false
 	if respawn:
@@ -37,12 +31,8 @@ func hit(owned, my_name, damage_type, damage):
 	call_deferred("_hit",owned, my_name, damage_type, damage)
 
 func _hit(_owned, _my_name, _damage_type, _damage):
-	SFX.play("EX_Brick")
-	var e = bricks.instance()
-	pos = self.global_position
-	Map_Hand.add_kid_to_map(e)
-	e.init(_owned, pos, my_color)
-	FX.explode(11, _owned, pos, _my_name, 0, _damage)
+	FX.four_brick(_owned, self.global_position, my_color)
+	FX.explode(11, _owned, self.global_position, _my_name, -1, _damage)
 	kill_timer.start()
 
 func _on_Area2D_body_entered(body):

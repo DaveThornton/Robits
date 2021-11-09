@@ -14,7 +14,7 @@ func _ready():
 	print(b_radius)
 
 	pass
-
+	
 func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	owned = _owner
 	anim.play("Explode")
