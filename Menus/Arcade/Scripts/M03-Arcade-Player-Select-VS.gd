@@ -1,7 +1,5 @@
 extends Node2D
 
-export(PackedScene) var vs_map_select
-
 onready var p1_menu = $Menu_8x2_01
 onready var p2_menu = $Menu_8x2_02
 onready var p3_menu = $Menu_8x2_03

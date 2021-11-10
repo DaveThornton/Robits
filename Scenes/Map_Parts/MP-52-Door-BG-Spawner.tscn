@@ -63,6 +63,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id=3]
 length = 2.0
+step = 0.01
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -70,7 +71,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.6, 0.8, 1.5 ),
+"times": PoolRealArray( 0.6, 0.61, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -132,9 +133,7 @@ tracks/4/keys = {
 "values": [ 8, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
 }
 
-[node name="MP-52-BG-3-Spawner" type="Area2D" groups=[
-"hittable",
-]]
+[node name="MP-52-BG-3-Spawner" type="Area2D" groups=["hittable"]]
 collision_layer = 2560
 collision_mask = 2147483648
 script = ExtResource( 3 )

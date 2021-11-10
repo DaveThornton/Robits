@@ -69,6 +69,7 @@ func _physics_process(delta):
 		vel.y = terminal_vel
 # warning-ignore:return_value_discarded
 	move_and_slide(Vector2(vel.x,0))
+	vel.x = 0
 # warning-ignore:return_value_discarded
 	move_and_collide(Vector2(0,vel.y))
 

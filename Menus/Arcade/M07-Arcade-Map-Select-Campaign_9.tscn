@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Menus/Grids/menu_3x3_01.tscn" type="PackedScene" id=1]
+[ext_resource path="res://misc/line-text-64.tres" type="DynamicFont" id=2]
+
+[node name="M07-Arcade-Map-Select-Campaign" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 990, 520 )
+
+[node name="Label4" type="Label" parent="."]
+margin_top = 910.0
+margin_right = 1920.0
+margin_bottom = 1047.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "make a selection
+hate"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

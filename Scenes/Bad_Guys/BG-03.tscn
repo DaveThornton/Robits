@@ -1,22 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Bad_Guys/Parts/BG-03-Anim.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Bad_Guys/BG-03.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.0
 height = 15.0
 
-[node name="BG-03-01" type="KinematicBody2D" groups=[
-"badguy",
-"hittable",
-]]
+[node name="BG-03-01" type="KinematicBody2D" groups=["badguy", "hittable"]]
 z_index = -1
 collision_layer = 2048
 collision_mask = 3100
 script = ExtResource( 2 )
-projectile = ExtResource( 3 )
 right = false
 idle = false
 
