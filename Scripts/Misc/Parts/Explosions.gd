@@ -89,12 +89,8 @@ func boom(_num, _owner, _pos, _weap_name, _pawn_num, _dmg):
 func proj_hit(_num, _pos, _moving):
 	var y
 	if _num == 13:
-		# if _moving:
 		y = projhit_013.instance()
-		# else:
-		# 	y = projhit_013.instance()
 	if _num == 14:#-------------still using 13
-		# if _moving:
 		y = projhit_013.instance()
 
 	Map_Hand.add_kid_to_map(y)

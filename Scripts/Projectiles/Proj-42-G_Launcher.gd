@@ -33,6 +33,10 @@ func _explode(_pos):
 	parts.time_out()
 	call_deferred("free")
 
+func set_layer(_bit):
+	self.set_collision_layer(_bit)
+	self.set_collision_mask(_bit)
+
 func _on_Proj42G_Launcher_body_entered(_body):
 	entered()
 

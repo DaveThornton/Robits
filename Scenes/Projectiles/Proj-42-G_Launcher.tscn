@@ -8,9 +8,7 @@
 radius = 2.0
 height = 8.0
 
-[node name="Proj-42-G_Launcher" type="RigidBody2D" groups=[
-"projectile",
-]]
+[node name="Proj-42-G_Launcher" type="RigidBody2D" groups=["projectile"]]
 collision_layer = 2147484160
 collision_mask = 167690
 mass = 5.0

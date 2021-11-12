@@ -1,7 +1,7 @@
 extends Node2D
 
-export(PackedScene) var zapper_pistol_pickup
-export(PackedScene) var projectile
+# export(PackedScene) var zapper_pistol_pickup
+# export(PackedScene) var projectile
 
 onready var anim_fire = $AnimationPlayer
 onready var shoot_timer = $Shoot_Timer

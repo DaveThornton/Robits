@@ -24,9 +24,7 @@ tracks/0/keys = {
 "values": [ 3, 4, 5, 6, 7, 5, 6, 7, 3, 4 ]
 }
 
-[node name="Projectile_04" type="Area2D" groups=[
-"projectile",
-]]
+[node name="Projectile_04" type="Area2D" groups=["projectile"]]
 collision_layer = 512
 collision_mask = 536
 script = ExtResource( 1 )

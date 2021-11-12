@@ -27,20 +27,16 @@ func _physics_process(delta):
 	if cast_forward.is_colliding():
 		call_deferred("_explode", position)
 
-func _on_Projectile_04_area_entered(area):
-	entered(area)
-
-func _on_Projectile_04_body_entered(body):
-	entered(body)
-
-func entered(_body):
-	call_deferred("_explode",self.global_position)
-
 func _on_Timer_timeout():
 	_explode(self.global_position)
 
 func _on_Timer2_timeout():
 	_explode(self.global_position)
+
+func set_layer(_bit):
+	self.set_collision_layer(_bit)
+	self.set_collision_mask(_bit)
+	cast_forward.set_collision_mask(_bit)
 
 func _explode(_pos):
 	FX.explode(56.1, owned, _pos, my_name, 0, damage)

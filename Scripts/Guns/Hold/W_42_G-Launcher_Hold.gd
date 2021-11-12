@@ -1,7 +1,7 @@
 extends Node2D
 
 # export(PackedScene) var launcher_pickup
-export(PackedScene) var projectile
+# export(PackedScene) var projectile
 export var power = 25
 onready var sprite_gun = $POS_Gun/Gun_Sprite
 onready var anim_fire = $AnimationPlayer
@@ -38,6 +38,9 @@ func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 40 RPG")
+	if Game.mode == 0:
+		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_b())
+		melee_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_b())
 
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
@@ -88,7 +91,7 @@ func fire_projectile():
 		else:
 			_sr = pos_shoot.global_rotation * -1
 		var _sss = pos_shoot.global_scale
-		FX.proj(42, _sr , _ss, _sss, player, damage)
+		FX.proj(gun_num, _sr , _ss, _sss, player, damage)
 	else:
 		FX.explode(40, player, shoot_cast.get_collision_point(), my_name, 0, damage)
 
@@ -176,6 +179,7 @@ func _throw_where(_obj):
 func _drop_where(_obj):
 	_obj.set_collision_layer_bit( 1, false)
 	_obj.set_collision_mask_bit( 1, false)
+
 
 func _on_Shoot_Timer_timeout():
 	can_shoot = true

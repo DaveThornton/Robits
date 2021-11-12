@@ -50,6 +50,7 @@ texture = ExtResource( 4 )
 position = Vector2( -0.0100098, 0 )
 
 [node name="Space-00" parent="MP-01-Camera/Back" instance=ExtResource( 2 )]
+visible = false
 z_index = -129
 z_as_relative = false
 
@@ -73,14 +74,6 @@ z_index = -129
 z_as_relative = false
 texture = ExtResource( 6 )
 
-[node name="Back_07_Sun_Set_Sky" type="Sprite" parent="MP-01-Camera/Back"]
-visible = false
-position = Vector2( 960.01, 535 )
-scale = Vector2( 1.01563, 0.488281 )
-z_index = -129
-z_as_relative = false
-texture = ExtResource( 7 )
-
 [node name="Back_04_Deep_Blue_Tile" type="Sprite" parent="MP-01-Camera/Back"]
 visible = false
 position = Vector2( 960.01, 520 )
@@ -90,13 +83,20 @@ z_as_relative = false
 texture = ExtResource( 8 )
 
 [node name="Back_05_Black" type="Sprite" parent="MP-01-Camera/Back"]
-visible = false
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 960.01, 520 )
 scale = Vector2( 1, 0.546875 )
 z_index = -129
 z_as_relative = false
 texture = ExtResource( 8 )
+
+[node name="Back_07_Sun_Set_Sky" type="Sprite" parent="MP-01-Camera/Back"]
+visible = false
+position = Vector2( 960.01, 535 )
+scale = Vector2( 1.01563, 0.488281 )
+z_index = -129
+z_as_relative = false
+texture = ExtResource( 7 )
 
 [node name="Area2D_Respawn" type="Area2D" parent="MP-01-Camera"]
 visible = false

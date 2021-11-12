@@ -33,6 +33,8 @@ func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 11 mega cannon")
+	if Game.mode == 0:
+		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
@@ -91,6 +93,7 @@ func _fire_projectile():
 	else:
 		_sr = pos_shoot.global_rotation * -1
 	var _sss = pos_shoot.global_scale
+	FX.proj(gun_num, _sr, _ss, _sss, player, damage)
 
 
 func throw():

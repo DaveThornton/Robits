@@ -5,6 +5,7 @@ onready var pos_throw = $POS_Throw
 onready var cast_throw = $RayCast2D
 onready var bar = $POS_Gun/Bar
 onready var hit_area = $Melee_Area/CollisionShape2D
+onready var melee_area = $Melee_Area
 
 var player = 1
 var gun_num = 69
@@ -31,6 +32,9 @@ func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print("failed to connect ammo change in weap hold 63 Crowbar")
+	if Game.mode == 0:
+		melee_area.set_collision_layer(FX.projectiles.get_layer_mode_0_a())
+		melee_area.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 
 func init(_ammo, _player, _time, _just_shot):
 	player = _player

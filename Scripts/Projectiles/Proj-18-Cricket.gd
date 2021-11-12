@@ -24,5 +24,10 @@ func _physics_process(delta):
 		call_deferred("free")
 	move_local_x(speed * delta)
 
+func set_layer(_bit):
+	self.set_collision_layer(_bit)
+	self.set_collision_mask(_bit)
+	cast.set_collision_mask(_bit)
+	
 func _on_Timer_timeout():
 	call_deferred("free")

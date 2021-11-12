@@ -39,6 +39,10 @@ func _physics_process(delta):
 	if life_time <= 0.0:
 		call_deferred("free")
 
+func set_layer(_bit):
+	self.set_collision_layer(_bit)
+	self.set_collision_mask(_bit)
+	cast.set_collision_mask(_bit)
 
 func _hit_map(_pos):
 	var x = hit_anim_map.instance()

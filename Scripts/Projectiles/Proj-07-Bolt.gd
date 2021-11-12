@@ -41,20 +41,10 @@ func _physics_process(delta):
 		call_deferred("free")
 	move_local_x(speed * delta)
 
-func _on_Projectile_body_entered(_body):
-	print("body hit something proj-07-bolt")
-
-func _hit_map():
-	pass
-	# var x = hit_anim_map.instance()
-	# self.get_tree().get_current_scene().add_child(x)
-	# x.global_position = self.global_position
-
-func _hit_move():
-	pass
-	# var x = hit_anim_move.instance()
-	# self.get_tree().get_current_scene().add_child(x)
-	# x.global_position = self.global_position
+func set_layer(_bit):
+	self.set_collision_layer(_bit)
+	self.set_collision_mask(_bit)
+	ray.set_collision_mask(_bit)
 
 func _on_Timer_timeout():
 	call_deferred("free")

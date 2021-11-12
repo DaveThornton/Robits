@@ -1,7 +1,7 @@
 extends Node2D
 
-export(PackedScene) var mega_cannon
-export(PackedScene) var projectile
+# export(PackedScene) var mega_cannon
+# export(PackedScene) var projectile
 
 onready var anim_fire = $AnimationPlayer
 onready var pos_shoot = $POS_Gun/POS/Shoot
@@ -83,8 +83,6 @@ func shoot_r():
 	can_shoot = true
 
 func _fire_projectile():
-	var new_projectile = projectile.instance()
-	Map_Hand.add_kid_to_map(new_projectile)
 	var _ss = pos_shoot.global_position
 	var _sr = pos_shoot.global_rotation
 	if is_right:
@@ -92,7 +90,7 @@ func _fire_projectile():
 	else:
 		_sr = pos_shoot.global_rotation * -1
 	var _sss = pos_shoot.global_scale
-	new_projectile.start( _sr , _ss, _sss, player, damage)
+	FX.proj(11, _sr, _ss, _sss, player, damage)
 
 func throw():
 	pass

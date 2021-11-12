@@ -38,8 +38,12 @@ export(PackedScene) var camp_proj002
 
 var proj_004_color = 0
 
+var no_hit_player = 35592
+var no_hit_player_map = 35584
+
 func make_vs(_num,_rot, _pos, _scale, _owner, _dmg):
 	var new_projectile
+	var layer = no_hit_player
 	if _num == 2:
 		new_projectile = proj002.instance()
 	elif _num == 3:
@@ -59,6 +63,7 @@ func make_vs(_num,_rot, _pos, _scale, _owner, _dmg):
 		new_projectile = proj006.instance()
 	elif _num == 7:
 		new_projectile = proj007.instance()
+		layer = no_hit_player
 	elif _num == 8:
 		new_projectile = proj008.instance()
 	elif _num == 9:
@@ -79,10 +84,13 @@ func make_vs(_num,_rot, _pos, _scale, _owner, _dmg):
 		new_projectile = proj017.instance()
 	elif _num == 18:
 		new_projectile = proj018.instance()
+		layer = no_hit_player
 	elif _num == 40:
 		new_projectile = proj040.instance()
+		layer = no_hit_player
 	elif _num == 41:
 		new_projectile = proj041.instance()
+		layer = no_hit_player
 	elif _num == 42:
 		new_projectile = proj042.instance()
 	elif _num == 50:
@@ -93,18 +101,23 @@ func make_vs(_num,_rot, _pos, _scale, _owner, _dmg):
 		new_projectile = proj051.instance()
 	elif _num == 56:
 		new_projectile = proj056.instance()
+		layer = no_hit_player
 	elif _num == 57:
 		new_projectile = proj002.instance()#---------still using proj 002
 	elif _num == 58:
 		new_projectile = proj058.instance()
 	elif _num == 59:
 		new_projectile = proj059.instance()
+		layer = 35592
 	elif _num == 83:
 		new_projectile = proj002.instance()#---------still using proj 002
 	elif _num == 84:
 		new_projectile = proj084.instance()
 	Map_Hand.add_kid_to_map(new_projectile)
 	new_projectile.start( _rot , _pos, _scale, _owner, _dmg)
+
+	if Game.mode == 0:
+		new_projectile.set_layer(layer)
 
 func make_bad(_num,_rot, _pos, _scale, _owner, _dmg):
 	var new_projectile
@@ -119,3 +132,9 @@ func make_bad(_num,_rot, _pos, _scale, _owner, _dmg):
 
 	Map_Hand.add_kid_to_map(new_projectile)
 	new_projectile.start( _rot , _pos, _scale, _owner, _dmg)
+
+func get_layer_mode_0_a():
+	return no_hit_player_map
+
+func get_layer_mode_0_b():
+	return no_hit_player

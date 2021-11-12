@@ -24,23 +24,20 @@ func _physics_process(delta):
 	move_local_x(speed * delta)
 	speed = speed * 1.01
 	if cast_forward.is_colliding():
-		FX.explode(40, owned, self.global_position, my_name, 0, damage)
+		FX.explode(2, owned, self.global_position, my_name, 0, damage)
 		call_deferred("_explode", position)
 
-func _on_Projectile_04_area_entered(area):
-	entered(area)
-
-func _on_Projectile_04_body_entered(body):
-	entered(body)
-
-func entered(_body):
-	call_deferred("_explode",self.position)
 
 func _on_Timer_timeout():
 	_explode(self.global_position)
 
 func _on_Timer2_timeout():
 	_explode(self.global_position)
+
+func set_layer(_bit):#camp 2048
+	self.set_collision_layer(_bit)
+	self.set_collision_mask(_bit)
+	cast_forward.set_collision_mask(_bit)
 
 func _explode(_pos):
 	FX.explode(10, owned, _pos, "RPG", 0, damage)

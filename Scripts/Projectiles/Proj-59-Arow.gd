@@ -39,8 +39,11 @@ func _physics_process(delta):
 		call_deferred("free")
 	move_local_x(speed * delta)
 
-func _on_Projectile_body_entered(_body):
-	print("body hit something proj-59-arrow")
+
+func set_layer(_bit):
+	self.set_collision_layer(_bit)
+	self.set_collision_mask(_bit)
+	ray.set_collision_mask(_bit)
 
 func _on_Timer_timeout():
 	call_deferred("free")

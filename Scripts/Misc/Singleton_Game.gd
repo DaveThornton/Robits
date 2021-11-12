@@ -6,7 +6,7 @@ onready var timer = $Timer
 
 var started = false
 var start_eq = false
-var mode = 0 # 0 campaign | 1 lives | 2 score | 3 time
+var mode = 0 # 0 Campaign safety on | 1 Campaign safety off | 2 VS score | 3 VS time |4 VS lives
 var over = false
 var end_game_score = 10
 

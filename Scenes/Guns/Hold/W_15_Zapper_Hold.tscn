@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_15_Zapper.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Hold/W_15_Zapper_Hold.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Projectiles/Proj-15-Zapper.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Guns/Pick/W_15_Zapper_Pick.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
@@ -88,8 +86,6 @@ tracks/2/keys = {
 
 [node name="W_10_Blaster_Pistol" type="Node2D"]
 script = ExtResource( 2 )
-zapper_pistol_pickup = ExtResource( 4 )
-projectile = ExtResource( 3 )
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.35

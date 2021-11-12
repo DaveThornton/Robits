@@ -42,20 +42,6 @@ func _physics_process(delta):
 			call_deferred("free")
 	move_local_x(speed * delta)
 
-
-func entered(body):
-	if body.get_groups().has("hittable"):
-		Player_Stats.add_hit(owned, 1)
-		_hit_move(self.global_position)
-		body.hit(owned, my_name, damage_type, damage)
-		call_deferred("free")
-	elif body.get_groups().has("projectile"):
-		_hit_move(self.global_position)
-		call_deferred("free")
-	elif body.get_groups().has("map"):
-		_hit_map(self.global_position)
-		call_deferred("free")
-
 func _hit_map(_pos):
 	var x = hit_anim_map.instance()
 	Map_Hand.add_kid_to_map(x)
@@ -65,6 +51,11 @@ func _hit_move(_pos):
 	var x = hit_anim_move.instance()
 	Map_Hand.add_kid_to_map(x)
 	x.global_position = _pos
+
+func set_layer(_bit):
+	self.set_collision_layer(_bit)
+	self.set_collision_mask(_bit)
+	cast.set_collision_mask(_bit)
 
 func _on_Timer_timeout():
 	call_deferred("free")

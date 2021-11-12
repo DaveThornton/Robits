@@ -57,3 +57,8 @@ func _hit_move(_pos):
 	var x = hit_anim_move.instance()
 	self.get_tree().get_current_scene().add_child(x)
 	x.global_position = _pos
+
+func set_layer(_bit):
+	self.set_collision_layer(_bit)
+	self.set_collision_mask(_bit)
+	cast.set_collision_mask(_bit)

@@ -28,5 +28,8 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	FX.proj(50.5,pos4.global_rotation , pos1.global_position, _scale, _owner, _dmg)
 	FX.proj(50.5,pos5.global_rotation , pos1.global_position, _scale, _owner, _dmg)
 
+func set_layer(_bit):
+	pass
+
 func _on_Timer_timeout():
 	call_deferred("free")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Maps/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-04-Back-FX-Jungle.tres" type="TileSet" id=2]
@@ -27,14 +27,11 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_57_Henry_Pick.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Guns/Pick/W_68_D'k_Tahg_Pick.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Map_Parts/MP-40-Distruct-Brick_Block.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Scenes/Guns/Pick/W_19-Rail_Gun_Pick.tscn" type="PackedScene" id=28]
-[ext_resource path="res://Scenes/Guns/Pick/W_50_Shot_Gun_Pick.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/Guns/Pick/W_59_Bow_Pick.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=31]
-[ext_resource path="res://Scenes/Guns/Pick/W_03_Sniper_Pick.tscn" type="PackedScene" id=32]
-[ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Guns/Pick/W_42_G-Launcher_Pick.tscn" type="PackedScene" id=34]
-[ext_resource path="res://Scenes/Guns/Pick/W_39_P_Mine_Pick.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Scenes/Guns/Pick/W_07_CrossBow_Pick.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Scenes/Guns/Pick/W_14_TNG_Pick.tscn" type="PackedScene" id=38]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 566 )
@@ -414,20 +411,11 @@ position = Vector2( 1060.23, 1049.77 )
 [node name="Pick-Up-01-Ammo2" parent="." instance=ExtResource( 30 )]
 position = Vector2( 1070.2, 909.769 )
 
-[node name="Weap-Pick-03-Sniper" parent="." instance=ExtResource( 28 )]
-position = Vector2( 360.192, 889.922 )
+[node name="W_14_TNG_Pick" parent="." instance=ExtResource( 38 )]
+position = Vector2( 1250.19, 869.73 )
 
-[node name="Weap-Pick-02-Ak-47" parent="." instance=ExtResource( 31 )]
-position = Vector2( 1120.22, 1029.76 )
+[node name="W_59_Bow_Pick" parent="." instance=ExtResource( 28 )]
+position = Vector2( 200.205, 949.957 )
 
-[node name="Weap-Pick-03-Sniper2" parent="." instance=ExtResource( 32 )]
-position = Vector2( 1010.22, 1039.78 )
-
-[node name="Weap-Pick-50-Shot_Gun" parent="." instance=ExtResource( 29 )]
-position = Vector2( 790.22, 1019.83 )
-
-[node name="W_05_Laser_Assault_Pick" parent="." instance=ExtResource( 33 )]
-position = Vector2( 860.22, 1019.81 )
-
-[node name="W_39_P_Mine" parent="." instance=ExtResource( 35 )]
-position = Vector2( 210.211, 979.955 )
+[node name="W_07_CrossBow_Pick" parent="." instance=ExtResource( 37 )]
+position = Vector2( 170.207, 959.963 )
