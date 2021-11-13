@@ -274,7 +274,7 @@ scale = Vector2( 1, 1.33333 )
 position = Vector2( 9, -2.5 )
 enabled = true
 cast_to = Vector2( 750, 0 )
-collision_mask = 3850
+collision_mask = 36618
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 visible = false

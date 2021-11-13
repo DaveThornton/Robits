@@ -205,7 +205,7 @@ visible = false
 position = Vector2( 19, 0 )
 enabled = true
 cast_to = Vector2( 21, 0 )
-collision_mask = 514
+collision_mask = 35594
 
 [node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
 visible = false

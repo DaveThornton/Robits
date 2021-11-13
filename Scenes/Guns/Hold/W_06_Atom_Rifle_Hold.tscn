@@ -230,7 +230,7 @@ position = Vector2( 40, -3 )
 position = Vector2( 18, -2 )
 enabled = true
 cast_to = Vector2( 30, 0 )
-collision_mask = 266
+collision_mask = 35594
 
 [node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
 position = Vector2( 1, -2 )

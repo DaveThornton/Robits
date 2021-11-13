@@ -1,10 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/FX/shot-right-01.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Guns/W_41_SPNKr.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Guns/Hold/W_41_SPNKr_Hold.gd" type="Script" id=3]
-[ext_resource path="res://Scenes/Guns/Pick/W_41_SPNKr_Pick.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Projectiles/Proj-41-SPNKr.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 15.0
@@ -55,8 +53,6 @@ tracks/0/keys = {
 
 [node name="W_40_RPG_Hold" type="Node2D"]
 script = ExtResource( 3 )
-spnkr_pickup = ExtResource( 4 )
-projectile = ExtResource( 5 )
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 
@@ -90,7 +86,7 @@ position = Vector2( 34, -9 )
 position = Vector2( 25, -9 )
 enabled = true
 cast_to = Vector2( 10, 0 )
-collision_mask = 2562
+collision_mask = 35594
 
 [node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
 position = Vector2( 3, -10 )

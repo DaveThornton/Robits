@@ -43,7 +43,7 @@ position = Vector2( 31, 0 )
 position = Vector2( 9, 0 )
 enabled = true
 cast_to = Vector2( 40, 0 )
-collision_mask = 514
+collision_mask = 35330
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Shoot = SubResource( 1 )
