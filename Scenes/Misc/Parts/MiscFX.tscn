@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Misc/Parts/MiscFX.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Map_Parts/Parts/MP-49-Fire_Thing_Part_Flame.tscn" type="PackedScene" id=2]
 
 [node name="MiscFX" type="Node2D"]
 script = ExtResource( 1 )
+flame = ExtResource( 2 )

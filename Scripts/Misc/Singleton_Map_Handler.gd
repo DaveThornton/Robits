@@ -1,46 +1,5 @@
 extends Node
 
-# export(PackedScene) var vs_map_01
-# export(PackedScene) var vs_map_02
-# export(PackedScene) var vs_map_03
-# export(PackedScene) var vs_map_04
-# export(PackedScene) var vs_map_05
-# export(PackedScene) var vs_map_06
-# export(PackedScene) var vs_map_07
-# export(PackedScene) var vs_map_08
-# export(PackedScene) var vs_map_09
-# export(PackedScene) var vs_map_10
-# export(PackedScene) var vs_map_11
-# export(PackedScene) var vs_map_12
-# export(PackedScene) var vs_map_13
-# export(PackedScene) var vs_map_14
-# export(PackedScene) var vs_map_15
-# export(PackedScene) var vs_map_16
-# export(PackedScene) var vs_map_17
-# export(PackedScene) var vs_map_18
-# export(PackedScene) var vs_map_19
-# export(PackedScene) var vs_map_20
-# export(PackedScene) var vs_map_21
-# export(PackedScene) var vs_map_22
-# export(PackedScene) var vs_map_23
-# export(PackedScene) var vs_map_24
-# export(PackedScene) var vs_map_25
-# export(PackedScene) var vs_map_26
-# export(PackedScene) var vs_map_27
-# export(PackedScene) var vs_map_28
-# export(PackedScene) var vs_map_29
-# export(PackedScene) var vs_map_30
-# export(PackedScene) var vs_map_31
-# export(PackedScene) var vs_map_32
-# export(PackedScene) var vs_map_33
-# export(PackedScene) var vs_map_34
-# export(PackedScene) var vs_map_35
-# export(PackedScene) var vs_map_36
-# export(PackedScene) var vs_map_37
-# export(PackedScene) var vs_map_38
-# export(PackedScene) var vs_map_39
-# export(PackedScene) var vs_map_40
-
 onready var splash_scn = $"M10-Splash"
 var map
 var next_map
