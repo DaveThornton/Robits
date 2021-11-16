@@ -15,7 +15,6 @@ func _process(delta):
 	current_time += delta
 	if current_time > time:
 		current_time = 0.0
-		print(fire.size())
 		if fire.size() == 0 && going_out:
 			var flame = FX.misc.get_flame().instance()
 			Map_Hand.add_kid_to_map(flame)
@@ -30,6 +29,7 @@ func _process(delta):
 			var flame = FX.misc.get_flame().instance()
 			Map_Hand.add_kid_to_map(flame)
 			fire.append(flame)
+			flame.change_frame(2)
 			flame.global_position = self.global_position
 			flame.position.y = flame.position.y + (20 * fire.size())
 		elif fire.size() == 0 && !going_out:
