@@ -10,30 +10,31 @@ export(PackedScene) var shell050
 
 func spawn(_num, _pos, _rot):
 	var s
-	if _num == 2:
-		s = shell002.instance()
-	elif _num == 3:
-		s = shell002.instance()
-	elif _num == 4:
-		s = shell002.instance()
-	elif _num == 8:
-		s = shell002.instance()
-	elif _num == 9:
-		s = shell002.instance()
-	elif _num == 20:
-		s = shell020.instance()
-	elif _num == 21:
-		s = shell020.instance()
-	elif _num == 22:
-		s = shell020.instance()
-	elif _num == 50:
-		s = shell050.instance()
-	elif _num == 57:
-		s = shell002.instance()
-	elif _num == 83:
-		s = shell002.instance()
-	elif _num == 84:
-		s = shell002.instance()
+	match _num:
+		2:
+			s = shell002.instance()
+		3:
+			s = shell002.instance()
+		4:
+			s = shell002.instance()
+		8:
+			s = shell002.instance()
+		9:
+			s = shell002.instance()
+		20:
+			s = shell020.instance()
+		21:
+			s = shell020.instance()
+		22:
+			s = shell020.instance()
+		50:
+			s = shell050.instance()
+		57:
+			s = shell002.instance()
+		83:
+			s = shell002.instance()
+		84:
+			s = shell002.instance()
 	Map_Hand.add_kid_to_map(s)
 	s.position = _pos
 	s.rotation = _rot
