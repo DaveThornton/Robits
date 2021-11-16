@@ -43,48 +43,48 @@ export(PackedScene) var projhit_014
 
 func boom(_num, _owner, _pos, _weap_name, _pawn_num, _dmg):
 	var x
-	if _num < 100:
-		if _num == 2:
+	match _num:
+		2:
 			x = ex002.instance()
-		elif _num == 3:
+		3:
 			x = ex003.instance()
-		elif _num == 4:
+		4:
 			x = ex004.instance()
-		elif _num == 5:
+		5:
 			x = ex005.instance()
-		elif _num == 6:
+		6:
 			x = ex006.instance()
-		elif _num == 7:
+		7:
 			x = ex007.instance()
-		elif _num == 10:
+		10:
 			x = ex010.instance()
-		elif _num == 11:
+		11:
 			x = ex011.instance()
-		elif _num == 18:
+		18:
 			x = ex018.instance()
-		elif _num == 19:
+		19:
 			x = ex019.instance()
-		elif _num == 24:
+		24:
 			x = ex024.instance()
-		elif _num == 25:
+		25:
 			x = ex025.instance()
-		elif _num == 40:
+		40:
 			x = ex040.instance()
-		elif _num == 55:
+		55:
 			x = ex055.instance()
-		elif _num == 56.1:
+		56.1:
 			x = ex056_1.instance()
-		elif _num == 56.2:
+		56.2:
 			x = ex056_2.instance()
-
-	else: 
-		if _num == 103:
+		103:
 			x = ex103.instance()
-		elif _num == 104:
+		104:
 			x = ex104.instance()
 	if x:
 		Map_Hand.add_kid_to_map(x)
 		x.init(_owner, _pos, _weap_name, _pawn_num, _dmg)
+	else:
+		print("error in explosions invalid explosion number")
 
 func proj_hit(_num, _pos, _moving):
 	var y

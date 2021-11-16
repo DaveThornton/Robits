@@ -57,9 +57,7 @@ power_up_04 = ExtResource( 6 )
 one_shot = true
 autostart = true
 
-[node name="TileMap-Backround-01" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Backround-01" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.682353, 0.682353, 0, 1 )
 z_index = -30
 tile_set = ExtResource( 21 )
@@ -72,9 +70,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Backround-02" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Backround-02" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.513726, 0.47451, 0.0470588, 1 )
 z_index = -30
 tile_set = ExtResource( 21 )
@@ -87,9 +83,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Backround-03" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Backround-03" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.886275, 0.560784, 0, 1 )
 z_index = -30
 tile_set = ExtResource( 21 )
@@ -102,9 +96,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Backround-04" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Backround-04" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.568627, 0.564706, 0.152941, 1 )
 z_index = -30
 tile_set = ExtResource( 21 )
@@ -117,9 +109,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Backround-05" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Backround-05" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.407843, 0.34902, 0.133333, 1 )
 z_index = -30
 tile_set = ExtResource( 21 )
@@ -132,9 +122,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Backround-06" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Backround-06" type="TileMap" parent="." groups=["map_part"]]
 visible = false
 modulate = Color( 0.176471, 0.215686, 0, 1 )
 z_index = -30
@@ -148,9 +136,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Back-FX-01" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Back-FX-01" type="TileMap" parent="." groups=["map_part"]]
 z_index = -29
 tile_set = ExtResource( 29 )
 cell_size = Vector2( 20, 20 )
@@ -160,9 +146,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Back-FX-02" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Back-FX-02" type="TileMap" parent="." groups=["map_part"]]
 z_index = -29
 tile_set = ExtResource( 19 )
 cell_size = Vector2( 20, 20 )
@@ -171,10 +155,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main-01" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main-01" type="TileMap" parent="." groups=["map", "map_part"]]
 modulate = Color( 1, 0.737255, 0, 1 )
 tile_set = ExtResource( 20 )
 cell_size = Vector2( 20, 20 )
@@ -186,10 +167,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main-02" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main-02" type="TileMap" parent="." groups=["map", "map_part"]]
 modulate = Color( 1, 0.32549, 0, 1 )
 tile_set = ExtResource( 20 )
 cell_size = Vector2( 20, 20 )
@@ -200,9 +178,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Plat-01" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Plat-01" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.784314, 0, 0, 1 )
 tile_set = ExtResource( 22 )
 cell_size = Vector2( 20, 20 )
@@ -214,9 +190,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Plat-02" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Plat-02" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.784314, 0, 0, 1 )
 tile_set = ExtResource( 16 )
 cell_size = Vector2( 20, 20 )
@@ -227,9 +201,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Ladders-01" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Ladders-01" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.509804, 0.262745, 0, 1 )
 z_index = -1
 tile_set = ExtResource( 18 )
@@ -242,9 +214,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Top-FX-01" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Top-FX-01" type="TileMap" parent="." groups=["map_part"]]
 z_index = 40
 tile_set = ExtResource( 17 )
 cell_size = Vector2( 20, 20 )
@@ -514,9 +484,7 @@ back_color = Color( 0, 0, 0, 1 )
 top_01_color = Color( 0.537255, 1, 0, 1 )
 top_02_color = Color( 0.513726, 1, 0, 1 )
 
-[node name="Map_parts" type="Node2D" parent="." groups=[
-"map_part",
-]]
+[node name="Map_parts" type="Node2D" parent="." groups=["map_part"]]
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 27 )]
 

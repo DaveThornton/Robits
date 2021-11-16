@@ -59,9 +59,7 @@ power_up_04 = ExtResource( 1 )
 one_shot = true
 autostart = true
 
-[node name="TileMap-Backround-01" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Backround-01" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.439216, 0.392157, 0.215686, 1 )
 z_index = -30
 tile_set = ExtResource( 27 )
@@ -74,9 +72,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Backround-02" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Backround-02" type="TileMap" parent="." groups=["map_part"]]
 visible = false
 modulate = Color( 0.596078, 0.537255, 0.305882, 1 )
 z_index = -30
@@ -90,9 +86,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Back-FX-01" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Back-FX-01" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.454902, 0.4, 0.2, 1 )
 z_index = -29
 tile_set = ExtResource( 30 )
@@ -103,9 +97,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Back-FX-02" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Back-FX-02" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.454902, 0.4, 0.2, 1 )
 position = Vector2( 10, 10 )
 z_index = -29
@@ -117,10 +109,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main-01" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main-01" type="TileMap" parent="." groups=["map", "map_part"]]
 modulate = Color( 0.729412, 0.647059, 0.317647, 1 )
 tile_set = ExtResource( 29 )
 cell_size = Vector2( 20, 20 )
@@ -132,10 +121,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main-02" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main-02" type="TileMap" parent="." groups=["map", "map_part"]]
 tile_set = ExtResource( 21 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 264
@@ -146,10 +132,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main-03" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main-03" type="TileMap" parent="." groups=["map", "map_part"]]
 visible = false
 modulate = Color( 1, 0.713726, 0, 1 )
 tile_set = ExtResource( 21 )
@@ -162,9 +145,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Plat-01" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Plat-01" type="TileMap" parent="." groups=["map_part"]]
 tile_set = ExtResource( 20 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 4
@@ -175,9 +156,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Plat-02" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Plat-02" type="TileMap" parent="." groups=["map_part"]]
 visible = false
 tile_set = ExtResource( 20 )
 cell_size = Vector2( 20, 20 )
@@ -189,9 +168,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Ladders-01" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Ladders-01" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.509804, 0.262745, 0, 1 )
 z_index = -1
 tile_set = ExtResource( 22 )
@@ -204,9 +181,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Top-FX-01" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Top-FX-01" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 1, 1, 1, 0.760784 )
 position = Vector2( 0, 10 )
 z_index = 40
@@ -220,9 +195,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Top-FX-02" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Top-FX-02" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 1, 1, 1, 0.34902 )
 position = Vector2( 0, 10 )
 z_index = 40
@@ -460,9 +433,7 @@ back_color = Color( 1, 1, 1, 0 )
 top_01_color = Color( 0.701961, 0.545098, 0, 0.658824 )
 top_02_color = Color( 0.701961, 0.545098, 0, 0.658824 )
 
-[node name="Map_parts" type="Node2D" parent="." groups=[
-"map_part",
-]]
+[node name="Map_parts" type="Node2D" parent="." groups=["map_part"]]
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 26 )]
 

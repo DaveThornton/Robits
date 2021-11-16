@@ -21,14 +21,15 @@ func add_four(_owned, _pos, _color):
 	FX.explode(11, _owned, _pos, "bricks", 0, 0)
 
 func get_color(_num):
-	if _num == 1:
-		return color_1_red
-	elif _num == 2:
-		return color_2_blue
-	elif _num == 3:
-		return color_3_yellow
-	elif _num == 4: 
-		return color_4_green
-	else:
-		print("get color in bricks in FX invalid number")
-		return Color(255,255,255,255)
+	match _num:
+		1:
+			return color_1_red
+		2:
+			return color_2_blue
+		3:
+			return color_3_yellow
+		4: 
+			return color_4_green
+		
+	print("get color in bricks in FX invalid number")
+	return Color(255,255,255,255)
