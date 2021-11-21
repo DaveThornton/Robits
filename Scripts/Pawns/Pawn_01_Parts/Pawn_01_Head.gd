@@ -24,10 +24,12 @@ func is_right(_right):
 		head.frame = 0
 		face.scale.x = 1
 		hair.scale.x = 1
+		shield.scale.x = 1
 	else:
 		head.frame = 1
 		face.scale.x = -1
 		hair.scale.x = -1
+		shield.scale.x = -1
 
 func shield_up():
 	shield.visible = true

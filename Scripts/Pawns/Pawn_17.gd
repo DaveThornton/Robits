@@ -174,7 +174,7 @@ func _process(delta):
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_pos = shoot_spot
 
-	if _im_hit:
+	if _im_hit && !is_shield_up:
 		if _hit_time > 0.1:
 			shields_up()
 			_hit_time -= delta
@@ -290,16 +290,6 @@ func jump_j(down_input, _left_input, _right_input):
 		is_jump_pressed = true
 		on_ladder = false
 		print("is down : ",is_down, "  DLR : ",down_input, _left_input, _right_input, "  ray platform test : ", ray_plat.is_colliding())
-	# if can_move:
-	# 	if down_input && ray_plat_check.is_colliding() && !left_input && !right_input:
-	# 		SFX.play("Move_Jump_08")
-	# 		var thing1 = ray_plat_check.get_collider()
-	# 		if thing1:
-	# 			if thing1.get_groups().has("map"):
-	# 				pass
-	# 			else:
-	# 				vel.y += terminal_vel / 5
-	# 				self.position.y += 4
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
@@ -417,6 +407,9 @@ func remove_start_weap():
 		gun_pos.get_child(i).call_deferred("free")
 ##-------------------------------------------------------------------------[HIT]
 func hit(_by_who, _by_what, _damage_type, _damage):
+	if _by_who > 0:
+		hit_last_by = _by_who
+		last_hit_timer.start()
 	_im_hit = true
 	_hit_time += 0.11
 	if play_type == 1:
@@ -430,9 +423,8 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			call_deferred("free")
 	elif play_type > 1:
 		shield_sprite.visible = true
-		head.shield_up()
-#		key.shield_up()
-		shield_hit_timer.start()
+		# head.shield_up()
+		# shield_hit_timer.start()
 		if !is_shield_up:
 			nrg = nrg - (_damage - armor)
 			nrg_update()
@@ -458,7 +450,6 @@ func nrg_update():
 func put_shield_up(_how_long):
 	is_shield_up = true
 	shields_up()
-#	shield_sprite.visible = true
 	if _how_long <= 0:
 		shield_up_timer.wait_time = 10
 	else:
@@ -535,7 +526,6 @@ func _is_on_floor():
 		going_up = true
 	else:
 		going_up = false
-#	print(on_floor, "     ",going_up)
 
 ##----------------------------------------------------------------[Stun / Knock]
 func stun(_gun_num):
@@ -680,10 +670,6 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			elif down_input && !left_input && !right_input:
 				shoot_spot = 5
 
-#	if !on_floor && vel.y > 1:
-#		hover.play("Fall")
-#	elif !on_floor && vel.y > -1:
-#		hover.play("Jump")
 
 	if on_ladder && !up_input && !down_input:
 		if is_right:
@@ -716,10 +702,8 @@ func _anim_jump():
 	new_anim = "Idle"
 	if is_right:
 		head.is_right(true)
-#		new_anim = "Run_Right"
 	else:
 		head.is_right(false)
-#		new_anim = "Run_Left"
 
 func _anim_prone_idle():
 	_body(2)

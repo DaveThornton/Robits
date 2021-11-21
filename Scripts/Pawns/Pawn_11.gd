@@ -10,9 +10,8 @@ onready var head = $Robit_11/Pawn_11_Body/Pawn_11_Part_Head
 onready var key = $Robit_11/Pawn_11_Body/Pawn_05_Part_Key
 onready var trax = $Robit_11/Pawn_11_Part_Tracks
 onready var rockets = $Robit_11/Pawn_11_Part_Tracks/Pawn_07_Part_Fire
-#onready var body = $Pawn_11_Part_Body
 onready var body_sprite = $Robit_11/Pawn_11_Body
-onready var shield_sprite = $Robit_11/Shield
+onready var shield_sprite = $Robit_11/Pawn_11_Body/Shield
 
 onready var knockback_timer = $Timers/Knock_Back
 onready var shield_hit_timer = $Timers/Shield_Hit
@@ -136,7 +135,6 @@ func _process(delta):
 	if nrg < nrg_regen_max:
 		if nrg > light_on_nrg:
 			pass
-#			light.off()
 		nrg = clamp(nrg + (nrg_regen_rate * delta), 0, 100)
 	if nrg != last_nrg:
 		nrg_update()
@@ -148,8 +146,9 @@ func _process(delta):
 	elif start_equiped:
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_pos = shoot_spot
-	if _im_hit:
+	if _im_hit && !is_shield_up:
 		if _hit_time > 0.1:
+			shield_up()
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 			_hit_time = clamp(_hit_time,0,.3)
@@ -160,6 +159,7 @@ func _process(delta):
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 		else:
+			shield_down()
 			_set_new_color(_pri_color, _sec_color)
 			_hit_time = 0.0
 			_im_hit = false
@@ -366,37 +366,6 @@ func remove_start_weap():
 	for i in gun_pos.get_child_count():
 		gun_pos.get_child(i).call_deferred("free")
 ##-------------------------------------------------------------------------[HIT]
-# func hit(_by_who, _by_what, _damage_type, _damage):
-# 	_im_hit = true
-# 	_hit_time += 0.11
-# 	if play_type == 1:
-# 		if is_shield_up:
-# 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
-# 		else:
-# 			is_shield_up = true
-# 			print("ive been hit. I'm player ",player)
-# 			let_go()
-# 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
-# 			call_deferred("free")
-# 	elif play_type > 1:
-# 		key.shield_up()
-# 		head.shield_up()
-# 		trax.shield_up()
-# 		shield_sprite.visible = true
-# 		shield_hit_timer.start()
-# 		if !is_shield_up:
-# 			nrg = nrg - (_damage - armor)
-# 			nrg_update()
-# 			if nrg <= 0:
-# 				is_shield_up = true
-# 				print("ive been hit. I'm player ",player)
-# 				let_go()
-# 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
-# 				call_deferred("free")
-# 			elif nrg < light_on_nrg:
-# 				pass
-# 			else:
-# 				pass
 func hit(_by_who, _by_what, _damage_type, _damage):
 	if _by_who > 0:
 		hit_last_by = _by_who
@@ -479,19 +448,21 @@ func shield_up():
 	trax.shield_up()
 	shield_sprite.visible = true
 
+func shield_down():
+	key.shield_down()
+	head.shield_down()
+	trax.shield_down()
+	shield_sprite.visible = false
+
 func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
 	if _num == 1:
 		body_shape_01.disabled = false
 		body_shape_02.disabled = true
-#		body_shape_03.disabled = true
-#		body_shape_04.disabled = true
 	elif _num == 2:
 		body_shape_01.disabled = true
 		body_shape_02.disabled = false
-#		body_shape_03.disabled = true
-#		body_shape_04.disabled = true
 	else:
 		print("pawn 11 ERROR : bad body number")
 
@@ -663,7 +634,7 @@ func _anim_idle():
 	key.stop()
 	if is_right:
 		new_anim = "Right-Idle"
-#		head.right()
+
 	else:
 		new_anim = "Left-Idle"
 
@@ -685,12 +656,10 @@ func _anim_jump():
 	if is_right:
 		new_anim = "Right-Idle"
 		trax.stop()
-#		trax.turn(true)
 		key.turn(true)
 	else:
 		new_anim = "Left-Idle"
 		trax.stop()
-#		trax.turn(false)
 		key.turn(false)
 
 func _anim_prone_idle():
@@ -737,7 +706,6 @@ func _anim_ladder_move():
 	new_anim = "Ladder-Move"
 	trax.ladder()
 	key.ladder()
-#	head.up()
 
 func _anim_ladder_right():
 	_body(1)
@@ -823,7 +791,6 @@ func _set_gun_dir():
 		if my_gun != null:
 			arm.rotation_degrees += my_gun.walk
 
-
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
 	_pri_color = Player_Stats.get_body_color(player)
@@ -836,11 +803,12 @@ func _set_new_color(_pri, _sec):
 	trax.color(_pri, _sec)
 	head.color(_pri, _sec)
 	body_sprite.self_modulate = _pri
+	shield_sprite.self_modulate = _sec
 
 ##--------------------------------------------------------------------[Time Out]
 
 func shielduptimer():
-	shield_sprite.visible = false
+	shield_down()
 	is_shield_up = false
 
 func shieldhittimer():

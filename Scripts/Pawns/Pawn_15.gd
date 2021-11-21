@@ -145,8 +145,9 @@ func _process(delta):
 		my_start_gun.shoot_pos = shoot_spot
 
 	_set_gun_dir()
-	if _im_hit:
+	if _im_hit && !is_shield_up:
 		if _hit_time > 0.1:
+			shield_up()
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 			_hit_time = clamp(_hit_time,0,.3)
@@ -157,6 +158,7 @@ func _process(delta):
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 		else:
+			shield_down()
 			_set_new_color(_pri_color, _sec_color)
 			_hit_time = 0.0
 			_im_hit = false
@@ -837,6 +839,7 @@ func _set_new_color(_pri, _sec):
 ##--------------------------------------------------------------------[Time Out]
 func shielduptimer():
 	shield_down()
+	is_shield_up = false
 
 func shieldhittimer():
 	shield_down()

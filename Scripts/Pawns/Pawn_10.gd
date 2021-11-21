@@ -133,6 +133,7 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 		equip_start_weap()
 	change_pos(_pos)
 	nrg_update()
+	
 
 func _process(delta):
 	if ladder_count.size() > 0:
@@ -166,8 +167,9 @@ func _process(delta):
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_pos = shoot_spot
 	_set_gun_dir()
-	if _im_hit:
+	if _im_hit && !is_shield_up:
 		if _hit_time > 0.1:
+			shield_up()
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 			_hit_time = clamp(_hit_time,0,.3)
@@ -178,6 +180,7 @@ func _process(delta):
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 		else:
+			shield_down()
 			_set_new_color(_pri_color, _sec_color)
 			_hit_time = 0.0
 			_im_hit = false
@@ -247,20 +250,6 @@ func jump(down_input, _left_input, _right_input):
 				SFX.play("Move_Jump_08")
 				vel.y += 1.5
 				self.position.y += 3
-	# if can_move:
-	# 	if down_input && on_floor && !left_input && !right_input:
-	# 		SFX.play("Move_Jump_08")
-	# 		vel.y += 1.5
-	# 		self.position.y += 1.5
-		# elif !is_jump_pressed && on_floor:# && !down_input:
-		# 	SFX.play("Move_Jump_01")
-		# 	vel.y = -max_jump_power * jump_power_up
-		# elif !is_jump_pressed && !on_floor && max_air_jump_count > air_jump_count:# && nrg >= 20:
-		# 	SFX.play("Move_Jump_05")
-		# 	vel.y = -max_air_jump_power * jump_power_up
-		# 	air_jump_count += 1
-		# is_jump_pressed = true
-		# on_ladder = false
 
 func jump_j(down_input, _left_input, _right_input):
 	if can_move:
@@ -391,39 +380,6 @@ func remove_start_weap():
 	for i in gun_pos.get_child_count():
 		gun_pos.get_child(i).call_deferred("free")
 ##-------------------------------------------------------------------------[HIT]
-# func hit(_by_who, _by_what, _damage_type, _damage):
-# 	_im_hit = true
-# 	_hit_time += 0.11
-# 	if play_type == 1:
-# 		if is_shield_up:
-# 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
-# 		else:
-# 			is_shield_up = true
-# 			print("ive been hit. I'm player ",player)
-# 			let_go()
-# 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
-# 			call_deferred("free")
-# 	elif play_type > 1:
-# #		key.shield_up()
-# 		wheel.shield_up()
-# 		shield_sprite.visible = true
-# 		shield_hit_timer.start()
-# 		if !is_shield_up:
-# 			nrg = nrg - (_damage - armor)
-# 			nrg_update()
-# 			if nrg <= 0:
-# 				is_shield_up = true
-# 				print("ive been hit. I'm player ",player)
-# 				let_go()
-# 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
-# 				call_deferred("free")
-# 			elif nrg < light_on_nrg:
-# 				print("pawn 05 fix hit")
-# #				light.on()
-# 			else:
-# 				print("pawn 05 fix hit")
-# #				light.blink(2)
-
 func hit(_by_who, _by_what, _damage_type, _damage):
 	if _by_who > 0:
 		hit_last_by = _by_who
@@ -456,11 +412,11 @@ func change_pos(_pos):
 
 func nrg_update():
 	Player_Stats.nrg_update(player, nrg, nrg_max)
-
 ##--------------------------------------------------------------------[Power Up]
 
 func put_shield_up(_how_long):
 	shield_up()
+	is_shield_up = true
 	if _how_long <= 0:
 		shield_up_timer.wait_time = 10
 	else:
@@ -503,39 +459,30 @@ func shield_up():
 	head.shield_up()
 	shield_sprite.visible = true
 
+func shield_down():
+	wheel.shield_down()
+	head.shield_down()
+	shield_sprite.visible = false
+
 func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
 	if _num == 1:
 		body_shape_01.disabled = false
 		body_shape_02.disabled = true
-#		body_shape_03.disabled = true
-#		body_shape_04.disabled = true
-#		body_shape_05.disabled = true
+
 	elif _num == 2:
 		body_shape_01.disabled = false
 		body_shape_02.disabled = true
-#		body_shape_03.disabled = true
-#		body_shape_04.disabled = true
-#		body_shape_05.disabled = true
 	elif _num == 3:
 		body_shape_01.disabled = false
 		body_shape_02.disabled = true
-#		body_shape_03.disabled = false
-#		body_shape_04.disabled = true
-#		body_shape_05.disabled = true
 	elif _num == 4:
 		body_shape_01.disabled = true
 		body_shape_02.disabled = false
-#		body_shape_03.disabled = true
-#		body_shape_04.disabled = false
-#		body_shape_05.disabled = true
 	elif _num == 5:
 		body_shape_01.disabled = true
 		body_shape_02.disabled = false
-#		body_shape_03.disabled = true
-#		body_shape_04.disabled = true
-#		body_shape_05.disabled = false
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
 	if ray_up.is_colliding():
@@ -711,11 +658,8 @@ func _anim_idle():
 	wheel.stop()
 	head.play("Idle")
 	if is_right:
-#		arm.scale.x = 1
-#		head.scale.x = 1
-#		body_sprite.rotation_degrees = 0
+
 		new_anim = "Right-Idle"
-#		face.play(true)
 	else:
 		new_anim = "Left-Idle"
 
@@ -756,12 +700,10 @@ func _anim_prone_crawl():
 	if is_right:
 		new_anim = "Right-Prone-Crawl"
 		wheel.turn(true)
-#		key.turn(true)
 		_body(5)
 	else:
 		new_anim = "Left-Prone-Crawl"
 		wheel.turn(false)
-#		key.turn(false)
 		_body(4)
 
 func _anim_stun():
@@ -880,14 +822,11 @@ func knockbacktimer():
 	knocked_back = Vector2(0, 0)
 
 func shieldhittimer():
-#	key.shield_down()
-	wheel.shield_down()
-	shield_sprite.visible = false
+	shield_down()
 	is_shield_up = false
 
 func shielduptimer():
-	shield_sprite.visible = false
-	head.shield_down()
+	shield_down()
 	is_shield_up = false
 
 func speedtimer():

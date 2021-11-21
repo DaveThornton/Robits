@@ -4,7 +4,7 @@ onready var head = $POS_Body/Pawn_13_Part_Body/POS_Head/Pawn_13_Part_Head
 onready var hbody = $POS_Body/Pawn_13_Part_Body
 onready var arm = $POS_Body/Pawn_13_Part_Body/POS_Arm/Pawn_13_Part_Arm
 onready var legs = $Pawn_13_Legs
-onready var shield = $POS_Body/Shield
+onready var shield = $POS_Body/Pawn_13_Part_Body/Shield
 onready var anim = $AnimationPlayer
 onready var gun_pos = $POS_Body/Pawn_13_Part_Body/POS_Arm/Pawn_13_Part_Arm/POS_Gun
 
@@ -141,8 +141,9 @@ func _process(delta):
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_pos = shoot_spot
 	_set_gun_dir()
-	if _im_hit:
+	if _im_hit && !is_shield_up:
 		if _hit_time > 0.1:
+			shield_up()
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 			_hit_time = clamp(_hit_time,0,.3)
@@ -153,6 +154,7 @@ func _process(delta):
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 		else:
+			shield_down()
 			_set_new_color(_pri_color, _sec_color)
 			_hit_time = 0.0
 			_im_hit = false
@@ -185,10 +187,6 @@ func move_x(_moving, _right):
 						current_x_speed -= max_x_speed / 4 * speed_power_up #* delta
 			else:
 				current_x_speed = 0
-#				if current_x_speed < 4 && current_x_speed > -4 || on_ladder:
-#					current_x_speed = 0
-#				else:
-#					current_x_speed -= current_x_speed / 5
 		else:
 			if _moving:
 				if is_down:
@@ -351,34 +349,6 @@ func remove_start_weap():
 	for i in gun_pos.get_child_count():
 		gun_pos.get_child(i).call_deferred("free")
 ##-------------------------------------------------------------------------[HIT]
-# func hit(_by_who, _by_what, _damage_type, _damage):
-# 	_im_hit = true
-# 	_hit_time += 0.11
-# 	if play_type == 1:
-# 		if is_shield_up:
-# 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
-# 		else:
-# 			is_shield_up = true
-# 			print("ive been hit. I'm player ",player)
-# 			let_go()
-# 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
-# 			call_deferred("free")
-# 	elif play_type > 1:
-# 		shield_up()
-# 		shield_hit_timer.start()
-# 		if !is_shield_up:
-# 			nrg = nrg - (_damage - armor)
-# 			nrg_update()
-# 			if nrg <= 0:
-# 				is_shield_up = true
-# 				print("ive been hit. I'm player ",player)
-# 				let_go()
-# 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
-# 				call_deferred("free")
-# 			elif nrg < light_on_nrg:
-# 				pass
-# 			else:
-# 				pass
 
 func hit(_by_who, _by_what, _damage_type, _damage):
 	if _by_who > 0:
@@ -418,7 +388,7 @@ func nrg_update():
 
 func put_shield_up(_how_long):
 	is_shield_up = true
-	shield.visible = true
+	shield_up()
 	if _how_long <= 0:
 		shield_up_timer.wait_time = 10
 	else:
@@ -575,12 +545,9 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 		else:# no hold input
 			if on_ladder:
 				ray_down_l.enabled = false
-#				ray_down_c.enabled = false
 				ray_down_r.enabled = false
-#				self.collision_mask = 67222
 			else:
 				ray_down_l.enabled = true
-#				ray_down_c.enabled = true
 				ray_down_r.enabled = true
 			if is_down:
 				shoot_spot = 6
@@ -718,8 +685,6 @@ func _anim_jump():
 
 func _anim_prone_idle():
 	legs.prone(is_right)
-#	if vel.y > 1.1:
-#		legs.fall(is_right)
 	_body(2)
 	if is_right:
 		anim.play("Right_Prone")
@@ -750,7 +715,6 @@ func _anim_Knock():
 		new_anim = "Left"
 
 func _anim_ladder_move():
-#	_body(1)
 	legs.ladder_move(is_right)
 
 func _anim_ladder_right():
@@ -834,17 +798,12 @@ func _set_gun_dir():
 func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
-#	print("fix body in pawn 13")
 	if _num == 1:
 		body1.disabled = false
 		body2.disabled = true
-		# ladder_l.disabled = false
-		# ladder_r.disabled = true
 	elif _num == 2:
 		body1.disabled = true
 		body2.disabled = false
-		# ladder_l.disabled = true
-		# ladder_r.disabled = false
 	else:
 		print("wrong body called in pawn 13", _num)
 

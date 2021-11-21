@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_01/Pawn_01-Head.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_01/Pawn_01-Head_Face.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Pawns/Pawn_01/Pawn_01-Head_Hair.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Pawns/Pawn_01_Parts/Pawn_01_Head.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Pawns/Pawn_01/Pawn_01-Head_Shield.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Flash"
@@ -219,11 +220,8 @@ script = ExtResource( 4 )
 
 [node name="Shield" type="Sprite" parent="."]
 visible = false
-modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 0, -9 )
-scale = Vector2( 1.2, 1.2 )
-texture = ExtResource( 1 )
-hframes = 3
+position = Vector2( 0, -7 )
+texture = ExtResource( 5 )
 
 [node name="Head" type="Sprite" parent="."]
 position = Vector2( 0, -8 )

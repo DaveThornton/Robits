@@ -1,6 +1,7 @@
 extends Node2D
 
-onready var shield = $Pawn_16_Shield
+onready var shield = $Pawn_16_Body_Shield
+onready var shield_legs = $Pawn_16_Back_Legs_Shield
 onready var body = $Pawn_16_Body
 onready var legs_f = $Pawn_16_Front_Legs
 onready var legs_b = $Pawn_16_Back_Legs
@@ -57,12 +58,15 @@ func play(_num: int):
 	
 func shield_up():
 	shield.visible = true
+	shield_legs.visible = true
 
 func shield_down():
 	shield.visible = false
+	shield_legs.visible = false
 
 func color(_pri: Color, _sec: Color):
 	body.self_modulate = _pri
 	legs_f.self_modulate = _pri
 	legs_b.self_modulate = _pri
 	shield.self_modulate = _sec
+	shield_legs.self_modulate = _sec 

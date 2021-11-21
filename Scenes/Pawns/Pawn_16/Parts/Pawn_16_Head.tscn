@@ -342,27 +342,27 @@ script = ExtResource( 2 )
 
 [node name="Pawn_16_Head_Shield" type="Sprite" parent="."]
 visible = false
-modulate = Color( 1, 0, 0, 1 )
-scale = Vector2( 1.1, 1.1 )
+self_modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 1 )
-vframes = 2
 hframes = 8
+vframes = 2
 
 [node name="Pawn_16_Head_Back" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-vframes = 2
 hframes = 8
+vframes = 2
 
 [node name="Pawn_16_Head_Mid" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 1
 
 [node name="Pawn_16_Head_Top" type="Sprite" parent="Pawn_16_Head_Mid"]
 texture = ExtResource( 1 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 3
 
 [node name="AnimationPlayer_Dir" type="AnimationPlayer" parent="."]

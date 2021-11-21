@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_10/Parts/Pawn_10_Head.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_10/Parts/Pawn_10_Part_Wheel.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sprites/Pawns/Pawn_10/Pawn_10_Part_Body.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Pawns/Parts/Attachment_Point.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Pawns/Pawn_10/Pawn_10_Part_Body_Shield.png" type="Texture" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 42.0
@@ -1793,11 +1794,7 @@ tracks/10/keys = {
 "values": [ Vector2( 9, 9 ) ]
 }
 
-[node name="Pawn_10" type="KinematicBody2D" groups=[
-"hittable",
-"ladder",
-"player",
-]]
+[node name="Pawn_10" type="KinematicBody2D" groups=["hittable", "ladder", "player"]]
 position = Vector2( 0, -10 )
 collision_layer = 2147483650
 collision_mask = 2147549342
@@ -1855,11 +1852,9 @@ position = Vector2( 0, -28 )
 
 [node name="Shield_Sprite" type="Sprite" parent="Pawn_10_Part_Body"]
 visible = false
-position = Vector2( -6.77626e-21, -17 )
-scale = Vector2( 1.25, 1.25 )
-texture = ExtResource( 5 )
-hframes = 4
-frame = 2
+show_behind_parent = true
+position = Vector2( 0, -17 )
+texture = ExtResource( 8 )
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
 visible = false

@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var head = $Head
-onready var shield = $Shield
+onready var shield = $Head/Shield
 onready var eye = $Head/Eye
 onready var mouth = $Head/Mouth
 onready var bow = $Head/Bow
@@ -21,13 +21,12 @@ func is_right(_right):
 		eye.scale.x = 1
 		mouth.scale.x = 1
 		bow.scale.x = 1
-#		hair.gravity.x = -200
 	else:
 		head.frame = 1
 		eye.scale.x = -1
 		mouth.scale.x = -1
 		bow.scale.x = -1
-#		hair.gravity.x = 200
+
 func shield_up():
 	shield.visible = true
 

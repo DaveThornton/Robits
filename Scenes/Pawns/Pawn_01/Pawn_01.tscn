@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_01/Parts/Pawn_01_Head.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_01/Pawn_01-Body.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_01/Parts/Pawn_01_Part_Arm.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scripts/Pawns/Pawn_01.gd" type="Script" id=11]
+[ext_resource path="res://Sprites/Pawns/Pawn_01/Pawn_01-Body_Shield.png" type="Texture" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.99994
@@ -734,7 +735,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 16 ) ]
+"values": [ Vector2( 0, -13 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Pawn_01-Legs_F_Shield:position")
@@ -746,7 +747,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 16 ) ]
+"values": [ Vector2( 0, -13 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Pawn_01-Legs_B:position")
@@ -1946,6 +1947,33 @@ tracks/17/keys = {
 "values": [ 10, 11 ]
 }
 
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pawn_01-Legs_B_Shield:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -13 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pawn_01-Legs_F_Shield:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -13 ) ]
+}
+
 [sub_resource type="Animation" id=13]
 length = 0.8
 loop = true
@@ -2765,11 +2793,85 @@ tracks/16/keys = {
 "values": [ 16 ]
 }
 
-[node name="Pawn_01" type="KinematicBody2D" groups=[
-"hittable",
-"ladder",
-"player",
-]]
+[sub_resource type="Animation" id=17]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pawn_01-Legs_B_Shield:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pawn_01-Legs_F_Shield:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Shield:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Up"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pawn_01-Legs_B_Shield:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pawn_01-Legs_F_Shield:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body/Shield:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="Pawn_01" type="KinematicBody2D" groups=["hittable", "ladder", "player"]]
 collision_layer = 2
 collision_mask = 66718
 script = ExtResource( 11 )
@@ -2779,13 +2881,13 @@ script = ExtResource( 11 )
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 5, -2 )
+position = Vector2( 6, -2 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 collision_mask = 30
 
 [node name="Down_L" type="RayCast2D" parent="Raycasts"]
-position = Vector2( -5, -2 )
+position = Vector2( -6, -2 )
 enabled = true
 cast_to = Vector2( 0, 3 )
 collision_mask = 30
@@ -2802,29 +2904,28 @@ cast_to = Vector2( 0, 2 )
 collision_mask = 4
 
 [node name="Pawn_01-Legs_B_Shield" type="Sprite" parent="."]
-visible = false
 position = Vector2( 0, -13 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 6 )
 hframes = 37
-frame = 6
+frame = 7
 
 [node name="Pawn_01-Legs_F_Shield" type="Sprite" parent="."]
-visible = false
 position = Vector2( 0, -13 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 7 )
 hframes = 37
-frame = 6
+frame = 23
 
 [node name="Pawn_01-Legs_B" type="Sprite" parent="."]
 position = Vector2( 0, -13 )
+scale = Vector2( -1, 1 )
 texture = ExtResource( 5 )
 hframes = 37
-frame = 6
+frame = 7
 
 [node name="Body" type="Sprite" parent="."]
-position = Vector2( 0, -28 )
+position = Vector2( 0, -29 )
 texture = ExtResource( 2 )
 
 [node name="Attachment_Point" parent="Body" instance=ExtResource( 8 )]
@@ -2842,23 +2943,21 @@ position = Vector2( 0, -5 )
 [node name="Pawn_05_Part_Arm" parent="Body/POS_Arm" instance=ExtResource( 9 )]
 
 [node name="Shield" type="Sprite" parent="Body"]
-visible = false
-modulate = Color( 1, 0, 0, 1 )
 show_behind_parent = true
-scale = Vector2( 1.1, 1.1 )
-texture = ExtResource( 2 )
+texture = ExtResource( 12 )
 
 [node name="Pawn_01-Legs_F" type="Sprite" parent="."]
 position = Vector2( 0, -13 )
+scale = Vector2( -1, 1 )
 texture = ExtResource( 3 )
 hframes = 37
-frame = 6
+frame = 23
 
 [node name="Pawn_01-Legs_Hip" type="Sprite" parent="."]
 position = Vector2( 0, -13 )
+scale = Vector2( -1, 1 )
 texture = ExtResource( 4 )
 hframes = 37
-frame = 6
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -23 )
@@ -2901,10 +3000,15 @@ anims/Ladder_Move = SubResource( 9 )
 anims/Ladder_Right = SubResource( 10 )
 anims/Prone-Left-Idle = SubResource( 11 )
 anims/Prone-Right-Idle = SubResource( 12 )
+anims/RESET = SubResource( 19 )
 anims/Run = SubResource( 13 )
 anims/Stand = SubResource( 14 )
 anims/Stun-Left = SubResource( 15 )
 anims/Stun-Right = SubResource( 16 )
+
+[node name="AnimationPlayer_Shield" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 17 )
+anims/Up = SubResource( 18 )
 
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]

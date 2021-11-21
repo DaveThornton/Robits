@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_12/Pawn_12_Part_Head_B.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_12/Pawn_12_Part_Head_F.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Pawns/Pawn_12/Pawn_12_Part_Face.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Pawns/Pawn_12_Parts/Pawn_12_Part_Head.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Pawns/Pawn_12/Pawn_12_Part_Head_Shield.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
@@ -24,6 +25,11 @@ tracks/0/keys = {
 
 [node name="Pawn_12_Part_Head" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="Shield" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -10 )
+texture = ExtResource( 5 )
 
 [node name="Back" type="Sprite" parent="."]
 modulate = Color( 0.305882, 0.305882, 0.305882, 1 )
@@ -46,5 +52,3 @@ hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 1 )
-
-[node name="Shield" type="Sprite" parent="."]

@@ -2278,11 +2278,7 @@ tracks/10/keys = {
 "values": [ 25.0, 60.0, 90.0, 50.0, 20.0, 0.0 ]
 }
 
-[node name="Pawn_15" type="KinematicBody2D" groups=[
-"hittable",
-"ladder",
-"player",
-]]
+[node name="Pawn_15" type="KinematicBody2D" groups=["hittable", "ladder", "player"]]
 collision_layer = 2
 collision_mask = 66718
 script = ExtResource( 3 )
@@ -2318,25 +2314,23 @@ collision_mask = 4
 visible = false
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -21 )
-scale = Vector2( -1, 1 )
 texture = ExtResource( 7 )
 hframes = 33
-frame = 32
 
 [node name="Pawn_15_Leg_F_Shield" type="Sprite" parent="."]
 visible = false
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -22 )
-scale = Vector2( -1, 1 )
 texture = ExtResource( 5 )
 hframes = 33
-frame = 31
 
 [node name="CollisionShape2D_Stand" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -22 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Prone" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -14 )
 rotation = 1.5708
 shape = SubResource( 2 )
@@ -2344,10 +2338,8 @@ shape = SubResource( 2 )
 [node name="Pawn_15_Leg_B" type="Sprite" parent="."]
 self_modulate = Color( 0.490196, 0.490196, 0.490196, 1 )
 position = Vector2( 0, -21 )
-scale = Vector2( -1, 1 )
 texture = ExtResource( 6 )
 hframes = 33
-frame = 32
 
 [node name="Pawn_15_Part_Head" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -38 )
@@ -2358,10 +2350,8 @@ position = Vector2( 0, 8 )
 [node name="Pawn_15_Leg_F" type="Sprite" parent="."]
 self_modulate = Color( 0.490196, 0.490196, 0.490196, 1 )
 position = Vector2( 0, -22 )
-scale = Vector2( -1, 1 )
 texture = ExtResource( 4 )
 hframes = 33
-frame = 31
 
 [node name="Pawn_15_Part_Hub" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -38 )

@@ -2050,11 +2050,7 @@ radius = 11.0
 radius = 13.0
 height = 4.0
 
-[node name="Pawn_07" type="KinematicBody2D" groups=[
-"hittable",
-"ladder",
-"player",
-]]
+[node name="Pawn_07" type="KinematicBody2D" groups=["hittable", "ladder", "player"]]
 position = Vector2( 0, -12 )
 collision_layer = 2
 collision_mask = 66718

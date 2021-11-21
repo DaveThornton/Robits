@@ -828,8 +828,8 @@ hframes = 3
 modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 0, -7 )
 texture = ExtResource( 2 )
-vframes = 4
 hframes = 4
+vframes = 4
 
 [node name="AnimationPlayer_Head" type="AnimationPlayer" parent="."]
 anims/Down-Right = SubResource( 1 )

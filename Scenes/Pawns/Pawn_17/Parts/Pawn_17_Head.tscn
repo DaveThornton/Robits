@@ -88,7 +88,7 @@ script = ExtResource( 4 )
 
 [node name="Pawn_17_Shield" type="Sprite" parent="."]
 visible = false
-scale = Vector2( 1.15, 1.15 )
+scale = Vector2( 1.3, 1.3 )
 texture = ExtResource( 3 )
 
 [node name="Pawn_17_Head_V2" type="Sprite" parent="."]
@@ -103,8 +103,8 @@ texture = ExtResource( 1 )
 [node name="Pawn_17_Eye_Ball_V2" type="Sprite" parent="."]
 position = Vector2( 6, -4 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 8
+vframes = 2
 frame = 1
 
 [node name="AnimationPlayer_Dir" type="AnimationPlayer" parent="."]

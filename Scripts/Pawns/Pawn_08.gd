@@ -123,6 +123,7 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 		equip_start_weap()
 	change_pos(_pos)
 	nrg_update()
+	shield_down()
 
 func _process(delta):
 	if ladder_count.size() > 0:

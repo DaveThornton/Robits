@@ -1,7 +1,7 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_18/Pawn_18_Mid_Body.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Pawns/Pawn_01/Pawn_01-Body.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Pawns/Pawn_18/Pawn_18_Shield.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Pawns/Pawn_18/Pawn_18_Mid_Leg_Bot.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Pawns/Pawn_18/Pawn_18_Mid_Leg_Top.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Pawns/Pawn_18/Parts/Pawn_18_Butt.tscn" type="PackedScene" id=5]
@@ -176,6 +176,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [ Vector2( 0, -21 ) ]
 }
+tracks/12/type = "value"
+tracks/12/path = NodePath("Body/Shield:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13, 14, 15, 16, 17 ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Fall"
@@ -325,6 +337,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [ Vector2( 0, -47 ) ]
 }
+tracks/12/type = "value"
+tracks/12/path = NodePath("Body/Shield:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 22, 23 ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "Idle"
@@ -473,6 +497,18 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -47 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Body/Shield:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 8, 7 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -624,6 +660,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [ Vector2( 0, -47 ) ]
 }
+tracks/12/type = "value"
+tracks/12/path = NodePath("Body/Shield:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 5 ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "Prone"
@@ -772,6 +820,33 @@ tracks/11/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -21 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Body/Shield:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 18 ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/Shield:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 10 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -923,12 +998,20 @@ tracks/11/keys = {
 "update": 0,
 "values": [ Vector2( 0, -47 ) ]
 }
+tracks/12/type = "value"
+tracks/12/path = NodePath("Body/Shield:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
 
-[node name="Pawn_18" type="KinematicBody2D" groups=[
-"hittable",
-"ladder",
-"player",
-]]
+[node name="Pawn_18" type="KinematicBody2D" groups=["hittable", "ladder", "player"]]
 collision_layer = 2
 collision_mask = 66718
 script = ExtResource( 11 )
@@ -936,6 +1019,7 @@ script = ExtResource( 11 )
 [node name="Timers" parent="." instance=ExtResource( 10 )]
 
 [node name="Raycasts" type="Node2D" parent="."]
+visible = false
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
 position = Vector2( 5, -2 )
@@ -964,7 +1048,6 @@ collision_mask = 4
 position = Vector2( 0, -24 )
 texture = ExtResource( 1 )
 hframes = 24
-frame = 22
 
 [node name="Pawn_18_Legs_B_Shield" type="Sprite" parent="Body"]
 visible = false
@@ -987,42 +1070,43 @@ hframes = 37
 frame = 16
 
 [node name="POS_Head" type="Position2D" parent="Body"]
-position = Vector2( 8, -4 )
+position = Vector2( 2, -12 )
 
 [node name="Pawn_18_Head" parent="Body/POS_Head" instance=ExtResource( 8 )]
 
 [node name="POS_Arm" type="Position2D" parent="Body"]
-position = Vector2( 7, 2 )
+position = Vector2( 2, -6 )
 
 [node name="Pawn_18_Arm" parent="Body/POS_Arm" instance=ExtResource( 9 )]
 
 [node name="Shield" type="Sprite" parent="Body"]
 visible = false
-modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 1, 0, 0, 1 )
 show_behind_parent = true
-scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 2 )
+hframes = 24
+frame = 10
 
 [node name="Pawn_18_Butt" parent="Body" instance=ExtResource( 5 )]
-position = Vector2( -8, 11 )
-rotation = 0.93026
+position = Vector2( -9, 3 )
+rotation = -0.10472
 
 [node name="Pawn_18_Legs_B" type="Sprite" parent="Body"]
 show_behind_parent = true
 texture = ExtResource( 3 )
 hframes = 24
-frame = 22
 
 [node name="Pawn_18_Legs_F" type="Sprite" parent="Body"]
 texture = ExtResource( 4 )
 hframes = 24
-frame = 22
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -23 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -10 )
 rotation = 1.5708
 shape = SubResource( 2 )
@@ -1055,6 +1139,7 @@ anims/Fall = SubResource( 6 )
 anims/Idle = SubResource( 7 )
 anims/Jump = SubResource( 8 )
 anims/Prone = SubResource( 9 )
+anims/RESET = SubResource( 11 )
 anims/Run = SubResource( 10 )
 
 [node name="Attachment_Point" parent="." instance=ExtResource( 12 )]

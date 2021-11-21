@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_05/Pawn_05_Part_Body.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_05/Pawn_05_Part_Body_Shield.png" type="Texture" id=2]
@@ -166,7 +166,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -5.68434e-14, -6.82121e-13 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("Shield_Sprite:scale")
@@ -290,7 +290,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -5.68434e-14, -6.82121e-13 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("Shield_Sprite:rotation_degrees")
@@ -438,7 +438,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -5.68434e-14, -6.82121e-13 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("Shield_Sprite:rotation_degrees")
@@ -607,10 +607,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ), Vector2( 0, -9 ), Vector2( 0, -10 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("Shield_Sprite:scale")
@@ -770,7 +770,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ), Vector2( 0, -9 ), Vector2( 0, -10 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("Shield_Sprite:scale")
@@ -929,7 +929,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("Shield_Sprite:scale")
@@ -1089,7 +1089,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("Shield_Sprite:scale")
@@ -1247,7 +1247,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("Shield_Sprite:scale")
@@ -1260,6 +1260,21 @@ tracks/12/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shield_Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -10 ) ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -1404,10 +1419,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ) ]
+"values": [ Vector2( 0, -10 ), Vector2( 0, -9 ), Vector2( 0, -10 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("Shield_Sprite:scale")
@@ -1567,7 +1582,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 2.86102e-06 ), Vector2( 0, 1 ) ]
+"values": [ Vector2( 0, -10 ), Vector2( 0, -11 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("Shield_Sprite:scale")
@@ -1715,7 +1730,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, 2.86102e-06 ) ]
+"values": [ Vector2( 0, -10 ) ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("Shield_Sprite:rotation_degrees")
@@ -1875,7 +1890,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -5.68434e-14, -6.82121e-13 ), Vector2( -5.68434e-14, -6.82121e-13 ) ]
+"values": [ Vector2( 6.77626e-21, -10 ), Vector2( 6.77626e-21, -10 ) ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("Shield_Sprite:scale")
@@ -2034,7 +2049,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -5.68434e-14, -6.82121e-13 ) ]
+"values": [ Vector2( -6.77626e-21, -10 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("Shield_Sprite:scale")
@@ -2049,11 +2064,7 @@ tracks/12/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="Pawn_05" type="KinematicBody2D" groups=[
-"hittable",
-"ladder",
-"player",
-]]
+[node name="Pawn_05" type="KinematicBody2D" groups=["hittable", "ladder", "player"]]
 collision_layer = 2
 collision_mask = 66718
 script = ExtResource( 7 )
@@ -2093,7 +2104,7 @@ collision_mask = 4
 
 [node name="Shield_Sprite" type="Sprite" parent="."]
 visible = false
-position = Vector2( -5.68434e-14, -6.82121e-13 )
+position = Vector2( 0, -10 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -12 )
 hframes = 3
@@ -2124,7 +2135,7 @@ position = Vector2( 0, 1.90735e-06 )
 
 [node name="Pawn_05_Part_Key" parent="Pawn_05_Part_Body" instance=ExtResource( 6 )]
 show_behind_parent = true
-position = Vector2( -4, -19 )
+position = Vector2( -4, -20 )
 
 [node name="Shape_Left" type="CollisionShape2D" parent="."]
 visible = false
@@ -2188,6 +2199,7 @@ anims/Left-Prone-Crawl = SubResource( 8 )
 anims/Left-Prone-Idle = SubResource( 9 )
 anims/Left-Run = SubResource( 10 )
 anims/Left-Stun = SubResource( 11 )
+anims/RESET = SubResource( 17 )
 anims/Right-Idle = SubResource( 12 )
 anims/Right-Prone-Crawl = SubResource( 13 )
 anims/Right-Prone-Idle = SubResource( 14 )

@@ -2,7 +2,7 @@ extends Node2D
 
 onready var head = $Pawn_15_Body
 onready var face = $Pawn_15_Body/Pawn_15_Face
-onready var shield = $Shield
+onready var shield = $Pawn_15_Body/Shield
 onready var anim_head = $AnimationPlayer_Head
 onready var anim_face = $AnimationPlayer_Face
 

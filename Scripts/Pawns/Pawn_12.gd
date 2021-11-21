@@ -148,8 +148,9 @@ func _process(delta):
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_pos = shoot_spot
 	_set_gun_dir()
-	if _im_hit:
+	if _im_hit && !is_shield_up:
 		if _hit_time > 0.1:
+			shield_up()
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 			_hit_time = clamp(_hit_time,0,.3)
@@ -160,6 +161,7 @@ func _process(delta):
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 		else:
+			shield_down()
 			_set_new_color(_pri_color, _sec_color)
 			_hit_time = 0.0
 			_im_hit = false
@@ -367,35 +369,7 @@ func remove_start_weap():
 	my_start_gun = null
 	for i in gun_pos.get_child_count():
 		gun_pos.get_child(i).call_deferred("free")
-##-------------------------------------------------------------------------[HIT]
-# func hit(_by_who, _by_what, _damage_type, _damage):
-# 	_im_hit = true
-# 	_hit_time += 0.11
-# 	if play_type == 1:
-# 		if is_shield_up:
-# 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
-# 		else:
-# 			is_shield_up = true
-# 			print("ive been hit. I'm player ",player)
-# 			let_go()
-# 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
-# 			call_deferred("free")
-# 	elif play_type > 1:
-# 		shield_up()
-# 		shield_hit_timer.start()
-# 		if !is_shield_up:
-# 			nrg = nrg - (_damage - armor)
-# 			nrg_update()
-# 			if nrg <= 0:
-# 				is_shield_up = true
-# 				print("ive been hit. I'm player ",player)
-# 				let_go()
-# 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
-# 				call_deferred("free")
-# 			elif nrg < light_on_nrg:
-# 				pass
-# 			else:
-# 				pass
+
 func hit(_by_who, _by_what, _damage_type, _damage):
 	if _by_who > 0:
 		hit_last_by = _by_who
@@ -791,14 +765,7 @@ func _right(_is_right: bool):
 		my_body.frame = 1
 	head.is_right(is_right)
 	arm.is_right(is_right)
-#	if on_ladder:
-#		pack.new_pos(3)
-#	else:
-#		if _is_right:
-#			pack.new_pos(1)
-#		else:
-#			pack.new_pos(2)
-#	pack.is_right(is_right)
+
 func _jet_pack_right(_right):
 	if _right:
 		pack.new_pos(1)
@@ -813,10 +780,13 @@ func _jet_pack(_vel):
 
 func shield_up():
 	shield.visible = true
+	pack.shield_up()
+	head.shield_up()
 
 func shield_down():
-	print("fix shield up and down pawn 12")
 	shield.visible = false
+	pack.shield_down()
+	head.shield_down()
 
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
@@ -838,6 +808,7 @@ func _set_new_color(_pri, _sec):
 
 ##--------------------------------------------------------------------[Time Out]
 func shielduptimer():
+	is_shield_up = false
 	shield_down()
 
 func shieldhittimer():

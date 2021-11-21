@@ -110,6 +110,7 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 		equip_start_weap()
 	change_pos(_pos)
 	nrg_update()
+	shield_down()
 
 func _process(delta):
 	if ladder_count.size() > 0:
@@ -139,7 +140,7 @@ func _process(delta):
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_pos = shoot_spot
 	_set_gun_dir()
-	if _im_hit:
+	if _im_hit && !is_shield_up:
 		if _hit_time > 0.1:
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
@@ -393,7 +394,7 @@ func nrg_update():
 
 func put_shield_up(_how_long):
 	is_shield_up = true
-	shield.visible = true
+	shield_up()
 	if _how_long <= 0:
 		shield_up_timer.wait_time = 10
 	else:
@@ -515,7 +516,7 @@ func add_ammo(_ammo):
 
 ##-------------------------------------------------------------------[Animation]
 
-func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
+func anim_update(left_input, right_input, up_input, down_input, _jump_input, hold_input, delta):
 	if can_move:
 		if !down_input && is_down:
 			is_down = false

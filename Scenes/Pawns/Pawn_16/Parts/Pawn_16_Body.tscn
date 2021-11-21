@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_16/Pawn_16_Front_Legs.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_16/Pawn_16_Back_Legs.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Pawns/Pawn_16/Pawn_16_Body.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Pawns/Pawn_16_Parts/Pawn_16_Body.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Pawns/Pawn_16/Pawn_16_Body_Shield.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Pawns/Pawn_16/Pawn_16_Legs_Shield.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Crawl"
@@ -45,6 +47,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 16 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pawn_16_Body_Shield:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pawn_16_Back_Legs_Shield:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18, 19, 20, 21, 22, 23 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Crouch"
@@ -81,6 +107,30 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 16 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pawn_16_Body_Shield:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pawn_16_Back_Legs_Shield:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -127,6 +177,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pawn_16_Body_Shield:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pawn_16_Back_Legs_Shield:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 35, 32, 33, 34, 35 ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 4.0
@@ -166,6 +240,30 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pawn_16_Body_Shield:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pawn_16_Back_Legs_Shield:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 11, 12, 15, 9, 10, 9, 14 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -208,6 +306,57 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pawn_16_Body_Shield:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pawn_16_Back_Legs_Shield:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 31, 28, 29, 30, 31 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pawn_16_Body_Shield:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pawn_16_Back_Legs_Shield:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Stun"
@@ -247,6 +396,30 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 38 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pawn_16_Body_Shield:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pawn_16_Back_Legs_Shield:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 37, 38, 39, 38, 37, 38, 39, 38, 37, 38, 39 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -288,32 +461,73 @@ tracks/2/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pawn_16_Body_Shield:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pawn_16_Back_Legs_Shield:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
 
 [node name="Pawn_16_Body" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="Pawn_16_Back_Legs_Shield" type="Sprite" parent="."]
+visible = false
+self_modulate = Color( 1, 0, 0, 1 )
+texture = ExtResource( 6 )
+hframes = 8
+vframes = 6
+
 [node name="Pawn_16_Back_Legs" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-vframes = 6
 hframes = 8
+vframes = 6
+frame = 37
+
+[node name="Pawn_16_Body_Shield" type="Sprite" parent="."]
+visible = false
+scale = Vector2( 1.05, 1.1 )
+texture = ExtResource( 5 )
+hframes = 2
 
 [node name="Pawn_16_Shield" type="Sprite" parent="."]
 visible = false
+self_modulate = Color( 1, 0, 0, 1 )
 scale = Vector2( 1.05, 1.1 )
 texture = ExtResource( 3 )
-vframes = 6
 hframes = 8
+vframes = 6
 frame = 38
 
 [node name="Pawn_16_Body" type="Sprite" parent="."]
 texture = ExtResource( 3 )
-vframes = 6
 hframes = 8
+vframes = 6
+frame = 38
 
 [node name="Pawn_16_Front_Legs" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-vframes = 6
 hframes = 8
+vframes = 6
+frame = 37
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crawl = SubResource( 1 )
@@ -321,6 +535,7 @@ anims/Crouch = SubResource( 2 )
 anims/Fall = SubResource( 3 )
 anims/Idle = SubResource( 4 )
 anims/Jump = SubResource( 5 )
+anims/RESET = SubResource( 8 )
 anims/Stun = SubResource( 6 )
 anims/Walk = SubResource( 7 )
 

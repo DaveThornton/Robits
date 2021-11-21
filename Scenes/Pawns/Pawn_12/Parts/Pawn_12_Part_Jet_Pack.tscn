@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_12/Pawn_12_Part_Jet_Pack.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Pawns/Pawn_12_Parts/Pawn_12_Part_Jet_Pack.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Pawns/Pawn_12/Pawn_12_Part_Jet_Pack_Shield.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fire_Down"
@@ -96,6 +97,11 @@ tracks/1/keys = {
 
 [node name="Pawn_12_Part_Jet_Pack" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="Shield" type="Sprite" parent="."]
+visible = false
+position = Vector2( -12, -6 )
+texture = ExtResource( 3 )
 
 [node name="Pack" type="Sprite" parent="."]
 position = Vector2( -12, -6 )

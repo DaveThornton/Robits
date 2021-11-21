@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_03/Pawn_03_Part_Body.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_03/Parts/Pawn_03_Part_Small_Wheel.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_03/Parts/Pawn_03_Part_Neck.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Pawns/Parts/Attachment_Point.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/Pawns/Pawn_03/Pawn_03_Part_Body_Shield.png" type="Texture" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.0
@@ -253,11 +254,7 @@ tracks/5/keys = {
 "values": [ Vector2( 20, 11 ) ]
 }
 
-[node name="Pawn_03" type="KinematicBody2D" groups=[
-"hittable",
-"ladder",
-"player",
-]]
+[node name="Pawn_03" type="KinematicBody2D" groups=["hittable", "ladder", "player"]]
 collision_layer = 2
 collision_mask = 66718
 script = ExtResource( 5 )
@@ -332,12 +329,15 @@ position = Vector2( 0, -10 )
 [node name="Pawn_03_Part_Arm" parent="Body/POS_Arm" instance=ExtResource( 6 )]
 
 [node name="Shield" type="Sprite" parent="Body"]
+show_behind_parent = true
+texture = ExtResource( 10 )
 
 [node name="Attachment_Point" parent="Body" instance=ExtResource( 9 )]
 position = Vector2( 0, -10 )
 z_index = 1
 
 [node name="CollisionShape2D_Stand" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0.263362, -21 )
 shape = SubResource( 1 )
 

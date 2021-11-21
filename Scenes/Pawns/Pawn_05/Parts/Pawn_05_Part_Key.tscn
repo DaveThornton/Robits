@@ -68,15 +68,15 @@ script = ExtResource( 2 )
 visible = false
 position = Vector2( -5, 0 )
 texture = ExtResource( 3 )
-vframes = 3
 hframes = 4
+vframes = 3
 
 [node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 0.698039, 0.698039, 0.698039, 1 )
 position = Vector2( -5, 0 )
 texture = ExtResource( 1 )
-vframes = 3
 hframes = 4
+vframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Ladder = SubResource( 1 )

@@ -16,7 +16,7 @@ func shield_up():
 	shield.visible = true
 
 func shield_down():
-	shield.visable = false
+	shield.visible = false
 
 func idle():
 	anim.play("Idle")

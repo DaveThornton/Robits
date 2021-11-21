@@ -3,6 +3,7 @@ onready var fire = $Fire
 onready var pack = $Pack
 onready var anim = $AnimationPlayer
 onready var flame = false
+onready var shield = $Shield
 
 func set_anim(_num: int):
 	if _num == 1:
@@ -28,11 +29,11 @@ func new_pos(_num:int):
 		pack.position.x = 0
 		fire.position.x = 0
 
-#func is_right(_right: bool):
-#	if _right == true:
-#		self.scale.x = 1
-#	else:
-#		self.scale.x = -1
+func shield_up():
+	shield.visible = true
+
+func shield_down():
+	shield.visible = false
 
 func flame_up():
 	if !flame:
@@ -46,3 +47,4 @@ func flame_down():
 		
 func color(_pri: Color, _sec: Color):
 	pack.self_modulate = _pri
+	shield.self_modulate = _sec

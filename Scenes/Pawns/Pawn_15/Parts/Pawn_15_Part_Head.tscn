@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_15/Pawn_15_Body.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_15/Pawn_15_Face.png" type="Texture" id=2]
@@ -55,6 +55,33 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( -2, 8 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pawn_15_Body/Shield:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pawn_15_Body/Shield:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Right"
@@ -106,23 +133,36 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 2, 8 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Pawn_15_Body/Shield:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
 
 [node name="Pawn_15_Part_Head" type="Node2D"]
 script = ExtResource( 4 )
-
-[node name="Shield" type="Sprite" parent="."]
-visible = false
-self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 6, 6 )
-scale = Vector2( 1.1, 1.1 )
-texture = ExtResource( 1 )
-hframes = 3
 
 [node name="Pawn_15_Body" type="Sprite" parent="."]
 self_modulate = Color( 0.490196, 0.490196, 0.490196, 1 )
 position = Vector2( 6, 6 )
 texture = ExtResource( 1 )
 hframes = 3
+
+[node name="Shield" type="Sprite" parent="Pawn_15_Body"]
+visible = false
+self_modulate = Color( 1, 0, 0, 1 )
+show_behind_parent = true
+scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 1 )
+hframes = 3
+frame = 1
 
 [node name="Pawn_15_Face" type="Sprite" parent="Pawn_15_Body"]
 texture = ExtResource( 2 )
@@ -134,6 +174,7 @@ position = Vector2( 2, 8 )
 
 [node name="AnimationPlayer_Head" type="AnimationPlayer" parent="."]
 anims/Left = SubResource( 1 )
+anims/RESET = SubResource( 3 )
 anims/Right = SubResource( 2 )
 
 [node name="AnimationPlayer_Face" type="AnimationPlayer" parent="."]

@@ -140,8 +140,9 @@ func _process(delta):
 		my_start_gun.is_right = is_right
 		my_start_gun.shoot_pos = shoot_spot
 	_set_gun_dir()
-	if _im_hit:
+	if _im_hit && !is_shield_up:
 		if _hit_time > 0.1:
+			shield_up()
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 			_hit_time = clamp(_hit_time,0,.3)
@@ -152,6 +153,7 @@ func _process(delta):
 			_hit_time -= delta
 			_set_new_color(_hit_color_01, _hit_color_02)
 		else:
+			shield_down()
 			_set_new_color(_pri_color, _sec_color)
 			_hit_time = 0.0
 			_im_hit = false
@@ -359,34 +361,6 @@ func remove_start_weap():
 	for i in gun_pos.get_child_count():
 		gun_pos.get_child(i).call_deferred("free")
 ##-------------------------------------------------------------------------[HIT]
-# func hit(_by_who, _by_what, _damage_type, _damage):
-# 	_im_hit = true
-# 	_hit_time += 0.11
-# 	if play_type == 1:
-# 		if is_shield_up:
-# 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
-# 		else:
-# 			is_shield_up = true
-# 			print("ive been hit. I'm player ",player)
-# 			let_go()
-# 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
-# 			call_deferred("free")
-# 	elif play_type > 1:
-# 		shield_up()
-# 		shield_hit_timer.start()
-# 		if !is_shield_up:
-# 			nrg = nrg - (_damage - armor)
-# 			nrg_update()
-# 			if nrg <= 0:
-# 				is_shield_up = true
-# 				print("ive been hit. I'm player ",player)
-# 				let_go()
-# 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
-# 				call_deferred("free")
-# 			elif nrg < light_on_nrg:
-# 				pass
-# 			else:
-# 				pass
 func hit(_by_who, _by_what, _damage_type, _damage):
 	if _by_who > 0:
 		hit_last_by = _by_who
@@ -425,7 +399,7 @@ func nrg_update():
 
 func put_shield_up(_how_long):
 	is_shield_up = true
-	shield.visible = true
+	shield_up()
 	if _how_long <= 0:
 		shield_up_timer.wait_time = 10
 	else:
@@ -471,12 +445,8 @@ func _test_headroom():
 		head_room = 0
 
 func _is_on_floor():
-#	if !is_jump_pressed:
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding():
 		on_floor = true
-#		if !on_floor && !is_jump_pressed:
-#			SFX.play("Move_Jump_19_Land")
-#			on_floor = true
 	else :
 		on_floor = false
 
@@ -693,13 +663,11 @@ func _anim_idle():
 	new_anim = "Idle"
 	head.play("On")
 	_body(1)
-#	legs_right(is_right)
 
 func _anim_run():
 	new_anim = "Run"
 	head.play("On")
 	_body(1)
-#	legs_right(is_right)
 
 func _anim_jump():
 	if vel.y < 0:
@@ -708,7 +676,6 @@ func _anim_jump():
 		new_anim = "Fall"
 	head.play("Flash")
 	_body(1)
-#	legs_right(is_right)
 
 func _anim_prone_idle():
 	_body(2)
@@ -753,23 +720,16 @@ func _anim_ladder_move():
 	head.play("Up")
 
 func _anim_ladder_right():
-#	print("make ladder animation pawn 01")
 	_body(1)
-#	hip.stop()
 	new_anim = "Ladder_Right"
 	head.play("On")
 
 func _anim_ladder_left():
-#	print("make ladder animation pawn 01")
 	_body(1)
-#	hip.stop()
 	new_anim = "Ladder_Left"
 	head.play("On")
 
 func _set_gun_dir():
-#	arm.is_right(is_right)
-#	head.is_right(is_right)
-#	if is_right:
 	if shoot_spot == 3:
 		arm.rotation_degrees = 0
 		arm.bend(2)
@@ -793,27 +753,6 @@ func _set_gun_dir():
 
 	if my_gun != null:
 		arm.rotation_degrees -= my_gun.walk
-#	else:
-#		if shoot_spot == 3:
-#			arm.rotation_degrees = head.rotation_degrees
-#			arm.bend(2)
-#		elif shoot_spot == 1:
-#			arm.rotation_degrees = 85
-#			arm.bend(3)
-#		elif shoot_spot == 2:
-#			arm.rotation_degrees = 45
-#			arm.bend(3)
-#		elif shoot_spot == 4:
-#			arm.rotation_degrees = -35
-#			arm.bend(3)
-#		elif shoot_spot == 5:
-#			arm.rotation_degrees = -85
-#			arm.bend(3)
-#		elif shoot_spot == 6:
-#			arm.rotation_degrees = 0
-#			arm.bend(3)
-#		if my_gun != null:
-#			arm.rotation_degrees += my_gun.walk
 
 func _body(_num: int):
 	call_deferred("_body_",_num)
@@ -830,28 +769,12 @@ func _body_(_num: int):
 func shield_up():
 	head.shield_up()
 	butt.shield_up()
-	legbs.visible = true
-	legfs.visible = true
 	shield.visible = true
 
 func shield_down():
 	head.shield_down()
 	butt.shield_down()
-	legbs.visible = false
-	legfs.visible = false
 	shield.visible = false
-
-#func legs_right(_is_right):
-#	if _is_right:
-#		legf.scale.x = 1
-#		legb.scale.x = 1
-#		legfs.scale.x = 1
-#		legbs.scale.x = 1
-#	else:
-#		legf.scale.x = -1
-#		legb.scale.x = -1
-#		legfs.scale.x = -1
-#		legbs.scale.x = -1
 
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
@@ -866,8 +789,8 @@ func _set_new_color(_pri, _sec):
 	my_body.self_modulate = _pri
 	legf.self_modulate = _pri
 	legb.self_modulate = _pri
-	legfs.self_modulate = _sec
-	legbs.self_modulate = _sec
+	# legfs.self_modulate = _sec
+	# legbs.self_modulate = _sec
 	shield.self_modulate = _sec
 ##--------------------------------------------------------------------[Time Out]
 

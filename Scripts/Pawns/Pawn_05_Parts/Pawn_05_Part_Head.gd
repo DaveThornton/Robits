@@ -30,6 +30,12 @@ func light_up():
 func light_off():
 	ant.flash_off()
 
+func shield_up():
+	shield.visible = true
+	
+func shield_down():
+	shield.visible = false
+	
 func color(_pri: Color, _sec: Color):
 	head.self_modulate = _pri
 	face.self_modulate = _sec

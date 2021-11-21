@@ -429,11 +429,7 @@ height = 24.0
 radius = 5.0
 height = 44.0
 
-[node name="Pawn_17" type="KinematicBody2D" groups=[
-"hittable",
-"ladder",
-"player",
-]]
+[node name="Pawn_17" type="KinematicBody2D" groups=["hittable", "ladder", "player"]]
 collision_layer = 2
 collision_mask = 66718
 script = ExtResource( 4 )
@@ -441,6 +437,7 @@ script = ExtResource( 4 )
 [node name="Timers" parent="." instance=ExtResource( 6 )]
 
 [node name="Raycasts" type="Node2D" parent="."]
+visible = false
 
 [node name="Down_L" type="RayCast2D" parent="Raycasts"]
 position = Vector2( -10, -14 )
@@ -529,10 +526,12 @@ anims/Stun = SubResource( 6 )
 anims/Up = SubResource( 7 )
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -28 )
 shape = SubResource( 8 )
 
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -26 )
 rotation = 1.5708
 shape = SubResource( 9 )
