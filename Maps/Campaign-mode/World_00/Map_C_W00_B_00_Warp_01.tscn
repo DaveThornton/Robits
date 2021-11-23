@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Maps/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-04-Back-FX-Jungle.tres" type="TileSet" id=2]
@@ -12,7 +12,9 @@
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=10]
 [ext_resource path="res://Tilesets/TS-06-Main-FX.tres" type="TileSet" id=11]
 [ext_resource path="res://Tilesets/TS-05-Main-Brick.tres" type="TileSet" id=12]
-[ext_resource path="res://Maps/Campaign-mode/World_01/Map_C_W01_F_01_The_Warden.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Tilesets/TS-04-Back-FX-Numbers.tres" type="TileSet" id=13]
+[ext_resource path="res://Maps/Campaign-mode/World_04/Map_C_W04_A_01_DownTown.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Maps/Campaign-mode/World_03/Map_C_W03_A_01_Mill.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawn-Camp.tscn" type="PackedScene" id=18]
 
 [node name="C_W01_A_01" type="Node2D"]
@@ -48,22 +50,18 @@ __meta__ = {
 }
 
 [node name="TileMap-Back-FX2" type="TileMap" parent="."]
-modulate = Color( 0, 1, 0.0156863, 1 )
 z_index = -9
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 13 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 0
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 1638666, 25, 0, 1704378, 27, 0, 2490730, 27, 0, 2556248, 27, 0, 2621697, 26, 0, 3473466, 0, 0, 3473490, 3, 0, 3473491, 3, 0, 3473492, 3, 0 )
+tile_data = PoolIntArray( 1507340, 32, 0, 1507341, 35, 0, 1507412, 32, 0, 1507413, 36, 0, 1638666, 25, 0, 1704378, 27, 0, 2097164, 32, 0, 2097165, 37, 0, 2097236, 32, 0, 2097237, 38, 0, 2490730, 27, 0, 2556248, 27, 0, 2621697, 26, 0, 3473466, 0, 0, 3473490, 3, 0, 3473491, 3, 0, 3473492, 3, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main" type="TileMap" parent="." groups=["map", "map_part"]]
 modulate = Color( 0.301961, 0.286275, 0.278431, 1 )
 z_index = -4
 tile_set = ExtResource( 12 )
@@ -76,9 +74,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Platforms" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Platforms" type="TileMap" parent="." groups=["map_part"]]
 z_index = -2
 tile_set = ExtResource( 9 )
 cell_size = Vector2( 20, 20 )
@@ -142,9 +138,7 @@ position = Vector2( 1050, 550 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
-[node name="Map_parts" type="Node2D" parent="." groups=[
-"map_part",
-]]
+[node name="Map_parts" type="Node2D" parent="." groups=["map_part"]]
 
 [node name="Spikes" type="Node2D" parent="Map_parts"]
 
@@ -153,13 +147,14 @@ position = Vector2( 1229, 1240 )
 
 [node name="MP-15-Level_Change-01-Door" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 130, 560 )
-level_to_load_1 = ExtResource( 14 )
+level_to_load_1 = ExtResource( 15 )
 
 [node name="MP-15-Level_Change-01-Door2" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 130, 740 )
 
 [node name="MP-15-Level_Change-01-Door3" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 1810, 560 )
+level_to_load_1 = ExtResource( 14 )
 
 [node name="MP-15-Level_Change-01-Door4" parent="Map_parts" instance=ExtResource( 6 )]
 position = Vector2( 1810, 740 )

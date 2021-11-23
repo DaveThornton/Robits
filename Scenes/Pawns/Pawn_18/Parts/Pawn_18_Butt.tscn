@@ -10,6 +10,7 @@ script = ExtResource( 2 )
 [node name="Pawn_18_Shield" type="Sprite" parent="."]
 visible = false
 position = Vector2( -10, 8 )
+scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 1 )
 hframes = 2
 frame = 1

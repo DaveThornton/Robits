@@ -378,8 +378,6 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			call_deferred("free")
 	elif play_type > 1:
 		if !is_shield_up:
-			shield_up()
-			shield_hit_timer.start()
 			nrg = nrg - (_damage - armor)
 			nrg_update()
 			if nrg <= 0:
