@@ -18,13 +18,11 @@ hit_anim_map = ExtResource( 2 )
 hit_anim_move = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 10.002, -0.0587773 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 5, 0 )
-scale = Vector2( 3, 2 )
+scale = Vector2( 4, 1.5 )
 texture = ExtResource( 4 )
 hframes = 12
 frame = 2
@@ -33,8 +31,9 @@ frame = 2
 wait_time = 0.25
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 6, 0 )
 enabled = true
 cast_to = Vector2( 35, 0 )
-collision_mask = 33048
+collision_mask = 35098
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

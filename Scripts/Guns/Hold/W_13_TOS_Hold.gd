@@ -2,21 +2,17 @@ extends Node2D
 
 const MAX_LENGTH = 750
 
-# export(PackedScene) var tos_pickup
-# export(PackedScene) var hit_anim
-# export(PackedScene) var hit_anim_nothing
-
-
 onready var anim_fire = $AnimationPlayer
 
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
-onready var shoot_cast = $POS_Gun/Gun_Sprite/Shoot_cast
+# onready var shoot_cast = $POS_Gun/Gun_Sprite/Shoot_cast
+onready var shoot_cast = $POS_Gun/Raycast/Shoot
 onready var melee_cast = $POS_Gun/Raycast/Melee
 onready var throw_cast = $POS_Gun/Raycast/Throw
 onready var beam_end = $POS_Gun/Gun_Sprite/Laser_Sprite/Shoot
-onready var pos_shell = $POS_Gun/POS/Shell
 onready var pos_throw = $POS_Gun/POS/Throw
+onready var pos_shoot = $POS_Gun/POS/Shoot
 onready var beam = $POS_Gun/Gun_Sprite/Laser_Sprite
 
 var player = 1
@@ -27,7 +23,7 @@ var ammo_max = 550
 var take_ammo = true
 var my_name = "TOS"
 var dmg_type = "Laser"
-var damage = 9
+var damage = 10
 var can_shoot = true
 var just_shot = false
 var shoot_pos = 3
@@ -37,6 +33,7 @@ var walk = 0.0
 var walk_amount = 0.0
 var time = 4.0
 var shoot_pressed = false
+var shoot_real = true #if true it shoots a laser that kills if false its for fx
 
 signal ammo_change(player, ammo)
 
@@ -53,46 +50,38 @@ func init(_ammo, _player, _timer, _just_shot):
 	player = _player
 	emit_signal("ammo_change",player,ammo)
 
-func _physics_process(delta):
-	if shoot_cast.is_colliding():
-		beam_end.global_position = shoot_cast.get_collision_point()
-	else:
-		beam_end.position = shoot_cast.cast_to
-	beam.region_rect.end.x = beam_end.position.length() * 5
+func _physics_process(_delta):
+
 	if shoot_pressed && can_shoot && ammo >= 1:
-		beam.visible = true
 		SFX.play("W_13_Shoot")
-		if shoot_cast.is_colliding() && time >.05:
-			if shoot_cast.get_collider().get_groups().has("player"):
-				Player_Stats.add_hit(player, 1)
-				_hit(shoot_cast.get_collision_point())
-				shoot_cast.get_collider().hit(player, my_name, dmg_type, damage)
-			elif shoot_cast.get_collider().get_groups().has("hittable"):
-				Player_Stats.add_hit(player, 1)
-				_hit(shoot_cast.get_collision_point())
-				shoot_cast.get_collider().hit(player, my_name, dmg_type, damage)
-			else:
-				_hit(shoot_cast.get_collision_point())
-			anim_fire.play("Shoot")
-			ammo = clamp(ammo - 1, 0, ammo_max)
-			emit_signal("ammo_change",player,ammo)
-			Player_Stats.add_shot(player, 1)
-			time = 0
-		elif time >.1:
-			_hit_nothing(beam_end.position)
-			ammo = clamp(ammo - 1, 0, ammo_max)
-			emit_signal("ammo_change",player,ammo)
-			Player_Stats.add_shot(player, 1)
-			time = 0
-		time += delta
+		var _ss = pos_shoot.global_position
+		var _sr = pos_shoot.global_rotation
+		if is_right:
+			_sr = pos_shoot.global_rotation
+		else:
+			_sr = pos_shoot.global_rotation * -1
+		var _sss = pos_shoot.global_scale
+		FX.proj(gun_num, _sr, _ss, _sss, player, damage)
+		ammo = clamp(ammo - 1, 0, ammo_max)
+		emit_signal("ammo_change",player,ammo)
+		Player_Stats.add_shot(player, 1)
+		shoot_timer.start()
+		can_shoot = false
+	elif shoot_pressed && !can_shoot && ammo >= 1:
+		var _ss = pos_shoot.global_position
+		var _sr = pos_shoot.global_rotation
+		if is_right:
+			_sr = pos_shoot.global_rotation
+		else:
+			_sr = pos_shoot.global_rotation * -1
+		var _sss = pos_shoot.global_scale
+		FX.proj(gun_num, _sr, _ss, _sss, player, 0)
 	else:
-		beam.visible = false
 		SFX.stop("W_13_Shoot")
 
 func shoot_j():
-	if can_shoot:
-		shoot_pressed = true
-		anim_fire.play("Shoot")
+	shoot_pressed = true
+	anim_fire.play("Shoot")
 
 func shoot():
 	pass
@@ -188,4 +177,8 @@ func _hit_nothing(_pos):
 	FX.proj_hit(gun_num, _pos, false)
 
 func _on_Melee_Timer_timeout():
+	can_shoot = true
+
+
+func _on_Shoot_Timer_timeout():
 	can_shoot = true
