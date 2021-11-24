@@ -24,6 +24,7 @@ var take_ammo = true
 var my_name = "TOS"
 var dmg_type = "Laser"
 var damage = 10
+var m_damage = 35
 var can_shoot = true
 var just_shot = false
 var shoot_pos = 3
@@ -52,7 +53,7 @@ func init(_ammo, _player, _timer, _just_shot):
 
 func _physics_process(_delta):
 
-	if shoot_pressed && can_shoot && ammo >= 1:
+	if shoot_pressed && can_shoot && ammo >= 1 && !melee_cast.is_colliding():
 		SFX.play("W_13_Shoot")
 		var _ss = pos_shoot.global_position
 		var _sr = pos_shoot.global_rotation
@@ -67,7 +68,7 @@ func _physics_process(_delta):
 		Player_Stats.add_shot(player, 1)
 		shoot_timer.start()
 		can_shoot = false
-	elif shoot_pressed && !can_shoot && ammo >= 1:
+	elif shoot_pressed && !can_shoot && ammo >= 1 && !melee_cast.is_colliding():
 		var _ss = pos_shoot.global_position
 		var _sr = pos_shoot.global_rotation
 		if is_right:
@@ -76,6 +77,8 @@ func _physics_process(_delta):
 			_sr = pos_shoot.global_rotation * -1
 		var _sss = pos_shoot.global_scale
 		FX.proj(gun_num, _sr, _ss, _sss, player, 0)
+	elif shoot_pressed && melee_cast.is_colliding():
+		melee()
 	else:
 		SFX.stop("W_13_Shoot")
 
@@ -100,9 +103,9 @@ func melee():
 		Player_Stats.add_shot(player, 1)
 
 func _on_Melee_Area_body_entered(body):
-	if body.get_groups().has("player"):
+	if body.get_groups().has("hittable"):
 		if body.player != player:
-			body.hit(player, my_name, dmg_type, damage)
+			body.hit(player, my_name, dmg_type, m_damage)
 		else:
 			print("quit hitting your self")
 
