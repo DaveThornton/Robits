@@ -23,8 +23,8 @@ func set_back(_num):
 func splash(_go, _num):
 	if _go:
 		splash_screens.go()
-		if _num != 0:
-			splash_screens.screen(_num)
+
+		splash_screens.screen(_num)
 	else:
 		splash_screens.stop()
 

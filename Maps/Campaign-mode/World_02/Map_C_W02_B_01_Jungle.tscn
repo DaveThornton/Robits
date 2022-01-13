@@ -91,10 +91,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main" type="TileMap" parent="." groups=["map", "map_part"]]
 z_index = -4
 tile_set = ExtResource( 14 )
 cell_size = Vector2( 20, 20 )
@@ -106,10 +103,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main-02" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main-02" type="TileMap" parent="." groups=["map", "map_part"]]
 tile_set = ExtResource( 14 )
 cell_size = Vector2( 20, 20 )
 collision_layer = 264
@@ -120,9 +114,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Platforms" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Platforms" type="TileMap" parent="." groups=["map_part"]]
 z_index = -2
 tile_set = ExtResource( 18 )
 cell_size = Vector2( 20, 20 )
@@ -134,9 +126,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Platforms2" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Platforms2" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 0.384314, 0.247059, 0.247059, 1 )
 z_index = -2
 tile_set = ExtResource( 18 )
@@ -423,9 +413,7 @@ position = Vector2( 2149, 714 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
-[node name="Map_parts" type="Node2D" parent="." groups=[
-"map_part",
-]]
+[node name="Map_parts" type="Node2D" parent="." groups=["map_part"]]
 
 [node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 7 )]
 position = Vector2( 10892, 1186 )

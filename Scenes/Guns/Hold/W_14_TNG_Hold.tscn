@@ -256,7 +256,6 @@ texture = ExtResource( 2 )
 hframes = 2
 
 [node name="Laser_Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
-visible = false
 self_modulate = Color( 1, 0, 0, 1 )
 material = SubResource( 1 )
 position = Vector2( 10, -1 )
@@ -269,7 +268,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 2500, 4 )
 
 [node name="Shoot" type="Position2D" parent="POS_Gun/Gun_Sprite/Laser_Sprite"]
-position = Vector2( 35, 1.33333 )
+position = Vector2( 7, 1.33333 )
 scale = Vector2( 1, 1.33333 )
 
 [node name="Shoot_cast" type="RayCast2D" parent="POS_Gun/Gun_Sprite"]
@@ -285,10 +284,9 @@ visible = false
 position = Vector2( 30.7659, -0.488336 )
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
-visible = false
 
 [node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( -0.0278397, -5.94884 )
+position = Vector2( 0, -6 )
 enabled = true
 cast_to = Vector2( 19, 0 )
 collision_mask = 3338
@@ -297,6 +295,12 @@ collision_mask = 3338
 position = Vector2( -0.0481911, -5.97668 )
 enabled = true
 cast_to = Vector2( 23, 0 )
+collision_mask = 3338
+
+[node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( 13, -3 )
+enabled = true
+cast_to = Vector2( 5, 0 )
 collision_mask = 3338
 
 [node name="Melee_Area" type="Area2D" parent="POS_Gun"]

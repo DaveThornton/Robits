@@ -43,7 +43,7 @@ var no_hit_player_map = 35584
 
 func make_vs(_num,_rot, _pos, _scale, _owner, _dmg):
 	var new_projectile
-	var layer = no_hit_player
+	var layer = no_hit_player_map
 	match _num:
 		2:
 			new_projectile = proj002.instance()

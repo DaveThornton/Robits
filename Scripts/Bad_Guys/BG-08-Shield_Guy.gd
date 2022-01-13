@@ -14,6 +14,7 @@ var time_to_shoot = 0.0
 var exp_damage = 20
 var my_name = "Shield Gunner"
 var gun_num = 4
+var player = -1
 
 func _ready():
 	if is_right:
