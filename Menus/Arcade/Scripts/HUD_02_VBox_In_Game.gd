@@ -94,54 +94,50 @@ func continue_count():
 	if continue_started:
 		set_state(8,0)
 		if continue_count_num > 0:
-			continue_count_num -= 1
-			igb_08_continue_count.text = str(continue_count_num)
+			continue_count_change(false, -1)
 		elif continue_count_num <= 0:
 			continue_started = false
-#			print(Player_Stats.get_in_play(player), "<------in play --- in game------>",Player_Stats.get_in_game(player))
 			Player_Stats.set_in_play(player,false) 
 			Player_Stats.set_continuing(player, false)
-#			Player_Stats.reset_player(player)
-#			Player_Stats.set_can_spawn(player, true)
 			Game.check_over()
-			print("end continue if game over?  ", Game.over)
 			if !Game.over:
 				if High_Score.is_score_high(Player_Stats.get_score(player)):
 					print("trying to add name to high scores in game lets see   ", High_Score.is_score_high(Player_Stats.get_score(player)), "     score: ", Player_Stats.get_score(player))
 					HUD.set_pri(player, 11)
 					igb_11_name_box_score.text = str(Player_Stats.get_score(player))
 				else:
-#					Player_Stats.set_continuing(player, false)
 					Player_Stats.reset_player(player)
 					set_state(0,0)
 					continue_count_num = 10
 			else:
-#				Player_Stats.set_continuing(player, false)
-#				print("call high scores in hud after continue runs out")
 				High_Score.set_visible(true)
 				continue_count_num = 10
-#			print("need to do somthing when continue runs out hud 02 vbox in game")
+
+func continue_count_change(_set:bool, _ch:int):
+	if !_set:
+		continue_count_num += _ch
+		continue_count_num = clamp(continue_count_num,0,10)
+		igb_08_continue_count.text = str(continue_count_num)
+	else:
+		continue_count_num = _ch 
+		igb_08_continue_count.text = str(continue_count_num)
 
 func up(): if igb_11_name_box_select.visible: igb_11_name_box_select.up()
 func down():
-	print("down in hud in game")
 	if igb_11_name_box_select.visible: 
-		print("name box vis in hud in game")
 		igb_11_name_box_select.down()
 func select():
-	print("select")
 	if igb_11_name_box_select.visible:
-		print("name box visable = ", igb_11_name_box_select.visible)
 		if igb_11_name_box_select.letter_count < 5:
 			var my_name = igb_11_name_box_select.select()
 			if igb_11_name_box_select.letter_count == 5:
 				submit_score(my_name)
+
 func back(): if igb_11_name_box_select.visible: igb_11_name_box_select.back()
 
 func submit_score(_my_name):
 	Player_Stats.set_continuing(player, false)
 	igb_11_name_box_select.reset()
-	print("submiting score in hud in game")
 	igb_11_name_box_select.letter_count += 1
 	Player_Stats.set_done(player,true)
 	High_Score.add_score(player, _my_name)
@@ -151,15 +147,12 @@ func submit_score(_my_name):
 	update_state(0)
 
 func update_state(_state:int):
-	print(_state , " in update state in game hud")
 	if _state == 11:
 		all_out()
 		igb_11_name_box.visible = true
 	elif !continue_count_num < 10:
-#		print("passed the 10 1st")
 		all_out()
 		if _state != 10:
-			print("passed the 10 2nd for ", player)
 			igb_01_player.visible = true
 			if _state == 2:
 				igb_02_insert.visible = true

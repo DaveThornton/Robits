@@ -430,6 +430,7 @@ func show_lives(_show:bool):
 func game_over(): print("game over doesnt do much in hud so fun!")
 
 func game_over_input(_player, _input):
+	print(" game over input " , _player,"   ", _input)
 	if Game.mode > 0:
 		if _input == 5:
 			get_player_hud(_player).game_over_done()
@@ -567,14 +568,21 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 		emit_signal("input_to_screen",_player, _dir)
 
 	elif Player_Stats.get_continuing(_player) && Player_Stats.can_player_start(_player):
-		print("continuing?")
+		print("continuing? in hud singleton")
 		if _dir == 0 && Player_Stats.can_player_start(_player):
 			set_continue(_player, false)
 			Player_Stats.reset_player_not_score(_player)
 			Player_Stats.set_in_play(_player,true)
 			Player_Stats.use_credit(_player)
-			p1.pawn_menu_vis(true)
+			get_player_hud(_player).pawn_menu_vis(true)
 
+	elif Player_Stats.get_continuing(_player) && !Player_Stats.can_player_start(_player):
+		print("not continuing in hud singleton")
+		if _dir == 6:
+			get_player_hud(_player).add_to_continue(-1)
+		elif _dir == 5:
+			get_player_hud(_player).add_to_continue(1)
+	
 	elif Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_done(_player):#movement up:1 left:2 right:3 down:4 start:5 back:6
 		print("trying to send up down select signal to hud for in game high score (in hud arcade input)")
 		if _dir == 1:

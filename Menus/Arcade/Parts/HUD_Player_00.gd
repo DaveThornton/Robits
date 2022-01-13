@@ -111,6 +111,9 @@ func go_start():
 	pawn_menu.go_start()
 	return pawn_menu.pos
 
+func add_to_continue(_amount):
+	in_game_box.continue_count_change(false, _amount)
+
 func game_over_done(): in_game_over_box.game_over_done()
 
 func game_over_not_done(): in_game_over_box.game_over_not_done()
