@@ -70,11 +70,11 @@ func get_brick_color(_color):
 
 func _on_Area2D_Respawn_area_entered(area):
 	if area.get_groups().has("respawn"):
-		Map_Hand.map.add_pos(area)
+		Map_Hand.add_pos(area)
 
 func _on_Area2D_Respawn_area_exited(area):
 	if area.get_groups().has("respawn"):
-		Map_Hand.map.remove_pos(area)
+		Map_Hand.remove_pos(area)
 
 func _on_Area2D_Trigger_area_entered(area):
 	if area.get_groups().has("trigger"):

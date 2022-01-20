@@ -98,6 +98,7 @@ func arcade_reset():
 	print("reset called in world")
 	emit_signal("reset")
 	HUD.load_screen(arcade_start)
+	# Map_Hand.clear_map()
 
 func _on_Timer_timeout():
 	emit_signal("second")

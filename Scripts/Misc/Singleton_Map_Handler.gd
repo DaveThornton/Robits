@@ -65,13 +65,21 @@ func load_map_cam(_level, _label_1, _label_2, _time, _show):
 func _load_map_cam(_level):
 	var m = _level.instance()
 	if map:
-		map.queue_free()
+		map.call_deferred("queue_free")
 	map = m
 	add_child(m)
 
 	for p in get_tree().get_current_scene().pawns.get_children():
 		p.position = m.player_spawns.get_child(m.next_spawn_spot).position
 		m.next_spawn_spot += 1
+
+func add_pos(area):
+	if map != null:
+		map.add_pos(area)
+
+func remove_pos(area):
+	if map != null:
+		map.remove_pos(area)
 
 func splash(_top, _body):
 	splash_scn.visible = true

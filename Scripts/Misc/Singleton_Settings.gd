@@ -1,7 +1,7 @@
 extends Node
 
 var max_num_of_player = 8
-var lives_per_credit = 3
+var lives_per_credit = 1
 #var end_game_score = 10
 # Called when the node enters the scene tree for the first time.
 

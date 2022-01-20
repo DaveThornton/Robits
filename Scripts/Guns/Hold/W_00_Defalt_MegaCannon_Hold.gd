@@ -62,7 +62,7 @@ func shoot_j():
 		else:
 			var _thing = shoot_cast.get_collider()
 			if _thing.get_groups().has("hittable"):
-				if _thing.player == player:
+				if _thing.get_groups().has("player") && _thing.player == player:
 					_fire_projectile()
 				else:
 					_thing.hit(player, my_name, dmg_type, damage)

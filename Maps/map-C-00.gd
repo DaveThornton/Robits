@@ -89,11 +89,21 @@ func next_spawn_pos():
 		return player_spawns.get_child(next_spawn_spot).position
 
 func remove_map():
-	reset()
+	Map_Hand.clear_map()
+	# call_deferred("queue_free")
+	# reset()
 
 func reset():
-	emit_signal("start")
+	print("reset called in map c gd so it removed map")
+	remove_map()
+	# emit_signal("start")
 	# propagate_call("queue_free",[],false)
+	# if Game.over:
+	# propagate_call("queue_free",[],false)
+	# else: emit_signal("start")
+	# else:
+	# 	call_deferred("queue_free")
+	# queue_free()
 
 func activate_BG(_num, _player):
 	emit_signal("activate",_num, _player)

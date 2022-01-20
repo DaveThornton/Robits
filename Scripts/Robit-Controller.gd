@@ -145,6 +145,7 @@ func explode_pawn(_player, _pos, _by_who, _by_what):
 	FX.explode(3, player, _pos, str("player ", player, "'s destruct system"), Player_Stats.get_pawn_num(player), 2)
 	alive = false
 	my_pawn.call_deferred("free")
+	my_pawn = null
 	if !Game.over:
 		Player_Stats.add_kill(player, _by_who , 1, _by_what)
 		if Game.mode != 0:
@@ -280,7 +281,7 @@ func get_pawn():
 		return false
 
 func player_equip_start_weap():
-	if my_pawn:
+	if my_pawn:# && !Game.over:
 		# my_pawn.start_equiped = true
 		my_pawn.equip_start_weap()
 
