@@ -118,4 +118,6 @@ func game_over_done(): in_game_over_box.game_over_done()
 
 func game_over_not_done(): in_game_over_box.game_over_not_done()
 
+func is_game_done(): in_game_over_box.is_game_done()
+
 func pawn_menu_vis(_vis): pawn_menu.visible = _vis

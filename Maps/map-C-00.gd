@@ -16,7 +16,6 @@ onready var player_spawns = $Player_Spawns
 onready var player_spawns_out = $Player_Spawns_Out
 onready var parts = $Map_parts
 onready var badguys = $BadGuys
-#onready var splash_screen = $"Splash/Level_Load_Screen"
 var spots_in_range = []
 var next_spawn_spot = 0
 var nav_system

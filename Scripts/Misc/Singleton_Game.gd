@@ -8,7 +8,7 @@ var started = false
 var start_eq = false
 var mode = 2 # 0 Campaign safety on | 1 Campaign safety off | 2 VS score | 3 VS time |4 VS lives
 var over = false
-var end_game_score = 10
+var end_game_score = 2
 
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
@@ -44,7 +44,8 @@ func set_game_over(_over):
 	if over && mode > 0:
 		Map_Hand.clear_map()
 		HUD.state_machine()
-		timer.start()
+		HUD.start_count()
+		# timer.start()
 	elif over && mode == 0:
 		HUD.state_machine()
 		print("game over in game for campaign and nothing?")
@@ -53,22 +54,9 @@ func set_game_over(_over):
 func check_over():
 	if mode == 2 :
 		print("check over mode 2 in game singleton")
-		if Player_Stats.p1["score"] >= end_game_score:
+		if Player_Stats.p1["score"] >= end_game_score || Player_Stats.p2["score"] >= end_game_score || Player_Stats.p3["score"] >= end_game_score || Player_Stats.p4["score"] >= end_game_score || Player_Stats.p5["score"] >= end_game_score || Player_Stats.p6["score"] >= end_game_score || Player_Stats.p7["score"] >= end_game_score || Player_Stats.p8["score"] >= end_game_score:
 			set_game_over(true)
-		elif Player_Stats.p2["score"] >= end_game_score:
-			set_game_over(true)
-		elif Player_Stats.p3["score"] >= end_game_score:
-			set_game_over(true)
-		elif Player_Stats.p4["score"] >= end_game_score:
-			set_game_over(true)
-		elif Player_Stats.p5["score"] >= end_game_score:
-			set_game_over(true)
-		elif Player_Stats.p6["score"] >= end_game_score:
-			set_game_over(true)
-		elif Player_Stats.p7["score"] >= end_game_score:
-			set_game_over(true)
-		elif Player_Stats.p8["score"] >= end_game_score:
-			set_game_over(true)
+
 	elif mode == 0:
 		print("check over mode 0 in game singleton")
 		if Player_Stats.get_num_in_game() == 0:

@@ -30,7 +30,6 @@ func not_in_game():
 	game_over_stats.visible = false
 
 func game_over_done():
-	# Game.over = true
 	player_done_go.visible = true
 	player_num_go.visible = true
 	game_over_stats.visible = false
@@ -43,3 +42,6 @@ func game_over_not_done():
 	game_over_stats.visible = true
 	Player_Stats.set_done(player,false)
 	game_done = false
+
+func is_game_done():
+	return game_done

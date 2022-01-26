@@ -190,14 +190,14 @@ position = Vector2( 0, -32 )
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
 position = Vector2( 0, -32 )
+collision_layer = 983040
+collision_mask = 720896
 space_override = 3
 gravity_point = true
 gravity_vec = Vector2( 1, 1 )
 gravity = 100.0
 linear_damp = 10.0
 angular_damp = 10.0
-collision_layer = 983040
-collision_mask = 720896
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 3 )
@@ -209,15 +209,9 @@ anims/Idle = SubResource( 4 )
 anims/Out = SubResource( 5 )
 anims/Spawn = SubResource( 6 )
 
-[node name="Timer_Start" type="Timer" parent="."]
-one_shot = true
-autostart = true
-
 [node name="Timer_Respawn" type="Timer" parent="."]
 wait_time = 15.0
 one_shot = true
 
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
-[connection signal="timeout" from="Timer_Start" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Timer_Start" to="." method="_on_Timer_Start_timeout"]
 [connection signal="timeout" from="Timer_Respawn" to="." method="_on_Timer_Respawn_timeout"]

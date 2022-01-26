@@ -8,6 +8,7 @@ onready var p5 = $VBox_Player_05
 onready var p6 = $VBox_Player_06
 onready var p7 = $VBox_Player_07
 onready var p8 = $VBox_Player_08
+onready var count = $CanvasLayer/Count_Down_Text
 
 var p1state = {
 	mode = 1,
@@ -61,6 +62,9 @@ func _ready():
 	if test != 0:
 		print("error Singleton HUD connecting to reset from world gd")
 	reset()
+	var test2 = count.connect("time_out", self, "time_out")
+	if test2 != 0:
+		print(test2,"error Singleton HUD connecting to reset from count")
 
 func state_machine():
 	if Game.started && !Game.over:
@@ -71,10 +75,8 @@ func state_machine():
 		menu_state()
 	elif Game.started && Game.over:
 		if Game.mode > 0:
-#			print("game mode is set to not 0 in hud")
 			mode = 0
 		elif Game.mode == 0:
-#			print("game mode is set to 0 in hud")
 			mode = 3
 		game_over_state()
 	else:
@@ -433,9 +435,16 @@ func game_over_input(_player, _input):
 	print(" game over input " , _player,"   ", _input)
 	if Game.mode > 0:
 		if _input == 5:
-			get_player_hud(_player).game_over_done()
+			if get_player_hud(_player).is_game_done():
+				count.change_count(-1)
+			else:
+				get_player_hud(_player).game_over_done()
 		elif _input ==6:
-			get_player_hud(_player).game_over_not_done()
+			if !get_player_hud(_player).is_game_done():
+				count.change_count(1)
+			else:
+				get_player_hud(_player).game_over_not_done()
+
 		var _in_play = Player_Stats.get_num_in_play()
 		var _done = get_game_over_done_count()
 		if _in_play == _done && Game.mode < 0:
@@ -485,7 +494,6 @@ func set_continue(_player, _continue): get_player_hud(_player).set_continue(_con
 
 func reset():
 	start()
-#	coin_count()
 	p1.reset()
 	p2.reset()
 	p3.reset()
@@ -494,6 +502,9 @@ func reset():
 	p6.reset()
 	p7.reset()
 	p8.reset()
+
+func time_out():
+	get_tree().get_current_scene().arcade_reset()
 
 func load_screen(_screen_to_load):
 	var s = _screen_to_load.instance()
@@ -546,7 +557,10 @@ func get_player_hud(_player):
 	else:
 		print("get player hud error invaild player in hud so I'll return player 1")
 		return p1
-		
+
+func start_count():
+	count.init()		
+
 func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 	print(_player, Game.started,"   ",Player_Stats.get_in_play(_player),"   ", Player_Stats.get_in_game(_player),"  ",Player_Stats.get_continuing(_player))
 	if !Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):

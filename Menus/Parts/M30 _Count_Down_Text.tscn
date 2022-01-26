@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://misc/line-text-160.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menus/Parts/Scripts/M30 _Count_Down_Text.gd" type="Script" id=2]
+
+[node name="Count_Down_Text" type="Label"]
+margin_left = 636.0
+margin_right = 1290.0
+margin_bottom = 166.0
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+align = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
