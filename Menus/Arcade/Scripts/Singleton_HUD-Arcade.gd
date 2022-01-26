@@ -435,20 +435,9 @@ func game_over_input(_player, _input):
 	print(" game over input " , _player,"   ", _input)
 	if Game.mode > 0:
 		if _input == 5:
-			if get_player_hud(_player).is_game_done():
-				count.change_count(-1)
-			else:
-				get_player_hud(_player).game_over_done()
+			count.change_count(-1)
 		elif _input ==6:
-			if !get_player_hud(_player).is_game_done():
-				count.change_count(1)
-			else:
-				get_player_hud(_player).game_over_not_done()
-
-		var _in_play = Player_Stats.get_num_in_play()
-		var _done = get_game_over_done_count()
-		if _in_play == _done && Game.mode < 0:
-			get_tree().get_current_scene().arcade_reset()
+			count.change_count(1)
 
 	elif Game.mode == 0 && !Player_Stats.get_done(_player):
 		if _input == 1:
