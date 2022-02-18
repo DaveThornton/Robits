@@ -43,6 +43,7 @@ func in_menu():
 	in_game_box.visible = false
 	in_score_box.visible = false
 
+
 func in_game():
 	in_game_over_box.visible = false
 	in_menu_box.visible = false

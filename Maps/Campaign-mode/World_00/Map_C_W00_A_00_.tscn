@@ -59,10 +59,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main" type="TileMap" parent="." groups=["map", "map_part"]]
 modulate = Color( 0.301961, 0.286275, 0.278431, 1 )
 z_index = -4
 tile_set = ExtResource( 12 )
@@ -75,9 +72,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Platforms" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Platforms" type="TileMap" parent="." groups=["map_part"]]
 z_index = -2
 tile_set = ExtResource( 9 )
 cell_size = Vector2( 20, 20 )
@@ -176,9 +171,7 @@ position = Vector2( 1870, 375 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
-[node name="Map_parts" type="Node2D" parent="." groups=[
-"map_part",
-]]
+[node name="Map_parts" type="Node2D" parent="." groups=["map_part"]]
 
 [node name="Spikes" type="Node2D" parent="Map_parts"]
 

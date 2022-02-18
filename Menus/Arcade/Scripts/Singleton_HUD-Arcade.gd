@@ -53,6 +53,7 @@ var p8state = {
 var mode = 1 #0 game over vs     1 menu     2 in game      3 gameover campagin
 var splash_screen = "res://Menus/Parts/M10-Splash.tscn"
 var screen_loaded
+var player_in_control = 0
 
 signal input_to_screen #movement up:1 left:2 right:3 down:4 start:5 back:6
 signal screen_update
@@ -363,6 +364,9 @@ func check_in_game(_num):
 		if Player_Stats.p8["in_play"]: p8.in_play()
 		else: p8.in_game()
 
+func set_player_in_control(_player):
+	player_in_control = _player
+
 func set_score(_player): get_player_hud(_player).set_score_count(Player_Stats.get_score(_player))
 
 func set_nrg(_player, _amount): get_player_hud(_player).set_nrg_bar(_amount)
@@ -491,6 +495,7 @@ func reset():
 	p6.reset()
 	p7.reset()
 	p8.reset()
+	set_player_in_control(0)
 
 func time_out():
 	get_tree().get_current_scene().arcade_reset()
@@ -551,7 +556,7 @@ func start_count():
 	count.init()		
 
 func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
-	print(_player, Game.started,"   ",Player_Stats.get_in_play(_player),"   ", Player_Stats.get_in_game(_player),"  ",Player_Stats.get_continuing(_player))
+	# print(_player, Game.started,"   ",Player_Stats.get_in_play(_player),"   ", Player_Stats.get_in_game(_player),"  ",Player_Stats.get_continuing(_player))
 	if !Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):
 		if _dir == 0 && Player_Stats.can_player_start(_player):
 			Player_Stats.reset_player(_player)
