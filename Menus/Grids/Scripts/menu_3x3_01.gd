@@ -55,23 +55,25 @@ func move_right():
 func update_from_pos():
 	if pos == 1:
 		sq01()
-	if pos == 2:
+	elif pos == 2:
 		sq02()
-	if pos == 3:
+	elif pos == 3:
 		sq03()
-	if pos == 4:
+	elif pos == 4:
 		sq04()
-	if pos == 5:
+	elif pos == 5:
 		sq05()
-	if pos == 6:
+	elif pos == 6:
 		sq06()
-	if pos == 7:
+	elif pos == 7:
 		sq07()
-	if pos == 8:
+	elif pos == 8:
 		sq08()
-	if pos == 9:
+	elif pos == 9:
 		sq09()
-
+	else:
+		print("error in menu 3x3 invalid pos so going with pos 1 when its asking for  ", pos)
+		sq01()
 
 func sq01():
 	blank_squares()
