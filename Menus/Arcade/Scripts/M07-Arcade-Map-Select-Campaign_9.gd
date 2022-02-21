@@ -1,7 +1,14 @@
 extends Node2D
+export var text_01 = "text 01"
+export var text_02 = "text 02"
+export var text_03 = "text 03"
+export var text_04 = "text 04"
+export var text_05 = "text 05"
+export var text_06 = "text 06"
+export var text_07 = "text 07"
+export var text_08 = "text 08"
+export var text_09 = "text 09"
 
-export(PackedScene) var player_select_vs
-export(PackedScene) var map
 export(PackedScene) var map_01
 export(PackedScene) var map_02
 export(PackedScene) var map_03
@@ -11,38 +18,17 @@ export(PackedScene) var map_06
 export(PackedScene) var map_07
 export(PackedScene) var map_08
 export(PackedScene) var map_09
-export(PackedScene) var map_10
-export(PackedScene) var map_11
-export(PackedScene) var map_12
-export(PackedScene) var map_13
-export(PackedScene) var map_14
-export(PackedScene) var map_15
-export(PackedScene) var map_16
-export(PackedScene) var map_17
-export(PackedScene) var map_18
-export(PackedScene) var map_19
-export(PackedScene) var map_20
-export(PackedScene) var map_21
-export(PackedScene) var map_22
-export(PackedScene) var map_23
-export(PackedScene) var map_24
-export(PackedScene) var map_25
-export(PackedScene) var map_26
-export(PackedScene) var map_27
-export(PackedScene) var map_28
-export(PackedScene) var map_29
-export(PackedScene) var map_30
-export(PackedScene) var map_31
 
+onready var p1_menu = $Menu_3x3_01
+onready var p2_menu = $Menu_3x3_02
+onready var p3_menu = $Menu_3x3_03
+onready var p4_menu = $Menu_3x3_04
+onready var p5_menu = $Menu_3x3_05
+onready var p6_menu = $Menu_3x3_06
+onready var p7_menu = $Menu_3x3_07
+onready var p8_menu = $Menu_3x3_08
 
-onready var p1_menu = $Menu_8x4_01
-onready var p2_menu = $Menu_8x4_02
-onready var p3_menu = $Menu_8x4_03
-onready var p4_menu = $Menu_8x4_04
-onready var p5_menu = $Menu_8x4_05
-onready var p6_menu = $Menu_8x4_06
-onready var p7_menu = $Menu_8x4_07
-onready var p8_menu = $Menu_8x4_08
+onready var lower_text = $Label
 
 var p1_ready = false
 var p2_ready = false
@@ -54,18 +40,12 @@ var p7_ready = false
 var p8_ready = false
 var map_array = []
 
-#func _init():
-#	HUD.menu_state()
-
 func _ready():
-	var test2 = HUD.connect("screen_update", self, "menu_check")
-	if test2 != 0:
-		print("error M04 Arcade map select connecting next_screen")
-	var test3 = HUD.connect("input_to_screen", self, "movement")
-	if test3 != 0:
-		print("error in arcade map select VS connect input to screen")
-	HUD.menu_state()
-	menu_check()
+	pass # Replace with function body.
+
+
+func update_lower_text(_text):
+	lower_text = _text
 
 func _start(_player):
 	_set_ready(_player)
@@ -81,9 +61,44 @@ func _next_screen():
 	var _map_to_load = map_array[map_num_to_load]
 	Map_Hand.set_next_map(_map_to_load)
 	HUD.load_screen(player_select_vs)
-#	Map_Hand.load_map(_map_to_load)
-#	HUD.mode = 2
 	call_deferred("free")
+
+
+func _vote(_player):
+	if _player == 1:
+		_add_to_map_array(p1_menu.get_pos())
+	elif _player == 2:
+		_add_to_map_array(p2_menu.get_pos())
+	elif _player == 3:
+		_add_to_map_array(p3_menu.get_pos())
+	elif _player == 4:
+		_add_to_map_array(p4_menu.get_pos())
+	elif _player == 5:
+		_add_to_map_array(p5_menu.get_pos())
+	elif _player == 6:
+		_add_to_map_array(p6_menu.get_pos())
+	elif _player == 7:
+		_add_to_map_array(p7_menu.get_pos())
+	elif _player == 8:
+		_add_to_map_array(p8_menu.get_pos())
+
+func _unvote(_player):
+	if _player == 1:
+		_remove_from_map_array(p1_menu.get_pos())
+	elif _player == 2:
+		_remove_from_map_array(p2_menu.get_pos())
+	elif _player == 3:
+		_remove_from_map_array(p3_menu.get_pos())
+	elif _player == 4:
+		_remove_from_map_array(p4_menu.get_pos())
+	elif _player == 5:
+		_remove_from_map_array(p5_menu.get_pos())
+	elif _player == 6:
+		_remove_from_map_array(p6_menu.get_pos())
+	elif _player == 7:
+		_remove_from_map_array(p7_menu.get_pos())
+	elif _player == 8:
+		_remove_from_map_array(p8_menu.get_pos())
 
 func movement(_player, _dir):
 	if _player == 1:
@@ -271,115 +286,6 @@ func movement(_player, _dir):
 	else:
 		print("error invald player in arcade player select VS")
 
-func _vote(_player):
-	if _player == 1:
-		_add_to_map_array(p1_menu.get_pos())
-	elif _player == 2:
-		_add_to_map_array(p2_menu.get_pos())
-	elif _player == 3:
-		_add_to_map_array(p3_menu.get_pos())
-	elif _player == 4:
-		_add_to_map_array(p4_menu.get_pos())
-	elif _player == 5:
-		_add_to_map_array(p5_menu.get_pos())
-	elif _player == 6:
-		_add_to_map_array(p6_menu.get_pos())
-	elif _player == 7:
-		_add_to_map_array(p7_menu.get_pos())
-	elif _player == 8:
-		_add_to_map_array(p8_menu.get_pos())
-
-func _unvote(_player):
-	if _player == 1:
-		_remove_from_map_array(p1_menu.get_pos())
-	elif _player == 2:
-		_remove_from_map_array(p2_menu.get_pos())
-	elif _player == 3:
-		_remove_from_map_array(p3_menu.get_pos())
-	elif _player == 4:
-		_remove_from_map_array(p4_menu.get_pos())
-	elif _player == 5:
-		_remove_from_map_array(p5_menu.get_pos())
-	elif _player == 6:
-		_remove_from_map_array(p6_menu.get_pos())
-	elif _player == 7:
-		_remove_from_map_array(p7_menu.get_pos())
-	elif _player == 8:
-		_remove_from_map_array(p8_menu.get_pos())
-
-func _add_to_map_array(_num):
-	map_array.append(_get_map(_num))
-
-func _remove_from_map_array(_num):
-	map_array.erase(_get_map(_num))
-
-func _get_map(_num):
-	if _num == 1:
-		return map_01
-	elif _num == 2:
-		return map_02
-	elif _num == 3:
-		return map_03
-	elif _num == 4:
-		return map_04
-	elif _num == 5:
-		return map_05
-	elif _num == 6:
-		return map_06
-	elif _num == 7:
-		return map_07
-	elif _num == 8:
-		return map_08
-	elif _num == 9:
-		return map_09
-	elif _num == 10:
-		return map_10
-	elif _num == 11:
-		return map_11
-	elif _num == 12:
-		return map_12
-	elif _num == 13:
-		return map_13
-	elif _num == 14:
-		return map_14
-	elif _num == 15:
-		return map_15
-	elif _num == 16:
-		return map_16
-	elif _num == 17:
-		return map_17
-	elif _num == 18:
-		return map_18
-	elif _num == 19:
-		return map_19
-	elif _num == 20:
-		return map_20
-	elif _num == 21:
-		return map_21
-	elif _num == 22:
-		return map_22
-	elif _num == 23:
-		return map_23
-	elif _num == 24:
-		return map_24
-	elif _num == 25:
-		return map_25
-	elif _num == 26:
-		return map_26
-	elif _num == 27:
-		return map_27
-	elif _num == 28:
-		return map_28
-	elif _num == 29:
-		return map_29
-	elif _num == 30:
-		return map_30
-	elif _num == 31:
-		return map_31
-	else:
-		print("invalid _num on _map_get in Arcade Map Select VS")
-		return map
-
 func _set_ready(_player):
 	if _player == 1:
 		p1_ready = true
@@ -457,3 +363,6 @@ func menu_check():
 		p7_menu.visible = true
 	if Player_Stats.p8["in_play"]:
 		p8_menu.visible = true
+
+
+

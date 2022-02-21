@@ -31,6 +31,7 @@ FX="*res://Scenes/Misc/Singleton_FX_Lib.tscn"
 HUD="*res://Menus/Arcade/HUD-Arcade.tscn"
 Net_play="*res://Scripts/Misc/Singleton_Network_play.gd"
 High_Score="*res://Scenes/Misc/Singleton_Scores.tscn"
+Campaign="*res://Scenes/Misc/Singleton_Campaign.tscn"
 
 [display]
 
