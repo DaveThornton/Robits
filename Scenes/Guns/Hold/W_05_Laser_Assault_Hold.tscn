@@ -238,7 +238,6 @@ scale_amount = 2.0
 scale_amount_curve = SubResource( 1 )
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
-visible = false
 
 [node name="Shell" type="Position2D" parent="POS_Gun/POS"]
 visible = false
@@ -248,6 +247,7 @@ position = Vector2( 2, -3 )
 position = Vector2( 24, -4 )
 
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
+visible = false
 position = Vector2( 32, -4 )
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]

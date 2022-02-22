@@ -10,8 +10,8 @@ script = ExtResource( 1 )
 
 [node name="EL_ER" type="Area2D" parent="."]
 position = Vector2( -85, 530 )
-collision_layer = 524802
-collision_mask = 526850
+collision_layer = 262144
+collision_mask = 724610
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EL_ER"]
 position = Vector2( 2, 10 )
@@ -19,8 +19,8 @@ shape = SubResource( 1 )
 
 [node name="ER_EL" type="Area2D" parent="."]
 position = Vector2( 2007, 530 )
-collision_layer = 524802
-collision_mask = 526850
+collision_layer = 262144
+collision_mask = 724610
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ER_EL"]
 position = Vector2( 2, 10 )

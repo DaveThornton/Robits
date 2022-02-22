@@ -60,45 +60,8 @@ func _next_screen():
 	var map_num_to_load = rng.randi_range(0,(map_array.size() - 1))
 	var _map_to_load = map_array[map_num_to_load]
 	Map_Hand.set_next_map(_map_to_load)
-	HUD.load_screen(player_select_vs)
+	# Need to load map or what ever here
 	call_deferred("free")
-
-
-func _vote(_player):
-	if _player == 1:
-		_add_to_map_array(p1_menu.get_pos())
-	elif _player == 2:
-		_add_to_map_array(p2_menu.get_pos())
-	elif _player == 3:
-		_add_to_map_array(p3_menu.get_pos())
-	elif _player == 4:
-		_add_to_map_array(p4_menu.get_pos())
-	elif _player == 5:
-		_add_to_map_array(p5_menu.get_pos())
-	elif _player == 6:
-		_add_to_map_array(p6_menu.get_pos())
-	elif _player == 7:
-		_add_to_map_array(p7_menu.get_pos())
-	elif _player == 8:
-		_add_to_map_array(p8_menu.get_pos())
-
-func _unvote(_player):
-	if _player == 1:
-		_remove_from_map_array(p1_menu.get_pos())
-	elif _player == 2:
-		_remove_from_map_array(p2_menu.get_pos())
-	elif _player == 3:
-		_remove_from_map_array(p3_menu.get_pos())
-	elif _player == 4:
-		_remove_from_map_array(p4_menu.get_pos())
-	elif _player == 5:
-		_remove_from_map_array(p5_menu.get_pos())
-	elif _player == 6:
-		_remove_from_map_array(p6_menu.get_pos())
-	elif _player == 7:
-		_remove_from_map_array(p7_menu.get_pos())
-	elif _player == 8:
-		_remove_from_map_array(p8_menu.get_pos())
 
 func movement(_player, _dir):
 	if _player == 1:

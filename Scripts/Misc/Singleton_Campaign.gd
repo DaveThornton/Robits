@@ -25,6 +25,18 @@ var w08_comp = false
 var w09_comp = false
 var w10_comp = false
 
+var control_order = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+
+func add_player(_player):
+	if control_order.find(_player) != -1:
+		control_order.append(_player)
+
+func remove_player(_player):
+	if control_order.find != -1:
+		control_order.remove(_player)
+	else:
+		print("error trying to remove player from control ", _player , " is not in the array")

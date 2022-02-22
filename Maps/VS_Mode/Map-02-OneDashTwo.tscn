@@ -42,7 +42,7 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_vertical_guides_": [ 38.1926 ]
 }
-background = 6
+background = 4
 gun_01 = ExtResource( 1 )
 gun_02 = ExtResource( 3 )
 gun_03 = ExtResource( 7 )
