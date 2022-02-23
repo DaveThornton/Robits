@@ -35,21 +35,28 @@ position = Vector2( 960, 520 )
 
 [node name="Menu_3x3_02" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960, 520 )
+player = 2
 
 [node name="Menu_3x3_03" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960, 520 )
+player = 3
 
 [node name="Menu_3x3_04" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960, 520 )
+player = 4
 
 [node name="Menu_3x3_05" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960, 520 )
+player = 5
 
 [node name="Menu_3x3_06" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960, 520 )
+player = 6
 
 [node name="Menu_3x3_07" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960, 520 )
+player = 7
 
 [node name="Menu_3x3_08" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960, 520 )
+player = 8

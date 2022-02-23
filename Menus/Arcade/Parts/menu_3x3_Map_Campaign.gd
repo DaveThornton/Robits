@@ -1,14 +1,14 @@
 extends Node2D
 
-onready var s01 = $Sprite01
-onready var s02 = $Sprite02
-onready var s03 = $Sprite03
-onready var s04 = $Sprite04
-onready var s05 = $Sprite05
-onready var s06 = $Sprite06
-onready var s07 = $Sprite07
-onready var s08 = $Sprite08
-onready var s09 = $Sprite09
+onready var s01 = $Sprite1
+onready var s02 = $Sprite2
+onready var s03 = $Sprite3
+onready var s04 = $Sprite4
+onready var s05 = $Sprite5
+onready var s06 = $Sprite6
+onready var s07 = $Sprite7
+onready var s08 = $Sprite8
+onready var s09 = $Sprite9
 
 func update_pos(_pos):
 	grey_out()
@@ -16,7 +16,7 @@ func update_pos(_pos):
 
 func color_frame(_num):
 	var sq = get_square(_num)
-	sq.frame += 9
+	sq.frame += 10
 
 func set_square(_sq, _frame):
 	get_square(_sq).frame = _frame

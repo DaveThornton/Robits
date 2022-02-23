@@ -1,6 +1,7 @@
 extends Node2D
 
 export(PackedScene) var camp_map
+export(PackedScene) var camp_map_screen
 
 onready var p1_menu = $Menu_8x2_01
 onready var p2_menu = $Menu_8x2_02
@@ -74,8 +75,9 @@ func _next_screen():
 		Player_Stats.p7["pawn_num"] = p7_menu.pos
 	if Player_Stats.p8["in_play"]:
 		Player_Stats.p8["pawn_num"] = p8_menu.pos
+	HUD.load_screen(camp_map_screen)
 #	Map_Hand.load_map(camp_map)
-	Map_Hand.load_map_cam_first(camp_map,"in a world","jail break",1,true)
+	# Map_Hand.load_map_cam_first(camp_map,"in a world","jail break",1,true)
 #	load_map_cam(_level, _label_1, _label_2, _time, _show)
 #	Game.started = true
 	HUD.mode = 2

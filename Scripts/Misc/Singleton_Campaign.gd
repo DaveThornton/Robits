@@ -29,7 +29,14 @@ var control_order = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass #connect a reset here
+
+func get_player_in_control():
+	if control_order.size() > 0:
+		return control_order[0]
+	else:
+		print("error in singleton campaign get player in control no players in array so retruning 1")
+		return 1
 
 func add_player(_player):
 	if control_order.find(_player) != -1:
