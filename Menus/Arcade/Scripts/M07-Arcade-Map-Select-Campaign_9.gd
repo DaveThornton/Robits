@@ -19,7 +19,8 @@ onready var p6_menu = $Menu_3x3_06
 onready var p7_menu = $Menu_3x3_07
 onready var p8_menu = $Menu_3x3_08
 
-onready var lower_text = $Label
+onready var upper_text = $Label_Top
+onready var lower_text = $Label_Bot
 
 var p1_ready = false
 var p2_ready = false
@@ -30,6 +31,7 @@ var p6_ready = false
 var p7_ready = false
 var p8_ready = false
 var player = 0
+var pos = 5
 
 func _ready():
 	player = Campaign.get_player_in_control()
@@ -54,6 +56,11 @@ func _start(_player):
 		_next_screen()
 
 func _next_screen():
+	var map_to_load = Campaign.get_map(pos)
+	var t1 = Campaign.get_map_title(pos)
+	var t2 = Campaign.get_map_discription(pos)
+	Map_Hand.load_map_cam_first(map_to_load,t1,t2,1,true)
+	Game.started = true
 	# var rng = RandomNumberGenerator.new()
 	# rng.randomize()
 	# var map_num_to_load = rng.randi_range(0,(map_array.size() - 1))
@@ -63,9 +70,10 @@ func _next_screen():
 	call_deferred("free")
 
 func update_pos(_pos):
-	lower_text.text = get_text(_pos)
+	upper_text.text = Campaign.get_map_title(_pos)
+	lower_text.text = Campaign.get_map_discription(_pos)
 	maps_menu.update_pos(_pos)
-	print(_pos)
+	pos = _pos
 
 func movement(_player, _dir):
 	if player == _player:

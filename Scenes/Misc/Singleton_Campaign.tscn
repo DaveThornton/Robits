@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Campaign.gd" type="Script" id=1]
+[ext_resource path="res://Maps/Campaign-mode/World_03/Map_C_W03_A_01_Mill.tscn" type="PackedScene" id=2]
 
-[node name="Node2D" type="Node2D"]
+[node name="Campaign_Singleton" type="Node2D"]
 script = ExtResource( 1 )
+w01 = ExtResource( 2 )
+title_01 = "Saw Mill"
+title_02 = "Factory"
+title_03 = "Ski Resort"
+title_04 = "Desert"
+title_05 = "Nope"
+title_06 = "Farm"
+title_07 = "Sea"
+title_08 = "DownTown"
+title_09 = "Forest"
+w01_dis = "Look out for a bunch of Wood and Saws"
+w02_dis = "look out for all the machinery in the way"
+w03_dis = "dont do like sonny did try to survive this map"
+w04_dis = "sand people and tut  arre going to get you"
+w05_dis = "Just no"
+w06_dis = "check this level out you hay seed. try not to die"
+w07_dis = "whats a pirates favorite letter \"t\" it be the C"
