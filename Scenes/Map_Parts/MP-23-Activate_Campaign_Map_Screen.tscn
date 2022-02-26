@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Map_Parts/MP-23-Activate_Campaign_Map_Screen.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Arcade/M07-Arcade-Map-Select-Campaign_9.tscn" type="PackedScene" id=2]
+
+[node name="MP-23-Activate_Campaign_Map_Screen" type="Node2D"]
+script = ExtResource( 1 )
+camp_map_screen = ExtResource( 2 )

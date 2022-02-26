@@ -71,12 +71,12 @@ text = "
 [node name="HBoxContainer2" type="HBoxContainer" parent="Sprite/VBoxContainer"]
 margin_top = 249.0
 margin_right = 1920.0
-margin_bottom = 886.0
+margin_bottom = 1014.0
 
 [node name="Label-Blank3" type="Label" parent="Sprite/VBoxContainer/HBoxContainer2"]
-margin_top = 311.0
+margin_top = 375.0
 margin_right = 150.0
-margin_bottom = 325.0
+margin_bottom = 389.0
 grow_horizontal = 2
 rect_min_size = Vector2( 150, 0 )
 size_flags_horizontal = 0
@@ -84,21 +84,24 @@ size_flags_horizontal = 0
 [node name="Label2" type="Label" parent="Sprite/VBoxContainer/HBoxContainer2"]
 margin_left = 154.0
 margin_right = 1766.0
-margin_bottom = 637.0
+margin_bottom = 765.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 3 )
-text = "Bottom Text : this text shoold be much longer than the top text bc it will tell a little bit of the story stuff"
+text = "Bottom Text : this text shoold be much longer than the top text bc it will tell a little bit of the story stuff 
+( place holder )"
+align = 1
 autowrap = true
 
 [node name="Label-Blank4" type="Label" parent="Sprite/VBoxContainer/HBoxContainer2"]
 margin_left = 1770.0
-margin_top = 311.0
+margin_top = 375.0
 margin_right = 1920.0
-margin_bottom = 325.0
+margin_bottom = 389.0
 grow_horizontal = 2
 rect_min_size = Vector2( 150, 0 )
 size_flags_horizontal = 0
 
 [node name="Timer" type="Timer" parent="."]
 pause_mode = 2
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

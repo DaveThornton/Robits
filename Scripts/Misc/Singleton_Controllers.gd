@@ -115,3 +115,21 @@ func player_remove_start_weap(_player):
 		p8.player_remove_start_weap()
 	else:
 		print("invalid player number in singlton controllers player_remove_start_weap player #: " ,_player)
+
+func clear_pawns():
+	if p1:
+		p1.clear_pawn()
+	if p2:
+		p2.clear_pawn()
+	if p3:
+		p3.clear_pawn()
+	if p4:
+		p4.clear_pawn()
+	if p5:
+		p5.clear_pawn()
+	if p6:
+		p6.clear_pawn()
+	if p7:
+		p7.clear_pawn()
+	if p8:
+		p8.clear_pawn()

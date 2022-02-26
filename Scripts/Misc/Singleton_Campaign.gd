@@ -57,13 +57,6 @@ var control_order = []
 func _ready():
 	pass #connect a reset here
 
-func get_player_in_control():
-	if control_order.size() > 0:
-		return control_order[0]
-	else:
-		print("error in singleton campaign get player in control no players in array so retruning 1")
-		return 1
-
 func get_map(_num):
 	if _num == 1:
 		return w01
@@ -145,6 +138,15 @@ func get_map_discription(_num):
 		print("error in campiagn singleton in valid map request in get map asked for ", _num, ". returning map 1 instead")
 		return w01
 
+
+# this section has to do with who is in control of the map selection in campaign
+func get_player_in_control():
+	if control_order.size() > 0:
+		return control_order[0]
+	else:
+		print("error in singleton campaign get player in control no players in array so retruning 1")
+		return 1
+
 func add_player(_player):
 	if control_order.find(_player) != -1:
 		control_order.append(_player)
@@ -154,3 +156,6 @@ func remove_player(_player):
 		control_order.remove(_player)
 	else:
 		print("error trying to remove player from control ", _player , " is not in the array")
+
+func clear_players():
+	control_order.clear()

@@ -55,6 +55,10 @@ func _ready():
 	if camera_move:
 		for s in 8:
 			spots_in_range.append(player_spawns.get_child(s))
+	call_deferred("_start")
+
+func _start():
+	emit_signal("start")
 
 func add_pos(_spot):
 	if spots_in_range.find(_spot) < 0:
@@ -109,7 +113,8 @@ func activate_BG(_num, _player):
 	print("map calling BGs go kill")
 
 func _on_Start_Timer_timeout():
-	emit_signal("start")
+	pass
+	# emit_signal("start")
 	# parts.propagate_call("start")
 
 func set_back(_back):

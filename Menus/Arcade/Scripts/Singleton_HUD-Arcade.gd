@@ -126,7 +126,9 @@ func update_players():
 	for p in Settings.max_num_of_player:
 		get_player_hud(p + 1).update_state(get_player_state(p + 1))
 
-func set_mode(_mode): mode = _mode
+func set_mode(_mode):
+	mode = _mode
+	state_machine()
 
 func set_pri(_player, _pri):
 	get_player_state(_player)["pri"] = _pri
