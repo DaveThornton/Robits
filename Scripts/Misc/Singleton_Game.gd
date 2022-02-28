@@ -8,7 +8,7 @@ var started = false
 var start_eq = false
 var mode = 2 # 0 Campaign safety on | 1 Campaign safety off | 2 VS score | 3 VS time |4 VS lives
 var over = false
-var end_game_score = 2
+var end_game_score = 10
 
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
@@ -40,7 +40,7 @@ func spawn_started():
 
 func set_game_over(_over):
 	over = _over
-	FX.add_trauma(500)
+	FX.add_trauma(100)
 	if over && mode > 0:
 		Map_Hand.clear_map()
 		HUD.state_machine()
