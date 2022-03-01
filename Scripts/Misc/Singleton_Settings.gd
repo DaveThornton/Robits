@@ -20,3 +20,6 @@ func set_lives_per_credit(_num_of_lives):
 
 func set_max_players(_num_of_players):
 	max_num_of_player = _num_of_players
+
+func get_max_num_players():
+	return max_num_of_player

@@ -66,158 +66,44 @@ func menu_pos_changed():
 	print(Player_Stats.get_num_in_play())
 
 func movement(_player, _dir):
-	if _player == 1:
-		if Player_Stats.p1["in_play"]:
-			if _dir == 1:
-				menu.move_up()
-			elif _dir == 2:
-				menu.move_left()
-			elif _dir == 3:
-				menu.move_right()
-			elif _dir == 4:
-				menu.move_down()
-			elif _dir == 5 || 6 || 7 || 8:
-				menu_pos = menu.pos
-				_start(_player)
-		elif Player_Stats.p1["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				HUD.player_select(_player)
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 2:
-		if Player_Stats.p2["in_play"]:
-			if _dir ==1:
-				menu.move_up()
-			elif _dir ==2:
-				menu.move_left()
-			elif _dir ==3:
-				menu.move_right()
-			elif _dir ==4:
-				menu.move_down()
-			elif _dir ==5 || 6 || 7 || 8:
-				menu_pos = menu.pos
-				_start(_player)
-		elif Player_Stats.p2["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				HUD.player_select(_player)
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 3:
-		if Player_Stats.p3["in_play"]:
-			if _dir ==1:
-				menu.move_up()
-			elif _dir ==2:
-				menu.move_left()
-			elif _dir ==3:
-				menu.move_right()
-			elif _dir ==4:
-				menu.move_down()
-			elif _dir ==5 || 6 || 7 || 8:
-				menu_pos = menu.pos
-				_start(_player)
-		elif Player_Stats.p3["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				HUD.player_select(_player)
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 4:
-		if Player_Stats.p4["in_play"]:
-			if _dir ==1:
-				menu.move_up()
-			elif _dir ==2:
-				menu.move_left()
-			elif _dir ==3:
-				menu.move_right()
-			elif _dir ==4:
-				menu.move_down()
-			elif _dir ==5 || 6 || 7 || 8:
-				menu_pos = menu.pos
-				_start(_player)
-		elif Player_Stats.p4["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				HUD.player_select(_player)
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 5:
-		if Player_Stats.p5["in_play"]:
-			if _dir ==1:
-				menu.move_up()
-			elif _dir ==2:
-				menu.move_left()
-			elif _dir ==3:
-				menu.move_right()
-			elif _dir ==4:
-				menu.move_down()
-			elif _dir ==5 || 6 || 7 || 8:
-				menu_pos = menu.pos
-				_start(_player)
-		elif Player_Stats.p5["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				HUD.player_select(_player)
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 6:
-		if Player_Stats.p6["in_play"]:
-			if _dir ==1:
-				menu.move_up()
-			elif _dir ==2:
-				menu.move_left()
-			elif _dir ==3:
-				menu.move_right()
-			elif _dir ==4:
-				menu.move_down()
-			elif _dir ==5 || 6 || 7 || 8:
-				menu_pos = menu.pos
-				_start(_player)
-		elif Player_Stats.p6["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				HUD.player_select(_player)
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 7:
-		if Player_Stats.p7["in_play"]:
-			if _dir ==1:
-				menu.move_up()
-			elif _dir ==2:
-				menu.move_left()
-			elif _dir ==3:
-				menu.move_right()
-			elif _dir ==4:
-				menu.move_down()
-			elif _dir ==5 || 6 || 7 || 8:
-				menu_pos = menu.pos
-				_start(_player)
-		elif Player_Stats.p7["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				HUD.player_select(_player)
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 8:
-		if Player_Stats.p8["in_play"]:
-			if _dir ==1:
-				menu.move_up()
-			elif _dir ==2:
-				menu.move_left()
-			elif _dir ==3:
-				menu.move_right()
-			elif _dir ==4:
-				menu.move_down()
-			elif _dir ==5 || 6 || 7 || 8:
-				menu_pos = menu.pos
-				_start(_player)
-		elif Player_Stats.p8["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				HUD.player_select(_player)
+	if _player > 0 && _player < (Settings.get_max_num_players() + 1):
+		if Player_Stats.get_in_play(_player):
+			if !get_ready(_player):
+				if _dir == 1:
+					menu.move_up()
+				elif _dir == 2:
+					menu.move_left()
+				elif _dir == 3:
+					menu.move_right()
+				elif _dir == 4:
+					menu.move_down()
+				elif _dir == 5 || 6 || 7 || 8:
+					menu_pos = menu.pos
+					_start(_player)
+
+		elif Player_Stats.get_credit(_player) >= 1 && _dir == 0: 
+			Player_Stats.use_credit(_player)
+			HUD.player_select(_player)
 		else:
 			HUD.ask_insert_coin(_player)
 	else:
-		print("error invald player in arcade mode select")
+		print("error invald player in arcade player select VS")
 	menu_pos_changed()
+
+func get_ready(_player):
+	if _player == 1:
+		return p1_ready
+	elif _player == 2:
+		return p2_ready
+	elif _player == 3:
+		return p3_ready
+	elif _player == 4:
+		return p4_ready
+	elif _player == 5:
+		return p5_ready
+	elif _player == 6:
+		return p6_ready
+	elif _player == 7:
+		return p7_ready
+	elif _player == 8:
+		return p8_ready
