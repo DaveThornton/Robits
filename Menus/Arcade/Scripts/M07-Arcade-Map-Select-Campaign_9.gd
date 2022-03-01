@@ -13,6 +13,7 @@ onready var p8_menu = $Menu_3x3_08
 onready var upper_text = $Label_Top
 onready var lower_text = $Label_Bot
 
+var started = false
 var p1_ready = false
 var p2_ready = false
 var p3_ready = false
@@ -26,6 +27,9 @@ var pos = 5
 
 func _ready():
 	player = Campaign.get_player_in_control()
+	var test1 = Map_Hand.connect("splash_done",self,"set_started")
+	if test1 != 0:
+		print("error in arcade map select campaign connect to maphand splash done")
 	var test2 = HUD.connect("screen_update", self, "menu_check")
 	if test2 != 0:
 		print("error M07 Arcade map select connecting next_screen")
@@ -55,35 +59,39 @@ func update_pos(_pos):
 	pos = _pos
 
 func movement(_player, _dir):
-	if player == _player:
-		if Player_Stats.get_in_play(_player):
-			if !get_ready(_player):
-				if _dir == 1:
-					get_menu(_player).move_up()
-				elif _dir == 2:
-					get_menu(_player).move_left()
-				elif _dir == 3:
-					get_menu(_player).move_right()
-				elif _dir == 4:
-					get_menu(_player).move_down()
-				elif _dir == 0 || _dir == 5 || _dir == 6: #|| 7 || 8:
-					_start(_player)
+	if started:
+		if player == _player:
+			if Player_Stats.get_in_play(_player):
+				if !get_ready(_player):
+					if _dir == 1:
+						get_menu(_player).move_up()
+					elif _dir == 2:
+						get_menu(_player).move_left()
+					elif _dir == 3:
+						get_menu(_player).move_right()
+					elif _dir == 4:
+						get_menu(_player).move_down()
+					elif _dir == 0 || _dir == 5 || _dir == 6: #|| 7 || 8:
+						_start(_player)
+				else:
+					print("player is already ready in M07 movement")
 			else:
-				print("player is already ready in M07 movement")
+				print("control player isnt in play M07 movement")
+				if Player_Stats.get_credit(_player) >= 1 && _dir == 0:
+					Player_Stats.use_credit(_player)
+					HUD.player_select(_player)
+				elif _dir == 0:
+					HUD.ask_insert_coin(_player)
 		else:
-			print("control player isnt in play M07 movement")
-			if Player_Stats.get_credit(_player) >= 1 && _dir == 0:
-				Player_Stats.use_credit(_player)
-				HUD.player_select(_player)
-			elif _dir == 0:
-				HUD.ask_insert_coin(_player)
-	else:
-		if !Player_Stats.get_in_play(_player):
-			if Player_Stats.get_credit(_player) >= 1 && _dir == 0:
-				Player_Stats.use_credit(_player)
-				HUD.player_select(_player)
-			elif _dir == 0:
-				HUD.ask_insert_coin(_player)
+			if !Player_Stats.get_in_play(_player):
+				if Player_Stats.get_credit(_player) >= 1 && _dir == 0:
+					Player_Stats.use_credit(_player)
+					HUD.player_select(_player)
+				elif _dir == 0:
+					HUD.ask_insert_coin(_player)
+
+func set_started():
+	started = true
 
 func show_player(_player):
 	p1_menu.visible = false

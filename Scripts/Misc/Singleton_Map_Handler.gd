@@ -9,6 +9,8 @@ onready var clearing_house = $clearing_house
 
 var level
 
+signal splash_done
+
 func spawn_pos():
 	if !Game.over:
 		return map.next_spawn_pos()
@@ -93,6 +95,7 @@ func splash_w_timer(_top,_body,_time):
 	splash(_top, _body)
 
 func _on_Splash_Timer_timeout():
+	emit_signal("splash_done")
 	get_tree().paused = false
 	splash_scn.change_text("error", "error in map hand")
 	splash_scn.visible = false

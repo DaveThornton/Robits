@@ -5,15 +5,6 @@ export(PackedScene) var next_screen
 onready var logo = $Sprite
 onready var timer = $Timer
 
-#have to keep these even though you dont use them bc it makes the hud work maybe fix later
-var p1_ready = false
-var p2_ready = false
-var p3_ready = false
-var p4_ready = false
-var p5_ready = false
-var p6_ready = false
-var p7_ready = false
-var p8_ready = false
 var screen_count = 0
 
 func _ready():
@@ -58,19 +49,4 @@ func _on_Timer_timeout():
 	FX.splash(screen_count,0)
 
 func get_ready(_player):
-	if _player == 1:
-		return p1_ready
-	elif _player == 2:
-		return p2_ready
-	elif _player == 3:
-		return p3_ready
-	elif _player == 4:
-		return p4_ready
-	elif _player == 5:
-		return p5_ready
-	elif _player == 6:
-		return p6_ready
-	elif _player == 7:
-		return p7_ready
-	elif _player == 8:
-		return p8_ready
+	return false
