@@ -1,17 +1,12 @@
 extends Node2D
 
 onready var maps_menu = $Menu_3x3_Maps
-onready var p1_menu = $Menu_3x3_01
-onready var p2_menu = $Menu_3x3_02
-onready var p3_menu = $Menu_3x3_03
-onready var p4_menu = $Menu_3x3_04
-onready var p5_menu = $Menu_3x3_05
-onready var p6_menu = $Menu_3x3_06
-onready var p7_menu = $Menu_3x3_07
-onready var p8_menu = $Menu_3x3_08
+onready var menu = $Menu_3x3_01
 
 onready var upper_text = $Label_Top
 onready var lower_text = $Label_Bot
+
+var spot_5_locked = true
 
 var started = false
 var p1_ready = false
@@ -24,9 +19,11 @@ var p7_ready = false
 var p8_ready = false
 var player = 0
 var pos = 5
+var spots
 
 func _ready():
 	player = Campaign.get_player_in_control()
+	set_spots(Campaign.get_level_comp_array())
 	var test1 = Map_Hand.connect("splash_done",self,"set_started")
 	if test1 != 0:
 		print("error in arcade map select campaign connect to maphand splash done")
@@ -37,12 +34,24 @@ func _ready():
 	if test3 != 0:
 		print("error in arcade map select campaign connect input to screen")
 	show_player(player)
+	print("completion count in campaign is ", Campaign.get_level_comp_count())
+	if Campaign.get_level_comp_count() >= 9:
+		spot_5_locked = false
+		maps_menu.set_spot05_locked(false)
+	else:
+		spot_5_locked = true
+		maps_menu.set_spot05_locked(true)
 
 func _start(_player):
-	_set_ready(_player)
-	HUD.set_pri(_player, 5)
-	SFX.menu(3)
-	_next_screen()
+	if pos == 5 && spot_5_locked:
+		SFX.menu(3)
+	elif !spots[pos]:
+		_set_ready(_player)
+		HUD.set_pri(_player, 5)
+		SFX.menu(1)
+		_next_screen()
+	else:
+		SFX.menu(3)
 
 func _next_screen():
 	var map_to_load = Campaign.get_map(pos)
@@ -64,14 +73,14 @@ func movement(_player, _dir):
 			if Player_Stats.get_in_play(_player):
 				if !get_ready(_player):
 					if _dir == 1:
-						get_menu(_player).move_up()
+						menu.move_up()
 					elif _dir == 2:
-						get_menu(_player).move_left()
+						menu.move_left()
 					elif _dir == 3:
-						get_menu(_player).move_right()
+						menu.move_right()
 					elif _dir == 4:
-						get_menu(_player).move_down()
-					elif _dir == 0 || _dir == 5 || _dir == 6: #|| 7 || 8:
+						menu.move_down()
+					elif _dir == 0 || _dir == 5 || _dir == 6:
 						_start(_player)
 				else:
 					print("player is already ready in M07 movement")
@@ -94,30 +103,7 @@ func set_started():
 	started = true
 
 func show_player(_player):
-	p1_menu.visible = false
-	p2_menu.visible = false
-	p3_menu.visible = false
-	p4_menu.visible = false
-	p5_menu.visible = false
-	p6_menu.visible = false
-	p7_menu.visible = false
-	p8_menu.visible = false
-	if _player == 1:
-		p1_menu.visible = true
-	elif _player == 2:
-		p2_menu.visible = true
-	elif _player == 3:
-		p3_menu.visible = true
-	elif _player == 4:
-		p4_menu.visible = true
-	elif _player == 5:
-		p5_menu.visible = true
-	elif _player == 6:
-		p6_menu.visible = true
-	elif _player == 7:
-		p7_menu.visible = true
-	elif _player == 8:
-		p8_menu.visible = true
+	menu.modulate = Player_Stats.get_body_color(_player)
 
 func _set_ready(_player):
 	if _player == 1:
@@ -137,24 +123,6 @@ func _set_ready(_player):
 	elif _player == 8:
 		p8_ready = true
 	# _vote(_player)
-	
-func get_menu(_num):
-	if _num == 1:
-		return p1_menu
-	elif _num == 2:
-		return p2_menu
-	elif _num == 3:
-		return p3_menu
-	elif _num == 4:
-		return p4_menu
-	elif _num == 5:
-		return p5_menu
-	elif _num == 6:
-		return p6_menu
-	elif _num == 7:
-		return p7_menu
-	elif _num == 8:
-		return p8_menu
 
 func get_ready(_num):
 	if _num == 1:
@@ -173,3 +141,10 @@ func get_ready(_num):
 		return p7_ready
 	elif _num == 8:
 		return p8_ready
+
+func set_spots(_spots):
+	spots = _spots
+	maps_menu.update_spots(spots)
+
+func get_level_comp(_num):
+	return !spots[_num]

@@ -16,7 +16,7 @@ onready var s09 = $Sprite9
 signal pos_updated
 
 func _ready():
-	modulate = Player_Stats.get_body_color(player)
+	# modulate = Player_Stats.get_body_color(player)
 	var test1 = connect("pos_updated",get_parent(),"update_pos")
 	if test1 != 0:
 		print("error in arcade map select campaign connect update pos in menu 3x3")

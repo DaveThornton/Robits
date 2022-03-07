@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Bad_Guys/BG_06_Pokey.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Bad_Guys/Parts/BG_06_Part.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 0.5 )
+
+[node name="BG_06_Pokey" type="KinematicBody2D"]
+position = Vector2( 0, 1 )
+collision_layer = 2048
+collision_mask = 12
+script = ExtResource( 1 )
+pokey_part = ExtResource( 2 )
+my_color = Color( 0, 1, 0.298039, 1 )
+
+[node name="RayCast2D_Left" type="RayCast2D" parent="."]
+position = Vector2( -17, -15 )
+enabled = true
+cast_to = Vector2( -5, 0 )
+collision_mask = 8
+
+[node name="RayCast2D_Riight" type="RayCast2D" parent="."]
+position = Vector2( 17, -15 )
+enabled = true
+cast_to = Vector2( 5, 0 )
+collision_mask = 8
+
+[node name="RayCast2D_Down" type="RayCast2D" parent="."]
+position = Vector2( 0, -14 )
+enabled = true
+cast_to = Vector2( 0, 15 )
+collision_mask = 560926
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -2 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
