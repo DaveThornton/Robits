@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/Misc/Parts/Explosions.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Explosions/Ex-18-Cricket.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Scenes/Explosions/Ex-104-BG-Cannon.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Explosions/Ex-24-Directional-TNT.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Explosions/Ex-25-Directional-Time_Bomb.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Explosions/Ex-06-BG-Pokey.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/FX/FX-13-Phaser-Hit.tscn" type="PackedScene" id=21]
 
 [node name="Explosions" type="Node2D"]
@@ -27,6 +28,7 @@ ex002 = ExtResource( 6 )
 ex003 = ExtResource( 9 )
 ex004 = ExtResource( 10 )
 ex005 = ExtResource( 8 )
+ex006 = ExtResource( 20 )
 ex007 = ExtResource( 4 )
 ex009 = ExtResource( 11 )
 ex010 = ExtResource( 7 )
