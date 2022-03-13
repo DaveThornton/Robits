@@ -33,6 +33,11 @@ Net_play="*res://Scripts/Misc/Singleton_Network_play.gd"
 High_Score="*res://Scenes/Misc/Singleton_Scores.tscn"
 Campaign="*res://Scenes/Misc/Singleton_Campaign.tscn"
 
+[debug]
+
+settings/fps/force_fps=60
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/width=1920
@@ -665,6 +670,10 @@ Menu={
 [memory]
 
 limits/message_queue/max_size_kb=2048
+
+[network]
+
+limits/debugger_stdout/max_messages_per_frame=20
 
 [rendering]
 

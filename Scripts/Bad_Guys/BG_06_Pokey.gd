@@ -4,14 +4,14 @@ export(PackedScene) var pokey_part
 export var my_color = Color(0,0,0,0)
 export var how_many_parts = 5
 export var start_left = true
-export var set_speed = 100
+export var set_speed = 10
 
 onready var cast_left = $RayCast2D_Left
 onready var cast_right = $RayCast2D_Riight
 onready var cast_down = $RayCast2D_Down
 onready var refresh_timer = $Timer
 
-var speed = 100
+var speed = 10
 var gravity = 200
 var parts = []
 var start_pos = -15
