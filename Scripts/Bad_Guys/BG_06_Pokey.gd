@@ -43,7 +43,7 @@ func _ready():
 		going_left = false
 	call_deferred("set_started")
 
-func _process(delta):
+func _physics_process(delta):
 	if started:
 		# print(self.global_position)
 		var _down = 0
