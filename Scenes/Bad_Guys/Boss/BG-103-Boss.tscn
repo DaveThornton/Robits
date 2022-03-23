@@ -65,7 +65,7 @@ tracks/1/keys = {
 }
 
 [node name="BG-103-Boss" type="KinematicBody2D"]
-collision_layer = 2147483656
+collision_layer = 2147485704
 collision_mask = 520
 script = ExtResource( 7 )
 debris_scene = ExtResource( 1 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/worm_test_one.png-8da009d8d6c21f5933cd46bd83beb288.stex"
+path="res://.import/MP-32-Maker_Spawn.png-0e603e72630324d55c9bad726ff7d441.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Bad_Guys/tmp/worm_test_one.png"
-dest_files=[ "res://.import/worm_test_one.png-8da009d8d6c21f5933cd46bd83beb288.stex" ]
+source_file="res://Sprites/Map_Parts/MP-32-Maker_Spawn.png"
+dest_files=[ "res://.import/MP-32-Maker_Spawn.png-0e603e72630324d55c9bad726ff7d441.stex" ]
 
 [params]
 

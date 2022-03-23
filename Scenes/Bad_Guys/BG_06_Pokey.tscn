@@ -30,7 +30,7 @@ collision_mask = 8
 position = Vector2( 0, -14 )
 enabled = true
 cast_to = Vector2( 0, 15 )
-collision_mask = 560926
+collision_mask = 524316
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -2 )

@@ -1,29 +1,63 @@
-# extends KinematicBody2D
-extends Node2D
+extends KinematicBody2D
 
-onready var w1 = $"BG-31-The_Maker-Part"
-onready var w2 = $"BG-31-The_Maker-Part2"
-onready var w3 = $"BG-31-The_Maker-Part3"
-onready var w4 = $"BG-31-The_Maker-Part4"
+export var going_right = false
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var is_ready = false
+onready var anim =$AnimationPlayer
+onready var ray_down = $RayCast2D
+var my_name = "The Maker"
+var dmg_type = "Worm"
+var damage = 5000
 
-# Called when the node enters the scene tree for the first time.
+var speed = 90
+var grav = 500
+var occ_player_array = []
+
+
 func _ready():
-	is_ready = true
-	pass # Replace with function body.
+	if going_right:
+		anim.play("Going_Right")
+		if speed < 0:
+			speed *= -1
+	else:
+		anim.play("Going_Left")
+		if speed > 0:
+			speed *= -1
+
+func _physics_process(delta):
+	move_and_slide(Vector2(speed * delta * 100,0 ))
+	if !ray_down.is_colliding():
+		move_and_collide(Vector2(0, grav * delta *10))
+	if !occ_player_array.empty():
+		for j in range(occ_player_array.size()):
+			_move_player(j,delta)
+
+func set_going_right(_right):
+	going_right = _right
+	if going_right:
+		anim.play("Going_Right")
+		if speed < 0:
+			speed *= -1
+	else:
+		anim.play("Going_Left")
+		if speed > 0:
+			speed *= -1
+
+func _move_player(array_num, delta):
+	var p = occ_player_array[array_num]
+	if going_right:
+		p.global_position.x -= delta * speed * 1.6
+	else:
+		p.global_position.x += delta * speed * 1.6
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-func _physics_process(_delta):
-	if is_ready:#this is so wrong fix it with bones maybe or scrap the way this goes together and just make it one big sceane
-		w1.move(Vector2(-10,10))
-		w2.move(Vector2(-10,10))
-		w3.move(Vector2(-10,10))
-		w4.move(Vector2(-10,10))
-		# move_and_slide(Vector2(-100,10))
+func _on_Area2D_body_entered(_body:Node):
+	if _body.get_groups().has("player"):
+		_body.hit(-1, my_name, dmg_type, damage)
+
+func _on_Area2D_Move_body_entered(body:Node):
+	if body.get_groups().has("player"):
+		occ_player_array.append(body)
+
+func _on_Area2D_Move_body_exited(body:Node):
+	if body.get_groups().has("player"):
+		occ_player_array.erase(body)

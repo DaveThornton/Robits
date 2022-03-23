@@ -65,28 +65,32 @@ animations = [ {
 [node name="AnimatedSprite_Back" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 4 )
 frames = SubResource( 7 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite_Tenticles" type="AnimatedSprite" parent="."]
 position = Vector2( -1, -20 )
 scale = Vector2( 0.78, 2.19429 )
 frames = SubResource( 8 )
+frame = 4
 playing = true
 
 [node name="AnimatedSprite_Top" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 4 )
 z_index = 20
 frames = SubResource( 11 )
+frame = 1
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["map", "map_part"]]
+visible = false
 position = Vector2( 0, 4 )
 collision_layer = 8
 collision_mask = 33311
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( -53, -7, -89, -44, -110, -44, -110, 36, -70, 62 )
+polygon = PoolVector2Array( -54, -9, -59, -10, -62, -16, -69, -18, -72, -28, -81, -31, -82, -36, -87, -38, -88, -44, -110, -44, -110, 36, -70, 62 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2( 180, 0 )
-polygon = PoolVector2Array( -70, -44, -92, -44, -126, -7, -110, 62, -70, 36 )
+scale = Vector2( -1, 1 )
+polygon = PoolVector2Array( -54, -9, -59, -10, -62, -16, -69, -18, -72, -28, -81, -31, -82, -36, -87, -38, -88, -44, -110, -44, -110, 36, -70, 62 )
