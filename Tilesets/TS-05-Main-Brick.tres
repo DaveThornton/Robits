@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=1036 format=2]
+[gd_resource type="TileSet" load_steps=1034 format=2]
 
 [ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Brick.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Grass-Dirt.png" type="Texture" id=2]
@@ -21,8 +21,6 @@
 [ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Sand.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Steel-plates_02.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Castle.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Concrete-Dirt.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Pipes.png" type="Texture" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )
@@ -9332,7 +9330,6 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 } ]
 25/z_index = 0
 26/name = "TS-05-Main-Concrete-Dirt.png 26"
-26/texture = ExtResource( 22 )
 26/tex_offset = Vector2( 0, 0 )
 26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 0, 0, 220, 100 )
@@ -9638,7 +9635,6 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 } ]
 26/z_index = 0
 27/name = "TS-05-Main-Pipes.png 27"
-27/texture = ExtResource( 23 )
 27/tex_offset = Vector2( 0, 0 )
 27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 0, 0, 140, 60 )
