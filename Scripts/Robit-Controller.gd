@@ -154,6 +154,11 @@ func explode_pawn(_player, _pos, _by_who, _by_what):
 			if Player_Stats.get_in_game(player):
 				r_timer.start()
 
+func clear_pawn():
+	if my_pawn:
+		my_pawn.call_deferred("free")
+		my_pawn = null
+
 func game_over(_winner):
 	print("the player controller noticed the game is over winner is player ", _winner)
 

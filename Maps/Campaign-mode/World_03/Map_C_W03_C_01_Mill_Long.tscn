@@ -95,10 +95,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main" type="TileMap" parent="." groups=["map", "map_part"]]
 modulate = Color( 0.733333, 0.388235, 0.388235, 1 )
 z_index = -4
 tile_set = ExtResource( 10 )
@@ -111,10 +108,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main2" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main2" type="TileMap" parent="." groups=["map", "map_part"]]
 z_index = -4
 tile_set = ExtResource( 10 )
 cell_size = Vector2( 20, 20 )
@@ -125,9 +119,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Platforms" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Platforms" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 1, 1, 0, 1 )
 z_index = -2
 tile_set = ExtResource( 12 )
@@ -140,9 +132,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Platforms2" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Platforms2" type="TileMap" parent="." groups=["map_part"]]
 z_index = -2
 tile_set = ExtResource( 12 )
 cell_size = Vector2( 20, 20 )
@@ -300,9 +290,7 @@ position = Vector2( 6550, 920 )
 [node name="MP-11-Player_Spawn-37" parent="Player_Spawns" instance=ExtResource( 7 )]
 position = Vector2( 6480, 920 )
 
-[node name="Map_parts" type="Node2D" parent="." groups=[
-"map_part",
-]]
+[node name="Map_parts" type="Node2D" parent="." groups=["map_part"]]
 
 [node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 8 )]
 position = Vector2( 4030, 1130 )

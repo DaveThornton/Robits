@@ -29,7 +29,7 @@ func  _process(_delta):
 			time = 0.0
 
 func change_count(_amount):
-	current_count += _amount
+	current_count = clamp(current_count + _amount,0,60)
 	self.text = str(current_count)
 
 func zero():

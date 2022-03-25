@@ -731,24 +731,25 @@ func _set_gun_dir():
 			arm.rotation_degrees = 0
 			arm.bend(2)
 		elif shoot_spot == 1:
-			head.rotation_degrees = -10
-			body_sprite.rotation_degrees = -42
-			arm.rotation_degrees = -40#head.rotation_degrees
+			head.rotation_degrees = -15
+			# body_sprite.rotation_degrees = -42
+			# arm.global_rotation_degrees=-90
+			arm.rotation_degrees = -85#head.rotation_degrees
 			arm.bend(1)
 		elif shoot_spot == 2:
-			head.rotation_degrees = -7
-			body_sprite.rotation_degrees = -22
-			arm.rotation_degrees = -23#head.rotation_degrees
+			head.rotation_degrees = -10
+			# body_sprite.rotation_degrees = -22
+			arm.rotation_degrees = -45#head.rotation_degrees
 			arm.bend(1)
 		elif shoot_spot == 4:
-			head.rotation_degrees = 9
-			body_sprite.rotation_degrees = 17
-			arm.rotation_degrees = 18#head.rotation_degrees
+			head.rotation_degrees = 10
+			# body_sprite.rotation_degrees = 17
+			arm.rotation_degrees = 35#head.rotation_degrees
 			arm.bend(2)
 		elif shoot_spot == 5:
-			head.rotation_degrees = 21
-			body_sprite.rotation_degrees = 42
-			arm.rotation_degrees = 43#head.rotation_degrees
+			head.rotation_degrees = 15
+			# body_sprite.rotation_degrees = 42
+			arm.rotation_degrees = 85#head.rotation_degrees
 			arm.bend(3)
 		elif shoot_spot == 6:
 			head.rotation_degrees = -90
@@ -764,24 +765,24 @@ func _set_gun_dir():
 			arm.rotation_degrees = 0#head.rotation_degrees
 			arm.bend(2)
 		elif shoot_spot == 1:
-			head.rotation_degrees = 10
-			body_sprite.rotation_degrees = 42
-			arm.rotation_degrees = 43 #head.rotation_degrees
+			head.rotation_degrees = 15
+			# body_sprite.rotation_degrees = 42
+			arm.rotation_degrees = 85 #head.rotation_degrees
 			arm.bend(1)
 		elif shoot_spot == 2:
-			head.rotation_degrees = 7
-			body_sprite.rotation_degrees = 22
-			arm.rotation_degrees = 23#head.rotation_degrees
+			head.rotation_degrees = 10
+			# body_sprite.rotation_degrees = 22
+			arm.rotation_degrees = 45#head.rotation_degrees
 			arm.bend(1)
 		elif shoot_spot == 4:
-			head.rotation_degrees = -9
-			body_sprite.rotation_degrees = -17
-			arm.rotation_degrees = -18#head.rotation_degrees
+			head.rotation_degrees = -10
+			# body_sprite.rotation_degrees = -17
+			arm.rotation_degrees = -35#head.rotation_degrees
 			arm.bend(2)
 		elif shoot_spot == 5:
-			head.rotation_degrees = -21
-			body_sprite.rotation_degrees = -42
-			arm.rotation_degrees = -43#head.rotation_degrees
+			head.rotation_degrees = -15
+			# body_sprite.rotation_degrees = -42
+			arm.rotation_degrees = -85#head.rotation_degrees
 			arm.bend(3)
 		elif shoot_spot == 6:
 			head.rotation_degrees = 90

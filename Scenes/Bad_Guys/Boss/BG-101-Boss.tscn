@@ -146,3 +146,4 @@ vframes = 8
 [node name="MP-15-Level_Change-01-Door" parent="Exit" instance=ExtResource( 7 )]
 position = Vector2( 0, -20 )
 level_to_load_1 = ExtResource( 11 )
+activate_no_level = true

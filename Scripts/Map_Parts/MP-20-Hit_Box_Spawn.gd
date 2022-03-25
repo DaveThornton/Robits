@@ -20,6 +20,7 @@ onready var block = $StaticBody2D/CollisionShape2D
 onready var timer_reset = $Timer
 onready var spawn_pos = $Pos2D_Spawn
 
+var player = -1
 var used = false
 var obj
 var s_obj

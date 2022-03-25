@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Map_Parts/MP-32-The_Maker_Spawner.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Bad_Guys/BG-31-The_maker.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Map_Parts/MP-32-Maker_Spawn.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 2 )
+
+[node name="MP-32-The_Maker_Spawner" type="Area2D" groups=["trigger"]]
+collision_layer = 4096
+collision_mask = 4096
+script = ExtResource( 1 )
+the_maker = ExtResource( 2 )
+
+[node name="Mp-32-MakerSpawn" type="Sprite" parent="."]
+position = Vector2( 0, -20 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

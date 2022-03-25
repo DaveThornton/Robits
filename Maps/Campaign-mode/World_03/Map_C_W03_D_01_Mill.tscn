@@ -79,10 +79,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main" type="TileMap" parent="." groups=["map", "map_part"]]
 modulate = Color( 0.733333, 0.388235, 0.388235, 1 )
 z_index = -4
 tile_set = ExtResource( 7 )
@@ -95,10 +92,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main2" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main2" type="TileMap" parent="." groups=["map", "map_part"]]
 z_index = -4
 tile_set = ExtResource( 7 )
 cell_size = Vector2( 20, 20 )
@@ -109,10 +103,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main3" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main3" type="TileMap" parent="." groups=["map", "map_part"]]
 z_index = -4
 tile_set = ExtResource( 7 )
 cell_size = Vector2( 20, 20 )
@@ -123,9 +114,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Platforms" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Platforms" type="TileMap" parent="." groups=["map_part"]]
 z_index = -2
 tile_set = ExtResource( 11 )
 cell_size = Vector2( 20, 20 )
@@ -136,9 +125,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Platforms2" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Platforms2" type="TileMap" parent="." groups=["map_part"]]
 modulate = Color( 1, 1, 0, 1 )
 z_index = -2
 tile_set = ExtResource( 11 )
@@ -179,44 +166,42 @@ tile_data = PoolIntArray( 69469301, 2, 0, 69469302, 2, 0, 69469303, 2, 0, 694693
 [node name="Player_Spawns" type="Node2D" parent="."]
 
 [node name="MP-11-Player_Spawn-01" parent="Player_Spawns" instance=ExtResource( 5 )]
-position = Vector2( 1780, 860 )
+position = Vector2( 1780, 750 )
 
 [node name="MP-11-Player_Spawn-02" parent="Player_Spawns" instance=ExtResource( 5 )]
-position = Vector2( 196, 850 )
+position = Vector2( 190, 750 )
 
 [node name="MP-11-Player_Spawn-03" parent="Player_Spawns" instance=ExtResource( 5 )]
-position = Vector2( 246, 850 )
+position = Vector2( 240, 750 )
 
 [node name="MP-11-Player_Spawn-04" parent="Player_Spawns" instance=ExtResource( 5 )]
-position = Vector2( 1730, 860 )
+position = Vector2( 1730, 750 )
 
 [node name="MP-11-Player_Spawn-05" parent="Player_Spawns" instance=ExtResource( 5 )]
-position = Vector2( 1680, 860 )
+position = Vector2( 1680, 750 )
 
 [node name="MP-11-Player_Spawn-06" parent="Player_Spawns" instance=ExtResource( 5 )]
-position = Vector2( 146, 850 )
+position = Vector2( 140, 750 )
 
 [node name="MP-11-Player_Spawn-07" parent="Player_Spawns" instance=ExtResource( 5 )]
-position = Vector2( 1630, 860 )
+position = Vector2( 1630, 750 )
 
 [node name="MP-11-Player_Spawn-08" parent="Player_Spawns" instance=ExtResource( 5 )]
-position = Vector2( 1580, 860 )
+position = Vector2( 1580, 750 )
 
 [node name="MP-11-Player_Spawn-09" parent="Player_Spawns" instance=ExtResource( 5 )]
-position = Vector2( 96, 850 )
+position = Vector2( 90, 750 )
 
 [node name="MP-11-Player_Spawn-10" parent="Player_Spawns" instance=ExtResource( 5 )]
-position = Vector2( 296, 850 )
+position = Vector2( 290, 750 )
 
 [node name="MP-11-Player_Spawn-11" parent="Player_Spawns" instance=ExtResource( 5 )]
-position = Vector2( 1830, 860 )
+position = Vector2( 1830, 750 )
 
 [node name="MP-11-Player_Spawn-12" parent="Player_Spawns" instance=ExtResource( 5 )]
-position = Vector2( 346, 850 )
+position = Vector2( 340, 750 )
 
-[node name="Map_parts" type="Node2D" parent="." groups=[
-"map_part",
-]]
+[node name="Map_parts" type="Node2D" parent="." groups=["map_part"]]
 
 [node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 4 )]
 position = Vector2( -4, 310 )

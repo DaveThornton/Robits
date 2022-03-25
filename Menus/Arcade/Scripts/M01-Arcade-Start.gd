@@ -5,14 +5,6 @@ export(PackedScene) var next_screen
 onready var logo = $Sprite
 onready var timer = $Timer
 
-var p1_ready = false
-var p2_ready = false
-var p3_ready = false
-var p4_ready = false
-var p5_ready = false
-var p6_ready = false
-var p7_ready = false
-var p8_ready = false
 var screen_count = 0
 
 func _ready():
@@ -28,57 +20,8 @@ func _ready():
 	FX.splash(true,0)
 
 func movement(_player, _dir):
-	if _player == 1:
-		if Player_Stats.p1["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				_next_screen()
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 2:
-		if Player_Stats.p2["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				_next_screen()
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 3:
-		if Player_Stats.p3["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				_next_screen()
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 4:
-		if Player_Stats.p4["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				_next_screen()
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 5:
-		if Player_Stats.p5["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				_next_screen()
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 6:
-		if Player_Stats.p6["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				_next_screen()
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 7:
-		if Player_Stats.p7["credit"] >= 1:
-			if _dir == 0:
-				Player_Stats.use_credit(_player)
-				_next_screen()
-		else:
-			HUD.ask_insert_coin(_player)
-	elif _player == 8:
-		if Player_Stats.p8["credit"] >= 1:
+	if _player > 0 && _player < Settings.get_max_num_players():
+		if Player_Stats.get_credit(_player) > 0:
 			if _dir == 0:
 				Player_Stats.use_credit(_player)
 				_next_screen()
@@ -104,3 +47,6 @@ func _on_Timer_timeout():
 		logo.visible = false
 		timer.start(6)
 	FX.splash(screen_count,0)
+
+func get_ready(_player):
+	return false

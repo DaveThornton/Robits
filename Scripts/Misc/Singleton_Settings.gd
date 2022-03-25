@@ -1,7 +1,7 @@
 extends Node
 
 var max_num_of_player = 8
-var lives_per_credit = 1
+var lives_per_credit = 3
 #var end_game_score = 10
 # Called when the node enters the scene tree for the first time.
 
@@ -20,3 +20,6 @@ func set_lives_per_credit(_num_of_lives):
 
 func set_max_players(_num_of_players):
 	max_num_of_player = _num_of_players
+
+func get_max_num_players():
+	return max_num_of_player

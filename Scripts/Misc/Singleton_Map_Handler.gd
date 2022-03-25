@@ -1,11 +1,15 @@
 extends Node
 
 onready var splash_scn = $"M10-Splash"
+onready var splash_timer = $Splash_Timer
 var map
 var next_map
+var default_splash_time = 1.0
 onready var clearing_house = $clearing_house
 
 var level
+
+signal splash_done
 
 func spawn_pos():
 	if !Game.over:
@@ -85,8 +89,15 @@ func splash(_top, _body):
 	splash_scn.visible = true
 	splash_scn.change_text(_top, _body)
 	$Splash_Timer.start()
+	
+func splash_w_timer(_top,_body,_time):
+	splash_timer.wait_time = _time
+	splash(_top, _body)
 
 func _on_Splash_Timer_timeout():
+	emit_signal("splash_done")
 	get_tree().paused = false
 	splash_scn.change_text("error", "error in map hand")
 	splash_scn.visible = false
+	splash_timer.wait_time = default_splash_time
+	

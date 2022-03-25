@@ -99,10 +99,14 @@ func shoot():
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
 			SFX.play("AK_Shoot")
-		else:
+		elif ammo > 0 && burst > (how_many_burst - 1):
+			pass
+		elif ammo <= 0:
 			can_shoot = false
 			shoot_timer.start()
 			SFX.play("Gun_Click")
+		else:
+			print("W04 M16 error while shooting else : what is going on. Ammo: ", ammo,"   burst: ", burst)
 
 func shoot_r():
 	burst = 0

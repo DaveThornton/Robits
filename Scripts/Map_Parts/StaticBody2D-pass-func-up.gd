@@ -1,5 +1,5 @@
 extends StaticBody2D
-
+var player = -1
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"

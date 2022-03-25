@@ -52,7 +52,6 @@ var p5_ready = false
 var p6_ready = false
 var p7_ready = false
 var p8_ready = false
-
 var map_array = []
 
 #func _init():

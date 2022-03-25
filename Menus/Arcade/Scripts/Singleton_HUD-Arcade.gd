@@ -53,6 +53,7 @@ var p8state = {
 var mode = 1 #0 game over vs     1 menu     2 in game      3 gameover campagin
 var splash_screen = "res://Menus/Parts/M10-Splash.tscn"
 var screen_loaded
+var player_in_control = 0
 
 signal input_to_screen #movement up:1 left:2 right:3 down:4 start:5 back:6
 signal screen_update
@@ -125,7 +126,9 @@ func update_players():
 	for p in Settings.max_num_of_player:
 		get_player_hud(p + 1).update_state(get_player_state(p + 1))
 
-func set_mode(_mode): mode = _mode
+func set_mode(_mode):
+	mode = _mode
+	state_machine()
 
 func set_pri(_player, _pri):
 	get_player_state(_player)["pri"] = _pri
@@ -148,220 +151,31 @@ func game_over_state():
 
 func menu_state():
 	if mode == 1:
-		if !Player_Stats.get_in_play(1) && Player_Stats.can_player_start(1):
-			p1state["pri"] = 3
-		elif Player_Stats.get_in_play(1) && screen_loaded.p1_ready:
-			p1state["pri"] = 5
-		elif Player_Stats.get_in_play(1) && !screen_loaded.p1_ready:
-			p1state["pri"] = 4
-		else:
-			p1state["pri"] = 2
-		
-		if !Player_Stats.get_in_play(2) && Player_Stats.can_player_start(2):
-			p2state["pri"] = 3
-		elif Player_Stats.get_in_play(2) && screen_loaded.p2_ready:
-			p2state["pri"] = 5
-		elif Player_Stats.get_in_play(2) && !screen_loaded.p2_ready:
-			p2state["pri"] = 4
-		else:
-			p2state["pri"] = 2
-	
-		if !Player_Stats.get_in_play(3) && Player_Stats.can_player_start(3):
-			p3state["pri"] = 3
-		elif Player_Stats.get_in_play(3) && screen_loaded.p3_ready:
-			p3state["pri"] = 5
-		elif Player_Stats.get_in_play(3) && !screen_loaded.p3_ready:
-			p3state["pri"] = 4
-		else:
-			p3state["pri"] = 2
-		
-		if !Player_Stats.get_in_play(4) && Player_Stats.can_player_start(4):
-			p4state["pri"] = 3
-		elif Player_Stats.get_in_play(4) && screen_loaded.p4_ready:
-			p4state["pri"] = 5
-		elif Player_Stats.get_in_play(4) && !screen_loaded.p4_ready:
-			p4state["pri"] = 4
-		else:
-			p4state["pri"] = 2
-	
-		if !Player_Stats.get_in_play(5) && Player_Stats.can_player_start(5):
-			p5state["pri"] = 3
-		elif Player_Stats.get_in_play(5) && screen_loaded.p5_ready:
-			p5state["pri"] = 5
-		elif Player_Stats.get_in_play(5) && !screen_loaded.p5_ready:
-			p5state["pri"] = 4
-		else:
-			p5state["pri"] = 2
-		
-		if !Player_Stats.get_in_play(6) && Player_Stats.can_player_start(6):
-			p6state["pri"] = 3
-		elif Player_Stats.get_in_play(6) && screen_loaded.p6_ready:
-			p6state["pri"] = 5
-		elif Player_Stats.get_in_play(6) && !screen_loaded.p6_ready:
-			p6state["pri"] = 4
-		else:
-			p6state["pri"] = 2
-	
-		if !Player_Stats.get_in_play(7) && Player_Stats.can_player_start(7):
-			p7state["pri"] = 3
-		elif Player_Stats.get_in_play(7) && screen_loaded.p7_ready:
-			p7state["pri"] = 5
-		elif Player_Stats.get_in_play(7) && !screen_loaded.p7_ready:
-			p7state["pri"] = 4
-		else:
-			p7state["pri"] = 2
-		
-		if !Player_Stats.get_in_play(8) && Player_Stats.can_player_start(8):
-			p8state["pri"] = 3
-		elif Player_Stats.get_in_play(8) && screen_loaded.p8_ready:
-			p8state["pri"] = 5
-		elif Player_Stats.get_in_play(8) && !screen_loaded.p8_ready:
-			p8state["pri"] = 4
-		else:
-			p8state["pri"] = 2
+		for p in Settings.get_max_num_players():
+			if !Player_Stats.get_in_play(p + 1) && Player_Stats.can_player_start(p + 1):
+				get_player_state(p + 1)["pri"] = 3
+			elif Player_Stats.get_in_play(p + 1) && screen_loaded.get_ready(p + 1):
+				get_player_state(p + 1)["pri"] = 5
+			elif Player_Stats.get_in_play(p + 1) && !screen_loaded.get_ready(p + 1):
+				get_player_state(p + 1)["pri"] = 4
+			else:
+				get_player_state(p + 1)["pri"] = 2
 	update_players()
 
 func game_state():
 	if mode == 2:
-		if Player_Stats.p1["in_game"]:
-			set_pri(1,10)
-		elif Player_Stats.get_in_play(1) && !Player_Stats.p1["in_game"]:
-			set_pri(1, 9)
-		elif !Player_Stats.get_in_play(1) && !Player_Stats.p1["in_game"] && Player_Stats.can_player_start(1):
-			set_pri(1, 3)
-		elif !Player_Stats.get_in_play(1) && !Player_Stats.can_player_start(1):
-			set_pri(1, 2)
-	
-		if Player_Stats.p2["in_game"]:
-			set_pri(2,10)
-		elif Player_Stats.get_in_play(2) && !Player_Stats.p2["in_game"]:
-			set_pri(2, 9)
-		elif !Player_Stats.get_in_play(2) && !Player_Stats.p2["in_game"] && Player_Stats.can_player_start(2):
-			set_pri(2, 3)
-		elif !Player_Stats.get_in_play(2) && !Player_Stats.can_player_start(2):
-			set_pri(2, 2)
-	
-		if Player_Stats.p3["in_game"]:
-			set_pri(3,10)
-		elif Player_Stats.get_in_play(3) && !Player_Stats.p3["in_game"]:
-			set_pri(3, 9)
-		elif !Player_Stats.get_in_play(3) && !Player_Stats.p3["in_game"] && Player_Stats.can_player_start(3):
-			set_pri(3, 3)
-		elif !Player_Stats.get_in_play(3) && !Player_Stats.can_player_start(3):
-			set_pri(3, 2)
-	
-		if Player_Stats.p4["in_game"]:
-			set_pri(4,10)
-		elif Player_Stats.get_in_play(4) && !Player_Stats.p4["in_game"]:
-			set_pri(4, 9)
-		elif !Player_Stats.get_in_play(4) && !Player_Stats.p4["in_game"] && Player_Stats.can_player_start(4):
-			set_pri(4, 3)
-		elif !Player_Stats.get_in_play(4) && !Player_Stats.can_player_start(4):
-			set_pri(4, 2)
-	
-		if Player_Stats.p5["in_game"]:
-			set_pri(5,10)
-		elif Player_Stats.get_in_play(5) && !Player_Stats.p5["in_game"]:
-			set_pri(5, 9)
-		elif !Player_Stats.get_in_play(5) && !Player_Stats.p5["in_game"] && Player_Stats.can_player_start(5):
-			set_pri(5, 3)
-		elif !Player_Stats.get_in_play(5) && !Player_Stats.can_player_start(5):
-			set_pri(5, 2)
-	
-		if Player_Stats.p6["in_game"]:
-			set_pri(6,10)
-		elif Player_Stats.get_in_play(6) && !Player_Stats.p6["in_game"]:
-			set_pri(6, 9)
-		elif !Player_Stats.get_in_play(6) && !Player_Stats.p6["in_game"] && Player_Stats.can_player_start(6):
-			set_pri(6, 3)
-		elif !Player_Stats.get_in_play(6) && !Player_Stats.can_player_start(6):
-			set_pri(6, 2)
-	
-		if Player_Stats.p7["in_game"]:
-			set_pri(7,10)
-		elif Player_Stats.get_in_play(7) && !Player_Stats.p7["in_game"]:
-			set_pri(7, 9)
-		elif !Player_Stats.get_in_play(7) && !Player_Stats.p7["in_game"] && Player_Stats.can_player_start(7):
-			set_pri(7, 3)
-		elif !Player_Stats.get_in_play(7) && !Player_Stats.can_player_start(7):
-			set_pri(7, 2)
-	
-		if Player_Stats.p8["in_game"]:
-			set_pri(8,10)
-		elif Player_Stats.get_in_play(8) && !Player_Stats.p8["in_game"]:
-			set_pri(8, 9)
-		elif !Player_Stats.get_in_play(8) && !Player_Stats.p8["in_game"] && Player_Stats.can_player_start(8):
-			set_pri(8, 3)
-		elif !Player_Stats.get_in_play(8) && !Player_Stats.can_player_start(8):
-			set_pri(8, 2)
+		for p in Settings.get_max_num_players():
+			if Player_Stats.get_in_game(p + 1):
+				set_pri(p + 1, 10)
+			elif Player_Stats.get_in_play(p + 1) && !Player_Stats.get_in_game(p + 1):
+				set_pri(p + 1, 9)
+			elif !Player_Stats.get_in_play(p + 1) && !Player_Stats.get_in_game(p + 1) && Player_Stats.can_player_start(p + 1):
+				set_pri(p + 1,3)
+			elif !Player_Stats.get_in_play(p + 1) && !Player_Stats.can_player_start(p + 1):
+				set_pri(p + 1, 2)
 
-func in_game_player(_player):
-	if _player == 1:
-		if Player_Stats.p1["pawn_num"] == -1:
-			p1.not_in_play()
-		elif Player_Stats.p1["pawn_num"] > -1:
-			p1.in_play()
-	elif _player == 2:
-		if Player_Stats.p2["pawn_num"] == -1:
-			p2.not_in_play()
-		elif Player_Stats.p2["pawn_num"] > -1:
-			p2.in_play()
-	elif _player == 3:
-		if Player_Stats.p3["pawn_num"] == -1:
-			p3.not_in_play()
-		elif Player_Stats.p3["pawn_num"] > -1:
-			p3.in_play()
-	elif _player == 4:
-		if Player_Stats.p4["pawn_num"] == -1:
-			p4.not_in_play()
-		elif Player_Stats.p4["pawn_num"] > -1:
-			p4.in_play()
-	elif _player == 5:
-		if Player_Stats.p5["pawn_num"] == -1:
-			p5.not_in_play()
-		elif Player_Stats.p5["pawn_num"] > -1:
-			p5.in_play()
-	elif _player == 6:
-		if Player_Stats.p6["pawn_num"] == -1:
-			p6.not_in_play()
-		elif Player_Stats.p6["pawn_num"] > -1:
-			p6.in_play()
-	elif _player == 7:
-		if Player_Stats.p7["pawn_num"] == -1:
-			p7.not_in_play()
-		elif Player_Stats.p7["pawn_num"] > -1:
-			p7.in_play()
-	elif _player == 8:
-		if Player_Stats.p8["pawn_num"] == -1:
-			p8.not_in_play()
-		elif Player_Stats.p8["pawn_num"] > -1:
-			p8.in_play()
-
-func check_in_game(_num):
-	if _num == 1:
-		if Player_Stats.p1["in_play"]: p1.in_play()
-		else: p1.in_game()
-	elif _num == 2:
-		if Player_Stats.p2["in_play"]: p2.in_play()
-		else: p2.in_game()
-	elif _num == 3:
-		if Player_Stats.p3["in_play"]: p3.in_play()
-		else: p3.in_game()
-	elif _num == 4:
-		if Player_Stats.p4["in_play"]: p4.in_play()
-		else: p4.in_game()
-	elif _num == 5:
-		if Player_Stats.p5["in_play"]: p5.in_play()
-		else: p5.in_game()
-	elif _num == 6:
-		if Player_Stats.p6["in_play"]: p6.in_play()
-		else: p6.in_game()
-	elif _num == 7:
-		if Player_Stats.p7["in_play"]: p7.in_play()
-		else: p7.in_game()
-	elif _num == 8:
-		if Player_Stats.p8["in_play"]: p8.in_play()
-		else: p8.in_game()
+func set_player_in_control(_player):
+	player_in_control = _player
 
 func set_score(_player): get_player_hud(_player).set_score_count(Player_Stats.get_score(_player))
 
@@ -491,6 +305,7 @@ func reset():
 	p6.reset()
 	p7.reset()
 	p8.reset()
+	set_player_in_control(0)
 
 func time_out():
 	get_tree().get_current_scene().arcade_reset()
@@ -551,7 +366,7 @@ func start_count():
 	count.init()		
 
 func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
-	print(_player, Game.started,"   ",Player_Stats.get_in_play(_player),"   ", Player_Stats.get_in_game(_player),"  ",Player_Stats.get_continuing(_player))
+	# print(_player, Game.started,"   ",Player_Stats.get_in_play(_player),"   ", Player_Stats.get_in_game(_player),"  ",Player_Stats.get_continuing(_player))
 	if !Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):
 		if _dir == 0 && Player_Stats.can_player_start(_player):
 			Player_Stats.reset_player(_player)

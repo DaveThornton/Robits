@@ -31,11 +31,19 @@ FX="*res://Scenes/Misc/Singleton_FX_Lib.tscn"
 HUD="*res://Menus/Arcade/HUD-Arcade.tscn"
 Net_play="*res://Scripts/Misc/Singleton_Network_play.gd"
 High_Score="*res://Scenes/Misc/Singleton_Scores.tscn"
+Campaign="*res://Scenes/Misc/Singleton_Campaign.tscn"
+
+[debug]
+
+settings/fps/force_fps=60
+settings/stdout/print_fps=true
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
+window/size/resizable=false
+window/size/fullscreen=true
 window/size/always_on_top=true
 window/vsync/use_vsync=false
 window/energy_saving/keep_screen_on=false
@@ -662,6 +670,10 @@ Menu={
 [memory]
 
 limits/message_queue/max_size_kb=2048
+
+[network]
+
+limits/debugger_stdout/max_messages_per_frame=20
 
 [rendering]
 

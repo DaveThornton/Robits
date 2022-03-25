@@ -142,6 +142,7 @@ text = "insert coin"
 align = 1
 
 [node name="Label_Press_Start" type="Label" parent="."]
+visible = false
 margin_top = 82.0
 margin_right = 225.0
 margin_bottom = 119.0
@@ -150,9 +151,10 @@ text = "Press Start"
 align = 1
 
 [node name="HBox_Select" type="HBoxContainer" parent="."]
-margin_top = 123.0
+visible = false
+margin_top = 82.0
 margin_right = 225.0
-margin_bottom = 160.0
+margin_bottom = 119.0
 alignment = 1
 
 [node name="Label_Select_Text_1" type="Label" parent="HBox_Select"]
@@ -192,17 +194,17 @@ align = 1
 
 [node name="Label_Ready" type="Label" parent="."]
 visible = false
-margin_top = 164.0
+margin_top = 123.0
 margin_right = 225.0
-margin_bottom = 201.0
+margin_bottom = 160.0
 custom_fonts/font = ExtResource( 1 )
 text = "Ready !"
 align = 1
 
 [node name="HBox_Coin" type="HBoxContainer" parent="."]
-margin_top = 164.0
+margin_top = 82.0
 margin_right = 225.0
-margin_bottom = 201.0
+margin_bottom = 119.0
 alignment = 1
 
 [node name="Label_Coin_Text_1" type="Label" parent="HBox_Coin"]
@@ -230,7 +232,7 @@ text = "]"
 align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_top = 205.0
+margin_top = 123.0
 margin_right = 225.0
 margin_bottom = 246.0
 size_flags_horizontal = 3

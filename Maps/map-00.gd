@@ -51,6 +51,10 @@ func _ready():
 	FX.camera_move(camera_move)
 	if splash:
 		HUD.splash(top_text, body_text, 1.5, true)
+	call_deferred("_start")
+
+func _start():
+	emit_signal("start")		
 
 func next_spawn_pos():
 	if first:
@@ -128,5 +132,6 @@ func get_pipe(_num):
 	return null
 
 func _on_Start_Timer_timeout():
-	emit_signal("start")
+	pass
+	# emit_signal("start")
 	# parts.propagate_call("start")

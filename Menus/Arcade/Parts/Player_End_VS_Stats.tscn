@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Menus/Arcade/Parts/Player_End_VS_Stats.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_11/Pawn_11_Pic.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_01/Pawn_01_Pic.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Pawns/Pawn_14/Pawn_14_Pic.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Pawns/Pawn_03/Pawn_03_Pic.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Pawns/Parts/Random_Pawn_Pic.tscn" type="PackedScene" id=18]
 
 [node name="Player_End_VS_Stats" type="VBoxContainer"]
 margin_right = 256.0
@@ -105,6 +106,11 @@ scale = Vector2( 4, 4 )
 visible = false
 position = Vector2( 120, 254 )
 scale = Vector2( 4, 4 )
+
+[node name="Random_Pawn_Pic" parent="MarginContainer0" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( 120, 254 )
+scale = Vector2( 2, 2 )
 
 [node name="MarginContainer1" type="MarginContainer" parent="."]
 margin_top = 260.0

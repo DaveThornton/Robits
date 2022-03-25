@@ -17,6 +17,7 @@ onready var pawn_12 = $MarginContainer0/Pawn_12_Pic
 onready var pawn_13 = $MarginContainer0/Pawn_13_Pic
 onready var pawn_14 = $MarginContainer0/Pawn_14_Pic
 onready var pawn_15 = $MarginContainer0/Pawn_15_Pic
+onready var pawn_16 = $MarginContainer0/Random_Pawn_Pic
 
 onready var player = $HBox_Player/Label2
 onready var score = $HBox_Score/Label2
@@ -106,6 +107,7 @@ func visable_pawn(_num):
 	pawn_13.visible = false
 	pawn_14.visible = false
 	pawn_15.visible = false
+	pawn_16.visible = false
 	#set all to false
 	if _num == 1:
 		pawn_01.visible = true
@@ -152,6 +154,9 @@ func visable_pawn(_num):
 	elif _num == 15:
 		pawn_15.visible = true
 		return pawn_15
+	elif _num == 16:
+		pawn_16.visible = true
+		return pawn_16
 	else:
 		print("invalid pawn number in visible pawn in end game stats so i give you pawn 05")
 		return pawn_05

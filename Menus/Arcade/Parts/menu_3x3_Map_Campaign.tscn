@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Menus/Arcade/Parts/menu_3x3_Map_Campaign.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Menu/Menu-Camp-Maps.png" type="Texture" id=2]
+
+[node name="Menu_3x3_Maps" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite1" type="Sprite" parent="."]
+position = Vector2( -451, -251 )
+texture = ExtResource( 2 )
+hframes = 8
+vframes = 4
+frame = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, -251 )
+texture = ExtResource( 2 )
+hframes = 8
+vframes = 4
+frame = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 451, -251 )
+texture = ExtResource( 2 )
+hframes = 8
+vframes = 4
+frame = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( -451, 0 )
+texture = ExtResource( 2 )
+hframes = 8
+vframes = 4
+frame = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite5" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 8
+vframes = 4
+frame = 5
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 451, 0 )
+texture = ExtResource( 2 )
+hframes = 8
+vframes = 4
+frame = 6
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite7" type="Sprite" parent="."]
+position = Vector2( -451, 251 )
+texture = ExtResource( 2 )
+hframes = 8
+vframes = 4
+frame = 7
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite8" type="Sprite" parent="."]
+position = Vector2( 0, 251 )
+texture = ExtResource( 2 )
+hframes = 8
+vframes = 4
+frame = 8
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite9" type="Sprite" parent="."]
+position = Vector2( 451, 251 )
+texture = ExtResource( 2 )
+hframes = 8
+vframes = 4
+frame = 9
+__meta__ = {
+"_edit_lock_": true
+}

@@ -1,5 +1,5 @@
 extends Node
-
+#look in ready func for demo pawn selection
 var p1 = {
 	my_name = "!!!!",
 	continuing = false,
@@ -194,8 +194,8 @@ func _ready():
 		print("error Singleton Player Stats connecting to reset from world gd")
 	if get_tree().get_current_scene().game_mode == 3:
 		print("pawns set in player stats")
-		p1["pawn_num"] = 2
-		p2["pawn_num"] = 2
+		p1["pawn_num"] = 11
+		p2["pawn_num"] = 11
 		p3["pawn_num"] = 15
 		p4["pawn_num"] = 14
 		p5["pawn_num"] = 13
@@ -275,6 +275,24 @@ func can_spawn(_player): return get_player_stats(_player)["can_spawn"]#maybe do 
 
 func set_in_game(_player,_in_game): get_player_stats(_player)["in_game"] = _in_game
 
+func set_all_in_game(in_game):
+	if p1:
+		p1["in_game"] = in_game
+	if p2:
+		p2["in_game"] = in_game	
+	if p3:
+		p3["in_game"] = in_game
+	if p4:
+		p4["in_game"] = in_game	
+	if p5:
+		p5["in_game"] = in_game
+	if p6:
+		p6["in_game"] = in_game	
+	if p7:
+		p7["in_game"] = in_game
+	if p8:
+		p8["in_game"] = in_game	
+	
 func set_lives_up(_player): get_player_stats(_player)["lives"] += Settings.lives_per_credit
 
 func add_lives(_player,_amount): get_player_stats(_player)["lives"] += _amount
@@ -311,6 +329,24 @@ func check_lives():# might not be used look in to it
 func set_in_play(_player, _in_play):
 	get_player_stats(_player)["in_play"] = _in_play
 	if Game.use_lives(): HUD.set_lives(_player,get_player_stats(_player)["lives"])
+
+func set_all_in_play(_in_play):
+	if p1:
+		p1["in_play"] = _in_play
+	if p2:
+		p2["in_play"] = _in_play	
+	if p3:
+		p3["in_play"] = _in_play
+	if p4:
+		p4["in_play"] = _in_play	
+	if p5:
+		p5["in_play"] = _in_play
+	if p6:
+		p6["in_play"] = _in_play	
+	if p7:
+		p7["in_play"] = _in_play
+	if p8:
+		p8["in_play"] = _in_play	
 
 func set_done(_player,_done): get_player_stats(_player)["done"] = _done
 

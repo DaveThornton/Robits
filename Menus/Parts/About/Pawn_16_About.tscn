@@ -15,12 +15,12 @@ position = Vector2( 412, 815 )
 scale = Vector2( 10, 10 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 170.0
-margin_top = 118.0
-margin_right = 760.0
-margin_bottom = 284.0
+margin_left = 103.0
+margin_top = 106.0
+margin_right = 759.0
+margin_bottom = 272.0
 custom_fonts/font = ExtResource( 3 )
-text = "Atlas"
+text = "At-Last"
 __meta__ = {
 "_edit_use_anchors_": false
 }
