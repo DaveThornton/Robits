@@ -93,13 +93,13 @@ anims/Explode = SubResource( 1 )
 anims/fade = SubResource( 2 )
 
 [node name="Area2D-outer" type="Area2D" parent="."]
+collision_layer = 655872
+collision_mask = 1016606
 gravity_distance_scale = 1024.0
 gravity_vec = Vector2( -1, -1 )
 gravity = -1024.0
 linear_damp = 0.0
 angular_damp = 0.0
-collision_layer = 655872
-collision_mask = 1016606
 
 [node name="CollisionShape2D-outer" type="CollisionShape2D" parent="Area2D-outer"]
 shape = SubResource( 3 )

@@ -24,9 +24,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4 ]
 }
 
-[node name="MP-14-Barrel" type="RigidBody2D" groups=[
-"hittable",
-]]
+[node name="MP-14-Barrel" type="RigidBody2D" groups=["hittable"]]
 collision_layer = 131584
 collision_mask = 524
 mass = 3.5
