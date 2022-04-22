@@ -1,5 +1,7 @@
 extends Node2D
 
+export var trauma = 0.5
+
 onready var anim = $AnimationPlayer
 onready var cast_up = $Casts/RayCast2D_Up
 onready var cast_right = $Casts/RayCast2D_Right

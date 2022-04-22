@@ -2,6 +2,8 @@ extends Node2D
 
 export(PackedScene) var pawn_part
 
+export var trauma = 1.0
+
 onready var anim = $AnimationPlayer
 var owned = 0
 var my_name = "Explosion"
@@ -35,6 +37,7 @@ func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	weap_name = _weap_name
 #	anim.play()
 	SFX.play("EX_Pawn")
+	FX.add_trauma(trauma)
 #	FX.CAMERA.shake(.3, 25, 9)
 
 func start( _sr , _ss, _sss, _player):

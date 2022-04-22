@@ -108,6 +108,7 @@ radius = 250.0
 
 [node name="Ex-02-Standard" type="Node2D"]
 script = ExtResource( 1 )
+trauma = 1.0
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 10, 10 )
@@ -119,13 +120,13 @@ anims/Explode = SubResource( 1 )
 anims/fade = SubResource( 2 )
 
 [node name="Area2D-outer" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 395784
 gravity_distance_scale = 1024.0
 gravity_vec = Vector2( -1, -1 )
 gravity = -1024.0
 linear_damp = 0.0
 angular_damp = 0.0
-collision_layer = 512
-collision_mask = 395784
 
 [node name="CollisionShape2D-outer" type="CollisionShape2D" parent="Area2D-outer"]
 shape = SubResource( 3 )
@@ -147,16 +148,16 @@ wait_time = 9.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 786432
+collision_mask = 983040
+monitoring = false
+monitorable = false
 space_override = 2
 gravity_point = true
 gravity_vec = Vector2( -1, -1 )
 gravity = -750.0
 linear_damp = 0.0
 angular_damp = 0.0
-monitoring = false
-monitorable = false
-collision_layer = 786432
-collision_mask = 983040
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 5 )

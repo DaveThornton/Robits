@@ -104,19 +104,20 @@ radius = 25.721
 [node name="Ex-02-Standard" type="Node2D"]
 z_index = -3
 script = ExtResource( 1 )
+trauma = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Explode = SubResource( 1 )
 anims/fade = SubResource( 2 )
 
 [node name="Area2D-outer" type="Area2D" parent="."]
+collision_layer = 131072
+collision_mask = 395778
 gravity_distance_scale = 1024.0
 gravity_vec = Vector2( -1, -1 )
 gravity = -1024.0
 linear_damp = 0.0
 angular_damp = 0.0
-collision_layer = 131072
-collision_mask = 395778
 
 [node name="CollisionPolygon2D_UP" type="CollisionPolygon2D" parent="Area2D-outer"]
 polygon = PoolVector2Array( 0.27269, -0.078804, 51.6343, -51.8333, 0.154968, -75.3164, -54.7357, -47.8581 )
@@ -188,6 +189,7 @@ position = Vector2( 10, 0 )
 exclude_parent = false
 cast_to = Vector2( 75, 0 )
 collision_mask = 8
+
 [connection signal="body_entered" from="Area2D-outer" to="." method="_on_Area2Douter_body_entered"]
 [connection signal="body_entered" from="Area2D2-inner" to="." method="_on_Area2D2inner_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
