@@ -13,3 +13,6 @@ export_presets.cfg
 #.mono/
 
 # End of https://www.gitignore.io/api/godot
+*.x86_64
+Robits.exe
+Robits.pck

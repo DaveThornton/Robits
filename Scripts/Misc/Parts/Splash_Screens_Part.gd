@@ -7,6 +7,7 @@ onready var dead = $Dead_Weight_Dave_inc_02
 onready var robits = $ROBITS
 onready var godot = $"Godot-Logo-02"
 onready var v_demo = $VideoPlayer_Demo
+onready var bin_label = $Binary_Label
 
 onready var pawn_01 = $Pawn/Pawn_01_About
 onready var pawn_02 = $Pawn/Pawn_18_About
@@ -25,7 +26,7 @@ onready var pawn_14 = $Pawn/Pawn_14_About
 onready var pawn_15 = $Pawn/Pawn_15_About
 
 onready var timer = $Timer
-var how_many_screens = 6
+var how_many_screens = 7
 
 #time for each screen to splash
 var t_robits = 3
@@ -37,6 +38,7 @@ var t_this_robit = 8
 var t_this_weap = 8
 var t_demo = 5
 var t_about = 8
+var t_bin = 4
 var screen_count = 0
 
 var current_pawn_about = 1
@@ -87,6 +89,9 @@ func screen(_num):
 			timer.start(t_robits)
 			robits.visible = true
 			show_demo = true
+	elif _num == 7:
+		bin_label.visible = true
+		timer.start(t_bin)
 	screen_count += 1
 	if screen_count > how_many_screens:
 		screen_count = 1
@@ -128,6 +133,7 @@ func show_pawn(_num,_visible):
 func all_out():
 	winners.visible = false
 	recycle.visible = false
+	bin_label.visible = false
 	# company.visible = false
 	robits.visible = false
 	godot.visible = false
