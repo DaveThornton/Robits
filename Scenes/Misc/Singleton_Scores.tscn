@@ -34,4 +34,5 @@ wait_time = 10.0
 one_shot = true
 
 [node name="Scores" parent="." instance=ExtResource( 2 )]
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
