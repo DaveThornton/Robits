@@ -102,6 +102,7 @@ signal explode_p
 
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
+	set_collision(_player_num)
 	attachment_point.set_player(_player_num)
 	play_type = _play_type
 	_set_color()
@@ -718,16 +719,12 @@ func _anim_ladder_move():
 	head.play("Up")
 
 func _anim_ladder_right():
-#	print("make ladder animation pawn 01")
 	_body(1)
-#	hip.stop()
 	new_anim = "Ladder_Right"
 	head.play("On")
 
 func _anim_ladder_left():
-#	print("make ladder animation pawn 01")
 	_body(1)
-#	hip.stop()
 	new_anim = "Ladder_Left"
 	head.play("On")
 
@@ -812,6 +809,11 @@ func legs_right(_is_right):
 		legb.scale.x = -1
 		legfs.scale.x = -1
 		legbs.scale.x = -1
+
+##---------------------------------------------------------[Set collsion layers]
+func set_collision(_player):
+	set_collision_layer_bit(Player_Stats.get_player_collision_layer(_player) - 1, true)
+	set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, true)
 
 ##-----------------------------------------------------------------------[Color]
 func _set_color():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -23,6 +23,9 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 128.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 125, 73 )
 
 [node name="Map-01-Disputed" type="Node2D"]
 script = ExtResource( 12 )
@@ -238,3 +241,11 @@ position = Vector2( 535.791, 375.372 )
 
 [node name="W_41_SPNKr_Pick2" parent="." instance=ExtResource( 20 )]
 position = Vector2( 1039.79, 391.372 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16777216
+collision_mask = 16777216
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1643, 879 )
+shape = SubResource( 2 )

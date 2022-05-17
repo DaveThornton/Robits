@@ -809,6 +809,11 @@ func shield_down():
 	head.shield_down()
 	legs.shield_down()
 
+##---------------------------------------------------------[Set collsion layers]
+func set_collision(_player):
+	set_collision_layer_bit(Player_Stats.get_player_collision_layer(_player) - 1, true)
+	set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, true)
+
 ##-----------------------------------------------------------------------[Color]
 func _set_color():
 	_pri_color = Player_Stats.get_body_color(player)

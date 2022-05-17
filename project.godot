@@ -666,6 +666,18 @@ Menu={
 2d_physics/layer_18="Obj For FX!"
 2d_physics/layer_19="Area interaction"
 2d_physics/layer_20="Obj to be picked up"
+2d_physics/layer_21="Team 01"
+2d_physics/layer_22="Team 02 "
+2d_physics/layer_23="Team 03"
+2d_physics/layer_24="Team 04"
+2d_physics/layer_25="Player 01"
+2d_physics/layer_26="Player 02"
+2d_physics/layer_27="Player 03"
+2d_physics/layer_28="Player 04"
+2d_physics/layer_29="Player 05"
+2d_physics/layer_30="Player 06"
+2d_physics/layer_31="Player 07"
+2d_physics/layer_32="Player 08"
 
 [memory]
 

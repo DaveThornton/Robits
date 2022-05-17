@@ -18,6 +18,7 @@ var p1 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
+	collision_layer = 25,
 	color_2 = Color8(76, 255, 142, 255),
 	color_1 = Color8(232, 32, 75, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -41,6 +42,7 @@ var p2 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
+	collision_layer = 26,
 	color_2 = Color8(255, 0, 195, 255),
 	color_1 = Color8(103, 255, 85, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -64,6 +66,7 @@ var p3 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
+	collision_layer = 27,
 	color_2 = Color8(255, 151, 15, 255),
 	color_1 = Color8(25, 145, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -87,6 +90,7 @@ var p4 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
+	collision_layer = 28,
 	color_2 = Color8(82, 235, 0, 255),
 	color_1 = Color8(255, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -110,6 +114,7 @@ var p5 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
+	collision_layer = 29,
 	color_2 = Color8(255, 232, 0, 255),
 	color_1 = Color8(119, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -133,6 +138,7 @@ var p6 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
+	collision_layer = 30,
 	color_2 = Color8(225, 98, 15, 255),
 	color_1 = Color8(0, 255, 244, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -156,6 +162,7 @@ var p7 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
+	collision_layer = 31,
 	color_2 = Color8(0, 30, 255, 255),
 	color_1 = Color8(255, 220, 72, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -179,6 +186,7 @@ var p8 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
+	collision_layer = 32,
 	color_2 = Color8(20, 255, 254, 255),
 	color_1 = Color8(255, 105, 45, 255),
 	color_3 = Color8(255, 225, 225, 222)
@@ -194,7 +202,7 @@ func _ready():
 		print("error Singleton Player Stats connecting to reset from world gd")
 	if get_tree().get_current_scene().game_mode == 3:
 		print("pawns set in player stats")
-		p1["pawn_num"] = 11
+		p1["pawn_num"] = 1
 		p2["pawn_num"] = 11
 		p3["pawn_num"] = 15
 		p4["pawn_num"] = 14
@@ -441,6 +449,8 @@ func get_player_stats(_num):
 		print("invalid get player stats, get player stats thats dumb  -->  ", _num)
 		return p8
 
+func get_player_collision_layer(_player): return get_player_stats(_player)["collision_layer"]
+
 func get_place_name(_place):
 	if _place == 0:
 		return "first Place"
@@ -496,10 +506,8 @@ func get_places():
 		var _p8score = Vector2(8, p8["score"])
 		_places.append(_p8score)
 		p_in_p += 1
-#	print("places before sort : ",_places, " in player stats")
-#	_places.sort()
+
 	_places.sort_custom(self,"sort_place")
-#	print("places after sort : ",_places, " in player stats")
 	return _places
 
 func sort_place(a, b):

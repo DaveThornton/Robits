@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://Scenes/Backgrounds/Back_03_Space.tscn" type="PackedScene" id=1]
 [ext_resource path="res://misc/CRT-Shader/crt_material.tres" type="Material" id=2]
@@ -39,9 +39,7 @@
 [ext_resource path="res://Sprites/FX/Static/Real/scene00038.png" type="Texture" id=37]
 [ext_resource path="res://Sprites/FX/Static/Real/scene00027.png" type="Texture" id=38]
 [ext_resource path="res://Sprites/FX/Static/Real/scene00032.png" type="Texture" id=39]
-[ext_resource path="res://Sprites/FX/Static/Real/scene00016.png" type="Texture" id=40]
 [ext_resource path="res://Sprites/FX/Static/Real/scene00018.png" type="Texture" id=41]
-[ext_resource path="res://Sprites/FX/Static/Real/scene00014.png" type="Texture" id=42]
 [ext_resource path="res://Sprites/FX/Static/Real/scene00023.png" type="Texture" id=43]
 [ext_resource path="res://Sprites/FX/Static/Real/scene00033.png" type="Texture" id=44]
 [ext_resource path="res://Sprites/FX/Static/Real/scene00039.png" type="Texture" id=45]
@@ -74,7 +72,7 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 20 ), ExtResource( 57 ), ExtResource( 24 ), ExtResource( 38 ), ExtResource( 62 ), ExtResource( 30 ), ExtResource( 35 ), ExtResource( 49 ), ExtResource( 16 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 51 ), ExtResource( 18 ), ExtResource( 27 ), ExtResource( 40 ), ExtResource( 52 ), ExtResource( 33 ), ExtResource( 59 ), ExtResource( 36 ), ExtResource( 17 ), ExtResource( 47 ), ExtResource( 61 ), ExtResource( 34 ), ExtResource( 45 ), ExtResource( 41 ), ExtResource( 32 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 50 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 46 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 43 ), ExtResource( 23 ), ExtResource( 31 ), ExtResource( 26 ), ExtResource( 44 ), ExtResource( 25 ), ExtResource( 37 ), ExtResource( 48 ), ExtResource( 53 ), ExtResource( 60 ), ExtResource( 54 ), ExtResource( 58 ), ExtResource( 56 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 20 ), ExtResource( 57 ), ExtResource( 24 ), ExtResource( 38 ), ExtResource( 62 ), ExtResource( 30 ), ExtResource( 35 ), ExtResource( 49 ), ExtResource( 16 ), ExtResource( 39 ), ExtResource( 55 ), ExtResource( 51 ), ExtResource( 18 ), ExtResource( 27 ), ExtResource( 22 ), ExtResource( 52 ), ExtResource( 33 ), ExtResource( 59 ), ExtResource( 36 ), ExtResource( 17 ), ExtResource( 47 ), ExtResource( 61 ), ExtResource( 34 ), ExtResource( 45 ), ExtResource( 41 ), ExtResource( 32 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 50 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 13 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 43 ), ExtResource( 23 ), ExtResource( 31 ), ExtResource( 26 ), ExtResource( 44 ), ExtResource( 25 ), ExtResource( 37 ), ExtResource( 48 ), ExtResource( 53 ), ExtResource( 60 ), ExtResource( 54 ), ExtResource( 58 ), ExtResource( 56 ) ],
 "loop": true,
 "name": "Real",
 "speed": 5.0
@@ -119,7 +117,7 @@ position = Vector2( 960, 543 )
 scale = Vector2( 1.15, 1.15 )
 frames = SubResource( 1 )
 animation = "Real"
-frame = 18
+frame = 48
 speed_scale = 7.0
 playing = true
 
@@ -130,7 +128,7 @@ position = Vector2( 960, 543 )
 scale = Vector2( 1.15, 1.15 )
 frames = SubResource( 1 )
 animation = "Real"
-frame = 18
+frame = 48
 speed_scale = 7.0
 playing = true
 
