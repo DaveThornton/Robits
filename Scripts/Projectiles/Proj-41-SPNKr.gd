@@ -1,15 +1,16 @@
 extends Area2D
 
-onready var timer = $Timer
+export var time_out = 1.0
+
 onready var cast_forward = $RayCast2D
+onready var anim = $AnimationPlayer
+
 var speed = 800
 var owned = 0
-onready var anim = $AnimationPlayer
 var my_name = "SPNKr"
 var damage
 
 func start(_rot, _pos, _scale, _owner, _dmg):
-	timer.start()
 	damage = _dmg
 	rotation = _rot + rand_range(-.01, .01)
 	position = _pos
@@ -21,17 +22,14 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 		rotation *= -1
 
 func _physics_process(delta):
+	time_out -= delta
 	move_local_x(speed * delta)
 	speed = speed * 1.01
 	if cast_forward.is_colliding():
 		FX.explode(2, owned, self.global_position, my_name, 0, damage)
 		call_deferred("_explode", position)
-
-func _on_Timer_timeout():
-	_explode(self.global_position)
-
-func _on_Timer2_timeout():
-	_explode(self.global_position)
+	if time_out <= 0.0:
+		_explode(self.global_position)
 
 func set_layer(_bit):
 	self.set_collision_layer(_bit)

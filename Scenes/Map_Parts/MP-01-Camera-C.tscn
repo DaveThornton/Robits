@@ -119,7 +119,7 @@ position = Vector2( 960, 543 )
 scale = Vector2( 1.15, 1.15 )
 frames = SubResource( 1 )
 animation = "Real"
-frame = 22
+frame = 18
 speed_scale = 7.0
 playing = true
 
@@ -130,7 +130,7 @@ position = Vector2( 960, 543 )
 scale = Vector2( 1.15, 1.15 )
 frames = SubResource( 1 )
 animation = "Real"
-frame = 22
+frame = 18
 speed_scale = 7.0
 playing = true
 

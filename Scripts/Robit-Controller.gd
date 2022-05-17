@@ -178,8 +178,9 @@ func _process(delta):
 	var shoot_input_j = Input.is_action_just_pressed(player_input_s)
 	var shoot_input_r = Input.is_action_just_released(player_input_s)
 	var pick_input_j = Input.is_action_just_pressed(player_input_p)
-	var hold_input = Input.is_action_pressed(player_input_h)
-	var hold_input_j = Input.is_action_just_pressed(player_input_h)
+	# var hold_input = Input.is_action_pressed(player_input_h)
+	# var hold_input_j = Input.is_action_just_pressed(player_input_h)
+	var start_input = Input.is_action_pressed(player_input_start)
 	var start_input_j = Input.is_action_just_pressed(player_input_start)
 	var coin_input_j = Input.is_action_just_pressed(player_input_coin)
 
@@ -202,14 +203,14 @@ func _process(delta):
 		if Player_Stats.get_in_game(player):
 			if alive:
 				if right_input && !left_input:
-					if !hold_input:
+					if !start_input:
 						my_pawn.move_x(true, true)
 					my_pawn.is_right = true
 				if left_input && !right_input:
-					if!hold_input:
+					if!start_input:
 						my_pawn.move_x(true, false)
 					my_pawn.is_right = false
-				if hold_input || !left_input && !right_input:
+				if start_input || !left_input && !right_input:
 					my_pawn.move_x(false, false)
 				if jump_input_j:
 					my_pawn.jump_j(down_input, left_input, right_input)
@@ -224,8 +225,8 @@ func _process(delta):
 				if shoot_input_r:
 					my_pawn.shoot_r()
 				if pick_input_j:
-					my_pawn.pick_throw(left_input, right_input, up_input, down_input,hold_input)
-				my_pawn.anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta)
+					my_pawn.pick_throw(left_input, right_input, up_input, down_input,start_input)
+				my_pawn.anim_update(left_input, right_input, up_input, down_input, jump_input, start_input, delta)
 			else:
 				if start_input_j:
 					if Player_Stats.can_player_start(player):
@@ -248,8 +249,8 @@ func _process(delta):
 				HUD.input(player, 5)
 			elif shoot_input_j:
 				HUD.input(player, 6)
-			elif hold_input_j:
-				HUD.input(player, 7)
+			# elif hold_input_j:
+			# 	HUD.input(player, 7)
 			elif pick_input_j:
 				HUD.input(player, 8)
 	else:
@@ -265,8 +266,8 @@ func _process(delta):
 			HUD.game_over_input(player, 4)
 		elif jump_input_j || shoot_input_j:
 			HUD.game_over_input(player, 5)
-		elif hold_input_j || pick_input_j:
-			HUD.game_over_input(player, 6)
+		# elif hold_input_j || pick_input_j:
+		# 	HUD.game_over_input(player, 6)
 
 func set_spawn_spot(_pos):
 	spawn_spot = _pos

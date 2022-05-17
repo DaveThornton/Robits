@@ -105,9 +105,9 @@ func crt_off():
 
 func add_trauma(_amount):
 #	print("trauma added ", _amount, " amount in MP-01-Camera")
-	trauma += _amount * 0.2
+	trauma += _amount * 0.1
 	trauma = clamp(trauma,0,.4)
-	print(trauma)
+	print("trauma :", trauma, "    in MP-01-Camera")
 
 func _c_shake(_delta):
 	var amount = pow(trauma,trauma_power)

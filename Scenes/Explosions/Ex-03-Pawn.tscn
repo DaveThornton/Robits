@@ -80,7 +80,7 @@ radius = 56.4954
 [sub_resource type="CircleShape2D" id=4]
 radius = 15.7633
 
-[node name="Ex-02-Standard" type="Node2D"]
+[node name="Ex-03-Pawn" type="Node2D"]
 z_index = -3
 script = ExtResource( 1 )
 pawn_part = ExtResource( 2 )

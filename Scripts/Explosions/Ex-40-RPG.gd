@@ -1,6 +1,6 @@
 extends Node2D
 
-export var trauma = 0.5
+export var trauma = 1
 
 onready var anim = $AnimationPlayer
 

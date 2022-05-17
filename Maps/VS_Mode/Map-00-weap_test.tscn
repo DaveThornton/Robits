@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-04-Jump_Power_Up.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Bad_Guys/Boss/BG-101-Boss.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Guns/Pick/W_41_SPNKr_Pick.tscn" type="PackedScene" id=20]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 128.0
@@ -231,3 +232,9 @@ activation_num = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MP-25-Activate_Area"]
 position = Vector2( 800, -72 )
 shape = SubResource( 1 )
+
+[node name="W_41_SPNKr_Pick" parent="." instance=ExtResource( 20 )]
+position = Vector2( 535.791, 375.372 )
+
+[node name="W_41_SPNKr_Pick2" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1039.79, 391.372 )
