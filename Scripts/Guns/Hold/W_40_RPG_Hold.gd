@@ -9,6 +9,7 @@ onready var melee_cast = $POS_Gun/Raycast/Melee
 onready var throw_cast = $POS_Gun/Raycast/Throw
 onready var pos_throw = $POS_Gun/POS/Throw
 onready var pos_shoot = $POS_Gun/POS/Shoot
+onready var melee_area = $POS_Gun/Melee_Area
 
 var player = 1
 var pawn = 0
@@ -41,6 +42,10 @@ func _ready():
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
+	shoot_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_area.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	emit_signal("ammo_change",player,ammo)
 	if ammo <= 0:
 		sprite_gun.frame = 1

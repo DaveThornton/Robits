@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -20,6 +20,9 @@
 [ext_resource path="res://Scenes/Bad_Guys/Boss/BG-101-Boss.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Guns/Pick/W_41_SPNKr_Pick.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Guns/Hold/W_71_Tomahawk_Hold.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Guns/Pick/W_71_Tomahawk_Pick.tscn" type="PackedScene" id=23]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 128.0
@@ -239,12 +242,25 @@ shape = SubResource( 1 )
 [node name="W_41_SPNKr_Pick" parent="." instance=ExtResource( 20 )]
 position = Vector2( 535.791, 375.372 )
 
+[node name="Weap-Pick-02-Ak-47" parent="." instance=ExtResource( 21 )]
+position = Vector2( 1360, 368 )
+
+[node name="W_71_Tomahawk_Hold" parent="." instance=ExtResource( 22 )]
+position = Vector2( 464, 928 )
+
+[node name="Weap-Pick-60-Axe" parent="W_71_Tomahawk_Hold" instance=ExtResource( 23 )]
+position = Vector2( 8, -15.949 )
+
+[node name="Weap-Pick-02-Ak-48" parent="." instance=ExtResource( 21 )]
+position = Vector2( 1464, 520 )
+
 [node name="W_41_SPNKr_Pick2" parent="." instance=ExtResource( 20 )]
 position = Vector2( 1039.79, 391.372 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 16777216
-collision_mask = 16777216
+position = Vector2( 640, -136 )
+collision_layer = 4278190080
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 1643, 879 )

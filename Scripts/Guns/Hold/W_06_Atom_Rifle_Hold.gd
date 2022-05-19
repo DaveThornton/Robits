@@ -7,6 +7,7 @@ onready var pos_shoot = $POS_Gun/POS/Shoot
 onready var pos_throw = $POS_Gun/POS/Throw
 onready var shoot_cast = $POS_Gun/Raycast/Shoot
 onready var throw_cast = $POS_Gun/Raycast/Throw
+onready var melee_area = $POS_Gun/Area2D
 
 var player = 1
 var gun_num = 6
@@ -40,6 +41,9 @@ func _ready():
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
+	shoot_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_area.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	anim_fire.play("Idle")
 	emit_signal("ammo_change",player,ammo)
 

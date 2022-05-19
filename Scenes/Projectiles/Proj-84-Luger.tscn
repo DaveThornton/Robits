@@ -21,6 +21,7 @@ hit_anim_move = ExtResource( 3 )
 position = Vector2( 7, -1.36295e-06 )
 rotation = 1.5708
 shape = SubResource( 1 )
+disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 4.98911, 0.00801982 )
@@ -35,6 +36,6 @@ wait_time = 0.5
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 45, 0 )
-collision_mask = 35594
+collision_mask = 4294347672
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

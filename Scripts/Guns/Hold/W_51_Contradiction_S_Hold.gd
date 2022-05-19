@@ -1,8 +1,5 @@
 extends Node2D
 
-# export(PackedScene) var Contradiction_S_Pickup
-# export(PackedScene) var projectile
-
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
@@ -11,6 +8,7 @@ onready var melee_cast = $POS_Gun/Raycast/Melee
 onready var throw_cast = $POS_Gun/Raycast/Throw
 onready var pos_shoot = $POS_Gun/POS/Shoot
 onready var pos_throw = $POS_Gun/POS/Throw
+onready var melee_area = $POS_Gun/Melee_Area
 
 var player = 1
 var gun_num = 51
@@ -42,6 +40,10 @@ func _ready():
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
+	shoot_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_area.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	emit_signal("ammo_change",player,ammo)
 
 func _process(delta):

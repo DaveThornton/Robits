@@ -375,7 +375,6 @@ scale_amount_curve = SubResource( 1 )
 color = Color( 1, 0, 0, 0.376471 )
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
-visible = false
 
 [node name="Shell" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( 11, -4 )
@@ -389,28 +388,26 @@ position = Vector2( 45, -3 )
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 8, -2 )
+position = Vector2( -8, -2 )
 enabled = true
 cast_to = Vector2( 2000, 0 )
-collision_mask = 36362
+collision_mask = 4278226440
 
 [node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 8, 0 )
-enabled = true
-cast_to = Vector2( 20, 0 )
-collision_mask = 2050
-
-[node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
-visible = false
-position = Vector2( 7, -1 )
+position = Vector2( -8, -1 )
 enabled = true
 cast_to = Vector2( 35, 0 )
-collision_mask = 2570
+collision_mask = 4278192128
+
+[node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( -8, 0 )
+enabled = true
+cast_to = Vector2( 55, 0 )
+collision_mask = 4278192648
 
 [node name="Melee_Area" type="Area2D" parent="POS_Gun"]
-visible = false
-collision_layer = 262144
-collision_mask = 2562
+collision_layer = 0
+collision_mask = 4278618752
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
 position = Vector2( 14, 0 )

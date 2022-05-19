@@ -32,6 +32,7 @@ func _ready():
 
 func init(_ammo, _player, _time, _just_shot):
 	player = _player
+	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	ammo = int(clamp(_ammo,0,1))
 	if ammo <= 0:
 		sprite_pin.visible = false

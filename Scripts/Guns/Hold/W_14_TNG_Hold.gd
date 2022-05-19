@@ -2,11 +2,6 @@ extends Node2D
 
 const MAX_LENGTH = 750
 
-# export(PackedScene) var tng_pickup
-# export(PackedScene) var hit_anim
-# export(PackedScene) var hit_anim_nothing
-
-
 onready var anim_fire = $AnimationPlayer
 
 onready var melee_timer = $Melee_Timer
@@ -18,12 +13,12 @@ onready var beam_end = $POS_Gun/Gun_Sprite/Laser_Sprite/Shoot
 onready var pos_shell = $POS_Gun/POS/Shell
 onready var pos_throw = $POS_Gun/POS/Throw
 onready var beam = $POS_Gun/Gun_Sprite/Laser_Sprite
+onready var melee_area = $POS_Gun/Melee_Area
 
 var player = 1
 var gun_num = 14
 var ammo = 250
 var ammo_max = 550
-#var shot_count = 0
 var take_ammo = true
 var my_name = "TNG"
 var dmg_type = "Laser"
@@ -51,6 +46,10 @@ func _ready():
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
+	shoot_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_area.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	emit_signal("ammo_change",player,ammo)
 
 func _physics_process(delta):

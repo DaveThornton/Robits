@@ -186,36 +186,38 @@ texture = ExtResource( 1 )
 hframes = 5
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
+visible = false
 
 [node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 31, -4 )
+position = Vector2( 23, -4 )
 
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 31, -4 )
+position = Vector2( 36, -4 )
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
+visible = false
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 17, -4 )
+position = Vector2( -11, -4 )
 enabled = true
-cast_to = Vector2( 15, 0 )
-collision_mask = 36106
+cast_to = Vector2( 40, 0 )
+collision_mask = 4278226184
 
 [node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 0, -4 )
+position = Vector2( -11, -4 )
 enabled = true
-cast_to = Vector2( 19, 0 )
-collision_mask = 3338
+cast_to = Vector2( 30, 0 )
+collision_mask = 4278193416
 
 [node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 9, -4 )
+position = Vector2( -9, -4 )
 enabled = true
-cast_to = Vector2( 23, 0 )
-collision_mask = 3338
+cast_to = Vector2( 50, 0 )
+collision_mask = 4278193416
 
 [node name="Melee_Area" type="Area2D" parent="POS_Gun"]
 collision_layer = 0
-collision_mask = 514
+collision_mask = 4278618752
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
 position = Vector2( 10, -5 )

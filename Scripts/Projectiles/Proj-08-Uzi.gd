@@ -4,6 +4,7 @@ export(PackedScene) var hit_anim_map
 export(PackedScene) var hit_anim_move
 onready var cast = $RayCast2D
 onready var timer = $Timer
+
 var speed = 1800
 var owned = 1
 var my_name = "Uzi 9mm"
@@ -16,6 +17,7 @@ func start(_rot, _pos, _scale, _owner, dmg):
 	position = _pos
 	scale = _scale
 	owned = _owner
+	cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_owner) - 1, false)
 	damage = dmg
 	if _scale.y < 0:
 		rotation *= -1

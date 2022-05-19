@@ -12,10 +12,9 @@ hframes = 19
 frame = 7
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 5, 0 )
 enabled = true
-cast_to = Vector2( 20, 0 )
-collision_mask = 3854
+cast_to = Vector2( 30, 0 )
+collision_mask = 4278193932
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 24, 0 )

@@ -36,24 +36,24 @@ hframes = 6
 [node name="POS" type="Node2D" parent="POS_Gun"]
 
 [node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 28, -4 )
+position = Vector2( 20, -4 )
 
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 37, -4 )
+position = Vector2( 35, 0 )
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 2, -4 )
+position = Vector2( -6, -4 )
 enabled = true
 cast_to = Vector2( 31, 0 )
-collision_mask = 35594
+collision_mask = 4278225672
 
 [node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 3, -4 )
+position = Vector2( -6, 0 )
 enabled = true
-cast_to = Vector2( 40, 0 )
-collision_mask = 2570
+cast_to = Vector2( 42, 0 )
+collision_mask = 4278192648
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Shoot = SubResource( 1 )

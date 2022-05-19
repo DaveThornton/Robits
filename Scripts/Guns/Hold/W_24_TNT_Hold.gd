@@ -1,11 +1,7 @@
 extends Node2D
 
-# export(PackedScene) var tnt_pickup
-# export(PackedScene) var boom
-
 onready var timer = $Timer
 onready var pos_throw = $POS_Gun/POS/Position2D
-#onready var sprite_pin = $POS_Gun/Pin
 onready var throw_cast = $POS_Gun/Raycast/RayCast2D
 onready var anim = $AnimationPlayer
 
@@ -32,6 +28,7 @@ func _ready():
 
 func init(_ammo, _player, _time, _just_shot):
 	player = _player
+	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	ammo = _ammo
 	if _ammo <= 0:
 		ammo = 0

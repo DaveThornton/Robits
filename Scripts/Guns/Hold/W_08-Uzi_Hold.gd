@@ -9,6 +9,7 @@ onready var throw_cast = $POS_Gun/Raycast/Throw
 onready var pos_shoot = $POS_Gun/POS/Shoot
 onready var pos_shell = $POS_Gun/POS/Shell
 onready var pos_throw = $POS_Gun/POS/Throw
+onready var melee_area = $POS_Gun/Melee_Area
 
 var player = 1
 var gun_num = 8
@@ -40,6 +41,10 @@ func _ready():
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
+	shoot_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_area.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	emit_signal("ammo_change",player,ammo)
 
 func _process(delta):
@@ -63,6 +68,7 @@ func shoot():
 					_sr = pos_shoot.global_rotation * -1
 				var _sss = pos_shoot.global_scale
 				FX.proj(gun_num, _sr, _ss, _sss, player, damage)
+				# print("firing bullet")
 			else:
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):

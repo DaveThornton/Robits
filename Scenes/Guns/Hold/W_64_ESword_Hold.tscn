@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Guns/Hold/W_64_ESword_Hold.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Guns/Pick/W_64_ESword_Pick.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_64_ESword.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Guns/W_64_ESword_Flash.png" type="Texture" id=4]
 
@@ -74,7 +73,6 @@ tracks/0/keys = {
 
 [node name="W_64_ESword_Hold" type="Node2D"]
 script = ExtResource( 1 )
-esword_pickup = ExtResource( 2 )
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
@@ -82,7 +80,7 @@ esword_pickup = ExtResource( 2 )
 position = Vector2( 2, -6 )
 rotation = -1.22173
 frames = SubResource( 12 )
-frame = 7
+frame = 2
 playing = true
 offset = Vector2( 10, 0 )
 
@@ -99,7 +97,7 @@ position = Vector2( 40, 0 )
 
 [node name="Melee_Area" type="Area2D" parent="."]
 collision_layer = 512
-collision_mask = 921090
+collision_mask = 4278618752
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Melee_Area"]
 position = Vector2( 20, 0 )
@@ -107,9 +105,10 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -9, 0 )
 enabled = true
-cast_to = Vector2( 45, 0 )
-collision_mask = 3850
+cast_to = Vector2( 55, 0 )
+collision_mask = 4278193928
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 1.5
@@ -117,5 +116,6 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Flash = SubResource( 13 )
+
 [connection signal="body_entered" from="Melee_Area" to="." method="_on_Melee_Area_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

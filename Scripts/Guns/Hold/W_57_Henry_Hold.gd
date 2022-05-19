@@ -1,9 +1,5 @@
 extends Node2D
 
-# export(PackedScene) var gun_pickup
-# export(PackedScene) var projectile
-# export(PackedScene) var shell
-
 onready var anim_fire = $AnimationPlayer
 onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
@@ -14,9 +10,9 @@ onready var throw_cast = $POS_Gun/Raycast/Throw
 onready var pos_shoot = $POS_Gun/POS/Shoot
 onready var pos_shell = $POS_Gun/POS/Shell
 onready var pos_throw = $POS_Gun/POS/Throw
+onready var melee_area = $POS_Gun/Melee_Area
 
 var player = 1
-#var pawn
 var gun_num = 57
 var ammo = 10
 var ammo_max = 50
@@ -48,6 +44,9 @@ func _ready():
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
+	shoot_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	just_shot = _just_shot
 	emit_signal("ammo_change",player,ammo)
 

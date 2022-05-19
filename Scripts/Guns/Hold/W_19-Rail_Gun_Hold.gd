@@ -12,6 +12,7 @@ onready var pos_throw = $POS_Gun/POS/Throw
 onready var beam = $POS_Gun/Gun_Sprite/Beam
 onready var beam_end =$POS_Gun/Gun_Sprite/Beam_End
 onready var partic = $POS_Gun/Gun_Sprite/CPUParticles2D
+onready var melee_area = $POS_Gun/Melee_Area
 
 var player = 1
 var pawn = 0
@@ -48,6 +49,10 @@ func _ready():
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
 	player = _player
+	shoot_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_area.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	just_shot = _just_shot
 	emit_signal("ammo_change",player,ammo)
 

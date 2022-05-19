@@ -8,9 +8,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 
-[node name="W_20_Nazi_Grenade_Hold" type="Node2D" groups=[
-"grenade",
-]]
+[node name="W_20_Nazi_Grenade_Hold" type="Node2D" groups=["grenade"]]
 script = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
@@ -35,10 +33,9 @@ position = Vector2( 24, 0 )
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
 [node name="RayCast2D" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 5, 0 )
 enabled = true
-cast_to = Vector2( 20, 0 )
-collision_mask = 3850
+cast_to = Vector2( 30, 0 )
+collision_mask = 4278193928
 
 [node name="22_plasma_det" parent="." instance=ExtResource( 1 )]
 visible = false

@@ -219,7 +219,7 @@ frame = 27
 [node name="POS" type="Node2D" parent="POS_Gun"]
 
 [node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 64, -2 )
+position = Vector2( 26, -2 )
 
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( 40, -3 )
@@ -227,20 +227,20 @@ position = Vector2( 40, -3 )
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 18, -2 )
+position = Vector2( -20, -2 )
 enabled = true
-cast_to = Vector2( 30, 0 )
-collision_mask = 35594
+cast_to = Vector2( 50, 0 )
+collision_mask = 4278225672
 
 [node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 1, -2 )
+position = Vector2( -20, 0 )
 enabled = true
-cast_to = Vector2( 40, 0 )
-collision_mask = 2570
+cast_to = Vector2( 60, 0 )
+collision_mask = 4278192648
 
 [node name="Area2D" type="Area2D" parent="POS_Gun"]
-collision_layer = 262144
-collision_mask = 2147484162
+collision_layer = 0
+collision_mask = 4278618752
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Area2D"]
 position = Vector2( 22, 0 )

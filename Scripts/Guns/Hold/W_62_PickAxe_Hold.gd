@@ -37,6 +37,8 @@ func _ready():
 		melee_area.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 func init(_ammo, _player, _time, _just_shot):
 	player = _player
+	cast_throw.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	melee_area.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	ammo = 1
 	emit_signal("ammo_change",player,ammo)
 

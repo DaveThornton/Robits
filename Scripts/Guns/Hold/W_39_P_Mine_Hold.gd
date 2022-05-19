@@ -1,8 +1,5 @@
 extends Node2D
 
-# export(PackedScene) var p_mine_pickup
-#export(PackedScene) var boom
-
 onready var pos_throw = $Position2D
 onready var throw_cast = $RayCast2D
 
@@ -29,6 +26,7 @@ func _ready():
 
 func init(_ammo, _player, _time, _just_shot):
 	player = _player
+	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	ammo = _ammo
 	emit_signal("ammo_change",player,ammo)
 	

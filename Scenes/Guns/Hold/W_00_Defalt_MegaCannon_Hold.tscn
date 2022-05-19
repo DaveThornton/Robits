@@ -68,10 +68,10 @@ position = Vector2( 31, 0 )
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 9, 0 )
+position = Vector2( -8, 0 )
 enabled = true
-cast_to = Vector2( 40, 0 )
-collision_mask = 35330
+cast_to = Vector2( 60, 0 )
+collision_mask = 4278225408
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )

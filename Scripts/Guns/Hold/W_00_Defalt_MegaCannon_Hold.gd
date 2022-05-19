@@ -39,6 +39,7 @@ func _ready():
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 
 func init(_ammo, _player, _timer, _just_shot):
+	shoot_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1,false)
 	ammo = _ammo
 	player = _player
 	anim_fire.play("Idle")

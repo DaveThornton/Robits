@@ -83,7 +83,7 @@ frame = 4
 position = Vector2( 15, -4 )
 
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 15, 0 )
+position = Vector2( 17, 0 )
 
 [node name="Shell" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( -2, -5 )
@@ -91,15 +91,16 @@ position = Vector2( -2, -5 )
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 3, -4 )
+position = Vector2( -12, -4 )
 enabled = true
-cast_to = Vector2( 20, 0 )
-collision_mask = 35594
+cast_to = Vector2( 35, 0 )
+collision_mask = 4278225672
 
 [node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( -7, 0 )
 enabled = true
-cast_to = Vector2( 26, 0 )
-collision_mask = 2570
+cast_to = Vector2( 35, 0 )
+collision_mask = 4278192648
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 1 )

@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_65_Knife.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Hold/W_65_Knife_Hold.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Guns/Pick/W_65_Knife_Pick.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.7846
@@ -10,7 +9,6 @@ height = 7.89017
 
 [node name="W_65_Knife_Hold" type="Node2D"]
 script = ExtResource( 2 )
-knife_pickup = ExtResource( 3 )
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
@@ -23,8 +21,8 @@ offset = Vector2( 10, 0 )
 position = Vector2( 40, 0 )
 
 [node name="Melee_Area" type="Area2D" parent="."]
-collision_layer = 512
-collision_mask = 921090
+collision_layer = 0
+collision_mask = 4278618752
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Melee_Area"]
 position = Vector2( 20, 0 )
@@ -32,7 +30,9 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -7, 0 )
 enabled = true
-cast_to = Vector2( 45, 0 )
-collision_mask = 3850
+cast_to = Vector2( 55, 0 )
+collision_mask = 4278193928
+
 [connection signal="body_entered" from="Melee_Area" to="." method="_on_Melee_Area_body_entered"]

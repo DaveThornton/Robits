@@ -83,7 +83,7 @@ position = Vector2( 9, -13 )
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
 texture = ExtResource( 1 )
 hframes = 6
-frame = 1
+frame = 2
 
 [node name="Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
 position = Vector2( -55, -3.5 )
@@ -92,39 +92,42 @@ texture = ExtResource( 2 )
 hframes = 5
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
+visible = false
 
 [node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( 47, 2 )
 
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 38, -2 )
+position = Vector2( 38, 13 )
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
+visible = false
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( 16, 2 )
+position = Vector2( -16, 2 )
 enabled = true
-cast_to = Vector2( 25, 0 )
-collision_mask = 35594
+cast_to = Vector2( 70, 0 )
+collision_mask = 4278225672
 
 [node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( -6, 6 )
+position = Vector2( -12, 13 )
 enabled = true
-cast_to = Vector2( 40, 0 )
-collision_mask = 2562
+cast_to = Vector2( 43, 0 )
+collision_mask = 4278192640
 
 [node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( -8, -2 )
+position = Vector2( -9, 13 )
 enabled = true
-cast_to = Vector2( 40, 0 )
-collision_mask = 2570
+cast_to = Vector2( 70, 0 )
+collision_mask = 4278192648
 
 [node name="Melee_Area" type="Area2D" parent="POS_Gun"]
-collision_layer = 262144
-collision_mask = 2562
+visible = false
+collision_layer = 0
+collision_mask = 4278618752
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
-position = Vector2( 11, 0 )
+position = Vector2( 11, 13 )
 shape = SubResource( 1 )
 disabled = true
 
