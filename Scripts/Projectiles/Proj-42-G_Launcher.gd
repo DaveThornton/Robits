@@ -16,6 +16,7 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	position = _pos
 	scale = _scale
 	owned = _owner
+	self.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_owner) - 1, false)
 	self.apply_impulse(self.global_position,(self.global_position - Controllers.get_pawn(owned).arm.global_position) * Vector2(power,power))
 	if _scale.y < 0:
 		rotation *= -1

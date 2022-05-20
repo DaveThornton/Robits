@@ -16,6 +16,7 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	position = _pos
 	scale = _scale
 	owned = _owner
+	cast_forward.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_owner) - 1, false)
 	anim.play("fire")
 	SFX.play("RPG_Shoot")
 	if _scale.y < 0:

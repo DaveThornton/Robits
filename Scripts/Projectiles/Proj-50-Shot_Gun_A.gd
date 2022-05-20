@@ -17,6 +17,7 @@ func start( _rot , _pos, _scale, _owner, _dmg):
 	# self.global_scale = _scale
 	print( _rot , _pos, _scale, _owner, _dmg)
 	owned = _owner
+	cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_owner) - 1, false)
 	damage = _dmg
 
 func _physics_process(delta):

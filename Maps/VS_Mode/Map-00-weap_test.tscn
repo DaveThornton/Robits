@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -21,8 +21,19 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Guns/Pick/W_41_SPNKr_Pick.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/Guns/Hold/W_71_Tomahawk_Hold.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Guns/Pick/W_71_Tomahawk_Pick.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Guns/Pick/W_66_Hammer_Pick.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Guns/Pick/W_69_Bat'leth_Pick.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Guns/Pick/W_11_Mega_Cannon_Pick.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Guns/Pick/W_51_Contradiction_S_Pick.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Guns/Pick/W_42_G-Launcher_Pick.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Guns/Pick/W_58_Derringer_Pick.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Guns/Pick/W_59_Bow_Pick.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Guns/Pick/W_25_Time_Bomb_Pick.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/Guns/Pick/W_84_Luger_Pick.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/Guns/Pick/W_83_Mauser_Pick.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Scenes/Guns/Pick/W_56_BFG_9000_Pick.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=34]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 128.0
@@ -245,12 +256,6 @@ position = Vector2( 535.791, 375.372 )
 [node name="Weap-Pick-02-Ak-47" parent="." instance=ExtResource( 21 )]
 position = Vector2( 1360, 368 )
 
-[node name="W_71_Tomahawk_Hold" parent="." instance=ExtResource( 22 )]
-position = Vector2( 464, 928 )
-
-[node name="Weap-Pick-60-Axe" parent="W_71_Tomahawk_Hold" instance=ExtResource( 23 )]
-position = Vector2( 8, -15.949 )
-
 [node name="Weap-Pick-02-Ak-48" parent="." instance=ExtResource( 21 )]
 position = Vector2( 1464, 520 )
 
@@ -265,3 +270,42 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 1643, 879 )
 shape = SubResource( 2 )
+
+[node name="Weap-Pick-11-Mega-Cannon" parent="." instance=ExtResource( 24 )]
+position = Vector2( 368, 912 )
+
+[node name="W_24_TNT_Pick" parent="." instance=ExtResource( 29 )]
+position = Vector2( 336, 960 )
+
+[node name="W_42_G-Launcher" parent="." instance=ExtResource( 26 )]
+position = Vector2( 472, 968 )
+
+[node name="Weap-Pick-51-Contradiction_S" parent="." instance=ExtResource( 25 )]
+position = Vector2( 552, 896 )
+
+[node name="W_58_Derringer_Pick" parent="." instance=ExtResource( 27 )]
+position = Vector2( 1400, 832.051 )
+
+[node name="W_59_Bow_Pick" parent="." instance=ExtResource( 28 )]
+position = Vector2( 1480, 840 )
+
+[node name="W_69_Bat\'leth" parent="." instance=ExtResource( 23 )]
+position = Vector2( 1480, 792.051 )
+
+[node name="W_66_Hammer_Pick" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1560, 784.051 )
+
+[node name="W_83_Mauser_Pick" parent="." instance=ExtResource( 31 )]
+position = Vector2( 1664, 912 )
+
+[node name="W_84_Luger_Pick" parent="." instance=ExtResource( 30 )]
+position = Vector2( 1768, 840 )
+
+[node name="W_05_Laser_Assault_Pick" parent="." instance=ExtResource( 33 )]
+position = Vector2( 576, 744 )
+
+[node name="W_06_Atom_Rifle_Pick" parent="." instance=ExtResource( 34 )]
+position = Vector2( 688, 968 )
+
+[node name="W_56_BFG9000_Pick" parent="." instance=ExtResource( 32 )]
+position = Vector2( 792, 992 )

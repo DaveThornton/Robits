@@ -18,6 +18,7 @@ func start(_rot, _pos, _scale, _owner, dmg):
 	rotation = _rot + rand_range(-.01, .01)
 	position = _pos
 	owned = _owner
+	cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_owner) - 1, false)
 	damage = dmg
 	if _scale.y < 0:
 		rotation *= -1
