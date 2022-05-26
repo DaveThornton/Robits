@@ -1,18 +1,19 @@
 #include <Keyboard.h>
+//Robits Controller ver 1.1
+//Robits Player 01
 
-const int coin_pin = 1;
+const int coin_pin = 10;
 const int up_pin = 2;
 const int left_pin = 3;
 const int down_pin = 4;
 const int right_pin = 5;
-const int pick_pin = 6;
-const int shoot_pin = 7;
-const int jump_pin = 8;
-const int hold_pin = 9;
-const int start_pin = 10;
-const int menu_pin = 14;
+const int pick_pin = 8;
+const int shoot_pin = 6;
+const int jump_pin = 7;
+const int start_pin = 9;
+const int menu_pin = 16;
 const int vol_up_pin = 15;
-const int vol_dn_pin = 16;
+const int vol_dn_pin = 14;
 
 char coin = '1';
 char up = 'w';
@@ -22,7 +23,6 @@ char right = 'd';
 char pick = 'q';
 char shoot = 'e';
 char jump = 'z';
-char hold = 'c';
 char start = 'x';
 char menu = 178;
 char vol_up = 224;
@@ -38,7 +38,7 @@ void setup() {
   pinMode(pick_pin, INPUT_PULLUP);
   pinMode(shoot_pin, INPUT_PULLUP);
   pinMode(jump_pin, INPUT_PULLUP);
-  pinMode(hold_pin, INPUT_PULLUP);
+  //pinMode(hold_pin, INPUT_PULLUP);
   pinMode(start_pin, INPUT_PULLUP);
   pinMode(menu_pin, INPUT_PULLUP);
   pinMode(vol_up_pin, INPUT_PULLUP);
@@ -104,6 +104,7 @@ void loop() {
   else{
     Keyboard.release(jump);
   }
+  /*
   //Robit Hold
   if (digitalRead(hold_pin) == LOW) {
     Keyboard.press(hold);
@@ -111,6 +112,7 @@ void loop() {
   else{
     Keyboard.release(hold);
   }
+  */
   //Robit Start
   if (digitalRead(start_pin) == LOW) {
     Keyboard.press(start);

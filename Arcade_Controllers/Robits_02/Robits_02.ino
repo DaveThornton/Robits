@@ -1,15 +1,16 @@
 #include <Keyboard.h>
+//Robits Controller ver 1.1
+//Robits Player 02
 
-const int coin_pin = 1;
+const int coin_pin = 10;
 const int up_pin = 2;
 const int left_pin = 3;
 const int down_pin = 4;
 const int right_pin = 5;
-const int pick_pin = 6;
-const int shoot_pin = 7;
-const int jump_pin = 8;
-const int hold_pin = 9;
-const int start_pin = 10;
+const int pick_pin = 8;
+const int shoot_pin = 6;
+const int jump_pin = 7;
+const int start_pin = 9;
 
 char coin = '2';
 char up = 't';
@@ -19,7 +20,6 @@ char right = 'h';
 char pick = 'r';
 char shoot = 'y';
 char jump = 'v';
-char hold = 'n';
 char start = 'b';
 
 void setup() {
@@ -33,7 +33,6 @@ void setup() {
   pinMode(pick_pin, INPUT_PULLUP);
   pinMode(shoot_pin, INPUT_PULLUP);
   pinMode(jump_pin, INPUT_PULLUP);
-  pinMode(hold_pin, INPUT_PULLUP);
   pinMode(start_pin, INPUT_PULLUP);
   
   Keyboard.begin();
@@ -95,13 +94,6 @@ void loop() {
     }
   else{
     Keyboard.release(jump);
-  }
-  //Robit Hold
-  if (digitalRead(hold_pin) == LOW) {
-    Keyboard.press(hold);
-    }
-  else{
-    Keyboard.release(hold);
   }
   //Robit Start
   if (digitalRead(start_pin) == LOW) {
