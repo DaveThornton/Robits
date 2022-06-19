@@ -2,7 +2,8 @@ extends Node2D
 
 onready var winners = $Winners_Dont_use_Drugs
 onready var recycle = $Recycle_it_Dont_trash_it
-onready var company = $torpedohousegames
+onready var company = $TreeTownGames
+# onready var company = $torpedohousegames
 onready var dead = $Dead_Weight_Dave_inc_02
 onready var robits = $ROBITS
 onready var godot = $"Godot-Logo-02"
@@ -26,7 +27,7 @@ onready var pawn_14 = $Pawn/Pawn_14_About
 onready var pawn_15 = $Pawn/Pawn_15_About
 
 onready var timer = $Timer
-var how_many_screens = 8
+var how_many_screens = 9
 
 #time for each screen to splash
 var t_robits = 3
@@ -96,6 +97,9 @@ func screen(_num):
 	elif _num == 8:
 		bin_label.visible = true
 		timer.start(t_bin)
+	elif _num == 9:
+		timer.start(t_company)
+		company.visible = true
 	screen_count += 1
 	if screen_count > how_many_screens:
 		screen_count = 1
@@ -139,7 +143,7 @@ func all_out():
 	recycle.visible = false
 	bin_label.visible = false
 	High_Score.set_visible(false)
-	# company.visible = false
+	company.visible = false
 	robits.visible = false
 	godot.visible = false
 	dead.visible = false

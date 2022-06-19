@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Action_-_Wrecking_Crew.ogg-1cf44cd6f0a481799a12ed294d9e5142.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/8-Bit_Music/Action_-_Wrecking_Crew.ogg"
+dest_files=[ "res://.import/Action_-_Wrecking_Crew.ogg-1cf44cd6f0a481799a12ed294d9e5142.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

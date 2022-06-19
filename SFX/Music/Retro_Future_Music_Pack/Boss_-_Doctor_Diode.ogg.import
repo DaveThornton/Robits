@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Boss_-_Doctor_Diode.ogg-45d37cce306ea01bd290fd2357454656.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Retro_Future_Music_Pack/Boss_-_Doctor_Diode.ogg"
+dest_files=[ "res://.import/Boss_-_Doctor_Diode.ogg-45d37cce306ea01bd290fd2357454656.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

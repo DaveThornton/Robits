@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Boss_-_Jet_Powered.ogg-efe0b0e9eedc31a7d01b4ca076877419.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/8-Bit_Music/Boss_-_Jet_Powered.ogg"
+dest_files=[ "res://.import/Boss_-_Jet_Powered.ogg-efe0b0e9eedc31a7d01b4ca076877419.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

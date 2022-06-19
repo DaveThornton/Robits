@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Sprites/Misc/Winners_Dont_use_Drugs.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Misc/torpedohousegames.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Menus/Parts/About/Pawn_12_About.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Menus/Parts/About/Pawn_07_About.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Menus/Parts/About/Pawn_18_About.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Sprites/Misc/Tree_Town_Games.png" type="Texture" id=26]
 
 [sub_resource type="Theme" id=1]
 
@@ -40,6 +41,11 @@ texture = ExtResource( 6 )
 visible = false
 position = Vector2( 960, 540 )
 texture = ExtResource( 8 )
+
+[node name="TreeTownGames" type="Sprite" parent="."]
+visible = false
+position = Vector2( 960, 540 )
+texture = ExtResource( 26 )
 
 [node name="Godot-Logo-02" type="Sprite" parent="."]
 visible = false

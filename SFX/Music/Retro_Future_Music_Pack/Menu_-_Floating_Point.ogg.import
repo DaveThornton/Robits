@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Menu_-_Floating_Point.ogg-df0449933ca57a7c4a5062017f8288b2.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Retro_Future_Music_Pack/Menu_-_Floating_Point.ogg"
+dest_files=[ "res://.import/Menu_-_Floating_Point.ogg-df0449933ca57a7c4a5062017f8288b2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

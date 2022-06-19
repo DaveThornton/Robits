@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Menu_-_Empires_Fall.ogg-0bee841b7c3d40ea1d52e486ce2fe5a3.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Retro_Future_Music_Pack/Menu_-_Empires_Fall.ogg"
+dest_files=[ "res://.import/Menu_-_Empires_Fall.ogg-0bee841b7c3d40ea1d52e486ce2fe5a3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
