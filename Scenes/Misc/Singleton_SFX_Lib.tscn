@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
@@ -91,6 +91,7 @@
 [ext_resource path="res://SFX/Weapons/Swings/SFX_S_001_Swing.wav" type="AudioStream" id=89]
 [ext_resource path="res://SFX/Weapons/Swings/SFX_S_003_Swing.wav" type="AudioStream" id=90]
 [ext_resource path="res://SFX/Weapons/Swings/SFX_S_004_Swing.wav" type="AudioStream" id=91]
+[ext_resource path="res://Scenes/Misc/Parts/Music_Part.tscn" type="PackedScene" id=92]
 
 [node name="SFX_Lib" type="Node2D"]
 position = Vector2( 960, 540 )
@@ -702,3 +703,5 @@ bus = "SFX"
 [node name="Gun_Click" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 bus = "SFX"
+
+[node name="Music_Part" parent="." instance=ExtResource( 92 )]

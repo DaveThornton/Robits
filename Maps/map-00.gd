@@ -6,6 +6,7 @@ export var body_text = "body_text testing levely stuff blah blah ... blah!!!"
 export var camera_move = false
 export var camera_max_right = 1920
 export var background = 1
+export var music = 0 # 0 is none
 export(PackedScene) var gun_01
 export(PackedScene) var gun_02
 export(PackedScene) var gun_03
@@ -51,6 +52,10 @@ func _ready():
 	FX.camera_move(camera_move)
 	if splash:
 		HUD.splash(top_text, body_text, 1.5, true)
+	if music > 0:
+		SFX.music(true, music)
+	else:
+		SFX.music(false, music)
 	call_deferred("_start")
 
 func _start():

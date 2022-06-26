@@ -8,6 +8,7 @@ export var camera_max_left = 0
 export var camera_max_right = 12000
 export var splash_time = 1.5
 export var background = 1
+export var music = 0 # 0 is none
 export var random_spawns = false
 export var set_equip_weap_on = false
 export var set_equip_weap_off = false
@@ -59,6 +60,10 @@ func _ready():
 
 func _start():
 	emit_signal("start")
+	if music > 0:
+		SFX.music(true, music)
+	else:
+		SFX.music(false, music)
 
 func add_pos(_spot):
 	if spots_in_range.find(_spot) < 0:

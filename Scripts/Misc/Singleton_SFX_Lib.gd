@@ -4,6 +4,7 @@ onready var swings = $Swings
 onready var shells = $Shells
 onready var explosions = $Explosions
 onready var menus = $Menus
+onready var music_part = $Music_Part
 
 var hit_num = 0
 var swing_num = 0 
@@ -42,7 +43,11 @@ func shell():
 func explosion(_num):#1: Pawn  2: Convetional  3: Energy
 	explosions.get_child(_num).get_child(exp_num).play()
 
-
+func music(_play, _num):
+	if _play:
+		music_part.play(_num)
+	else:
+		music_part.stop()
 
 func set_master_vol(_db):
 	AudioServer.set_bus_volume_db(0,_db)

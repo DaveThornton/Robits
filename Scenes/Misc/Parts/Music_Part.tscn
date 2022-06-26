@@ -1,0 +1,46 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/Misc/Parts/Music_Part.gd" type="Script" id=1]
+[ext_resource path="res://SFX/Music/Retro_Future_Music_Pack/Action_-_Constant_Combat.ogg" type="AudioStream" id=2]
+[ext_resource path="res://SFX/Music/Retro_Future_Music_Pack/Action_-_Keep_Shooting.ogg" type="AudioStream" id=3]
+[ext_resource path="res://SFX/Music/Retro_Future_Music_Pack/Action_-_Rocket_Racer.ogg" type="AudioStream" id=4]
+[ext_resource path="res://SFX/Music/Retro_Future_Music_Pack/Action_-_Synthetic_Dark.ogg" type="AudioStream" id=5]
+[ext_resource path="res://SFX/Music/Retro_Future_Music_Pack/Action_-_Pedal_to_the_Metal.ogg" type="AudioStream" id=6]
+[ext_resource path="res://SFX/Music/Retro_Future_Music_Pack/Action_-_Midnight_Cruisers.ogg" type="AudioStream" id=7]
+[ext_resource path="res://SFX/Music/Retro_Future_Music_Pack/Action_-_Driving_Rivals.ogg" type="AudioStream" id=8]
+[ext_resource path="res://SFX/Music/Retro_Future_Music_Pack/Action_-_Street_Brawl.ogg" type="AudioStream" id=9]
+[ext_resource path="res://SFX/Music/Retro_Future_Music_Pack/Action_-_Laser_Cycles.ogg" type="AudioStream" id=10]
+[ext_resource path="res://SFX/Music/Retro_Future_Music_Pack/Action_-_Route_88.ogg" type="AudioStream" id=11]
+
+[node name="Music_Part" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Song_01" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="Song_02" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="Song_03" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Song_04" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Song_05" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="Song_06" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Song_07" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Song_08" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="Song_09" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="Song_10" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )

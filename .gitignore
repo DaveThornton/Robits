@@ -16,3 +16,4 @@ export_presets.cfg
 *.x86_64
 Robits.exe
 Robits.pck
+*.db

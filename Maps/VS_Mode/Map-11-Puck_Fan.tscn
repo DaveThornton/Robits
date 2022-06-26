@@ -37,6 +37,7 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_vertical_guides_": [ 38.1926 ]
 }
+music = 2
 gun_01 = ExtResource( 11 )
 gun_02 = ExtResource( 11 )
 gun_03 = ExtResource( 18 )
