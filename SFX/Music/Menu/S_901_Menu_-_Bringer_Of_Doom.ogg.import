@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/S_901_Menu_-_Bringer_Of_Doom.ogg-0ab33d44230605d780c9ab4523e2d893.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Menu/S_901_Menu_-_Bringer_Of_Doom.ogg"
+dest_files=[ "res://.import/S_901_Menu_-_Bringer_Of_Doom.ogg-0ab33d44230605d780c9ab4523e2d893.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

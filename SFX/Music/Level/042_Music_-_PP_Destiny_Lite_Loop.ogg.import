@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/042_Music_-_PP_Destiny_Lite_Loop.ogg-208ea360376bda71ea97faed463cf262.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/042_Music_-_PP_Destiny_Lite_Loop.ogg"
+dest_files=[ "res://.import/042_Music_-_PP_Destiny_Lite_Loop.ogg-208ea360376bda71ea97faed463cf262.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/020_Around the Bend 100 BPM.ogg-7de564c10461bd81bffbf160935645ce.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/020_Around the Bend 100 BPM.ogg"
+dest_files=[ "res://.import/020_Around the Bend 100 BPM.ogg-7de564c10461bd81bffbf160935645ce.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

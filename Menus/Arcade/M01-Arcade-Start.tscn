@@ -7,6 +7,7 @@
 [node name="M01-Arcade-Start" type="Node2D"]
 script = ExtResource( 1 )
 next_screen = ExtResource( 2 )
+song_num = 900
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false

@@ -85,7 +85,7 @@ func shoot_j():
 				pos_walk.rotation_degrees -= 22
 				just_shot = true
 		else:
-			print("melee attack")
+			print_debug("melee attack")
 			can_shoot = false
 			anim_fire.play("Melee")
 			melee_timer.start()

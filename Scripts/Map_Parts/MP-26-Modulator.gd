@@ -11,13 +11,13 @@ var dir = 1
 
 func _ready():
 	current_color = start_color
-	# print(current_color, "in MP 26 modulator")
+	# print_debug(current_color, "in MP 26 modulator")
 
 func _process(_delta):
 	call_deferred("change_color")
 
 func change_color():
-	# print(current_color.r,current_color.g, current_color.b, "in MP 26 modulator")
+	# print_debug(current_color.r,current_color.g, current_color.b, "in MP 26 modulator")
 	if current_color.r == 255 && current_color.g < 255 && current_color.b == 0:
 		current_color.g += step_speed
 	elif current_color.g == 255 && current_color.r <= 255 && current_color.r > 0:

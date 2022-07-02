@@ -25,7 +25,7 @@ func shoot():
 	anim.play("Shoot")
 	SFX.play("Laser_Shoot")
 	shoot_timer.start()
-	print("BG 103 barrel shoot: BANG!!!!")
+	print_debug("BG 103 barrel shoot: BANG!!!!")
 
 func _process(_delta):
 	if can_shoot:

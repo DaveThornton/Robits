@@ -18,7 +18,7 @@ func _ready():
 #	pass
 
 func _on_MP22Move_To_body_entered(body):
-#	print(body)
+#	print_debug(body)
 	if body.get_groups().has("player") || body.get_groups().has("PickUp")|| body.get_groups().has("BadGuy") || body.get_groups().has("projectile")|| body.get_groups().has("FX"):
 		var _this = body.global_position
 		body.global_position = pos.global_position# Vector2(this.x - 1980, this.y)
@@ -38,7 +38,7 @@ func _on_MP22Move_To_area_shape_entered(area_id, area, area_shape, self_shape):
 	var wtfarea_shape = area_shape
 	var wtfself_shape = self_shape
 	if !wtfid || !wtfarea_shape || !wtfself_shape:
-		print("error mp 03 roll over hor i dont know weird shape thing dont know wht this error means er el entered")
+		print_debug("error mp 03 roll over hor i dont know weird shape thing dont know wht this error means er el entered")
 	if area:
 		if area.get_groups().has("projectile"):
 			var _this = area.global_position

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/000_Action_-_Classical_Hero.ogg-1ecc0aeb7af98694fdd922a43c95bba5.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/000_Action_-_Classical_Hero.ogg"
+dest_files=[ "res://.import/000_Action_-_Classical_Hero.ogg-1ecc0aeb7af98694fdd922a43c95bba5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -28,16 +28,16 @@ func _physics_process(delta):
 			var x = FX.stuck_bolt().instance()
 			Map_Hand.add_kid_to_map(x)
 			x.init(player, damage, spot, rotation, scale, 2)
-			print("map")
+			print_debug("map")
 		else:
 			if ray.get_collider().get_groups().has("player"):
 				Player_Stats.add_hit(player,1)
 			var spot = ray.get_collision_point()
-			print(spot)
+			print_debug(spot)
 			var x = FX.stuck_bolt().instance()
 			ray.get_collider().add_child(x)
 			x.init(player, damage, spot, rotation, scale, 2)
-			print("not map")
+			print_debug("not map")
 		call_deferred("free")
 	move_local_x(speed * delta)
 

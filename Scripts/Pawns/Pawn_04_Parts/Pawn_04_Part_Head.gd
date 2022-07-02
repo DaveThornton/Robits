@@ -18,7 +18,7 @@ func play_face(_anim):
 		anim.play(_anim)
 	else:
 		anim.play("On")
-		print("error in pawn 01 head play animation not a valid animation ")
+		print_debug("error in pawn 01 head play animation not a valid animation ")
 
 func is_right(_right):
 	if _right:
@@ -32,7 +32,7 @@ func is_right(_right):
 
 #func up():
 ##	head.frame = 2
-#	print("make a up animation for pawn 04 head")
+#	print_debug("make a up animation for pawn 04 head")
 
 func shield_up():
 	shield.visible = true

@@ -41,7 +41,7 @@ signal ammo_change(player, ammo)
 func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 02 AK-47")
+		print_debug("failed to connect ammo change in weap hold 02 AK-47")
 	if Game.mode == 0:
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 		melee_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
@@ -91,11 +91,11 @@ func shoot_j():
 					var _thing = shoot_cast.get_collider()
 					if _thing.get_groups().has("hittable"):
 						_thing.hit(player, my_name, dmg_type, (damage * 5))
-						print("gun 50 shot happened but no projectile spawned hit anyways")
+						print_debug("gun 50 shot happened but no projectile spawned hit anyways")
 					elif _thing.get_groups().has("map"):
-						print("gun 50 hitting wall not fireing projectile", _thing)
+						print_debug("gun 50 hitting wall not fireing projectile", _thing)
 					else:
-						print("gun 50 dont know what im hitting but no projectile spawned")
+						print_debug("gun 50 dont know what im hitting but no projectile spawned")
 				anim_fire.play("Shoot")
 				if pawn:
 					pawn.knock_back(1000, .05)
@@ -135,7 +135,7 @@ func _on_Melee_Area_body_entered(body):
 		if body.player != player:
 			body.hit(player, my_name, dmg_type, damage)
 		else:
-			print("quit hitting your self")
+			print_debug("quit hitting your self")
 
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()

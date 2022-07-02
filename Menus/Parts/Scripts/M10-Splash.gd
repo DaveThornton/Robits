@@ -12,13 +12,13 @@ func init(_top, _body, _time, _pause):
 	timer.wait_time = _time
 	if _pause:
 		pausing = true
-#		print("about to pause")
+#		print_debug("about to pause")
 		get_tree().paused = true
-#		print("paused")
+#		print_debug("paused")
 	timer.start()
 
 func _on_Timer_timeout():
-#	print("time_out")
+#	print_debug("time_out")
 	self.visible = false
 	if pausing:
 		get_tree().paused = false

@@ -33,7 +33,7 @@ func _ready():
 	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 11 mega cannon")
+		print_debug("failed to connect ammo change in weap hold 11 mega cannon")
 	if Game.mode == 0:
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 
@@ -61,15 +61,15 @@ func shoot_j():
 			shoot_timer.start()
 			if !shoot_cast.is_colliding():
 				_fire_projectile()
-				print('shoot regular')
+				print_debug('shoot regular')
 			else:
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("player"):
 					if _thing.player == player:
-						print("dont shoot your self")
+						print_debug("dont shoot your self")
 						_fire_projectile()
 					else:
-						print("shoot someone not me")
+						print_debug("shoot someone not me")
 						_fire_no_projectile(_thing)
 				else:
 					_fire_no_projectile(_thing)
@@ -106,11 +106,11 @@ func _fire_no_projectile(_thing):
 			_fire_projectile()
 		else:
 			_thing.hit(player, my_name, dmg_type, damage)
-		print("gun 9 shot happened but no projectile spawned hit anyways")
+		print_debug("gun 9 shot happened but no projectile spawned hit anyways")
 	elif _thing.get_groups().has("map"):
-		print("gun 9 hitting wall not fireing projectile", _thing)
+		print_debug("gun 9 hitting wall not fireing projectile", _thing)
 	else:
-		print("gun 9 dont know what im hitting but no projectile spawned")
+		print_debug("gun 9 dont know what im hitting but no projectile spawned")
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)

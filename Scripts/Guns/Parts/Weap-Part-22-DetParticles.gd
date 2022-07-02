@@ -20,7 +20,7 @@ func start(_time):
 	part.visible = true
 
 func _on_Timer_timeout():
-	# print(global_position)
+	# print_debug(global_position)
 	FX.explode(40, player, self.global_position, my_name, 0, damage)
 	# var b = boom.instance()
 	# Map_Hand.add_kid_to_map(b)

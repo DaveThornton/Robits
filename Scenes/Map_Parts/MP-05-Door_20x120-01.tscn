@@ -48,14 +48,14 @@ func _ready():
 		open = true
 		area_left_shape.disabled = true
 		area_right_shape.disabled = true
-	print(open_in_time)
+	print_debug(open_in_time)
 	if open_in_time:
 		open_in_time_left = open_in_time_time
 		if open_in_tine_open:
 			open_door()
 		var con = self.get_tree().get_current_scene().connect(\"second\", self, \"second\")
 		if con != 0:
-			print(\"error on connecting second to second in door\")
+			print_debug(\"error on connecting second to second in door\")
 
 func _process(_delta):
 	if open != open_last:
@@ -64,10 +64,10 @@ func _process(_delta):
 
 func _on_entered(body):
 	if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
-#		print(\"player or bg entered\")
+#		print_debug(\"player or bg entered\")
 		bodies += 1
 		if !anim.is_playing():
-#			print(\"playing anim\")
+#			print_debug(\"playing anim\")
 			if !open:
 				anim.play(\"Door_Open\")
 				open = true
@@ -97,7 +97,7 @@ func _on_Timer_timeout():
 
 func second():
 	open_in_time_left -= 1
-	print(open_in_time_left)
+	print_debug(open_in_time_left)
 	if open_in_time_left <= 0:
 		open_in_time_left = open_in_time_time
 		if !open:

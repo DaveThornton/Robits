@@ -57,7 +57,7 @@ var control_order = []
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
-		print("error Singleton Controller connecting Player Controller to reset from world gd")
+		print_debug("error Singleton Controller connecting Player Controller to reset from world gd")
 
 func get_map(_num):
 	if _num == 1:
@@ -83,7 +83,7 @@ func get_map(_num):
 	elif _num == 0:
 		return w00
 	else:
-		print("error in campiagn singleton in valid map request in get map asked for ", _num, ". returning map 1 instead")
+		print_debug("error in campiagn singleton in valid map request in get map asked for ", _num, ". returning map 1 instead")
 		return w01
 
 func get_map_title(_num):
@@ -110,7 +110,7 @@ func get_map_title(_num):
 	elif _num == 0:
 		return title_00
 	else:
-		print("error in campiagn singleton in valid map request in get map asked for ", _num, ". returning map 1 instead")
+		print_debug("error in campiagn singleton in valid map request in get map asked for ", _num, ". returning map 1 instead")
 		return w01
 
 func get_map_discription(_num):
@@ -137,7 +137,7 @@ func get_map_discription(_num):
 	elif _num == 0:
 		return w00_dis
 	else:
-		print("error in campiagn singleton in valid map request in get map asked for ", _num, ". returning map 1 instead")
+		print_debug("error in campiagn singleton in valid map request in get map asked for ", _num, ". returning map 1 instead")
 		return w01
 
 func set_level_comp(_num, _bool):
@@ -164,7 +164,7 @@ func set_level_comp(_num, _bool):
 	elif _num == 10:
 		w10_comp = _bool
 	else:
-		print("error in campiagn singleton in valid level num  in set level comp asking for ",_num,"   ",_bool)
+		print_debug("error in campiagn singleton in valid level num  in set level comp asking for ",_num,"   ",_bool)
 
 func get_level_comp(_num):
 	if _num == 0:
@@ -190,7 +190,7 @@ func get_level_comp(_num):
 	elif _num == 10:
 		return w10_comp
 	else:
-		print("error in campiagn singleton in valid level num  in get level comp asking for", _num)
+		print_debug("error in campiagn singleton in valid level num  in get level comp asking for", _num)
 
 func get_level_comp_count():
 	var level_count = 0
@@ -257,19 +257,19 @@ func get_player_in_control():
 	if control_order.size() > 0:
 		return control_order[0]
 	else:
-		print("error in singleton campaign get player in control no players in array so retruning 1")
+		print_debug("error in singleton campaign get player in control no players in array so retruning 1")
 		return 1
 
 func add_player(_player):
 	if control_order.find(_player) == -1:
 		control_order.append(_player)
-	print(control_order,"in singleton campaign")
+	print_debug(control_order,"in singleton campaign")
 
 func remove_player(_player):
 	if control_order.find != -1:
 		control_order.remove(_player)
 	else:
-		print("error trying to remove player from control ", _player , " is not in the array")
+		print_debug("error trying to remove player from control ", _player , " is not in the array")
 
 func clear_players():
 	control_order.clear()

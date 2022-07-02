@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/003_Action_-_Dystopian_Opening.ogg-e81feb175f24af631883dca0a5c536b9.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/003_Action_-_Dystopian_Opening.ogg"
+dest_files=[ "res://.import/003_Action_-_Dystopian_Opening.ogg-e81feb175f24af631883dca0a5c536b9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

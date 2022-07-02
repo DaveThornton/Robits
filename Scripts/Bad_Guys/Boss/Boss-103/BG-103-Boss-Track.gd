@@ -38,9 +38,9 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			anim_hit.play("Dead")
 			Player_Stats.add_score(_by_who, points)
 			if front:
-				print("BG-103-Front-Track-Dead")
+				print_debug("BG-103-Front-Track-Dead")
 			else:
-				print("BG-103-Back-Track-Dead")
+				print_debug("BG-103-Back-Track-Dead")
 			# call_deferred("_explode")
 			emit_signal("dead_track")
 

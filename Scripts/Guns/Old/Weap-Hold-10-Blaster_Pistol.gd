@@ -42,10 +42,10 @@ func _ready():
 	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print(test1, "error in blaster pistol connect ammo_change didnt connect")
+		print_debug(test1, "error in blaster pistol connect ammo_change didnt connect")
 #	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
 #	if test2 != 0:
-#		print(test2, "error in blaster pistol connect shot didnt connect")
+#		print_debug(test2, "error in blaster pistol connect shot didnt connect")
 
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
@@ -88,11 +88,11 @@ func shoot_j():
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
 					_thing.hit(player, my_name, dmg_type, damage)
-					print("gun 10 shot happened but no projectile spawned hit anyways")
+					print_debug("gun 10 shot happened but no projectile spawned hit anyways")
 				elif _thing.get_groups().has("map"):
-					print("gun 10 hitting wall not fireing projectile", _thing)
+					print_debug("gun 10 hitting wall not fireing projectile", _thing)
 				else:
-					print("gun 10 dont know what im hitting but no projectile spawned")
+					print_debug("gun 10 dont know what im hitting but no projectile spawned")
 			anim_fire.play("Fire")
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			pos_walk.rotation_degrees -= walk
@@ -111,13 +111,13 @@ func shoot_r():
 
 func melee():
 	if can_shoot:
-		print("melee attack")
+		print_debug("melee attack")
 		can_shoot = false
 		anim_fire.play("Melee")
 		melee_timer.start()
 		Player_Stats.add_shot(player, 1)
 #		emit_signal("shot", player)
-		print("melee called on gun 10")
+		print_debug("melee called on gun 10")
 
 func throw():
 	var t = blaster_pistol_pickup.instance()

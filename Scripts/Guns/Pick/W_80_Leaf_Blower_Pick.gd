@@ -13,7 +13,7 @@ var ammo = 50
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
-	print("time left: ",_time," in ", my_name)
+	print_debug("time left: ",_time," in ", my_name)
 	if _ammo == 0:
 		ammo = 0
 	else:

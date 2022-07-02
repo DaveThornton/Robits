@@ -19,7 +19,7 @@ func _ready():
 	# modulate = Player_Stats.get_body_color(player)
 	var test1 = connect("pos_updated",get_parent(),"update_pos")
 	if test1 != 0:
-		print("error in arcade map select campaign connect update pos in menu 3x3")
+		print_debug("error in arcade map select campaign connect update pos in menu 3x3")
 	call_deferred("start")
 	
 func start():
@@ -80,7 +80,7 @@ func update_from_pos():
 	elif pos == 9:
 		sq09()
 	else:
-		print("error in menu 3x3 invalid pos so going with pos 1 when its asking for  ", pos)
+		print_debug("error in menu 3x3 invalid pos so going with pos 1 when its asking for  ", pos)
 		sq01()
 	emit_signal("pos_updated",pos)
 

@@ -138,14 +138,14 @@ func law_of_cos(a, b, c):
 #	var base_angles = sss_calc(len_dummy_side,len_low,dis_to_tar)
 #	var next_angles = sss_calc(len_up, len_mid, len_dummy_side)
 #
-#	print(base_angles, next_angles)
+#	print_debug(base_angles, next_angles)
 #
 #	global_rotation = base_angles.B + next_angles.B +base_r
 #	joint_1.rotation = next_angles.C
 #	joint_2.rotation = base_angles.C + next_angles.A
 #
 #func sss_calc(side_a, side_b, side_c):
-#	print(side_a,"  ", side_b,"  ", side_c)
+#	print_debug(side_a,"  ", side_b,"  ", side_c)
 #	if side_c >= side_a + side_b:
 #		return {"A":0, "B":0, "C":0}
 #	var angle_a = law_of_cos(side_b,side_c,side_a)

@@ -290,7 +290,7 @@ func jump_j(down_input, _left_input, _right_input):
 				stinger.big_ring_on()
 		is_jump_pressed = true
 		on_ladder = false
-		print("is down : ",is_down, "  DLR : ",down_input, _left_input, _right_input, "  ray platform test : ", ray_plat.is_colliding())
+		print_debug("is down : ",is_down, "  DLR : ",down_input, _left_input, _right_input, "  ray platform test : ", ray_plat.is_colliding())
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
@@ -400,7 +400,7 @@ func equip_start_weap():
 		my_start_gun.visible = false
 
 func remove_start_weap():
-	print(gun_pos.get_child_count())
+	print_debug(gun_pos.get_child_count())
 	no_gun()
 	start_equiped = false
 	my_start_gun = null
@@ -415,10 +415,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	_hit_time += 0.11
 	if play_type == 1:
 		if is_shield_up:
-			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 		else:
 			is_shield_up = true
-			print("ive been hit. I'm player ",player)
+			print_debug("ive been hit. I'm player ",player)
 			let_go()
 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
 			call_deferred("free")
@@ -431,14 +431,14 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			nrg_update()
 			if nrg <= 0:
 				is_shield_up = true
-				print("ive been hit. I'm player ",player)
+				print_debug("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
 				call_deferred("free")
 			elif nrg < light_on_nrg:
-				print("do something with less nrg in pawn 06 hit")
+				print_debug("do something with less nrg in pawn 06 hit")
 			else:
-				print("do something with less nrg in pawn 06 hit")
+				print_debug("do something with less nrg in pawn 06 hit")
 
 func change_pos(_pos):
 	self.position = _pos
@@ -492,7 +492,7 @@ func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
 	if _num != current_body:
-		print("body changing in pawn 17")
+		print_debug("body changing in pawn 17")
 		if _num == 1:
 			body_s.disabled = false
 			body_p.disabled = true
@@ -502,7 +502,7 @@ func _body_(_num: int):
 			body_p.disabled = false
 			_rays_prone()
 		else:
-			print("Pawn 17 bad body number in func _body")
+			print_debug("Pawn 17 bad body number in func _body")
 		current_body = _num
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
@@ -730,7 +730,7 @@ func _anim_stun():
 	_body(1)
 	head.play_face("Stun")
 	new_anim = "Stun"
-	print("make stun anim for pawn 17")
+	print_debug("make stun anim for pawn 17")
 	head.play_face("Stun")
 	if is_right:
 		head.is_right(true)
@@ -740,7 +740,7 @@ func _anim_stun():
 func _anim_Knock():
 	_body(1)
 	new_anim = "Up"
-	print("make knock back anim for pawn 17")
+	print_debug("make knock back anim for pawn 17")
 	if is_right:
 		head.is_right(true)
 	else:
@@ -749,21 +749,21 @@ func _anim_Knock():
 func _anim_ladder_move():
 	_body(1)
 	head.play_face("On")
-	print("make ladder anim for pawn 17")
+	print_debug("make ladder anim for pawn 17")
 	new_anim = "Up"
 	head.is_right(true)
 
 func _anim_ladder_right():
 	_body(1)
 	head.play_face("On")
-	print("make ladder anim for pawn 17")
+	print_debug("make ladder anim for pawn 17")
 	new_anim = "Up"
 	head.is_right(true)
 
 func _anim_ladder_left():
 	_body(1)
 	head.play_face("On")
-	print("make ladder anim for pawn 17")
+	print_debug("make ladder anim for pawn 17")
 	new_anim = "Up"
 	head.is_right(false)
 

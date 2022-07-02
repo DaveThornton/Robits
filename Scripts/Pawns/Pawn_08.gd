@@ -260,7 +260,7 @@ func jump(down_input, left_input, right_input):
 # -1 = left -- 1 = right -- 0 = both
 func jump_j(_down_input, _left_input, _right_input):
 	if can_move:
-		print(on_wall)
+		print_debug(on_wall)
 		if on_wall == 0:
 			return
 		elif on_wall < 0:
@@ -384,7 +384,7 @@ func equip_start_weap():
 		my_start_gun.visible = false
 
 func remove_start_weap():
-	print(gun_pos.get_child_count())
+	print_debug(gun_pos.get_child_count())
 	no_gun()
 	start_equiped = false
 	my_start_gun = null
@@ -396,10 +396,10 @@ func remove_start_weap():
 # 	_hit_time += 0.11
 # 	if play_type == 1:
 # 		if is_shield_up:
-# 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+# 			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 # 		else:
 # 			is_shield_up = true
-# 			print("ive been hit. I'm player ",player)
+# 			print_debug("ive been hit. I'm player ",player)
 # 			let_go()
 # 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
 # 			call_deferred("free")
@@ -411,7 +411,7 @@ func remove_start_weap():
 # 			nrg_update()
 # 			if nrg <= 0:
 # 				is_shield_up = true
-# 				print("ive been hit. I'm player ",player)
+# 				print_debug("ive been hit. I'm player ",player)
 # 				let_go()
 # 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
 # 				call_deferred("free")
@@ -428,10 +428,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	_hit_time += 0.11
 	if play_type == 1:
 		if is_shield_up:
-			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 		else:
 			is_shield_up = true
-			print("ive been hit. I'm player ",player)
+			print_debug("ive been hit. I'm player ",player)
 			let_go()
 			emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 			call_deferred("free")
@@ -443,7 +443,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			nrg_update()
 			if nrg <= 0:
 				is_shield_up = true
-				print("ive been hit. I'm player ",player)
+				print_debug("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 				call_deferred("free")
@@ -907,7 +907,7 @@ func knockbacktimer():
 	knocked_back = Vector2(0, 0)
 
 func jumptimer():
-	print("jump timer timed out dont know why in pawn 08 player stats says its pawn ",Player_Stats.get_pawn_num(player))
+	print_debug("jump timer timed out dont know why in pawn 08 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 
 func hitbytimer():
 	hit_last_by = -1
@@ -916,7 +916,7 @@ func hitbytimer():
 func _on_Pick_Up_Area_body_entered(body):
 	if body.get_groups().has("PickUp"):
 		wep_array.append(body)
-		print(wep_array)
+		print_debug(wep_array)
 
 func _on_Pick_Up_Area_body_exited(body):
 	if body.get_groups().has("PickUp"):

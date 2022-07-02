@@ -26,7 +26,7 @@ func _process(delta):
 		call_deferred("move_players_out",delta)
 
 #	if occ_player_array_out.size() > 0:
-#		print("next")
+#		print_debug("next")
 #		for p in occ_player_array_out.size():
 #			if occ_player_array_out[p]:
 #				occ_player_array_out[p].global_position.x -= speed * delta
@@ -52,7 +52,7 @@ func _process(delta):
 
 #	test_num += delta
 #	if test_num > 1:
-#		print("in ", occ_player_array_in, "           out", occ_player_array_out, "                     mp 42")
+#		print_debug("in ", occ_player_array_in, "           out", occ_player_array_out, "                     mp 42")
 #		test_num = 0
 
 
@@ -86,12 +86,12 @@ func transport_here(_body):
 			occ_player_array_in[p].knock_dir(500, .2, 3, true)
 
 func transport_there(_body):
-	print("transport there")
+	print_debug("transport there")
 	_body.can_move = false
 	if partner:
 		partner.transport_here(_body)
 	else:
-		print("cant find partner in mp 42")
+		print_debug("cant find partner in mp 42")
 
 #---------------------------------------------------------------get partner pipe
 func get_partner():
@@ -100,10 +100,10 @@ func get_partner():
 func _on_Timer_timeout():
 	var m = Map_Hand.map.get_pipe(go_to_pipe_number)
 	if m == null:
-		print(go_to_pipe_number," not a pipe number to go to. deleting self MP-42")
+		print_debug(go_to_pipe_number," not a pipe number to go to. deleting self MP-42")
 		call_deferred("queue_free")
 	else:
-		print(my_pipe_number," ", m," ", go_to_pipe_number," ", m.my_pipe_number," MP-42")
+		print_debug(my_pipe_number," ", m," ", go_to_pipe_number," ", m.my_pipe_number," MP-42")
 		partner = m
 
 #-----------------------------------------------------------------bodies entered
@@ -133,7 +133,7 @@ func _on_Timer_clear_space_timeout():
 
 #--------------------------------------------------------------------add/remove
 func add_to_in(_body):
-	print("add to in")
+	print_debug("add to in")
 	if occ_player_array_in.find(_body) == -1:
 		occ_player_array_in.append(_body)
 	if!_body.is_connected("explode_p", self, "remove_in"):

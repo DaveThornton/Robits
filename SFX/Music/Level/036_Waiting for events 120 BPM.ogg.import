@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/036_Waiting for events 120 BPM.ogg-709346307e679e2fb5d5aa40df596c39.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/036_Waiting for events 120 BPM.ogg"
+dest_files=[ "res://.import/036_Waiting for events 120 BPM.ogg-709346307e679e2fb5d5aa40df596c39.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -22,10 +22,10 @@ func _ready():
 	exit_door.level_to_load_1 = level_to_load
 #	exit_door.off()
 	if !map:
-		print("no Map")
+		print_debug("no Map")
 	var map_connected = map.connect("activate", self, "activate")
 	if !map_connected:
-		print("error in BG 101 Boss not connecting to map")
+		print_debug("error in BG 101 Boss not connecting to map")
 	turret_01.activation_number = activation_num
 	turret_02.activation_number = activation_num
 

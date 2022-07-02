@@ -40,7 +40,7 @@ func _ready():
 	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 02 M-16")
+		print_debug("failed to connect ammo change in weap hold 02 M-16")
 	if Game.mode == 0:
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 		melee_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
@@ -74,27 +74,27 @@ func shoot():
 				can_shoot = false
 				shoot_timer.start()
 			else:
-				print("to close  weap 07 crossbow")
+				print_debug("to close  weap 07 crossbow")
 				walk += walk_amount
 				if shoot_cast.get_collider().get_groups().has("map"):
 					var spot = shoot_cast.get_collision_point()
 					var x = FX.stuck_bolt().instance()
 					Map_Hand.add_kid_to_map(x)
 					x.init(player, damage, spot, rotation, scale, 2)
-					print("map")
+					print_debug("map")
 				else:
 					var spot = shoot_cast.get_collision_point()
-					print(spot)
+					print_debug(spot)
 					var x = FX.stuck_bolt().instance()
 					shoot_cast.get_collider().add_child(x)
 					x.init(player, damage, spot, rotation, scale, 2)
-					print("not map")
+					print_debug("not map")
 			can_shoot = false
 			shoot_timer.start()
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)
-			print("make cross bow have its own sound weap 07")
+			print_debug("make cross bow have its own sound weap 07")
 			SFX.play("W_07_Shoot")
 		else:
 			can_shoot = false
@@ -116,7 +116,7 @@ func _on_Melee_Area_body_entered(body):
 		if body.player != player:
 			body.hit(player, my_name, dmg_type, damage)
 		else:
-			print("quit hitting your self")
+			print_debug("quit hitting your self")
 
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()

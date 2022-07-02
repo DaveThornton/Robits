@@ -22,7 +22,7 @@ func _process(delta):
 			self.global_position.x += -speed * delta * 2
 		else:
 			is_right = !is_right
-			print("bubble changing direction")
+			print_debug("bubble changing direction")
 
 func done():
 	pass

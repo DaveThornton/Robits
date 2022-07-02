@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/703_Boss_-_Cyborg_Sentinel.ogg-8875f1724de4b90fcee12dec21b86c51.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Boss/703_Boss_-_Cyborg_Sentinel.ogg"
+dest_files=[ "res://.import/703_Boss_-_Cyborg_Sentinel.ogg-8875f1724de4b90fcee12dec21b86c51.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

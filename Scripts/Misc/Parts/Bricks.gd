@@ -31,5 +31,5 @@ func get_color(_num):
 		4: 
 			return color_4_green
 		
-	print("get color in bricks in FX invalid number")
+	print_debug("get color in bricks in FX invalid number")
 	return Color(255,255,255,255)

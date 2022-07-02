@@ -20,7 +20,7 @@ func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
 		get_tree().paused = true
 		anim.play("Nothing")
-		print("pause")
+		print_debug("pause")
 
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	FX.CAMERA.reset()

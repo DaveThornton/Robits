@@ -14,7 +14,7 @@ func play(_anim):
 		if anim.has_animation(_anim):
 			anim.play(_anim)
 		else:
-			print("pawn 03 neck doesnt have animation ", _anim)
+			print_debug("pawn 03 neck doesnt have animation ", _anim)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

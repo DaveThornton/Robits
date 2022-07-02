@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/009_Action_-_Laser_Cycles.ogg-a4892b4914f84e38cf3d87fff44ea757.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/009_Action_-_Laser_Cycles.ogg"
+dest_files=[ "res://.import/009_Action_-_Laser_Cycles.ogg-a4892b4914f84e38cf3d87fff44ea757.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

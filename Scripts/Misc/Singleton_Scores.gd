@@ -26,9 +26,9 @@ func add_score(_player:int, _name:String):
 func all_done(): 
 	if top10.size() > 0: 
 		if timer.is_stopped(): 
-			print("all done triggered in high scores 10 sec to reset")
+			print_debug("all done triggered in high scores 10 sec to reset")
 			timer.start()
-		else: print("timer already triggered in high scores not calling for reset")
+		else: print_debug("timer already triggered in high scores not calling for reset")
 
 func save_to_file():
 	var file = File.new()
@@ -37,7 +37,7 @@ func save_to_file():
 	file.close()
 
 func load_from_file():
-	print("Load File")
+	print_debug("Load File")
 	var file = File.new()
 	if file.file_exists(score_file):
 		file.open(score_file, File.READ)
@@ -75,6 +75,6 @@ func sort_scores(a, b):
 
 func _on_Timer_timeout():
 	if self.visible == true:
-		print("reset in high scores singletion")
+		print_debug("reset in high scores singletion")
 		set_visible(false)
 		get_tree().get_current_scene().arcade_reset()

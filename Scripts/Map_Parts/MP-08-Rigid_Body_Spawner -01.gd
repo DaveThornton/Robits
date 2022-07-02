@@ -77,13 +77,13 @@ func _on_Area2D_body_entered(body):
 	if body is RigidBody2D:
 		bodies += 1
 		_check_area()
-#		print(bodies)
+#		print_debug(bodies)
 
 func _on_Area2D_body_exited(body):
 	if body is RigidBody2D:
 		bodies -= 1
 		_check_area()
-#		print(bodies)
+#		print_debug(bodies)
 
 func _on_Timer_timeout():
 	if bodies <= 0:

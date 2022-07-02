@@ -42,7 +42,7 @@ var move = false
 func _ready():
 	var con = self.get_tree().get_current_scene().connect("second", self, "second")
 	if con != 0:
-		print("error on connecting second to second in MP-36-Moving omni")
+		print_debug("error on connecting second to second in MP-36-Moving omni")
 	if !kill_up_on && !kill_down_on && !kill_left_on && !kill_right_on:
 		kill_plat_shape.disabled = true
 		kill_up_shape.disabled = true
@@ -57,7 +57,7 @@ func _ready():
 			kill_up_shape.disabled = false
 			if up:
 				kill_up_shape.position.y -= how_far
-				print(position)
+				print_debug(position)
 			
 		if !kill_down_on:
 			kill_down_shape.disabled = true
@@ -65,7 +65,7 @@ func _ready():
 			kill_down_shape.disabled = false
 			if down:
 				kill_down_shape.position.y += how_far
-				print(position)
+				print_debug(position)
 			
 		if !kill_left_on:
 			kill_left_shape.disabled = true
@@ -73,7 +73,7 @@ func _ready():
 			kill_left_shape.disabled = false
 			if left:
 				kill_left_shape.position.x -= how_far
-				print(position)
+				print_debug(position)
 			
 		if !kill_right_on:
 			kill_right_shape.disabled = true
@@ -81,7 +81,7 @@ func _ready():
 			kill_right_shape.disabled = false
 			if right:
 				kill_right_shape.position.x += how_far
-				print(position)
+				print_debug(position)
 	
 	if wait:
 		waiting = true
@@ -110,7 +110,7 @@ func _physics_process(delta):
 			elif !up && !down:
 				pass
 			else:
-				print("error in moving plat. cant be both up and down choose one damnit")
+				print_debug("error in moving plat. cant be both up and down choose one damnit")
 			
 			if left && !right:
 				if plat.position.x < (-how_far):
@@ -134,7 +134,7 @@ func _physics_process(delta):
 			elif !left && !right:
 				pass
 			else:
-				print("error in moving plat. cant be both left and right choose one damnit")
+				print_debug("error in moving plat. cant be both left and right choose one damnit")
 			
 			if going_up && !going_down:
 				plat.position.y -= delta * speed
@@ -176,13 +176,13 @@ func second():
 
 func _on_Area2D_Player_body_entered(body):
 	if body.get_groups().has("player"):
-		print("player entered platform")
+		print_debug("player entered platform")
 		occ_array.append(body)
 		body.vel.y = 0
 
 func _on_Area2D_Player_body_exited(body):
 	if body.get_groups().has("player"):
-		print("player exited platform")
+		print_debug("player exited platform")
 		occ_array.erase(body)
 
 func _check_add_body(body):

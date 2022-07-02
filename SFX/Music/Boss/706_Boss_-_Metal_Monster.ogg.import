@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/706_Boss_-_Metal_Monster.ogg-83dbe58331b556c86edad09e13b41a8b.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Boss/706_Boss_-_Metal_Monster.ogg"
+dest_files=[ "res://.import/706_Boss_-_Metal_Monster.ogg-83dbe58331b556c86edad09e13b41a8b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -21,10 +21,10 @@ var is_dead = false
 func _ready():
 	map = Map_Hand.map
 	if !map:
-		print("no Map")
+		print_debug("no Map")
 	var map_connected = map.connect("activate", self, "activate")
 	if !map_connected:
-		print("error in BG 104 Boss not connecting to map")
+		print_debug("error in BG 104 Boss not connecting to map")
 	hit_spot.connect("dead_hit_spot", self , "dead")
 	cannon_01.start(c_01_time)
 	cannon_02.start(c_02_time)
@@ -55,7 +55,7 @@ func dead():
 	cannon_03.set_can_shoot(false)
 	cannon_04.set_can_shoot(false)
 	bg_spawn.set_can_spawn(false)
-	print("boss 104 im dead now")
+	print_debug("boss 104 im dead now")
 
 
 

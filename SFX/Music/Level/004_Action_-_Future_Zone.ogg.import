@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/004_Action_-_Future_Zone.ogg-0230b9e2448db1c302c51b658796afa6.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/004_Action_-_Future_Zone.ogg"
+dest_files=[ "res://.import/004_Action_-_Future_Zone.ogg-0230b9e2448db1c302c51b658796afa6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -60,10 +60,10 @@ var map_array = []
 func _ready():
 	var test2 = HUD.connect("screen_update", self, "menu_check")
 	if test2 != 0:
-		print("error M04 Arcade map select connecting next_screen")
+		print_debug("error M04 Arcade map select connecting next_screen")
 	var test3 = HUD.connect("input_to_screen", self, "movement")
 	if test3 != 0:
-		print("error in arcade map select VS connect input to screen")
+		print_debug("error in arcade map select VS connect input to screen")
 	HUD.menu_state()
 	menu_check()
 
@@ -269,7 +269,7 @@ func movement(_player, _dir):
 			if _dir == 0:
 				HUD.ask_insert_coin(_player)
 	else:
-		print("error invald player in arcade player select VS")
+		print_debug("error invald player in arcade player select VS")
 
 func _vote(_player):
 	if _player == 1:
@@ -377,7 +377,7 @@ func _get_map(_num):
 	elif _num == 31:
 		return map_31
 	else:
-		print("invalid _num on _map_get in Arcade Map Select VS")
+		print_debug("invalid _num on _map_get in Arcade Map Select VS")
 		return map
 
 func _set_ready(_player):

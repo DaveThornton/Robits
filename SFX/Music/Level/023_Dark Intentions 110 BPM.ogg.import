@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/023_Dark Intentions 110 BPM.ogg-8d8ba1715641b5343b2aa280916b57f8.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/023_Dark Intentions 110 BPM.ogg"
+dest_files=[ "res://.import/023_Dark Intentions 110 BPM.ogg-8d8ba1715641b5343b2aa280916b57f8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

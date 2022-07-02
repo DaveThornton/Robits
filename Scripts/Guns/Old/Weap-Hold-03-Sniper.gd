@@ -45,10 +45,10 @@ func _ready():
 	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 03 Sniper")
+		print_debug("failed to connect ammo change in weap hold 03 Sniper")
 	var test2 = self.connect("shot", Player_Stats, "add_shot")
 	if test2 != 0:
-		print("failed to connect shot in weap hold 03 Sniper")
+		print_debug("failed to connect shot in weap hold 03 Sniper")
 
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
@@ -90,11 +90,11 @@ func shoot_j():
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
 					_thing.hit(player, my_name, dmg_type, damage)
-					print("gun 03 shot happened but no projectile spawned hit anyways")
+					print_debug("gun 03 shot happened but no projectile spawned hit anyways")
 				elif _thing.get_groups().has("map"):
-					print("gun 03 hitting wall not fireing projectile", _thing)
+					print_debug("gun 03 hitting wall not fireing projectile", _thing)
 				else:
-					print("gun 03 dont know what im hitting but no projectile spawned")
+					print_debug("gun 03 dont know what im hitting but no projectile spawned")
 			self.position = Vector2(0,0)
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
@@ -122,13 +122,13 @@ func shoot_r():
 
 func melee():
 	if can_shoot:
-#		print("melee attack")
+#		print_debug("melee attack")
 		can_shoot = false
 		anim_fire.play("Melee")
 		melee_timer.start()
 		Player_Stats.add_shot(player, 1)
 #		emit_signal("shot", player)
-#		print("melee called on gun 03")
+#		print_debug("melee called on gun 03")
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):

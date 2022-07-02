@@ -77,7 +77,7 @@ func _process(delta: float) -> void:
 				nav_system = Map_Hand.map.nav_system
 				var map = Map_Hand.map
 				map.connect("activate", self, "activate")
-				print("nav system found ", nav_system)
+				print_debug("nav system found ", nav_system)
 				nav_system.found_me()
 		else:
 			if current_time_to_check >= time_to_check:
@@ -255,7 +255,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	Player_Stats.add_score(_by_who, points)
 	health -= (_damage - armor)
 	if health <= 0:
-		print("Open Gunner dead")
+		print_debug("Open Gunner dead")
 		FX.explode(-7, 1, self.position, "Open Gunner #2 Self Destruct System", 0, 0)
 		call_deferred("free")
 

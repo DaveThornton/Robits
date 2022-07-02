@@ -13,7 +13,7 @@ var state = 0
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
-		print("error name select in sore hud connecting to reset from world gd")
+		print_debug("error name select in sore hud connecting to reset from world gd")
 
 func set_state(_pri:int, _sec:int):
 	pri = _pri
@@ -37,9 +37,9 @@ func update_state(_state:int):
 func up(): if name_box.visible: name_box.up()
 func down(): if name_box.visible: name_box.down()
 func select():
-	print("select")
+	print_debug("select")
 	if name_box.visible:
-		print("name box visable = ", name_box.visible)
+		print_debug("name box visable = ", name_box.visible)
 		if name_box.letter_count < 5:
 			my_name = name_box.select()
 			if name_box.letter_count == 5:
@@ -48,7 +48,7 @@ func back(): if name_box.visible: name_box.back()
 
 func submit_score():
 	name_box.reset()
-	print("submiting score in hud")
+	print_debug("submiting score in hud")
 	name_box.letter_count += 1
 	Player_Stats.set_done(player,true)
 	High_Score.add_score(player, my_name)

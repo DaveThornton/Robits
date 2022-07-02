@@ -151,7 +151,7 @@ func _process(delta):
 		last_anim = new_anim
 	if nrg < nrg_regen_max:
 		if nrg > light_on_nrg:
-			print("pawn 05 fix the low nrg in process")
+			print_debug("pawn 05 fix the low nrg in process")
 #			light.off()
 		nrg = clamp(nrg + (nrg_regen_rate * delta), 0, 100)
 	if nrg != last_nrg:
@@ -341,7 +341,7 @@ func pick_up():
 	var _time_left = poss_pick_obj.time
 	var _ammo_pick_up = poss_pick_obj.ammo
 	var _weap_num = poss_pick_obj.gun_num
-	print(_weap_num)
+	print_debug(_weap_num)
 	var _just_shot = poss_pick_obj.just_shot
 	equip_weap(_weap_num,_ammo_pick_up, _time_left, _just_shot)
 	poss_pick_obj.queue_free()
@@ -374,7 +374,7 @@ func equip_start_weap():
 		my_start_gun.visible = false
 
 func remove_start_weap():
-	print(gun_pos.get_child_count())
+	print_debug(gun_pos.get_child_count())
 	no_gun()
 	start_equiped = false
 	my_start_gun = null
@@ -389,10 +389,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	_hit_time += 0.11
 	if play_type == 1:
 		if is_shield_up:
-			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 		else:
 			is_shield_up = true
-			print("ive been hit. I'm player ",player)
+			print_debug("ive been hit. I'm player ",player)
 			let_go()
 			emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 			call_deferred("free")
@@ -404,7 +404,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			nrg_update()
 			if nrg <= 0:
 				is_shield_up = true
-				print("ive been hit. I'm player ",player)
+				print_debug("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 				call_deferred("free")
@@ -851,7 +851,7 @@ func stuntimer():
 	can_move = true
 
 func jumptimer():
-	print("jump timer timed out dont know why in pawn 10 player stats says its pawn ",Player_Stats.get_pawn_num(player))
+	print_debug("jump timer timed out dont know why in pawn 10 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 
 func hitbytimer():
 	hit_last_by = -1

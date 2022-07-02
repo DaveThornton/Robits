@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/016_Action_-_Skies_Of_Fire.ogg-8f1147d7e4369c4039182e861eff7176.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/016_Action_-_Skies_Of_Fire.ogg"
+dest_files=[ "res://.import/016_Action_-_Skies_Of_Fire.ogg-8f1147d7e4369c4039182e861eff7176.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

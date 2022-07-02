@@ -26,7 +26,7 @@ func load_map( _map_to_load):
 	Game.spawn_started()
 	var test = get_tree().get_current_scene().connect("reset", m, "reset")
 	if test != 0:
-		print("error Singleton Map Handler connecting map to reset from world gd")
+		print_debug("error Singleton Map Handler connecting map to reset from world gd")
 
 func add_kid_to_map(_obj):
 	if is_instance_valid(map):
@@ -49,7 +49,7 @@ func load_next_map():
 	if next_map:
 		load_map(next_map)
 	else:
-		print("error in map handler load next map - no next map")
+		print_debug("error in map handler load next map - no next map")
 
 func clear_map():
 	map.call_deferred("free")

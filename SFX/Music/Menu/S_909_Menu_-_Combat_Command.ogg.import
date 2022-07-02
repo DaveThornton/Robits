@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/S_909_Menu_-_Combat_Command.ogg-185630d4e462d97e463106718c975ef5.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Menu/S_909_Menu_-_Combat_Command.ogg"
+dest_files=[ "res://.import/S_909_Menu_-_Combat_Command.ogg-185630d4e462d97e463106718c975ef5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

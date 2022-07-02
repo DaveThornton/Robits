@@ -33,7 +33,7 @@ func _ready():
 	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 11 mega cannon")
+		print_debug("failed to connect ammo change in weap hold 11 mega cannon")
 	if Game.mode == 0:
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_b())
 
@@ -69,11 +69,11 @@ func shoot_j():
 						_fire_projectile()
 					else:
 						_thing.hit(player, my_name, dmg_type, damage)
-					print("gun 18 shot happened but no projectile spawned hit anyways")
+					print_debug("gun 18 shot happened but no projectile spawned hit anyways")
 				elif _thing.get_groups().has("map"):
-					print("gun 18 hitting wall not fireing projectile", _thing)
+					print_debug("gun 18 hitting wall not fireing projectile", _thing)
 				else:
-					print("gun 18 dont know what im hitting but no projectile spawned")
+					print_debug("gun 18 dont know what im hitting but no projectile spawned")
 			anim_fire.play("Shoot")
 			if pawn:
 				pawn.knock_back(500, .2)

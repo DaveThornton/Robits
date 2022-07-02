@@ -13,7 +13,7 @@ var end_game_score = 10
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
-		print("error Singleton Game connecting to reset from world gd")
+		print_debug("error Singleton Game connecting to reset from world gd")
 
 func start(_players):
 	for j in range(_players):
@@ -48,21 +48,21 @@ func set_game_over(_over):
 		# timer.start()
 	elif over && mode == 0:
 		HUD.state_machine()
-		print("game over in game for campaign and nothing?")
+		print_debug("game over in game for campaign and nothing?")
 		timer.start()
 
 func check_over():
 	if mode == 2 :
-		print("check over mode 2 in game singleton")
+		print_debug("check over mode 2 in game singleton")
 		if Player_Stats.p1["score"] >= end_game_score || Player_Stats.p2["score"] >= end_game_score || Player_Stats.p3["score"] >= end_game_score || Player_Stats.p4["score"] >= end_game_score || Player_Stats.p5["score"] >= end_game_score || Player_Stats.p6["score"] >= end_game_score || Player_Stats.p7["score"] >= end_game_score || Player_Stats.p8["score"] >= end_game_score:
 			set_game_over(true)
 
 	elif mode == 0:
-		print("check over mode 0 in game singleton")
+		print_debug("check over mode 0 in game singleton")
 		if Player_Stats.get_num_in_game() == 0:
 			set_game_over(true)
 	else:
-		print("check over mode wrong in game singleton havent made game type ", mode)
+		print_debug("check over mode wrong in game singleton havent made game type ", mode)
 
 func use_lives():
 	if mode < 1:
@@ -82,7 +82,7 @@ func reset():
 
 func _on_Timer_timeout():
 	if mode == 0 && over:
-		print("timer out in game for mode 0 and over")
+		print_debug("timer out in game for mode 0 and over")
 		
 	elif mode > 0 && over:
 		get_tree().get_current_scene().arcade_reset()

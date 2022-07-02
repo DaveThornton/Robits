@@ -22,7 +22,7 @@ func blink(_blink_max):
 	anim.play("Blink")
 
 func _blinked():
-#	print("i blinked pawn 05 light")
+#	print_debug("i blinked pawn 05 light")
 	blinked_num += 1
 	if blinked_num == blinked_max:
 		anim.stop()

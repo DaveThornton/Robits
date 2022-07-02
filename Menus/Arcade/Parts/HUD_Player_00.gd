@@ -26,7 +26,7 @@ func update_state(_state):
 		in_game()
 		in_game_box.set_state(pri, sec)
 	elif mode == 3:
-#		print("mode 3 in hud player 00")
+#		print_debug("mode 3 in hud player 00")
 		in_score()
 		in_score_box.set_state(pri, sec)
 
@@ -90,7 +90,7 @@ func go_up():
 		in_game_box.up()
 
 func go_down():
-	print("down in hud player 00")
+	print_debug("down in hud player 00")
 	if mode == 3:
 		in_score_box.down()
 	elif mode == 2:

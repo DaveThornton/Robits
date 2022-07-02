@@ -20,7 +20,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= _damage
 	if health <= 0 && !dead:
 		Player_Stats.add_score(_by_who, points)
-		print("Open Gunner dead windown guy")
+		print_debug("Open Gunner dead windown guy")
 		dead = true
 		FX.explode(2, -1, self.global_position, "Truck Explosion", -1, 0)
 		anim.play("Death")

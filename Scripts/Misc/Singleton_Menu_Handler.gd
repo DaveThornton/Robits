@@ -34,7 +34,7 @@ var screen_loaded
 #	s.init(_top, _body, _time, _pause)
 #
 #func input( _player, _dir):
-#	print("player: ", _player," dir: ", _dir)
+#	print_debug("player: ", _player," dir: ", _dir)
 #	emit_signal("input_to_screen",_player, _dir)
 
 #func update_hud():

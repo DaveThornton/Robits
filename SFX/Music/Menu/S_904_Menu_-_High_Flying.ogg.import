@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/S_904_Menu_-_High_Flying.ogg-7803f5ccbc4f3a98541e1ebbb0e189fc.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Menu/S_904_Menu_-_High_Flying.ogg"
+dest_files=[ "res://.import/S_904_Menu_-_High_Flying.ogg-7803f5ccbc4f3a98541e1ebbb0e189fc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

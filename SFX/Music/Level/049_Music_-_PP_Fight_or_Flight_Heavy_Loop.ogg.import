@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/049_Music_-_PP_Fight_or_Flight_Heavy_Loop.ogg-37b83758bb8937e8a6e17c4b54b092c3.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/049_Music_-_PP_Fight_or_Flight_Heavy_Loop.ogg"
+dest_files=[ "res://.import/049_Music_-_PP_Fight_or_Flight_Heavy_Loop.ogg-37b83758bb8937e8a6e17c4b54b092c3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

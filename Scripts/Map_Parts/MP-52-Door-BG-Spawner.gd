@@ -28,7 +28,7 @@ func _ready():
 	var map = Map_Hand.map
 	var map_connected = map.connect("activate", self, "activate")
 	if !map_connected:
-		print("error in mp 52 not connecting to map")
+		print_debug("error in mp 52 not connecting to map")
 	shape.disabled = true
 
 func activate(_num, _player):
@@ -50,7 +50,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		hit_time += .1
 		health -= (_damage - armor)
 		if health <= 0:
-			print("mp 52 dead")
+			print_debug("mp 52 dead")
 			call_deferred("set_shape_disabled",true)
 			FX.explode(2, -1, self.position, str("MP-52 Distruction"), 0, 0)
 			# call_deferred("_explode")
@@ -65,9 +65,9 @@ func spawn():
 		var a = connect("stop", cbg, "stop")
 		var b = connect("go", cbg, "go")
 		if !a:
-			print("mp 52 door couldnt connect stop to bad guy that was spawned")
+			print_debug("mp 52 door couldnt connect stop to bad guy that was spawned")
 		if !b:
-			print("mp 52 door couldnt connect go to bad guy that was spawned")
+			print_debug("mp 52 door couldnt connect go to bad guy that was spawned")
 		cbg.right = right
 		cbg.global_position = spawn_spot.global_position
 
@@ -80,11 +80,11 @@ func set_activation_num(_num):
 	activation_num = _num
 		
 func pause():
-	print("emiting stop map part 52")
+	print_debug("emiting stop map part 52")
 	emit_signal("stop")
 
 func unpause():
-	print("emiting go map part 52")
+	print_debug("emiting go map part 52")
 	emit_signal("go")
 	if is_connected("stop",cbg, "stop"):
 		disconnect("stop", cbg, "stop") 

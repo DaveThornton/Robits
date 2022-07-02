@@ -45,7 +45,7 @@ var continue_count_num = 10
 func _ready():
 	var con = self.get_tree().get_current_scene().connect("second", self, "continue_count")
 	if con != 0:
-		print("error on connecting second to second in Thwomp")
+		print_debug("error on connecting second to second in Thwomp")
 
 func set_state(_pri:int, _sec:int):
 	pri = _pri
@@ -88,7 +88,7 @@ func set_continue(_continue):
 		Player_Stats.set_in_game(player, false)
 	else:
 		continue_count_num = 10
-		print("dont know set_continue false in hud 02 in game")
+		print_debug("dont know set_continue false in hud 02 in game")
 
 func continue_count():
 	if continue_started:
@@ -102,7 +102,7 @@ func continue_count():
 			Game.check_over()
 			if !Game.over:
 				if High_Score.is_score_high(Player_Stats.get_score(player)):
-					print("trying to add name to high scores in game lets see   ", High_Score.is_score_high(Player_Stats.get_score(player)), "     score: ", Player_Stats.get_score(player))
+					print_debug("trying to add name to high scores in game lets see   ", High_Score.is_score_high(Player_Stats.get_score(player)), "     score: ", Player_Stats.get_score(player))
 					HUD.set_pri(player, 11)
 					igb_11_name_box_score.text = str(Player_Stats.get_score(player))
 				else:
@@ -173,7 +173,7 @@ func update_state(_state:int):
 			elif _state == 0:
 				pass
 			else:
-				print("invalid state in hud_02 update state. State = ", state)
+				print_debug("invalid state in hud_02 update state. State = ", state)
 		else:
 			igb_10_game_box.visible = true
 		state = _state

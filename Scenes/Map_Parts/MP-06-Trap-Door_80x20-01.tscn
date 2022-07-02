@@ -28,7 +28,7 @@ var open = false
 var open_last = false
 
 func _ready():
-#	print(\"ready!!!!!\")
+#	print_debug(\"ready!!!!!\")
 #	anim.play_backwards(\"Door_Open\")
 #	timer.wait_time = open_timer
 	far_top.disabled = !open_on_far_top
@@ -39,7 +39,7 @@ func _ready():
 	area_right.set_collision_mask_bit(10,open_for_player)
 	area_left.set_collision_mask_bit(11,open_for_bg)
 	area_right.set_collision_mask_bit(11,open_for_bg)
-#	print(open_for_player, \"<---------------for player|| for badguy-------->\", open_for_bg)
+#	print_debug(open_for_player, \"<---------------for player|| for badguy-------->\", open_for_bg)
 
 #warning-ignore:unused_argument
 func _process(delta):
@@ -48,12 +48,12 @@ func _process(delta):
 		open_last = open
 
 func _on_entered(body):
-#	print(\"body entered\")
+#	print_debug(\"body entered\")
 	if body.get_groups().has(\"player\") || body.get_groups().has(\"badguy\"):
-#		print(\"player or bg entered\")
+#		print_debug(\"player or bg entered\")
 		bodies += 1
 		if !anim.is_playing():
-#			print(\"playing anim\")
+#			print_debug(\"playing anim\")
 			if !open:
 				anim.play(\"Door_Open\")
 				open = true

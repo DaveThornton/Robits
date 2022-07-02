@@ -62,7 +62,7 @@ func shoot_j():
 	if can_shoot:
 		var melee_result = melee_cast.is_colliding()
 		if melee_result:
-			print("melee attack")
+			print_debug("melee attack")
 			can_shoot = false
 			anim_fire.play("Melee")
 			melee_timer.start()
@@ -72,7 +72,7 @@ func shoot():
 	if can_shoot:
 		var melee_result = melee_cast.is_colliding()
 		if !melee_result:
-			print("no melee attck")
+			print_debug("no melee attck")
 			if ammo > 0:
 				var s = shell.instance()
 				self.get_tree().get_current_scene().add_child(s)
@@ -103,7 +103,7 @@ func shoot():
 
 
 func shoot_r():
-	print("shoot rel")
+	print_debug("shoot rel")
 
 func _on_Area2D_Melee_body_entered(body):
 	if body.get_groups().has("player"):

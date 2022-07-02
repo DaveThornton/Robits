@@ -18,7 +18,7 @@ func spawn_player_contoller(player_num: int):#, _auto_respawn):
 	players.add_child(z)
 	var test = get_tree().get_current_scene().connect("reset", z, "reset")
 	if test != 0:
-		print("error Singleton Controller connecting Player Controller to reset from world gd")
+		print_debug("error Singleton Controller connecting Player Controller to reset from world gd")
 	
 	if player_num == 1:
 		p1 = z
@@ -74,7 +74,7 @@ func get_controller(_num: int):
 	elif _num == 8:
 		return p8
 	else:
-		print("error in controllers singleton get controller invalid number")
+		print_debug("error in controllers singleton get controller invalid number")
 
 func player_equip_start_weap(_player):
 	if _player == 1:
@@ -94,7 +94,7 @@ func player_equip_start_weap(_player):
 	elif _player == 8:
 		p8.player_equip_start_weap()
 	else:
-		print("invalid player number in singlton controllers player_equip_start_weap player #: " ,_player)
+		print_debug("invalid player number in singlton controllers player_equip_start_weap player #: " ,_player)
 
 func player_remove_start_weap(_player):
 	if _player == 1:
@@ -114,7 +114,7 @@ func player_remove_start_weap(_player):
 	elif _player == 8:
 		p8.player_remove_start_weap()
 	else:
-		print("invalid player number in singlton controllers player_remove_start_weap player #: " ,_player)
+		print_debug("invalid player number in singlton controllers player_remove_start_weap player #: " ,_player)
 
 func clear_pawns():
 	if p1:

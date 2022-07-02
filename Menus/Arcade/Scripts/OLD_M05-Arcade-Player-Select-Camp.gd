@@ -23,7 +23,7 @@ var p8_ready = false
 func _ready():
 	var test3 = HUD.connect("input_to_screen", self, "movement")
 	if test3 != 0:
-		print("error in arcade player select Comp connect input to screen")
+		print_debug("error in arcade player select Comp connect input to screen")
 	HUD.in_play_to_select()
 	menu_check()
 
@@ -239,7 +239,7 @@ func movement(_player, _dir):
 			if _dir == 0:
 				HUD.ask_insert_coin(_player)
 	else:
-		print("error invald player in arcade player select VS")
+		print_debug("error invald player in arcade player select VS")
 
 func _set_ready(_player):
 	if _player == 1:

@@ -30,10 +30,10 @@ var pawns
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
-		print("error camera connecting to reset from world gd")
+		print_debug("error camera connecting to reset from world gd")
 	viewport_rect = get_viewport_rect()
 	pawns  = get_tree().get_current_scene().get_pawns()
-	print(pawns)
+	print_debug(pawns)
 	randomize()
 	noise_gen.seed = randi()
 	noise_gen.period = 4
@@ -71,7 +71,7 @@ func _process(delta):
 
 
 func move(_move):
-	print("camera move ",!_move)
+	print_debug("camera move ",!_move)
 	can_move = _move
 	edge_left.disabled = !_move
 	edge_right.disabled = !_move
@@ -104,10 +104,10 @@ func crt_off():
 	effect.visible = false
 
 func add_trauma(_amount):
-#	print("trauma added ", _amount, " amount in MP-01-Camera")
+#	print_debug("trauma added ", _amount, " amount in MP-01-Camera")
 	trauma += _amount * 0.1
 	trauma = clamp(trauma,0,.4)
-	print("trauma :", trauma, "    in MP-01-Camera")
+	print_debug("trauma :", trauma, "    in MP-01-Camera")
 
 func _c_shake(_delta):
 	var amount = pow(trauma,trauma_power)

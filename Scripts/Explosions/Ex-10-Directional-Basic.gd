@@ -79,7 +79,7 @@ func _on_Area2DInner_body_entered(body):
 		Player_Stats.add_hit(owned,1)
 		body.hit(owned, str(weap_name, " ", my_name), damage_type, damage2)
 	elif body.get_groups().has("hittable"):
-		print("trying to call hit on something hittable ex-02")
+		print_debug("trying to call hit on something hittable ex-02")
 		body.hit(owned, weap_name, damage_type, damage2)
 
 func _on_Timer_timeout():

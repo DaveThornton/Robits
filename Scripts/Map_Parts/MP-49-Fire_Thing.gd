@@ -45,4 +45,4 @@ func _process(delta):
 			going_out = false
 			current_time = -time_extended
 		else:
-			print("error in map part 49 fire thing",fire.size(), how_long, going_out)
+			print_debug("error in map part 49 fire thing",fire.size(), how_long, going_out)

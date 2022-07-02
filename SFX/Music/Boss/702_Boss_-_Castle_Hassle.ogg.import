@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/702_Boss_-_Castle_Hassle.ogg-ebd76a7cda427fc2deb685c2a82a64fa.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Boss/702_Boss_-_Castle_Hassle.ogg"
+dest_files=[ "res://.import/702_Boss_-_Castle_Hassle.ogg-ebd76a7cda427fc2deb685c2a82a64fa.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -75,7 +75,7 @@ func get_square(_num):
 	elif _num == 9:
 		return s09
 	else:
-		print("error in menu map campaign 3x3 invalid number in get square returning square 1      ", _num)
+		print_debug("error in menu map campaign 3x3 invalid number in get square returning square 1      ", _num)
 		return s01
 
 func update_spots(spots):
@@ -109,5 +109,5 @@ func get_spot(_num):
 	elif _num == 9:
 		return spot09
 	else:
-		print("error in menu map campaign 3x3 invalid number in get spot returning spot 1      ", _num)
+		print_debug("error in menu map campaign 3x3 invalid number in get spot returning spot 1      ", _num)
 		return spot01

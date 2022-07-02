@@ -41,7 +41,7 @@ signal ammo_change(player, ammo)
 func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 19 rail gun")
+		print_debug("failed to connect ammo change in weap hold 19 rail gun")
 	if Game.mode == 0:
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_b())
 		melee_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_b())
@@ -79,7 +79,7 @@ func shoot():
 				melee()
 			elif ammo > 0:
 				if !shoot_cast.is_colliding():
-					print("shoot cast not colliding why gun 19")
+					print_debug("shoot cast not colliding why gun 19")
 				else: 
 					FX.explode(19, player, shoot_cast.get_collision_point(), my_name, pawn, damage)
 				anim_fire.play("Shoot")
@@ -112,7 +112,7 @@ func _on_Melee_Area_body_entered(body):
 		if body.player != player:
 			body.hit(player, my_name, dmg_type, damage)
 		else:
-			print("quit hitting your self")
+			print_debug("quit hitting your self")
 
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()

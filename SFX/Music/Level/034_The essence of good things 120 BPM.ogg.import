@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/034_The essence of good things 120 BPM.ogg-9e71ffa205a0bd19a660698672edff09.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/034_The essence of good things 120 BPM.ogg"
+dest_files=[ "res://.import/034_The essence of good things 120 BPM.ogg-9e71ffa205a0bd19a660698672edff09.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

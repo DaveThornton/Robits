@@ -12,7 +12,7 @@ func play(_anim):
 	if anim.has_animation(_anim):
 		anim.play(_anim)
 	else:
-		print("wrong anim on head of pawn 11 it called for ",_anim," it doesnt exist")
+		print_debug("wrong anim on head of pawn 11 it called for ",_anim," it doesnt exist")
 		anim.play("Idle")
 
 func is_right(_right):

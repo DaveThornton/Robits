@@ -364,7 +364,7 @@ func equip_start_weap():
 		my_start_gun.visible = false
 
 func remove_start_weap():
-	print(gun_pos.get_child_count())
+	print_debug(gun_pos.get_child_count())
 	no_gun()
 	start_equiped = false
 	my_start_gun = null
@@ -380,10 +380,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	_hit_time += 0.11
 	if play_type == 1:
 		if is_shield_up:
-			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 		else:
 			is_shield_up = true
-			print("ive been hit. I'm player ",player)
+			print_debug("ive been hit. I'm player ",player)
 			let_go()
 			emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 			call_deferred("free")
@@ -395,7 +395,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			nrg_update()
 			if nrg <= 0:
 				is_shield_up = true
-				print("ive been hit. I'm player ",player)
+				print_debug("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 				call_deferred("free")
@@ -468,7 +468,7 @@ func _body_(_num: int):
 		body_shape_01.disabled = true
 		body_shape_02.disabled = false
 	else:
-		print("Pawn_14 error body number wrong in _body")
+		print_debug("Pawn_14 error body number wrong in _body")
 
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
@@ -795,7 +795,7 @@ func knockbacktimer():
 	knocked_back = Vector2(0, 0)
 
 func jumptimer():
-	print("jump timer timed out dont know why in pawn 14 player stats says its pawn ",Player_Stats.get_pawn_num(player))
+	print_debug("jump timer timed out dont know why in pawn 14 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 
 func hitbytimer():
 	hit_last_by = -1

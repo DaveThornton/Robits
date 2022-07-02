@@ -84,7 +84,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	anim2.play("Hit")
 	if health <= 0:
-		print("BG-20-Turrent-Ground dead")
+		print_debug("BG-20-Turrent-Ground dead")
 		FX.explode(2,player, self.position, str("player ", self, "'s destruct system"), player, ex_dmg)
 		call_deferred("free")
 

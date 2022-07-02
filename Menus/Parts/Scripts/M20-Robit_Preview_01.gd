@@ -76,7 +76,7 @@ func set_pic(_pawn: int):
 		elif _pawn == 16:
 			pawn_rand.visible = true
 	else:
-		print("error in Robit preview bad pawn number")
+		print_debug("error in Robit preview bad pawn number")
 
 func all_off():
 	pawn_01.visible = false

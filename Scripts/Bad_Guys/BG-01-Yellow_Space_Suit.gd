@@ -47,7 +47,7 @@ func _physics_process(delta):
 	if started:
 		if shoot_cast.is_colliding():
 			if shoot_cast.get_collider().get_groups().has("hittable"):
-#				print("its hittable yellow suit")
+#				print_debug("its hittable yellow suit")
 				if can_shoot:
 					shoot()
 		if stop_cast.is_colliding():

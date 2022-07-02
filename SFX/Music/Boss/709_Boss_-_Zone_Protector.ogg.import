@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/709_Boss_-_Zone_Protector.ogg-1285e183ab1adcd64dafa61842a19a8c.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Boss/709_Boss_-_Zone_Protector.ogg"
+dest_files=[ "res://.import/709_Boss_-_Zone_Protector.ogg-1285e183ab1adcd64dafa61842a19a8c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

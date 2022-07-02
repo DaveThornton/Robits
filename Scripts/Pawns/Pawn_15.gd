@@ -329,7 +329,7 @@ func no_gun():
 ##-----------------------------------------------------------------------[Equip]
 func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
 	var g = Equipment.get_weap_hold(_weap_num).instance()
-#	print(_weap_num, g)
+#	print_debug(_weap_num, g)
 	gun_pos.add_child(g)
 	g.init(_ammo_pick_up, player, _time_left, _just_shot)
 	take_ammo = g.take_ammo
@@ -346,7 +346,7 @@ func equip_start_weap():
 		my_start_gun.visible = false
 
 func remove_start_weap():
-	print(gun_pos.get_child_count())
+	print_debug(gun_pos.get_child_count())
 	no_gun()
 	start_equiped = false
 	my_start_gun = null
@@ -358,10 +358,10 @@ func remove_start_weap():
 # 	_hit_time += 0.11
 # 	if play_type == 1:
 # 		if is_shield_up:
-# 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+# 			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 # 		else:
 # 			is_shield_up = true
-# 			print("ive been hit. I'm player ",player)
+# 			print_debug("ive been hit. I'm player ",player)
 # 			let_go()
 # 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
 # 			call_deferred("free")
@@ -373,7 +373,7 @@ func remove_start_weap():
 # 			nrg_update()
 # 			if nrg <= 0:
 # 				is_shield_up = true
-# 				print("ive been hit. I'm player ",player)
+# 				print_debug("ive been hit. I'm player ",player)
 # 				let_go()
 # 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
 # 				call_deferred("free")
@@ -390,10 +390,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	_hit_time += 0.11
 	if play_type == 1:
 		if is_shield_up:
-			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 		else:
 			is_shield_up = true
-			print("ive been hit. I'm player ",player)
+			print_debug("ive been hit. I'm player ",player)
 			let_go()
 			emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 			call_deferred("free")
@@ -405,7 +405,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			nrg_update()
 			if nrg <= 0:
 				is_shield_up = true
-				print("ive been hit. I'm player ",player)
+				print_debug("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 				call_deferred("free")
@@ -476,7 +476,7 @@ func _is_on_floor():
 
 ##----------------------------------------------------------------[Stun / Knock]
 func stun(_gun_num):
-	print("stun")
+	print_debug("stun")
 	stun_timer.start()
 	can_move = false
 	on_ladder = false
@@ -657,7 +657,7 @@ func _anim_run():
 		_body(1)
 
 func _anim_jump():
-#	print("pawn 15 make jump animation")
+#	print_debug("pawn 15 make jump animation")
 	_body(1)
 	if vel.y < 0:
 		if is_right:
@@ -720,7 +720,7 @@ func _anim_stun():
 func _anim_Knock():
 	_body(1)
 	hub.stop()
-	print("pawn 15 make knock back anim")
+	print_debug("pawn 15 make knock back anim")
 	if is_right:
 		new_anim = "Right-Knock_Back"
 	else:
@@ -869,7 +869,7 @@ func knockbacktimer():
 	knocked_back = Vector2(0, 0)
 
 func jumptimer():
-	print("jump timer timed out dont know why in pawn 15 player stats says its pawn ",Player_Stats.get_pawn_num(player))
+	print_debug("jump timer timed out dont know why in pawn 15 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 
 func hitbytimer():
 	hit_last_by = -1
@@ -877,7 +877,7 @@ func hitbytimer():
 func _on_Pick_Up_Area_body_entered(body):
 	if body.get_groups().has("PickUp"):
 		wep_array.append(body)
-		print(wep_array)
+		print_debug(wep_array)
 
 func _on_Pick_Up_Area_body_exited(body):
 	if body.get_groups().has("PickUp"):

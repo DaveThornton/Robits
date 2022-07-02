@@ -169,7 +169,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	if health <= 0:
 		Player_Stats.add_score(_by_who, points)
-		print("Open Gunner dead BG-03")
+		print_debug("Open Gunner dead BG-03")
 		FX.explode(7, -1, self.position, "BG 03 Self Distruction", 0, 0)
 		call_deferred("free")
 

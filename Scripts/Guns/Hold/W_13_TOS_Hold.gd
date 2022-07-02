@@ -42,7 +42,7 @@ signal ammo_change(player, ammo)
 func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 13 TOS")
+		print_debug("failed to connect ammo change in weap hold 13 TOS")
 	if Game.mode == 0:
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_b())
 		melee_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_b())
@@ -112,7 +112,7 @@ func _on_Melee_Area_body_entered(body):
 		if body.player != player:
 			body.hit(player, my_name, dmg_type, m_damage)
 		else:
-			print("quit hitting your self")
+			print_debug("quit hitting your self")
 
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/054_Music_-_PP_Silly_Goose_FULL_Loop.ogg-282db735b7e81ee89263d2bebc7807a2.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/054_Music_-_PP_Silly_Goose_FULL_Loop.ogg"
+dest_files=[ "res://.import/054_Music_-_PP_Silly_Goose_FULL_Loop.ogg-282db735b7e81ee89263d2bebc7807a2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

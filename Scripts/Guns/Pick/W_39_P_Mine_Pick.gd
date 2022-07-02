@@ -32,7 +32,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if ammo < 1:
 		armed = true
 		shape.disabled = true
-		print("mine 30 armed = ", armed)
+		print_debug("mine 30 armed = ", armed)
 	player = _player
 	is_right = _is_right
 	timer.wait_time = expire_time

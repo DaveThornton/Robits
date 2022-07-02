@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/011_Action_-_Not_So_Bad.ogg-68929d0fd27e24d621000247abd15b02.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/011_Action_-_Not_So_Bad.ogg"
+dest_files=[ "res://.import/011_Action_-_Not_So_Bad.ogg-68929d0fd27e24d621000247abd15b02.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/025_In defense of my stuff 100 BPM.ogg-d78ce541a03bc5c74ea1e650d56e4452.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/025_In defense of my stuff 100 BPM.ogg"
+dest_files=[ "res://.import/025_In defense of my stuff 100 BPM.ogg-d78ce541a03bc5c74ea1e650d56e4452.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

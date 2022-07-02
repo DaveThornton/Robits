@@ -33,7 +33,7 @@ func _ready():
 func _process(_delta):
 	if ammo == 0:
 		time = timer_boom.time_left
-		print(time)
+		print_debug(time)
 		label.set_time(time)
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):

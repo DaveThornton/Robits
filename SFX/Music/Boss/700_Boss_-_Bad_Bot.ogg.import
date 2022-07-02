@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/700_Boss_-_Bad_Bot.ogg-41423d4893953891db9dd6d401bc695f.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Boss/700_Boss_-_Bad_Bot.ogg"
+dest_files=[ "res://.import/700_Boss_-_Bad_Bot.ogg-41423d4893953891db9dd6d401bc695f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/017_Action_-_Street_Brawl.ogg-ac5540600b4d387ca975546e3ae80125.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/017_Action_-_Street_Brawl.ogg"
+dest_files=[ "res://.import/017_Action_-_Street_Brawl.ogg-ac5540600b4d387ca975546e3ae80125.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

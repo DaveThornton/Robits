@@ -275,7 +275,7 @@ func get_weap_hold(_weap: int):
 		elif _weap == 25:
 			return gun_hold_25
 		else:
-			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 			return gun_hold_02
 	elif _weap < 51:
 		if _weap == 27:
@@ -291,7 +291,7 @@ func get_weap_hold(_weap: int):
 		elif _weap == 50:
 			return gun_hold_50
 		else:
-			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 			return gun_hold_02
 	elif _weap < 75:
 		if _weap == 51:
@@ -337,7 +337,7 @@ func get_weap_hold(_weap: int):
 		elif _weap == 73:
 			return gun_hold_73
 		else:
-			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 			return gun_hold_02
 	else:
 		if _weap == 80:
@@ -347,7 +347,7 @@ func get_weap_hold(_weap: int):
 		elif _weap == 84:
 			return gun_hold_84
 		else:
-			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 			return gun_hold_02
 
 func get_weap_pick(_weap: int):
@@ -405,7 +405,7 @@ func get_weap_pick(_weap: int):
 		elif _weap == 25:
 			return gun_pick_25
 		else:
-			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 			return gun_pick_02
 	elif _weap < 51:
 		if _weap == 27:
@@ -421,7 +421,7 @@ func get_weap_pick(_weap: int):
 		elif _weap == 50:
 			return gun_pick_50
 		else:
-			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 			return gun_pick_02
 	elif _weap < 75:
 		if _weap == 51:
@@ -467,7 +467,7 @@ func get_weap_pick(_weap: int):
 		elif _weap == 73:
 			return gun_pick_73
 		else:
-			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 			return gun_pick_02
 	else:
 		if _weap == 80:
@@ -477,7 +477,7 @@ func get_weap_pick(_weap: int):
 		elif _weap == 84:
 			return gun_pick_84
 		else:
-			print("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
+			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 			return gun_pick_02
 
 func get_item(_item):
@@ -494,7 +494,7 @@ func get_item(_item):
 	elif _item == 6:
 		return item_pick_06
 	else:
-		print("Error in Singleton Equipment wrong item number ----> ", _item, " you get Ammo")
+		print_debug("Error in Singleton Equipment wrong item number ----> ", _item, " you get Ammo")
 		return item_pick_01
 
 func get_pawn(_pawn_num):
@@ -532,8 +532,8 @@ func get_pawn(_pawn_num):
 		var _pawn = (randi() % 14) + 1
 		return get_pawn(_pawn)
 	elif _pawn_num == 0:
-		print("no pawn selected pawn number = ", _pawn_num, " you get pawn #13")
+		print_debug("no pawn selected pawn number = ", _pawn_num, " you get pawn #13")
 		return pawn_13
 	else:
-		print("not a good pawn number ", _pawn_num, " so im sending in pawn #1")
+		print_debug("not a good pawn number ", _pawn_num, " so im sending in pawn #1")
 		return pawn_01

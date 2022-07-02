@@ -46,7 +46,7 @@ func start( _sr , _ss, _sss, _player):
 
 func _on_Area2Douter_body_entered(body):
 	if body.get_groups().has("hittable"):
-		print(body)
+		print_debug(body)
 		body.hit(owned, weap_name, damage_type, damage1)
 
 func _on_Area2D2inner_body_entered(body):

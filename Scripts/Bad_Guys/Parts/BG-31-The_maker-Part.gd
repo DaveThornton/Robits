@@ -22,7 +22,7 @@ func set_part(_num:int):
 	elif _num == 3:
 		anim.play("Back")
 	else:
-		print("error in BG 31 part invalid int in set part ", _num)
+		print_debug("error in BG 31 part invalid int in set part ", _num)
 
 func move(_where:Vector2):
 	move_and_slide(_where)

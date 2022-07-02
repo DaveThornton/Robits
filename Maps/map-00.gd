@@ -40,13 +40,13 @@ func _ready():
 	Game.use_lives() #checks if number of lives are used
 	if $"MP-04-Nav2D":
 		nav_system = $"MP-04-Nav2D"
-		print("map nav system found")
+		print_debug("map nav system found")
 	else:
-		print("map has no navigation")
+		print_debug("map has no navigation")
 	if $Pipes:
 		pipes = $Pipes
 	else:
-		print("map has no pipes")
+		print_debug("map has no pipes")
 	FX.set_back(background)
 	FX.CAMERA.max_right = camera_max_right
 	FX.camera_move(camera_move)
@@ -123,7 +123,7 @@ func reset():
 
 func activate_BG(_num, _player):
 	emit_signal("activate",_num, _player)
-	print("map calling BGs go kill")
+	print_debug("map calling BGs go kill")
 
 func get_pipe(_num):
 	if pipes:

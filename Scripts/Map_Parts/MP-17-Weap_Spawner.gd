@@ -28,7 +28,7 @@ func _ready():
 	Map_Hand.map.connect("start",self ,"start")
 
 func start():
-	print("started")
+	print_debug("started")
 	outline.self_modulate = outline_color
 	middle.self_modulate = middle_color
 	back.self_modulate = back_color

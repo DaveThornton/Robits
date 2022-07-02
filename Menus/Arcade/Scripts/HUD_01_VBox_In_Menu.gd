@@ -39,8 +39,6 @@ func coin_count_update(_num:int):
 	update_state(6)
 
 func update_state(_state:int):
-#	print("update state called in hud 01 vbox in menu")
-#	anim.stop()
 	all_out()
 	imb_01_player.visible = true
 	if _state == 2:
@@ -56,7 +54,7 @@ func update_state(_state:int):
 	elif _state == 0:
 		pass
 	else:
-		print("invalid state in hud_01 update state. State = ", _state)
+		print_debug("invalid state in hud_01 update state. State = ", _state)
 	state = _state
 
 func all_out():

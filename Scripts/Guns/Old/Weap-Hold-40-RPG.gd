@@ -45,10 +45,10 @@ func _ready():
 	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 40 RPG")
+		print_debug("failed to connect ammo change in weap hold 40 RPG")
 #	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
 #	if test2 != 0:
-#		print("failed to connect shot in weap hold 40 RPG")
+#		print_debug("failed to connect shot in weap hold 40 RPG")
 
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
@@ -94,11 +94,11 @@ func shoot_j():
 #				if _thing.get_groups().has("player")
 				if _thing.get_groups().has("hittable"):
 					_thing.hit(player, my_name, dmg_type, damage)
-					print("gun 40 shot happened but no projectile spawned hit anyways")
+					print_debug("gun 40 shot happened but no projectile spawned hit anyways")
 				elif _thing.get_groups().has("map"):
-					print("gun 40 hitting wall not fireing projectile", _thing)
+					print_debug("gun 40 hitting wall not fireing projectile", _thing)
 				else:
-					print("gun 40 dont know what im hitting but no projectile spawned")
+					print_debug("gun 40 dont know what im hitting but no projectile spawned")
 #
 #			can_shoot = false 
 #			var new_projectile = projectile.instance()
@@ -128,13 +128,13 @@ func shoot_r():
 
 func melee():
 	if can_shoot:
-		print("melee attack")
+		print_debug("melee attack")
 		can_shoot = false
 		anim_fire.play("Melee")
 		melee_timer.start()
 		Player_Stats.add_shot(player, 1)
 #		emit_signal("shot", player)
-		print("melee called on gun 02")
+		print_debug("melee called on gun 02")
 
 func _on_Melee_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
@@ -142,7 +142,7 @@ func _on_Melee_Area2D_body_entered(body):
 #		body.stun(gun_num)
 			body.hit(player, my_name, dmg_type, damage)
 		else:
-			print("quit hitting your self")
+			print_debug("quit hitting your self")
 
 func throw():
 	var t = RPG_Pickup.instance()

@@ -2,7 +2,8 @@ extends Node2D
 
 export(PackedScene) var campaign
 export(PackedScene) var vs_mode
-
+export var vs_song = 0
+export var camp_song = 0
 onready var menu = $menu_1X3_01
 onready var label_camp = $Labels/Label1
 onready var label_choose = $Labels/Label2
@@ -17,7 +18,6 @@ var p5_ready = false
 var p6_ready = false
 var p7_ready = false
 var p8_ready = false
-
 var des_camp = "play the campaign to free the robits from their current oppression and fight to see who can get the high score"
 var des_choose = "make a selection"
 var des_vs_yes = "fight head to head in an up to a 8 player melee"
@@ -28,14 +28,15 @@ var menu_pos = 2
 func _ready():
 	var test3 = HUD.connect("input_to_screen", self, "movement")
 	if test3 != 0:
-		print("error in arcade game select connect input to screen")
+		print_debug("error in arcade game select connect input to screen")
 	var test2 = Player_Stats.connect("player_count_change",self,"menu_pos_changed")
 	if test2 != 0:
-		print("error in arcade game select connect player_count_change")
+		print_debug("error in arcade game select connect player_count_change")
 	HUD.menu_state()
 
 func _start(_player):
 	if menu_pos == 1:
+		SFX.music(true, camp_song)
 		SFX.menu(2)
 		Game.mode = 0
 		Game.start_eq = false
@@ -46,6 +47,7 @@ func _start(_player):
 		SFX.menu(3)
 	elif menu_pos == 3:
 		if Player_Stats.get_num_in_play() > 1:
+			SFX.music(true, vs_song)
 			SFX.menu(2)
 			Game.mode = 2
 			Game.start_eq = false
@@ -64,7 +66,7 @@ func menu_pos_changed():
 		label_text.text = des_vs_yes
 	elif menu_pos == 3 && Player_Stats.get_num_in_play() <= 1:
 		label_text.text = des_vs_no
-	print(Player_Stats.get_num_in_play())
+	print_debug(Player_Stats.get_num_in_play())
 
 func movement(_player, _dir):
 	if _player > 0 && _player < (Settings.get_max_num_players() + 1):
@@ -88,7 +90,7 @@ func movement(_player, _dir):
 		else:
 			HUD.ask_insert_coin(_player)
 	else:
-		print("error invald player in arcade player select VS")
+		print_debug("error invald player in arcade player select VS")
 	menu_pos_changed()
 
 func get_ready(_player):

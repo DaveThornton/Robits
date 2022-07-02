@@ -24,7 +24,7 @@ func  _process(_delta):
 				zero()
 			else:
 				current_count -= 1
-			print(count)
+			print_debug(count)
 			self.text = str(current_count)
 			time = 0.0
 

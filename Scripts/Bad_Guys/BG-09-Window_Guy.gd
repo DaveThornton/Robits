@@ -152,7 +152,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	if health <= 0 && !dead:
 		Player_Stats.add_score(_by_who, points)
-		print("Open Gunner dead windown guy")
+		print_debug("Open Gunner dead windown guy")
 		shoot_timer.stop()
 		can_shoot = false
 		shoot = false
@@ -170,7 +170,7 @@ func set_opened(_opened):
 	opened = _opened
 
 func _on_Timer_timeout():
-	print("timer")
+	print_debug("timer")
 	can_shoot = true
 
 func _on_AnimationPlayer_animation_finished(_animation):

@@ -25,7 +25,7 @@ signal start
 signal activate(_num, _player)
 
 func _ready():
-#	print(Game.mode)
+#	print_debug(Game.mode)
 	call_deferred("set_back",background)
 	# FX.set_back(background)
 	call_deferred("set_camera_max_right", camera_max_right)
@@ -37,9 +37,9 @@ func _ready():
 		HUD.splash(title_text, body_text, splash_time, true)
 	if $"MP-04-Nav2D":
 		nav_system = $"MP-04-Nav2D"
-		print("map nav system found")
+		print_debug("map nav system found")
 	else:
-		print("map has no navigation")
+		print_debug("map has no navigation")
 	if set_equip_weap_on:
 		Game.start_eq = true
 		for i in Settings.max_num_of_player: 
@@ -52,7 +52,7 @@ func _ready():
 #	var e = self.connect("reset",get_tree().get_current_scene(),"reset")
 	var e = get_tree().get_current_scene().connect("reset",self,"reset")
 	if !e:
-		print("error in map ready: error connecting reset")
+		print_debug("error in map ready: error connecting reset")
 	if camera_move:
 		for s in 8:
 			spots_in_range.append(player_spawns.get_child(s))
@@ -74,13 +74,13 @@ func add_pos(_spot):
 			#shouldnt have to do this the remove shouldt leave more than one 
 			if (FX.CAMERA.global_position.x - spots_in_range.back().global_position.x) >= 1920:
 				spots_in_range.pop_back()
-#	print("adding a spot ", _spot, "      spots in range count ---> ", spots_in_range.size())
+#	print_debug("adding a spot ", _spot, "      spots in range count ---> ", spots_in_range.size())
 
 func remove_pos(_spot):
 	if spots_in_range.find(_spot) >= 0 && spots_in_range.size() > 0:
 		next_spawn_spot = 0
 		spots_in_range.erase(_spot)
-#	print("removing a spot ", _spot, "      spots in range count ---> ", spots_in_range.size())
+#	print_debug("removing a spot ", _spot, "      spots in range count ---> ", spots_in_range.size())
 
 func next_spawn_pos():
 	if camera_move:
@@ -102,7 +102,7 @@ func remove_map():
 	# reset()
 
 func reset():
-	print("reset called in map c gd so it removed map")
+	print_debug("reset called in map c gd so it removed map")
 	remove_map()
 	# emit_signal("start")
 	# propagate_call("queue_free",[],false)
@@ -115,7 +115,7 @@ func reset():
 
 func activate_BG(_num, _player):
 	emit_signal("activate",_num, _player)
-	print("map calling BGs go kill")
+	print_debug("map calling BGs go kill")
 
 func _on_Start_Timer_timeout():
 	pass

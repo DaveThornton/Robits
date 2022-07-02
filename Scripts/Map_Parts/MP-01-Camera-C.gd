@@ -38,7 +38,7 @@ var pawns
 func _ready():
 	viewport_rect = get_viewport_rect()
 	pawns  = get_tree().get_current_scene().get_pawns()
-	print(pawns)
+	print_debug(pawns)
 #	set_process()
 	randomize()
 	noise_gen.seed = randi()
@@ -51,11 +51,11 @@ func _process(delta):
 			pawns  = get_tree().get_current_scene().get_pawns()
 		camera_rect = Rect2(get_child(0).global_position, Vector2())
 		for index in pawns.get_child_count():
-			print(pawns.get_child(index))
+			print_debug(pawns.get_child(index))
 			if index ==0:
 				continue
 			camera_rect = camera_rect.expand(pawns.get_child(index).global_position)
-#		print(pawns.get_child_count())
+#		print_debug(pawns.get_child_count())
 		camera.offset = cal_center(camera_rect)
 		camera.zoom = cal_zoom(camera_rect,viewport_rect.size)
 	
@@ -124,10 +124,10 @@ func crt_off():
 	effect.visible = false
 
 func add_trauma(_amount):
-	print("trauma added ", _amount, " amount in MP-01-Camera")
+	print_debug("trauma added ", _amount, " amount in MP-01-Camera")
 	trauma += _amount * 0.2
 	trauma = clamp(trauma,0,.4)
-	print(trauma)
+	print_debug(trauma)
 
 func _c_shake(_delta):
 	var amount = pow(trauma,trauma_power)

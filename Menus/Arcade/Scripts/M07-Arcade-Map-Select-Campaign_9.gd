@@ -26,15 +26,15 @@ func _ready():
 	set_spots(Campaign.get_level_comp_array())
 	var test1 = Map_Hand.connect("splash_done",self,"set_started")
 	if test1 != 0:
-		print("error in arcade map select campaign connect to maphand splash done")
+		print_debug("error in arcade map select campaign connect to maphand splash done")
 	var test2 = HUD.connect("screen_update", self, "menu_check")
 	if test2 != 0:
-		print("error M07 Arcade map select connecting next_screen")
+		print_debug("error M07 Arcade map select connecting next_screen")
 	var test3 = HUD.connect("input_to_screen", self, "movement")
 	if test3 != 0:
-		print("error in arcade map select campaign connect input to screen")
+		print_debug("error in arcade map select campaign connect input to screen")
 	show_player(player)
-	print("completion count in campaign is ", Campaign.get_level_comp_count())
+	print_debug("completion count in campaign is ", Campaign.get_level_comp_count())
 	if Campaign.get_level_comp_count() >= 9:
 		spot_5_locked = false
 		maps_menu.set_spot05_locked(false)
@@ -83,9 +83,9 @@ func movement(_player, _dir):
 					elif _dir == 0 || _dir == 5 || _dir == 6:
 						_start(_player)
 				else:
-					print("player is already ready in M07 movement")
+					print_debug("player is already ready in M07 movement")
 			else:
-				print("control player isnt in play M07 movement")
+				print_debug("control player isnt in play M07 movement")
 				if Player_Stats.get_credit(_player) >= 1 && _dir == 0:
 					Player_Stats.use_credit(_player)
 					HUD.player_select(_player)

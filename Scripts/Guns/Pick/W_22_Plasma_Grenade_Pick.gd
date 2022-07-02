@@ -33,7 +33,7 @@ func _process(_delta):
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
-	print(_time)
+	print_debug(_time)
 	player = _player
 	if _ammo  == 0:
 		ammo = 0
@@ -104,7 +104,7 @@ func _on_Area2D_body_entered(body):
 	if ammo == 0 && body.get_groups().has("player"):
 		self.remove_child(det)
 		body.attachment_point.attach(det)
-		print("hit person")
+		print_debug("hit person")
 		call_deferred("free")
 
 func booming():

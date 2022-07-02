@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/006_Action_-_Into_Orbit.ogg-6452390c71a1c8d8ae0e61c82d424fce.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/006_Action_-_Into_Orbit.ogg"
+dest_files=[ "res://.import/006_Action_-_Into_Orbit.ogg-6452390c71a1c8d8ae0e61c82d424fce.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

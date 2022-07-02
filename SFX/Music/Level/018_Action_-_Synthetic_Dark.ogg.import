@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/018_Action_-_Synthetic_Dark.ogg-1739afe59c472a153fdc016927ba8f6d.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/018_Action_-_Synthetic_Dark.ogg"
+dest_files=[ "res://.import/018_Action_-_Synthetic_Dark.ogg-1739afe59c472a153fdc016927ba8f6d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

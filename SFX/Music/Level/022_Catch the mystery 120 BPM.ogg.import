@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/022_Catch the mystery 120 BPM.ogg-6db185f4c16073fbc630560f48eb2a5c.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/022_Catch the mystery 120 BPM.ogg"
+dest_files=[ "res://.import/022_Catch the mystery 120 BPM.ogg-6db185f4c16073fbc630560f48eb2a5c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

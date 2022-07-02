@@ -42,7 +42,7 @@ func _ready():
 	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 02 M-16")
+		print_debug("failed to connect ammo change in weap hold 02 M-16")
 	if Game.mode == 0:
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 		melee_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
@@ -74,7 +74,7 @@ func shoot():
 				var _ss = pos_shoot.global_position
 				var _sr = pos_shoot.global_rotation
 				#---------------------------------------------------------------
-				print(is_right)
+				print_debug(is_right)
 				if is_right:
 					_sr = pos_shoot.global_rotation
 				else:
@@ -89,11 +89,11 @@ func shoot():
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
 					_thing.hit(player, my_name, dmg_type, damage)
-					print("gun 02 shot happened but no projectile spawned hit anyways")
+					print_debug("gun 02 shot happened but no projectile spawned hit anyways")
 				elif _thing.get_groups().has("map"):
-					print("gun 02 hitting wall not fireing projectile", _thing)
+					print_debug("gun 02 hitting wall not fireing projectile", _thing)
 				else:
-					print("gun 02 dont know what im hitting but no projectile spawned")
+					print_debug("gun 02 dont know what im hitting but no projectile spawned")
 			FX.shell(gun_num, pos_shell.global_position, pos_shell.global_rotation)
 			burst += 1
 			walk += walk_amount
@@ -111,7 +111,7 @@ func shoot():
 			shoot_timer.start()
 			SFX.play("Gun_Click")
 		else:
-			print("W04 M16 error while shooting else : what is going on. Ammo: ", ammo,"   burst: ", burst)
+			print_debug("W04 M16 error while shooting else : what is going on. Ammo: ", ammo,"   burst: ", burst)
 
 func shoot_r():
 	burst = 0
@@ -129,7 +129,7 @@ func _on_Melee_Area_body_entered(body):
 		if body.player != player:
 			body.hit(player, my_name, dmg_type, damage)
 		else:
-			print("quit hitting your self")
+			print_debug("quit hitting your self")
 
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()

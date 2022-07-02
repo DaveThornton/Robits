@@ -389,7 +389,7 @@ func equip_start_weap():
 		my_start_gun.visible = false
 
 func remove_start_weap():
-	print(gun_pos.get_child_count())
+	print_debug(gun_pos.get_child_count())
 	no_gun()
 	start_equiped = false
 	my_start_gun = null
@@ -401,10 +401,10 @@ func remove_start_weap():
 # 	_hit_time += 0.11
 # 	if play_type == 1:
 # 		if is_shield_up:
-# 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+# 			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 # 		else:
 # 			is_shield_up = true
-# 			print("ive been hit. I'm player ",player)
+# 			print_debug("ive been hit. I'm player ",player)
 # 			let_go()
 # 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
 # 			call_deferred("free")
@@ -418,14 +418,14 @@ func remove_start_weap():
 # 			nrg_update()
 # 			if nrg <= 0:
 # 				is_shield_up = true
-# 				print("ive been hit. I'm player ",player)
+# 				print_debug("ive been hit. I'm player ",player)
 # 				let_go()
 # 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
 # 				call_deferred("free")
 # 			elif nrg < light_on_nrg:
-# 				print("do something with less nrg in pawn 06 hit")
+# 				print_debug("do something with less nrg in pawn 06 hit")
 # 			else:
-# 				print("do something with less nrg in pawn 06 hit")
+# 				print_debug("do something with less nrg in pawn 06 hit")
 func hit(_by_who, _by_what, _damage_type, _damage):
 	if _by_who > 0:
 		hit_last_by = _by_who
@@ -434,10 +434,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	_hit_time += 0.11
 	if play_type == 1:
 		if is_shield_up:
-			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 		else:
 			is_shield_up = true
-			print("ive been hit. I'm player ",player)
+			print_debug("ive been hit. I'm player ",player)
 			let_go()
 			emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 			call_deferred("free")
@@ -449,7 +449,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			nrg_update()
 			if nrg <= 0:
 				is_shield_up = true
-				print("ive been hit. I'm player ",player)
+				print_debug("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 				call_deferred("free")
@@ -506,7 +506,7 @@ func balloon_off():
 func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
-#	print("fix body in pawn 04")
+#	print_debug("fix body in pawn 04")
 	if _num == 1:
 		body_s.disabled = false
 #		body_p.disabled = true
@@ -514,7 +514,7 @@ func _body_(_num: int):
 		body_s.disabled = false
 #		body_p.disabled = false
 	else:
-		print("Pawn 04 bad body number in func _body")
+		print_debug("Pawn 04 bad body number in func _body")
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
 	if ray_up.is_colliding():
@@ -532,7 +532,7 @@ func _is_on_floor():
 		going_up = true
 	else:
 		going_up = false
-#	print(on_floor, "     ",going_up)
+#	print_debug(on_floor, "     ",going_up)
 
 ##----------------------------------------------------------------[Stun / Knock]
 func stun(_gun_num):
@@ -687,7 +687,7 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 			_anim_ladder_right()
 		else:
 			_anim_ladder_left()
-#	print(vel.y)
+#	print_debug(vel.y)
 
 func _anim_idle():
 	_body(1)
@@ -715,7 +715,7 @@ func _anim_run():
 		hover.rotation_degrees = -45
 
 func _anim_jump():
-#	print("pawn 04 jump")
+#	print_debug("pawn 04 jump")
 	_body(1)
 	head.play_face("Flash")
 	new_anim = "Up"
@@ -760,7 +760,7 @@ func _anim_stun():
 	head.play_face("Stun")
 	new_anim = "Stun"
 	_rays_stand()
-	print("make stun anim for pawn 04")
+	print_debug("make stun anim for pawn 04")
 	head.play_face("Stun")
 	hover.play("Off")
 	if is_right:
@@ -772,7 +772,7 @@ func _anim_Knock():
 	_body(1)
 	new_anim = "Up"
 	_rays_stand()
-	print("make knock back anim for pawn 04")
+	print_debug("make knock back anim for pawn 04")
 	hover.play("Off")
 	if is_right:
 		head.is_right(true)
@@ -784,7 +784,7 @@ func _anim_ladder_move():
 	_rays_stand()
 	head.play_face("On")
 	hover.play("Off")
-	print("make ladder anim for pawn 04")
+	print_debug("make ladder anim for pawn 04")
 	new_anim = "Up"
 	head.is_right(true)
 #	head.up()
@@ -794,7 +794,7 @@ func _anim_ladder_right():
 	_rays_stand()
 	head.play_face("On")
 	hover.play("Off")
-	print("make ladder anim for pawn 04")
+	print_debug("make ladder anim for pawn 04")
 	new_anim = "Up"
 	head.is_right(true)
 
@@ -803,7 +803,7 @@ func _anim_ladder_left():
 	_rays_stand()
 	head.play_face("On")
 	hover.play("Off")
-	print("make ladder anim for pawn 04")
+	print_debug("make ladder anim for pawn 04")
 	new_anim = "Up"
 	head.is_right(false)
 

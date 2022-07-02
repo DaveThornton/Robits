@@ -84,7 +84,7 @@ func boom(_num, _owner, _pos, _weap_name, _pawn_num, _dmg):
 		Map_Hand.add_kid_to_map(x)
 		x.init(_owner, _pos, _weap_name, _pawn_num, _dmg)
 	else:
-		print("error in explosions invalid explosion number")
+		print_debug("error in explosions invalid explosion number")
 
 func proj_hit(_num, _pos, _moving):
 	var y

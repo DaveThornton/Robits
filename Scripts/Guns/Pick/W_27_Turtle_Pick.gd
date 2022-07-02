@@ -40,7 +40,7 @@ func _process(_delta):
 		return
 	elif move == 1:#moving left
 		if ray_d.is_colliding():
-			print("going dowm turtle pick")
+			print_debug("going dowm turtle pick")
 			var _2 = move_and_collide(Vector2(-10,-1))
 		else:
 			var _3 = move_and_collide(Vector2(-10,2))

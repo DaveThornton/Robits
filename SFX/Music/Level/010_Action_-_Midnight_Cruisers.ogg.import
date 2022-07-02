@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/010_Action_-_Midnight_Cruisers.ogg-e120c84fefd622475e2e290faadeac48.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/010_Action_-_Midnight_Cruisers.ogg"
+dest_files=[ "res://.import/010_Action_-_Midnight_Cruisers.ogg-e120c84fefd622475e2e290faadeac48.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

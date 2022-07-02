@@ -478,7 +478,7 @@ func _test_headroom():
 
 func nrg_update():
 	Player_Stats.nrg_update(player, nrg, nrg_max)
-#	print(nrg,"  ", nrg_max)
+#	print_debug(nrg,"  ", nrg_max)
 
 func add_nrg(_nrg):
 	nrg = clamp(nrg + _nrg, 0, nrg_max)
@@ -499,10 +499,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	_hit_time += 0.11
 	if play_type == 1:
 		if is_shield_up:
-			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 		else:
 			is_shield_up = true
-			print("ive been hit. I'm player ",player)
+			print_debug("ive been hit. I'm player ",player)
 			let_go()
 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
 			call_deferred("free")
@@ -515,7 +515,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			nrg_update()
 			if nrg <= 0:
 				is_shield_up = true
-				print("ive been hit. I'm player ",player)
+				print_debug("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
 				call_deferred("free")
@@ -526,10 +526,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 #		nrg_update()
 #		if nrg <= 0:
 #			if is_shield_up:
-#				print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+#				print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 #			else:
 #				is_shield_up = true
-#				print("ive been hit. I'm player ",player)
+#				print_debug("ive been hit. I'm player ",player)
 #				let_go()
 #				emit_signal("explode_p", player, self.position, _by_who, _by_what)
 #				call_deferred("free")
@@ -563,7 +563,7 @@ func knock_back(_amount, _time):
 			knocked_back = Vector2((_amount * .1), -(_amount * .9))
 
 func game_over(_winner):
-	print("game_over in player. won by ",_winner)
+	print_debug("game_over in player. won by ",_winner)
 
 func put_shield_up(_how_long):
 	is_shield_up = true
@@ -686,7 +686,7 @@ func _old_set_color():
 #		sprite_loco.self_modulate = Player_Stats.p8.color_loco
 		_body_color = Player_Stats.p8.color_2
 	else:
-		print("error in robit 01 setting player color player number invaliid")
+		print_debug("error in robit 01 setting player color player number invaliid")
 
 func _on_Shield_Hit_Timer_timeout():
 	sprite_shield_hit.visible = false
@@ -706,7 +706,7 @@ func _wall_kick(_right):
 		can_move = false
 		can_kick_wall = false
 		wall_kick_timer.start()
-		print("kickin walls fucker")
+		print_debug("kickin walls fucker")
 #		vel.y = -max_jump_power * jump_power_up
 		if _right:
 			if last_kicked != "right":

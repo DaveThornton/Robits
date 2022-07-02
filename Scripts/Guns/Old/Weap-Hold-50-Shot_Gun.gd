@@ -48,10 +48,10 @@ func _ready():
 	pawn = Controllers.get_pawn(player)
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 50 Shot Gun")
+		print_debug("failed to connect ammo change in weap hold 50 Shot Gun")
 #	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
 #	if test2 != 0:
-#		print("failed to connect shot in weap hold 50 Shot Gun")
+#		print_debug("failed to connect shot in weap hold 50 Shot Gun")
 
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
@@ -96,11 +96,11 @@ func shoot_j():
 					var _thing = shoot_cast.get_collider()
 					if _thing.get_groups().has("hittable"):
 						_thing.hit(player, my_name, dmg_type, damage)
-						print("gun 50 shot happened but no projectile spawned hit anyways")
+						print_debug("gun 50 shot happened but no projectile spawned hit anyways")
 					elif _thing.get_groups().has("map"):
-						print("gun 50 hitting wall not fireing projectile", _thing)
+						print_debug("gun 50 hitting wall not fireing projectile", _thing)
 					else:
-						print("gun 50 dont know what im hitting but no projectile spawned")
+						print_debug("gun 50 dont know what im hitting but no projectile spawned")
 
 				just_shot = true
 				can_shoot = false
@@ -136,7 +136,7 @@ func melee():
 		melee_timer.start()
 #		emit_signal("shot", player)
 		Player_Stats.add_shot(player, 1)
-		print("melee called on gun 50")
+		print_debug("melee called on gun 50")
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):

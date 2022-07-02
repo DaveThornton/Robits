@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		if _robits.size() > 0:
 			for i in _robits.size():
 				_robits[i].position += motion
-			print("fix way point MP-35")
+			print_debug("fix way point MP-35")
 
 func set_editor_process(value:bool):
 	editor_process = value
@@ -42,12 +42,12 @@ func set_editor_process(value:bool):
 
 func _on_MP35Area_Way_Point_Moving_body_entered(body):
 	if body.get_groups().has("player"):
-		print("player entered platform map part 35")
+		print_debug("player entered platform map part 35")
 		_robits.append(body)
 
 func _on_MP35Area_Way_Point_Moving_body_exited(body):
 	if body.get_groups().has("player"):
-		print("player exited platform map part 35")
+		print_debug("player exited platform map part 35")
 		_robits.erase(body)
 
 

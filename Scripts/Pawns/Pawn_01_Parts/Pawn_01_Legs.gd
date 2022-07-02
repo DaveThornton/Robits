@@ -26,7 +26,7 @@ func play(_anim):
 	elif _anim == "stand":
 		pass
 	else:
-		print("error in pawn 01 legs wrong animation")
+		print_debug("error in pawn 01 legs wrong animation")
 	
 func color(_pri, _sec):
 	leg_f.self_modulate = _pri

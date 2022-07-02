@@ -24,25 +24,25 @@ var bodies = []
 
 func off():
 	exit_shape.disabled = true
-#	print("--------------------------------exitshape --->",exit_shape.disabled)
+#	print_debug("--------------------------------exitshape --->",exit_shape.disabled)
 
 func on():
 	exit_shape.disabled = false
-#	print("--------------------------------exitshape --->",exit_shape.disabled)
+#	print_debug("--------------------------------exitshape --->",exit_shape.disabled)
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
-		print("body entered in area 1 ")
+		print_debug("body entered in area 1 ")
 		if bodies.find(body) >= 0:
-			print("entered 1 already in bodies mp15", bodies.size())
+			print_debug("entered 1 already in bodies mp15", bodies.size())
 			go()
 		else:
-			print("entered 1 appending in bodies mp15", bodies.size())
+			print_debug("entered 1 appending in bodies mp15", bodies.size())
 			bodies.append(body)
 	# if body.get_groups().has("player"):
 	# 	get_tree().paused = true
 	# 	anim.play("Door-Open-Close")
-	# 	print("pause")
+	# 	print_debug("pause")
 
 func _on_Area2D_body_exited(body):
 	if bodies.find(body) >= 0:
@@ -50,12 +50,12 @@ func _on_Area2D_body_exited(body):
 
 func _on_Area2D2_body_entered(body):
 	if body.get_groups().has("player"):
-		print("body entered in area 2 ")
+		print_debug("body entered in area 2 ")
 		if bodies.find(body) >= 0:
-			print("entered 2 already in bodies mp15", bodies.size())
+			print_debug("entered 2 already in bodies mp15", bodies.size())
 			go()
 		else:
-			print("entered 2 appending in bodies mp15", bodies.size())
+			print_debug("entered 2 appending in bodies mp15", bodies.size())
 
 func _on_Area2D2_body_exited(body):
 	if bodies.find(body) >= 0:
@@ -64,7 +64,7 @@ func _on_Area2D2_body_exited(body):
 func go():
 	get_tree().paused = true
 	anim.play("Door-Open-Close")
-	print("pause in go on mp 15 door thing")
+	print_debug("pause in go on mp 15 door thing")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	FX.CAMERA.reset()

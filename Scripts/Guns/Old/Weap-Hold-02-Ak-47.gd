@@ -47,10 +47,10 @@ func _ready():
 	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 02 AK-47")
+		print_debug("failed to connect ammo change in weap hold 02 AK-47")
 #	var test2 = self.connect("shot", Player_Stats, "add_shot")
 #	if test2 != 0:
-#		print("failed to connect shot in weap hold 02 AK-47")
+#		print_debug("failed to connect shot in weap hold 02 AK-47")
 
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
@@ -59,7 +59,7 @@ func init(_ammo, _player, _timer, _just_shot):
 	pawn = Player_Stats.get_pawn_num(player)
 	emit_signal("ammo_change",player,ammo)
 
-	print(pawn)
+	print_debug(pawn)
 	if pawn == 8:
 		anim_pawn.play("Test")
 #	elif pawn == 1:
@@ -67,7 +67,7 @@ func init(_ammo, _player, _timer, _just_shot):
 		anim_pawn.play("Pawn_01")
 	
 #	if test3 :
-#		print("hold ak47 init error on ammo change")
+#		print_debug("hold ak47 init error on ammo change")
 
 
 func _process(delta):
@@ -87,8 +87,8 @@ func shoot_j():
 	pass
 
 func shoot():
-	print(position)
-	print(global_position)
+	print_debug(position)
+	print_debug(global_position)
 	if can_shoot:
 		if melee_cast.is_colliding() && shoot_pos == 3:
 			melee()
@@ -110,11 +110,11 @@ func shoot():
 #				if _thing.get_groups().has("player")
 				if _thing.get_groups().has("hittable"):
 					_thing.hit(player, my_name, dmg_type, damage)
-					print("gun 02 shot happened but no projectile spawned hit anyways")
+					print_debug("gun 02 shot happened but no projectile spawned hit anyways")
 				elif _thing.get_groups().has("map"):
-					print("gun 02 hitting wall not fireing projectile", _thing)
+					print_debug("gun 02 hitting wall not fireing projectile", _thing)
 				else:
-					print("gun 02 dont know what im hitting but no projectile spawned")
+					print_debug("gun 02 dont know what im hitting but no projectile spawned")
 			var s = shell.instance()
 			Map_Hand.add_kid_to_map(s)
 #			self.get_tree().get_current_scene().add_child(s)
@@ -148,14 +148,14 @@ func melee():
 		melee_timer.start()
 		Player_Stats.add_shot(player, 1)
 #		emit_signal("shot", player)
-#		print("melee called on gun 02")
+#		print_debug("melee called on gun 02")
 
 func _on_Area2D_Melee_body_entered(body):
 	if body.get_groups().has("player"):
 		if body.player != player:
 			body.hit(player, my_name, dmg_type, damage)
 		else:
-			print("quit hitting your self")
+			print_debug("quit hitting your self")
 
 func throw():
 	var t = ak47_Pickup.instance()

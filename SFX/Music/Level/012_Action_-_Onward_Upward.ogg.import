@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/012_Action_-_Onward_Upward.ogg-7baa19f5d7bf4189b2be40c27f0839e5.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/012_Action_-_Onward_Upward.ogg"
+dest_files=[ "res://.import/012_Action_-_Onward_Upward.ogg-7baa19f5d7bf4189b2be40c27f0839e5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

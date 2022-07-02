@@ -28,7 +28,7 @@ func _process(delta):
 		call_deferred("move_players_center",delta)
 #	test_num += delta
 #	if test_num > 1:
-#		print("in ", occ_player_array_in, "           out", occ_player_array_out, "                     mp 42")
+#		print_debug("in ", occ_player_array_in, "           out", occ_player_array_out, "                     mp 42")
 #		test_num = 0
 #---------------------------------------------------------------player movement
 func move_players_up(_delta):
@@ -46,7 +46,7 @@ func move_players_up(_delta):
 						occ_player_array_out.remove(n)
 			else:
 				occ_player_array_out.remove(n)
-				print("didnt crash when he died")
+				print_debug("didnt crash when he died")
 
 func move_players_center(_delta):
 	if occ_player_array_in.size() > 0 && !clearing:
@@ -93,7 +93,7 @@ func _transport_there(_body):
 		if partner:
 			partner.transport_here(_body)
 		else:
-			print("cant find partner in mp 42")
+			print_debug("cant find partner in mp 42")
 
 #---------------------------------------------------------------get partner pipe
 func get_partner():
@@ -102,10 +102,10 @@ func get_partner():
 func _on_Timer_timeout():
 	var m = Map_Hand.map.get_pipe(go_to_pipe_number)
 	if m == null:
-		print(go_to_pipe_number," not a pipe number to go to. deleting self MP-42")
+		print_debug(go_to_pipe_number," not a pipe number to go to. deleting self MP-42")
 		call_deferred("queue_free")
 	else:
-		print(my_pipe_number," ", m," ", go_to_pipe_number," ", m.my_pipe_number," MP-42")
+		print_debug(my_pipe_number," ", m," ", go_to_pipe_number," ", m.my_pipe_number," MP-42")
 		partner = m
 
 #-----------------------------------------------------------------bodies entered

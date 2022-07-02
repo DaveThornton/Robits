@@ -18,7 +18,7 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 	cast_forward.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_owner) - 1, false)
 	anim.play("Move")
 	SFX.play("W_56_Projectile")
-	print("make sfx for BFG 9000 projectile")
+	print_debug("make sfx for BFG 9000 projectile")
 	if _scale.y < 0:
 		rotation *= -1
 

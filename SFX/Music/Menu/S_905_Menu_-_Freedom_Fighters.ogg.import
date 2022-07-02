@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/S_905_Menu_-_Freedom_Fighters.ogg-a72abf7f1d939d85f63b503249be6e87.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Menu/S_905_Menu_-_Freedom_Fighters.ogg"
+dest_files=[ "res://.import/S_905_Menu_-_Freedom_Fighters.ogg-a72abf7f1d939d85f63b503249be6e87.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

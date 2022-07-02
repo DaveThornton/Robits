@@ -10,7 +10,7 @@ func _ready():
 
 func _process(delta):
 	if !occ_player_array.empty():
-#		print(occ_player_array)
+#		print_debug(occ_player_array)
 		for j in range(occ_player_array.size()):
 			_move_player(j,delta)
 

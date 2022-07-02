@@ -38,7 +38,7 @@ func _physics_process(delta):
 		if plat.position.y >= 1300:
 			speed = 0
 			started = false
-			print("stopped falling block off screen hopefully")
+			print_debug("stopped falling block off screen hopefully")
 			if respawn:
 				start_timer.wait_time = respawn_time
 				start_timer.start()

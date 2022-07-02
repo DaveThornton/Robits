@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/050_Music_-_PP_Fight_or_Flight_Short_Drum_Loop_1.ogg-1700fe5e86573466b6652f56edac75f1.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/050_Music_-_PP_Fight_or_Flight_Short_Drum_Loop_1.ogg"
+dest_files=[ "res://.import/050_Music_-_PP_Fight_or_Flight_Short_Drum_Loop_1.ogg-1700fe5e86573466b6652f56edac75f1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

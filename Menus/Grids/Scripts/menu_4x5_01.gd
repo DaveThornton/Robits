@@ -105,7 +105,7 @@ func update_from_pos():
 	elif pos == 20:
 		sq20()
 	else:
-		print("error in pos number menu 5 x 4 number higher than 20 or lower than 1 invalid")
+		print_debug("error in pos number menu 5 x 4 number higher than 20 or lower than 1 invalid")
 
 func sq01():
 	blank_squares()

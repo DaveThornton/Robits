@@ -15,9 +15,9 @@ func _ready():
 	sprite.visible = false
 #	_spawn_new_barrel()
 #	barrel.connect("boom",self,"start_timer")
-#	print("clearing barrel")
+#	print_debug("clearing barrel")
 #	barrel.queue_free()
-#	print("spawning new barrel?")
+#	print_debug("spawning new barrel?")
 #	_spawn_new_barrel()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,19 +25,19 @@ func _ready():
 #	pass
 
 func _spawn_new_barrel():
-#	print("yes i am", self.global_position)
+#	print_debug("yes i am", self.global_position)
 	var nb = new_barrel.instance()
 	Map_Hand.add_kid_to_map(nb)
 	nb.init(-1, self.global_transform)
 #	nb.global_position = self.global_position
-#	print("new_barrel", nb.position)
+#	print_debug("new_barrel", nb.position)
 	nb.connect("boom",self,"start_timer")
 #	#	barrel = nb
 
 func start_timer():
-#	print("timer start")
+#	print_debug("timer start")
 	timer.start()
 
 func _on_Timer_timeout():
-#	print("time out")
+#	print_debug("time out")
 	_spawn_new_barrel()

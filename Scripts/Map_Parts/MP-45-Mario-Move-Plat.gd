@@ -33,7 +33,7 @@ func _on_Area2D_body_exited(body):
 		call_deferred("remove_up",body)
 
 func _on_Timer_timeout():
-	print("move plat mario freed")
+	print_debug("move plat mario freed")
 	call_deferred("queue_free")
 
 #--------------------------------------------------------------------add/remove

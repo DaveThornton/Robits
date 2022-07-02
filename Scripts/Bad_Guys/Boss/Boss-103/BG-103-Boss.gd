@@ -25,22 +25,22 @@ func _ready():
 		var tr = tracks.get_child(t)
 		var c = tr.connect("dead_track", self, "dead_track")
 		if !c:
-			print("didnt connect dead track in BG-103")
+			print_debug("didnt connect dead track in BG-103")
 		else:
-			print("connect worked dead track in BG-103")
+			print_debug("connect worked dead track in BG-103")
 	
 	for c in cannons.get_child_count():
 		var ca = cannons.get_child(c)
 		var d = ca.connect("dead_cannon", self, "dead_cannon")
 		if !d:
-			print("didnt connect dead cannon in BG-103")
+			print_debug("didnt connect dead cannon in BG-103")
 		else:
-			print("connect worked dead cannon in BG-103")
+			print_debug("connect worked dead cannon in BG-103")
 
 func _physics_process(delta):
 	var campos = FX.CAMERA.global_position.x
 	var vel = Vector2(0,-gravity * -delta)
-#	print(campos, "  <------campos     tank--------->", position.x)
+#	print_debug(campos, "  <------campos     tank--------->", position.x)
 	if campos + from_left < self.position.x:
 		vel = Vector2( -speed * delta, -gravity * -delta)
 		move_tracks(false)
@@ -51,7 +51,7 @@ func _physics_process(delta):
 		stop_tracks()
 	var m = move_and_slide(vel)
 	if !m:
-		print("no move and slide in BG 103 physics process")
+		print_debug("no move and slide in BG 103 physics process")
 
 func move_tracks(_right):
 	for t in tracks.get_child_count():
@@ -84,4 +84,4 @@ func dead_track():
 		speed = 0
 
 func dead_cannon():
-	print("dead cannon BG 103")
+	print_debug("dead cannon BG 103")

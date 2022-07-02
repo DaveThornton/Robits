@@ -78,7 +78,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		health -= (_damage - armor)
 		hit_time = .15
 		if health <= 0:
-			print("BG-20-Turrent-Ground dead")
+			print_debug("BG-20-Turrent-Ground dead")
 			explode()
 			# call_deferred("_explode")
 			call_deferred("free")

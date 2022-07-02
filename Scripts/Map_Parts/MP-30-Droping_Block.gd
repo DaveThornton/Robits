@@ -18,7 +18,7 @@ func _process(_delta):
 		block_fall.position.y += -1
 
 func _on_Area2D_area_entered(_area):
-	print("mp 30 entered area")
+	print_debug("mp 30 entered area")
 	falling = true
 #	call_deferred("_start")
 #

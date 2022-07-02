@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		if _robits.size() > 0:
 			for i in _robits.size():
 				_robits[i].position += motion
-			print("fix way point MP-37")
+			print_debug("fix way point MP-37")
 
 func set_editor_process(value:bool):
 	editor_process = value
@@ -53,10 +53,10 @@ func _on_Timer_timeout():
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
-		print("player entered platform map part 37")
+		print_debug("player entered platform map part 37")
 		_robits.append(body)
 
 func _on_Area2D_body_exited(body):
 	if body.get_groups().has("player"):
-		print("player exited platform map part 37")
+		print_debug("player exited platform map part 37")
 		_robits.erase(body)

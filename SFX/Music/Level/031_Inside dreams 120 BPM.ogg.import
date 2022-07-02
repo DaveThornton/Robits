@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/031_Inside dreams 120 BPM.ogg-5773c824eeb73e0686b6399538bbadf6.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/031_Inside dreams 120 BPM.ogg"
+dest_files=[ "res://.import/031_Inside dreams 120 BPM.ogg-5773c824eeb73e0686b6399538bbadf6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

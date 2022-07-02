@@ -45,7 +45,7 @@ func _on_WeapPick51Contradiction_S_body_shape_entered(_body_id, _body, _body_sha
 		self.set_collision_mask_bit( 1, false)
 
 func set_dir(_is_right, _dir):
-	print("check w 51 pick is direction right ???")
+	print_debug("check w 51 pick is direction right ???")
 	dir = _dir
 	if _is_right:
 		sprite.scale = Vector2(1.5, 1.5)

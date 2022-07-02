@@ -35,7 +35,7 @@ func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	weap_name = _weap_name
 	SFX.play("EX_Pawn")
 	FX.add_trauma(trauma)
-	print("bg pokey pos: ",self.global_position)
+	print_debug("bg pokey pos: ",self.global_position)
 
 func start( _sr , _ss, _sss, _player):
 	owned = _player
@@ -43,7 +43,7 @@ func start( _sr , _ss, _sss, _player):
 
 func _on_Area2Douter_body_entered(body):
 	if body.get_groups().has("hittable"):
-		print(body)
+		print_debug(body)
 		body.hit(owned, weap_name, damage_type, damage1)
 
 func _on_Area2D2inner_body_entered(body):

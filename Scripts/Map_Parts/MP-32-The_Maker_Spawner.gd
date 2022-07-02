@@ -21,10 +21,10 @@ func _ready():
 	elif !wait_for_camera:
 		triggered()
 	# else:
-	# 	print("error in mp 32 maker spawner invalid "
+	# 	print_debug("error in mp 32 maker spawner invalid "
 
 func triggered():
-	print("triggered in mp 32 the makeer spawner")
+	print_debug("triggered in mp 32 the makeer spawner")
 	if spawn && timer.is_stopped():
 		spawn_worm()
 

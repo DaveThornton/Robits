@@ -71,7 +71,7 @@ func _on_Timer_timeout():
 	# 		else:
 	# 			if ray.get_collider().get_groups().has("player"):
 	# 				Player_Stats.add_hit(owned,.1)
-	# 				print("adding to many hits in proj 13 make less")
+	# 				print_debug("adding to many hits in proj 13 make less")
 	# 			var x = hit_anim_move.instance()
 	# 			self.get_tree().get_current_scene().add_child(x)
 	# 			x.global_position = ray.get_collision_point()
@@ -87,7 +87,7 @@ func _on_Timer_timeout():
 # 	if body.get_groups().has("hittable"):
 # 		# if can_damage:
 # 		Player_Stats.add_hit(owned, 1)
-# 		print("adding to many hits in proj 13 make less")
+# 		print_debug("adding to many hits in proj 13 make less")
 # 		body.hit(owned, my_name, damage_type, damage)
 # 		_hit_move()
 # 		call_deferred("free")

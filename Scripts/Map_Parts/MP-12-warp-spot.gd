@@ -25,4 +25,4 @@ func _on_Area2D_body_entered(body):
 	if warp_spot:
 		body.global_position = warp_spot.global_position
 	else:
-		print("you didn't put Position2D on the warp point you dummy")
+		print_debug("you didn't put Position2D on the warp point you dummy")

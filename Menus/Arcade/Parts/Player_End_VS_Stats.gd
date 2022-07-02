@@ -85,7 +85,7 @@ func set_place_text(_text):
 
 func grfx_update():
 	if player_num == 0:
-		print("error in player end vs stats grfx update is getting called before it has a player number")
+		print_debug("error in player end vs stats grfx update is getting called before it has a player number")
 		return
 	var _pawn = Player_Stats.get_pawn_num(player_num)
 	visable_pawn(_pawn).init(player_num)
@@ -158,5 +158,5 @@ func visable_pawn(_num):
 		pawn_16.visible = true
 		return pawn_16
 	else:
-		print("invalid pawn number in visible pawn in end game stats so i give you pawn 05")
+		print_debug("invalid pawn number in visible pawn in end game stats so i give you pawn 05")
 		return pawn_05

@@ -26,12 +26,12 @@ func _ready():
 
 func init():
 	if game_mode == 1:
-		print("arcade game mode selected")
+		print_debug("arcade game mode selected")
 		HUD.load_screen(arcade_start)
 		Game.start(Settings.max_num_of_player)
 	
 	elif game_mode == 2:
-		print("console game mode selected this mode needs a lot of work before you go ahead")
+		print_debug("console game mode selected this mode needs a lot of work before you go ahead")
 		var a = console_start.instance()
 		console_start_screen = a 
 		add_child(a)
@@ -39,7 +39,7 @@ func init():
 		Game.start(Settings.max_num_of_player)
 	
 	elif game_mode == 3:
-		print("game mode 3: demo mode selected")
+		print_debug("game mode 3: demo mode selected")
 		if Settings.max_num_of_player == 1:
 			Player_Stats.p1["in_play"] = true
 		elif Settings.max_num_of_player == 2:
@@ -87,7 +87,7 @@ func init():
 		Game.start(Settings.max_num_of_player)
 		Map_Hand.load_map(demo_map)
 	else:
-		print("error in game mode type may not exceed 4 (world.gd) _check_game_over")
+		print_debug("error in game mode type may not exceed 4 (world.gd) _check_game_over")
 
 func _clean_house():
 	for child in clearing_house.get_children():
@@ -95,7 +95,7 @@ func _clean_house():
 
 func arcade_reset():
 	High_Score.set_visible(false)
-	print("reset called in world")
+	print_debug("reset called in world")
 	emit_signal("reset")
 	HUD.load_screen(arcade_start)
 	# Map_Hand.clear_map()

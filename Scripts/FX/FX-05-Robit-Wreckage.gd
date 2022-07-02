@@ -56,7 +56,7 @@ func init(_player, _pawn, _part_num, _move, _pos, _impulse):
 	elif _pawn == 15:
 		sprite.texture = pawn_img_15
 	elif _pawn > 15:
-		print("wreckage doesnt go past pawn 15 so you should fix that or the pawn FX-05 ")
+		print_debug("wreckage doesnt go past pawn 15 so you should fix that or the pawn FX-05 ")
 	if _player == 1:#Grey
 		sprite.self_modulate = Player_Stats.p1.color_1
 	elif _player == 2:#Pink

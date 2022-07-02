@@ -20,7 +20,7 @@ func _ready():
 	else:
 		move_area.set_gravity_vector(left_pos.position)
 		anim.play("Left")
-#	print(anim.current_animation)
+#	print_debug(anim.current_animation)
 #	anim.playback_active
 
 func _process(delta):

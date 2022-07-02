@@ -122,11 +122,11 @@ func init(_player_num):
 		player_input_h = "P8_Hold_Ground"
 		player_input_start = "P8_start"
 		player_input_coin = "P8_Coin"
-	else: print("Error in Robit controller init player number invald")
+	else: print_debug("Error in Robit controller init player number invald")
 
 func spawn_pawn():
 	if !Game.over && !Player_Stats.get_continuing(player):
-		print("spawning pawn bc game is not over in robit controller")
+		print_debug("spawning pawn bc game is not over in robit controller")
 		var z = Equipment.get_pawn(Player_Stats.get_pawn_num(player)).instance()
 		get_tree().get_current_scene().pawns.add_child(z)
 		z.connect("explode_p", self, "explode_pawn")
@@ -136,7 +136,7 @@ func spawn_pawn():
 		alive = true
 	
 	elif !Game.over && Player_Stats.get_continuing(player):
-		print("robit controller not working when tring to spawn maybe try to spawn again")
+		print_debug("robit controller not working when tring to spawn maybe try to spawn again")
 	
 func _init_pawn():
 	my_pawn.init(player, Map_Hand.spawn_pos(), Game.start_eq, play_type)
@@ -160,7 +160,7 @@ func clear_pawn():
 		my_pawn = null
 
 func game_over(_winner):
-	print("the player controller noticed the game is over winner is player ", _winner)
+	print_debug("the player controller noticed the game is over winner is player ", _winner)
 
 func _process(delta):
 	var left_input = Input.is_action_pressed(player_input_l)
@@ -191,7 +191,7 @@ func _process(delta):
 	
 	if player == 1:
 		if test_button:
-			print("test button add trama pressed in controller")
+			print_debug("test button add trama pressed in controller")
 			FX.add_trauma(1)
 	if Input.is_action_pressed("Exit"):
 		get_tree().quit()
@@ -233,7 +233,7 @@ func _process(delta):
 						Player_Stats.use_credit(player)
 						spawn_pawn()
 					else:
-						print("need to put a coin in or this is an error  ", Player_Stats.can_player_start(player))
+						print_debug("need to put a coin in or this is an error  ", Player_Stats.can_player_start(player))
 		else:
 			if start_input_j:
 				HUD.input(player, 0)
@@ -273,7 +273,7 @@ func set_spawn_spot(_pos):
 	spawn_spot = _pos
 
 func _spawn_spot():# set up for map handler singleton
-	print("in controller spawn spot not doing anything")
+	print_debug("in controller spawn spot not doing anything")
 	pass
 
 func _on_RespawnTimer_timeout():
@@ -296,7 +296,7 @@ func player_remove_start_weap():
 		my_pawn.remove_start_weap()
 
 func reset():
-	print("reset called in controller")
+	print_debug("reset called in controller")
 	Player_Stats.set_in_game(player, false)
 	Player_Stats.set_in_play(player, false)
 	alive = false

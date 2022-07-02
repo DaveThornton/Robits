@@ -24,7 +24,7 @@ signal ammo_change(player, ammo)
 func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 20 Grenade")
+		print_debug("failed to connect ammo change in weap hold 20 Grenade")
 
 func init(_ammo, _player, _time, _just_shot):
 	player = _player

@@ -36,10 +36,10 @@ func _ready():
 	damage = damage
 	var test1 = self.connect("ammo_change", get_tree().get_current_scene(), "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 60 Axe")
+		print_debug("failed to connect ammo change in weap hold 60 Axe")
 	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
 	if test2 != 0:
-		print("failed to connect shot in weap hold 60 Axe")
+		print_debug("failed to connect shot in weap hold 60 Axe")
 
 func init(_ammo, _player, _time):
 	player = _player
@@ -66,10 +66,10 @@ func shoot():
 #		pos_arm.rotation_degrees += down_swing
 #		pos_arm.rotation_degrees = clamp(pos_arm.rotation_degrees,0, max_rot)
 #		var arm_pos = pos_arm.rotation_degrees 
-##		print(arm_pos)
+##		print_debug(arm_pos)
 #		if arm_pos >= 60 :
 #			if arm_pos <= 80:
-##				print(arm_pos)
+##				print_debug(arm_pos)
 #				emit_signal("shot", player)
 
 func shoot_r():
@@ -170,6 +170,6 @@ func _set_anim():
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
 		if body.player == player || pos_arm.rotation_degrees == max_rot - up_swing:
-			print("quit hitting yourself and or you are leaving you weapon down and not swinging it")
+			print_debug("quit hitting yourself and or you are leaving you weapon down and not swinging it")
 		else:
 			body.hit(player, my_name, dmg_type,damage)

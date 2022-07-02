@@ -24,7 +24,7 @@ func _ready():
 func _process(delta):
 	time_to_shoot += delta
 	if time_to_shoot >= shoot_speed:
-		print(time_to_shoot)
+		print_debug(time_to_shoot)
 		time_to_shoot = 0.0
 		shoot()
 
@@ -40,7 +40,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	anim2.play("Hit")
 	if health <= 0:
-		print("BG-08-Shield_Guy dead")
+		print_debug("BG-08-Shield_Guy dead")
 		FX.explode(7, -1, self.position,my_name, 0, exp_damage)
 		# call_deferred("_explode")
 		call_deferred("free")

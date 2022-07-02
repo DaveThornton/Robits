@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/047_Music_-_PP_Evil_Lurks_Lite_Loop.ogg-2fc7248d5beff5ab911ad30de04ed0c4.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/047_Music_-_PP_Evil_Lurks_Lite_Loop.ogg"
+dest_files=[ "res://.import/047_Music_-_PP_Evil_Lurks_Lite_Loop.ogg-2fc7248d5beff5ab911ad30de04ed0c4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

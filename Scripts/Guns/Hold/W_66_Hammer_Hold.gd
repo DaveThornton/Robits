@@ -31,7 +31,7 @@ signal ammo_change(player, ammo)
 func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 63 Crowbar")
+		print_debug("failed to connect ammo change in weap hold 63 Crowbar")
 	if Game.mode == 0:
 		melee_area.set_collision_layer(FX.projectiles.get_layer_mode_0_a())
 		melee_area.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
@@ -61,7 +61,7 @@ func _process(delta):
 		hit_area.disabled = true
 		time_swing = 0.0
 	time_swing -= delta
-#	print(time_swing)
+#	print_debug(time_swing)
 		
 	
 func shoot_j():
@@ -80,7 +80,7 @@ func shoot_r():
 	hit_area.disabled = true
 
 func melee():
-	print("i dont know how this got called W_66_Hammer Melee?")
+	print_debug("i dont know how this got called W_66_Hammer Melee?")
 
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()
@@ -152,6 +152,6 @@ func _on_Melee_Area_body_entered(body):
 		if body.player != player:
 			body.hit(player, my_name, dmg_type,damage)
 		else:
-			print("quit hitting yourself")
+			print_debug("quit hitting yourself")
 	elif body.get_groups().has("hittable"):
 			body.hit(player, my_name, dmg_type,damage)

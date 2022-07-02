@@ -26,7 +26,7 @@ func _ready():
 	var pos = self.global_position.y + start_pos
 	speed = set_speed
 	for i  in how_many_parts:
-		# print("spawning parts BG06", position)
+		# print_debug("spawning parts BG06", position)
 		var part = pokey_part.instance()
 		add_child(part)
 		parts.append(part)
@@ -34,7 +34,7 @@ func _ready():
 		pos -= 30
 		var test = part.connect("distroyed", self, "hit")
 		if test != 0:
-			print("failed to connect distroyed to hit in pokey bg06")
+			print_debug("failed to connect distroyed to hit in pokey bg06")
 	parts[-1].call_deferred("head")
 
 	if start_left:
@@ -45,7 +45,7 @@ func _ready():
 
 func _physics_process(delta):
 	if started:
-		# print(self.global_position)
+		# print_debug(self.global_position)
 		var _down = 0
 		var _dir = 0
 		if cast_down.is_colliding():
@@ -75,7 +75,7 @@ func set_started():
 
 func hit(_body):
 	FX.explode(6, -1, _body.global_position, "BG_06 selfdistruct", 0, 0)
-	# print(_body.global_position)
+	# print_debug(_body.global_position)
 	parts.erase(_body)
 	remove_child(_body)
 	_body.call_deferred("free")
@@ -94,7 +94,7 @@ func refresh():
 				parts[i].set_pos(start_pos + (i * part_space))
 				# parts[i].move_pos(start_pos + (i * part_space))
 				parts[i].set_frame((i + 2) % 2)
-		print("im hit in bg 06 pokey im down a part")
+		print_debug("im hit in bg 06 pokey im down a part")
 		parts[-1].call_deferred("head")
 
 func _on_Timer_timeout():

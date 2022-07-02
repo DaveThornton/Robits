@@ -121,7 +121,7 @@ func _ready():
 #	var test = self.connect("nrg_update", Player_Stats, "nrg_update")
 ##	var test = self.connect("nrg_update", get_tree().get_current_scene(), "nrg_update")
 #	if test != 0:
-#		print("error Robit 01 connecting nrg update")
+#		print_debug("error Robit 01 connecting nrg update")
 	
 
 func init(_player_num, _pos, _start_equiped, _play_type):
@@ -163,7 +163,7 @@ func _process(delta):
 #	move_and_slide(Vector2(vel.x + knocked_back.x * delta, 0 + knocked_back.y * delta))
 	
 	if _im_hit:
-#		print(delta)
+#		print_debug(delta)
 		if _hit_time > 0.1:
 			_hit_time -= delta
 			sprite_body.self_modulate = _hit_color_01
@@ -400,14 +400,14 @@ func anim_update(left_input, right_input, up_input, down_input, jump_input, hold
 
 func _anim_idle():
 #	current_shape = col_stand
-#	print("idle anim")
+#	print_debug("idle anim")
 	if is_right:
 		new_anim = "Right-Idle"
 	else:
 		new_anim = "Left-Idle"
 
 func _anim_run():
-#	print("run anim")
+#	print_debug("run anim")
 #	current_shape = col_run
 	if is_right:
 		new_anim = "Right-Run"
@@ -506,10 +506,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	_hit_time += 0.11
 	if play_type == 1:
 		if is_shield_up:
-			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 		else:
 			is_shield_up = true
-			print("ive been hit. I'm player ",player)
+			print_debug("ive been hit. I'm player ",player)
 			let_go()
 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
 			call_deferred("free")
@@ -521,7 +521,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			nrg_update()
 			if nrg <= 0:
 				is_shield_up = true
-				print("ive been hit. I'm player ",player)
+				print_debug("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
 				call_deferred("free")
@@ -555,7 +555,7 @@ func knock_back(_amount, _time):
 			knocked_back = Vector2((_amount * .1), -(_amount * .9))
 
 func game_over(_winner):
-	print("game_over in player. won by ",_winner)
+	print_debug("game_over in player. won by ",_winner)
 
 func put_shield_up(_how_long):
 	is_shield_up = true
@@ -677,7 +677,7 @@ func _old_set_color():
 		sprite_loco.self_modulate = Player_Stats.p8.color_3
 		_body_color = Player_Stats.p8.color_2
 	else:
-		print("error in robit 01 setting player color player number invaliid")
+		print_debug("error in robit 01 setting player color player number invaliid")
 
 func _on_Shield_Hit_Timer_timeout():
 	sprite_shield_hit.visible = false

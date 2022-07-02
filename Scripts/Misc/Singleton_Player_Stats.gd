@@ -199,9 +199,9 @@ signal player_count_change
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
-		print("error Singleton Player Stats connecting to reset from world gd")
+		print_debug("error Singleton Player Stats connecting to reset from world gd")
 	if get_tree().get_current_scene().game_mode == 3:
-		print("pawns set in player stats")
+		print_debug("pawns set in player stats")
 		p1["pawn_num"] = 1
 		p2["pawn_num"] = 11
 		p3["pawn_num"] = 15
@@ -212,7 +212,7 @@ func _ready():
 		p8["pawn_num"] = 2
 
 func add_kill(_killed, _killer, _point, _by_what):
-	print(_killed," by ",_killer," for ",_point, " points with ",_by_what)
+	print_debug(_killed," by ",_killer," for ",_point, " points with ",_by_what)
 	if _killer > 0:
 		add_score(_killer, _point)
 		get_player_stats(_killer)["kill"] += 1
@@ -232,7 +232,7 @@ func add_score(_player, _score_amount):
 	if _player > 0:
 		get_player_stats(_player)["score"] += _score_amount
 	elif _player == -1:
-		print("singleton_player_stats map kill")
+		print_debug("singleton_player_stats map kill")
 	HUD.set_score(_player)
 
 func add_shot(_player, _shot_amount): get_player_stats(_player)["shot"] += _shot_amount
@@ -254,7 +254,7 @@ func coin_insert( _player):
 		p7["credit"] += 1
 		p8["credit"] += 1
 	else:
-		print("invalid player in player stats coin insert ... _player --> ", _player)
+		print_debug("invalid player in player stats coin insert ... _player --> ", _player)
 	HUD.coin_up(_player)
 
 func use_credit( _player):
@@ -446,7 +446,7 @@ func get_player_stats(_num):
 	elif _num == 8:
 		return p8
 	else:
-		print("invalid get player stats, get player stats thats dumb  -->  ", _num)
+		print_debug("invalid get player stats, get player stats thats dumb  -->  ", _num)
 		return p8
 
 func get_player_collision_layer(_player): return get_player_stats(_player)["collision_layer"]

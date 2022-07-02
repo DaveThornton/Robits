@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/021_Behind the column 100 BPM.ogg-6bcb7b1d4c4e19eb57a46189719e15dd.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Level/021_Behind the column 100 BPM.ogg"
+dest_files=[ "res://.import/021_Behind the column 100 BPM.ogg-6bcb7b1d4c4e19eb57a46189719e15dd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

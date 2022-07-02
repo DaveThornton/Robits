@@ -4,16 +4,17 @@ export(PackedScene) var next_screen
 
 onready var logo = $Sprite
 onready var timer = $Timer
-
+export var song_num = 0
 var screen_count = 0
 
 func _ready():
+	SFX.music(true, song_num)
 	var test = HUD.connect("input_to_screen", self, "movement")
 	var test2 = HUD.connect("screen_update", self, "_next_screen")
 	if test != 0:
-		print("error M01 Arcade Start  connecting input to movement")
+		print_debug("error M01 Arcade Start  connecting input to movement")
 	if test2 != 0:
-		print("error M01 Arcade Start  connecting next_screen")
+		print_debug("error M01 Arcade Start  connecting next_screen")
 	Player_Stats.reset()
 	HUD.menu_state()
 	FX.set_back(0)
@@ -28,7 +29,7 @@ func movement(_player, _dir):
 		else:
 			HUD.ask_insert_coin(_player)
 	else:
-		print("error invald player in arcade start")
+		print_debug("error invald player in arcade start")
 	HUD.menu_state()
 
 func _next_screen():

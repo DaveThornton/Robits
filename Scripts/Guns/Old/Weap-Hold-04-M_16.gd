@@ -50,10 +50,10 @@ func _ready():
 	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 04 m16")
+		print_debug("failed to connect ammo change in weap hold 04 m16")
 #	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
 #	if test2 != 0:
-#		print("failed to connect shot in weap hold 04 m16")
+#		print_debug("failed to connect shot in weap hold 04 m16")
 
 func init(_ammo, _player, _timer, _just_shot):
 	ammo = _ammo
@@ -105,11 +105,11 @@ func shoot():
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
 					_thing.hit(player, my_name, dmg_type, damage)
-					print("gun 04 shot happened but no projectile spawned hit anyways")
+					print_debug("gun 04 shot happened but no projectile spawned hit anyways")
 				elif _thing.get_groups().has("map"):
-					print("gun 04 hitting wall not fireing projectile", _thing)
+					print_debug("gun 04 hitting wall not fireing projectile", _thing)
 				else:
-					print("gun 04 dont know what im hitting but no projectile spawned")
+					print_debug("gun 04 dont know what im hitting but no projectile spawned")
 			burst += 1
 			var s = shell.instance()
 			Map_Hand.add_kid_to_map(s)
@@ -141,14 +141,14 @@ func melee():
 		melee_timer.start()
 #		emit_signal("shot", player)
 		Player_Stats.add_shot(player, 1)
-		print("melee called on gun 02")
+		print_debug("melee called on gun 02")
 
 func _on_Area2D_Melee_body_entered(body):
 	if body.get_groups().has("player"):
 		if body.player != player:
 			body.hit(player, my_name, dmg_type, damage)
 		else:
-			print("quit hitting your self")
+			print_debug("quit hitting your self")
 
 func throw():
 	var t = m16_Pickup.instance()

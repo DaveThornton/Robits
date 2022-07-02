@@ -26,6 +26,6 @@ func _on_Timer_timeout():
 	Map_Hand.add_kid_to_map(part)
 	if rand_trash:
 		trash_num = rng.randi_range(0, 20)
-#		print(trash_num)
+#		print_debug(trash_num)
 	part.init(trash_num, self.global_position, shoot_dir, trash_time)
 #	part.init(1, 1, 1, true, (self.global_position + Vector2(-7, -7)), shoot_dir)# its for the robit wreckage

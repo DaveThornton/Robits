@@ -37,10 +37,10 @@ func _ready():
 	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 23 Bomb Man")
+		print_debug("failed to connect ammo change in weap hold 23 Bomb Man")
 #	var test2 = self.connect("shot", get_tree().get_current_scene(), "shot")
 #	if test2 != 0:
-#		print("failed to connect shot in weap hold 23 Bomb Man")
+#		print_debug("failed to connect shot in weap hold 23 Bomb Man")
 
 func init(_ammo, _player, _time, _just_shot):
 	player = _player

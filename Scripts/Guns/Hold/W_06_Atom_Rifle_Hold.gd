@@ -34,7 +34,7 @@ func _ready():
 	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 11 mega cannon")
+		print_debug("failed to connect ammo change in weap hold 11 mega cannon")
 	if Game.mode == 0:
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 
@@ -166,4 +166,4 @@ func _on_Area2D_body_entered(body):
 		if body.player != player:
 			body.hit(player, my_name, "Melee", 150)
 		else:
-			print("quit hitting your self")
+			print_debug("quit hitting your self")

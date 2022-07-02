@@ -117,7 +117,7 @@ func update_from_pos():
 	elif pos == 24:
 		sq24()
 	else:
-		print("error in pos number menu 8 x 3 number higher than 24 or lower than 1 invalid")
+		print_debug("error in pos number menu 8 x 3 number higher than 24 or lower than 1 invalid")
 
 func sq01():
 	blank_squares()

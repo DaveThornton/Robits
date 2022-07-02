@@ -35,7 +35,7 @@ func start(_body_num,_color, _pos):
 	self.global_position.y = _pos
 	my_pos = _pos
 	pos = _pos
-	# print(global_position)
+	# print_debug(global_position)
 	call_deferred("starting",_body_num,_color, _pos)
 
 func starting(_body_num,_color, _pos):
@@ -51,7 +51,7 @@ func starting(_body_num,_color, _pos):
 		anim.play("start_right")
 
 	sprite.modulate = _color
-	# print(self.global_position)
+	# print_debug(self.global_position)
 
 func move_pos(_pos):
 	my_pos = _pos
@@ -76,7 +76,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= _damage
 	if health <= 0:
 		Player_Stats.add_score(_by_who, points)
-		print("bg 06 part distroyed ")
+		print_debug("bg 06 part distroyed ")
 		emit_signal("distroyed", self)
 
 func _on_BG_06_Part_Damage_area_body_entered(_body:Node):

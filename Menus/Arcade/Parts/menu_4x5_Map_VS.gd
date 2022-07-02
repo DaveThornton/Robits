@@ -85,7 +85,7 @@ func set_map(_spot, _num):
 	elif _spot == 20:
 		s20.frame = _num
 	else:
-		print("menu 4x5 map vs error wrong number set_map", _spot, _num)
+		print_debug("menu 4x5 map vs error wrong number set_map", _spot, _num)
 
 func return_map_from_spot(_spot):
 	if _spot == 1:
@@ -129,4 +129,4 @@ func return_map_from_spot(_spot):
 	elif _spot == 20:
 		return s20.frame
 	else:
-		print("menu 4x5 map vs error wrong number return_map_from_spot")
+		print_debug("menu 4x5 map vs error wrong number return_map_from_spot")

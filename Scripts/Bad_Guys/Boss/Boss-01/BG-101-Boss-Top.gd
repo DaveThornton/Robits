@@ -41,7 +41,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			hit_time = .1
 			health -= (_damage - armor)
 			if health <= 0:
-				print("top box in bg 101 boss killed")
+				print_debug("top box in bg 101 boss killed")
 				broken()
 				FX.explode(5, -1, self.position, str(self, "'s destruct system"), 0, 0)
 

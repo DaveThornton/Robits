@@ -158,7 +158,7 @@ func _animation(_spot):
 	elif _spot == 8:
 		anim.play("Shoot_8")
 	else:
-		print("error in BG-20 animation shoot spot not valid")
+		print_debug("error in BG-20 animation shoot spot not valid")
 
 func _on_Timer_shoot_timeout():
 	can_shoot = true

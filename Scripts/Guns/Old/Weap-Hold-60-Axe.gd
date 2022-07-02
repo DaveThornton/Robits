@@ -36,10 +36,10 @@ func _ready():
 	time = time
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print("failed to connect ammo change in weap hold 60 Axe")
+		print_debug("failed to connect ammo change in weap hold 60 Axe")
 	var test2 = self.connect("shot", Player_Stats, "add_shot")
 	if test2 != 0:
-		print("failed to connect shot in weap hold 60 Axe")
+		print_debug("failed to connect shot in weap hold 60 Axe")
 
 func init(_ammo, _player, _time, _just_shot):
 	player = _player
@@ -75,7 +75,7 @@ func shoot_r():
 	swinging = false
 
 func melee():
-	print("trying to hit with melee does it still work if so please remove this melee in axe holding else fix it then dummy")
+	print_debug("trying to hit with melee does it still work if so please remove this melee in axe holding else fix it then dummy")
 
 func throw():
 	var t = axe_pickup.instance()
@@ -167,6 +167,6 @@ func _on_Area2D_body_entered(body):
 		if body.player != player:
 			body.hit(player, my_name, dmg_type,damage)
 		else:
-			print("quit hitting yourself")
+			print_debug("quit hitting yourself")
 	elif body.get_groups().has("hittable"):
 			body.hit(player, my_name, dmg_type,damage)

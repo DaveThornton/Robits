@@ -356,7 +356,7 @@ func equip_start_weap():
 
 func remove_start_weap():
 	if start_equiped:
-		print(gun_pos.get_child_count())
+		print_debug(gun_pos.get_child_count())
 		start_equiped = false
 		my_start_gun = null
 		for i in gun_pos.get_child_count():
@@ -368,10 +368,10 @@ func remove_start_weap():
 # 	_hit_time += 0.11
 # 	if play_type == 1:
 # 		if is_shield_up:
-# 			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+# 			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 # 		else:
 # 			is_shield_up = true
-# 			print("ive been hit. I'm player ",player)
+# 			print_debug("ive been hit. I'm player ",player)
 # 			let_go()
 # 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
 # 			call_deferred("free")
@@ -383,7 +383,7 @@ func remove_start_weap():
 # 			nrg_update()
 # 			if nrg <= 0:
 # 				is_shield_up = true
-# 				print("ive been hit. I'm player ",player)
+# 				print_debug("ive been hit. I'm player ",player)
 # 				let_go()
 # 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
 # 				call_deferred("free")
@@ -399,10 +399,10 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	_hit_time += 0.11
 	if play_type == 1:
 		if is_shield_up:
-			print(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
 		else:
 			is_shield_up = true
-			print("ive been hit. I'm player ",player)
+			print_debug("ive been hit. I'm player ",player)
 			let_go()
 			emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 			call_deferred("free")
@@ -414,7 +414,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			nrg_update()
 			if nrg <= 0:
 				is_shield_up = true
-				print("ive been hit. I'm player ",player)
+				print_debug("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 				call_deferred("free")
@@ -732,7 +732,7 @@ func _anim_prone_crawl():
 		new_anim = "Prone_Left"
 
 func _anim_stun():
-	print("make stun animation pawn 02")
+	print_debug("make stun animation pawn 02")
 	_body(1)
 	if is_right:
 		new_anim = "Stun_Right"
@@ -741,7 +741,7 @@ func _anim_stun():
 #	head.stun()
 
 func _anim_Knock():
-	print("make Knock back animation pawn 02")
+	print_debug("make Knock back animation pawn 02")
 	if is_right:
 		_body(1)
 	else:
@@ -751,19 +751,19 @@ func _anim_ladder_move():
 	_body(3)
 	new_anim = "Ladder_Move"
 	legs_Ladder()
-	print("ladder move")
+	print_debug("ladder move")
 
 func _anim_ladder_right():
 	_body(3)
 	new_anim = "Ladder_Right"
 	legs_stop()
-	print("ladder_right")
+	print_debug("ladder_right")
 
 func _anim_ladder_left():
 	_body(3)
 	new_anim = "Ladder_Left"
 	legs_stop()
-	print("ladder_left")
+	print_debug("ladder_left")
 
 func _set_gun_dir():
 	arm.is_right(is_right)
@@ -845,7 +845,7 @@ func _body_(_num: int):
 		body2.disabled = true
 		body3.disabled = false
 	else:
-		print("wrong body call in pawn 01")
+		print_debug("wrong body call in pawn 01")
 
 func shield_up():
 	head.shield_up()
@@ -976,7 +976,7 @@ func knockbacktimer():
 	knocked_back = Vector2(0, 0)
 
 func jumptimer():
-	print("jump timer timed out dont know why in pawn 02 player stats says its pawn ",Player_Stats.get_pawn_num(player))
+	print_debug("jump timer timed out dont know why in pawn 02 player stats says its pawn ",Player_Stats.get_pawn_num(player))
 
 func hitbytimer():
 	hit_last_by = -1
@@ -992,13 +992,13 @@ func _on_Pick_Up_Area_body_exited(body):
 
 func _on_Ladder_Area_body_entered(body):
 	over_ladder = true
-	print("ladder entered")
+	print_debug("ladder entered")
 	ladder_count.append(body)
 
 func _on_Ladder_Area_body_exited(body):
 	over_ladder = false
 	on_ladder = false
-	print("ladder exited")
+	print_debug("ladder exited")
 	ladder_count.erase(body)
 
 func killed_by_map(_by_who, _by_what, _damage_type, _damage):

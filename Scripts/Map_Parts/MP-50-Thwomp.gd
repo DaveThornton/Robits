@@ -24,7 +24,7 @@ func _ready():
 	if !trigger_on_prox:
 		var con = self.get_tree().get_current_scene().connect("second", self, "second")
 		if con != 0:
-			print("error on connecting second to second in Thwomp")
+			print_debug("error on connecting second to second in Thwomp")
 		trigger_shape.disabled = !trigger_on_prox
 	cast_down.force_raycast_update()
 	if cast_down.is_colliding():
@@ -38,16 +38,16 @@ func _process(delta):
 	else:
 		hammer.move_and_collide(Vector2(-cposx, speed_up * delta))
 		if cast_up1.is_colliding():
-			print("up-colliding")
+			print_debug("up-colliding")
 			hit_it(cast_up1.get_collider())
 		elif cast_up2.is_colliding():
-			print("up-colliding")
+			print_debug("up-colliding")
 			hit_it(cast_up2.get_collider())
 		elif cast_up3.is_colliding():
-			print("up-colliding")
+			print_debug("up-colliding")
 			hit_it(cast_up3.get_collider())
 		elif cast_up4.is_colliding():
-			print("up-colliding")
+			print_debug("up-colliding")
 			hit_it(cast_up4.get_collider())
 
 func slam():

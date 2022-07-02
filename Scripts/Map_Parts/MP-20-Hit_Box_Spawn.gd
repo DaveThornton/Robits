@@ -28,7 +28,7 @@ func _ready():
 	Map_Hand.map.connect("start",self ,"start")
 
 func start():
-	print("started MP 20")
+	print_debug("started MP 20")
 	outline.self_modulate = outline_color
 	middle.self_modulate = middle_color
 	back.self_modulate = back_color
@@ -47,7 +47,7 @@ func spawn():
 	if is_instance_valid(s_obj):
 		if s_obj.has_method("fade_out"):
 			s_obj.fade_out()
-		print("old one deleted in mp 20 spawn")
+		print_debug("old one deleted in mp 20 spawn")
 	var s = obj.instance()
 	s_obj = s
 	Map_Hand.add_kid_to_map(s)
@@ -56,7 +56,7 @@ func spawn():
 	s.init(-1, 0, 1, true, 3, false)
 	if rotate_spawn:
 		spawn_number += 1
-		print("spawn number  ",spawn_number)
+		print_debug("spawn number  ",spawn_number)
 		if gun1_nade2_power3 == 1:
 			if spawn_number > 8:
 				spawn_number = 1

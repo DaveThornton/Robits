@@ -17,7 +17,7 @@ func play(_anim):
 		anim.play(_anim)
 	else:
 		anim.play("On")
-		print("error in pawn 01 head play animation not a valid animation ")
+		print_debug("error in pawn 01 head play animation not a valid animation ")
 
 func is_right(_right):
 	if _right:
