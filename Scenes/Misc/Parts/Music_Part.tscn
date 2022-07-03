@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://Scripts/Misc/Parts/Music_Part.gd" type="Script" id=1]
 [ext_resource path="res://SFX/Music/Menu/S_907_Menu_-_Empires_Fall.ogg" type="AudioStream" id=2]
@@ -11,6 +11,62 @@
 [ext_resource path="res://SFX/Music/Menu/S_906_Menu_-_Floating_Point.ogg" type="AudioStream" id=9]
 [ext_resource path="res://SFX/Music/Menu/S_901_Menu_-_Bringer_Of_Doom.ogg" type="AudioStream" id=10]
 [ext_resource path="res://SFX/Music/Menu/S_902_Menu_-_Mega_Corp.ogg" type="AudioStream" id=11]
+[ext_resource path="res://SFX/Music/Level/001_Action_-_Constant_Combat.ogg" type="AudioStream" id=12]
+[ext_resource path="res://SFX/Music/Level/007_Action_-_Keep_Moving.ogg" type="AudioStream" id=13]
+[ext_resource path="res://SFX/Music/Level/012_Action_-_Onward_Upward.ogg" type="AudioStream" id=14]
+[ext_resource path="res://SFX/Music/Level/013_Action_-_Pedal_to_the_Metal.ogg" type="AudioStream" id=15]
+[ext_resource path="res://SFX/Music/Level/006_Action_-_Into_Orbit.ogg" type="AudioStream" id=16]
+[ext_resource path="res://SFX/Music/Level/000_Action_-_Classical_Hero.ogg" type="AudioStream" id=17]
+[ext_resource path="res://SFX/Music/Level/003_Action_-_Dystopian_Opening.ogg" type="AudioStream" id=18]
+[ext_resource path="res://SFX/Music/Level/008_Action_-_Keep_Shooting.ogg" type="AudioStream" id=19]
+[ext_resource path="res://SFX/Music/Level/009_Action_-_Laser_Cycles.ogg" type="AudioStream" id=20]
+[ext_resource path="res://SFX/Music/Level/014_Action_-_Rocket_Racer.ogg" type="AudioStream" id=21]
+[ext_resource path="res://SFX/Music/Level/017_Action_-_Street_Brawl.ogg" type="AudioStream" id=22]
+[ext_resource path="res://SFX/Music/Level/018_Action_-_Synthetic_Dark.ogg" type="AudioStream" id=23]
+[ext_resource path="res://SFX/Music/Level/005_Action_-_Hyper_Fighter.ogg" type="AudioStream" id=24]
+[ext_resource path="res://SFX/Music/Level/011_Action_-_Not_So_Bad.ogg" type="AudioStream" id=25]
+[ext_resource path="res://SFX/Music/Level/015_Action_-_Route_88.ogg" type="AudioStream" id=26]
+[ext_resource path="res://SFX/Music/Level/016_Action_-_Skies_Of_Fire.ogg" type="AudioStream" id=27]
+[ext_resource path="res://SFX/Music/Level/020_Around the Bend 100 BPM.ogg" type="AudioStream" id=28]
+[ext_resource path="res://SFX/Music/Level/010_Action_-_Midnight_Cruisers.ogg" type="AudioStream" id=29]
+[ext_resource path="res://SFX/Music/Level/004_Action_-_Future_Zone.ogg" type="AudioStream" id=30]
+[ext_resource path="res://SFX/Music/Level/019_Action_-_Wrecking_Crew.ogg" type="AudioStream" id=31]
+[ext_resource path="res://SFX/Music/Level/021_Behind the column 100 BPM.ogg" type="AudioStream" id=32]
+[ext_resource path="res://SFX/Music/Level/022_Catch the mystery 120 BPM.ogg" type="AudioStream" id=33]
+[ext_resource path="res://SFX/Music/Level/002_Action_-_Driving_Rivals.ogg" type="AudioStream" id=34]
+[ext_resource path="res://SFX/Music/Level/032_killing Flies 120 BPM.ogg" type="AudioStream" id=35]
+[ext_resource path="res://SFX/Music/Level/043_Music_-_PP_Destiny_noMel_Loop.ogg" type="AudioStream" id=36]
+[ext_resource path="res://SFX/Music/Level/039_With torn pants 110 BPM.ogg" type="AudioStream" id=37]
+[ext_resource path="res://SFX/Music/Level/026_In early time 100 BPM.ogg" type="AudioStream" id=38]
+[ext_resource path="res://SFX/Music/Level/053_Music_-_PP_Mellow_Garden_noPer_Loop.ogg" type="AudioStream" id=39]
+[ext_resource path="res://SFX/Music/Level/042_Music_-_PP_Destiny_Lite_Loop.ogg" type="AudioStream" id=40]
+[ext_resource path="res://SFX/Music/Level/049_Music_-_PP_Fight_or_Flight_Heavy_Loop.ogg" type="AudioStream" id=41]
+[ext_resource path="res://SFX/Music/Level/041_Music_-_PP_Destiny_Lite_2_Loop.ogg" type="AudioStream" id=42]
+[ext_resource path="res://SFX/Music/Level/047_Music_-_PP_Evil_Lurks_Lite_Loop.ogg" type="AudioStream" id=43]
+[ext_resource path="res://SFX/Music/Level/051_Music_-_PP_Fight_or_Flight_Short_Drum_Loop_2.ogg" type="AudioStream" id=44]
+[ext_resource path="res://SFX/Music/Level/034_The essence of good things 120 BPM.ogg" type="AudioStream" id=45]
+[ext_resource path="res://SFX/Music/Level/023_Dark Intentions 110 BPM.ogg" type="AudioStream" id=46]
+[ext_resource path="res://SFX/Music/Level/030_In the spinning world 120 BPM.ogg" type="AudioStream" id=47]
+[ext_resource path="res://SFX/Music/Level/054_Music_-_PP_Silly_Goose_FULL_Loop.ogg" type="AudioStream" id=48]
+[ext_resource path="res://SFX/Music/Level/033_The Crane Dance 120 BPM.ogg" type="AudioStream" id=49]
+[ext_resource path="res://SFX/Music/Level/055_Music_-_PP_Silly_Goose_Lite_Loop.ogg" type="AudioStream" id=50]
+[ext_resource path="res://SFX/Music/Level/036_Waiting for events 120 BPM.ogg" type="AudioStream" id=51]
+[ext_resource path="res://SFX/Music/Level/028_In the Champs Elysees 100 BPM.ogg" type="AudioStream" id=52]
+[ext_resource path="res://SFX/Music/Level/048_Music_-_PP_Fight_or_Flight_FULL_Loop.ogg" type="AudioStream" id=53]
+[ext_resource path="res://SFX/Music/Level/035_Under the hot sun 110 BPM.ogg" type="AudioStream" id=54]
+[ext_resource path="res://SFX/Music/Level/044_Music_-_PP_Evil_Lurks_Ambient_Loop.ogg" type="AudioStream" id=55]
+[ext_resource path="res://SFX/Music/Level/050_Music_-_PP_Fight_or_Flight_Short_Drum_Loop_1.ogg" type="AudioStream" id=56]
+[ext_resource path="res://SFX/Music/Level/052_Music_-_PP_Mellow_Garden_FULL_Loop.ogg" type="AudioStream" id=57]
+[ext_resource path="res://SFX/Music/Level/038_With loose cords 100 BPM.ogg" type="AudioStream" id=58]
+[ext_resource path="res://SFX/Music/Level/031_Inside dreams 120 BPM.ogg" type="AudioStream" id=59]
+[ext_resource path="res://SFX/Music/Level/024_Fancy cakes 120 BPM.ogg" type="AudioStream" id=60]
+[ext_resource path="res://SFX/Music/Level/029_In The Depths Of The Cave 120 BPM.ogg" type="AudioStream" id=61]
+[ext_resource path="res://SFX/Music/Level/037_With dirty hands 120 BPM.ogg" type="AudioStream" id=62]
+[ext_resource path="res://SFX/Music/Level/027_In the back pocket 100 BPM.ogg" type="AudioStream" id=63]
+[ext_resource path="res://SFX/Music/Level/040_Music_-_PP_Destiny_FULL_Loop.ogg" type="AudioStream" id=64]
+[ext_resource path="res://SFX/Music/Level/045_Music_-_PP_Evil_Lurks_FULL_Loop.ogg" type="AudioStream" id=65]
+[ext_resource path="res://SFX/Music/Level/046_Music_-_PP_Evil_Lurks_Lite_2_Loop.ogg" type="AudioStream" id=66]
+[ext_resource path="res://SFX/Music/Level/025_In defense of my stuff 100 BPM.ogg" type="AudioStream" id=67]
 
 [node name="Music_Part" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,26 +74,231 @@ script = ExtResource( 1 )
 [node name="Level" type="Node2D" parent="."]
 
 [node name="Song_000" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 17 )
+bus = "Music"
 
 [node name="Song_001" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 12 )
+bus = "Music"
 
 [node name="Song_002" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 34 )
+bus = "Music"
 
 [node name="Song_003" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 18 )
+bus = "Music"
 
 [node name="Song_004" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 30 )
+bus = "Music"
 
 [node name="Song_005" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 24 )
+bus = "Music"
 
 [node name="Song_006" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 16 )
+bus = "Music"
 
 [node name="Song_007" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 13 )
+bus = "Music"
 
 [node name="Song_008" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 19 )
+bus = "Music"
 
 [node name="Song_009" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 20 )
+bus = "Music"
 
 [node name="Song_010" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 29 )
+bus = "Music"
+
+[node name="Song_011" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 25 )
+bus = "Music"
+
+[node name="Song_012" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 14 )
+bus = "Music"
+
+[node name="Song_013" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 15 )
+bus = "Music"
+
+[node name="Song_014" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 21 )
+bus = "Music"
+
+[node name="Song_015" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 26 )
+bus = "Music"
+
+[node name="Song_016" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 27 )
+bus = "Music"
+
+[node name="Song_017" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 22 )
+bus = "Music"
+
+[node name="Song_018" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 23 )
+bus = "Music"
+
+[node name="Song_019" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 31 )
+bus = "Music"
+
+[node name="Song_020" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 28 )
+bus = "Music"
+
+[node name="Song_021" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 32 )
+bus = "Music"
+
+[node name="Song_022" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 33 )
+bus = "Music"
+
+[node name="Song_023" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 46 )
+bus = "Music"
+
+[node name="Song_024" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 60 )
+bus = "Music"
+
+[node name="Song_025" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 67 )
+bus = "Music"
+
+[node name="Song_026" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 38 )
+bus = "Music"
+
+[node name="Song_027" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 63 )
+bus = "Music"
+
+[node name="Song_028" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 52 )
+bus = "Music"
+
+[node name="Song_029" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 61 )
+bus = "Music"
+
+[node name="Song_030" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 47 )
+bus = "Music"
+
+[node name="Song_031" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 59 )
+bus = "Music"
+
+[node name="Song_032" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 35 )
+bus = "Music"
+
+[node name="Song_033" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 49 )
+bus = "Music"
+
+[node name="Song_034" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 45 )
+bus = "Music"
+
+[node name="Song_035" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 54 )
+bus = "Music"
+
+[node name="Song_036" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 51 )
+bus = "Music"
+
+[node name="Song_037" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 62 )
+bus = "Music"
+
+[node name="Song_038" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 58 )
+bus = "Music"
+
+[node name="Song_039" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 37 )
+bus = "Music"
+
+[node name="Song_040" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 64 )
+bus = "Music"
+
+[node name="Song_041" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 42 )
+bus = "Music"
+
+[node name="Song_042" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 40 )
+bus = "Music"
+
+[node name="Song_043" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 36 )
+bus = "Music"
+
+[node name="Song_044" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 55 )
+bus = "Music"
+
+[node name="Song_045" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 65 )
+bus = "Music"
+
+[node name="Song_046" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 66 )
+bus = "Music"
+
+[node name="Song_047" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 43 )
+bus = "Music"
+
+[node name="Song_048" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 53 )
+bus = "Music"
+
+[node name="Song_049" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 41 )
+bus = "Music"
+
+[node name="Song_050" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 56 )
+bus = "Music"
+
+[node name="Song_051" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 44 )
+bus = "Music"
+
+[node name="Song_052" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 57 )
+bus = "Music"
+
+[node name="Song_053" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 39 )
+bus = "Music"
+
+[node name="Song_054" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 48 )
+bus = "Music"
+
+[node name="Song_055" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource( 50 )
+bus = "Music"
+
+[node name="Song_056" type="AudioStreamPlayer" parent="Level"]
+bus = "Music"
 
 [node name="Boss" type="Node2D" parent="."]
 
