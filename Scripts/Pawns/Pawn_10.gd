@@ -40,7 +40,7 @@ onready var attachment_point = $Pawn_10_Part_Wheel/Attachment_Point
 var player = 3
 var play_type = 2
 var start_equiped = false
-var armor = 1
+var armor = 2
 
 var my_gun
 var my_start_gun
@@ -51,16 +51,16 @@ var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
 
-var max_x_speed = 340
+var max_x_speed = 330
 var current_x_speed = 0
 
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed = false
-var max_air_jump_count = 1
+var max_air_jump_count = 0
 var max_air_jump_power = 5
 var min_air_jump_power = 1.5
 var air_jump_count = 0
-var max_jump_power = 6.75
+var max_jump_power = 7
 var min_jump_power = 1.5
 var head_room = 0
 
@@ -69,9 +69,9 @@ var dec_step = 0
 
 
 #--------------------------------------------------------------------NRG--------
-var nrg_max = 100
-var nrg = 100
-var last_nrg = 100
+var nrg_max = 80
+var nrg = 80
+var last_nrg = 80
 var nrg_regen_rate = 5
 var nrg_regen_max = 30
 var nrg_default_regen_rate = 5

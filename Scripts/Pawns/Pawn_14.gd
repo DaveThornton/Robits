@@ -37,7 +37,7 @@ onready var attachment_point = $Body/Attachment_Point
 var player = 0
 var play_type = 2
 var start_equiped = false
-var armor = 1
+var armor = 3
 
 var my_gun
 var my_start_gun
@@ -48,15 +48,15 @@ var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
 
-var max_x_speed = 120
+var max_x_speed = 110
 var current_x_speed = 0
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed = false
 var max_air_jump_count = 1
-var max_air_jump_power = 9
+var max_air_jump_power = 8
 var min_air_jump_power = 1.5
 var air_jump_count = 0
-var max_jump_power = 5
+var max_jump_power = 4
 var min_jump_power = 1.5
 var head_room = 0
 var last_vel = 0.0
@@ -65,9 +65,9 @@ var move_step = 0
 var dec_step = 0
 #--------------------------------------------------------------------NRG--------
 
-var nrg_max = 225
-var nrg = 225
-var last_nrg = 225
+var nrg_max = 175
+var nrg = 175
+var last_nrg = 175
 var nrg_regen_rate = 10
 var nrg_regen_max = 80
 var nrg_default_regen_rate = 10

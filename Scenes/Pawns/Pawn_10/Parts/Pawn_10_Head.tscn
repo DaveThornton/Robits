@@ -119,12 +119,10 @@ visible = false
 texture = ExtResource( 5 )
 
 [node name="Pawn_10_Part_Head" type="Sprite" parent="."]
-self_modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 2 )
 hframes = 5
 
 [node name="Pawn_10_Part_Face" type="Sprite" parent="Pawn_10_Part_Head"]
-self_modulate = Color( 0, 0.835294, 1, 1 )
 texture = ExtResource( 1 )
 hframes = 5
 frame = 3

@@ -34,7 +34,7 @@ onready var attachment_point = $POS_Body/Pawn_13_Part_Body/Attachment_Point
 var player = 1
 var play_type = 2
 var start_equiped = false
-var armor = 1
+var armor = 2
 
 var my_gun
 var my_start_gun

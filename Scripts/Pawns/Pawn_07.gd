@@ -38,7 +38,7 @@ onready var attachment_point = $Attachment_Point
 var player = 0
 var play_type = 2
 var start_equiped = false
-var armor = 1
+var armor = 2
 
 var my_gun
 var my_start_gun
@@ -57,7 +57,7 @@ var max_air_jump_count = 1
 var max_air_jump_power = 9
 var min_air_jump_power = 1.5
 var air_jump_count = 0
-var max_jump_power = 6
+var max_jump_power = 5
 var min_jump_power = 1.5
 var head_room = 0
 var last_vel = 0.0
@@ -69,7 +69,7 @@ var jump_top_pos = 0
 var jump_top = false
 
 #--------------------------------------------------------------------NRG--------
-var nrg_max = 180
+var nrg_max = 100
 var nrg = 180
 var last_nrg = 180
 var nrg_regen_rate = 10

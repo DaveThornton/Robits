@@ -44,7 +44,7 @@ var ray_down_r
 var player = 1
 var play_type = 2
 var start_equiped = false
-var armor = 1
+var armor = 0
 
 var my_gun
 var my_start_gun
@@ -55,7 +55,7 @@ var vel = Vector2()
 var grav = 8
 var terminal_vel = 5
 
-var max_x_speed = 180
+var max_x_speed = 190
 var current_x_speed = 0
 
 #----------------------------------------------------------------JUMP--------
@@ -66,8 +66,8 @@ var can_jump = true
 var jump_top_pos = 0.0
 var jump_top = false
 var jump_height = 150
-var max_air_jump_count = 20
-var max_air_jump_power = 2
+var max_air_jump_count = 10
+var max_air_jump_power = 1.5
 var min_air_jump_power = 1.5
 var air_jump_count = 0
 var max_jump_power = 8

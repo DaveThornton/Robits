@@ -36,7 +36,7 @@ onready var attachment_point = $Pawn_15_Part_Head/Attachment_Point
 var player = 1
 var play_type = 2
 var start_equiped = false
-var armor = 1
+var armor = 2
 
 var my_gun
 var my_start_gun
@@ -55,8 +55,8 @@ var is_jump_pressed: = false
 var can_jump = true
 var max_air_jump_power = 11
 var min_air_jump_power = 5
-var air_jump_count = 0
-var max_jump_power = 11
+var air_jump_count = 1
+var max_jump_power = 13
 var min_jump_power = 2
 var head_room = 0
 #var last_jump = 0
@@ -64,9 +64,9 @@ var move_step = 0
 var dec_step = 0
 var ladder_count = [] #shouldnt be here??!!??
 #--------------------------------------------------------------------NRG--------
-var nrg_max = 90
-var nrg = 90
-var last_nrg = 90
+var nrg_max = 125
+var nrg = 125
+var last_nrg = 125
 var nrg_regen_rate = 5
 var nrg_regen_max = 40
 var nrg_default_regen_rate = 4
@@ -175,6 +175,7 @@ func _physics_process(delta):
 	var _2 = move_and_collide(vel)
 
 ##-------------------------------------------------------------------[Move/jump]
+
 func move_x(_moving, _right):
 	if can_move:
 		if on_floor:

@@ -44,24 +44,24 @@ var vel = Vector2()
 var grav = 8
 var terminal_vel = 5
 
-var max_x_speed = 300
+var max_x_speed = 310
 var current_x_speed = 0
 
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed: = false
 var can_jump = true
-var max_air_jump_power = 4
+var max_air_jump_power = 5
 var min_air_jump_power = 2
 var air_jump_count = 0
-var max_jump_power = 7
+var max_jump_power = 8
 var min_jump_power = 2
 var head_room = 0
 var ladder_count = [] #shouldnt be here??!!??
 
 #--------------------------------------------------------------------NRG--------
-var nrg_max = 90
-var nrg = 90
-var last_nrg = 90
+var nrg_max = 110
+var nrg = 110
+var last_nrg = 110
 var nrg_regen_rate = 5
 var nrg_regen_max = 40
 var nrg_default_regen_rate = 4

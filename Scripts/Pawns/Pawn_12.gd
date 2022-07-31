@@ -39,7 +39,7 @@ onready var attachment_point = $Pawn_12_Part_Body/Attachment_Point
 var player = 1
 var play_type = 2
 var start_equiped = false
-var armor = 0
+var armor = 2
 
 var my_gun
 var my_start_gun
@@ -50,7 +50,7 @@ var vel = Vector2()
 var grav = 8
 var terminal_vel = 5
 
-var max_x_speed = 200
+var max_x_speed = 230
 var current_x_speed = 0
 
 #-------------------------------------------------------------------JUMP--------

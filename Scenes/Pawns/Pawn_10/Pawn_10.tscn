@@ -1833,7 +1833,6 @@ collision_mask = 4
 [node name="Attachment_Point" parent="Pawn_10_Part_Wheel" instance=ExtResource( 6 )]
 
 [node name="Pawn_10_Part_Body" type="Sprite" parent="."]
-self_modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 5 )
 offset = Vector2( 0, -18 )
 hframes = 4

@@ -20,10 +20,7 @@ margin_top = 113.0
 margin_right = 689.0
 margin_bottom = 279.0
 custom_fonts/font = ExtResource( 4 )
-text = "C-Ant"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+text = "C4N-7"
 
 [node name="Model" type="Label" parent="."]
 margin_left = 907.0

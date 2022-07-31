@@ -64,7 +64,7 @@ var can_jump = true
 var jump_top_pos = 0.0
 var jump_top = false
 var jump_height = 180
-var max_air_jump_count = 1
+var max_air_jump_count = 2
 var max_air_jump_power = 3
 var min_air_jump_power = 1.5
 var air_jump_count = 0
@@ -76,9 +76,9 @@ var dec_step = 0
 
 
 #--------------------------------------------------------------------NRG--------
-var nrg_max = 80
-var nrg = 80
-var last_nrg = 90
+var nrg_max = 110
+var nrg = 110
+var last_nrg = 110
 var nrg_regen_rate = 5
 var nrg_regen_max = 40
 var nrg_default_regen_rate = 4

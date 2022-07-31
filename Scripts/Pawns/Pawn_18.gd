@@ -34,7 +34,7 @@ onready var attachment_point = $Attachment_Point
 var player = 1
 var play_type = 2
 var start_equiped = false
-var armor = 1
+var armor = 2
 
 var my_gun
 var my_start_gun
@@ -45,7 +45,7 @@ var vel = Vector2()
 var grav = 8
 var terminal_vel = 5
 
-var max_x_speed = 300
+var max_x_speed = 250
 var current_x_speed = 0
 
 #-------------------------------------------------------------------JUMP--------
@@ -60,9 +60,9 @@ var head_room = 0
 var ladder_count = [] #shouldnt be here??!!??
 
 #--------------------------------------------------------------------NRG--------
-var nrg_max = 90
-var nrg = 90
-var last_nrg = 90
+var nrg_max = 110
+var nrg = 110
+var last_nrg = 110
 var nrg_regen_rate = 5
 var nrg_regen_max = 40
 var nrg_default_regen_rate = 4

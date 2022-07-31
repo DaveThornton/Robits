@@ -64,8 +64,8 @@ func shoot_j():
 		elif ammo > 0:
 			if !shoot_cast.is_colliding():
 				spawm_proj()
-			elif shoot_cast.is_colliding() && shoot_cast.get_collider().player == player:
-				spawm_proj()
+			# elif shoot_cast.is_colliding() && shoot_cast.get_collider().player == player:
+			# 	spawm_proj()
 			else:
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("player"):
@@ -83,6 +83,7 @@ func shoot_j():
 			just_shot = true
 			SFX.play("W_83_Shoot")
 		else:
+			anim_fire.play("Click")
 			SFX.play("W_83_Empty")
 
 func shoot():
@@ -93,6 +94,7 @@ func shoot_r():
 		can_shoot = false
 		anim_fire.play("Reload")
 		shoot_timer.start()
+		just_shot = false
 
 func spawm_proj():
 	var _ss = pos_shoot.global_position

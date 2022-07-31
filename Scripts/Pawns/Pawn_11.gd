@@ -35,7 +35,7 @@ onready var attachment_point = $Robit_11/Pawn_11_Body/Pawn_11_Part_Head/Attachme
 var player = 0
 var play_type = 2
 var start_equiped = false
-var armor = 1
+var armor = 2
 
 var my_gun
 var my_start_gun
@@ -51,10 +51,10 @@ var current_x_speed = 0
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed = false
 var max_air_jump_count = 1
-var max_air_jump_power = 6
+var max_air_jump_power = 5
 var min_air_jump_power = 1.5
 var air_jump_count = 0
-var max_jump_power = 6.25
+var max_jump_power = 4
 var min_jump_power = 1.5
 var head_room = 0
 var last_vel = 0.0
@@ -63,9 +63,9 @@ var move_step = 0
 var dec_step = 0
 
 #--------------------------------------------------------------------NRG--------
-var nrg_max = 200
-var nrg = 200
-var last_nrg = 200
+var nrg_max = 140
+var nrg = 140
+var last_nrg = 140
 var nrg_regen_rate = 10
 var nrg_regen_max = 60
 var nrg_default_regen_rate = 10
