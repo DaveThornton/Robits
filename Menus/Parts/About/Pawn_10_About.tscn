@@ -32,9 +32,6 @@ margin_right = 1865.0
 margin_bottom = 270.0
 custom_fonts/font = ExtResource( 2 )
 text = "Model # 054832"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Info" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1291, 272 )
@@ -42,6 +39,6 @@ weight = 4
 hops = 5
 speed = 7
 hp = 2
-about = "After the robit circus was outlawed in 2055. old rusty need to find new line of business."
+about = "After the robit circus was outlawed in 2055. old rusty needed to find new line of business."
 
 [connection signal="visibility_changed" from="." to="." method="_on_Pawn_09_About_visibility_changed"]

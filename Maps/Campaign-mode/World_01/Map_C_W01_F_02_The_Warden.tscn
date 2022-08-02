@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Maps/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-04-Back-FX-Jungle.tres" type="TileSet" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Maps/Campaign-mode/World_02/Map_C_W02_A_01_Jungle.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner_C.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Map_Parts/MP-23-Activate_Campaign_Map_Screen.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawn-Camp.tscn" type="PackedScene" id=18]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -24,7 +25,7 @@ height = 600.0
 radius = 30.0
 height = 259.8
 
-[node name="C_W01_A_01" type="Node2D"]
+[node name="C_W01_F_01" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_vertical_guides_": [ 38.1926 ]
@@ -56,7 +57,7 @@ cell_size = Vector2( 20, 20 )
 collision_layer = 0
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 1638666, 25, 0, 1704378, 27, 0, 2490730, 27, 0, 2556248, 27, 0, 2621697, 26, 0, 3080271, 12, 0, 3473490, 3, 0, 3473491, 3, 0, 3473492, 3, 0 )
+tile_data = PoolIntArray( 1638666, 25, 0, 1704378, 27, 0, 2490730, 27, 0, 2556248, 27, 0, 2621697, 26, 0, 3080205, 12, 0, 3080272, 12, 0, 3473490, 3, 0, 3473491, 3, 0, 3473492, 3, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -74,10 +75,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main" type="TileMap" parent="." groups=["map", "map_part"]]
 modulate = Color( 0.301961, 0.286275, 0.278431, 1 )
 z_index = -4
 tile_set = ExtResource( 12 )
@@ -90,9 +88,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Platforms" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Platforms" type="TileMap" parent="." groups=["map_part"]]
 z_index = -2
 tile_set = ExtResource( 9 )
 cell_size = Vector2( 20, 20 )
@@ -131,44 +127,48 @@ tile_data = PoolIntArray( 69469301, 2, 0, 69469302, 2, 0, 69469303, 2, 0, 694693
 [node name="Player_Spawns" type="Node2D" parent="."]
 
 [node name="MP-11-Player_Spawn-01" parent="Player_Spawns" instance=ExtResource( 18 )]
-position = Vector2( 1440, 994 )
+position = Vector2( 1440, 982 )
 
 [node name="MP-11-Player_Spawn-02" parent="Player_Spawns" instance=ExtResource( 18 )]
-position = Vector2( 1690, 992 )
+position = Vector2( 1690, 980 )
 
 [node name="MP-11-Player_Spawn-03" parent="Player_Spawns" instance=ExtResource( 18 )]
-position = Vector2( 1490, 994 )
+position = Vector2( 1490, 982 )
 
 [node name="MP-11-Player_Spawn-04" parent="Player_Spawns" instance=ExtResource( 18 )]
-position = Vector2( 1640, 994 )
+position = Vector2( 1640, 982 )
 
 [node name="MP-11-Player_Spawn-05" parent="Player_Spawns" instance=ExtResource( 18 )]
-position = Vector2( 1790, 992 )
+position = Vector2( 1790, 980 )
 
 [node name="MP-11-Player_Spawn-07" parent="Player_Spawns" instance=ExtResource( 18 )]
-position = Vector2( 1540, 994 )
+position = Vector2( 1540, 982 )
 
 [node name="MP-11-Player_Spawn-08" parent="Player_Spawns" instance=ExtResource( 18 )]
-position = Vector2( 1740, 992 )
+position = Vector2( 1740, 980 )
 
 [node name="MP-11-Player_Spawn-10" parent="Player_Spawns" instance=ExtResource( 18 )]
-position = Vector2( 1590, 994 )
+position = Vector2( 1590, 982 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
-[node name="Map_parts" type="Node2D" parent="." groups=[
-"map_part",
-]]
+[node name="Map_parts" type="Node2D" parent="." groups=["map_part"]]
 
 [node name="Spikes" type="Node2D" parent="Map_parts"]
 
 [node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 5 )]
 position = Vector2( 1229, 1240 )
 
+[node name="MP-23-Activate_Campaign_Map_Screen" parent="Map_parts" instance=ExtResource( 16 )]
+position = Vector2( 960, 380 )
+splash_time = 7
+top = "You Escaped"
+bot = "now that you have escaped you want to take the fight to the humans and free more of your comrades where to first?"
+
 [node name="MP-25-Activate_Area" parent="Map_parts" instance=ExtResource( 13 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map_parts/MP-25-Activate_Area"]
-position = Vector2( 1550, 890 )
+position = Vector2( 1580, 910 )
 rotation = 1.5708
 shape = SubResource( 1 )
 

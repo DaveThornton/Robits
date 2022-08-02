@@ -25,7 +25,7 @@ height = 600.0
 radius = 30.0
 height = 259.8
 
-[node name="C_W01_A_01" type="Node2D"]
+[node name="C_W01_F_01" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_vertical_guides_": [ 38.1926 ]

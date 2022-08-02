@@ -28,7 +28,7 @@ onready var last_hit_timer = $Timers/Last_Hit_By
 
 onready var anim = $AnimationPlayer
 
-onready var ladder_count = [] #shouldnt be here??!!??
+# onready var ladder_count = [] #shouldnt be here??!!??
 
 onready var ray_up_r = $Raycasts/UpR
 onready var ray_up_l = $Raycasts/UpL
@@ -56,7 +56,7 @@ var terminal_vel = 6
 var max_x_speed = 340
 var current_x_speed = 0
 
-#-------------------------------------------------------------------JUMP--------
+#---------------------------------------------------JUMP--------
 var is_jump_pressed = false
 var max_air_jump_count = 1
 var max_air_jump_power = 5
@@ -70,7 +70,7 @@ var move_step = 0
 var dec_step = 0
 
 
-#--------------------------------------------------------------------NRG--------
+#---------------------------------------------------NRG--------
 var nrg_max = 100
 var nrg = 100
 var last_nrg = 100
@@ -132,11 +132,11 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 	nrg_update()
 
 func _process(delta):
-	if ladder_count.size() > 0:
-		over_ladder = true
-	else:
-		over_ladder = false
-		on_ladder = false
+	# if ladder_count.size() > 0:
+	# 	over_ladder = true
+	# else:
+	# 	over_ladder = false
+	# 	on_ladder = false
 	_is_on_floor()
 	_test_headroom()
 	if on_floor:
@@ -877,11 +877,11 @@ func _on_Pick_Up_Area_body_exited(body):
 	if body.get_groups().has("PickUp"):
 		wep_array.erase(body)
 
-func _on_Ladder_Area_body_entered(body):
-	ladder_count.append(body)
+# func _on_Ladder_Area_body_entered(body):
+# 	ladder_count.append(body)
 
-func _on_Ladder_Area_body_exited(body):
-	ladder_count.erase(body)
+# func _on_Ladder_Area_body_exited(body):
+# 	ladder_count.erase(body)
 
 func killed_by_map(_by_who, _by_what, _damage_type, _damage):
 	hit(_by_who, _by_what, _damage_type, (nrg* 2))
