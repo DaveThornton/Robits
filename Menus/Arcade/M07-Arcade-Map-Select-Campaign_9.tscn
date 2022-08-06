@@ -23,9 +23,6 @@ align = 1
 valign = 1
 autowrap = true
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label_Bot" type="Label" parent="."]
 margin_top = 930.0
@@ -41,9 +38,6 @@ align = 1
 valign = 1
 autowrap = true
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Menu_3x3_Maps" parent="." instance=ExtResource( 3 )]
 position = Vector2( 950, 560 )

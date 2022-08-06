@@ -22,6 +22,10 @@ var spot07 = false
 var spot08 = false
 var spot09 = false
 
+func _ready():
+	update_spots(Campaign.get_levels_there())
+
+
 func update_pos(_pos):
 	grey_out()
 	if !get_spot(_pos):

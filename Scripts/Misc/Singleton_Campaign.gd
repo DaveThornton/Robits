@@ -222,6 +222,45 @@ func get_level_comp_array():
 	var a = [w00_comp, w01_comp, w02_comp, w03_comp, w04_comp, w05_comp, w06_comp, w07_comp, w08_comp, w09_comp, w10_comp]
 	return a
 
+func get_levels_there():
+	var _levels = []
+	var l0 = false
+	var l1 = false
+	var l2 = false
+	var l3 = false
+	var l4 = false
+	var l5 = false
+	var l6 = false
+	var l7 = false
+	var l8 = false
+	var l9 = false
+	var l10 = false
+	if w00:
+		l0 = true
+	if w01:
+		l1 = true
+	if w02:
+		l2 = true
+	if w03:
+		l3 = true
+	if w04:
+		l4 = true
+	if w05:
+		l5 = true
+	if w06:
+		l6 = true
+	if w07:
+		l7 = true
+	if w08:
+		l8 = true
+	if w09:
+		l9 = true
+	if w10:
+		l10 = true
+	_levels = [l0,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10]
+	return _levels
+
+
 func reset():
 	clear_players()
 	for i in 11:
