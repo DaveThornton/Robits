@@ -23,7 +23,7 @@
 [ext_resource path="res://Sprites/Bad_Guys/Boss/BG-104-Boss/Test_Grx_01.png" type="Texture" id=21]
 [ext_resource path="res://Sprites/Bad_Guys/Boss/BG-104-Boss/Test_Grx_02.png" type="Texture" id=22]
 [ext_resource path="res://Scenes/Bad_Guys/Boss/BG_104_Boss.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Map_Parts/MP-15-Level-Change-02-Area.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Map_Parts/MP-15-Level_Change-02-Area.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Maps/Campaign-mode/World_00/Map_C_W00_B_00_Warp_01.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Maps/Campaign-mode/World_03/Map_C_W03_A_01_Mill.tscn" type="PackedScene" id=26]
 

@@ -19,7 +19,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Maps/Campaign-mode/old/Old-Map-C-02-A-Level.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Map_Parts/MP-15-Level-Change-02-Area.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Map_Parts/MP-15-Level_Change-02-Area.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=21]
 
 [sub_resource type="CapsuleShape2D" id=1]

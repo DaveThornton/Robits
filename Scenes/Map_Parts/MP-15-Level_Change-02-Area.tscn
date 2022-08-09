@@ -97,5 +97,6 @@ position = Vector2( 3.8147e-05, 0.000137329 )
 scale = Vector2( 13.0588, 2.48148 )
 z_index = 100
 texture = ExtResource( 3 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

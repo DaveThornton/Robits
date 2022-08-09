@@ -12,7 +12,7 @@
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=10]
 [ext_resource path="res://Tilesets/TS-06-Main-FX.tres" type="TileSet" id=11]
 [ext_resource path="res://Tilesets/TS-05-Main-Brick.tres" type="TileSet" id=12]
-[ext_resource path="res://Scenes/Map_Parts/MP-15-Level-Change-02-Area.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Map_Parts/MP-15-Level_Change-02-Area.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Maps/Campaign-mode/World_01/Map_C_W01_B_01_Hall.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Maps/Campaign-mode/World_01/Map_C_W01_B_02_Hall.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Maps/Campaign-mode/World_01/Map_C_W01_C_01_Armory.tscn" type="PackedScene" id=16]
@@ -109,6 +109,7 @@ visible = false
 [node name="TileMap" type="TileMap" parent="MP-04-Nav2D"]
 tile_set = ExtResource( 7 )
 cell_size = Vector2( 1, 1 )
+bake_navigation = true
 format = 1
 tile_data = PoolIntArray( 69469301, 2, 0, 69469302, 2, 0, 69469303, 2, 0, 69469304, 2, 0, 69469305, 2, 0, 69469306, 2, 0, 69469307, 2, 0, 69469308, 2, 0, 69469309, 2, 0, 69469310, 2, 0, 69469311, 2, 0, 69469312, 2, 0, 69469313, 2, 0, 69469314, 2, 0, 69469315, 2, 0, 69469316, 2, 0, 69469317, 2, 0, 69469318, 2, 0, 69469319, 2, 0, 69469320, 2, 0, 69469321, 2, 0, 69469322, 2, 0, 69469323, 2, 0, 69469324, 2, 0, 69469325, 2, 0, 69469326, 2, 0, 69469327, 2, 0, 69469328, 2, 0, 69469329, 2, 0, 69469330, 2, 0, 69469331, 2, 0, 69469332, 2, 0, 69469333, 2, 0 )
 
