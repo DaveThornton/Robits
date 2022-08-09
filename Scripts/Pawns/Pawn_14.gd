@@ -229,22 +229,15 @@ func move_x(_moving, _right):
 
 func jump(_down_input, _left_input, _right_input):
 	pass
-	# if can_move:
-	# 	if is_down:
-	# 		if down_input && on_floor && ray_plat.is_colliding():
-	# 			SFX.play("Move_Jump_08")
-	# 			vel.y += 2
-	# 			self.position.y += 7
 
 func jump_j(_down_input, _left_input, _right_input):
 	if can_move:
 		if is_down:
 			if ray_plat.is_colliding():
 				self.set_collision_mask_bit(2,false)
-				# if down_input && on_floor && ray_plat.is_colliding():
 				SFX.play("Move_Jump_08")
-				vel.y += 2
-				self.position.y += 7
+				vel.y = terminal_vel / 2
+				self.position.y += 8
 		else:
 			if !is_jump_pressed && on_floor:
 				SFX.play("Move_Jump_01")

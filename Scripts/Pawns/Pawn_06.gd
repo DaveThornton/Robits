@@ -245,13 +245,10 @@ func move_x(_moving, _right):
 			current_x_speed -= current_x_speed / 10
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
-func jump(down_input, _left_input, _right_input):
+func jump(_down_input, _left_input, _right_input):
 	if can_move:
 		if is_down:
-			if down_input && ray_plat.is_colliding():
-				SFX.play("Move_Jump_08")
-				vel.y = terminal_vel / 4
-				self.position.y += 5
+			pass
 		else:
 			if is_jump_pressed && global_position.y <= jump_top_pos && can_jump && jumping_up:
 				jump_top = true
@@ -262,13 +259,14 @@ func jump(down_input, _left_input, _right_input):
 				else:
 					print_debug("jumptinmer not started")
 
-func jump_j(down_input, _left_input, _right_input):
+func jump_j(_down_input, _left_input, _right_input):
 	if can_move:
 		if is_down:
-			if down_input && ray_plat.is_colliding():
+			if ray_plat.is_colliding():
+				self.set_collision_mask_bit(2,false)
 				SFX.play("Move_Jump_08")
-				vel.y = terminal_vel / 4
-				self.position.y += 5
+				vel.y = terminal_vel / 2
+				self.position.y += 8
 		else:
 			if !is_jump_pressed && on_floor && can_jump:
 				SFX.play("Move_Jump_01")
@@ -283,6 +281,7 @@ func jump_j(down_input, _left_input, _right_input):
 		on_ladder = false
 
 func jump_rel():
+	self.set_collision_mask_bit(2,true)
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
 		vel.y = -min_air_jump_power
 	elif vel.y < -min_jump_power:

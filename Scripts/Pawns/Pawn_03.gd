@@ -235,20 +235,24 @@ func move_x(_moving, _right):
 		else:
 			current_x_speed -= current_x_speed / 10
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
+
 func jump(down_input, _left_input, _right_input):
 	if can_move:
 		if is_down:
+			# self.set_collision_mask_bit(2,false)
 			if down_input && on_floor && ray_plat.is_colliding():
 				SFX.play("Move_Jump_08")
-				vel.y += 1.5
-				self.position.y += 3
-func jump_j(down_input, _left_input, _right_input):
+				vel.y += 2
+				self.position.y += 7
+
+func jump_j(_down_input, _left_input, _right_input):
 	if can_move:
 		if is_down:
-			if down_input && on_floor && ray_plat.is_colliding():
+			if ray_plat.is_colliding():
+				self.set_collision_mask_bit(2,false)
 				SFX.play("Move_Jump_08")
-				vel.y += 1.5
-				self.position.y += 3
+				vel.y = terminal_vel / 2
+				self.position.y += 8
 		else:
 			if !is_jump_pressed && on_floor:# && !down_input:
 				SFX.play("Move_Jump_01")
@@ -259,12 +263,15 @@ func jump_j(down_input, _left_input, _right_input):
 				air_jump_count += 1
 		is_jump_pressed = true
 		on_ladder = false
+
 func jump_rel():
+	self.set_collision_mask_bit(2,true)
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
 		vel.y = -min_air_jump_power
 	elif vel.y < -min_jump_power:
 		vel.y = min_jump_power
 	is_jump_pressed = false
+
 ##-----------------------------------------------------------------------[Shoot]
 func shoot_j():
 	if my_gun != null:
@@ -449,30 +456,30 @@ func _body(_num: int):
 func _body_(_num: int):
 	if _num == 1:
 		body_shape_01.disabled = false
-		body_shape_02.disabled = true
-		body_shape_03.disabled = false
+		# body_shape_02.disabled = true
+		# body_shape_03.disabled = false
 		body_shape_04.disabled = true
 		shield_sprite.scale.x = 1
 	elif _num == 2:
 		body_shape_01.disabled = false
-		body_shape_02.disabled = false
-		body_shape_03.disabled = true
+		# body_shape_02.disabled = false
+		# body_shape_03.disabled = true
 		body_shape_04.disabled = true
-		ray_down_r2.enabled = false
-		ray_down_l2.enabled = true
+		# ray_down_r2.enabled = false
+		# ray_down_l2.enabled = true
 		shield_sprite.scale.x = -1
 	elif _num == 3:
 		body_shape_01.disabled = true
-		body_shape_02.disabled = true
-		body_shape_03.disabled = false
+		# body_shape_02.disabled = true
+		# body_shape_03.disabled = false
 		body_shape_04.disabled = false
-		ray_down_r2.enabled = true
-		ray_down_l2.enabled = false
+		# ray_down_r2.enabled = true
+		# ray_down_l2.enabled = false
 		shield_sprite.scale.x = 1
 	elif _num == 4:
 		body_shape_01.disabled = true
-		body_shape_02.disabled = false
-		body_shape_03.disabled = true
+		# body_shape_02.disabled = false
+		# body_shape_03.disabled = true
 		body_shape_04.disabled = false
 		shield_sprite.scale.x = -1
 	else:

@@ -230,8 +230,6 @@ func move_x(_moving, _right):
 
 func jump(_down_input, _left_input, _right_input):
 	pass
-#	if head_room == 1:
-#		vel.y = max_jump_power * jump_power_up
 
 func jump_j(down_input, left_input, right_input):
 	if can_move:

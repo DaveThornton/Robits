@@ -11,12 +11,12 @@
 [ext_resource path="res://Scenes/Pawns/Parts/Attachment_Point.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/Pawns/Pawn_03/Pawn_03_Part_Body_Shield.png" type="Texture" id=10]
 
+[sub_resource type="CapsuleShape2D" id=2]
+height = 8.0
+
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.0
 height = 12.0
-
-[sub_resource type="CapsuleShape2D" id=2]
-height = 8.0
 
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 22.9999
@@ -271,7 +271,6 @@ collision_mask = 30
 
 [node name="Right2" type="RayCast2D" parent="Raycasts"]
 position = Vector2( 23, -3 )
-enabled = true
 cast_to = Vector2( 0, 4 )
 collision_mask = 30
 
@@ -283,7 +282,6 @@ collision_mask = 30
 
 [node name="Left2" type="RayCast2D" parent="Raycasts"]
 position = Vector2( -23, -3 )
-enabled = true
 cast_to = Vector2( 0, 4 )
 collision_mask = 30
 
@@ -303,6 +301,16 @@ collision_mask = 8
 enabled = true
 cast_to = Vector2( 0, 2 )
 collision_mask = 4
+
+[node name="CollisionShape2D_Right_old" type="CollisionShape2D" parent="Raycasts"]
+position = Vector2( 15, -14 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="CollisionShape2D_Left_old" type="CollisionShape2D" parent="Raycasts"]
+position = Vector2( -15, -14 )
+shape = SubResource( 2 )
+disabled = true
 
 [node name="Pawn_03_Part_Big_Wheel" parent="." instance=ExtResource( 4 )]
 show_behind_parent = true
@@ -337,26 +345,12 @@ position = Vector2( 0, -10 )
 z_index = 1
 
 [node name="CollisionShape2D_Stand" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0.263362, -21 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Prone" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -21 )
 shape = SubResource( 1 )
-disabled = true
-
-[node name="CollisionShape2D_Right" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 15, -14 )
-shape = SubResource( 2 )
-disabled = true
-
-[node name="CollisionShape2D_Left" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( -15, -14 )
-shape = SubResource( 2 )
 disabled = true
 
 [node name="Pick_Up_Area" type="Area2D" parent="."]

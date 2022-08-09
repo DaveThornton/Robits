@@ -540,12 +540,14 @@ anims/Stun = SubResource( 6 )
 anims/Walk = SubResource( 7 )
 
 [node name="Ray_Down_Right" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( 25, 16 )
 enabled = true
 cast_to = Vector2( -50, 6 )
 collision_mask = 3102
 
 [node name="Ray_Down_Left" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( -25, 16 )
 enabled = true
 cast_to = Vector2( 50, 6 )

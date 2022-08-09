@@ -83,33 +83,43 @@ script = ExtResource( 3 )
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="Up" type="RayCast2D" parent="Raycasts"]
+visible = false
 position = Vector2( 0, -47 )
 enabled = true
 cast_to = Vector2( 0, -10 )
 collision_mask = 2058
 
 [node name="Down_L" type="RayCast2D" parent="Raycasts"]
+visible = false
 position = Vector2( -6, -2 )
 enabled = true
 cast_to = Vector2( -6, 6 )
 collision_mask = 3102
 
 [node name="Down_C" type="RayCast2D" parent="Raycasts"]
+visible = false
 position = Vector2( 0, -1 )
 enabled = true
 cast_to = Vector2( 0, 6 )
 collision_mask = 3102
 
 [node name="Down_R" type="RayCast2D" parent="Raycasts"]
+visible = false
 position = Vector2( 6, -2 )
 enabled = true
 cast_to = Vector2( 6, 6 )
 collision_mask = 3102
 
 [node name="Plat_Test" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -1 )
+position = Vector2( -10, -2 )
 enabled = true
-cast_to = Vector2( 0, 5 )
+cast_to = Vector2( 25, 5 )
+collision_mask = 4
+
+[node name="Plat_Test2" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 10, -2 )
+enabled = true
+cast_to = Vector2( -25, 5 )
 collision_mask = 4
 
 [node name="CollisionShape2D-Stand" type="CollisionShape2D" parent="."]
