@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_powerUp9.wav-009aa685c6d87d029d923e12da3e6b59.sample"
+
+[deps]
+
+source_file="res://SFX/FX/Cyberleaf-RetroSFXs/GameEvents/SFX_powerUp9.wav"
+dest_files=[ "res://.import/SFX_powerUp9.wav-009aa685c6d87d029d923e12da3e6b59.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

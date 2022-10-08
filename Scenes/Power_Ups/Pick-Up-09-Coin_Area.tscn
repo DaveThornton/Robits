@@ -14,8 +14,8 @@ script = ExtResource( 2 )
 [node name="FX-63-Puck_Dot" type="Sprite" parent="."]
 self_modulate = Color( 0.945098, 0.65098, 0, 1 )
 texture = ExtResource( 1 )
-vframes = 10
 hframes = 5
+vframes = 10
 frame = 39
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -23,5 +23,6 @@ shape = SubResource( 1 )
 
 [node name="Respawn_Timer" type="Timer" parent="."]
 wait_time = 20.0
+
 [connection signal="body_entered" from="." to="." method="_on_PickUp07Puck_Dot_body_entered"]
 [connection signal="timeout" from="Respawn_Timer" to="." method="_on_Respawn_Timer_timeout"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_-_vehicle_02_engine_idle.ogg-63ac1fbfd2ce381bb2e285096ed602b4.oggstr"
+
+[deps]
+
+source_file="res://SFX/FX/8-Bit_SFX/SFX_-_vehicle_02_engine_idle.ogg"
+dest_files=[ "res://.import/SFX_-_vehicle_02_engine_idle.ogg-63ac1fbfd2ce381bb2e285096ed602b4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

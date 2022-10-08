@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_-_swoosh_05.ogg-abff9e90ce6aa357d99cbcd41129ed1f.oggstr"
+
+[deps]
+
+source_file="res://SFX/FX/8-Bit_SFX/SFX_-_swoosh_05.ogg"
+dest_files=[ "res://.import/SFX_-_swoosh_05.ogg-abff9e90ce6aa357d99cbcd41129ed1f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

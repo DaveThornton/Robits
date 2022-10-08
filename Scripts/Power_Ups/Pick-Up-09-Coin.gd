@@ -26,6 +26,8 @@ func _on_PickUp07Puck_Dot_body_entered(body):
 			call_deferred("_disappear")
 		else:
 			call_deferred("free")
+		SFX.coin()
+		print("make coin sound")
 
 func _disappear():
 	dot.visible = false 

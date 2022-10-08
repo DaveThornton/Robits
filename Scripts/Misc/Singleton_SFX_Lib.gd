@@ -5,11 +5,13 @@ onready var shells = $Shells
 onready var explosions = $Explosions
 onready var menus = $Menus
 onready var music_part = $Music_Part
+onready var coins = $Coins
 
 var hit_num = 0
 var swing_num = 0 
 var shell_num = 0
 var exp_num = 0
+var coin_num = 0
 
 func play(sfx = null):
 	if sfx:
@@ -43,6 +45,12 @@ func shell():
 func explosion(_num):#1: Pawn  2: Convetional  3: Energy
 	explosions.get_child(_num).get_child(exp_num).play()
 
+func coin():
+	coins.get_child(coin_num).play()
+	coin_num += 1
+	if coin_num > coins.get_child_count()-1:
+		coin_num = 0
+
 func music(_play, _num):
 	if _play:
 		music_part.play(_num)
@@ -60,4 +68,3 @@ func set_sfx_vol(_db):
 
 func set_menu_vol(_db):
 	AudioServer.set_bus_volume_db(2,_db)
-	

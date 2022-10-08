@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_-_power_up_01.ogg-7cc36f41d9f07cfdcf37622aa961e20b.oggstr"
+
+[deps]
+
+source_file="res://SFX/FX/8-Bit_SFX/SFX_-_power_up_01.ogg"
+dest_files=[ "res://.import/SFX_-_power_up_01.ogg-7cc36f41d9f07cfdcf37622aa961e20b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

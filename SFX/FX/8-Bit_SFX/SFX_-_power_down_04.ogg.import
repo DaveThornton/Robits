@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_-_power_down_04.ogg-c83f763f2392d38570b49c6a3740224c.oggstr"
+
+[deps]
+
+source_file="res://SFX/FX/8-Bit_SFX/SFX_-_power_down_04.ogg"
+dest_files=[ "res://.import/SFX_-_power_down_04.ogg-c83f763f2392d38570b49c6a3740224c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

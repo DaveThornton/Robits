@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_-_hit_metallic_05.ogg-636bf82a04316cd732474a4982c11b54.oggstr"
+
+[deps]
+
+source_file="res://SFX/FX/8-Bit_SFX/SFX_-_hit_metallic_05.ogg"
+dest_files=[ "res://.import/SFX_-_hit_metallic_05.ogg-636bf82a04316cd732474a4982c11b54.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

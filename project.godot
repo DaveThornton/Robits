@@ -36,7 +36,6 @@ Campaign="*res://Scenes/Misc/Singleton_Campaign.tscn"
 [debug]
 
 settings/fps/force_fps=60
-settings/stdout/print_fps=true
 
 [display]
 
@@ -72,6 +71,9 @@ texture={
 "size_limit": 0,
 "stream": false,
 "svg/scale": 1.0
+}
+ogg_vorbis={
+"loop": false
 }
 
 [input]

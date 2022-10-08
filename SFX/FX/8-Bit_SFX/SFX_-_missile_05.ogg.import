@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_-_missile_05.ogg-3cb8d103fd303d85c54f4f9f34aaa23f.oggstr"
+
+[deps]
+
+source_file="res://SFX/FX/8-Bit_SFX/SFX_-_missile_05.ogg"
+dest_files=[ "res://.import/SFX_-_missile_05.ogg-3cb8d103fd303d85c54f4f9f34aaa23f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

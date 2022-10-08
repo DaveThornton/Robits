@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Power_Ups/Pick-Up-06-Battery.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Power_Ups/Pick-Up-08-Ridged_Coin.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-mario.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -17,7 +17,6 @@ collision_mask = 65804
 mass = 10.0
 gravity_scale = 6.0
 script = ExtResource( 1 )
-how_much_nrg = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -26,8 +25,8 @@ shape = SubResource( 1 )
 self_modulate = Color( 0.980392, 0.596078, 0.2, 1 )
 show_behind_parent = true
 texture = ExtResource( 2 )
-vframes = 10
 hframes = 5
+vframes = 10
 frame = 39
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -36,5 +35,6 @@ collision_mask = 131074
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 2 )
+
 [connection signal="body_entered" from="." to="." method="_on_PickUp06Battery_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

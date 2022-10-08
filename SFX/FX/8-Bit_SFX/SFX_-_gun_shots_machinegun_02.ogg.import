@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_-_gun_shots_machinegun_02.ogg-0a5824f81aafb61e426fe3f0dba39521.oggstr"
+
+[deps]
+
+source_file="res://SFX/FX/8-Bit_SFX/SFX_-_gun_shots_machinegun_02.ogg"
+dest_files=[ "res://.import/SFX_-_gun_shots_machinegun_02.ogg-0a5824f81aafb61e426fe3f0dba39521.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_jump1c.wav-e951b94a449a10ae029637535fa00fb7.sample"
+
+[deps]
+
+source_file="res://SFX/FX/Cyberleaf-RetroSFXs/Various/SFX_jump1c.wav"
+dest_files=[ "res://.import/SFX_jump1c.wav-e951b94a449a10ae029637535fa00fb7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

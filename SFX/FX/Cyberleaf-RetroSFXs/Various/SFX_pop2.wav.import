@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SFX_pop2.wav-7e1e339b439379cf584a3f2a7d6e52cd.sample"
+
+[deps]
+
+source_file="res://SFX/FX/Cyberleaf-RetroSFXs/Various/SFX_pop2.wav"
+dest_files=[ "res://.import/SFX_pop2.wav-7e1e339b439379cf584a3f2a7d6e52cd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

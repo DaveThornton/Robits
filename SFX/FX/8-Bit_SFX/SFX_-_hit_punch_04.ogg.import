@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_-_hit_punch_04.ogg-87308d7d73993122a758fb64a9ca8812.oggstr"
+
+[deps]
+
+source_file="res://SFX/FX/8-Bit_SFX/SFX_-_hit_punch_04.ogg"
+dest_files=[ "res://.import/SFX_-_hit_punch_04.ogg-87308d7d73993122a758fb64a9ca8812.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

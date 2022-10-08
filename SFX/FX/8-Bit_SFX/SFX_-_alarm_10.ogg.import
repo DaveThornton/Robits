@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_-_alarm_10.ogg-8bb4cc954c408d52f5c0ccd86b09e29e.oggstr"
+
+[deps]
+
+source_file="res://SFX/FX/8-Bit_SFX/SFX_-_alarm_10.ogg"
+dest_files=[ "res://.import/SFX_-_alarm_10.ogg-8bb4cc954c408d52f5c0ccd86b09e29e.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

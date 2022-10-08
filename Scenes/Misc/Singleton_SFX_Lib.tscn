@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=103 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
@@ -92,6 +92,16 @@
 [ext_resource path="res://SFX/Weapons/Swings/SFX_S_003_Swing.wav" type="AudioStream" id=90]
 [ext_resource path="res://SFX/Weapons/Swings/SFX_S_004_Swing.wav" type="AudioStream" id=91]
 [ext_resource path="res://Scenes/Misc/Parts/Music_Part.tscn" type="PackedScene" id=92]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_06.ogg" type="AudioStream" id=93]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_03.ogg" type="AudioStream" id=94]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_01.ogg" type="AudioStream" id=95]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_02.ogg" type="AudioStream" id=96]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_04.ogg" type="AudioStream" id=97]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_08.ogg" type="AudioStream" id=98]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_09.ogg" type="AudioStream" id=99]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_10.ogg" type="AudioStream" id=100]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_07.ogg" type="AudioStream" id=101]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_05.ogg" type="AudioStream" id=102]
 
 [node name="SFX_Lib" type="Node2D"]
 position = Vector2( 960, 540 )
@@ -462,6 +472,58 @@ bus = "Menu"
 [node name="Menu_Nagger_02" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 39 )
 bus = "Menu"
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="C_00" type="AudioStreamPlayer" parent="Coins"]
+stream = ExtResource( 95 )
+mix_target = 2
+bus = "SFX"
+
+[node name="C_01" type="AudioStreamPlayer" parent="Coins"]
+stream = ExtResource( 96 )
+mix_target = 2
+bus = "SFX"
+
+[node name="C_02" type="AudioStreamPlayer" parent="Coins"]
+stream = ExtResource( 94 )
+mix_target = 2
+bus = "SFX"
+
+[node name="C_03" type="AudioStreamPlayer" parent="Coins"]
+stream = ExtResource( 97 )
+mix_target = 2
+bus = "SFX"
+
+[node name="C_04" type="AudioStreamPlayer" parent="Coins"]
+stream = ExtResource( 102 )
+mix_target = 2
+bus = "SFX"
+
+[node name="C_05" type="AudioStreamPlayer" parent="Coins"]
+stream = ExtResource( 93 )
+mix_target = 2
+bus = "SFX"
+
+[node name="C_06" type="AudioStreamPlayer" parent="Coins"]
+stream = ExtResource( 101 )
+mix_target = 2
+bus = "SFX"
+
+[node name="C_07" type="AudioStreamPlayer" parent="Coins"]
+stream = ExtResource( 98 )
+mix_target = 2
+bus = "SFX"
+
+[node name="C_08" type="AudioStreamPlayer" parent="Coins"]
+stream = ExtResource( 99 )
+mix_target = 2
+bus = "SFX"
+
+[node name="C_09" type="AudioStreamPlayer" parent="Coins"]
+stream = ExtResource( 100 )
+mix_target = 2
+bus = "SFX"
 
 [node name="Hits" type="Node2D" parent="."]
 

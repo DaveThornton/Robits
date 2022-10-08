@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX_-_explosion_08.ogg-a7e72d36a117f8e51e5aad3d94d7a797.oggstr"
+
+[deps]
+
+source_file="res://SFX/FX/8-Bit_SFX/SFX_-_explosion_08.ogg"
+dest_files=[ "res://.import/SFX_-_explosion_08.ogg-a7e72d36a117f8e51e5aad3d94d7a797.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
