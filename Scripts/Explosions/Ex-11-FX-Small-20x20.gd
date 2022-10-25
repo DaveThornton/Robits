@@ -13,7 +13,7 @@ var damage_type = "Explosion"
 var blast_dis = 1.5
 
 func _ready():
-	print_debug(b_radius)
+	# print_debug(b_radius)
 
 	pass
 	

@@ -25,37 +25,6 @@ func _process(delta):
 	if occ_player_array_out.size() > 0:
 		call_deferred("move_players_out",delta)
 
-#	if occ_player_array_out.size() > 0:
-#		print_debug("next")
-#		for p in occ_player_array_out.size():
-#			if occ_player_array_out[p]:
-#				occ_player_array_out[p].global_position.x -= speed * delta
-#				occ_player_array_out[p].global_position.y = pos_out.global_position.y
-#				if occ_player_array_out[p].global_position.x < pos_out.global_position.x:
-#					occ_player_array_out[p].can_move = true
-#					occ_player_array_out.remove(p)
-#			else:
-#				occ_player_array_out.remove(p)
-
-
-#	if occ_player_array_in.size() > 0:
-#		for p in occ_player_array_in.size():
-#			if occ_player_array_in[p] != null:
-#				if occ_player_array_in[p].is_down:
-#					if (pos_out.global_position.y - occ_player_array_in[p].global_position.x) < 0:
-#						occ_player_array_in[p].global_position.y -= (speed / 4) * delta
-#					if (pos_out.global_position.y - occ_player_array_in[p].global_position.x) > 0:
-#						occ_player_array_in[p].global_position.y += (speed / 4) * delta
-#			else:
-#				occ_player_array_in.remove(p)
-
-
-#	test_num += delta
-#	if test_num > 1:
-#		print_debug("in ", occ_player_array_in, "           out", occ_player_array_out, "                     mp 42")
-#		test_num = 0
-
-
 func move_players_out(_delta):
 		for p in occ_player_array_out.size():
 			if occ_player_array_out[p] != null:
@@ -78,9 +47,6 @@ func transport_here(_body):
 	add_to_out(_body)
 	_body.global_position = pos_in.global_position
 	
-#	if occ_player_array_out.find(_body) == -1:
-#		add_to_out(_body)
-#		occ_player_array_out.append(_body)
 	for p in occ_player_array_in.size():
 		if occ_player_array_in[p] != null:
 			occ_player_array_in[p].knock_dir(500, .2, 3, true)
@@ -124,7 +90,6 @@ func _on_Area2DInside_body_entered(body):
 func _on_Area2DInside_body_exited(body):
 	if body.get_groups().has("player"):
 		remove_in(body)
-#		transport_there(body)
 #-----------------------------------------------------------------extra funcs
 
 func _on_Timer_clear_space_timeout():

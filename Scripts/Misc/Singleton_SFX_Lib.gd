@@ -67,4 +67,16 @@ func set_sfx_vol(_db):
 	AudioServer.set_bus_volume_db(2,_db)
 
 func set_menu_vol(_db):
-	AudioServer.set_bus_volume_db(2,_db)
+	AudioServer.set_bus_volume_db(3,_db)
+
+func change_master_vol(_db):
+	AudioServer.set_bus_volume_db(0,((AudioServer.get_bus_volume_db(0) + _db)))
+
+func change_music_vol(_db):
+	AudioServer.set_bus_volume_db(1,((AudioServer.get_bus_volume_db(1) + _db)))
+
+func change_sfx_vol(_db):
+	AudioServer.set_bus_volume_db(2,((AudioServer.get_bus_volume_db(2) + _db)))
+
+func change_menu_vol(_db):
+	AudioServer.set_bus_volume_db(3,((AudioServer.get_bus_volume_db(3) + _db)))
