@@ -5,6 +5,15 @@ var splash_screen = "res://Menus/Parts/M10-Splash.tscn"
 var hud
 var screen_loaded
 
+
+func check_bad_word(_word):
+    if _word == "ass " || _word == " ass" || _word == "a ss" || _word == "as s":
+        return "butt"
+    elif _word == "fuck" || _word == "fuk " || _word == "fuc " || _word == "fuq ":
+        return "fudg"
+    else:
+        return _word
+
 #signal input_to_screen #movement up:1 left:2 right:3 down:4 start:5 back:6
 
 #func _ready():

@@ -47,6 +47,8 @@ func select():
 		text4 = get_child(3).select()
 		my_name = text1 +  text2 + text3 + text4
 	letter_count += 1
+	var _my_name = my_name
+	# my_name = Menus.check_bad_word(_my_name)
 	return my_name
 
 func back():

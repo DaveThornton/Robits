@@ -59,10 +59,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Main" type="TileMap" parent="." groups=[
-"map",
-"map_part",
-]]
+[node name="TileMap-Main" type="TileMap" parent="." groups=["map", "map_part"]]
 modulate = Color( 0.301961, 0.286275, 0.278431, 1 )
 z_index = -4
 tile_set = ExtResource( 12 )
@@ -75,9 +72,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TileMap-Platforms" type="TileMap" parent="." groups=[
-"map_part",
-]]
+[node name="TileMap-Platforms" type="TileMap" parent="." groups=["map_part"]]
 z_index = -2
 tile_set = ExtResource( 9 )
 cell_size = Vector2( 20, 20 )
@@ -108,6 +103,7 @@ visible = false
 [node name="TileMap" type="TileMap" parent="MP-04-Nav2D"]
 tile_set = ExtResource( 7 )
 cell_size = Vector2( 1, 1 )
+bake_navigation = true
 format = 1
 tile_data = PoolIntArray( 69469301, 2, 0, 69469302, 2, 0, 69469303, 2, 0, 69469304, 2, 0, 69469305, 2, 0, 69469306, 2, 0, 69469307, 2, 0, 69469308, 2, 0, 69469309, 2, 0, 69469310, 2, 0, 69469311, 2, 0, 69469312, 2, 0, 69469313, 2, 0, 69469314, 2, 0, 69469315, 2, 0, 69469316, 2, 0, 69469317, 2, 0, 69469318, 2, 0, 69469319, 2, 0, 69469320, 2, 0, 69469321, 2, 0, 69469322, 2, 0, 69469323, 2, 0, 69469324, 2, 0, 69469325, 2, 0, 69469326, 2, 0, 69469327, 2, 0, 69469328, 2, 0, 69469329, 2, 0, 69469330, 2, 0, 69469331, 2, 0, 69469332, 2, 0, 69469333, 2, 0 )
 
@@ -141,9 +137,7 @@ position = Vector2( 510, 720 )
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
-[node name="Map_parts" type="Node2D" parent="." groups=[
-"map_part",
-]]
+[node name="Map_parts" type="Node2D" parent="." groups=["map_part"]]
 
 [node name="Spikes" type="Node2D" parent="Map_parts"]
 

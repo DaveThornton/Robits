@@ -15,6 +15,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ROBITS"
+config/description="a 8 player arcade game ."
 run/main_scene="res://Scenes/World.tscn"
 
 [autoload]

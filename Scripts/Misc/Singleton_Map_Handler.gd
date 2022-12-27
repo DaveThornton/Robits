@@ -42,6 +42,17 @@ func _add_bg_to_map(_obj):
 	else:
 		clearing_house.add_child(_obj)
 
+func set_map(_map):
+	if map:
+		map.call_deferred("queue_free")
+	var m = _map.instance()
+	map = m
+	add_child(m)
+
+	for p in get_tree().get_current_scene().pawns.get_children():
+		p.position = m.player_spawns.get_child(m.next_spawn_spot).position
+		m.next_spawn_spot += 1
+
 func set_next_map(_map):
 	next_map = _map
 
@@ -71,6 +82,7 @@ func _load_map_cam(_level):
 	if map:
 		map.call_deferred("queue_free")
 	map = m
+	# call_deferred("set_map",_level)
 	add_child(m)
 
 	for p in get_tree().get_current_scene().pawns.get_children():
