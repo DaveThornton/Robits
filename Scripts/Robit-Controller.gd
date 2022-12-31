@@ -3,7 +3,7 @@ extends Node2D
 onready var r_timer = $"Respawn-Timer"
 
 var spawn_spot
-var my_pawn
+var my_pawn = null
 var player = 1
 var play_type = 2
 var pawn_color = 1
@@ -125,7 +125,10 @@ func init(_player_num):
 	else: print_debug("Error in Robit controller init player number invald")
 
 func spawn_pawn():
-	if !Game.over && !Player_Stats.get_continuing(player):
+	if my_pawn != null:
+		print("spawning pawn when i have a pawn ?? player: ",player, " in controller")
+		clear_pawn()
+	if !Game.get_game_over() && !Player_Stats.get_continuing(player) && !my_pawn:
 		print_debug("spawning pawn bc game is not over in robit controller")
 		var z = Equipment.get_pawn(Player_Stats.get_pawn_num(player)).instance()
 		get_tree().get_current_scene().pawns.add_child(z)
@@ -135,20 +138,21 @@ func spawn_pawn():
 		Player_Stats.set_in_game(player, true)
 		alive = true
 	
-	elif !Game.over && Player_Stats.get_continuing(player):
+	elif !Game.get_game_over() && Player_Stats.get_continuing(player):
 		print_debug("robit controller not working when tring to spawn maybe try to spawn again")
 	
 func _init_pawn():
-	my_pawn.init(player, Map_Hand.spawn_pos(), Game.start_eq, play_type)
+	my_pawn.init(player, Map_Hand.spawn_pos(), Game.get_start_equipped(), play_type)
 
 func explode_pawn(_player, _pos, _by_who, _by_what):
 	FX.explode(3, player, _pos, str("player ", player, "'s destruct system"), Player_Stats.get_pawn_num(player), 2)
 	alive = false
-	my_pawn.call_deferred("free")
-	my_pawn = null
-	if !Game.over:
+	clear_pawn()
+	# my_pawn.call_deferred("free")
+	# my_pawn = null
+	if !Game.get_game_over():
 		Player_Stats.add_kill(player, _by_who , 1, _by_what)
-		if Game.mode != 0:
+		if Game.get_mode() != 0:
 			Game.check_over()
 		if auto_respawn:
 			if Player_Stats.get_in_game(player):
@@ -199,7 +203,7 @@ func _process(delta):
 		Player_Stats.coin_insert(player)
 		HUD.coin_up(player)
 
-	if !Game.over:
+	if !Game.get_game_over():
 		if Player_Stats.get_in_game(player):
 			if alive:
 				if right_input && !left_input:
@@ -277,7 +281,7 @@ func _spawn_spot():# set up for map handler singleton
 	pass
 
 func _on_RespawnTimer_timeout():
-	if !Game.over:
+	if !Game.get_game_over():
 		spawn_pawn()
 
 func get_pawn():

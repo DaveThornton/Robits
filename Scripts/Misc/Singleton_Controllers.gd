@@ -36,7 +36,7 @@ func spawn_player_contoller(player_num: int):#, _auto_respawn):
 		p7 = z
 	elif player_num == 8:
 		p8 = z
-	z.init(player_num)#, _auto_respawn, Game.mode, play_type)
+	z.init(player_num)
 
 func get_pawn(_player: int):
 	if _player == 1:

@@ -68,22 +68,22 @@ func _ready():
 		print_debug(test2,"error Singleton HUD connecting to reset from count")
 
 func state_machine():
-	if Game.started && !Game.over:
+	if Game.get_started() && !Game.get_game_over():
 		mode = 2
 		game_state()
-	elif !Game.started && !Game.over:
+	elif !Game.get_started() && !Game.get_game_over():
 		mode = 1
 		menu_state()
-	elif Game.started && Game.over:
-		if Game.mode > 0:
+	elif Game.get_started() && Game.get_game_over():
+		if Game.get_mode() > 0:
 			mode = 0
-		elif Game.mode == 0:
+		elif Game.get_mode() == 0:
 			mode = 3
 		game_over_state()
 	else:
 		print_debug("error in state machine hud values not met")
-		print_debug("game started = ", Game.started)
-		print_debug("game over = ", Game.over)
+		print_debug("game started = ", Game.get_started())
+		print_debug("game over = ", Game.get_game_over())
 
 func start():
 	p1state["mode"] = 1
@@ -135,7 +135,7 @@ func set_pri(_player, _pri):
 	update_player(_player)
 
 func game_over_state():
-	if mode == 0 && Game.mode > 0:
+	if mode == 0 && Game.get_mode() > 0:
 		p1state["pri"] = 11
 		p2state["pri"] = 11
 		p3state["pri"] = 11
@@ -145,7 +145,7 @@ func game_over_state():
 		p7state["pri"] = 11
 		p8state["pri"] = 11
 		update_players()
-	elif mode == 3 && Game.mode == 0:
+	elif mode == 3 && Game.get_mode() == 0:
 		print_debug("gameover state mode")
 		update_players()
 
@@ -247,13 +247,13 @@ func game_over(): print_debug("game over doesnt do much in hud so fun!")
 
 func game_over_input(_player, _input):
 	print_debug(" game over input " , _player,"   ", _input)
-	if Game.mode > 0:
+	if Game.get_mode() > 0:
 		if _input == 5:
 			count.change_count(-1)
 		elif _input ==6:
 			count.change_count(1)
 
-	elif Game.mode == 0 && !Player_Stats.get_done(_player):
+	elif Game.get_mode() == 0 && !Player_Stats.get_done(_player):
 		if _input == 1:
 			get_player_hud(_player).go_up()
 		elif _input == 4:
@@ -366,8 +366,7 @@ func start_count():
 	count.init()		
 
 func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
-	# print_debug(_player, Game.started,"   ",Player_Stats.get_in_play(_player),"   ", Player_Stats.get_in_game(_player),"  ",Player_Stats.get_continuing(_player))
-	if !Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):
+	if !Game.get_started() && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):
 		if _dir == 0 && Player_Stats.can_player_start(_player):
 			Player_Stats.reset_player(_player)
 			Player_Stats.use_credit(_player)
@@ -381,7 +380,7 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 		else:
 			print_debug("error in input HUD no parameters met 0002")
 
-	elif !Player_Stats.get_continuing(_player) && !Game.started && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
+	elif !Player_Stats.get_continuing(_player) && !Game.get_started() && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player):
 		print_debug("input to screen hud")
 		emit_signal("input_to_screen",_player, _dir)
 
@@ -401,7 +400,7 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 		elif _dir == 5:
 			get_player_hud(_player).add_to_continue(1)
 	
-	elif Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_done(_player):#movement up:1 left:2 right:3 down:4 start:5 back:6
+	elif Game.get_started() && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_done(_player):#movement up:1 left:2 right:3 down:4 start:5 back:6
 		print_debug("trying to send up down select signal to hud for in game high score (in hud arcade input)")
 		if _dir == 1:
 			get_player_hud(_player).go_up()
@@ -412,7 +411,7 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 		elif _dir == 6:
 			get_player_hud(_player).go_back()
 
-	elif Game.started && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):
+	elif Game.get_started() && !Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player) && !Player_Stats.get_continuing(_player):
 		if _dir == 0 && Player_Stats.can_player_start(_player):
 			Player_Stats.set_in_play(_player,true)
 			Player_Stats.use_credit(_player)
@@ -426,7 +425,7 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 			print_debug("error in input HUD no parameters met 0004")
 
 #pawn menu in game
-	elif Game.started && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player)&& !Player_Stats.get_continuing(_player):
+	elif Game.get_started() && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player)&& !Player_Stats.get_continuing(_player):
 		if _player == 1: 
 			if _dir == 2:
 				p1.go_left()
@@ -508,8 +507,8 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 				Controllers.p8.spawn_pawn()
 				p8.pawn_menu_vis(false)
 
-	elif Game.started && Player_Stats.get_in_play(_player) && Player_Stats.get_in_game(_player):
+	elif Game.get_started() && Player_Stats.get_in_play(_player) && Player_Stats.get_in_game(_player):
 		print_debug("error in hud input shouldnt see this you should be playing a game 0003")
 	else:
-		print_debug("error in hud input no parameters met 0001 --- ","game started = ", Game.started,"in play = ",Player_Stats.get_in_play(_player),"in game = ",Player_Stats.get_in_game(_player))
+		print_debug("error in hud input no parameters met 0001 --- ","game started = ", Game.get_started(),"in play = ",Player_Stats.get_in_play(_player),"in game = ",Player_Stats.get_in_game(_player))
 	state_machine()

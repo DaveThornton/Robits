@@ -12,7 +12,7 @@ var level
 signal splash_done
 
 func spawn_pos():
-	if !Game.over:
+	if !Game.get_game_over():
 		return map.next_spawn_pos()
 	else:
 		return null

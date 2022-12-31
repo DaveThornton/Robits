@@ -39,7 +39,7 @@ func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print_debug("failed to connect ammo change in weap hold 13 TOS")
-	if Game.mode == 0:
+	if Game.get_mode() == 0:
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_b())
 		melee_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_b())
 

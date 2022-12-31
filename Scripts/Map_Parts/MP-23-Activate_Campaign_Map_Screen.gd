@@ -18,7 +18,7 @@ func activate(_num,_body):
 		# print_debug(" tring to load map menu from in level MP 23")
 		Map_Hand.splash_w_timer(top,bot,splash_time)
 		HUD.load_screen(camp_map_screen)
-		Game.started = false
+		Game.set_started(false)
 		Controllers.clear_pawns()
 		Player_Stats.set_all_in_game(false)
 		HUD.set_mode(1)

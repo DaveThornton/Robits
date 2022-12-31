@@ -36,7 +36,6 @@ signal start
 signal activate(_num, _player)
 
 func _ready():
-#	Game.mode = 2
 	Game.use_lives() #checks if number of lives are used
 	if $"MP-04-Nav2D":
 		nav_system = $"MP-04-Nav2D"

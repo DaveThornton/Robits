@@ -100,7 +100,7 @@ func continue_count():
 			Player_Stats.set_in_play(player,false) 
 			Player_Stats.set_continuing(player, false)
 			Game.check_over()
-			if !Game.over:
+			if !Game.get_game_over():
 				if High_Score.is_score_high(Player_Stats.get_score(player)):
 					print_debug("trying to add name to high scores in game lets see   ", High_Score.is_score_high(Player_Stats.get_score(player)), "     score: ", Player_Stats.get_score(player))
 					HUD.set_pri(player, 11)

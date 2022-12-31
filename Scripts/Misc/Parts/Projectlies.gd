@@ -117,7 +117,7 @@ func make_vs(_num,_rot, _pos, _scale, _owner, _dmg):
 	Map_Hand.add_kid_to_map(new_projectile)
 	new_projectile.start( _rot , _pos, _scale, _owner, _dmg)
 
-	if Game.mode == 0:
+	if Game.get_mode() == 0:
 		new_projectile.set_layer(layer)
 
 func make_bad(_num,_rot, _pos, _scale, _owner, _dmg):

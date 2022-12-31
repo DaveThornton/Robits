@@ -35,7 +35,7 @@ func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print_debug("failed to connect ammo change in weap hold 11 mega cannon")
-	if Game.mode == 0:
+	if Game.get_mode() == 0:
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 
 func init(_ammo, _player, _timer, _just_shot):

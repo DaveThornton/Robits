@@ -17,7 +17,7 @@ func update_state(_state):
 	var pri = _state["pri"]
 	var sec = _state["sec"]
 	if mode == 0:
-		if Game.mode > 0:
+		if Game.get_mode() > 0:
 			game_over()
 	elif mode == 1:
 		in_menu()

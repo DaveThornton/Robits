@@ -58,7 +58,7 @@ func _next_screen():
 	var t1 = Campaign.get_map_title(pos)
 	var t2 = Campaign.get_map_discription(pos)
 	Map_Hand.load_map_cam_first(map_to_load,t1,t2,1,true)
-	Game.started = true
+	Game.set_started(true)
 	call_deferred("free")
 
 func update_pos(_pos):

@@ -216,11 +216,14 @@ func add_kill(_killed, _killer, _point, _by_what):
 	if _killer > 0:
 		add_score(_killer, _point)
 		get_player_stats(_killer)["kill"] += 1
-	add_score(_killed,(-1 * _point))
+	if _point > 1 && Settings.get_multi_minus_on_death():
+		add_score(_killed,(-1 * (_point -1)))
 	add_death(_killed)
 
 func add_death(_player):
 	get_player_stats(_player)["death"] += 1
+	if Settings.get_multi_minus_on_death():
+		add_score(_player,-1)
 	if Game.use_lives():
 		var _ps = get_player_stats(_player)
 		_ps["lives"] -= 1

@@ -41,11 +41,11 @@ func _ready():
 	else:
 		print_debug("map has no navigation")
 	if set_equip_weap_on:
-		Game.start_eq = true
+		Game.set_start_equiped(true)
 		for i in Settings.max_num_of_player: 
 			Controllers.player_equip_start_weap(i + 1)
 	elif set_equip_weap_off:
-		Game.start_eq = false
+		Game.set_start_equiped(false)
 		for i in Settings.max_num_of_player: 
 			Controllers.player_remove_start_weap(i + 1)
 	emit_signal("start")
@@ -104,14 +104,6 @@ func remove_map():
 func reset():
 	print_debug("reset called in map c gd so it removed map")
 	remove_map()
-	# emit_signal("start")
-	# propagate_call("queue_free",[],false)
-	# if Game.over:
-	# propagate_call("queue_free",[],false)
-	# else: emit_signal("start")
-	# else:
-	# 	call_deferred("queue_free")
-	# queue_free()
 
 func activate_BG(_num, _player):
 	emit_signal("activate",_num, _player)
@@ -119,8 +111,6 @@ func activate_BG(_num, _player):
 
 func _on_Start_Timer_timeout():
 	pass
-	# emit_signal("start")
-	# parts.propagate_call("start")
 
 func set_back(_back):
 	FX.set_back(_back)

@@ -38,8 +38,8 @@ func _start(_player):
 	if menu_pos == 1:
 		SFX.music(true, camp_song)
 		SFX.menu(2)
-		Game.mode = 0
-		Game.start_eq = false
+		Game.set_mode(0)
+		Game.set_start_equiped(false)
 		HUD.load_screen(campaign)
 		Campaign.add_player(_player)
 		call_deferred("free")
@@ -49,8 +49,8 @@ func _start(_player):
 		if Player_Stats.get_num_in_play() > 1:
 			SFX.music(true, vs_song)
 			SFX.menu(2)
-			Game.mode = 2
-			Game.start_eq = false
+			Game.set_mode(2)
+			Game.set_start_equiped(false)
 			HUD.load_screen(vs_mode)
 			call_deferred("free")
 		else:
