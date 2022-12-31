@@ -8,7 +8,6 @@ var game_started = false
 var start_equipped = false
 var game_mode = 2 # 0 Campaign safety on | 1 Campaign safety off | 2 VS score | 3 VS time |4 VS Stock
 var game_over = false
-# var end_game_score = 10
 
 func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")

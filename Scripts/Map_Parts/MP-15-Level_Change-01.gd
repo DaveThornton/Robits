@@ -34,6 +34,7 @@ func on():
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
+		bodies.append(body)
 		if is_open:
 			go()
 		else:
