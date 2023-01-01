@@ -98,9 +98,6 @@ rect_offset = 2200
 material = ExtResource( 2 )
 anchor_right = 1.0
 margin_bottom = 1080.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sprite" type="Sprite" parent="CRT"]
 position = Vector2( -170, 540 )
@@ -111,12 +108,12 @@ position = Vector2( 2090, 540 )
 texture = ExtResource( 4 )
 
 [node name="SpriteStatic" type="AnimatedSprite" parent="."]
-modulate = Color( 1, 1, 1, 0.0392157 )
+modulate = Color( 1, 1, 1, 0.0352941 )
 position = Vector2( 960, 543 )
 scale = Vector2( 1.15, 1.15 )
 frames = SubResource( 1 )
 animation = "Real"
-frame = 42
+frame = 49
 speed_scale = 7.0
 playing = true
 
@@ -127,7 +124,7 @@ position = Vector2( 960, 543 )
 scale = Vector2( 1.15, 1.15 )
 frames = SubResource( 1 )
 animation = "Real"
-frame = 42
+frame = 49
 speed_scale = 7.0
 playing = true
 

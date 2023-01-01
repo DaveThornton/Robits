@@ -27,14 +27,14 @@ onready var pawn_14 = $Pawn/Pawn_14_About
 onready var pawn_15 = $Pawn/Pawn_15_About
 
 onready var timer = $Timer
-var how_many_screens = 9
+var how_many_screens = 8
 
 #time for each screen to splash
-var t_robits = 3
+var t_robits = 10
 var t_winners = 4
 var t_recycle = 3
-var t_company = 4
-var t_godot = 3
+var t_company = 10
+var t_godot = 5
 var t_this_robit = 8
 var t_this_weap = 8
 var t_high_score = 5
@@ -62,17 +62,17 @@ func screen(_num):
 		timer.start(t_robits)
 		robits.visible = true
 	elif _num == 2:
-		timer.start(t_company)
-		dead.visible = true
-	elif _num == 3:
 		timer.start(t_godot)
 		godot.visible = true
-	elif _num == 4:
+	elif _num == 3:
 		timer.start(t_about)
 		show_pawn(current_pawn_about,true)
 		current_pawn_about += 1
 		if current_pawn_about > 15:
 			current_pawn_about = 1
+	elif _num == 4:
+		timer.start(t_company)
+		company.visible = true
 	elif _num == 5:
 		timer.start(t_winners)
 		if recycle_or_drugs:
@@ -97,9 +97,6 @@ func screen(_num):
 	elif _num == 8:
 		bin_label.visible = true
 		timer.start(t_bin)
-	elif _num == 9:
-		timer.start(t_company)
-		company.visible = true
 	screen_count += 1
 	if screen_count > how_many_screens:
 		screen_count = 1

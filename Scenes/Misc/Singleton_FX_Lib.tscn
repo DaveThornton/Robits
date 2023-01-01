@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=78 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_FX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=2]
@@ -18,12 +18,81 @@
 [ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Misc/Parts/MiscFX.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Guns/Parts/W_39_P_Mine_Part_Armed.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Sprites/FX/Static/static-640x480-00.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/FX/Static/static-640x480-07.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/FX/Static/static-640x480-02.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00009.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/FX/Static/static-640x480-01.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/FX/Static/static-640x480-04.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/FX/Static/static-640x480-06.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/FX/Static/static-640x480-03.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/FX/Static/static-640x480-05.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00035.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00008.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00022.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00033.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00039.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00043.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00004.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00017.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00018.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00046.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00044.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00006.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00050.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00045.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00041.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00011.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00013.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00019.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00036.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00028.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00027.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00015.png" type="Texture" id=49]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00037.png" type="Texture" id=50]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00012.png" type="Texture" id=51]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00021.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00038.png" type="Texture" id=53]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00030.png" type="Texture" id=54]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00029.png" type="Texture" id=55]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00031.png" type="Texture" id=56]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00048.png" type="Texture" id=57]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00049.png" type="Texture" id=58]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00002.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00010.png" type="Texture" id=60]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00003.png" type="Texture" id=61]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00024.png" type="Texture" id=62]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00042.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00007.png" type="Texture" id=64]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00001.png" type="Texture" id=65]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00034.png" type="Texture" id=66]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00040.png" type="Texture" id=67]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00026.png" type="Texture" id=68]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00023.png" type="Texture" id=69]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00047.png" type="Texture" id=70]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00032.png" type="Texture" id=71]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00025.png" type="Texture" id=72]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00005.png" type="Texture" id=73]
+[ext_resource path="res://Sprites/FX/Static/Real/scene00020.png" type="Texture" id=74]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 470, 549 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 30, 550 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 59 ), ExtResource( 65 ), ExtResource( 37 ), ExtResource( 28 ), ExtResource( 48 ), ExtResource( 39 ), ExtResource( 45 ), ExtResource( 30 ), ExtResource( 43 ), ExtResource( 61 ), ExtResource( 71 ), ExtResource( 57 ), ExtResource( 67 ), ExtResource( 29 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 44 ), ExtResource( 62 ), ExtResource( 41 ), ExtResource( 52 ), ExtResource( 73 ), ExtResource( 55 ), ExtResource( 63 ), ExtResource( 66 ), ExtResource( 32 ), ExtResource( 36 ), ExtResource( 68 ), ExtResource( 60 ), ExtResource( 49 ), ExtResource( 56 ), ExtResource( 34 ), ExtResource( 64 ), ExtResource( 22 ), ExtResource( 51 ), ExtResource( 66 ), ExtResource( 35 ), ExtResource( 74 ), ExtResource( 69 ), ExtResource( 72 ), ExtResource( 47 ), ExtResource( 54 ), ExtResource( 31 ), ExtResource( 46 ), ExtResource( 53 ), ExtResource( 42 ), ExtResource( 33 ), ExtResource( 38 ), ExtResource( 70 ), ExtResource( 58 ), ExtResource( 40 ) ],
+"loop": true,
+"name": "Real",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="FX_Lib" type="Node2D"]
 position = Vector2( 0, 1 )
@@ -134,6 +203,17 @@ arrow = ExtResource( 15 )
 bolt = ExtResource( 14 )
 mine = ExtResource( 18 )
 disappear = ExtResource( 16 )
+
+[node name="SpriteStatic3" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.631373 )
+position = Vector2( 960, 543 )
+scale = Vector2( 1.15, 1.15 )
+frames = SubResource( 3 )
+animation = "Real"
+frame = 6
+speed_scale = 7.0
+playing = true
 
 [connection signal="area_entered" from="MP-01-Camera/Area2D_Respawn" to="." method="_on_Area2D_Respawn_area_entered"]
 [connection signal="area_exited" from="MP-01-Camera/Area2D_Respawn" to="." method="_on_Area2D_Respawn_area_exited"]

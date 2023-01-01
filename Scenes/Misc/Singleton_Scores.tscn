@@ -26,7 +26,6 @@ texture = ExtResource( 1 )
 self_modulate = Color( 1, 1, 1, 0.784314 )
 position = Vector2( 952.571, 603.295 )
 scale = Vector2( 5.69153, 0.901761 )
-z_index = 94
 texture = ExtResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]

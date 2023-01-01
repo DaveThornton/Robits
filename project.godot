@@ -17,6 +17,8 @@ _global_script_class_icons={
 config/name="ROBITS"
 config/description="a 8 player arcade game ."
 run/main_scene="res://Scenes/World.tscn"
+boot_splash/image="res://Sprites/Misc/Tree_Town_Games_03.png"
+config/icon="res://icon_01.png"
 
 [autoload]
 

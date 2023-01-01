@@ -18,7 +18,7 @@ var trauma_depletion: = 0.2
 var max_c_off: = Vector2(35, 20)#was 50 25
 var max_c_rot: = 0.4
 var max_c_static: = 120
-var min_c_static: = 10
+var min_c_static: = 11
 var can_go_forward = true
 var can_go_backward = true
 var max_right = 0
@@ -33,6 +33,7 @@ func _ready():
 		print_debug("error camera connecting to reset from world gd")
 	viewport_rect = get_viewport_rect()
 	pawns  = get_tree().get_current_scene().get_pawns()
+	static_sprite.modulate = Color8(255,255,255,min_c_static)
 	print_debug(pawns)
 	randomize()
 	noise_gen.seed = randi()
@@ -72,9 +73,16 @@ func static_on():
 	static_sprite.visible = true
 func static_off():
 	static_sprite.visible = false
-func static_set_amount(_amount):
+
+func set_min_static(_amount):
+# func static_set_amount(_amount):
+	print_debug("setting min static amount to ", _amount)
 	min_c_static = _amount
 	static_sprite.modulate = Color8(255,255,255,_amount)
+
+func set_max_static(_amount):
+	max_c_static = _amount
+
 
 func crt_on():
 	effect.visible = true
