@@ -80,3 +80,16 @@ func change_sfx_vol(_db):
 
 func change_menu_vol(_db):
 	AudioServer.set_bus_volume_db(3,((AudioServer.get_bus_volume_db(3) + _db)))
+
+func get_master_vol():
+	return AudioServer.get_bus_volume_db(0)
+	
+func get_music_vol():
+	return AudioServer.get_bus_volume_db(1)
+	
+func get_sfx_vol():
+	return AudioServer.get_bus_volume_db(2)
+	
+func get_menu_vol():
+	return AudioServer.get_bus_volume_db(3)
+	

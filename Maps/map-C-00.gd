@@ -41,11 +41,11 @@ func _ready():
 	else:
 		print_debug("map has no navigation")
 	if set_equip_weap_on:
-		Game.set_start_equiped(true)
+		Settings.set_campaign_start_gun(true)
 		for i in Settings.max_num_of_player: 
 			Controllers.player_equip_start_weap(i + 1)
 	elif set_equip_weap_off:
-		Game.set_start_equiped(false)
+		Settings.set_campaign_start_gun(false)
 		for i in Settings.max_num_of_player: 
 			Controllers.player_remove_start_weap(i + 1)
 	emit_signal("start")

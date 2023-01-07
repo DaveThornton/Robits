@@ -19,6 +19,8 @@ var max_c_off: = Vector2(35, 20)#was 50 25
 var max_c_rot: = 0.4
 var max_c_static: = 120
 var min_c_static: = 11
+var juice_on = true
+var juice_amount = 0.1
 var can_go_forward = true
 var can_go_backward = true
 var max_right = 0
@@ -81,18 +83,26 @@ func set_min_static(_amount):
 	static_sprite.modulate = Color8(255,255,255,_amount)
 
 func set_max_static(_amount):
+	print_debug("setting max static amount to ", _amount)
 	max_c_static = _amount
 
+func get_static_status():
+	return static_sprite.visible
 
 func crt_on():
 	effect.visible = true
 func crt_off():
 	effect.visible = false
+func get_crt_status():
+	return effect.visible
 
 func add_trauma(_amount):
+	if juice_on:
 #	print_debug("trauma added ", _amount, " amount in MP-01-Camera")
-	trauma += _amount * 0.1
-	trauma = clamp(trauma,0,.4)
+		# trauma += _amount * 0.1
+		trauma += _amount * juice_amount
+		# trauma = clamp(trauma,0,.4)
+		trauma = clamp(trauma,0,(juice_amount * 4))
 	# print_debug("trauma :", trauma, "    in MP-01-Camera")
 
 func _c_shake(_delta):
@@ -109,6 +119,22 @@ func _c_static(_delta):
 	var amount = pow(trauma,trauma_power) * 50 * max_c_static
 # warning-ignore:narrowing_conversion
 	static_sprite.modulate = Color8(255,255,255,clamp(amount, min_c_static ,max_c_static))
+
+func set_juice_on(_on):
+	juice_on = _on
+	print_debug("juice turned ", _on, " in camera")
+	if juice_on:
+		add_trauma(5)
+
+func get_juice_on():
+	return juice_on
+
+func set_juice_amount(_amount):
+	juice_amount = _amount
+	print_debug("juice_amount changed in camera  ", _amount)
+
+func get_juice_amount():
+	return juice_amount
 
 func reset():
 	position.x = 0

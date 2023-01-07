@@ -1,6 +1,7 @@
 extends Node2D
 
 export(PackedScene) var campaign
+export(PackedScene) var settings_menu
 export(PackedScene) var vs_mode
 export var vs_song = 0
 export var camp_song = 0
@@ -39,18 +40,21 @@ func _start(_player):
 		SFX.music(true, camp_song)
 		SFX.menu(2)
 		Game.set_mode(0)
-		Game.set_start_equiped(false)
+		Settings.set_campaign_start_gun(false)
 		HUD.load_screen(campaign)
 		Campaign.add_player(_player)
 		call_deferred("free")
 	elif menu_pos == 2:
-		SFX.menu(3)
+		if _player == 1:
+			HUD.load_screen(settings_menu)
+			call_deferred("free")
+		else:
+			SFX.menu(3)
 	elif menu_pos == 3:
 		if Player_Stats.get_num_in_play() > 1:
 			SFX.music(true, vs_song)
 			SFX.menu(2)
 			Game.set_mode(2)
-			Game.set_start_equiped(false)
 			HUD.load_screen(vs_mode)
 			call_deferred("free")
 		else:

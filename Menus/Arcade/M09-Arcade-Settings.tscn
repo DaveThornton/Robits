@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Menus/Arcade/Scripts/M09-Arcade-Settings.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Arcade/Parts/Settings-Temp-Top_Menu_Select.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menus/Arcade/Parts/Settings-Temp-Menu_VS.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menus/Arcade/Parts/Settings-Temp-Menu_Camp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Menus/Arcade/Parts/Settings-Temp-Menu_Video.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Menus/Arcade/Parts/Settings-Temp-Menu_Audio.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Menus/Arcade/Parts/Settings-Temp-Menu_Exit.tscn" type="PackedScene" id=7]
+
+[node name="M09-Arcade-Settings" type="Node2D"]
+script = ExtResource( 1 )
+selection_color = Color( 1, 0, 0, 1 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Top_Menu_Select" parent="." instance=ExtResource( 2 )]
+
+[node name="Menu_VS_Settings" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="Menu_Campaign_Settings" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="Menu_Audio_Settings" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="Menu_Video_Settings" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="Menu_Exit_Settings" parent="." instance=ExtResource( 7 )]
+
+[node name="Menu_Placeholder_Settings" type="Node2D" parent="."]

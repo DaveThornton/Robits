@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Menus/Arcade/Scripts/M02-Arcade-Mode-Select.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/M05-Arcade-Player-Select-Camp.tscn" type="PackedScene" id=2]
@@ -7,10 +7,12 @@
 [ext_resource path="res://misc/line-text-big.tres" type="DynamicFont" id=5]
 [ext_resource path="res://misc/line-text-64.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Sprites/Misc/White_Pixel.png" type="Texture" id=7]
+[ext_resource path="res://Menus/Arcade/M09-Arcade-Settings.tscn" type="PackedScene" id=8]
 
 [node name="M02-Arcade-Mode-Select" type="Node2D"]
 script = ExtResource( 1 )
 campaign = ExtResource( 2 )
+settings_menu = ExtResource( 8 )
 vs_mode = ExtResource( 3 )
 
 [node name="menu_1X3_01" parent="." instance=ExtResource( 4 )]
@@ -28,9 +30,6 @@ text = "campaign
 "
 align = 1
 uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label2" type="Label" parent="Labels"]
 margin_left = 389.0

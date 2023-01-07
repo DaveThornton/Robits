@@ -68,6 +68,34 @@ func four_brick(_owner, _pos, _color):
 func get_brick_color(_color):
 	return bricks.get_color(_color)
 
+func crt(_on):
+	if _on:
+		CAMERA.crt_on()
+	else:
+		CAMERA.crt_off()
+
+func get_crt_status():
+	return CAMERA.get_crt_status()
+
+func screen_static(_on):
+	if _on:
+		CAMERA.static_on()
+	else:
+		CAMERA.static_off()
+
+func get_static_status():
+	return CAMERA.get_static_status()
+
+func get_static_min():
+	return CAMERA.min_c_static
+
+func get_static_max():
+	return CAMERA.max_c_static
+
+func juice(_on):
+	pass
+
+
 func _on_Area2D_Respawn_area_entered(area):
 	if area.get_groups().has("respawn"):
 		Map_Hand.add_pos(area)

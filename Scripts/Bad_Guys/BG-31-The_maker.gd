@@ -24,9 +24,13 @@ func _ready():
 			speed *= -1
 
 func _physics_process(delta):
-	move_and_slide(Vector2(speed * delta * 100,0 ))
+	var test1 = move_and_slide(Vector2(speed * delta * 100,0 ))
+	if !test1:
+		print_debug("not moving and sliding in BG 31 the maker")
 	if !ray_down.is_colliding():
-		move_and_collide(Vector2(0, grav * delta *10))
+		var test2 = move_and_collide(Vector2(0, grav * delta *10))
+		if !test2:
+			print_debug("maker not moving down BG 31 ")
 	if !occ_player_array.empty():
 		for j in range(occ_player_array.size()):
 			_move_player(j,delta)

@@ -5,7 +5,6 @@ export(PackedScene) var start_screen
 onready var timer = $Timer
 
 var game_started = false
-var start_equipped = false
 var game_mode = 2 # 0 Campaign safety on | 1 Campaign safety off | 2 VS score | 3 VS time |4 VS Stock
 var game_over = false
 
@@ -63,17 +62,10 @@ func get_game_over():
 
 func set_mode(_mode):
 	game_mode = _mode
+	print_debug("game mode changed to ", game_mode)
 
 func get_mode():
 	return game_mode
-
-
-func set_start_equiped(_eq):
-	start_equipped = _eq
-
-func get_start_equipped():
-	return start_equipped
-
 
 func check_over():
 	if game_mode == 2 :

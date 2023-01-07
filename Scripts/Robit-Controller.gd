@@ -142,7 +142,11 @@ func spawn_pawn():
 		print_debug("robit controller not working when tring to spawn maybe try to spawn again")
 	
 func _init_pawn():
-	my_pawn.init(player, Map_Hand.spawn_pos(), Game.get_start_equipped(), play_type)
+	if Game.get_mode() < 2:
+		my_pawn.init(player, Map_Hand.spawn_pos(), Settings.get_campaign_start_gun(), play_type)
+	else:
+		my_pawn.init(player, Map_Hand.spawn_pos(), Settings.get_multi_start_gun(), play_type)
+
 
 func explode_pawn(_player, _pos, _by_who, _by_what):
 	FX.explode(3, player, _pos, str("player ", player, "'s destruct system"), Player_Stats.get_pawn_num(player), 2)
@@ -291,8 +295,7 @@ func get_pawn():
 		return false
 
 func player_equip_start_weap():
-	if my_pawn:# && !Game.over:
-		# my_pawn.start_equiped = true
+	if my_pawn:
 		my_pawn.equip_start_weap()
 
 func player_remove_start_weap():

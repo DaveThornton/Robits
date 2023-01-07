@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://misc/line-text-64.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menus/Arcade/Scripts/Parts/Settings-Temp-Menu_Exit.gd" type="Script" id=2]
+
+[node name="Menu_Exit_Settings" type="Node2D"]
+position = Vector2( -10, 10 )
+script = ExtResource( 2 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+margin_left = 40.0
+margin_top = 270.0
+margin_right = 1890.0
+margin_bottom = 1045.0
+border_color = Color( 1, 1, 1, 1 )
+border_width = 3.0
+editor_only = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 80.0
+margin_top = 320.0
+margin_right = 749.0
+margin_bottom = 675.0
+rect_pivot_offset = Vector2( 1960, -90 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 669.0
+margin_bottom = 67.0
+
+[node name="Label_01" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_right = 127.0
+margin_bottom = 67.0
+rect_pivot_offset = Vector2( 1960, -250 )
+custom_fonts/font = ExtResource( 1 )
+text = "Exit"
+
+[node name="Label_01" type="Label" parent="VBoxContainer"]
+margin_top = 71.0
+margin_right = 669.0
+margin_bottom = 138.0
+rect_pivot_offset = Vector2( 1960, -250 )
+custom_fonts/font = ExtResource( 1 )
