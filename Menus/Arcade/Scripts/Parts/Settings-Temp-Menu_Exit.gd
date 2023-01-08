@@ -1,18 +1,13 @@
 extends Node2D
 
 onready var top_easy_label = $VBoxContainer/Label_01
-onready var top_med_label = $VBoxContainer/Label_02
-onready var top_hard_label = $VBoxContainer/Label_03
-onready var top_easy_square = $ReferenceRect_Stock
-onready var top_med_square = $ReferenceRect_Score
-onready var top_hard_square = $ReferenceRect_Time
-
 onready var bot_stock_label = $VBoxContainer/HBoxContainer2/Label_Stock2
 onready var bot_stock_count = $VBoxContainer/HBoxContainer2/Label_Stock3
 onready var stock_slider = $VBoxContainer/HBoxContainer2/HSlider
 
 onready var row_01 = $VBoxContainer/HBoxContainer
-onready var row_02 = $VBoxContainer/HBoxContainer2
+onready var row_02 = $VBoxContainer2/HBoxContainer
+onready var row_03 = $VBoxContainer3/HBoxContainer
 
 export var selected_color = Color8(255,255,255,255)
 
@@ -34,7 +29,7 @@ func up():
 		menu_update()
 
 func down():
-	if menu_pos >= 1:
+	if menu_pos >= 3:
 		SFX.menu(3)
 	else:
 		menu_pos += 1
@@ -48,9 +43,12 @@ func left():
 
 func right():
 	if menu_pos == 1:
+		parent_menu.save_data()
+	elif menu_pos == 2:
+		parent_menu.load_data()
+	elif menu_pos == 3:
 		get_tree().get_current_scene().arcade_reset()
 		parent_menu.exit()
-		pass
 	else:
 		print_debug("error in settings temp menu vs wrong menu pos right")
 
@@ -66,11 +64,17 @@ func menu_update():
 		pass
 	elif menu_pos == 1:
 		row_01.modulate = selected_color
+	elif menu_pos == 2:
+		row_02.modulate = selected_color
+	elif menu_pos == 3:
+		row_03.modulate = selected_color
 	else:
 		print_debug("error in settings temp menu camp wrong menu pos menu update")
 
 func white_out():
 	row_01.modulate = white
+	row_02.modulate = white
+	row_03.modulate = white
 
 func set_selection_color(_color):
 	selected_color = _color

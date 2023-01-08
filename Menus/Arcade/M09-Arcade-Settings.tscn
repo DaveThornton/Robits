@@ -17,7 +17,6 @@ selection_color = Color( 1, 0, 0, 1 )
 [node name="Top_Menu_Select" parent="." instance=ExtResource( 2 )]
 
 [node name="Menu_VS_Settings" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [node name="Menu_Campaign_Settings" parent="." instance=ExtResource( 4 )]
 visible = false
@@ -29,5 +28,6 @@ visible = false
 visible = false
 
 [node name="Menu_Exit_Settings" parent="." instance=ExtResource( 7 )]
+visible = false
 
 [node name="Menu_Placeholder_Settings" type="Node2D" parent="."]

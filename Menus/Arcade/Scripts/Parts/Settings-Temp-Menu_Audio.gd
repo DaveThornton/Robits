@@ -130,6 +130,21 @@ func _on_HSlider_Time_value_changed(value:float):
 	SFX.set_sfx_vol(value)
 	sfx_count.text = str(value)
 
+func get_data_vars():
+	var audio_data = [
+		master_slider.value,
+		music_slider.value,
+		sfx_slider.value
+	]
+	return audio_data
+
+func load_data(_audio_data):
+	if _audio_data.size() < 4:
+		sfx_slider.value = _audio_data.pop_back()
+		music_slider.value = _audio_data.pop_back()
+		master_slider.value = _audio_data.pop_back()
+	else:
+		print_debug("error loading audio saves to few vars in the array")
 
 func set_selection_color(_color):
 	selected_color = _color

@@ -123,6 +123,18 @@ func _on_HSlider_Stock_value_changed(value:float):
 	Settings.set_lives_per_credit(int(value))
 	bot_stock_count.text = str(value)
 
+func get_data_vars():
+	var camp_data = [
+		stock_slider.value
+	]
+	return camp_data
+
+func load_data(_camp_data):
+	if _camp_data.size() < 2:
+		stock_slider.value = _camp_data.pop_back()
+	else:
+		print_debug("error loading camp saves to few vars in the array")
+
 func set_selection_color(_color):
 	selected_color = _color
 	menu_update()

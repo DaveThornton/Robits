@@ -31,7 +31,6 @@ func all_out():
 	place_04.visible = false
 	place_05.visible = false
 
-
 func set_selection_color(_color):
 	selected_color = _color
 	selected_menu.modulate = selected_color

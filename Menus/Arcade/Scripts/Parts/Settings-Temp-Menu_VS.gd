@@ -251,6 +251,28 @@ func display_start_gun():
 		swg_yes.visible = false
 		swg_no.visible = true
 
+func get_data_vars():
+	var vs_data = [
+		game_mode,
+		stock_slider.value,
+		score_slider.value,
+		time_slider.value,
+		mod,
+		start_with_gun
+	]
+	return vs_data
+
+func load_data(_vs_data):
+	if _vs_data.size() < 7:
+		set_start_gun(_vs_data.pop_back())
+		set_minus_on_death(_vs_data.pop_back())
+		time_slider.value = _vs_data.pop_back()
+		score_slider.value = _vs_data.pop_back()
+		stock_slider.value = _vs_data.pop_back()
+		set_game_mode(_vs_data.pop_back())
+	else:
+		print_debug("error loading audio saves to few vars in the array")
+
 func set_selection_color(_color):
 	selected_color = _color
 	menu_update()

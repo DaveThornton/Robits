@@ -1,5 +1,8 @@
 extends Node2D
 
+const SAVE_FILE = "user://Robit_Settings.save"
+
+
 export(PackedScene) var next_screen
 onready var top_menu = $Top_Menu_Select
 onready var vs_menu = $Menu_VS_Settings
@@ -10,6 +13,7 @@ onready var place_holder = $Menu_Exit_Settings
 
 export var selection_color = Color8(255,255,255,255)
 
+var game_data = {}
 var top_menu_on = true
 
 var menu_pos = 0
@@ -26,7 +30,6 @@ func _ready():
 	audio_menu.set_selection_color(selection_color)
 	video_menu.set_selection_color(selection_color)
 	place_holder.set_selection_color(selection_color)
-
 
 func back_to_top():
 	top_menu_on = true
@@ -109,6 +112,33 @@ func all_out():
 func get_ready(_player):
 	if _player == 1:
 		return false
+
+func save_data():
+	var file = File.new()
+	file.open(SAVE_FILE,File.WRITE)
+	get_data()
+	file.store_var(game_data)
+	file.close()
+
+func load_data():
+	var file = File.new()
+	if not file.file_exists(SAVE_FILE):
+		save_data()
+	file.open(SAVE_FILE, File.READ)
+	game_data = file.get_var()
+	file.close()
+	vs_menu.load_data(game_data["vs_menu"])
+	camp_menu.load_data(game_data["camp_menu"])
+	audio_menu.load_data(game_data["audio_menu"])
+	video_menu.load_data(game_data["video_menu"])
+	
+func get_data():
+	game_data = {
+		"vs_menu": vs_menu.get_data_vars(),
+		"camp_menu": camp_menu.get_data_vars(),
+		"audio_menu": audio_menu.get_data_vars(),
+		"video_menu": video_menu.get_data_vars()
+	}
 
 func exit():
 	call_deferred("queue_free")

@@ -230,6 +230,27 @@ func _on_HSlider_Juice_value_changed(value:float):
 		FX.CAMERA.set_juice_amount(value)
 		juice_count.text = str(value)
 
+func get_data_vars():
+	var video_data = [
+		crt_effect,
+		static_effect,
+		juice_effect,
+		static_min_slider.value,
+		static_max_slider.value,
+		juice_slider.value
+	]
+	return video_data
+
+func load_data(_video_data):
+	if _video_data.size() < 7:
+		juice_slider.value = _video_data.pop_back()
+		static_max_slider.value = _video_data.pop_back()
+		static_min_slider.value = _video_data.pop_back()
+		set_juice(_video_data.pop_back())
+		set_static(_video_data.pop_back())
+		set_crt(_video_data.pop_back())
+	else:
+		print_debug("error loading audio saves to few vars in the array")
 
 func set_selection_color(_color):
 	selected_color = _color
