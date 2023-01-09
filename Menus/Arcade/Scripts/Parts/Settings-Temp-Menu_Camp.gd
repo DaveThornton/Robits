@@ -1,8 +1,6 @@
 extends Node2D
 
 onready var top_easy_label = $VBoxContainer/Label_01
-onready var top_med_label = $VBoxContainer/Label_02
-onready var top_hard_label = $VBoxContainer/Label_03
 onready var top_easy_square = $ReferenceRect_Stock
 onready var top_med_square = $ReferenceRect_Score
 onready var top_hard_square = $ReferenceRect_Time

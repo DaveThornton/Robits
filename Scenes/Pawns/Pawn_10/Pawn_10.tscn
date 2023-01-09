@@ -1796,8 +1796,8 @@ tracks/10/keys = {
 
 [node name="Pawn_10" type="KinematicBody2D" groups=["hittable", "ladder", "player"]]
 position = Vector2( 0, -10 )
-collision_layer = 2147483650
-collision_mask = 2147549342
+collision_layer = 2
+collision_mask = 66718
 script = ExtResource( 4 )
 
 [node name="Timers" parent="." instance=ExtResource( 7 )]
@@ -1856,7 +1856,6 @@ position = Vector2( 0, -17 )
 texture = ExtResource( 8 )
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -21 )
 shape = SubResource( 1 )
 disabled = true

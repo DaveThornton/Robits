@@ -1,10 +1,5 @@
 extends Node2D
 
-onready var top_easy_label = $VBoxContainer/Label_01
-onready var bot_stock_label = $VBoxContainer/HBoxContainer2/Label_Stock2
-onready var bot_stock_count = $VBoxContainer/HBoxContainer2/Label_Stock3
-onready var stock_slider = $VBoxContainer/HBoxContainer2/HSlider
-
 onready var row_01 = $VBoxContainer/HBoxContainer
 onready var row_02 = $VBoxContainer2/HBoxContainer
 onready var row_03 = $VBoxContainer3/HBoxContainer
