@@ -54,7 +54,6 @@ hframes = 4
 position = Vector2( 0, -0.128513 )
 rotation = 1.5708
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

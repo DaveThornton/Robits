@@ -17,7 +17,6 @@ script = ExtResource( 1 )
 position = Vector2( 0, -5.68434e-13 )
 rotation = 1.5708
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 1.5708

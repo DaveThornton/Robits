@@ -22,7 +22,6 @@ life_length = 0.85
 position = Vector2( 0, -1.55766e-06 )
 rotation = 1.5708
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.75, 0.75 )

@@ -20,7 +20,6 @@ hit_anim_move = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 0, 0.717647, 1, 1 )

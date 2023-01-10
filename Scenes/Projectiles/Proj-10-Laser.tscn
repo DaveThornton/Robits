@@ -21,7 +21,6 @@ hit_anim_move = ExtResource( 3 )
 position = Vector2( 5, 0 )
 rotation = 1.5708
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 4.989, 0 )

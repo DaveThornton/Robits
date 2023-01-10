@@ -25,7 +25,6 @@ frame = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
-disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
