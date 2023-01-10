@@ -9,6 +9,7 @@ var multi_score_to_win = 10
 var multi_minus_on_death = false
 var multi_use_lives = false
 var multi_time = 2
+var multi_player_indi = false
 var vol_master = 10
 var vol_music = 10
 var vol_sfx = 10
@@ -80,6 +81,12 @@ func set_multi_start_gun(_start):
 func get_multi_start_gun():
 	return multi_start_gun
 
+func set_multi_player_ind(_ind):
+	print_debug("mutliplayer show player indicator set in settings", _ind)
+	multi_player_indi = _ind
+
+func get_multi_player_ind():
+	return multi_player_indi
 
 func set_campaign_start_gun(_start):
 	campaign_start_gun = _start

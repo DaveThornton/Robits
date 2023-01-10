@@ -415,7 +415,8 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 		if _dir == 0 && Player_Stats.can_player_start(_player):
 			Player_Stats.set_in_play(_player,true)
 			Player_Stats.use_credit(_player)
-			p1.pawn_menu_vis(true)
+			var p = get_player_hud(_player)
+			p.pawn_menu_vis(true)
 		elif _dir != 0 && Player_Stats.can_player_start(_player):
 			set_pri(_player,3)
 		elif !Player_Stats.can_player_start(_player):
@@ -426,89 +427,114 @@ func input( _player, _dir):#movement up:1 left:2 right:3 down:4 start:5 back:6
 
 #pawn menu in game
 	elif Game.get_started() && Player_Stats.get_in_play(_player) && !Player_Stats.get_in_game(_player)&& !Player_Stats.get_continuing(_player):
-		if _player == 1: 
-			if _dir == 2:
-				p1.go_left()
-			elif _dir == 3:
-				p1.go_right()
-			elif _dir == 0 || _dir == 6:
-				Player_Stats.p1["pawn_num"] = p1.go_start()
-				Player_Stats.set_in_game(_player,true)
-				Controllers.p1.spawn_pawn()
-				p1.pawn_menu_vis(false)
-		elif _player == 2:
-			if _dir == 2:
-				p2.go_left()
-			elif _dir == 3:
-				p2.go_right()
-			elif _dir == 0 || _dir == 6:
-				Player_Stats.p2["pawn_num"] = p2.go_start()
-				Player_Stats.set_in_game(_player,true)
-				Controllers.p2.spawn_pawn()
-				p2.pawn_menu_vis(false)
-		elif _player == 3:
-			if _dir == 2:
-				p3.go_left()
-			elif _dir == 3:
-				p3.go_right()
-			elif _dir == 0 || _dir == 6:
-				Player_Stats.p3["pawn_num"] = p3.go_start()
-				Player_Stats.set_in_game(_player,true)
-				Controllers.p3.spawn_pawn()
-				p3.pawn_menu_vis(false)
-		elif _player == 4:
-			if _dir == 2:
-				p4.go_left()
-			elif _dir == 3:
-				p4.go_right()
-			elif _dir == 0 || _dir == 6:
-				Player_Stats.p4["pawn_num"] = p4.go_start()
-				Player_Stats.set_in_game(_player,true)
-				Controllers.p4.spawn_pawn()
-				p4.pawn_menu_vis(false)
-		elif _player == 5:
-			if _dir == 2:
-				p5.go_left()
-			elif _dir == 3:
-				p5.go_right()
-			elif _dir == 0 || _dir == 6:
-				Player_Stats.p5["pawn_num"] = p5.go_start()
-				Player_Stats.set_in_game(_player,true)
-				Controllers.p5.spawn_pawn()
-				p5.pawn_menu_vis(false)
-		elif _player == 6:
-			if _dir == 2:
-				p6.go_left()
-			elif _dir == 3:
-				p6.go_right()
-			elif _dir == 0 || _dir == 6:
-				Player_Stats.p6["pawn_num"] = p6.go_start()
-				Player_Stats.set_in_game(_player,true)
-				Controllers.p6.spawn_pawn()
-				p6.pawn_menu_vis(false)
-		elif _player == 7:
-			if _dir == 2:
-				p7.go_left()
-			elif _dir == 3:
-				p7.go_right()
-			elif _dir == 0 || _dir == 6:
-				Player_Stats.p7["pawn_num"] = p7.go_start()
-				Player_Stats.set_in_game(_player,true)
-				Controllers.p7.spawn_pawn()
-				p7.pawn_menu_vis(false)
-		elif _player == 8: 
-			if _dir == 2:
-				p8.go_left()
-			elif _dir == 3:
-				p8.go_right()
-			elif _dir == 0 || _dir == 6:
-				Player_Stats.p8["pawn_num"] = p8.go_start()
-				Player_Stats.set_in_game(_player,true)
-				Controllers.p8.spawn_pawn()
-				p8.pawn_menu_vis(false)
+		var p = get_player_hud(_player)
+		if _dir == 2:
+			p.go_left()
+		elif _dir == 3:
+			p.go_right()
+		elif _dir == 0 || _dir == 6:
+			var ps = Player_Stats.get_player_stats(_player)
+			ps["pawn_num"] = p.go_start()
 
-	elif Game.get_started() && Player_Stats.get_in_play(_player) && Player_Stats.get_in_game(_player):
-		print_debug("error in hud input shouldnt see this you should be playing a game 0003")
-	else:
-		print_debug("error in hud input no parameters met 0001 --- ","game started = ", Game.get_started(),"in play = ",Player_Stats.get_in_play(_player),"in game = ",Player_Stats.get_in_game(_player))
+			Player_Stats.set_in_game(_player,true)
+			var c = Controllers.get_controller(_player)
+			c.spawn_pawn()
+			p.pawn_menu_vis(false)
 	state_machine()
+
+
+
+
+
+
+
+	# 	if _player == 1: 
+	# 		if _dir == 2:
+	# 			p1.go_left()
+	# 		elif _dir == 3:
+	# 			p1.go_right()
+	# 		elif _dir == 0 || _dir == 6:
+	# 			Player_Stats.p1["pawn_num"] = p1.go_start()
+	# 			Player_Stats.set_in_game(_player,true)
+	# 			Controllers.p1.spawn_pawn()
+	# 			p1.pawn_menu_vis(false)
+	# 	elif _player == 2:
+	# 		if _dir == 2:
+	# 			p2.go_left()
+	# 		elif _dir == 3:
+	# 			p2.go_right()
+	# 		elif _dir == 0 || _dir == 6:
+	# 			Player_Stats.p2["pawn_num"] = p2.go_start()
+	# 			Player_Stats.set_in_game(_player,true)
+	# 			Controllers.p2.spawn_pawn()
+	# 			p2.pawn_menu_vis(false)
+	# 	elif _player == 3:
+	# 		if _dir == 2:
+	# 			p3.go_left()
+	# 		elif _dir == 3:
+	# 			p3.go_right()
+	# 		elif _dir == 0 || _dir == 6:
+	# 			Player_Stats.p3["pawn_num"] = p3.go_start()
+	# 			Player_Stats.set_in_game(_player,true)
+	# 			Controllers.p3.spawn_pawn()
+	# 			p3.pawn_menu_vis(false)
+	# 	elif _player == 4:
+	# 		if _dir == 2:
+	# 			p4.go_left()
+	# 		elif _dir == 3:
+	# 			p4.go_right()
+	# 		elif _dir == 0 || _dir == 6:
+	# 			Player_Stats.p4["pawn_num"] = p4.go_start()
+	# 			Player_Stats.set_in_game(_player,true)
+	# 			Controllers.p4.spawn_pawn()
+	# 			p4.pawn_menu_vis(false)
+	# 	elif _player == 5:
+	# 		if _dir == 2:
+	# 			p5.go_left()
+	# 		elif _dir == 3:
+	# 			p5.go_right()
+	# 		elif _dir == 0 || _dir == 6:
+	# 			Player_Stats.p5["pawn_num"] = p5.go_start()
+	# 			Player_Stats.set_in_game(_player,true)
+	# 			Controllers.p5.spawn_pawn()
+	# 			p5.pawn_menu_vis(false)
+	# 	elif _player == 6:
+	# 		if _dir == 2:
+	# 			p6.go_left()
+	# 		elif _dir == 3:
+	# 			p6.go_right()
+	# 		elif _dir == 0 || _dir == 6:
+	# 			Player_Stats.p6["pawn_num"] = p6.go_start()
+	# 			Player_Stats.set_in_game(_player,true)
+	# 			Controllers.p6.spawn_pawn()
+	# 			p6.pawn_menu_vis(false)
+	# 	elif _player == 7:
+	# 		if _dir == 2:
+	# 			p7.go_left()
+	# 		elif _dir == 3:
+	# 			p7.go_right()
+	# 		elif _dir == 0 || _dir == 6:
+	# 			Player_Stats.p7["pawn_num"] = p7.go_start()
+	# 			Player_Stats.set_in_game(_player,true)
+	# 			Controllers.p7.spawn_pawn()
+	# 			p7.pawn_menu_vis(false)
+	# 	elif _player == 8: 
+	# 		if _dir == 2:
+	# 			p8.go_left()
+	# 		elif _dir == 3:
+	# 			p8.go_right()
+	# 		elif _dir == 0 || _dir == 6:
+	# 			Player_Stats.p8["pawn_num"] = p8.go_start()
+	# 			Player_Stats.set_in_game(_player,true)
+	# 			Controllers.p8.spawn_pawn()
+	# 			p8.pawn_menu_vis(false)
+
+	# elif Game.get_started() && Player_Stats.get_in_play(_player) && Player_Stats.get_in_game(_player):
+	# 	print_debug("error in hud input shouldnt see this you should be playing a game 0003")
+	# else:
+	# 	print_debug("error in hud input no parameters met 0001 --- ","game started = ", Game.get_started(),"in play = ",Player_Stats.get_in_play(_player),"in game = ",Player_Stats.get_in_game(_player))
+	# state_machine()
+
+
+# func get_player_hud(_player):
+	# if _player == 1:

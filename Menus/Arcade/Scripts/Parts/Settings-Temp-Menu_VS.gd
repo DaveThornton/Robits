@@ -27,12 +27,17 @@ onready var swg_label = $VBoxContainer/HBoxContainer6/Label_Start_Gun
 onready var swg_yes = $VBoxContainer/HBoxContainer6/Label_Start_Gun_Yes
 onready var swg_no = $VBoxContainer/HBoxContainer6/Label_Start_Gun_No
 
+onready var player_ind_label = $VBoxContainer/HBoxContainer7/Label_Player_Indicator
+onready var player_ind_yes = $VBoxContainer/HBoxContainer7/Label_Player_Indicator_Yes
+onready var player_ind_no = $VBoxContainer/HBoxContainer7/Label_Player_Indicator_No
+
 onready var row_01 = $VBoxContainer/HBoxContainer
 onready var row_02 = $VBoxContainer/HBoxContainer2
 onready var row_03 = $VBoxContainer/HBoxContainer3
 onready var row_04 = $VBoxContainer/HBoxContainer4
 onready var row_05 = $VBoxContainer/HBoxContainer5
 onready var row_06 = $VBoxContainer/HBoxContainer6
+onready var row_07 = $VBoxContainer/HBoxContainer7
 
 export var selected_color = Color8(255,255,255,255)
 
@@ -40,6 +45,7 @@ var menu_pos = 0
 var game_mode = 0 #  2 VS score | 3 VS time |4 VS Stock
 var mod = false
 var start_with_gun = false
+var player_ind = false
 var white = Color8(255,255,255,255)
 var parent_menu
 
@@ -47,12 +53,14 @@ func _ready():
 	game_mode = Game.get_mode()
 	mod = Settings.get_multi_minus_on_death()
 	start_with_gun = Settings.get_multi_start_gun()
+	player_ind = Settings.get_multi_player_ind()
 	display_game_mode()
 	stock_slider.value = Settings.get_multi_lives()
 	score_slider.value = Settings.get_multi_score_to_win()
 	time_slider.value = Settings.get_multi_time()
 	display_minus_on_death()
 	display_start_gun()
+	display_ind()
 
 func up():
 	if menu_pos <= 1:
@@ -64,7 +72,7 @@ func up():
 		menu_update()
 
 func down():
-	if menu_pos >= 6:
+	if menu_pos >= 7:
 		SFX.menu(3)
 	else:
 		menu_pos += 1
@@ -103,6 +111,11 @@ func left():
 			SFX.menu(3)
 		else:
 			set_start_gun(true)
+	elif menu_pos == 7:
+		if player_ind == true:
+			SFX.menu(3)
+		else:
+			set_player_ind(true)
 	else:
 		print_debug("error in settings temp menu vs wrong menu pos left")
 
@@ -139,6 +152,11 @@ func right():
 			SFX.menu(3)
 		else:
 			set_start_gun(false)
+	elif menu_pos == 7:
+		if player_ind == false:
+			SFX.menu(3)
+		else:
+			set_player_ind(false)
 	else:
 		print_debug("error in settings temp menu vs wrong menu pos right")
 
@@ -165,6 +183,8 @@ func menu_update():
 		row_05.modulate = selected_color
 	elif menu_pos == 6:
 		row_06.modulate = selected_color
+	elif menu_pos == 7:
+		row_07.modulate = selected_color
 	else:
 		print_debug("error in settings temp menu vs wrong menu pos menu update")
 
@@ -175,6 +195,7 @@ func white_out():
 	row_04.modulate = white
 	row_05.modulate = white
 	row_06.modulate = white
+	row_07.modulate = white
 
 
 func set_game_mode(_num):
@@ -251,6 +272,19 @@ func display_start_gun():
 		swg_yes.visible = false
 		swg_no.visible = true
 
+func set_player_ind(_ind):
+	player_ind = _ind
+	Settings.set_multi_player_ind(_ind)
+	display_ind()
+
+func display_ind():
+	if player_ind:
+		player_ind_yes.visible = true
+		player_ind_no.visible = false
+	else:
+		player_ind_yes.visible = false
+		player_ind_no.visible = true
+
 func get_data_vars():
 	var vs_data = [
 		game_mode,
@@ -258,12 +292,14 @@ func get_data_vars():
 		score_slider.value,
 		time_slider.value,
 		mod,
-		start_with_gun
+		start_with_gun,
+		player_ind
 	]
 	return vs_data
 
 func load_data(_vs_data):
 	if _vs_data.size() < 7:
+		set_player_ind(_vs_data.pop_back())
 		set_start_gun(_vs_data.pop_back())
 		set_minus_on_death(_vs_data.pop_back())
 		time_slider.value = _vs_data.pop_back()
