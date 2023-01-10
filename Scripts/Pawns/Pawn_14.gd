@@ -68,10 +68,10 @@ var dec_step = 0
 var nrg_max = 175
 var nrg = 175
 var last_nrg = 175
-var nrg_regen_rate = 10
-var nrg_regen_max = 80
-var nrg_default_regen_rate = 10
-var nrg_default_regen_max = 60
+var nrg_regen_rate = 5
+var nrg_regen_max = 40
+var nrg_default_regen_rate = 5
+var nrg_default_regen_max = 40
 var light_on_nrg = 20
 
 var can_move = true

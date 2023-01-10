@@ -29,7 +29,7 @@ onready var speed_timer = $Timers/Speed
 onready var jump_up_timer = $Timers/Jump_Up
 onready var nrg_up_timer = $Timers/NRG_Up
 onready var last_hit_timer = $Timers/Last_Hit_By
-onready var attachment_point = $Attachment_Point
+onready var attachment_point = $Body/POS_Head/Attachment_Point
 
 var player = 1
 var play_type = 2
@@ -45,7 +45,7 @@ var vel = Vector2()
 var grav = 8
 var terminal_vel = 5
 
-var max_x_speed = 250
+var max_x_speed = 230
 var current_x_speed = 0
 
 #-------------------------------------------------------------------JUMP--------
@@ -107,6 +107,7 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 	set_collision(_player_num)
 	play_type = _play_type
 	_set_color()
+	attachment_point.set_player(_player_num)
 	start_equiped = _start_equiped
 	if start_equiped:
 		equip_start_weap()

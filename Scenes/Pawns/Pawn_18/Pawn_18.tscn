@@ -1074,6 +1074,8 @@ position = Vector2( 2, -12 )
 
 [node name="Pawn_18_Head" parent="Body/POS_Head" instance=ExtResource( 8 )]
 
+[node name="Attachment_Point" parent="Body/POS_Head" instance=ExtResource( 12 )]
+
 [node name="POS_Arm" type="Position2D" parent="Body"]
 position = Vector2( 2, -6 )
 
@@ -1089,16 +1091,18 @@ frame = 10
 
 [node name="Pawn_18_Butt" parent="Body" instance=ExtResource( 5 )]
 position = Vector2( -9, 3 )
-rotation = -0.10472
+rotation = 0.00032067
 
 [node name="Pawn_18_Legs_B" type="Sprite" parent="Body"]
 show_behind_parent = true
 texture = ExtResource( 3 )
 hframes = 24
+frame = 9
 
 [node name="Pawn_18_Legs_F" type="Sprite" parent="Body"]
 texture = ExtResource( 4 )
 hframes = 24
+frame = 8
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
 visible = false
@@ -1141,9 +1145,6 @@ anims/Jump = SubResource( 8 )
 anims/Prone = SubResource( 9 )
 anims/RESET = SubResource( 11 )
 anims/Run = SubResource( 10 )
-
-[node name="Attachment_Point" parent="." instance=ExtResource( 12 )]
-position = Vector2( 0, -12 )
 
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]

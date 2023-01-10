@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Scripts/Pawns/Pawn_08.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Legs.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Pawns/Pawn_08/Parts/Pawn_08_Part_Hip.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Pawns/Pawn_08/Parts/Pawn_08_Part_Body.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Pawns/Pawn_08_old/Parts/Pawn_08_Part_Hip.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Pawns/Pawn_08_old/Parts/Pawn_08_Part_Body.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Legs_Shield.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Pawns/Pawn_08/Parts/Pawn_08_Part_Arm.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Pawns/Pawn_08_old/Parts/Pawn_08_Part_Arm.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]

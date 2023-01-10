@@ -380,10 +380,12 @@ position = Vector2( 0, -3 )
 position = Vector2( 0, -6 )
 
 [node name="CollisionShape2D_Stand" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2( 0, -24 )
 polygon = PoolVector2Array( 21, 22, 18, 24, -18, 24, -21, 22, -21, -33, 21, -33 )
 
 [node name="CollisionShape2D_Prone" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2( 0, -24 )
 polygon = PoolVector2Array( 21, 22, 18, 24, -18, 24, -21, 22, -21, -23, 21, -23 )
 

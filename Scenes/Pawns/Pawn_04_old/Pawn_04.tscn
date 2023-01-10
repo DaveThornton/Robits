@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_04/Pawn_04_Body.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Pawns/Pawn_04/Parts/Pawn_04_legs.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Pawns/Pawn_04/Parts/Pawn_04_Part_Head.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Pawns/Pawn_04_old/Parts/Pawn_04_legs.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Pawns/Pawn_04_old/Parts/Pawn_04_Part_Head.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Pawns/Pawn_04.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Pawns/Pawn_04/Parts/Pawn_04_Part_Arm.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Pawns/Pawn_04_old/Parts/Pawn_04_Part_Arm.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
@@ -186,11 +186,7 @@ height = 24.0
 radius = 5.0
 height = 44.0
 
-[node name="Pawn_04" type="KinematicBody2D" groups=[
-"hittable",
-"ladder",
-"player",
-]]
+[node name="Pawn_04" type="KinematicBody2D" groups=["hittable", "ladder", "player"]]
 collision_layer = 2
 collision_mask = 66718
 script = ExtResource( 4 )

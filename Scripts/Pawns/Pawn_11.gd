@@ -46,7 +46,7 @@ var vel = Vector2()
 var grav = 9
 var terminal_vel = 6
 
-var max_x_speed = 220
+var max_x_speed = 200
 var current_x_speed = 0
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed = false

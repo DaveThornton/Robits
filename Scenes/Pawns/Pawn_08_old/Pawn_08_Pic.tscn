@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Sprites/Pawns/Pawn_07/Pawn_07_Part_Arm.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Legs.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Face.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Body.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Hip.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Hip.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Face.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Body.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Pawns/Pawn_08/Pawn_08_Part_Eye.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/Pawns/Pawn_08_Parts/Pawn_08_Pic.gd" type="Script" id=7]
 
@@ -54,11 +54,11 @@ script = ExtResource( 7 )
 
 [node name="Sprite_Body" type="Sprite" parent="."]
 position = Vector2( 0, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 hframes = 4
 
 [node name="Sprite_Face" type="Sprite" parent="Sprite_Body"]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 hframes = 4
 frame = 2
 
@@ -82,7 +82,7 @@ frame = 1
 
 [node name="Sprite_Hip" type="Sprite" parent="."]
 position = Vector2( 0, 12 )
-texture = ExtResource( 5 )
+texture = ExtResource( 3 )
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

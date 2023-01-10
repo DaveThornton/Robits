@@ -71,9 +71,9 @@ var dec_step = 0
 
 
 #---------------------------------------------------NRG--------
-var nrg_max = 100
-var nrg = 100
-var last_nrg = 100
+var nrg_max = 105
+var nrg = 105
+var last_nrg = 105
 var nrg_regen_rate = 5
 var nrg_regen_max = 30
 var nrg_default_regen_rate = 5

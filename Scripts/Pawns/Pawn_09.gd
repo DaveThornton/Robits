@@ -61,11 +61,11 @@ var ladder_count = [] #shouldnt be here??!!??
 var nrg_max = 90
 var nrg = 90
 var last_nrg = 90
-var nrg_regen_rate = 5
-var nrg_regen_max = 40
+var nrg_regen_rate = 8
+var nrg_regen_max = 50
 var nrg_default_regen_rate = 4
-var nrg_default_regen_max = 40
-var light_on_nrg = 39
+var nrg_default_regen_max = 50
+var light_on_nrg = 49
 
 var can_move = true
 var is_right = true

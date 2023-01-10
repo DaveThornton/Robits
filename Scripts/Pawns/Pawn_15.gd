@@ -47,7 +47,7 @@ var vel = Vector2()
 var grav = 8
 var terminal_vel = 5
 
-var max_x_speed = 160
+var max_x_speed = 170
 var current_x_speed = 0
 
 #-------------------------------------------------------------------JUMP--------
@@ -67,10 +67,10 @@ var ladder_count = [] #shouldnt be here??!!??
 var nrg_max = 125
 var nrg = 125
 var last_nrg = 125
-var nrg_regen_rate = 5
-var nrg_regen_max = 40
-var nrg_default_regen_rate = 4
-var nrg_default_regen_max = 40
+var nrg_regen_rate = 8
+var nrg_regen_max = 60
+var nrg_default_regen_rate = 8
+var nrg_default_regen_max = 60
 var light_on_nrg = 39
 
 var can_move = true
