@@ -235,6 +235,15 @@ func _process(delta):
 				if pick_input_j:
 					my_pawn.pick_throw(left_input, right_input, up_input, down_input,start_input)
 				my_pawn.anim_update(left_input, right_input, up_input, down_input, jump_input, start_input, delta)
+				if start_input_j:
+					if !my_pawn.get_ready_show_player_ind():
+						my_pawn.set_ready_show_player_ind(true)
+						my_pawn.timers.start_show_player_ind()
+					else:
+						if my_pawn.get_player_ind_vis():
+							my_pawn.show_player_ind(false)
+						else:
+							my_pawn.show_player_ind(true)
 			else:
 				if start_input_j:
 					if Player_Stats.can_player_start(player):

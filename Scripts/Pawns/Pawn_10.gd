@@ -4,28 +4,15 @@ onready var gun_pos = $Pawn_10_Part_Body/POS_Arm/Pawn_10_Part_Arm/POS_Gun
 
 onready var body_shape_01 = $Shape_Stand
 onready var body_shape_02 = $Shape_Prone
-#onready var body_shape_03 = $Shape_Run_Right
-#onready var body_shape_04 = $Shape_Prone_Left
-#onready var body_shape_05 = $Shape_Prone_Right
 
 onready var head = $Pawn_10_Part_Body/POS_Head/Pawn_10_Head
 onready var head_pos = $Pawn_10_Part_Body/POS_Head
 onready var arm = $Pawn_10_Part_Body/POS_Arm/Pawn_10_Part_Arm
 onready var arm_pos = $Pawn_10_Part_Body/POS_Arm
-#onready var key = $Pawn_05_Part_Body/Pawn_05_Part_Key
 onready var wheel = $Pawn_10_Part_Wheel
 
 onready var body_sprite = $Pawn_10_Part_Body
 onready var shield_sprite = $Pawn_10_Part_Body/Shield_Sprite
-
-onready var knockback_timer = $Timers/Knock_Back
-onready var shield_hit_timer = $Timers/Shield_Hit
-onready var shield_up_timer = $Timers/Shield_Up
-onready var stun_timer = $Timers/Stun
-onready var speed_timer = $Timers/Speed
-onready var jump_up_timer = $Timers/Jump
-onready var nrg_up_timer = $Timers/NRG_Up
-onready var last_hit_timer = $Timers/Last_Hit_By
 
 onready var anim = $AnimationPlayer
 
@@ -35,7 +22,10 @@ onready var ray_up = $Raycast/Up
 onready var ray_down_l = $Raycast/Down_L
 onready var ray_down_r = $Raycast/Down_R
 onready var ray_plat = $Raycast/Plat_Test
+
+onready var timers = $Timers
 onready var attachment_point = $Pawn_10_Part_Wheel/Attachment_Point
+onready var player_indicator = $Pawn_Part_Player_Indicator
 
 var player = 3
 var play_type = 2
@@ -46,6 +36,8 @@ var my_gun
 var my_start_gun
 var take_ammo = false
 var shoot_spot = 3
+
+var ready_show_player_ind = false#------------
 
 var vel = Vector2()
 var grav = 9
@@ -83,7 +75,7 @@ var is_right = true
 var is_down = false
 var on_floor = false
 var on_wall = false
-#var on_m_plat = false
+
 var not_on_angle = false
 
 var is_shield_up = false
@@ -91,6 +83,7 @@ var speed_power_up = 1
 var is_speed_up = false
 var jump_power_up = 1
 var is_jump_up = false
+var default_power_up_time = 10#--------------------------
 
 var new_anim = "Right-Run"
 var last_anim = "Right-Run"
@@ -386,7 +379,7 @@ func remove_start_weap():
 func hit(_by_who, _by_what, _damage_type, _damage):
 	if _by_who > 0:
 		hit_last_by = _by_who
-		last_hit_timer.start()
+		timers.start_last_hit_by()
 	_im_hit = true
 	_hit_time += 0.11
 	if play_type == 1:
@@ -401,7 +394,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	elif play_type > 1:
 		if !is_shield_up:
 			shield_up()
-			shield_hit_timer.start()
+			timers.start_shield_hit()
 			nrg = nrg - (_damage - armor)
 			nrg_update()
 			if nrg <= 0:
@@ -418,34 +411,34 @@ func nrg_update():
 ##--------------------------------------------------------------------[Power Up]
 
 func put_shield_up(_how_long):
-	shield_up()
 	is_shield_up = true
+	shield_up()
 	if _how_long <= 0:
-		shield_up_timer.wait_time = 10
+		timers.set_shield_up(default_power_up_time)
 	else:
-		shield_up_timer.wait_time = _how_long
-	shield_up_timer.start()
+		timers.set_shield_up(_how_long)
+	timers.start_shield_up()
 
 func put_speed_up(_how_long):
 	is_speed_up = true
 	speed_power_up = 2
-	speed_timer.wait_time = _how_long
-	speed_timer.start()
+	timers.set_speed(_how_long)
+	timers.start_speed()
 
 func put_jump_up(_how_long):
 	is_jump_up = true
 	jump_power_up = 2
 	if _how_long <= 0:
-		jump_up_timer.wait_time = 10
+		timers.set_jump_up(default_power_up_time)
 	else:
-		jump_up_timer.wait_time = _how_long
-	jump_up_timer.start()
+		timers.set_jump_up(_how_long)
+	timers.start_jump_up()
 
 func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_regen_rate = _how_fast
 	nrg_regen_max = _how_much
-	nrg_up_timer.wait_time = _how_long
-	nrg_up_timer.start()
+	timers.set_nrg_up(_how_long)
+	timers.start_nrg_up()
 
 func balloon_on():
 	grav -= 2
@@ -505,15 +498,15 @@ func _is_on_floor():
 
 ##----------------------------------------------------------------[Stun / Knock]
 func stun(_gun_num):
-	stun_timer.start()
+	timers.start_stun()
 	can_move = false
 	on_ladder = false
 	_anim_stun()
 	let_go()
 
 func knock_dir(_amount, _time, _dir, _is_right):
-	knockback_timer.wait_time = _time
-	knockback_timer.start()
+	timers.set_knock_back(_time)
+	timers.start_knock_back()
 	if _is_right:
 		if _dir == 1:
 			knocked_back = Vector2(-(_amount * .1), (_amount * .9))
@@ -538,8 +531,8 @@ func knock_dir(_amount, _time, _dir, _is_right):
 			knocked_back = Vector2((_amount * .1), -(_amount * .9))
 
 func knock_back(_amount, _time):
-	knockback_timer.wait_time = _time
-	knockback_timer.start()
+	timers.set_knock_back(_time)
+	timers.start_knock_back()
 	if is_right:
 		if shoot_spot == 1:
 			knocked_back = Vector2(-(_amount * .1), (_amount * .9))
@@ -857,6 +850,27 @@ func jumptimer():
 
 func hitbytimer():
 	hit_last_by = -1
+
+	
+##------------------------------------------------------[player indicator stuff]
+func set_ready_show_player_ind(_ready):
+	ready_show_player_ind = _ready
+
+func get_ready_show_player_ind():
+	return ready_show_player_ind
+
+func start_ready_show_player_ind():
+	timers.start_show_player_ind()
+
+func show_player_ind(_show):
+	if _show:
+		player_indicator.visible = true
+	else:
+		player_indicator.visible = false
+
+func get_player_ind_vis():
+	return player_indicator.visible
+
 ##-------------------------------------------------------------[The in and outs]
 
 func _on_Pick_Up_Area_body_entered(body):

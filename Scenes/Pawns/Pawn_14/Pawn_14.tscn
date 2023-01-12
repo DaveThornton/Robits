@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_14/Pawn_14_Body.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_14/Parts/Pawn_14_Part_Tracks.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/Pawns/Pawn_07/Parts/Pawn_07_Part_Fire.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Pawns/Pawn_14/Parts/Pawn_14_Exhaust.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Pawns/Parts/Attachment_Point.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Pawns/Parts/Pawn_Part_Player_Indicator.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CapsuleShape2D" id=11]
 radius = 16.0
@@ -425,6 +426,9 @@ anims/Go = SubResource( 5 )
 anims/Idle = SubResource( 6 )
 anims/Prone = SubResource( 7 )
 anims/Stun = SubResource( 8 )
+
+[node name="Pawn_Part_Player_Indicator" parent="." instance=ExtResource( 10 )]
+position = Vector2( 0, -61 )
 
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]

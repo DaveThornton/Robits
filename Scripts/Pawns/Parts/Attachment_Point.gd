@@ -3,7 +3,7 @@ extends RigidBody2D
 onready var pin_point = $PinJoint2D
 onready var no_attachment = $No_Attachment
 onready var attach_pic = $Attach
-onready var player_indicator = $Pawn_Part_Player_Indicator
+# onready var player_indicator = $Pawn_Part_Player_Indicator
 var player = 0
 var attached_to_pin
 var old_pin
@@ -34,7 +34,7 @@ func remove():
 
 func set_player(_num):
 	player = _num
-	player_indicator.start(player)
+	# player_indicator.start(player)
 
 func get_player():
 	return player

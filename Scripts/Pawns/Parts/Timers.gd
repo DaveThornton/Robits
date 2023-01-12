@@ -2,6 +2,8 @@ extends Node2D
 
 var dad
 
+#-------------time_out----------------------
+
 func _ready():
 	dad = get_parent()
 
@@ -32,6 +34,11 @@ func _on_Jump_timeout():
 func _on_Last_Hit_By_timeout():
 	dad.hitbytimer()
 
+func _on_Show_player_ind_timeout():
+	dad.set_ready_show_player_ind(false)
+
+#----------set_timers----------------
+
 func set_knock_back(_time):
 	$Knock_Back.wait_time = _time
 
@@ -56,5 +63,37 @@ func set_stun(_time):
 func set_jump(_time):
 	$Jump.wait_time = _time
 
+func is_jump_stopped():
+	return $Jump.is_stopped()
+
+#-------start_timers---------------------
+
+func start_knock_back():
+	$Knock_Back.start()
+
+func start_shield_hit():
+	$Shield_Hit.start()
+
+func start_shield_up():
+	$Shield_Up.start()
+
+func start_nrg_up():
+	$NRG_Up.start()
+
+func start_jump_up():
+	$Jump_Up.start()
+
+func start_speed():
+	$Speed.start()
+
+func start_stun():
+	$Stun.start()
+
 func start_jump():
 	$Jump.start()
+
+func start_last_hit_by():
+	$Last_Hit_By.start()
+
+func start_show_player_ind():
+	$Show_player_ind.start()

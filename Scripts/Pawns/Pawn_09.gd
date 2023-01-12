@@ -19,15 +19,9 @@ onready var ray_plat = $Raycasts/Plat_Test
 onready var body1 = $CollisionShape2D_Stand
 onready var body2 = $CollisionShape2D_Down
 
-onready var knockback_timer = $Timers/Knock_Back
-onready var shield_hit_timer = $Timers/Shield_Hit
-onready var shield_up_timer = $Timers/Shield_Up
-onready var stun_timer = $Timers/Stun
-onready var speed_timer = $Timers/Speed
-onready var jump_up_timer = $Timers/Jump_Up
-onready var nrg_up_timer = $Timers/NRG_Up
-onready var last_hit_timer = $Timers/Last_Hit_By
+onready var timers = $Timers
 onready var attachment_point = $POS_Body/Body/Attachment_Point
+onready var player_indicator = $Pawn_Part_Player_Indicator
 
 var player = 1
 var play_type = 2
@@ -38,6 +32,7 @@ var my_gun
 var my_start_gun
 var take_ammo = false
 var shoot_spot = 3
+var ready_show_player_ind = false
 
 var vel = Vector2()
 var grav = 8
@@ -77,6 +72,7 @@ var speed_power_up = 1
 var is_speed_up = false
 var jump_power_up = 1
 var is_jump_up = false
+var default_power_up_time = 10
 
 var new_anim = "Right-Run"
 var last_anim = "Right-Run"
@@ -112,6 +108,7 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 	change_pos(_pos)
 	nrg_update()
 	shield_down()
+	player_indicator.start(_player_num)#-------------------------
 
 func _process(delta):
 	if ladder_count.size() > 0:
@@ -355,7 +352,7 @@ func remove_start_weap():
 func hit(_by_who, _by_what, _damage_type, _damage):
 	if _by_who > 0:
 		hit_last_by = _by_who
-		last_hit_timer.start()
+		timers.start_last_hit_by()
 	_im_hit = true
 	_hit_time += 0.11
 	if play_type == 1:
@@ -369,7 +366,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			call_deferred("free")
 	elif play_type > 1:
 		shield_up()
-		shield_hit_timer.start()
+		timers.start_shield_hit()
 		if !is_shield_up:
 			nrg = nrg - (_damage - armor)
 			nrg_update()
@@ -392,31 +389,31 @@ func put_shield_up(_how_long):
 	is_shield_up = true
 	shield_up()
 	if _how_long <= 0:
-		shield_up_timer.wait_time = 10
+		timers.set_shield_up(default_power_up_time)
 	else:
-		shield_up_timer.wait_time = _how_long
-	shield_up_timer.start()
+		timers.set_shield_up(_how_long)
+	timers.start_shield_up()
 
 func put_speed_up(_how_long):
 	is_speed_up = true
 	speed_power_up = 2
-	speed_timer.wait_time = _how_long
-	speed_timer.start()
+	timers.set_speed(_how_long)
+	timers.start_speed()
 
 func put_jump_up(_how_long):
 	is_jump_up = true
 	jump_power_up = 2
 	if _how_long <= 0:
-		jump_up_timer.wait_time = 10
+		timers.set_jump_up(default_power_up_time)
 	else:
-		jump_up_timer.wait_time = _how_long
-	jump_up_timer.start()
+		timers.set_jump_up(_how_long)
+	timers.start_jump_up()
 
 func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	nrg_regen_rate = _how_fast
 	nrg_regen_max = _how_much
-	nrg_up_timer.wait_time = _how_long
-	nrg_up_timer.start()
+	timers.set_nrg_up(_how_long)
+	timers.start_nrg_up()
 
 func balloon_on():
 	grav -= 2
@@ -443,15 +440,15 @@ func _is_on_floor():
 
 ##----------------------------------------------------------------[Stun / Knock]
 func stun(_gun_num):
-	stun_timer.start()
+	timers.start_stun()
 	can_move = false
 	on_ladder = false
 	_anim_stun()
 	let_go()
 
 func knock_dir(_amount, _time, _dir, _is_right):
-	knockback_timer.wait_time = _time
-	knockback_timer.start()
+	timers.set_knock_back(_time)
+	timers.start_knock_back()
 	if _is_right:
 		if _dir == 1:
 			knocked_back = Vector2(-(_amount * .1), (_amount * .9))
@@ -476,8 +473,8 @@ func knock_dir(_amount, _time, _dir, _is_right):
 			knocked_back = Vector2((_amount * .1), -(_amount * .9))
 
 func knock_back(_amount, _time):
-	knockback_timer.wait_time = _time
-	knockback_timer.start()
+	timers.set_knock_back(_time)
+	timers.start_knock_back()
 	if is_right:
 		if shoot_spot == 1:
 			knocked_back = Vector2(-(_amount * .1), (_amount * .9))
@@ -500,7 +497,7 @@ func knock_back(_amount, _time):
 			knocked_back = Vector2((_amount * .5), -(_amount * .5))
 		if shoot_spot == 5:
 			knocked_back = Vector2((_amount * .1), -(_amount * .9))
-
+			
 ##-------------------------------------------------------------------[add stuff]
 func add_nrg(_nrg):
 	nrg = clamp(nrg + _nrg, 0, nrg_max)
@@ -512,7 +509,7 @@ func add_ammo(_ammo):
 
 ##-------------------------------------------------------------------[Animation]
 # warning-ignore:unused_argument
-func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
+func anim_update(left_input, right_input, up_input, down_input, _jump_input, hold_input, delta):
 	if can_move:
 		if !down_input && is_down:
 			is_down = false
@@ -867,6 +864,26 @@ func jumptimer():
 func hitbytimer():
 	hit_last_by = -1
 
+
+##------------------------------------------------------[player indicator stuff]
+func set_ready_show_player_ind(_ready):
+	ready_show_player_ind = _ready
+
+func get_ready_show_player_ind():
+	return ready_show_player_ind
+
+func start_ready_show_player_ind():
+	timers.start_show_player_ind()
+
+func show_player_ind(_show):
+	if _show:
+		player_indicator.visible = true
+	else:
+		player_indicator.visible = false
+
+func get_player_ind_vis():
+	return player_indicator.visible
+	
 ##-------------------------------------------------------------[The in and outs]
 
 func _on_Pick_Up_Area_body_entered(body):

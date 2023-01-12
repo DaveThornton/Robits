@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_09/Body.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_09/Parts/Pawn_09_Part_Legs.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Pawns/Parts/Attachment_Point.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Pawns/Pawn_09/Body_Shield.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Pawns/Parts/Pawn_Part_Player_Indicator.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 14.0
@@ -953,6 +954,9 @@ anims/RESET = SubResource( 12 )
 anims/Right = SubResource( 9 )
 anims/Right_Prone = SubResource( 10 )
 anims/Right_Stun = SubResource( 11 )
+
+[node name="Pawn_Part_Player_Indicator" parent="." instance=ExtResource( 9 )]
+position = Vector2( 0, -63 )
 
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
