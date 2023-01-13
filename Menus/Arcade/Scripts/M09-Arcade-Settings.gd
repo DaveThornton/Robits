@@ -15,7 +15,7 @@ export var selection_color = Color8(255,255,255,255)
 
 var game_data = {}
 var top_menu_on = true
-
+var splash_screen = "res://Menus/Arcade/M02-Arcade-Mode-Select.tscn"
 var menu_pos = 0
 var current_menu
 
@@ -141,4 +141,6 @@ func get_data():
 	}
 
 func exit():
+	var new_screen = load(splash_screen)
+	HUD.load_screen(new_screen)
 	call_deferred("queue_free")

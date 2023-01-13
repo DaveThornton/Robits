@@ -42,7 +42,6 @@ func right():
 	elif menu_pos == 2:
 		parent_menu.load_data()
 	elif menu_pos == 3:
-		get_tree().get_current_scene().arcade_reset()
 		parent_menu.exit()
 	else:
 		print_debug("error in settings temp menu vs wrong menu pos right")
