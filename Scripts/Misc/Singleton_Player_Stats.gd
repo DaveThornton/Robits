@@ -21,7 +21,8 @@ var p1 = {
 	collision_layer = 25,
 	color_2 = Color8(76, 255, 142, 255),
 	color_1 = Color8(232, 32, 75, 255),
-	color_3 = Color8(255, 225, 225, 222)
+	color_3 = Color8(255, 225, 225, 222),
+	player_indi_vis = false
 }
 
 var p2 = {
@@ -45,7 +46,8 @@ var p2 = {
 	collision_layer = 26,
 	color_2 = Color8(255, 0, 195, 255),
 	color_1 = Color8(103, 255, 85, 255),
-	color_3 = Color8(255, 225, 225, 222)
+	color_3 = Color8(255, 225, 225, 222),
+	player_indi_vis = false
 }
 
 var p3 = {
@@ -69,7 +71,8 @@ var p3 = {
 	collision_layer = 27,
 	color_2 = Color8(255, 151, 15, 255),
 	color_1 = Color8(25, 145, 255, 255),
-	color_3 = Color8(255, 225, 225, 222)
+	color_3 = Color8(255, 225, 225, 222),
+	player_indi_vis = false
 }
 
 var p4 = {
@@ -93,7 +96,8 @@ var p4 = {
 	collision_layer = 28,
 	color_2 = Color8(82, 235, 0, 255),
 	color_1 = Color8(255, 0, 255, 255),
-	color_3 = Color8(255, 225, 225, 222)
+	color_3 = Color8(255, 225, 225, 222),
+	player_indi_vis = false
 }
 
 var p5 = {
@@ -117,7 +121,8 @@ var p5 = {
 	collision_layer = 29,
 	color_2 = Color8(255, 232, 0, 255),
 	color_1 = Color8(119, 0, 255, 255),
-	color_3 = Color8(255, 225, 225, 222)
+	color_3 = Color8(255, 225, 225, 222),
+	player_indi_vis = false
 }
 
 var p6 = {
@@ -141,7 +146,8 @@ var p6 = {
 	collision_layer = 30,
 	color_2 = Color8(225, 98, 15, 255),
 	color_1 = Color8(0, 255, 244, 255),
-	color_3 = Color8(255, 225, 225, 222)
+	color_3 = Color8(255, 225, 225, 222),
+	player_indi_vis = false
 }
 
 var p7 = {
@@ -165,7 +171,8 @@ var p7 = {
 	collision_layer = 31,
 	color_2 = Color8(0, 30, 255, 255),
 	color_1 = Color8(255, 220, 72, 255),
-	color_3 = Color8(255, 225, 225, 222)
+	color_3 = Color8(255, 225, 225, 222),
+	player_indi_vis = false
 }
 
 var p8 = {
@@ -189,7 +196,8 @@ var p8 = {
 	collision_layer = 32,
 	color_2 = Color8(20, 255, 254, 255),
 	color_1 = Color8(255, 105, 45, 255),
-	color_3 = Color8(255, 225, 225, 222)
+	color_3 = Color8(255, 225, 225, 222),
+	player_indi_vis = false
 }
 
 var p_in_p = 0
@@ -363,6 +371,8 @@ func set_done(_player,_done): get_player_stats(_player)["done"] = _done
 
 func set_can_spawn(_player, _spawn): get_player_stats(_player)["can_spawn"] = _spawn #maybe do away with
 
+func set_player_indi_vis(_player, _vis): get_player_stats(_player)["get_player_indi_vis"] = _vis
+
 func set_continuing(_player, _continue): get_player_stats(_player)["continuing"] = _continue
 
 func get_continuing(_player): return get_player_stats(_player)["continuing"]
@@ -430,6 +440,8 @@ func get_lives_left(_player):return get_player_stats(_player)["lives"]
 func get_score(_player):return get_player_stats(_player)["score"]
 
 func get_credit(_player): return get_player_stats(_player)["credit"]
+
+func get_player_indi_vis(_player): return get_player_stats(_player)["get_player_indi_vis"]
 
 func get_player_stats(_num):
 	if _num == 1:
@@ -545,6 +557,7 @@ func reset_player(_player):
 	get_player_stats(_player)["ammo"] = 0
 	get_player_stats(_player)["nrg"] = 100
 	get_player_stats(_player)["pawn_num"] = -1
+	get_player_stats(_player)["get_player_indi_vis"] = false
 
 func reset_player_not_score(_player):# or name
 	get_player_stats(_player)["continuing"] = false

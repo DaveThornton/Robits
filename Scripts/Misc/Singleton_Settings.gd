@@ -3,6 +3,7 @@ extends Node
 var max_num_of_player = 8
 var lives_per_credit = 3
 var campaign_start_gun = false
+
 var multi_start_gun = false
 var multi_lives = 5
 var multi_score_to_win = 10
@@ -10,6 +11,18 @@ var multi_minus_on_death = false
 var multi_use_lives = false
 var multi_time = 2
 var multi_player_indi = false
+
+#=-=-=-=-=-Individual player indicator-=-=-=-=-=-=-=-=
+var p1_ind_vis = false
+var p2_ind_vis = false
+var p3_ind_vis = false
+var p4_ind_vis = false
+var p5_ind_vis = false
+var p6_ind_vis = false
+var p7_ind_vis = false
+var p8_ind_vis = false
+#-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=--=-=-=-
+
 var vol_master = 10
 var vol_music = 10
 var vol_sfx = 10
@@ -94,3 +107,13 @@ func set_campaign_start_gun(_start):
 
 func get_campaign_start_gun():
 	return campaign_start_gun
+
+func reset():
+	p1_ind_vis = false
+	p2_ind_vis = false
+	p3_ind_vis = false
+	p4_ind_vis = false
+	p5_ind_vis = false
+	p6_ind_vis = false
+	p7_ind_vis = false
+	p8_ind_vis = false

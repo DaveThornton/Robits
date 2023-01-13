@@ -240,10 +240,18 @@ func _process(delta):
 						my_pawn.set_ready_show_player_ind(true)
 						my_pawn.timers.start_show_player_ind()
 					else:
-						if my_pawn.get_player_ind_vis():
+						# if my_pawn.get_player_ind_vis():
+						if Settings.get_multi_player_ind(): pass
+						elif !Player_Stats.get_player_indi_vis(player):
 							my_pawn.show_player_ind(false)
-						else:
+							Player_Stats.set_player_indi_vis(player,false)
+							print_debug(Settings.get_multi_player_ind(), "   ", Player_Stats.get_player_indi_vis(player))
+						elif !Player_Stats.get_player_indi_vis(player):
 							my_pawn.show_player_ind(true)
+							Player_Stats.set_player_indi_vis(player,true)
+							print_debug(Settings.get_multi_player_ind(), "   ", Player_Stats.get_player_indi_vis(player))
+						else:
+							print_debug("not going to change the player indicator bc parameters aren't met and thats just weird check it out")
 			else:
 				if start_input_j:
 					if Player_Stats.can_player_start(player):
