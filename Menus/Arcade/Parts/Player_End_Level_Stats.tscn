@@ -1,0 +1,468 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Menus/Arcade/Parts/Player_End_VS_Stats.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Pawns/Pawn_11/Pawn_11_Pic.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Pawns/Pawn_10/Pawn_10_Pic.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Pawns/Pawn_04_old/Pawn_04_Pic.tscn" type="PackedScene" id=4]
+[ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scenes/Pawns/Pawn_05/Pawn_05_Pic.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Pawns/Pawn_09/Pawn_09_Pic.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Pawns/Pawn_12/Pawn_12_Pic.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Pawns/Pawn_06/Pawn_06_Pic.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Pawns/Pawn_13/Pawn_13_Pic.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Pawns/Pawn_08_old/Pawn_08_Pic.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Pawns/Pawn_07/Pawn_07_Pic.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Pawns/Pawn_15/Pawn_15_Pic.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Pawns/Pawn_02_old/Pawn_02_Pic.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Pawns/Pawn_01/Pawn_01_Pic.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Pawns/Pawn_14/Pawn_14_Pic.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Pawns/Pawn_03/Pawn_03_Pic.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Pawns/Parts/Random_Pawn_Pic.tscn" type="PackedScene" id=18]
+
+[node name="Player_End_Level_Stats" type="VBoxContainer"]
+margin_right = 256.0
+margin_bottom = 800.0
+script = ExtResource( 1 )
+
+[node name="MarginContainer0" type="MarginContainer" parent="."]
+margin_right = 256.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 128, 256 )
+
+[node name="Pawn_01_Pic" parent="MarginContainer0" instance=ExtResource( 15 )]
+visible = false
+position = Vector2( 120, 254 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_02_Pic" parent="MarginContainer0" instance=ExtResource( 14 )]
+visible = false
+position = Vector2( 120, 270 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_03_Pic" parent="MarginContainer0" instance=ExtResource( 17 )]
+visible = false
+position = Vector2( 108, 254 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_04_Pic" parent="MarginContainer0" instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 108, 258 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_05_Pic" parent="MarginContainer0" instance=ExtResource( 6 )]
+visible = false
+position = Vector2( 128, 240 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_06_Pic" parent="MarginContainer0" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 128, 240 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_07_Pic" parent="MarginContainer0" instance=ExtResource( 12 )]
+visible = false
+position = Vector2( 128, 240 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_08_Pic" parent="MarginContainer0" instance=ExtResource( 11 )]
+visible = false
+position = Vector2( 132, 106 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_09_Pic" parent="MarginContainer0" instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 128, 240 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_10_Pic" parent="MarginContainer0" instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 124, 262 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_11_Pic" parent="MarginContainer0" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 128, 140 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_12_Pic" parent="MarginContainer0" instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 128, 240 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_13_Pic" parent="MarginContainer0" instance=ExtResource( 10 )]
+visible = false
+position = Vector2( 128, 140 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_14_Pic" parent="MarginContainer0" instance=ExtResource( 16 )]
+visible = false
+position = Vector2( 120, 254 )
+scale = Vector2( 4, 4 )
+
+[node name="Pawn_15_Pic" parent="MarginContainer0" instance=ExtResource( 13 )]
+visible = false
+position = Vector2( 120, 254 )
+scale = Vector2( 4, 4 )
+
+[node name="Random_Pawn_Pic" parent="MarginContainer0" instance=ExtResource( 18 )]
+visible = false
+position = Vector2( 120, 254 )
+scale = Vector2( 2, 2 )
+
+[node name="MarginContainer1" type="MarginContainer" parent="."]
+margin_top = 260.0
+margin_right = 256.0
+margin_bottom = 275.0
+size_flags_vertical = 3
+
+[node name="HBox_Player" type="HBoxContainer" parent="."]
+margin_top = 279.0
+margin_right = 256.0
+margin_bottom = 316.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBox_Player"]
+margin_right = 42.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBox_Player"]
+margin_left = 46.0
+margin_right = 186.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "Player "
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBox_Player"]
+visible = false
+margin_left = 174.0
+margin_right = 200.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="HBox_Player"]
+margin_left = 190.0
+margin_right = 210.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBox_Player"]
+margin_left = 214.0
+margin_right = 256.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+margin_top = 320.0
+margin_right = 256.0
+margin_bottom = 335.0
+size_flags_vertical = 3
+
+[node name="HBox_Score" type="HBoxContainer" parent="."]
+margin_top = 339.0
+margin_right = 256.0
+margin_bottom = 376.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBox_Score"]
+margin_right = 30.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBox_Score"]
+margin_left = 34.0
+margin_right = 162.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "score :"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBox_Score"]
+margin_left = 166.0
+margin_right = 197.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="HBox_Score"]
+margin_left = 201.0
+margin_right = 221.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBox_Score"]
+margin_left = 225.0
+margin_right = 256.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+margin_top = 380.0
+margin_right = 256.0
+margin_bottom = 396.0
+size_flags_vertical = 3
+
+[node name="HBox_Kills" type="HBoxContainer" parent="."]
+margin_top = 400.0
+margin_right = 256.0
+margin_bottom = 437.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBox_Kills"]
+margin_right = 34.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBox_Kills"]
+margin_left = 38.0
+margin_right = 154.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "Kills :"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBox_Kills"]
+margin_left = 158.0
+margin_right = 193.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="HBox_Kills"]
+margin_left = 197.0
+margin_right = 217.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBox_Kills"]
+margin_left = 221.0
+margin_right = 256.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer4" type="MarginContainer" parent="."]
+margin_top = 441.0
+margin_right = 256.0
+margin_bottom = 456.0
+size_flags_vertical = 3
+
+[node name="HBox_Deaths" type="HBoxContainer" parent="."]
+margin_top = 460.0
+margin_right = 256.0
+margin_bottom = 497.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBox_Deaths"]
+margin_right = 24.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBox_Deaths"]
+margin_left = 28.0
+margin_right = 176.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "Deaths :"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBox_Deaths"]
+margin_left = 180.0
+margin_right = 204.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="HBox_Deaths"]
+margin_left = 208.0
+margin_right = 228.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBox_Deaths"]
+margin_left = 232.0
+margin_right = 256.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer5" type="MarginContainer" parent="."]
+margin_top = 501.0
+margin_right = 256.0
+margin_bottom = 517.0
+size_flags_vertical = 3
+
+[node name="HBox_KDR" type="HBoxContainer" parent="."]
+margin_top = 521.0
+margin_right = 256.0
+margin_bottom = 558.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBox_KDR"]
+margin_right = 42.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBox_KDR"]
+margin_left = 46.0
+margin_right = 140.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "K/D :"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBox_KDR"]
+margin_left = 144.0
+margin_right = 186.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="HBox_KDR"]
+margin_left = 190.0
+margin_right = 210.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBox_KDR"]
+margin_left = 214.0
+margin_right = 256.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer6" type="MarginContainer" parent="."]
+margin_top = 562.0
+margin_right = 256.0
+margin_bottom = 577.0
+size_flags_vertical = 3
+
+[node name="HBox_Shots" type="HBoxContainer" parent="."]
+margin_top = 581.0
+margin_right = 256.0
+margin_bottom = 618.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBox_Shots"]
+margin_right = 30.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBox_Shots"]
+margin_left = 34.0
+margin_right = 162.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "Shots :"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBox_Shots"]
+margin_left = 166.0
+margin_right = 197.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="HBox_Shots"]
+margin_left = 201.0
+margin_right = 221.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBox_Shots"]
+margin_left = 225.0
+margin_right = 256.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer7" type="MarginContainer" parent="."]
+margin_top = 622.0
+margin_right = 256.0
+margin_bottom = 638.0
+size_flags_vertical = 3
+
+[node name="HBox_Hits" type="HBoxContainer" parent="."]
+margin_top = 642.0
+margin_right = 256.0
+margin_bottom = 679.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBox_Hits"]
+margin_right = 41.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBox_Hits"]
+margin_left = 45.0
+margin_right = 141.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "hits :"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBox_Hits"]
+margin_left = 145.0
+margin_right = 186.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="HBox_Hits"]
+margin_left = 190.0
+margin_right = 210.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBox_Hits"]
+margin_left = 214.0
+margin_right = 256.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer8" type="MarginContainer" parent="."]
+margin_top = 683.0
+margin_right = 256.0
+margin_bottom = 698.0
+size_flags_vertical = 3
+
+[node name="HBox_Miss" type="HBoxContainer" parent="."]
+margin_top = 702.0
+margin_right = 256.0
+margin_bottom = 739.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBox_Miss"]
+margin_right = 27.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBox_Miss"]
+margin_left = 31.0
+margin_right = 170.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "Misses :"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBox_Miss"]
+margin_left = 174.0
+margin_right = 201.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="HBox_Miss"]
+margin_left = 205.0
+margin_right = 225.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "0"
+align = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBox_Miss"]
+margin_left = 229.0
+margin_right = 256.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer9" type="MarginContainer" parent="."]
+margin_top = 743.0
+margin_right = 256.0
+margin_bottom = 759.0
+size_flags_vertical = 3
+
+[node name="Place_Label" type="Label" parent="."]
+margin_top = 763.0
+margin_right = 256.0
+margin_bottom = 800.0
+custom_fonts/font = ExtResource( 5 )
+text = "Place"
+align = 1

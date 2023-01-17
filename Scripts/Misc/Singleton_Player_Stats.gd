@@ -22,7 +22,8 @@ var p1 = {
 	color_2 = Color8(76, 255, 142, 255),
 	color_1 = Color8(232, 32, 75, 255),
 	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false
+	player_indi_vis = false,
+	team = 0
 }
 
 var p2 = {
@@ -47,7 +48,8 @@ var p2 = {
 	color_2 = Color8(255, 0, 195, 255),
 	color_1 = Color8(103, 255, 85, 255),
 	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false
+	player_indi_vis = false,
+	team = 0
 }
 
 var p3 = {
@@ -72,7 +74,8 @@ var p3 = {
 	color_2 = Color8(255, 151, 15, 255),
 	color_1 = Color8(25, 145, 255, 255),
 	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false
+	player_indi_vis = false,
+	team = 0
 }
 
 var p4 = {
@@ -97,7 +100,8 @@ var p4 = {
 	color_2 = Color8(82, 235, 0, 255),
 	color_1 = Color8(255, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false
+	player_indi_vis = false,
+	team = 0
 }
 
 var p5 = {
@@ -122,7 +126,8 @@ var p5 = {
 	color_2 = Color8(255, 232, 0, 255),
 	color_1 = Color8(119, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false
+	player_indi_vis = false,
+	team = 0
 }
 
 var p6 = {
@@ -147,7 +152,8 @@ var p6 = {
 	color_2 = Color8(225, 98, 15, 255),
 	color_1 = Color8(0, 255, 244, 255),
 	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false
+	player_indi_vis = false,
+	team = 0
 }
 
 var p7 = {
@@ -172,7 +178,8 @@ var p7 = {
 	color_2 = Color8(0, 30, 255, 255),
 	color_1 = Color8(255, 220, 72, 255),
 	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false
+	player_indi_vis = false,
+	team = 0
 }
 
 var p8 = {
@@ -197,7 +204,8 @@ var p8 = {
 	color_2 = Color8(20, 255, 254, 255),
 	color_1 = Color8(255, 105, 45, 255),
 	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false
+	player_indi_vis = false,
+	team = 0
 }
 
 var p_in_p = 0
@@ -208,7 +216,7 @@ func _ready():
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
 		print_debug("error Singleton Player Stats connecting to reset from world gd")
-	if get_tree().get_current_scene().game_mode == 3:
+	if get_tree().get_current_scene().game_mode == 3: #thats in world not in game
 		print_debug("pawns set in player stats")
 		p1["pawn_num"] = 12
 		p2["pawn_num"] = 5
@@ -373,9 +381,13 @@ func set_can_spawn(_player, _spawn): get_player_stats(_player)["can_spawn"] = _s
 
 func set_player_indi_vis(_player, _vis): get_player_stats(_player)["get_player_indi_vis"] = _vis
 
+func set_team(_player, _team): get_player_stats(_player)["team"] = _team
+
 func set_continuing(_player, _continue): get_player_stats(_player)["continuing"] = _continue
 
 func get_continuing(_player): return get_player_stats(_player)["continuing"]
+
+func get_team(_player): return get_player_stats(_player)["team"]
 
 func get_in_game(_player): return get_player_stats(_player)["in_game"]
 
@@ -558,8 +570,9 @@ func reset_player(_player):
 	get_player_stats(_player)["nrg"] = 100
 	get_player_stats(_player)["pawn_num"] = -1
 	get_player_stats(_player)["get_player_indi_vis"] = false
+	get_player_stats(_player)["team"] = 0
 
-func reset_player_not_score(_player):# or name
+func reset_player_not_score(_player):# or name or player indi or team
 	get_player_stats(_player)["continuing"] = false
 	get_player_stats(_player)["can_spawn"]= true
 	get_player_stats(_player)["in_play"] = false

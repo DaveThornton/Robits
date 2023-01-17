@@ -54,6 +54,7 @@ window/stretch/mode="2d"
 [global]
 
 fps=false
+res=false
 
 [importer_defaults]
 
