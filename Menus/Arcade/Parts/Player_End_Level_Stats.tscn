@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://Menus/Arcade/Parts/Player_End_VS_Stats.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Arcade/Parts/Player_End_Level_Stats.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_11/Pawn_11_Pic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Pawns/Pawn_10/Pawn_10_Pic.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Pawns/Pawn_04_old/Pawn_04_Pic.tscn" type="PackedScene" id=4]
@@ -23,6 +23,7 @@
 margin_right = 256.0
 margin_bottom = 800.0
 script = ExtResource( 1 )
+player_num = null
 
 [node name="MarginContainer0" type="MarginContainer" parent="."]
 margin_right = 256.0
@@ -287,39 +288,47 @@ margin_right = 256.0
 margin_bottom = 517.0
 size_flags_vertical = 3
 
-[node name="HBox_KDR" type="HBoxContainer" parent="."]
+[node name="HBox_Hit_Per" type="HBoxContainer" parent="."]
 margin_top = 521.0
 margin_right = 256.0
 margin_bottom = 558.0
 
-[node name="MarginContainer2" type="MarginContainer" parent="HBox_KDR"]
-margin_right = 42.0
+[node name="MarginContainer2" type="MarginContainer" parent="HBox_Hit_Per"]
+margin_right = 22.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="HBox_KDR"]
-margin_left = 46.0
-margin_right = 140.0
+[node name="Label" type="Label" parent="HBox_Hit_Per"]
+margin_left = 26.0
+margin_right = 148.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 5 )
-text = "K/D :"
+text = "Hit % :"
 
-[node name="MarginContainer3" type="MarginContainer" parent="HBox_KDR"]
-margin_left = 144.0
-margin_right = 186.0
+[node name="MarginContainer3" type="MarginContainer" parent="HBox_Hit_Per"]
+margin_left = 152.0
+margin_right = 175.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="HBox_KDR"]
-margin_left = 190.0
-margin_right = 210.0
+[node name="Label2" type="Label" parent="HBox_Hit_Per"]
+margin_left = 179.0
+margin_right = 199.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 5 )
 text = "0"
 align = 2
 
-[node name="MarginContainer4" type="MarginContainer" parent="HBox_KDR"]
-margin_left = 214.0
+[node name="Label3" type="Label" parent="HBox_Hit_Per"]
+margin_left = 203.0
+margin_right = 229.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 5 )
+text = "%"
+align = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBox_Hit_Per"]
+margin_left = 233.0
 margin_right = 256.0
 margin_bottom = 37.0
 size_flags_horizontal = 3

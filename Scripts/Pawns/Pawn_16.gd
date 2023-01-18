@@ -18,7 +18,7 @@ onready var ladder_l = $"Ladder_Area/CollisionShape2D-L"
 onready var ladder_r = $"Ladder_Area/CollisionShape2D-R"
 
 onready var timers = $Timers
-onready var attachment_point = $Body/Attachment_Point
+onready var attachment_point = $Pawn_16_Head/Attachment_Point
 onready var player_indicator = $Pawn_Part_Player_Indicator
 
 var player = 1

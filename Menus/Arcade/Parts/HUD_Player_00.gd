@@ -4,6 +4,7 @@ onready var in_game_over_box = $VBox_Game_Over# mode 0
 onready var in_menu_box = $VBox_In_Menu#        mode 1
 onready var in_game_box = $VBox_In_Game#        mode 2
 onready var in_score_box = $VBox_In_Score#      mode 3
+onready var in_level_over = $VBox_In_Score#     mode 4
 onready var pawn_menu = $VBox_In_Game/Pawn_Menu
 export var player_num = 0
 var mode = 0

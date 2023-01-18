@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Menus/Arcade/Scripts/HUD_00_VBox_In_Game_Over.gd" type="Script" id=2]
-[ext_resource path="res://Menus/Arcade/Parts/Player_End_VS_Stats.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menus/Arcade/Scripts/HUD_04_VBox_In_Level_End.gd" type="Script" id=2]
+[ext_resource path="res://Menus/Arcade/Parts/Player_End_Level_Stats.tscn" type="PackedScene" id=3]
 
-[node name="VBox_Game_Over" type="VBoxContainer"]
+[node name="VBox_Level_End" type="VBoxContainer"]
 margin_right = 225.0
 size_flags_vertical = 3
 script = ExtResource( 2 )
@@ -83,7 +83,7 @@ margin_bottom = 86.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Player_End_VS_Stats" parent="." instance=ExtResource( 3 )]
+[node name="Player_End_Level_Stats" parent="." instance=ExtResource( 3 )]
 margin_top = 90.0
 margin_right = 225.0
 margin_bottom = 751.0
