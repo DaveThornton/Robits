@@ -4,7 +4,7 @@ onready var in_game_over_box = $VBox_Game_Over# mode 0
 onready var in_menu_box = $VBox_In_Menu#        mode 1
 onready var in_game_box = $VBox_In_Game#        mode 2
 onready var in_score_box = $VBox_In_Score#      mode 3
-onready var in_level_over = $VBox_In_Score#     mode 4
+onready var in_level_over_box = $VBox_In_Score#     mode 4
 onready var pawn_menu = $VBox_In_Game/Pawn_Menu
 export var player_num = 0
 var mode = 0
@@ -30,12 +30,17 @@ func update_state(_state):
 #		print_debug("mode 3 in hud player 00")
 		in_score()
 		in_score_box.set_state(pri, sec)
+	elif mode == 4:
+		in_level_over()
+	else:
+		print_debug("error in hud player 00 invalid state ",_state , " should be between 0 and 4")
 
 func game_over():
 	in_game_over_box.visible = true
 	in_menu_box.visible = false
 	in_game_box.visible = false
 	in_score_box.visible = false
+	in_level_over_box.visible = false
 	in_game_over_box.start()
 
 func in_menu():
@@ -43,25 +48,35 @@ func in_menu():
 	in_menu_box.visible = true
 	in_game_box.visible = false
 	in_score_box.visible = false
-
+	in_level_over_box.visible = false
 
 func in_game():
 	in_game_over_box.visible = false
 	in_menu_box.visible = false
 	in_game_box.visible = true
 	in_score_box.visible = false
+	in_level_over_box.visible = false
 
 func in_score():
 	in_game_over_box.visible = false
 	in_menu_box.visible = false
 	in_game_box.visible = false
 	in_score_box.visible = true
+	in_level_over_box.visible = false
+
+func in_level_over():
+	in_game_over_box.visible = false
+	in_menu_box.visible = false
+	in_game_box.visible = false
+	in_score_box.visible = false
+	in_level_over_box.visible = true
 
 func set_player_num(_num:int):
 	in_game_box.player_num_update(_num)
 	in_menu_box.player_num_update(_num)
 	in_score_box.player_num_update(_num)
 	in_game_over_box.player_num_update(_num)
+	in_level_over_box.player_num_update(_num)
 
 func set_ammo_count(_amount:int):
 	in_game_box.ammo_update(_amount)

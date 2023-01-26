@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_13/Parts/Pawn_13_Part_Head.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_13/Parts/Pawn_13_Part_Legs.tscn" type="PackedScene" id=2]
@@ -24,10 +24,6 @@ height = 6.00001
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 34.9999
 height = 46.0002
-
-[sub_resource type="CapsuleShape2D" id=5]
-radius = 9.0
-height = 46.0
 
 [sub_resource type="Animation" id=6]
 length = 0.1
@@ -521,19 +517,6 @@ position = Vector2( 0, -24 )
 rotation = 1.5708
 shape = SubResource( 4 )
 
-[node name="Ladder_Area" type="Area2D" parent="."]
-visible = false
-collision_layer = 32
-collision_mask = 32
-
-[node name="CollisionShape2D-R" type="CollisionShape2D" parent="Ladder_Area"]
-position = Vector2( 9, -21 )
-shape = SubResource( 5 )
-
-[node name="CollisionShape2D-L" type="CollisionShape2D" parent="Ladder_Area"]
-position = Vector2( -9, -21 )
-shape = SubResource( 5 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Left = SubResource( 6 )
 anims/Left_Prone = SubResource( 7 )
@@ -547,5 +530,3 @@ position = Vector2( 0, -58 )
 
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
-[connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]
-[connection signal="body_exited" from="Ladder_Area" to="." method="_on_Ladder_Area_body_exited"]

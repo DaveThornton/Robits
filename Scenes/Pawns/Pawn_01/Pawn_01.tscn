@@ -2961,10 +2961,12 @@ texture = ExtResource( 4 )
 hframes = 37
 
 [node name="CollisionShape2D_Up" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -23 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Down" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -8 )
 rotation = 1.5708
 shape = SubResource( 1 )

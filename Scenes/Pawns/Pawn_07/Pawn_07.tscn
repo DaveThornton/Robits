@@ -2078,7 +2078,8 @@ position = Vector2( 0, -19 )
 
 [node name="Pawn_05_Part_Key" parent="." instance=ExtResource( 5 )]
 visible = false
-position = Vector2( -6, -14 )
+position = Vector2( 11, -14 )
+rotation = 3.14159
 
 [node name="Pawn_07_Part_Fire" parent="." instance=ExtResource( 7 )]
 position = Vector2( 0, 18 )

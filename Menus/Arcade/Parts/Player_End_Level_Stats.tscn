@@ -23,7 +23,6 @@
 margin_right = 256.0
 margin_bottom = 800.0
 script = ExtResource( 1 )
-player_num = null
 
 [node name="MarginContainer0" type="MarginContainer" parent="."]
 margin_right = 256.0

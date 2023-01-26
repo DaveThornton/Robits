@@ -10,9 +10,6 @@ margin_top = -4.0
 margin_right = 222.0
 margin_bottom = 115.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBox_Player" type="HBoxContainer" parent="."]
 margin_right = 225.0
@@ -47,4 +44,5 @@ margin_bottom = 119.0
 custom_fonts/font = ExtResource( 1 )
 text = "000"
 align = 1
+
 [connection signal="visibility_changed" from="." to="." method="_on_VBox_In_Score_visibility_changed"]

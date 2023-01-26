@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_03/Pawn_03_Part_Body.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_03/Parts/Pawn_03_Part_Small_Wheel.tscn" type="PackedScene" id=2]
@@ -22,10 +22,6 @@ height = 12.0
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 22.9999
 height = 32.0002
-
-[sub_resource type="CapsuleShape2D" id=4]
-radius = 8.0
-height = 42.0
 
 [sub_resource type="Animation" id=5]
 resource_name = "Idle"
@@ -364,15 +360,6 @@ position = Vector2( 0, -20 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
-[node name="Ladder_Area" type="Area2D" parent="."]
-visible = false
-collision_layer = 32
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ladder_Area"]
-position = Vector2( 0, -18 )
-shape = SubResource( 4 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 5 )
 anims/Prone = SubResource( 6 )
@@ -383,5 +370,3 @@ position = Vector2( 0, -44 )
 
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
-[connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]
-[connection signal="body_exited" from="Ladder_Area" to="." method="_on_Ladder_Area_body_exited"]

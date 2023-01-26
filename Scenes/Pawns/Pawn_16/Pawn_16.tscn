@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/Pawns/Pawn_16/Parts/Pawn_16_Head.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Pawns/Pawn_16/Parts/Pawn_16_Body.tscn" type="PackedScene" id=2]
@@ -19,10 +19,6 @@ height = 6.0
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 34.9999
 height = 46.0002
-
-[sub_resource type="CapsuleShape2D" id=4]
-radius = 9.0
-height = 46.0
 
 [sub_resource type="Animation" id=5]
 resource_name = "Crouch"
@@ -152,19 +148,6 @@ position = Vector2( 0, -24 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
-[node name="Ladder_Area" type="Area2D" parent="."]
-visible = false
-collision_layer = 32
-collision_mask = 32
-
-[node name="CollisionShape2D-R" type="CollisionShape2D" parent="Ladder_Area"]
-position = Vector2( 9, -21 )
-shape = SubResource( 4 )
-
-[node name="CollisionShape2D-L" type="CollisionShape2D" parent="Ladder_Area"]
-position = Vector2( -9, -21 )
-shape = SubResource( 4 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crouch = SubResource( 5 )
 anims/Idle = SubResource( 6 )
@@ -180,5 +163,3 @@ position = Vector2( 0, -47 )
 
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]
 [connection signal="body_exited" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_exited"]
-[connection signal="body_entered" from="Ladder_Area" to="." method="_on_Ladder_Area_body_entered"]
-[connection signal="body_exited" from="Ladder_Area" to="." method="_on_Ladder_Area_body_exited"]
