@@ -103,8 +103,8 @@ func _process(delta):
 		last_anim = new_anim
 	if nrg < nrg_regen_max:
 		if nrg > light_on_nrg:
-			print_debug("pawn 05 fix the low nrg in process")
-		nrg = clamp(nrg + (nrg_regen_rate * delta), 0, 100)
+			print_debug("pawn 00 fix the low nrg in process")
+		nrg = clamp(nrg + (nrg_regen_rate * delta), 0, nrg_regen_max)
 	if nrg != last_nrg:
 		nrg_update()
 		last_nrg = nrg
@@ -559,65 +559,21 @@ func set_right(_right):
 ##-------------------------------------------------------------------[Animation]
 
 func anim_update(left_input, right_input, up_input, down_input, _jump_input, hold_input, _delta):
-	# if can_move:
-	# 	if !down_input && is_down:
-	# 		is_down = false
-	# 	elif down_input && !is_down:
-	# 		pass
-	# 	if hold_input && on_floor:
-	# 		is_down = false
-	# 		if vel.x < 1 && vel.x > -1:
-	# 			vel.x = 0
-	# 		elif vel.x <= -2.0:
-	# 			vel.x += 1.5
-	# 		elif vel.x >= 2.0:
-	# 			vel.x -= 1.5
-	# 		if up_input && !down_input && !left_input && !right_input:
-	# 			shoot_spot = 1
-	# 		elif !up_input && down_input && !left_input && !right_input:
-	# 			shoot_spot = 5
-	# 		elif !up_input && !down_input && left_input && !right_input:
-	# 			shoot_spot = 3
-	# 		elif !up_input && !down_input && !left_input && right_input:
-	# 			shoot_spot = 3
-	# 		elif up_input && !down_input && left_input && !right_input:
-	# 			shoot_spot = 2
-	# 		elif up_input && !down_input && !left_input && right_input:
-	# 			shoot_spot = 2
-	# 		elif !up_input && down_input && left_input && !right_input:
-	# 			shoot_spot = 4
-	# 		elif !up_input && down_input && !left_input && right_input:
-	# 			shoot_spot = 4
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	if can_move:
 		if !down_input && is_down:
 			is_down = false
-		if hold_input && !is_down:
+		elif down_input && !is_down:
+			is_down = true
+		if hold_input && on_floor:
+			is_down = false
+
 			if vel.x < 1 && vel.x > -1:
 				vel.x = 0
 			elif vel.x <= -2.0:
 				vel.x += 1.5
 			elif vel.x >= 2.0:
 				vel.x -= 1.5
+
 			if up_input && !down_input && !left_input && !right_input:
 				shoot_spot = 1
 			elif !up_input && down_input && !left_input && !right_input:
@@ -634,374 +590,71 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 				shoot_spot = 4
 			elif !up_input && down_input && !left_input && right_input:
 				shoot_spot = 4
-			if on_floor:
+			_anim_idle()
+
+		elif !hold_input && on_floor:
+			if !up_input && !down_input && !left_input && !right_input:
+				shoot_spot = 3
 				_anim_idle()
-			else:
-				_anim_jump()
-		else:# no hold input
-			if is_down:
-				shoot_spot = 6
-				if down_input && !left_input && !right_input:
-					_anim_prone_idle()
-				elif down_input && left_input && !right_input:
+			elif up_input && !down_input && !left_input && !right_input:
+				shoot_spot = 1
+				_anim_idle()
+			elif !up_input && !down_input && left_input && !right_input:
+				shoot_spot = 3
+				_anim_run()
+			elif !up_input && !down_input && !left_input && right_input:
+				shoot_spot = 3
+				_anim_run()
+			elif up_input && !down_input && left_input && !right_input:
+				shoot_spot = 2
+				_anim_run()
+			elif up_input && !down_input && !left_input && right_input:
+				shoot_spot = 2
+				_anim_run()
+			elif !up_input && down_input && left_input && !right_input:
+				shoot_spot = 4
+				_anim_run()
+			elif !up_input && down_input && !left_input && right_input:
+				shoot_spot = 4
+				_anim_run()
+			elif !up_input && down_input && left_input && !right_input:
+				if is_down:
 					_anim_prone_crawl()
-				elif down_input && !left_input && right_input:
+					shoot_spot = 5
+				else:
+					shoot_spot = 3 
+					_anim_idle()
+					print_debug("error down input pressed but no down?  in pawn 00 gd -----01")
+			elif !up_input && down_input && !left_input && right_input:
+				if is_down:
 					_anim_prone_crawl()
-				elif !down_input:
-					is_down = false
-			else:
-				if on_floor:
-					if down_input && !left_input && !right_input:# && !on_ladder:
-						_anim_prone_idle()
-						is_down = true
-					elif !down_input && !left_input && right_input:
-						_anim_run()
-						if up_input:
-							shoot_spot = 2
-						else:
-							shoot_spot = 3
-					elif !up_input && !left_input && right_input:
-						_anim_run()
-						if down_input:
-							shoot_spot = 4
-						else:
-							shoot_spot = 3
-					elif !down_input && left_input && !right_input:
-						_anim_run()
-						if up_input:
-							shoot_spot = 2
-						else:
-							shoot_spot = 3
-					elif !up_input && left_input && !right_input:
-						_anim_run()
-						if down_input:
-							shoot_spot = 4
-						else:
-							shoot_spot = 3
-					elif !down_input && !up_input && !left_input && !right_input:
-						_anim_idle()
-						shoot_spot = 3
-					elif up_input && !down_input && !left_input && !right_input:
-						_anim_idle()
-						shoot_spot = 1
-				else:# not on floor
-					if !up_input && !down_input && !left_input && !right_input:
-						_anim_jump()
-						shoot_spot = 3
-					elif up_input && !down_input && !left_input && !right_input:
-						shoot_spot = 1
-						_anim_jump()
-					elif !up_input && down_input && !left_input && !right_input:
-						shoot_spot = 5
-						_anim_jump()
-					elif !up_input && !down_input && left_input && !right_input:
-						shoot_spot = 3
-					elif !up_input && !down_input && !left_input && right_input:
-						shoot_spot = 3
-					elif up_input && !down_input && left_input && !right_input:
-						shoot_spot = 2
-					elif up_input && !down_input && !left_input && right_input:
-						shoot_spot = 2
-					elif !up_input && down_input && left_input && !right_input:
-						shoot_spot = 4
-					elif !up_input && down_input && !left_input && right_input:
-						shoot_spot = 4
+					shoot_spot = 5
+				else:
+					shoot_spot = 3 
+					_anim_idle()
+					print_debug("error down input pressed but no down?  in pawn 00 gd -----02")
 
+		elif !on_floor:
+			_anim_jump()
+			if !up_input && !down_input && !left_input && !right_input:
+				shoot_spot = 3
+			elif up_input && !down_input && !left_input && !right_input:
+				shoot_spot = 1
+			elif !up_input && down_input && !left_input && !right_input:
+				shoot_spot = 5
+			elif !up_input && !down_input && left_input && !right_input:
+				shoot_spot = 3
+			elif !up_input && !down_input && !left_input && right_input:
+				shoot_spot = 3
+			elif up_input && !down_input && left_input && !right_input:
+				shoot_spot = 2
+			elif up_input && !down_input && !left_input && right_input:
+				shoot_spot = 2
+			elif !up_input && down_input && left_input && !right_input:
+				shoot_spot = 4
+			elif !up_input && down_input && !left_input && right_input:
+				shoot_spot = 4
 
-
-
-
-	# if on_wall:
-	# 	if !not_on_angle:
-	# 		if shoot_spot == 3:
-	# 			shoot_spot = 2
-	# 	else:
-	# 		shoot_spot = 1
-# ##-------------------------------------------------------------------[Animation]
-# # warning-ignore:unused_argument
-# func anim_update(left_input, right_input, up_input, down_input, jump_input, hold_input, delta):
-# 	if can_move:
-# 		if !down_input && is_down:
-# 			is_down = false
-# 		if hold_input && !is_down:
-# 			if vel.x < 1 && vel.x > -1:
-# 				vel.x = 0
-# 			elif vel.x <= -2.0:
-# 				vel.x += 1.5
-# 			elif vel.x >= 2.0:
-# 				vel.x -= 1.5
-# 			if up_input && !down_input && !left_input && !right_input:
-# 				shoot_spot = 1
-# 			elif !up_input && down_input && !left_input && !right_input:
-# 				shoot_spot = 5
-# 			elif !up_input && !down_input && left_input && !right_input:
-# 				shoot_spot = 3
-# 			elif !up_input && !down_input && !left_input && right_input:
-# 				shoot_spot = 3
-# 			elif up_input && !down_input && left_input && !right_input:
-# 				shoot_spot = 2
-# 			elif up_input && !down_input && !left_input && right_input:
-# 				shoot_spot = 2
-# 			elif !up_input && down_input && left_input && !right_input:
-# 				shoot_spot = 4
-# 			elif !up_input && down_input && !left_input && right_input:
-# 				shoot_spot = 4
-# 			if on_floor:
-# 				_anim_idle()
-# 			else:
-# 				_anim_jump()
-# 		else:# no hold input
-# 			if is_down:
-# 				shoot_spot = 6
-# 				if down_input && !left_input && !right_input:
-# 					_anim_prone_idle()
-# 				elif down_input && left_input && !right_input:
-# 					_anim_prone_crawl()
-# 				elif down_input && !left_input && right_input:
-# 					_anim_prone_crawl()
-# 				elif !down_input:
-# 					is_down = false
-# 			else:
-# 				if on_floor:
-# 					if down_input && !left_input && !right_input && !on_ladder:
-# 						if over_ladder || on_ladder:
-# 							on_ladder = true
-# 							self.position.y += ladder_speed * delta
-# 							_anim_ladder_move()
-# 						else:
-# 							_anim_prone_idle()
-# 							is_down = true
-# 					elif !down_input && !left_input && right_input:
-# 						_anim_run()
-# 						if up_input:
-# 							shoot_spot = 2
-# 						else:
-# 							shoot_spot = 3
-# 					elif !up_input && !left_input && right_input:
-# 						_anim_run()
-# 						if down_input:
-# 							shoot_spot = 4
-# 						else:
-# 							shoot_spot = 3
-# 					elif !down_input && left_input && !right_input:
-# 						_anim_run()
-# 						if up_input:
-# 							shoot_spot = 2
-# 						else:
-# 							shoot_spot = 3
-# 					elif !up_input && left_input && !right_input:
-# 						_anim_run()
-# 						if down_input:
-# 							shoot_spot = 4
-# 						else:
-# 							shoot_spot = 3
-# 					elif !down_input && !up_input && !left_input && !right_input:
-# 						_anim_idle()
-# 						shoot_spot = 3
-# 					elif up_input && !down_input && !left_input && !right_input:
-# 						if over_ladder || on_ladder:
-# 							on_ladder = true
-# 							self.position.y -= ladder_speed * delta
-# 							_anim_ladder_move()
-# 						else:
-# 							_anim_idle()
-# 							shoot_spot = 1
-# 				else:# not on floor
-# 					if !up_input && !down_input && !left_input && !right_input:
-# 						if on_ladder:
-# 							if is_right:
-# 								_anim_ladder_right()
-# 							else:
-# 								_anim_ladder_left()
-# 						else:
-# 							_anim_jump()
-# 						shoot_spot = 3
-# 					elif up_input && !down_input && !left_input && !right_input:
-# 						if over_ladder || on_ladder:
-# 							on_ladder = true
-# 							self.position.y -= ladder_speed * delta
-# 							_anim_ladder_move()
-# 						else:
-# 							shoot_spot = 1
-# 							_anim_jump()
-# 					elif !up_input && down_input && !left_input && !right_input:
-# 						if over_ladder || on_ladder:
-# 							on_ladder = true
-# 							self.position.y += ladder_speed * delta
-# 							_anim_ladder_move()
-# 						else:
-# 							shoot_spot = 5
-# 							_anim_jump()
-# 					elif !up_input && !down_input && left_input && !right_input:
-# 						shoot_spot = 3
-# 						if !on_ladder:
-# 							_anim_jump()
-# 					elif !up_input && !down_input && !left_input && right_input:
-# 						shoot_spot = 3
-# 						if !on_ladder:
-# 							_anim_jump()
-# 					elif up_input && !down_input && left_input && !right_input:
-# 						shoot_spot = 2
-# 						if !on_ladder:
-# 							_anim_jump()
-# 					elif up_input && !down_input && !left_input && right_input:
-# 						shoot_spot = 2
-# 						if !on_ladder:
-# 							_anim_jump()
-# 					elif !up_input && down_input && left_input && !right_input:
-# 						shoot_spot = 4
-# 						if !on_ladder:
-# 							_anim_jump()
-# 					elif !up_input && down_input && !left_input && right_input:
-# 						shoot_spot = 4
-# 						if !on_ladder:
-# 							_anim_jump()
-
-# ##-------------------------------------------------------------------[Animation]
-# func anim_update(left_input, right_input, up_input, down_input, _jump_input, hold_input, delta):
-# 	if can_move:
-# 		if !down_input && is_down:
-# 			is_down = false
-# 		if hold_input && !is_down:
-# 			if vel.x < 1 && vel.x > -1:
-# 				vel.x = 0
-# 			elif vel.x <= -2.0:
-# 				vel.x += 1.5
-# 			elif vel.x >= 2.0:
-# 				vel.x -= 1.5
-# 			if up_input && !down_input && !left_input && !right_input:
-# 				shoot_spot = 1
-# 			elif !up_input && down_input && !left_input && !right_input:
-# 				shoot_spot = 5
-# 			elif !up_input && !down_input && left_input && !right_input:
-# 				shoot_spot = 3
-# 			elif !up_input && !down_input && !left_input && right_input:
-# 				shoot_spot = 3
-# 			elif up_input && !down_input && left_input && !right_input:
-# 				shoot_spot = 2
-# 			elif up_input && !down_input && !left_input && right_input:
-# 				shoot_spot = 2
-# 			elif !up_input && down_input && left_input && !right_input:
-# 				shoot_spot = 4
-# 			elif !up_input && down_input && !left_input && right_input:
-# 				shoot_spot = 4
-# 			if on_floor:
-# 				_anim_idle()
-# 			else:
-# 				_anim_jump()
-# 		else:# no hold input
-# 			if on_ladder:
-# 				ray_down_l.enabled = false
-# 				ray_down_r.enabled = false
-# 			else:
-# 				ray_down_l.enabled = true
-# 				ray_down_r.enabled = true
-# 			if is_down:
-# 				shoot_spot = 6
-# 				if down_input && !left_input && !right_input:
-# 					_anim_prone_idle()
-# 				elif down_input && left_input && !right_input:
-# 					_anim_prone_crawl()
-# 				elif down_input && !left_input && right_input:
-# 					_anim_prone_crawl()
-# 				elif !down_input:
-# 					is_down = false
-# 			else:
-# 				if on_floor:
-# 					if down_input && !left_input && !right_input && !on_ladder:
-# 						if over_ladder || on_ladder:
-# 							on_ladder = true
-# 							self.position.y += ladder_speed * delta
-# 							_anim_ladder_move()
-# 						else:
-# 							_anim_prone_idle()
-# 							is_down = true
-# 					elif !down_input && !left_input && right_input:
-# 						_anim_run()
-# 						if up_input:
-# 							shoot_spot = 2
-# 						else:
-# 							shoot_spot = 3
-# 					elif !up_input && !left_input && right_input:
-# 						_anim_run()
-# 						if down_input:
-# 							shoot_spot = 4
-# 						else:
-# 							shoot_spot = 3
-# 					elif !down_input && left_input && !right_input:
-# 						_anim_run()
-# 						if up_input:
-# 							shoot_spot = 2
-# 						else:
-# 							shoot_spot = 3
-# 					elif !up_input && left_input && !right_input:
-# 						_anim_run()
-# 						if down_input:
-# 							shoot_spot = 4
-# 						else:
-# 							shoot_spot = 3
-# 					elif !down_input && !up_input && !left_input && !right_input:
-# 						_anim_idle()
-# 						shoot_spot = 3
-# 					elif up_input && !down_input && !left_input && !right_input:
-# 						if over_ladder || on_ladder:
-# 							on_ladder = true
-# 							self.position.y -= ladder_speed * delta
-# 							_anim_ladder_move()
-# 						else:
-# 							_anim_idle()
-# 							shoot_spot = 1
-# 				else:# not on floor
-# 					if !up_input && !down_input && !left_input && !right_input:
-# 						if on_ladder:
-# 							if is_right:
-# 								_anim_ladder_right()
-# 							else:
-# 								_anim_ladder_left()
-# 						else:
-# 							_anim_jump()
-# 						shoot_spot = 3
-# 					elif up_input && !down_input && !left_input && !right_input:
-# 						if over_ladder || on_ladder:
-# 							on_ladder = true
-# 							self.position.y -= ladder_speed * delta
-# 							_anim_ladder_move()
-# 							shoot_spot = 1
-# 						else:
-# 							shoot_spot = 1
-# 							_anim_jump()
-# 					elif !up_input && down_input && !left_input && !right_input:
-# 						if over_ladder || on_ladder:
-# 							on_ladder = true
-# 							self.position.y += ladder_speed * delta
-# 							_anim_ladder_move()
-# 						else:
-# 							shoot_spot = 5
-# 							_anim_jump()
-# 					elif !up_input && !down_input && left_input && !right_input:
-# 						shoot_spot = 3
-# 						if !on_ladder:
-# 							_anim_jump()
-# 					elif !up_input && !down_input && !left_input && right_input:
-# 						shoot_spot = 3
-# 						if !on_ladder:
-# 							_anim_jump()
-# 					elif up_input && !down_input && left_input && !right_input:
-# 						shoot_spot = 2
-# 						if !on_ladder:
-# 							_anim_jump()
-# 					elif up_input && !down_input && !left_input && right_input:
-# 						shoot_spot = 2
-# 						if !on_ladder:
-# 							_anim_jump()
-# 					elif !up_input && down_input && left_input && !right_input:
-# 						shoot_spot = 4
-# 						if !on_ladder:
-# 							_anim_jump()
-# 					elif !up_input && down_input && !left_input && right_input:
-# 						shoot_spot = 4
-# 						if !on_ladder:
-# 							_anim_jump()
 func _anim_idle():
 	pass
 
@@ -1022,12 +675,3 @@ func _anim_stun():
 
 func _anim_Knock():
 	pass
-
-# func _anim_ladder_move():
-# 	pass
-
-# func _anim_ladder_right():
-# 	pass
-
-# func _anim_ladder_left():
-# 	pass
