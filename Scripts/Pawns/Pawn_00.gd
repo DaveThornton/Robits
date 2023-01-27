@@ -564,16 +564,15 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 			is_down = false
 		elif down_input && !is_down:
 			is_down = true
-		if hold_input && on_floor:
-			is_down = false
 
+		if hold_input:
+			is_down = false
 			if vel.x < 1 && vel.x > -1:
 				vel.x = 0
 			elif vel.x <= -2.0:
 				vel.x += 1.5
 			elif vel.x >= 2.0:
 				vel.x -= 1.5
-
 			if up_input && !down_input && !left_input && !right_input:
 				shoot_spot = 1
 			elif !up_input && down_input && !left_input && !right_input:
@@ -591,8 +590,9 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 			elif !up_input && down_input && !left_input && right_input:
 				shoot_spot = 4
 			_anim_idle()
+			# print_debug("001")
 
-		elif !hold_input && on_floor:
+		elif !hold_input && on_floor && !is_down:
 			if !up_input && !down_input && !left_input && !right_input:
 				shoot_spot = 3
 				_anim_idle()
@@ -618,21 +618,26 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 				shoot_spot = 4
 				_anim_run()
 			elif !up_input && down_input && left_input && !right_input:
-				if is_down:
-					_anim_prone_crawl()
-					shoot_spot = 5
-				else:
-					shoot_spot = 3 
-					_anim_idle()
-					print_debug("error down input pressed but no down?  in pawn 00 gd -----01")
+				shoot_spot = 3 
+				_anim_idle()
 			elif !up_input && down_input && !left_input && right_input:
-				if is_down:
-					_anim_prone_crawl()
-					shoot_spot = 5
-				else:
-					shoot_spot = 3 
-					_anim_idle()
-					print_debug("error down input pressed but no down?  in pawn 00 gd -----02")
+				shoot_spot = 3 
+				_anim_idle()
+			# print_debug("002")
+
+		elif on_floor && is_down:
+			if !left_input && !right_input || left_input && right_input:
+				shoot_spot = 3
+				_anim_prone_idle()
+			elif left_input && !right_input:
+				shoot_spot = 3
+				_anim_prone_crawl()
+			elif !left_input && right_input:
+				shoot_spot = 3
+				_anim_prone_crawl()
+			else:
+				print_debug("error in pawn 00 anim update 001 on floor and is down")
+			# print_debug("003")
 
 		elif !on_floor:
 			_anim_jump()
@@ -654,6 +659,9 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 				shoot_spot = 4
 			elif !up_input && down_input && !left_input && right_input:
 				shoot_spot = 4
+			# print_debug("004")
+		# else:
+			# print_debug("005")
 
 func _anim_idle():
 	pass
