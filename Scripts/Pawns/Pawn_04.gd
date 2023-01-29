@@ -282,6 +282,7 @@ func jump_j(down_input, left_input, right_input):
 					vel.y += terminal_vel / 5
 					self.position.y += 4
 
+
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
 		vel.y = -min_air_jump_power

@@ -69,18 +69,6 @@ func _ready():
 
 	timers.set_jump(jump_time)
 
-# func _physics_process(_delta):
-	# var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
-	# if !jump_top:
-	# 	var movement = Vector2(0 , ((vel.y + (grav * int(!on_floor)) * delta) + head_room))# * int(!on_ladder))# + (map_movement * delta)
-	# 	vel = movement
-	# if on_floor:
-	# 	vel.y = vel.y / 1.1
-	# if vel.y > terminal_vel:
-	# 	vel.y = terminal_vel
-	# var _2 = move_and_collide(vel)
-	# rocket_test(vel.y)
-
 func jump(down_input, _left_input, _right_input):
 	if can_move:
 		if is_down:

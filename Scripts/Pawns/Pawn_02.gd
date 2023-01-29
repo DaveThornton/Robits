@@ -174,16 +174,6 @@ func _physics_process(delta):
 	vel = movement
 	var _2 = move_and_collide(vel)
 
-#func _physics_process(delta):
-#	if on_floor:
-#		vel.y = vel.y / 1.1
-#	if vel.y > terminal_vel:
-#		vel.y = terminal_vel
-#	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
-#	var movement = Vector2(0, (((vel.y * head_room) + (grav * int(!on_floor)) * delta)) * int(!on_ladder))# + (map_movement * delta)
-#	vel = movement
-#	var _2 = move_and_collide(vel)
-
 ##-------------------------------------------------------------------[Move/jump]
 func move_x(_moving, _right):
 	if can_move:

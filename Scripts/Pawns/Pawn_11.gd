@@ -86,6 +86,11 @@ func jump_j(_down_input, _left_input, _right_input):
 				air_jump_count += 1
 			is_jump_pressed = true
 
+func fix_vel(_vel):
+	if head_room > 0 && _vel.y < 0:
+		_vel.y *= -1
+	return _vel
+
 func jump_rel():
 	self.set_collision_mask_bit(2,true)
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:

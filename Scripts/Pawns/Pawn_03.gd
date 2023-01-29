@@ -3,8 +3,8 @@ extends 'res://Scripts/Pawns/Pawn_00.gd'
 onready var my_gun_pos = $Body/POS_Arm/Pawn_03_Part_Arm/POS_Gun
 
 onready var body_shape_01 = $CollisionShape2D_Stand
-onready var body_shape_02 = $CollisionShape2D_Left
-onready var body_shape_03 = $CollisionShape2D_Right
+# onready var body_shape_02 = $CollisionShape2D_Left
+# onready var body_shape_03 = $CollisionShape2D_Right
 onready var body_shape_04 = $CollisionShape2D_Prone
 
 onready var head = $Body/Pawn_03_Part_Head
@@ -93,6 +93,11 @@ func jump_j(_down_input, _left_input, _right_input):
 				vel.y = -max_air_jump_power * jump_power_up
 				air_jump_count += 1
 		is_jump_pressed = true
+
+func fix_vel(_vel):
+	if head_room > 0 && _vel.y < 0:
+		_vel.y *= -1
+	return _vel
 
 func jump_rel():
 	self.set_collision_mask_bit(2,true)
