@@ -44,6 +44,7 @@ func _process(_delta):
 func _armed(_time):
 	ready = true
 	anim.play("Lit")
+	print_debug(_time,"  this is the time it is tring to set in bomb man pick maybe why it randomly explodes?")
 	anim.seek((time -_time),true)
 	timer_boom.wait_time = _time
 	timer_boom.start()
