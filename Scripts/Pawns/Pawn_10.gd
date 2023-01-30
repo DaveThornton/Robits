@@ -17,6 +17,7 @@ onready var shield_sprite = $Pawn_10_Part_Body/Shield_Sprite
 onready var my_anim = $AnimationPlayer
 
 onready var ray_up = $Raycast/Up
+onready var ray_up2 = $Raycast/Up2
 onready var ray_down_l = $Raycast/Down_L
 onready var ray_down_r = $Raycast/Down_R
 onready var ray_plat = $Raycast/Plat_Test
@@ -142,7 +143,7 @@ func _body_(_num: int):
 		body_shape_02.disabled = false
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
-	if ray_up.is_colliding():
+	if ray_up.is_colliding() || ray_up2.is_colliding():
 		head_room = 1
 	else:
 		head_room = 0
@@ -161,7 +162,6 @@ func _anim_idle():
 	wheel.stop()
 	head.play("Idle")
 	if is_right:
-
 		new_anim = "Right-Idle"
 	else:
 		new_anim = "Left-Idle"
@@ -178,15 +178,20 @@ func _anim_run():
 		_body(2)
 
 func _anim_jump():
-	head.play("Idle")
+	# head.play("Idle")
+	head.play("Stun")
 	if is_right:
-		new_anim = "Right-Run"
-		wheel.turn(true)
-		_body(1)
+		new_anim = "Right-Idle"
 	else:
-		new_anim = "Left-Run"
-		wheel.turn(false)
-		_body(1)
+		new_anim = "Left-Idle"
+	# if is_right:
+	# 	new_anim = "Right-Run"
+	# 	wheel.turn(true)
+	# 	_body(1)
+	# else:
+	# 	new_anim = "Left-Run"
+	# 	wheel.turn(false)
+	# 	_body(1)
 
 func _anim_prone_idle():
 	head.play("Idle")

@@ -9,6 +9,7 @@ onready var my_anim = $AnimationPlayer
 onready var my_gun_pos = $POS_Body/Pawn_13_Part_Body/POS_Arm/Pawn_13_Part_Arm/POS_Gun
 
 onready var ray_up = $Raycasts/Up
+onready var ray_up2 = $Raycasts/Up2
 onready var ray_down_l = $Raycasts/Down_L
 onready var ray_down_c = $Raycasts/Down_C
 onready var ray_down_r = $Raycasts/Down_R
@@ -92,7 +93,7 @@ func jump_rel():
 
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
-	if ray_up.is_colliding():
+	if ray_up.is_colliding() || ray_up2.is_colliding():
 		head_room = 1
 	else:
 		head_room = 0

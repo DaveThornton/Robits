@@ -416,9 +416,15 @@ script = ExtResource( 5 )
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="Up" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -56 )
+position = Vector2( -15, -51 )
 enabled = true
-cast_to = Vector2( 0, -10 )
+cast_to = Vector2( 16, -8 )
+collision_mask = 2058
+
+[node name="Up2" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 15, -51 )
+enabled = true
+cast_to = Vector2( -16, -8 )
 collision_mask = 2058
 
 [node name="Down_L" type="RayCast2D" parent="Raycasts"]
@@ -526,6 +532,7 @@ anims/Right_Prone = SubResource( 10 )
 anims/Right_Stun = SubResource( 11 )
 
 [node name="Pawn_Part_Player_Indicator" parent="." instance=ExtResource( 8 )]
+visible = false
 position = Vector2( 0, -58 )
 
 [connection signal="body_entered" from="Pick_Up_Area" to="." method="_on_Pick_Up_Area_body_entered"]

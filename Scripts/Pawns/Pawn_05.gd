@@ -2,9 +2,7 @@ extends 'res://Scripts/Pawns/Pawn_00.gd'
 
 onready var my_gun_pos = $Pawn_05_Part_Body/POS_Arm/Pawn_09_Part_Arm/POS_Gun
 
-onready var body_shape_01 = $Shape_Left
 onready var body_shape_02 = $Shape_Stand
-onready var body_shape_03 = $Shape_Right
 onready var body_shape_04 = $Shape_Down_Left
 onready var body_shape_05 = $Shape_Down_Right
 
@@ -20,8 +18,7 @@ onready var shield_sprite = $Shield_Sprite
 
 onready var my_anim = $AnimationPlayer
 
-onready var ray_up_l = $Raycast/Up_L
-onready var ray_up_r = $Raycast/Up_R
+onready var ray_up = $Raycast/Up
 onready var ray_down_l = $Raycast/Down_L
 onready var ray_down_r = $Raycast/Down_R
 onready var ray_plat = $Raycast/Plat_Test
@@ -111,40 +108,30 @@ func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
 	if _num == 1:
-		body_shape_01.disabled = true
 		body_shape_02.disabled = false
-		body_shape_03.disabled = true
 		body_shape_04.disabled = true
 		body_shape_05.disabled = true
 	elif _num == 2:
-		body_shape_01.disabled = true
 		body_shape_02.disabled = false
-		body_shape_03.disabled = true
 		body_shape_04.disabled = true
 		body_shape_05.disabled = true
 	elif _num == 3:
-		body_shape_01.disabled = true
 		body_shape_02.disabled = false
-		body_shape_03.disabled = true
 		body_shape_04.disabled = true
 		body_shape_05.disabled = true
 	elif _num == 4:
-		body_shape_01.disabled = true
 		body_shape_02.disabled = true
-		body_shape_03.disabled = true
 		body_shape_04.disabled = false
 		body_shape_05.disabled = true
 	elif _num == 5:
-		body_shape_01.disabled = true
 		body_shape_02.disabled = true
-		body_shape_03.disabled = true
 		body_shape_04.disabled = true
 		body_shape_05.disabled = false
 	else:
 		print_debug("pawn 05 invalid body shape in _body")
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
-	if ray_up_r.is_colliding() || ray_up_l.is_colliding():
+	if ray_up.is_colliding():
 		head_room = 1
 	else:
 		head_room = 0

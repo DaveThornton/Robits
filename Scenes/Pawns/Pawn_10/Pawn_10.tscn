@@ -1818,9 +1818,15 @@ cast_to = Vector2( -15, 3 )
 collision_mask = 30
 
 [node name="Up" type="RayCast2D" parent="Raycast"]
-position = Vector2( 0, -51 )
+position = Vector2( -9, -49 )
 enabled = true
-cast_to = Vector2( 0, -10 )
+cast_to = Vector2( 11, -5 )
+collision_mask = 8
+
+[node name="Up2" type="RayCast2D" parent="Raycast"]
+position = Vector2( 9, -49 )
+enabled = true
+cast_to = Vector2( -11, -5 )
 collision_mask = 8
 
 [node name="Plat_Test" type="RayCast2D" parent="Raycast"]

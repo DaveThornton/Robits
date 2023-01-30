@@ -10,6 +10,7 @@ onready var my_anim = $AnimationPlayer
 onready var my_gun_pos = $POS_Body/Body/POS_Arm/Pawn_09_Part_Arm/POS_Gun
 
 onready var ray_up = $Raycasts/Up
+onready var ray_up2 = $Raycasts/Up2
 onready var ray_down_l = $Raycasts/Down_L
 onready var ray_down_r = $Raycasts/Down_R
 onready var ray_down_l2 = $Raycasts/Down_L2
@@ -109,7 +110,7 @@ func balloon_off():
 	
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
-	if ray_up.is_colliding():
+	if ray_up.is_colliding() || ray_up2.is_colliding():
 		head_room = 1
 	else:
 		head_room = 0

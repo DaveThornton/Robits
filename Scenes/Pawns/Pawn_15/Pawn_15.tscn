@@ -2299,9 +2299,15 @@ cast_to = Vector2( 0, 5 )
 collision_mask = 30
 
 [node name="Up" type="RayCast2D" parent="Raycasts"]
-position = Vector2( 0, -45 )
+position = Vector2( -15, -42 )
 enabled = true
-cast_to = Vector2( 0, -5 )
+cast_to = Vector2( 25, -5 )
+collision_mask = 8
+
+[node name="Up2" type="RayCast2D" parent="Raycasts"]
+position = Vector2( 15, -42 )
+enabled = true
+cast_to = Vector2( -25, -5 )
 collision_mask = 8
 
 [node name="Plat_Test" type="RayCast2D" parent="Raycasts"]
@@ -2328,12 +2334,10 @@ hframes = 33
 frame = 2
 
 [node name="CollisionShape2D_Stand" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -22 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D_Prone" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -14 )
 rotation = 1.5708
 shape = SubResource( 2 )
