@@ -71,6 +71,13 @@ func jump_j(down_input, _left_input, _right_input):
 				vel.y = -max_jump_power * jump_power_up
 			is_jump_pressed = true
 
+func fix_vel(_vel):
+	if !on_floor && _vel.y < 0:
+		legs.flame_up()
+	else:
+		legs.flame_down()
+	return _vel
+
 func jump_rel():
 	self.set_collision_mask_bit(2,true)
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
@@ -88,11 +95,12 @@ func _test_headroom():
 
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding() || ray_down_c.is_colliding():
-		if !on_floor: # && !is_jump_pressed:
+		if !on_floor:
 			SFX.play("Move_Jump_19_Land")
 		on_floor = true
 	else :
 		on_floor = false
+		legs.play(8)
 
 func _anim_idle():
 	legs.play(1)
@@ -104,7 +112,6 @@ func _anim_idle():
 		anim.play("Idle")
 
 func _anim_run():
-#	legs.run(is_right)
 	if is_right:
 		_body(2)
 		legs.play(2)
@@ -145,18 +152,6 @@ func _anim_Knock():
 	else:
 		_body(1)
 		new_anim = "Left"
-
-func _anim_ladder_move():
-#	_body(1)
-	print_debug("there should be no ladders sucka")
-
-func _anim_ladder_right():
-	_body(2)
-	print_debug("there should be no ladders sucka")
-
-func _anim_ladder_left():
-	_body(1)
-	print_debug("there should be no ladders sucka")
 
 func _set_gun_dir():
 	if can_move:
@@ -221,19 +216,6 @@ func _body(_num: int):
 	call_deferred("_body_",_num)
 func _body_(_num: int):
 	pass
-#	print_debug("fix body in pawn 13")
-#	if _num == 1:
-#		body1.disabled = false
-#		ladder_l.disabled = false
-#		ladder_r.disabled = true
-#	elif _num == 2:
-#		body1.disabled = false
-#		ladder_l.disabled = true
-#		ladder_r.disabled = false
-#	elif _num == 3:
-#		body1.disabled = true
-#		ladder_l.disabled = false
-#		ladder_r.disabled = false
 
 func shield_up():
 	head.shield_up()
@@ -243,91 +225,7 @@ func shield_down():
 	head.shield_down()
 	legs.shield_down()
 
-# ##---------------------------------------------------------[Set collsion layers]
-# func set_collision(_player):
-# 	set_collision_layer_bit(Player_Stats.get_player_collision_layer(_player) - 1, true)
-# 	set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, true)
-
-# ##-----------------------------------------------------------------------[Color]
-# func _set_color():
-# 	_pri_color = Player_Stats.get_body_color(player)
-# 	_sec_color = Player_Stats.get_sec_color(player)
-# 	_set_new_color(_pri_color,_sec_color)
-
 func _set_new_color(_pri, _sec):
 	head.color(_pri, _sec)
 	legs.color(_pri, _sec)
 	arm.color(_pri, _sec)
-##--------------------------------------------------------------------[Time Out]
-# func shielduptimer():
-# 	shield_down()
-# 	is_shield_up = false
-
-# func shieldhittimer():
-# 	shield_down()
-
-# func speedtimer():
-# 	is_speed_up = false
-# 	speed_power_up = 1
-
-# func jumpuptimer():
-# 	is_jump_up = false
-# 	jump_power_up = 1
-
-# func nrguptimer():
-# 	nrg_regen_rate = nrg_default_regen_rate
-# 	nrg_regen_max = nrg_default_regen_max
-
-# func stuntimer():
-# 	can_move = true
-
-# func knockbacktimer():
-# 	knocked_back = Vector2(0, 0)
-
-# func jumptimer():
-# 	print_debug("jump timer timed out dont know why in pawn 13 player stats says its pawn ",Player_Stats.get_pawn_num(player))
-
-# func hitbytimer():
-# 	hit_last_by = -1
-	
-# ##------------------------------------------------------[player indicator stuff]
-# func set_ready_show_player_ind(_ready):
-# 	ready_show_player_ind = _ready
-
-# func get_ready_show_player_ind():
-# 	return ready_show_player_ind
-
-# func start_ready_show_player_ind():
-# 	timers.start_show_player_ind()
-
-# func show_player_ind(_show):
-# 	if _show:
-# 		player_indicator.visible = true
-# 	else:
-# 		player_indicator.visible = false
-
-# func get_player_ind_vis():
-# 	return player_indicator.visible
-
-# ##-------------------------------------------------------------[The in and outs]
-
-# func _on_Pick_Up_Area_body_entered(body):
-# 	if body.get_groups().has("PickUp"):
-# 		wep_array.append(body)
-
-# func _on_Pick_Up_Area_body_exited(body):
-# 	if body.get_groups().has("PickUp"):
-# 		wep_array.erase(body)
-
-# func _on_Ladder_Area_body_entered(body):
-# 	ladder_count.append(body)
-
-# func _on_Ladder_Area_body_exited(body):
-# 	ladder_count.erase(body)
-
-# func killed_by_map(_by_who, _by_what, _damage_type, _damage):
-# 	hit(_by_who, _by_what, _damage_type, (nrg* 2))
-
-# func start_next_level():
-# 	if !my_gun && start_equiped > 0:
-# 		equip_start_weap()

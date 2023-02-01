@@ -240,7 +240,6 @@ func _process(delta):
 						my_pawn.set_ready_show_player_ind(true)
 						my_pawn.timers.start_show_player_ind()
 					else:
-						# if my_pawn.get_player_ind_vis():
 						if Settings.get_multi_player_ind(): pass
 						elif !Player_Stats.get_player_indi_vis(player):
 							my_pawn.show_player_ind(false)
@@ -274,8 +273,6 @@ func _process(delta):
 				HUD.input(player, 5)
 			elif shoot_input_j:
 				HUD.input(player, 6)
-			# elif hold_input_j:
-			# 	HUD.input(player, 7)
 			elif pick_input_j:
 				HUD.input(player, 8)
 	else:
@@ -291,8 +288,6 @@ func _process(delta):
 			HUD.game_over_input(player, 4)
 		elif jump_input_j || shoot_input_j:
 			HUD.game_over_input(player, 5)
-		# elif hold_input_j || pick_input_j:
-		# 	HUD.game_over_input(player, 6)
 
 func set_spawn_spot(_pos):
 	spawn_spot = _pos

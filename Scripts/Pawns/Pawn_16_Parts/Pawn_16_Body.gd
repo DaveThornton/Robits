@@ -1,39 +1,15 @@
 extends Node2D
 
-onready var shield = $Pawn_16_Body_Shield
+onready var shield = $Pawn_16_Body/Pawn_16_Body_Shield
 onready var shield_legs = $Pawn_16_Back_Legs_Shield
 onready var body = $Pawn_16_Body
 onready var legs_f = $Pawn_16_Front_Legs
 onready var legs_b = $Pawn_16_Back_Legs
 onready var anim = $AnimationPlayer
-onready var ray_dr = $Ray_Down_Right
-onready var ray_dl = $Ray_Down_Left
+onready var anim_rocket = $AnimationPlayer_Rocket
 
+var last_anim = " "
 var overide = false
-var last_posy = 0.0
-var cur_posy = 0.0
-var check_time = .25
-
-func _ready():
-	last_posy = global_position.y
-#	pass
-
-func _process(delta):
-	if !ray_dr.is_colliding() || !ray_dl.is_colliding():
-		overide = true
-		cur_posy = global_position.y
-		check_time += delta
-		if cur_posy <= last_posy && check_time > .1:
-			anim.play("Jump")
-			check_time = 0
-			last_posy = cur_posy
-		elif cur_posy >= last_posy && check_time > .1:
-			anim.play("Fall")
-			check_time = 0
-			last_posy = cur_posy
-	else:
-		overide = false
-#		anim.play("Idle")
 
 func play(_num: int):
 	if !overide:
@@ -55,7 +31,20 @@ func play(_num: int):
 			anim.play("Jump")
 		elif _num == 9:
 			anim.play("Fall")
-	
+
+func flame_up():
+	if last_anim != "Flame_On":
+		last_anim = "Flame_On"
+		anim_rocket.play("Flame_On")
+
+func flame_on():
+	anim_rocket.play("Flaming")
+
+func flame_down():
+	if last_anim != "Flame_Off":
+		last_anim = "Flame_Off"
+		anim_rocket.play("Flame_Off")
+
 func shield_up():
 	shield.visible = true
 	shield_legs.visible = true

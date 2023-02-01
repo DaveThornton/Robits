@@ -562,7 +562,7 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 	if can_move:
 		if !down_input && is_down:
 			is_down = false
-		elif down_input && !is_down:
+		elif down_input && !is_down && !left_input && !right_input:
 			is_down = true
 
 		if hold_input:

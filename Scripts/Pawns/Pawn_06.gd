@@ -19,7 +19,6 @@ onready var ray_up = $Raycast/Up
 onready var ray_down_l = $Raycast/Down_L
 onready var ray_down_c = $Raycast/Down_C
 onready var ray_down_r = $Raycast/Down_R
-onready var ray_down_p = $Raycast/Down_Plat
 onready var ray_plat = $Raycast/Plat_Test
 
 onready var my_attachment_point = $Attachment_Point
@@ -31,7 +30,7 @@ export var my_armor = 1
 export var my_max_air_jump_count = 2
 export var my_max_air_jump_power = 3
 export var my_min_air_jump_power = 1.5
-export var my_max_jump_power = 7.5
+export var my_max_jump_power = 11
 export var my_min_jump_power = 1.5
 
 #--------------------------------------------------------------------NRG--------
@@ -71,22 +70,6 @@ func _ready():
 
 	timers.set_jump(jump_time)
 
-# func _physics_process(delta):
-# 	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
-# 	var movement = Vector2(0 , (vel.y + (grav * int(!on_floor)) * delta))#* int(!on_ladder))
-# 	vel = movement
-# 	if !is_jump_pressed:
-# 		if going_up:
-# 			vel.y = -1
-# 		elif on_floor:
-# 			vel.y = 0
-# 		elif vel.y > terminal_vel:
-# 			vel.y = terminal_vel
-# 	else:
-# 		if jump_top:
-# 			vel.y = 0
-# 	var _2 = move_and_collide(vel)
-
 func jump(_down_input, _left_input, _right_input):
 	if can_move:
 		if is_down:
@@ -117,9 +100,10 @@ func jump_j(_down_input, _left_input, _right_input):
 	if can_move:
 		if is_down:
 			if ray_plat.is_colliding():
+				print_debug("ray_plat is colliding should it?")
 				self.set_collision_mask_bit(2,false)
 				SFX.play("Move_Jump_08")
-				vel.y = terminal_vel / 2
+				vel.y = terminal_vel / 1.4
 				self.position.y += 8
 		else:
 			if !is_jump_pressed && on_floor && can_jump:
@@ -166,21 +150,6 @@ func shield_down():
 	shield_sprite.visible = false
 	head.shield_down()
 
-func _body(_num: int):
-	call_deferred("_body_",_num)
-func _body_(_num: int):
-	if _num == 1:
-		body_shape_02.disabled = false
-		body_shape_04.disabled = true
-	elif _num == 2:
-		body_shape_02.disabled = false
-		body_shape_04.disabled = true
-	elif _num == 3:
-		body_shape_02.disabled = false
-		body_shape_04.disabled = true
-	elif _num == 4:
-		body_shape_02.disabled = true
-		body_shape_04.disabled = false
 ##--------------------------------------------------------------------[Raycasts]
 func _test_headroom():
 	if ray_up.is_colliding():
@@ -194,13 +163,12 @@ func _is_on_floor():
 	else:
 		on_floor = false
 
-	if ray_down_c.is_colliding():
+	if ray_down_c.is_colliding() && !is_down:
 		going_up = true
 	else:
 		going_up = false
 
 func _anim_idle():
-	_body(2)
 	hover_part.angle = 0
 	if is_right:
 		new_anim = "Right-Idle"
@@ -214,25 +182,20 @@ func _anim_run():
 		head.right()
 		new_anim = "Right-Run"
 		hover_part.angle = -20
-		_body(3)
 	else:
 		head.left()
 		new_anim = "Left-Run"
 		hover_part.angle = 20
-		_body(1)
 
 func _anim_jump():
 	if is_right:
 		head.right()
 		new_anim = "Right-Run"
-		_body(3)
 	else:
 		head.left()
 		new_anim = "Left-Run"
-		_body(1)
 
 func _anim_prone_idle():
-	_body(4)
 	hover_part.angle = 0
 	if is_right:
 		head.right()
@@ -242,7 +205,6 @@ func _anim_prone_idle():
 		new_anim = "Left-Prone-Idle"
 
 func _anim_prone_crawl():
-	_body(4)
 	hover_part.angle = 0
 	if is_right:
 		head.right()
@@ -252,7 +214,6 @@ func _anim_prone_crawl():
 		new_anim = "Left-Prone-Crawl"
 
 func _anim_stun():
-	_body(2)
 	head.play_face(5)
 	if is_right:
 		head.right()
@@ -262,7 +223,6 @@ func _anim_stun():
 		new_anim = "Left-Stun"
 
 func _anim_Knock():
-	_body(2)
 	if is_right:
 		head.right()
 		new_anim = "Right-Knock_Back"

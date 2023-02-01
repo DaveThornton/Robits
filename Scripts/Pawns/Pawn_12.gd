@@ -76,24 +76,19 @@ func jump_j(_down_input, _left_input, _right_input):
 				vel.y = terminal_vel / 2
 				self.position.y += 8
 		else:
-			if !is_jump_pressed && on_floor && !is_down:# && !down_input:
+			if !is_jump_pressed && on_floor && !is_down:
 				SFX.play("Move_Jump_01")
 				vel.y = -max_jump_power * jump_power_up
-			elif !on_floor && air_jump_count == 0 && !is_down:
+			elif !on_floor && air_jump_count < max_air_jump_count && !is_down:
 				air_jump_count += 1
-				print_debug(air_jump_count)
 				SFX.play("Move_Jump_01")
 				vel.y = -max_air_jump_power * jump_power_up
-			elif !on_floor && air_jump_count == 1 && !is_down:
-				air_jump_count += 1
-				print_debug(air_jump_count)
-				SFX.play("Move_Jump_01")
-				vel.y = -max_jump_power * jump_power_up
 			is_jump_pressed = true
-			# on_ladder = false
 
 func fix_vel(_vel):
-	if head_room > 0 && _vel.y < 0:
+	if air_jump_count < 0:
+		_jet_pack(_vel)
+	if head_room > 0 && _vel.y < 0 && air_jump_count == 0:
 		_vel.y *= -1
 	return _vel
 
@@ -118,7 +113,6 @@ func _is_on_floor():
 			SFX.play("Move_Jump_19_Land")
 			on_floor = true
 		on_floor = true
-
 	else :
 		on_floor = false
 
@@ -268,8 +262,8 @@ func _jet_pack(_vel):
 	if air_jump_count != 0:
 		if _vel < 0.0 :
 			pack.flame_up()
-	elif _vel > 0.0:
-		pack.flame_down()
+			return
+	pack.flame_down()
 
 func shield_up():
 	shield.visible = true
