@@ -139,6 +139,7 @@ func _is_on_floor():
 func _anim_idle():
 	_body(1)
 	head.up(false)
+	head.stun(false)
 	trax.stop()
 	exhaust.idle()
 	new_anim = "Idle"
@@ -146,6 +147,7 @@ func _anim_idle():
 func _anim_run():
 	_body(1)
 	head.up(false)
+	head.stun(false)
 	new_anim = "Go"
 	exhaust.go()
 	if is_right:
@@ -158,6 +160,7 @@ func _anim_run():
 func _anim_jump():
 	_body(1)
 	head.up(false)
+	head.stun(false)
 	new_anim = "Idle"
 	exhaust.idle()
 	if is_right:
@@ -169,6 +172,7 @@ func _anim_jump():
 
 func _anim_prone_idle():
 	head.up(false)
+	head.stun(false)
 	new_anim = "Prone"
 	exhaust.idle()
 	_body(2)
@@ -177,6 +181,7 @@ func _anim_prone_idle():
 func _anim_prone_crawl():
 	new_anim = "Prone"
 	head.up(false)
+	head.stun(false)
 	exhaust.go()
 	_body(2)
 	if is_right:

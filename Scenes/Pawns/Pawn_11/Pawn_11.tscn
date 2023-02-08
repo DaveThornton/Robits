@@ -1152,7 +1152,7 @@ frame = 6
 
 [node name="Pawn_07_Part_Fire" parent="Robit_11/Pawn_11_Part_Tracks" instance=ExtResource( 7 )]
 show_behind_parent = true
-position = Vector2( 0, 17 )
+position = Vector2( 0.191589, 28 )
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
 visible = false

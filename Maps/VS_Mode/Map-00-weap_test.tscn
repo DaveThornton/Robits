@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -34,6 +34,8 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_56_BFG_9000_Pick.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Scenes/Guns/Pick/W_68_D'k_Tahg_Pick.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Scenes/Guns/Pick/W_67_Wood_Sword_Pick.tscn" type="PackedScene" id=36]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 128.0
@@ -309,3 +311,9 @@ position = Vector2( 688, 968 )
 
 [node name="W_56_BFG9000_Pick" parent="." instance=ExtResource( 32 )]
 position = Vector2( 792, 992 )
+
+[node name="W_66_Hammer_Pick2" parent="." instance=ExtResource( 36 )]
+position = Vector2( 264, 720.051 )
+
+[node name="W_68_D\'k_Tahg_Pick" parent="." instance=ExtResource( 35 )]
+position = Vector2( 200, 736.051 )

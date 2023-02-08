@@ -8,7 +8,7 @@ onready var body_shape_04 = $Shape_Down
 
 onready var head = $Pawn_06_Part_Head
 onready var hover = $Pawn_06_Part_Hover
-onready var hover_part = $Pawn_06_Part_Hover/CPUParticles2D
+# onready var hover_part = $Pawn_06_Part_Hover/CPUParticles2D
 
 onready var body_sprite = $Body_Sprite
 onready var shield_sprite = $Shield_Sprite
@@ -169,7 +169,7 @@ func _is_on_floor():
 		going_up = false
 
 func _anim_idle():
-	hover_part.angle = 0
+	hover.center()
 	if is_right:
 		new_anim = "Right-Idle"
 		head.right()
@@ -180,49 +180,54 @@ func _anim_idle():
 func _anim_run():
 	if is_right:
 		head.right()
+		hover.right()
 		new_anim = "Right-Run"
-		hover_part.angle = -20
 	else:
 		head.left()
+		hover.left()
 		new_anim = "Left-Run"
-		hover_part.angle = 20
 
 func _anim_jump():
 	if is_right:
 		head.right()
+		hover.right()
 		new_anim = "Right-Run"
 	else:
 		head.left()
+		hover.left()
 		new_anim = "Left-Run"
 
 func _anim_prone_idle():
-	hover_part.angle = 0
+	hover.center()
 	if is_right:
 		head.right()
 		new_anim = "Right-Prone-Idle"
 	else:
 		head.left()
+		hover.left()
 		new_anim = "Left-Prone-Idle"
 
 func _anim_prone_crawl():
-	hover_part.angle = 0
+	hover.center()
 	if is_right:
 		head.right()
 		new_anim = "Right-Prone-Crawl"
 	else:
 		head.left()
+		hover.left()
 		new_anim = "Left-Prone-Crawl"
 
 func _anim_stun():
 	head.play_face(5)
+	hover.center()
 	if is_right:
-		head.right()
 		new_anim = "Right-Stun"
 	else:
 		head.left()
 		new_anim = "Left-Stun"
 
 func _anim_Knock():
+	hover.center()
 	if is_right:
 		head.right()
 		new_anim = "Right-Knock_Back"

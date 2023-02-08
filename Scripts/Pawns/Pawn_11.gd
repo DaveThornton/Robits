@@ -37,6 +37,8 @@ export var my_nrg_regen_rate = 10
 export var my_nrg_regen_max = 60
 export var my_light_on_nrg = 40
 
+var fired = false
+
 func _ready():
 	gun_pos = my_gun_pos
 	grav = my_grav
@@ -89,6 +91,9 @@ func jump_j(_down_input, _left_input, _right_input):
 func fix_vel(_vel):
 	if head_room > 0 && _vel.y < 0:
 		_vel.y *= -1
+	if fired && on_floor:
+		fired = false
+	# rocket_test(_vel)
 	return _vel
 
 func jump_rel():
@@ -99,11 +104,11 @@ func jump_rel():
 		vel.y = min_jump_power
 	is_jump_pressed = false
 
-func rocket_test(_vel_y):
-	if _vel_y < 0.0 && !rockets.on:
-		rockets.flame_up()
-	elif _vel_y > 0.0 && rockets.on:
-		rockets.flame_down()
+# func rocket_test(_vel_y):
+# 	if _vel_y < 0.0 && !rockets.on:
+# 		rockets.flame_up()
+# 	elif _vel_y > 0.0 && rockets.on:
+# 		rockets.flame_down()
 	
 func shield_up():
 	head.shield_up()
@@ -171,6 +176,9 @@ func _anim_jump():
 	else:
 		new_anim = "Left-Idle"
 		trax.stop()
+	if air_jump_count > 0 && !fired:
+		fired = true
+		rockets.flame_down()
 
 func _anim_prone_idle():
 	_body(2)
