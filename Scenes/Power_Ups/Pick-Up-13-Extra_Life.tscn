@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Power_Ups/Pick_Up_13_Extra_Life_001.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Power_Ups/Pick-Up-13-Extra_Life.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 24.0
+
+[node name="Pick_Up_13_Extra_Life_01" type="Area2D"]
+collision_layer = 327680
+collision_mask = 65536
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_Jump_Power_Up_body_entered"]

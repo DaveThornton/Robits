@@ -517,6 +517,11 @@ func show_player_ind(_show):
 func get_player_ind_vis():
 	return player_indicator.visible
 
+##---------------------------------------------------------------[getter]---
+
+func get_player_num():
+	return player
+
 ##-------------------------------------------------------------[The in and outs]
 
 func _on_Pick_Up_Area_body_entered(body):
