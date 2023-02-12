@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Explosions/Parts/Mega_Explosion-03-Part_Single.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Explosions/parts/Mega_Explosion-03-Part_multi.gd" type="Script" id=2]
+
+[node name="Ex-203-Mega_03" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Mega_Explosion-03-Part_Single-01" parent="." instance=ExtResource( 1 )]
+
+[node name="Mega_Explosion-03-Part_Single-02" parent="." instance=ExtResource( 1 )]
+
+[node name="Mega_Explosion-03-Part_Single-03" parent="." instance=ExtResource( 1 )]
+
+[node name="Mega_Explosion-03-Part_Single-04" parent="." instance=ExtResource( 1 )]
+
+[node name="Mega_Explosion-03-Part_Single-05" parent="." instance=ExtResource( 1 )]
+
+[node name="Mega_Explosion-03-Part_Single-06" parent="." instance=ExtResource( 1 )]
+
+[node name="Mega_Explosion-03-Part_Single-07" parent="." instance=ExtResource( 1 )]
+
+[node name="Mega_Explosion-03-Part_Single-08" parent="." instance=ExtResource( 1 )]
+
+[node name="Mega_Explosion-03-Part_Single-11" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Mega_Explosion-03-Part_Single-12" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Mega_Explosion-03-Part_Single-13" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Mega_Explosion-03-Part_Single-14" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Mega_Explosion-03-Part_Single-15" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Mega_Explosion-03-Part_Single-16" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Mega_Explosion-03-Part_Single-17" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Mega_Explosion-03-Part_Single-18" parent="." instance=ExtResource( 1 )]
+visible = false
