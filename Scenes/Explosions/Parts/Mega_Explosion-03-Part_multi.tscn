@@ -4,6 +4,7 @@
 [ext_resource path="res://Scripts/Explosions/parts/Mega_Explosion-03-Part_multi.gd" type="Script" id=2]
 
 [node name="Ex-203-Mega_03" type="Node2D"]
+z_index = 10
 script = ExtResource( 2 )
 
 [node name="Mega_Explosion-03-Part_Single-01" parent="." instance=ExtResource( 1 )]

@@ -276,7 +276,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 60.0 ]
+"values": [ 0.0 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:rotation_degrees")
@@ -615,6 +615,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 6 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Robit_11/Pawn_11_Body/Pos_Arm:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="Animation" id=11]
 length = 10.0
@@ -764,7 +776,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -60.0 ]
+"values": [ 0.0 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Robit_11/Pawn_11_Body/Pawn_11_Part_Head:rotation_degrees")
@@ -1095,16 +1107,15 @@ script = ExtResource( 5 )
 [node name="Timers" parent="." instance=ExtResource( 1 )]
 
 [node name="Raycast" type="Node2D" parent="."]
-visible = false
 
 [node name="Down_L" type="RayCast2D" parent="Raycast"]
-position = Vector2( -11, -3 )
+position = Vector2( -18, -3 )
 enabled = true
 cast_to = Vector2( 0, 4 )
 collision_mask = 14
 
 [node name="Down_R" type="RayCast2D" parent="Raycast"]
-position = Vector2( 11, -3 )
+position = Vector2( 18, -3 )
 enabled = true
 cast_to = Vector2( 0, 4 )
 collision_mask = 14
@@ -1124,13 +1135,16 @@ collision_mask = 4
 position = Vector2( -0.191589, -22 )
 
 [node name="Pawn_11_Body" type="Sprite" parent="Robit_11"]
+position = Vector2( -4, 2 )
+rotation = -1.0472
 texture = ExtResource( 8 )
 offset = Vector2( 0, -5 )
 hframes = 8
 frame = 6
 
 [node name="Pawn_11_Part_Head" parent="Robit_11/Pawn_11_Body" instance=ExtResource( 3 )]
-position = Vector2( 0, -9 )
+position = Vector2( -2, -9 )
+rotation = 1.0472
 
 [node name="Attachment_Point" parent="Robit_11/Pawn_11_Body/Pawn_11_Part_Head" instance=ExtResource( 4 )]
 position = Vector2( 0.191589, -7 )
@@ -1155,18 +1169,16 @@ show_behind_parent = true
 position = Vector2( 0.191589, 28 )
 
 [node name="Shape_Stand" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -0.191589, -23 )
 shape = SubResource( 1 )
 
 [node name="Shape_Stand2" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -12 )
 rotation = 1.5708
 shape = SubResource( 2 )
+disabled = true
 
 [node name="Shape_Prone" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( -0.191589, -18 )
 shape = SubResource( 3 )
 

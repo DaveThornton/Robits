@@ -19,17 +19,6 @@ onready var e16 = $"Mega_Explosion-03-Part_Single-16"
 onready var e17 = $"Mega_Explosion-03-Part_Single-17"
 onready var e18 = $"Mega_Explosion-03-Part_Single-18"
 
-export var speed = 0.1
-
-# var d1 = Vector2(-1, 0)
-# var d2 = Vector2(-.75, .75)
-# var d3 = Vector2(0, 1)
-# var d4 = Vector2(.75, .75)
-# var d5 = Vector2(1, 0)
-# var d6 = Vector2(.75, -.75)
-# var d7 = Vector2(0, -1)
-# var d8 = Vector2(-.75, -.75)
-
 var d1 = Vector2(-2, 0)
 var d2 = Vector2(-1.5, 1.5)
 var d3 = Vector2(0, 2)

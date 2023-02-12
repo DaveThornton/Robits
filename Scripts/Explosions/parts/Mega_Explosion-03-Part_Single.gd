@@ -2,9 +2,6 @@ extends Node2D
 
 onready var sprite = $AnimatedSprite
 
-func _ready():
-	pass # Replace with function body.
-
 func play():
 	sprite.playing = true
 
