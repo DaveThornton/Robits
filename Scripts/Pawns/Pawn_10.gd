@@ -178,20 +178,21 @@ func _anim_run():
 		_body(2)
 
 func _anim_jump():
-	# head.play("Idle")
 	head.play("Stun")
-	if is_right:
-		new_anim = "Right-Idle"
+	wheel.stop()
+	if moving:
+		if is_right:
+			new_anim = "Right-Run"
+			_body(3)
+		else:
+			new_anim = "Left-Run"
+			_body(2)
 	else:
-		new_anim = "Left-Idle"
-	# if is_right:
-	# 	new_anim = "Right-Run"
-	# 	wheel.turn(true)
-	# 	_body(1)
-	# else:
-	# 	new_anim = "Left-Run"
-	# 	wheel.turn(false)
-	# 	_body(1)
+		_body(1)
+		if is_right:
+			new_anim = "Right-Idle"
+		else:
+			new_anim = "Left-Idle"
 
 func _anim_prone_idle():
 	head.play("Idle")

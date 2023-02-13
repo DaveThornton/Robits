@@ -54,7 +54,7 @@ func shoot_r():
 
 func _armed(_time):
 	anim.play("Armed")
-	anim.seek((time - _time), true)
+	anim.seek(time - _time, true)
 	timer.wait_time = _time
 	timer.start()
 

@@ -24,8 +24,6 @@ func _ready():
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	player = _player
 	if _ammo == 0:
-		ammo = 0
-		label_time.visible = true
 		_armed(_time)
 	else:
 		label_time.visible = false
@@ -42,10 +40,12 @@ func _process(_delta):
 		label_time.set_time(time)
 
 func _armed(_time):
+	ammo = 0
 	ready = true
 	anim.play("Lit")
+	label_time.visible = true
 	print_debug(_time,"  this is the time it is tring to set in bomb man pick maybe why it randomly explodes?")
-	anim.seek((time -_time),true)
+	anim.seek(time -_time, true)
 	timer_boom.wait_time = _time
 	timer_boom.start()
 
