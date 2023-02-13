@@ -42,6 +42,7 @@ export var my_light_on_nrg = 39
 #---------------------------------------------------------------Extra_JUMP--------
 export var jump_time: = 1.4
 export var jump_height = 180
+
 var jumping_up: = false
 var jump_top_pos = 0.0
 var jump_top = false
@@ -191,11 +192,21 @@ func _anim_jump():
 	if is_right:
 		head.right()
 		hover.right()
-		new_anim = "Right-Run"
+		if moving:
+			hover.right()
+			new_anim = "Right-Run"
+		else:
+			hover.center()
+			new_anim = "Right-Idle"
 	else:
 		head.left()
 		hover.left()
-		new_anim = "Left-Run"
+		if moving:
+			hover.left()
+			new_anim = "Left-Run"
+		else:
+			hover.center()
+			new_anim = "Left-Idle"
 
 func _anim_prone_idle():
 	hover.center()

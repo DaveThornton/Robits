@@ -30,6 +30,7 @@ var terminal_vel = 5
 var max_x_speed = 0
 var current_x_speed = 0
 var can_move = true
+var moving = false
 
 #-------------------------------------------------------------------JUMP--------
 var is_jump_pressed: = false
@@ -134,9 +135,13 @@ func _process(delta):
 			shield_down()
 
 func _physics_process(delta):
-	var _1 = move_and_slide(Vector2(current_x_speed + knocked_back.x , 0 + knocked_back.y ))
-	# var movement = Vector2(0, ((vel.y + (grav * int(!on_floor))) * delta))# + head_room))# * int(!on_ladder))# + (map_movement * delta)
+	var x_move = current_x_speed + knocked_back.x
+	var _1 = move_and_slide(Vector2(x_move , 0 + knocked_back.y ))
 	var movement = Vector2(0, ((vel.y + grav * delta)))
+	if x_move == 0:
+		moving = false
+	else:
+		moving = true
 	if on_floor:
 		movement.y = movement.y / 1.1
 	if movement.y > terminal_vel:
