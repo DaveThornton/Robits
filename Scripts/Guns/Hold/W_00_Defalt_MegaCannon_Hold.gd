@@ -28,10 +28,6 @@ var time = 4.0
 signal ammo_change(player, ammo)
 
 func _ready():
-	my_name = my_name
-	gun_num = gun_num
-	time = time
-	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print_debug("failed to connect ammo change in weap hold 00 mega cannon")

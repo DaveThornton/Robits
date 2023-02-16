@@ -275,6 +275,9 @@ func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
 	if g != null:
 		my_gun = g
 		is_holding = true
+	if my_start_gun && start_equiped:
+		print_debug("equip weap calling start gun to visible false")
+		my_start_gun.visible = false
 
 func equip_start_weap():
 	var g = Equipment.get_weap_hold(0).instance()
@@ -283,15 +286,17 @@ func equip_start_weap():
 	start_equiped = true
 	my_start_gun = g
 	if is_holding:
+		print_debug("equip start weap calling start gun to visible false")
 		my_start_gun.visible = false
 
 func remove_start_weap():
 	print_debug(gun_pos.get_child_count())
 	no_gun()
 	start_equiped = false
+	my_start_gun.call_deferred("queue_free")
 	my_start_gun = null
-	for i in gun_pos.get_child_count():
-		gun_pos.get_child(i).call_deferred("free")
+	# for i in gun_pos.get_child_count():
+	# 	gun_pos.get_child(i).call_deferred("free")
 
 ##-----------------------------------------------------------------------[Throw]
 func pick_throw( left_input, right_input, up_input, down_input, hold_input):
@@ -315,6 +320,7 @@ func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 	elif wep_array.size() > 0:
 		pick_up()
 		if my_start_gun && start_equiped:
+			print_debug("pick throw calling start gun to visible false")
 			my_start_gun.visible = false
 
 func let_go():
@@ -333,7 +339,11 @@ func pick_up():
 	var _weap_num = poss_pick_obj.gun_num
 	var _just_shot = poss_pick_obj.just_shot
 	equip_weap(_weap_num,_ammo_pick_up, _time_left, _just_shot)
-	poss_pick_obj.queue_free()
+	poss_pick_obj.call_deferred("queue_free")
+	# poss_pick_obj.queue_free()
+	if my_start_gun && start_equiped:
+		print_debug("pick up calling start gun to visible false")
+		my_start_gun.visible = false
 
 func no_gun():
 	if is_holding == true:
