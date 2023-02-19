@@ -427,6 +427,12 @@ func knock_back(_amount, _time):
 		if shoot_spot == 5:
 			knocked_back = Vector2((_amount * .1), -(_amount * .9))
 
+func pow():
+	if on_floor:
+		stun(0)
+		knock_dir(200,1,5,is_right)
+
+
 ##---------------------------------------------------------[Set collsion layers]
 func set_collision(_player):
 	set_collision_layer_bit(Player_Stats.get_player_collision_layer(_player) - 1, true)
@@ -536,6 +542,10 @@ func get_player_ind_vis():
 
 func get_player_num():
 	return player
+
+func get_on_floor():
+	return on_floor
+
 
 ##-------------------------------------------------------------[The in and outs]
 

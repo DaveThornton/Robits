@@ -89,6 +89,9 @@ func _load_map_cam(_level):
 		p.position = m.player_spawns.get_child(m.next_spawn_spot).position
 		m.next_spawn_spot += 1
 
+func call_pow():
+	map.call_pow()
+
 func add_pos(area):
 	if map != null:
 		map.add_pos(area)

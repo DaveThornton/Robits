@@ -133,6 +133,7 @@ func spawn_pawn():
 		var z = Equipment.get_pawn(Player_Stats.get_pawn_num(player)).instance()
 		get_tree().get_current_scene().pawns.add_child(z)
 		z.connect("explode_p", self, "explode_pawn")
+		Map_Hand.map.connect("pow_sig",z,"pow")
 		my_pawn = z
 		_init_pawn()
 		Player_Stats.set_in_game(player, true)
