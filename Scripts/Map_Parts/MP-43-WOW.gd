@@ -1,7 +1,8 @@
 extends StaticBody2D
 
-onready var anim_sprite_top = $Anim_Sprite_Outside
+onready var anim_sprite_wow = $Anim_Sprite_WOW
 onready var sprite_back = $Sprite_Back
+onready var sprite_border = $Sprite_Border
 onready var respawn_timer = $Respawn_Timer
 onready var hit_timer = $Hit_Timer
 onready var hit_shape = $Area2D/CollisionShape2D
@@ -28,7 +29,7 @@ var area_pos_04 = 0
 var area_pos_05 = -6
 
 func _ready():
-	anim_sprite_top.play()
+	anim_sprite_wow.play()
 	check_frame()
 
 func hit(owned, my_name, damage_type, damage):
@@ -43,34 +44,37 @@ func _hit(_owned, _my_name, _damage_type, _damage):
 		check_frame()
 
 func check_frame():
-	sprite_back.frame = hit_count
+	if hit_count < hit_max:
+		sprite_back.frame = hit_count
+		sprite_border.frame = hit_count
+		
 	if hit_count == 0:
-		anim_sprite_top.animation = "0"
+		anim_sprite_wow.animation = "0"
 		hit_shape.position.y = area_pos_00
 		disable_collision_shapes()
 		shape_00.disabled = false
 	elif hit_count == 1:
-		anim_sprite_top.animation = "1"
+		anim_sprite_wow.animation = "1"
 		hit_shape.position.y = area_pos_01
 		disable_collision_shapes()
 		shape_01.disabled = false
 	elif hit_count == 2:
-		anim_sprite_top.animation = "2"
+		anim_sprite_wow.animation = "2"
 		hit_shape.position.y = area_pos_02
 		disable_collision_shapes()
 		shape_02.disabled = false
 	elif hit_count == 3:
-		anim_sprite_top.animation = "3"
+		anim_sprite_wow.animation = "3"
 		hit_shape.position.y = area_pos_03
 		disable_collision_shapes()
 		shape_03.disabled = false
 	elif hit_count == 4:
-		anim_sprite_top.animation = "4"
+		anim_sprite_wow.animation = "4"
 		hit_shape.position.y = area_pos_04
 		disable_collision_shapes()
 		shape_04.disabled = false
 	elif hit_count == 5:
-		anim_sprite_top.animation = "5"
+		anim_sprite_wow.animation = "5"
 		hit_shape.position.y = area_pos_05
 		disable_collision_shapes()
 		shape_05.disabled = false

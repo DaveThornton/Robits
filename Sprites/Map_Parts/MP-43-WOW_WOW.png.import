@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MP-43-POW_Outside.png-ebf72d64ca4976cab6ae3d1bdd4611f3.stex"
+path="res://.import/MP-43-WOW_WOW.png-d8c59f9afe41c79f3f9fecef58e65bcc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Map_Parts/MP-43-POW_Outside.png"
-dest_files=[ "res://.import/MP-43-POW_Outside.png-ebf72d64ca4976cab6ae3d1bdd4611f3.stex" ]
+source_file="res://Sprites/Map_Parts/MP-43-WOW_WOW.png"
+dest_files=[ "res://.import/MP-43-WOW_WOW.png-d8c59f9afe41c79f3f9fecef58e65bcc.stex" ]
 
 [params]
 
