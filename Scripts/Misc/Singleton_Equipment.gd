@@ -218,7 +218,99 @@ export(PackedScene) var pawn_12
 export(PackedScene) var pawn_13
 export(PackedScene) var pawn_14
 export(PackedScene) var pawn_15
-#export(PackedScene) var pawn_16
+
+export var weap_names = {
+	0:"name",
+	1:"name",
+	2:"name",
+	3:"name",
+	4:"name",
+	5:"name",
+	6:"name",
+	7:"name",
+	8:"name",
+	9:"name",
+	10:"name",
+	11:"name",
+	12:"name",
+	13:"name",
+	14:"name",
+	15:"name",
+	16:"name",
+	17:"name",
+	18:"name",
+	19:"name",
+	20:"name",
+	21:"name",
+	22:"name",
+	23:"name",
+	24:"name",
+	25:"name",
+	26:"name",
+	27:"name",
+	28:"name",
+	29:"name",
+	30:"name",
+	31:"name",
+	32:"name",
+	33:"name",
+	34:"name",
+	35:"name",
+	36:"name",
+	37:"name",
+	38:"name",
+	39:"name",
+	40:"name",
+	41:"name",
+	42:"name",
+	43:"name",
+	44:"name",
+	45:"name",
+	46:"name",
+	47:"name",
+	48:"name",
+	49:"name",
+	50:"name",
+	61:"name",
+	62:"name",
+	63:"name",
+	64:"name",
+	65:"name",
+	66:"name",
+	67:"name",
+	68:"name",
+	69:"name",
+	70:"name",
+	71:"name",
+	72:"name",
+	73:"name",
+	74:"name",
+	75:"name",
+	76:"name",
+	77:"name",
+	78:"name",
+	79:"name",
+	80:"name",
+	81:"name",
+	82:"name",
+	83:"name",
+	84:"name",
+	85:"name",
+	86:"name",
+	87:"name",
+	88:"name",
+	89:"name",
+	90:"name",
+	91:"name",
+	92:"name",
+	93:"name",
+	94:"name",
+	95:"name",
+	96:"name",
+	97:"name",
+	98:"name",
+	99:"name"
+}
 
 func get_weap_hold(_weap: int):
 	if _weap < 26:
@@ -480,60 +572,32 @@ func get_weap_pick(_weap: int):
 			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 			return gun_pick_02
 
-func get_item(_item):
-	if _item == 1:
-		return item_pick_01
-	elif _item == 2:
-		return item_pick_02
-	elif _item == 3:
-		return item_pick_03
-	elif _item == 4:
-		return item_pick_04
-	elif _item == 5:
-		return item_pick_05
-	elif _item == 6:
-		return item_pick_06
-	else:
-		print_debug("Error in Singleton Equipment wrong item number ----> ", _item, " you get Ammo")
-		return item_pick_01
+func get_weap_name(_weap: int):
+	return weap_names[_weap]
 
-func get_pawn(_pawn_num):
-	if _pawn_num == 1:
-		return pawn_01
-	elif _pawn_num == 2:
-		return pawn_02
-	elif _pawn_num == 3:
-		return pawn_03
-	elif _pawn_num == 4:
-		return pawn_04
-	elif _pawn_num == 5:
-		return pawn_05
-	elif _pawn_num == 6:
-		return pawn_06
-	elif _pawn_num == 7:
-		return pawn_07
-	elif _pawn_num == 8:
-		return pawn_08
-	elif _pawn_num == 9:
-		return pawn_09
-	elif _pawn_num == 10:
-		return pawn_10
-	elif _pawn_num == 11:
-		return pawn_11
-	elif _pawn_num == 12:
-		return pawn_12
-	elif _pawn_num == 13:
-		return pawn_13
-	elif _pawn_num == 14:
-		return pawn_14
-	elif _pawn_num == 15:
-		return pawn_15
-	elif _pawn_num == 16:
-		var _pawn = (randi() % 14) + 1
-		return get_pawn(_pawn)
-	elif _pawn_num == 0:
-		print_debug("no pawn selected pawn number = ", _pawn_num, " you get pawn #13")
-		return pawn_13
-	else:
-		print_debug("not a good pawn number ", _pawn_num, " so im sending in pawn #1")
-		return pawn_01
+func get_item(_item: int):
+	match _item:
+		1:return item_pick_01
+		2:return item_pick_02
+		3:return item_pick_03
+		4:return item_pick_04
+		5:return item_pick_05
+		6:return item_pick_06
+
+func get_pawn(_pawn_num: int):
+	match _pawn_num:
+		1:return pawn_01
+		2:return pawn_02
+		3:return pawn_03
+		4:return pawn_04
+		5:return pawn_05
+		6:return pawn_06
+		7:return pawn_07
+		8:return pawn_08
+		9:return pawn_09
+		10:return pawn_10
+		11:return pawn_11
+		12:return pawn_12
+		13:return pawn_13
+		14:return pawn_14
+		15:return pawn_15

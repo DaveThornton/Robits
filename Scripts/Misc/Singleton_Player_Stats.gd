@@ -23,7 +23,9 @@ var p1 = {
 	color_1 = Color8(232, 32, 75, 255),
 	color_3 = Color8(255, 225, 225, 222),
 	player_indi_vis = false,
-	team = 0
+	team = 0,
+	weap_kill_w = {},
+	weap_killed_by = {}
 }
 
 var p2 = {
@@ -49,7 +51,9 @@ var p2 = {
 	color_1 = Color8(103, 255, 85, 255),
 	color_3 = Color8(255, 225, 225, 222),
 	player_indi_vis = false,
-	team = 0
+	team = 0,
+	weap_kill_w = {},
+	weap_killed_by = {}
 }
 
 var p3 = {
@@ -75,7 +79,9 @@ var p3 = {
 	color_1 = Color8(25, 145, 255, 255),
 	color_3 = Color8(255, 225, 225, 222),
 	player_indi_vis = false,
-	team = 0
+	team = 0,
+	weap_kill_w = {},
+	weap_killed_by = {}
 }
 
 var p4 = {
@@ -101,7 +107,9 @@ var p4 = {
 	color_1 = Color8(255, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222),
 	player_indi_vis = false,
-	team = 0
+	team = 0,
+	weap_kill_w = {},
+	weap_killed_by = {}
 }
 
 var p5 = {
@@ -127,7 +135,9 @@ var p5 = {
 	color_1 = Color8(119, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222),
 	player_indi_vis = false,
-	team = 0
+	team = 0,
+	weap_kill_w = {},
+	weap_killed_by = {}
 }
 
 var p6 = {
@@ -153,7 +163,9 @@ var p6 = {
 	color_1 = Color8(0, 255, 244, 255),
 	color_3 = Color8(255, 225, 225, 222),
 	player_indi_vis = false,
-	team = 0
+	team = 0,
+	weap_kill_w = {},
+	weap_killed_by = {}
 }
 
 var p7 = {
@@ -179,7 +191,9 @@ var p7 = {
 	color_1 = Color8(255, 220, 72, 255),
 	color_3 = Color8(255, 225, 225, 222),
 	player_indi_vis = false,
-	team = 0
+	team = 0,
+	weap_kill_w = {},
+	weap_killed_by = {}
 }
 
 var p8 = {
@@ -205,7 +219,9 @@ var p8 = {
 	color_1 = Color8(255, 105, 45, 255),
 	color_3 = Color8(255, 225, 225, 222),
 	player_indi_vis = false,
-	team = 0
+	team = 0,
+	weap_kill_w = {},
+	weap_killed_by = {}
 }
 
 var p_in_p = 0
@@ -234,6 +250,10 @@ func add_kill(_killed, _killer, _point, _by_what):
 		get_player_stats(_killer)["kill"] += 1
 	if _point > 1 && Settings.get_multi_minus_on_death():
 		add_score(_killed,(-1 * (_point -1)))
+	add_killed_by(_killed, _by_what)
+	add_kill_w(_killer, _by_what)
+	# get_player_stats(_killer).weap_kill_w.append(Vector2(_by_what,1))
+	# get_player_stats(_killed).weap_kill_by.append(Vector2(_by_what,1))
 	add_death(_killed)
 
 func add_death(_player):
@@ -384,6 +404,22 @@ func set_player_indi_vis(_player, _vis): get_player_stats(_player)["get_player_i
 func set_team(_player, _team): get_player_stats(_player)["team"] = _team
 
 func set_continuing(_player, _continue): get_player_stats(_player)["continuing"] = _continue
+
+func add_killed_by(_player, _weap):
+	if get_player_stats(_player).weap_killed_by.has(_weap):
+		get_player_stats(_player).weap_killed_by[_weap] += 1
+	else:
+		get_player_stats(_player).weap_killed_by[_weap] = 1
+		print(get_player_stats(_player).weap_killed_by)
+
+func add_kill_w(_player, _weap):
+	pass
+
+func get_killed_by(_player):
+	return get_player_stats(_player).weap_killed_by
+
+func get_killed_w(_player):
+	return get_player_stats(_player).weap_kill_w
 
 func get_continuing(_player): return get_player_stats(_player)["continuing"]
 
@@ -571,8 +607,10 @@ func reset_player(_player):
 	get_player_stats(_player)["pawn_num"] = -1
 	get_player_stats(_player)["get_player_indi_vis"] = false
 	get_player_stats(_player)["team"] = 0
+	get_player_stats(_player)["weap_kill_w"].clear()
+	get_player_stats(_player)["weap_killed_by"].clear()
 
-func reset_player_not_score(_player):# or name or player indi or team
+func reset_player_not_score(_player):# or name or player indi or team or killed by and with
 	get_player_stats(_player)["continuing"] = false
 	get_player_stats(_player)["can_spawn"]= true
 	get_player_stats(_player)["in_play"] = false
