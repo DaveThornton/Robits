@@ -69,7 +69,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			hit_time += .1
 			health -= (_damage - armor)
 			if health <= 0:
-				FX.explode(2, -1, self.position, str(2, self, "'s destruct system"), 0, 0)
+				FX.explode(2, -1, self.position, 301, 0, 0)
 				broken()
 
 func broken():

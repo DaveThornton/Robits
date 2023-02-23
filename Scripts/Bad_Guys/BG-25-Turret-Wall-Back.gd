@@ -84,7 +84,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			call_deferred("free")
 
 func explode():
-	FX.explode(2, player, self.position, "Turret self destrution system", player, ex_dmg)
+	FX.explode(2, player, self.position, 225, player, ex_dmg)
 # 	var x = explode.instance()
 # 	Map_Hand.add_kid_to_map(x)
 # 	x.init(player, self.position, str("player ", x, "'s destruct system"), player, ex_dmg)

@@ -44,7 +44,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			Player_Stats.add_score(_by_who, points)
 			dead = true	
 			emit_signal("dead_turret")
-			FX.explode(103, -1, self.position, str(self, "'s destruct system"), 0, 0)
+			FX.explode(103, -1, self.position, 303, 0, 0)
 			call_deferred("_explode")
 
 func sort_distance(_a, _b):

@@ -32,7 +32,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		health -= (_damage - armor)
 		if health <= 0:
 			emit_signal("dead_cannon")
-			FX.explode(2, -1, self.position, str(self, "'s destruct system"), 0, 0)
+			FX.explode(2, -1, self.position,303, 0, 0)
 			dead = true
 			shape.disabled = true
 			anim_hit.play("Dead")

@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Bad_Guys/BG-02-Open_Gunner-01.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Projectiles/BadGuy/Proj-BG-10-Laser.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Bad_Guys/Open-Gunner-01.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -169,15 +168,11 @@ tracks/0/keys = {
 "values": [ 34 ]
 }
 
-[node name="BG-02-Open_Gunner-01" type="KinematicBody2D" groups=[
-"badguy",
-"hittable",
-]]
+[node name="BG-02-Open_Gunner-01" type="KinematicBody2D" groups=["badguy", "hittable"]]
 pause_mode = 1
 collision_layer = 2048
 collision_mask = 264714
 script = ExtResource( 1 )
-projectile = ExtResource( 2 )
 find_all = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

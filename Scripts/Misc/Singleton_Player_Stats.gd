@@ -243,7 +243,7 @@ func _ready():
 		p7["pawn_num"] = 2
 		p8["pawn_num"] = 2
 
-func add_kill(_killed, _killer, _point, _by_what):
+func add_kill(_killed: int, _killer: int, _point: int, _by_what: int):
 	# print_debug(_killed," by ",_killer," for ",_point, " points with ",_by_what)
 	if _killer > 0:
 		add_score(_killer, _point)
@@ -256,7 +256,7 @@ func add_kill(_killed, _killer, _point, _by_what):
 	# get_player_stats(_killed).weap_kill_by.append(Vector2(_by_what,1))
 	add_death(_killed)
 
-func add_death(_player):
+func add_death(_player: int):
 	get_player_stats(_player)["death"] += 1
 	if Settings.get_multi_minus_on_death():
 		add_score(_player,-1)
@@ -267,20 +267,20 @@ func add_death(_player):
 		if _ps["lives"] == 0:
 			HUD.set_continue(_player, true)
 
-func add_score(_player, _score_amount):
+func add_score(_player: int, _score_amount: int):
 	if _player > 0:
 		get_player_stats(_player)["score"] += _score_amount
 	elif _player == -1:
 		print_debug("singleton_player_stats map kill")
 	HUD.set_score(_player)
 
-func add_shot(_player, _shot_amount): get_player_stats(_player)["shot"] += _shot_amount
+func add_shot(_player: int, _shot_amount: int): get_player_stats(_player)["shot"] += _shot_amount
 
-func add_hit(_player, _hit_amount):
+func add_hit(_player: int, _hit_amount):
 	if _player > 0:
 		get_player_stats(_player)["hit"] += _hit_amount
 
-func coin_insert( _player):
+func coin_insert( _player: int):
 	if _player > 0:
 		get_player_stats(_player)["credit"] += 1
 	elif  _player == -1:
@@ -296,7 +296,7 @@ func coin_insert( _player):
 		print_debug("invalid player in player stats coin insert ... _player --> ", _player)
 	HUD.coin_up(_player)
 
-func use_credit( _player):
+func use_credit( _player: int):
 	set_lives_up(_player)
 	var _ps = get_player_stats(_player)
 	_ps["credit"] -= 1
@@ -305,24 +305,24 @@ func use_credit( _player):
 	HUD.coin_update(_player)
 	emit_signal("player_count_change")
 
-func nrg_update(_player, _nrg, _nrg_max):
+func nrg_update(_player: int, _nrg: int, _nrg_max: int):
 	var _current_nrg = int((float(_nrg) / _nrg_max)* 100)
 	HUD.set_nrg(_player, _current_nrg)
 
-func ammo_update(_player, _ammo):
+func ammo_update(_player: int, _ammo: int):
 	HUD.set_ammo(_player, _ammo)
 
-func can_player_start(_player):
+func can_player_start(_player: int):
 	if get_player_stats(_player)["credit"] > 0:
 		return true
 	else:
 		return false
 
-func can_spawn(_player): return get_player_stats(_player)["can_spawn"]#maybe do away with
+func can_spawn(_player: int): return get_player_stats(_player)["can_spawn"]#maybe do away with
 
-func set_in_game(_player,_in_game): get_player_stats(_player)["in_game"] = _in_game
+func set_in_game(_player: int,_in_game: bool): get_player_stats(_player)["in_game"] = _in_game
 
-func set_all_in_game(in_game):
+func set_all_in_game(in_game: bool):
 	if p1:
 		p1["in_game"] = in_game
 	if p2:
@@ -340,11 +340,11 @@ func set_all_in_game(in_game):
 	if p8:
 		p8["in_game"] = in_game	
 	
-func set_lives_up(_player): get_player_stats(_player)["lives"] += Settings.lives_per_credit
+func set_lives_up(_player: int): get_player_stats(_player)["lives"] += Settings.lives_per_credit
 
-func add_lives(_player,_amount): get_player_stats(_player)["lives"] += _amount
+func add_lives(_player: int,_amount: int): get_player_stats(_player)["lives"] += _amount
 
-func set_lives_to(_player,_amount): get_player_stats(_player)["lives"] = _amount
+func set_lives_to(_player: int,_amount: int): get_player_stats(_player)["lives"] = _amount
 
 func check_lives():# might not be used look in to it
 	if p1["lives"] == 0:
@@ -397,15 +397,15 @@ func set_all_in_play(_in_play):
 
 func set_done(_player,_done): get_player_stats(_player)["done"] = _done
 
-func set_can_spawn(_player, _spawn): get_player_stats(_player)["can_spawn"] = _spawn #maybe do away with
+func set_can_spawn(_player: int, _spawn): get_player_stats(_player)["can_spawn"] = _spawn #maybe do away with
 
-func set_player_indi_vis(_player, _vis): get_player_stats(_player)["get_player_indi_vis"] = _vis
+func set_player_indi_vis(_player: int, _vis): get_player_stats(_player)["get_player_indi_vis"] = _vis
 
-func set_team(_player, _team): get_player_stats(_player)["team"] = _team
+func set_team(_player: int, _team): get_player_stats(_player)["team"] = _team
 
-func set_continuing(_player, _continue): get_player_stats(_player)["continuing"] = _continue
+func set_continuing(_player: int, _continue): get_player_stats(_player)["continuing"] = _continue
 
-func add_killed_by(_player, _weap):
+func add_killed_by(_player: int, _weap):
 	if _weap < 100:
 		if get_player_stats(_player).weap_killed_by.has(_weap):
 			get_player_stats(_player).weap_killed_by[_weap] += 1
@@ -415,7 +415,7 @@ func add_killed_by(_player, _weap):
 		print_debug("didnt add kill bc weap number wasnt reconized")
 	print(get_player_stats(_player).weap_killed_by, "     killed by ", _player)
 
-func add_kill_w(_player, _weap):
+func add_kill_w(_player: int, _weap):
 	if _weap < 100:
 		if get_player_stats(_player).weap_kill_w.has(_weap):
 			var p = get_player_stats(_player).weap_kill_w[_weap]
@@ -425,17 +425,18 @@ func add_kill_w(_player, _weap):
 	else:
 		print_debug("didnt add kill bc weap number wasnt reconized")
 	print(get_player_stats(_player).weap_kill_w, "     kill with ", _player)
-func get_killed_by(_player):
+
+func get_killed_by(_player: int):
 	return get_player_stats(_player).weap_killed_by
 
-func get_killed_w(_player):
+func get_killed_w(_player: int):
 	return get_player_stats(_player).weap_kill_w
 
-func get_continuing(_player): return get_player_stats(_player)["continuing"]
+func get_continuing(_player: int): return get_player_stats(_player)["continuing"]
 
-func get_team(_player): return get_player_stats(_player)["team"]
+func get_team(_player: int): return get_player_stats(_player)["team"]
 
-func get_in_game(_player): return get_player_stats(_player)["in_game"]
+func get_in_game(_player: int): return get_player_stats(_player)["in_game"]
 
 func get_num_in_game():
 	var _num_in_game = 0
@@ -457,7 +458,7 @@ func get_num_in_game():
 		_num_in_game += 1
 	return _num_in_game
 
-func get_in_play(_player): return get_player_stats(_player)["in_play"]
+func get_in_play(_player: int): return get_player_stats(_player)["in_play"]
 
 func get_num_in_play():
 	var _num_in_play = 0
@@ -479,7 +480,7 @@ func get_num_in_play():
 		_num_in_play += 1
 	return _num_in_play
 
-func get_done(_player): return get_player_stats(_player)["done"]
+func get_done(_player: int): return get_player_stats(_player)["done"]
 
 func get_all_done():
 	if p1["done"] && p2["done"] && p3["done"] && p4["done"] && p5["done"] && p6["done"] && p7["done"] && p8["done"]:
@@ -487,19 +488,19 @@ func get_all_done():
 	else:
 		return false
 
-func get_body_color(_player): return get_player_stats(_player)["color_1"]
+func get_body_color(_player: int): return get_player_stats(_player)["color_1"]
 
-func get_sec_color(_player): return get_player_stats(_player)["color_2"]
+func get_sec_color(_player: int): return get_player_stats(_player)["color_2"]
 
-func get_pawn_num(_player):return get_player_stats(_player)["pawn_num"]
+func get_pawn_num(_player: int):return get_player_stats(_player)["pawn_num"]
 
-func get_lives_left(_player):return get_player_stats(_player)["lives"]
+func get_lives_left(_player: int):return get_player_stats(_player)["lives"]
 
-func get_score(_player):return get_player_stats(_player)["score"]
+func get_score(_player: int):return get_player_stats(_player)["score"]
 
-func get_credit(_player): return get_player_stats(_player)["credit"]
+func get_credit(_player: int): return get_player_stats(_player)["credit"]
 
-func get_player_indi_vis(_player): return get_player_stats(_player)["player_indi_vis"]
+func get_player_indi_vis(_player: int): return get_player_stats(_player)["player_indi_vis"]
 
 func get_player_stats(_num):
 	if _num == 1:
@@ -522,7 +523,7 @@ func get_player_stats(_num):
 		print_debug("invalid get player stats, get player stats thats dumb  -->  ", _num)
 		return p8
 
-func get_player_collision_layer(_player): return get_player_stats(_player)["collision_layer"]
+func get_player_collision_layer(_player: int): return get_player_stats(_player)["collision_layer"]
 
 func get_place_name(_place):
 	if _place == 0:
@@ -598,7 +599,7 @@ func reset():
 	reset_player(7)
 	reset_player(8)
 
-func reset_player(_player):
+func reset_player(_player: int):
 	get_player_stats(_player)["name"] = "!!!!"
 	get_player_stats(_player)["continuing"] = false
 	get_player_stats(_player)["can_spawn"]= true
@@ -620,7 +621,7 @@ func reset_player(_player):
 	get_player_stats(_player)["weap_kill_w"].clear()
 	get_player_stats(_player)["weap_killed_by"].clear()
 
-func reset_player_not_score(_player):# or name or player indi or team or killed by and with
+func reset_player_not_score(_player: int):# or name or player indi or team or killed by and with
 	get_player_stats(_player)["continuing"] = false
 	get_player_stats(_player)["can_spawn"]= true
 	get_player_stats(_player)["in_play"] = false

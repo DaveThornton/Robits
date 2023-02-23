@@ -33,7 +33,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 				var deb = debris_scene.instance()
 				FX.add_kid(deb)
 				deb.init(Color8(255,255,255,255), 5, true, debris.get_child(d).global_position, Vector2(0,0))
-			FX.explode(2, -1, self.position, str(self, "'s destruct system"), 0, 0)
+			FX.explode(2, -1, self.position, 303, 0, 0)
 			self.visible = false
 			anim_hit.play("Dead")
 			Player_Stats.add_score(_by_who, points)

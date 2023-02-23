@@ -41,7 +41,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	anim2.play("Hit")
 	if health <= 0:
 		print_debug("BG-08-Shield_Guy dead")
-		FX.explode(7, -1, self.position,my_name, 0, exp_damage)
+		FX.explode(7, -1, self.position,208, 0, exp_damage)
 		# call_deferred("_explode")
 		call_deferred("free")
 

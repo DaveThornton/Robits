@@ -85,7 +85,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	anim2.play("Hit")
 	if health <= 0:
 		print_debug("BG-20-Turrent-Ground dead")
-		FX.explode(2,player, self.position, str("player ", self, "'s destruct system"), player, ex_dmg)
+		FX.explode(2,player, self.position, 222, player, ex_dmg)
 		call_deferred("free")
 
 func sort_distance(_a, _b):

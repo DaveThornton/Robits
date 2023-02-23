@@ -17,4 +17,4 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		if health <= 0:
 			Player_Stats.add_score(_by_who, points)
 			emit_signal("dead_hit_spot")
-			FX.explode(103, -1, self.position, str(self, "'s self destruction system BG_104 but calling 103?"), 0, 0)
+			FX.explode(103, -1, self.position, 304, 0, 0)

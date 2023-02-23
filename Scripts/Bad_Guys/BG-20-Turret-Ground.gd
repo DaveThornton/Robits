@@ -82,7 +82,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	anim2.play("Hit-Orange")
 	if health <= 0:
-		FX.explode(2,player, self.position, "Turret self distrution system", player, damage)
+		FX.explode(2,player, self.position, 220, player, damage)
 		call_deferred("free")
 
 

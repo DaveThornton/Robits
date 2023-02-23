@@ -42,7 +42,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		anim_hit.play("Hit")
 		health -= (_damage - armor)
 		if health <= 0:
-			FX.explode(104, -1, self.global_rposition,"cannons destruct system", 0, 0)
+			FX.explode(104, -1, self.global_rposition,304, 0, 0)
 			dead = true
 			Player_Stats.add_score(_by_who, points)
 			emit_signal("dead_hit_spot")

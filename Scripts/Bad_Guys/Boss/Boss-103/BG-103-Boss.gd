@@ -73,7 +73,7 @@ func _dead_turret():
 		var deb = debris_scene.instance()
 		FX.add_kid(deb)
 		deb.init(tankbody.self_modulate, d, true, debris.get_child(d).global_position, Vector2(0,0))
-	FX.explode(103, -1 , self.position, "Boss 103 Self Distruct", 0, 0)
+	FX.explode(103, -1 , self.position,303, 0, 0)
 	call_deferred("free")
 
 func dead_track():

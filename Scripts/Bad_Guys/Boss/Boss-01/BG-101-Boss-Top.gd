@@ -43,7 +43,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			if health <= 0:
 				print_debug("top box in bg 101 boss killed")
 				broken()
-				FX.explode(5, -1, self.position, str(self, "'s destruct system"), 0, 0)
+				FX.explode(5, -1, self.position, 301, 0, 0)
 
 func broken():
 	dead = true

@@ -81,4 +81,4 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 
 func _on_BG_06_Part_Damage_area_body_entered(_body:Node):
 	if _body.get_groups().has("player"):
-		_body.hit(-1, my_name, dmg_type, damage)
+		_body.hit(-1,206, dmg_type, damage)

@@ -135,7 +135,7 @@ func shoot():
 func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	if health <= 0:
-		FX.explode(2,9, self.position, "Yellow Space Suit Self Distruct", 0, 0)
+		FX.explode(2,9, self.position, 201, 0, 0)
 		call_deferred("free")
 
 func _on_floor():

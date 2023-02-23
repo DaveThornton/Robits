@@ -256,7 +256,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	if health <= 0:
 		print_debug("Open Gunner dead")
-		FX.explode(-7, 1, self.position, "Open Gunner #2 Self Destruct System", 0, 0)
+		FX.explode(-7, 1, self.position, 202, 0, 0)
 		call_deferred("free")
 
 func _on_floor():

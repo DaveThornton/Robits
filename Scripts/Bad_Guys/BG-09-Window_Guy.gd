@@ -158,7 +158,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		shoot = false
 		call_deferred("set_shape_disabled",true)
 		dead = true
-		FX.explode(9, player, self.global_position, "BG 09 Self Destruction", player, 0)
+		FX.explode(9, player, self.global_position, 209, player, 0)
 
 func set_shape_disabled(_disabled):
 	c_shape.disabled = _disabled
