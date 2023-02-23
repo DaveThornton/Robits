@@ -244,7 +244,7 @@ func _ready():
 		p8["pawn_num"] = 2
 
 func add_kill(_killed, _killer, _point, _by_what):
-	print_debug(_killed," by ",_killer," for ",_point, " points with ",_by_what)
+	# print_debug(_killed," by ",_killer," for ",_point, " points with ",_by_what)
 	if _killer > 0:
 		add_score(_killer, _point)
 		get_player_stats(_killer)["kill"] += 1
@@ -406,15 +406,25 @@ func set_team(_player, _team): get_player_stats(_player)["team"] = _team
 func set_continuing(_player, _continue): get_player_stats(_player)["continuing"] = _continue
 
 func add_killed_by(_player, _weap):
-	if get_player_stats(_player).weap_killed_by.has(_weap):
-		get_player_stats(_player).weap_killed_by[_weap] += 1
+	if _weap < 100:
+		if get_player_stats(_player).weap_killed_by.has(_weap):
+			get_player_stats(_player).weap_killed_by[_weap] += 1
+		else:
+			get_player_stats(_player).weap_killed_by[_weap] = 1
 	else:
-		get_player_stats(_player).weap_killed_by[_weap] = 1
-		print(get_player_stats(_player).weap_killed_by)
+		print_debug("didnt add kill bc weap number wasnt reconized")
+	print(get_player_stats(_player).weap_killed_by, "     killed by ", _player)
 
 func add_kill_w(_player, _weap):
-	pass
-
+	if _weap < 100:
+		if get_player_stats(_player).weap_kill_w.has(_weap):
+			var p = get_player_stats(_player).weap_kill_w[_weap]
+			get_player_stats(_player).weap_kill_w[_weap] = p + 1
+		else:
+			get_player_stats(_player).weap_kill_w[_weap] = 1
+	else:
+		print_debug("didnt add kill bc weap number wasnt reconized")
+	print(get_player_stats(_player).weap_kill_w, "     kill with ", _player)
 func get_killed_by(_player):
 	return get_player_stats(_player).weap_killed_by
 

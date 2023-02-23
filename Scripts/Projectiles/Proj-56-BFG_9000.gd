@@ -7,8 +7,10 @@ var speed = 300
 var owned = 0
 var my_name = "BFG 9000"
 var damage
+var gun_num = 0
 
-func start(_rot, _pos, _scale, _owner, _dmg):
+func start(_gun_num,_rot, _pos, _scale, _owner, _dmg):
+	gun_num = _gun_num
 	timer.start()
 	damage = _dmg
 	rotation = _rot + rand_range(-.01, .01)
@@ -40,6 +42,6 @@ func set_layer(_bit):
 	cast_forward.set_collision_mask(_bit)
 
 func _explode(_pos):
-	FX.explode(56.1, owned, _pos, my_name, 0, damage)
+	FX.explode(56.1, owned, _pos, gun_num, 0, damage)
 	SFX.stop("W_56_Projectile")
 	call_deferred("free")

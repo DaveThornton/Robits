@@ -90,7 +90,7 @@ func melee():
 func _on_Melee_Area_body_entered(body):
 	if body.get_groups().has("player"):
 		if body.player != player:
-			body.hit(player, my_name, dmg_type, damage)
+			body.hit(player, gun_num, dmg_type, damage)
 		else:
 			print_debug("quit hitting your self")
 

@@ -7,8 +7,10 @@ var player = 1
 var my_name = "Arrow"
 var damage = 50
 var damage_type = "Arrow"
+var gun_num = 0
 
-func start(_rot, _pos, _scale, _owner, _dmg):
+func start(_gun_num,_rot, _pos, _scale, _owner, _dmg):
+	gun_num = _gun_num
 	timer.start()
 	rotation = _rot + rand_range(-.01, .01)
 	position = _pos
@@ -30,7 +32,7 @@ func _physics_process(delta):
 		else:
 			if ray.get_collider().get_groups().has("player"):
 				Player_Stats.add_hit(player,1)
-				ray.get_collider().hit(player, my_name, damage_type, damage)
+				ray.get_collider().hit(player, gun_num, damage_type, damage)
 			var spot = ray.get_collision_point()
 			print_debug(spot)
 			var x = FX.stuck_arrow().instance()

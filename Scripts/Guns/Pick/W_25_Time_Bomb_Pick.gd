@@ -45,7 +45,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		timer.start()
 
 func _on_Timer_Boom_timeout():
-	FX.explode(25, player, self.global_position, my_name, 0, damage)
+	FX.explode(25, player, self.global_position, gun_num, 0, damage)
 	call_deferred("free")
 
 func _on_WeapPick20Grenade_body_exited(body):

@@ -63,7 +63,7 @@ func shoot_j():
 				var _sss = pos_shoot.global_scale
 				FX.proj(gun_num, _sr, _ss, _sss, player, damage)
 			else:
-				FX.explode(40, player, shoot_cast.get_collision_point(), my_name, 0, damage)	
+				FX.explode(40, player, shoot_cast.get_collision_point(), gun_num, 0, damage)	
 			ammo = clamp(ammo - 1, 0, ammo_max)
 			emit_signal("ammo_change",player,ammo)
 			Player_Stats.add_shot(player, 1)

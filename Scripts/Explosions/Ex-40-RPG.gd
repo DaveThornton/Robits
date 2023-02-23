@@ -10,16 +10,17 @@ var weap_name = "Explosion"
 var damage1 = 50
 var damage2 = 100
 var damage_type = "Explosion"
+var gun_num = 0
 
 func _ready():
 #	my_name = weap_name
 	pass
 
-func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
+func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 	owned = _owner
 	self.global_position = _pos
 	anim.play("Explode")
-	weap_name = _weap_name
+	gun_num = _weap_name
 	damage1 = (_dmg * .5)
 	damage2 = _dmg
 	SFX.play("EX_Standard")
@@ -34,12 +35,12 @@ func _on_Area2D2inner_body_entered(body):
 		call_deferred("_hit", body, damage2)
 
 func _hit(body,_dmg):
-		body.hit(owned, str(weap_name, " ", my_name), damage_type, _dmg)
+		body.hit(owned, gun_num, damage_type, _dmg)
 
 func _on_Area2Douter_body_entered(body):
 	if body.get_groups().has("hittable"):
 		print_debug("calling a hit ex-40-rpg")
-		body.hit(owned, weap_name, damage_type, damage1)
+		body.hit(owned, gun_num, damage_type, damage1)
 
 	elif body.get_groups().has("FX"):
 		var f = body.global_position - self.global_position

@@ -62,7 +62,7 @@ func shoot_j():
 				if _thing.get_groups().has("player") && _thing.player == player:
 					_fire_projectile()
 				else:
-					_thing.hit(player, my_name, dmg_type, damage)
+					_thing.hit(player, gun_num, dmg_type, damage)
 				print_debug("gun 00 shot happened but no projectile spawned hit anyways")
 			elif _thing.get_groups().has("map"):
 				print_debug("gun 00 hitting wall not fireing projectile", _thing)

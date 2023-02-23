@@ -7,8 +7,10 @@ var owned = 0
 onready var anim = $AnimationPlayer
 var my_name = "RPG"
 var damage
+var gun_num = 0
 
-func start(_rot, _pos, _scale, _owner, _dmg):
+func start(_gun_num,_rot, _pos, _scale, _owner, _dmg):
+	gun_num = _gun_num
 	timer.start()
 	damage = _dmg
 	rotation = _rot + rand_range(-.01, .01)
@@ -25,7 +27,7 @@ func _physics_process(delta):
 	move_local_x(speed * delta)
 	speed = speed * 1.01
 	if cast_forward.is_colliding():
-		FX.explode(2, owned, self.global_position, my_name, 0, damage)
+		FX.explode(2, owned, self.global_position, gun_num, 0, damage)
 		call_deferred("_explode", position)
 
 

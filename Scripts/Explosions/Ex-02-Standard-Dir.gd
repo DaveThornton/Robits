@@ -20,8 +20,9 @@ var weap_name = "Explosion"
 var damage1 = 50
 var damage2 = 100
 var damage_type = "Explosion"
+var gun_num = 0
 
-func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
+func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 	damage1 = _dmg / 2
 	damage2 = _dmg
 	print_debug(area_out.get_overlapping_bodies())
@@ -39,7 +40,7 @@ func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
 	print_debug("2 poly right ", poly_right.disabled)
 	print_debug("2 poly down ", poly_down.disabled)
 	print_debug("2 poly left ", poly_left.disabled)
-	
+	gun_num = _weap_name
 	weap_name = _weap_name
 	SFX.play("EX_Standard")
 	print_debug(area_out.get_overlapping_bodies())
@@ -71,7 +72,7 @@ func _on_Area2Douter_body_entered(body):
 	print_debug("",body)
 	if body.get_groups().has("hittable"):
 
-		body.hit(owned, weap_name, damage_type, damage1)
+		body.hit(owned, gun_num, damage_type, damage1)
 	elif body.get_groups().has("FX"):
 
 		var f = body.global_position - self.global_position
@@ -206,10 +207,10 @@ func _on_Area2Douter_body_entered(body):
 
 func _on_Area2D2inner_body_entered(body):
 	if body.get_groups().has("player"):
-		body.hit(owned, str(weap_name, " ", my_name), damage_type, damage2)
+		body.hit(owned, str(gun_num, " ", my_name), damage_type, damage2)
 	elif body.get_groups().has("hittable"):
 		print_debug("trying to call hit on something hittable")
-		body.hit(owned, weap_name, damage_type, damage2)
+		body.hit(owned, gun_num, damage_type, damage2)
 
 func _on_Timer_timeout():
 	anim.play("fade")

@@ -11,19 +11,21 @@ var damage1 = 25
 #var damage2 = 75
 var damage_type = "Explosion"
 var blast_dis = 1.5
+var gun_num = 0
 
 func _ready():
 	# print_debug(b_radius)
 
 	pass
 	
-func init(_owner, _pos, _weap_name, _pawn_num, _dmg):
+func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 	owned = _owner
 	anim.play("Explode")
 	self.global_position = _pos
 	damage1 = _dmg
 	SFX.play("EX_Standard")
 	FX.add_trauma(trauma)
+	gun_num = _weap_name
 
 func start( _sr , _ss, _sss, _player):
 	owned = _player
@@ -34,7 +36,7 @@ func _on_Area2Douter_body_entered(body):
 
 func _body_entered(body):
 	if body.get_groups().has("hittable"):
-		body.hit(owned, my_name, damage_type, damage1)
+		body.hit(owned, gun_num, damage_type, damage1)
 	elif body.get_groups().has("FX"):
 		var r = rand_range(.25, 2)
 		var f = body.global_position - self.global_position

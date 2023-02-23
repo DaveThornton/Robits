@@ -150,7 +150,7 @@ func _init_pawn():
 
 
 func explode_pawn(_player, _pos, _by_who, _by_what):
-	FX.explode(3, player, _pos + Vector2(0,-30), str("player ", player, "'s destruct system"), Player_Stats.get_pawn_num(player), 2)
+	FX.explode(3, player, _pos + Vector2(0,-30), 1001, Player_Stats.get_pawn_num(player), 2)
 	alive = false
 	clear_pawn()
 	# my_pawn.call_deferred("free")

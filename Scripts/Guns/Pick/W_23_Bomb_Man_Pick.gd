@@ -58,7 +58,7 @@ func _on_TimerBoom_timeout():
 	fade_out()
 
 func fade_out():
-	FX.explode(25, player, self.global_position, my_name, 0, damage)
+	FX.explode(25, player, self.global_position, gun_num, 0, damage)
 	call_deferred("free")
 
 func _on_Timer_timeout():

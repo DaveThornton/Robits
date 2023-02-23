@@ -8,8 +8,10 @@ var speed = 800
 var owned = 0
 var my_name = "Grenade Launcher"
 var damage = 0
+var gun_num = 0
 
-func start(_rot, _pos, _scale, _owner, _dmg):
+func start(_gun_num,_rot, _pos, _scale, _owner, _dmg):
+	gun_num = _gun_num
 	timer.start()
 	damage = _dmg
 	rotation = _rot + rand_range(-.01, .01)

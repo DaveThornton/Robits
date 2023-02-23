@@ -28,10 +28,6 @@ var shot_count = 0
 signal ammo_change(player, ammo)
 
 func _ready():
-	my_name = my_name
-	gun_num = gun_num
-	time = time
-	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print_debug("failed to connect ammo change in weap hold 11 mega cannon")
@@ -68,7 +64,7 @@ func shoot_j():
 					if _thing.player == player:
 						_fire_projectile()
 					else:
-						_thing.hit(player, my_name, dmg_type, damage)
+						_thing.hit(player, gun_num, dmg_type, damage)
 					print_debug("gun 9 shot happened but no projectile spawned hit anyways")
 				elif _thing.get_groups().has("map"):
 					print_debug("gun 9 hitting wall not fireing projectile", _thing)

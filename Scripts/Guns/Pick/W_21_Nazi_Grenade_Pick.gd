@@ -49,7 +49,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		label.visible = false
 		timer.start()
 func _on_Timer_Boom_timeout():
-	FX.explode(10,player, self.global_position, my_name, 0, damage)
+	FX.explode(10,player, self.global_position, gun_num, 0, damage)
 	call_deferred("free")
 
 func spin(_how_much):

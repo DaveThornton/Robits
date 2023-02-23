@@ -65,11 +65,11 @@ func _physics_process(delta):
 			if shoot_cast.get_collider().get_groups().has("player"):
 				Player_Stats.add_hit(player, 1)
 				_hit(shoot_cast.get_collision_point())
-				shoot_cast.get_collider().hit(player, my_name, dmg_type, damage)
+				shoot_cast.get_collider().hit(player, gun_num, dmg_type, damage)
 			elif shoot_cast.get_collider().get_groups().has("hittable"):
 				Player_Stats.add_hit(player, 1)
 				_hit(shoot_cast.get_collision_point())
-				shoot_cast.get_collider().hit(player, my_name, dmg_type, damage)
+				shoot_cast.get_collider().hit(player, gun_num, dmg_type, damage)
 			else:
 				_hit(shoot_cast.get_collision_point())
 			anim_fire.play("Shoot")
@@ -111,7 +111,7 @@ func melee():
 func _on_Melee_Area_body_entered(body):
 	if body.get_groups().has("player"):
 		if body.player != player:
-			body.hit(player, my_name, dmg_type, damage)
+			body.hit(player, gun_num, dmg_type, damage)
 		else:
 			print_debug("quit hitting your self")
 

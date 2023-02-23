@@ -90,7 +90,7 @@ func shoot_j():
 				else:
 					var _thing = shoot_cast.get_collider()
 					if _thing.get_groups().has("hittable"):
-						_thing.hit(player, my_name, dmg_type, (damage * 5))
+						_thing.hit(player, gun_num, dmg_type, (damage * 5))
 						print_debug("gun 50 shot happened but no projectile spawned hit anyways")
 					elif _thing.get_groups().has("map"):
 						print_debug("gun 50 hitting wall not fireing projectile", _thing)
@@ -133,7 +133,7 @@ func melee():
 func _on_Melee_Area_body_entered(body):
 	if body.get_groups().has("player"):
 		if body.player != player:
-			body.hit(player, my_name, dmg_type, damage)
+			body.hit(player, gun_num, dmg_type, damage)
 		else:
 			print_debug("quit hitting your self")
 

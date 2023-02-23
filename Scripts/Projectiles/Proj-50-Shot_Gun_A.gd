@@ -10,8 +10,10 @@ var my_name = "12 Gauge"
 var damage = 16
 var damage_type = "Bullet"
 var life_time = .1
+var gun_num = 0
 
-func start( _rot , _pos, _scale, _owner, _dmg):
+func start(_gun_num,_rot, _pos, _scale, _owner, _dmg):
+	gun_num = _gun_num
 	self.global_rotation = _rot# + rand_range(-.01, .01)
 	self.global_position = _pos
 	# self.global_scale = _scale
@@ -25,12 +27,12 @@ func _physics_process(delta):
 		if cast.get_collider().get_groups().has("player"):
 			Player_Stats.add_hit(owned, 1)
 			_hit_move(cast.get_collision_point())
-			cast.get_collider().hit(owned, my_name, damage_type, damage)
+			cast.get_collider().hit(owned, gun_num, damage_type, damage)
 			call_deferred("free")
 		elif cast.get_collider().get_groups().has("hittable"):
 			Player_Stats.add_hit(owned, 1)
 			_hit_move(cast.get_collision_point())
-			cast.get_collider().hit(owned, my_name, damage_type, damage)
+			cast.get_collider().hit(owned, gun_num, damage_type, damage)
 			call_deferred("free")
 		else:
 			_hit_map(cast.get_collision_point())

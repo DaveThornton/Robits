@@ -108,7 +108,7 @@ func spawm_proj():
 
 func shoot_no_proj(_thing):
 	if _thing.get_groups().has("hittable"):
-		_thing.hit(player, my_name, dmg_type, damage)
+		_thing.hit(player, gun_num, dmg_type, damage)
 		print_debug("gun 03 shot happened but no projectile spawned hit anyways")
 	elif _thing.get_groups().has("map"):
 		print_debug("gun 03 hitting wall not fireing projectile", _thing)
@@ -128,7 +128,7 @@ func melee():
 func _on_Melee_Area_body_entered(body):
 	if body.get_groups().has("player"):
 		if body.player != player:
-			body.hit(player, my_name, dmg_type, damage)
+			body.hit(player, gun_num, dmg_type, damage)
 		else:
 			print_debug("quit hitting your self")
 

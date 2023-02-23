@@ -128,5 +128,5 @@ func go_boom():
 	var p = Controllers.get_pawn(player)
 	p.my_gun = null
 	p.is_holding = false
-	FX.explode(10, player, self.global_position, my_name, 0, damage)
+	FX.explode(10, player, self.global_position, gun_num, 0, damage)
 	call_deferred("free")

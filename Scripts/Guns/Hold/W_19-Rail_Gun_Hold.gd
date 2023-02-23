@@ -81,7 +81,7 @@ func shoot():
 				if !shoot_cast.is_colliding():
 					print_debug("shoot cast not colliding why gun 19")
 				else: 
-					FX.explode(19, player, shoot_cast.get_collision_point(), my_name, pawn, damage)
+					FX.explode(19, player, shoot_cast.get_collision_point(), gun_num, pawn, damage)
 				anim_fire.play("Shoot")
 				ammo = clamp(ammo - 1, 0, ammo_max)
 				emit_signal("ammo_change",player,ammo)
@@ -110,7 +110,7 @@ func melee():
 func _on_Melee_Area_body_entered(body):
 	if body.get_groups().has("player"):
 		if body.player != player:
-			body.hit(player, my_name, dmg_type, damage)
+			body.hit(player, gun_num, dmg_type, damage)
 		else:
 			print_debug("quit hitting your self")
 

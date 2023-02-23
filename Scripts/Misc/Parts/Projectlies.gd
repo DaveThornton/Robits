@@ -115,7 +115,7 @@ func make_vs(_num,_rot, _pos, _scale, _owner, _dmg):
 		84:
 			new_projectile = proj084.instance()
 	Map_Hand.add_kid_to_map(new_projectile)
-	new_projectile.start( _rot , _pos, _scale, _owner, _dmg)
+	new_projectile.start(_num, _rot , _pos, _scale, _owner, _dmg)
 
 	if Game.get_mode() == 0:
 		new_projectile.set_layer(layer)
@@ -133,7 +133,7 @@ func make_bad(_num,_rot, _pos, _scale, _owner, _dmg):
 			new_projectile = bg_proj103.instance()
 
 	Map_Hand.add_kid_to_map(new_projectile)
-	new_projectile.start( _rot , _pos, _scale, _owner, _dmg)
+	new_projectile.start( _num, _rot , _pos, _scale, _owner, _dmg)
 
 func get_layer_mode_0_a():
 	return no_hit_player_map

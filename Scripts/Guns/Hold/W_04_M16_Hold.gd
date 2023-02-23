@@ -36,10 +36,6 @@ var time = 4.0
 signal ammo_change(player, ammo)
 
 func _ready():
-	my_name = my_name
-	gun_num = gun_num
-	time = time
-	damage = damage
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print_debug("failed to connect ammo change in weap hold 02 M-16")
@@ -88,7 +84,7 @@ func shoot():
 			else:
 				var _thing = shoot_cast.get_collider()
 				if _thing.get_groups().has("hittable"):
-					_thing.hit(player, my_name, dmg_type, damage)
+					_thing.hit(player, gun_num, dmg_type, damage)
 					print_debug("gun 02 shot happened but no projectile spawned hit anyways")
 				elif _thing.get_groups().has("map"):
 					print_debug("gun 02 hitting wall not fireing projectile", _thing)
@@ -127,7 +123,7 @@ func melee():
 func _on_Melee_Area_body_entered(body):
 	if body.get_groups().has("player"):
 		if body.player != player:
-			body.hit(player, my_name, dmg_type, damage)
+			body.hit(player, gun_num, dmg_type, damage)
 		else:
 			print_debug("quit hitting your self")
 

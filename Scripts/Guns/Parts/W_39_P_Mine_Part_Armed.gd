@@ -9,6 +9,7 @@ var player = 0
 var my_name = "Prox Mine"
 var armed = false
 var damage = 0
+var gun_num = 39
 
 func _ready():
 	anim.play("Flash")
@@ -20,7 +21,7 @@ func init(_player, _dmg, _pos, _rot):
 	self.rotation_degrees = _rot
 
 func destruct():
-	FX.explode(10, player, ex_spot.global_position, my_name, 0, damage)
+	FX.explode(10, player, ex_spot.global_position, gun_num, 0, damage)
 	call_deferred("free")
 
 func _on_Area2D_body_entered(body):

@@ -7,8 +7,10 @@ var owned = 1
 var my_name = "Cricket"
 var damage = 150
 var damage_type = "laser"
+var gun_num = 0
 
-func start(_rot, _pos, _scale, _owner, _dmg):
+func start(_gun_num,_rot, _pos, _scale, _owner, _dmg):
+	gun_num = _gun_num
 	timer.start()
 	rotation = _rot + rand_range(-.02, .02)
 	position = _pos
@@ -21,7 +23,7 @@ func start(_rot, _pos, _scale, _owner, _dmg):
 
 func _physics_process(delta):
 	if cast.is_colliding():
-		FX.explode(18, owned, cast.get_collision_point(), "Cricket", 0, damage)
+		FX.explode(18, owned, cast.get_collision_point(), gun_num, 0, damage)
 		call_deferred("free")
 	move_local_x(speed * delta)
 

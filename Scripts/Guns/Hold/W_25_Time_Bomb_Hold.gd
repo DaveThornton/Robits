@@ -120,5 +120,5 @@ func _on_Timer_timeout():
 	var p = Controllers.get_pawn(player)
 	p.my_gun = null
 	p.is_holding = false
-	FX.explode(25, player, self.global_position, my_name, 0, damage)
+	FX.explode(25, player, self.global_position, gun_num, 0, damage)
 	queue_free()
