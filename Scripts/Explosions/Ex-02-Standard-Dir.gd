@@ -207,7 +207,7 @@ func _on_Area2Douter_body_entered(body):
 
 func _on_Area2D2inner_body_entered(body):
 	if body.get_groups().has("player"):
-		body.hit(owned, str(gun_num, " ", my_name), damage_type, damage2)
+		body.hit(owned, gun_num, damage_type, damage2)
 	elif body.get_groups().has("hittable"):
 		print_debug("trying to call hit on something hittable")
 		body.hit(owned, gun_num, damage_type, damage2)
