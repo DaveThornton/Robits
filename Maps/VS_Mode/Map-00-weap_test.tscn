@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -22,7 +22,6 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Guns/Pick/W_66_Hammer_Pick.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Guns/Pick/W_69_Bat'leth_Pick.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Map_Parts/MP-43-WOW.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Guns/Pick/W_42_G-Launcher_Pick.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Guns/Pick/W_58_Derringer_Pick.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Guns/Pick/W_59_Bow_Pick.tscn" type="PackedScene" id=28]
@@ -305,6 +304,3 @@ position = Vector2( 216, 1008 )
 
 [node name="W_39_P_Mine4" parent="." instance=ExtResource( 15 )]
 position = Vector2( 288, 1008 )
-
-[node name="MP-42-WOW" parent="." instance=ExtResource( 24 )]
-position = Vector2( 320, 920 )

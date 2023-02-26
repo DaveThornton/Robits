@@ -1,6 +1,6 @@
 extends Node
 #look in ready func for demo pawn selection
-var p1 = {
+var px = {#vars to be added to all other player stats
 	my_name = "!!!!",
 	continuing = false,
 	can_spawn = true,
@@ -18,210 +18,84 @@ var p1 = {
 	ammo = 0,
 	nrg = 100,
 	pawn_num = -1,
+	player_indi_vis = false,
+	team = 0,
+	weap_kill_w = {},
+	weap_killed_by = {},
+
+	suscide_count = 0,
+	drop_count = 0,
+	throw_count = 0,
+	jump_count = 0,
+
+	ammo_box_count = 0,
+	p_up_jump_count = 0,
+	p_up_shield_count = 0,
+	p_up_battery_count = 0,
+	p_up_coin_count = 0,
+	p_up_dot_count = 0,
+	p_up_back_shield_count = 0,
+	p_up_balloon_count = 0,
+
+	ground_distance = 0.0,
+	air_distance = 0.0,
+	drop_distance = 0.0,
+	jump_up_distance = 0.0
+}
+var p1 = {
 	collision_layer = 25,
 	color_2 = Color8(76, 255, 142, 255),
 	color_1 = Color8(232, 32, 75, 255),
-	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false,
-	team = 0,
-	weap_kill_w = {},
-	weap_killed_by = {}
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p2 = {
-	my_name = "!!!!",
-	continuing = false,
-	can_spawn = true,
-	in_play = false,
-	in_game = false,
-	exist = false,
-	done = true,
-	credit = 0,
-	lives = 0,
-	kill = 0,
-	death = 0,
-	score = 0,
-	shot = 0.0,
-	hit = 0.0,
-	ammo = 0,
-	nrg = 100,
-	pawn_num = -1,
 	collision_layer = 26,
 	color_2 = Color8(255, 0, 195, 255),
 	color_1 = Color8(103, 255, 85, 255),
-	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false,
-	team = 0,
-	weap_kill_w = {},
-	weap_killed_by = {}
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p3 = {
-	my_name = "!!!!",
-	continuing = false,
-	can_spawn = true,
-	in_play = false,
-	in_game = false,
-	exist = false,
-	done = true,
-	credit = 0,
-	lives = 0,
-	kill = 0,
-	death = 0,
-	score = 0,
-	shot = 0.0,
-	hit = 0.0,
-	ammo = 0,
-	nrg = 100,
-	pawn_num = -1,
 	collision_layer = 27,
 	color_2 = Color8(255, 151, 15, 255),
 	color_1 = Color8(25, 145, 255, 255),
-	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false,
-	team = 0,
-	weap_kill_w = {},
-	weap_killed_by = {}
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p4 = {
-	my_name = "!!!!",
-	continuing = false,
-	can_spawn = true,
-	in_play = false,
-	in_game = false,
-	exist = false,
-	done = true,
-	credit = 0,
-	lives = 0,
-	kill = 0,
-	death = 0,
-	score = 0,
-	shot = 0.0,
-	hit = 0.0,
-	ammo = 0,
-	nrg = 100,
-	pawn_num = -1,
 	collision_layer = 28,
 	color_2 = Color8(82, 235, 0, 255),
 	color_1 = Color8(255, 0, 255, 255),
-	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false,
-	team = 0,
-	weap_kill_w = {},
-	weap_killed_by = {}
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p5 = {
-	my_name = "!!!!",
-	continuing = false,
-	can_spawn = true,
-	in_play = false,
-	in_game = false,
-	exist = false,
-	done = true,
-	credit = 0,
-	lives = 0,
-	kill = 0,
-	death = 0,
-	score = 0,
-	shot = 0.0,
-	hit = 0.0,
-	ammo = 0,
-	nrg = 100,
-	pawn_num = -1,
 	collision_layer = 29,
 	color_2 = Color8(255, 232, 0, 255),
 	color_1 = Color8(119, 0, 255, 255),
-	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false,
-	team = 0,
-	weap_kill_w = {},
-	weap_killed_by = {}
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p6 = {
-	my_name = "!!!!",
-	continuing = false,
-	can_spawn = true,
-	in_play = false,
-	in_game = false,
-	exist = false,
-	done = true,
-	credit = 0,
-	lives = 0,
-	kill = 0,
-	death = 0,
-	score = 0,
-	shot = 0.0,
-	hit = 0.0,
-	ammo = 0,
-	nrg = 100,
-	pawn_num = -1,
 	collision_layer = 30,
 	color_2 = Color8(225, 98, 15, 255),
 	color_1 = Color8(0, 255, 244, 255),
-	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false,
-	team = 0,
-	weap_kill_w = {},
-	weap_killed_by = {}
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p7 = {
-	my_name = "!!!!",
-	continuing = false,
-	can_spawn = true,
-	in_play = false,
-	in_game = false,
-	exist = false,
-	done = true,
-	credit = 0,
-	lives = 0,
-	kill = 0,
-	death = 0,
-	score = 0,
-	shot = 0.0,
-	hit = 0.0,
-	ammo = 0,
-	nrg = 100,
-	pawn_num = -1,
 	collision_layer = 31,
 	color_2 = Color8(0, 30, 255, 255),
 	color_1 = Color8(255, 220, 72, 255),
-	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false,
-	team = 0,
-	weap_kill_w = {},
-	weap_killed_by = {}
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p8 = {
-	my_name = "!!!!",
-	continuing = false,
-	can_spawn = true,
-	in_play = false,
-	in_game = false,
-	exist = false,
-	done = true,
-	credit = 0,
-	lives = 0,
-	kill = 0,
-	death = 0,
-	score = 0,
-	shot = 0.0,
-	hit = 0.0,
-	ammo = 0,
-	nrg = 100,
-	pawn_num = -1,
 	collision_layer = 32,
 	color_2 = Color8(20, 255, 254, 255),
 	color_1 = Color8(255, 105, 45, 255),
-	color_3 = Color8(255, 225, 225, 222),
-	player_indi_vis = false,
-	team = 0,
-	weap_kill_w = {},
-	weap_killed_by = {}
+	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p_in_p = 0
@@ -229,6 +103,22 @@ var p_in_p = 0
 signal player_count_change
 
 func _ready():
+	var p0 = px.duplicate(true)
+	p1.merge(p0,false)
+	p0 = px.duplicate(true)
+	p2.merge(p0,false)
+	p0 = px.duplicate(true)
+	p3.merge(p0,false)
+	p0 = px.duplicate(true)
+	p4.merge(p0,false)
+	p0 = px.duplicate(true)
+	p5.merge(p0,false)
+	p0 = px.duplicate(true)
+	p6.merge(p0,false)
+	p0 = px.duplicate(true)
+	p7.merge(p0,false)
+	p0 = px.duplicate(true)
+	p8.merge(p0,false)
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
 		print_debug("error Singleton Player Stats connecting to reset from world gd")
@@ -236,11 +126,11 @@ func _ready():
 		print_debug("pawns set in player stats")
 		p1["pawn_num"] = 10
 		p2["pawn_num"] = 6
-		p3["pawn_num"] = 14
+		p3["pawn_num"] = 12
 		p4["pawn_num"] = 14
 		p5["pawn_num"] = 13
 		p6["pawn_num"] = 5
-		p7["pawn_num"] = 2
+		p7["pawn_num"] = 1
 		p8["pawn_num"] = 2
 
 func add_kill(_killed: int, _killer: int, _point: int, _by_what: int):
