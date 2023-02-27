@@ -35,8 +35,8 @@ var px = {#vars to be added to all other player stats
 	# p_up_jump_count = 0,
 	# p_up_shield_count = 0,
 	# p_up_battery_count = 0,
-	# p_up_coin_count = 0,
-	# p_up_dot_count = 0,
+	p_up_coin_count = 0,
+	p_up_dot_count = 0,
 	# p_up_back_shield_count = 0,
 	# p_up_balloon_count = 0,
 
@@ -420,29 +420,36 @@ func get_player_stats(_num):
 func get_player_collision_layer(_player: int): return get_player_stats(_player)["collision_layer"]
 
 #---------------Stats for end of Level--------------------------------------------------------------------------
-func add_jump_count(_player, _amount): 
-	get_player_stats(_player)["jump_count"] += _amount
+func add_jump_count(_player, _amount): get_player_stats(_player)["jump_count"] += _amount
+	
+func add_air_jump_count(_player, _amount): get_player_stats(_player)["jump_air_count"] += _amount
 
-func add_air_jump_count(_player, _amount):
-	get_player_stats(_player)["jump_air_count"] += _amount
+func add_jump_down_count(_player, _amount): get_player_stats(_player)["jump_down_count"] += _amount
 
-func add_jump_down_count(_player, _amount):
-	get_player_stats(_player)["jump_down_count"] += _amount
 
-func add_throw_count(_player,_amount):
-	get_player_stats(_player)["throw_count"] += _amount
-
-func add_drop_count(_player,_amount):
-	get_player_stats(_player)["drop_count"] += _amount
-
-func add_pick_up_count(_player, _amount):
-	get_player_stats(_player)["pick_up_count"] += _amount
-
-func add_toggle_pi_count(_player,_amount):
-	get_player_stats(_player)["toggle_pi_count"] += _amount
-
-func add_ammo_box_count(_player,_amount):
+func add_ground_distance(_player, _amount): 
 	pass
+
+func add_air_distance(_player, _amount): 
+	pass
+
+
+func add_coin_count(_player,_amount): get_player_stats(_player)["p_up_coin_count"] += _amount
+	
+func add_dot_count(_player, _amount): get_player_stats(_player)["p_up_dot_count"] += _amount
+	
+func add_ammo_box_count(_player,_amount):
+	pass	
+
+
+func add_throw_count(_player,_amount): get_player_stats(_player)["throw_count"] += _amount
+
+func add_drop_count(_player,_amount): get_player_stats(_player)["drop_count"] += _amount
+	
+func add_pick_up_count(_player, _amount): get_player_stats(_player)["pick_up_count"] += _amount
+	
+func add_toggle_pi_count(_player,_amount): get_player_stats(_player)["toggle_pi_count"] += _amount
+
 func add_suicide_count(_player,_amount): get_player_stats(_player)["suicide_count"] += _amount
 
 func get_place_name(_place):

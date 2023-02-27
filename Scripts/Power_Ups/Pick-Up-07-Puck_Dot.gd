@@ -17,9 +17,10 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 
 func _on_PickUp07Puck_Dot_body_entered(body):
 	if body.get_groups().has("player"):
-		body.add_nrg(how_much_nrg)
-		if body.take_ammo:
-			body.add_ammo(how_much_ammo)		
+		body.add_dot(how_much_nrg, how_much_ammo)
+		# body.add_nrg(how_much_nrg)
+		# if body.take_ammo:
+		# 	body.add_ammo(how_much_ammo)		
 		if respawn:
 			r_timer.start()
 			call_deferred("_disappear")

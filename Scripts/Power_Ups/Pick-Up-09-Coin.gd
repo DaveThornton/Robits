@@ -3,8 +3,8 @@ extends Area2D
 export var respawn = true
 export var respawn_time = 5
 export var how_long = 12
-export var how_much_nrg = 3
-export var how_much_ammo = 5
+export var how_much_nrg = 5
+export var how_much_ammo = 2
 onready var r_timer = $Respawn_Timer
 onready var shape = $CollisionShape2D
 onready var dot = $"FX-63-Puck_Dot"
@@ -12,22 +12,17 @@ onready var dot = $"FX-63-Puck_Dot"
 func _ready():
 	r_timer.wait_time = respawn_time
 
-func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
-	pass
-
+func init(_ammo, _player, _time, _is_right, _dir, _just_shot): pass
+	
 func _on_PickUp07Puck_Dot_body_entered(body):
 	if body.get_groups().has("player"):
-		body.add_nrg(how_much_nrg)
-		
-		if body.take_ammo:
-			body.add_ammo(how_much_ammo)		
+		body.add_coin(how_much_nrg,how_much_ammo)
 		if respawn:
 			r_timer.start()
 			call_deferred("_disappear")
 		else:
 			call_deferred("free")
 		SFX.coin()
-		print("make coin sound")
 
 func _disappear():
 	dot.visible = false 

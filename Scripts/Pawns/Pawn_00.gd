@@ -363,19 +363,16 @@ func no_gun():
 		if my_start_gun && start_equiped:
 			my_start_gun.visible = true
 
-func pick_up_stat():
-	Player_Stats.add_pick_up_count(player, 1)
-
-func throw_stat():
-	Player_Stats.add_throw_count(player, 1)
-
-func drop_stat():
-	Player_Stats.add_drop_count(player, 1)
+func pick_up_stat(): Player_Stats.add_pick_up_count(player, 1)
+	
+func throw_stat(): Player_Stats.add_throw_count(player, 1)
+	
+func drop_stat(): Player_Stats.add_drop_count(player, 1)
+	
 
 ##-------------------------------------------------------------------[add stuff]
-func add_nrg(_nrg):
-	nrg = clamp(nrg + _nrg, 0, nrg_max)
-
+func add_nrg(_nrg): nrg = clamp(nrg + _nrg, 0, nrg_max)
+	
 func add_ammo(_ammo):
 	if take_ammo:
 		if my_gun != null:
@@ -384,8 +381,8 @@ func add_ammo(_ammo):
 func change_pos(_pos):
 	self.position = _pos
 
-func nrg_update():
-	Player_Stats.nrg_update(player, nrg, nrg_max)
+func nrg_update(): Player_Stats.nrg_update(player, nrg, nrg_max)
+	
 ##----------------------------------------------------------------[Stun / Knock]
 func stun(_gun_num):
 	timers.start_stun()
@@ -474,11 +471,13 @@ func put_shield_up(_how_long):
 	else:
 		timers.set_shield_up(_how_long)
 	timers.start_shield_up()
+
 func put_speed_up(_how_long):
 	is_speed_up = true
 	speed_power_up = 2
 	timers.set_speed(_how_long)
 	timers.start_speed()
+
 func put_jump_up(_how_long):
 	is_jump_up = true
 	jump_power_up = 2
@@ -494,6 +493,16 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	timers.set_nrg_up(_how_long)
 	timers.start_nrg_up()
 
+func add_coin(how_much_nrg, how_much_ammo):
+	add_nrg(how_much_nrg)
+	add_ammo(how_much_ammo)
+	coin_stat()
+
+func add_dot(how_much_nrg, how_much_ammo):
+	add_nrg(how_much_nrg)
+	add_ammo(how_much_ammo)
+	dot_stat()
+
 func balloon_on():
 	grav -= 2
 	max_jump_power += 2
@@ -503,6 +512,10 @@ func balloon_off():
 	grav +=2
 	max_jump_power -= 2
 	min_jump_power -= 2
+
+func coin_stat(): Player_Stats.add_coin_count(player, 1)
+
+func dot_stat(): Player_Stats.add_dot_count(player, 1)
 
 ##--------------------------------------------------------------------[Time Out]
 
