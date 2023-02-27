@@ -274,7 +274,7 @@ func jump_j(down_input, left_input, right_input):
 	if can_move:
 		if down_input && ray_plat_check.is_colliding() && !left_input && !right_input:
 			SFX.play("Move_Jump_08")
-			var thing1 = ray_plat_check.get_collider()
+			var thing1 = ray_plat_check.get_collider()		
 			if thing1:
 				if thing1.get_groups().has("map"):
 					pass

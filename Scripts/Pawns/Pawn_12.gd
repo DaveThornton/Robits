@@ -75,14 +75,17 @@ func jump_j(_down_input, _left_input, _right_input):
 				SFX.play("Move_Jump_08")
 				vel.y = terminal_vel / 2
 				self.position.y += 8
+				jump_down_stat()
 		else:
 			if !is_jump_pressed && on_floor && !is_down:
 				SFX.play("Move_Jump_01")
 				vel.y = -max_jump_power * jump_power_up
+				jump_stat()
 			elif !on_floor && air_jump_count < max_air_jump_count && !is_down:
 				air_jump_count += 1
 				SFX.play("Move_Jump_01")
 				vel.y = -max_air_jump_power * jump_power_up
+				jump_air_stat()
 			is_jump_pressed = true
 
 func fix_vel(_vel):

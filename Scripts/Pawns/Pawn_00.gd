@@ -205,6 +205,15 @@ func jump_j(_down_input, _left_input, _right_input):
 func jump_rel():
 	pass
 
+func jump_stat():
+	Player_Stats.add_jump_count(player, 1)
+
+func jump_air_stat():
+	Player_Stats.add_air_jump_count(player, 1)
+
+func jump_down_stat():
+	Player_Stats.add_jump_down_count(player, 1)
+
 ##-------------------------------------------------------------------------[HIT]
 func hit(_by_who, _by_what, _damage_type, _damage):
 	if _by_who > 0:

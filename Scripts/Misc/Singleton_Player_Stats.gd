@@ -23,23 +23,25 @@ var px = {#vars to be added to all other player stats
 	weap_kill_w = {},
 	weap_killed_by = {},
 
-	suscide_count = 0,
-	drop_count = 0,
-	throw_count = 0,
+	# suicide_count = 0,
+	# drop_count = 0,
+	# throw_count = 0,
 	jump_count = 0,
+	jump_air_count = 0,
+	jump_down_count = 0,
+	# toggle_pi_count = 0,
+	# ammo_box_count = 0,
+	# p_up_jump_count = 0,
+	# p_up_shield_count = 0,
+	# p_up_battery_count = 0,
+	# p_up_coin_count = 0,
+	# p_up_dot_count = 0,
+	# p_up_back_shield_count = 0,
+	# p_up_balloon_count = 0,
 
-	ammo_box_count = 0,
-	p_up_jump_count = 0,
-	p_up_shield_count = 0,
-	p_up_battery_count = 0,
-	p_up_coin_count = 0,
-	p_up_dot_count = 0,
-	p_up_back_shield_count = 0,
-	p_up_balloon_count = 0,
-
-	ground_distance = 0.0,
-	air_distance = 0.0,
-	drop_distance = 0.0,
+	# ground_distance = 0.0,
+	# air_distance = 0.0,
+	# drop_distance = 0.0,
 	jump_up_distance = 0.0
 }
 var p1 = {
@@ -124,8 +126,8 @@ func _ready():
 		print_debug("error Singleton Player Stats connecting to reset from world gd")
 	if get_tree().get_current_scene().game_mode == 3: #thats in world not in game
 		print_debug("pawns set in player stats")
-		p1["pawn_num"] = 10
-		p2["pawn_num"] = 6
+		p1["pawn_num"] = 3
+		p2["pawn_num"] = 1
 		p3["pawn_num"] = 12
 		p4["pawn_num"] = 14
 		p5["pawn_num"] = 13
@@ -135,6 +137,9 @@ func _ready():
 
 func add_kill(_killed: int, _killer: int, _point: int, _by_what: int):
 	# print_debug(_killed," by ",_killer," for ",_point, " points with ",_by_what)
+	if _killer == _killed:
+		add_suicide_count(_killer, 1)
+		# print_debug("suicide count is at : ",p1["suicide_count"]) 
 	if _killer > 0:
 		add_score(_killer, _point)
 		get_player_stats(_killer)["kill"] += 1
@@ -316,12 +321,10 @@ func add_kill_w(_player: int, _weap):
 		print_debug("didnt add kill bc weap number wasnt reconized")
 	print(get_player_stats(_player).weap_kill_w, "     kill with ", _player)
 
-func get_killed_by(_player: int):
-	return get_player_stats(_player).weap_killed_by
+func get_killed_by(_player: int): return get_player_stats(_player).weap_killed_by
 
-func get_killed_w(_player: int):
-	return get_player_stats(_player).weap_kill_w
-
+func get_killed_w(_player: int): return get_player_stats(_player).weap_kill_w
+	
 func get_continuing(_player: int): return get_player_stats(_player)["continuing"]
 
 func get_team(_player: int): return get_player_stats(_player)["team"]
@@ -415,6 +418,18 @@ func get_player_stats(_num):
 
 func get_player_collision_layer(_player: int): return get_player_stats(_player)["collision_layer"]
 
+#---------------Stats for end of Level--------------------------------------------------------------------------
+func add_jump_count(_player, _amount): 
+	get_player_stats(_player)["jump_count"] += _amount
+
+func add_air_jump_count(_player, _amount):
+	get_player_stats(_player)["jump_air_count"] += _amount
+
+func add_jump_down_count(_player, _amount):
+	get_player_stats(_player)["jump_down_count"] += _amount
+
+func add_suicide_count(_player,_amount): get_player_stats(_player)["suicide_count"] += _amount
+
 func get_place_name(_place):
 	if _place == 0:
 		return "first Place"
@@ -473,7 +488,7 @@ func get_places():
 
 	_places.sort_custom(self,"sort_place")
 	return _places
-
+#---------------------------------------------------------------------------------------------------------------
 func sort_place(a, b):
 	if a.y < b.y:
 		return false

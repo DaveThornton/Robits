@@ -87,6 +87,7 @@ func jump(down_input, _left_input, _right_input):
 				SFX.play("Move_Jump_08")
 				vel.y = terminal_vel / 2
 				self.position.y += 10
+				jump_down_stat()
 		else:
 			if !is_jump_pressed && on_floor && can_jump && !down_input:
 				SFX.play("Move_Jump_01")
@@ -94,11 +95,13 @@ func jump(down_input, _left_input, _right_input):
 				jump_top_pos = global_position.y - jump_height
 				jumping_up = true
 				stinger.big_ring_on()
+				jump_stat()
 			elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count && !down_input:
 				SFX.play("Move_Jump_05")
 				vel.y = -max_air_jump_power * jump_power_up
 				air_jump_count += 1
 				stinger.big_ring()
+				jump_air_stat()
 			elif is_jump_pressed && global_position.y <= jump_top_pos && can_jump && !down_input && jumping_up:
 				jump_top = true
 				can_jump = false
@@ -106,7 +109,6 @@ func jump(down_input, _left_input, _right_input):
 					timers.start_jump()
 				stinger.big_ring_on()
 		is_jump_pressed = true
-		# print_debug("is down : ",is_down, "  DLR : ",down_input, _left_input, _right_input, "  ray platform test : ", ray_plat.is_colliding())
 
 func fix_vel(_vel):
 	if going_up:

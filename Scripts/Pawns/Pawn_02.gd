@@ -239,6 +239,7 @@ func jump_j(down_input, left_input, right_input):
 		else:
 			is_jump_pressed = true
 		on_ladder = false
+		
 
 func jump_rel():
 	if air_jump_count!= 0 && vel.y < -min_air_jump_power:
