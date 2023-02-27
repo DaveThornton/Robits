@@ -304,8 +304,6 @@ func remove_start_weap():
 	start_equiped = false
 	my_start_gun.call_deferred("queue_free")
 	my_start_gun = null
-	# for i in gun_pos.get_child_count():
-	# 	gun_pos.get_child(i).call_deferred("free")
 
 ##-----------------------------------------------------------------------[Throw]
 func pick_throw( left_input, right_input, up_input, down_input, hold_input):
@@ -319,10 +317,12 @@ func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 			SFX.play("Blip_11")
 			if my_gun != null:
 				my_gun.drop()
+				drop_stat()
 		else:
 			SFX.play("Blip_06")
 			if my_gun != null:
 				my_gun.throw()
+				throw_stat()
 		my_gun = null
 		if my_start_gun && start_equiped:
 			my_start_gun.visible = true
@@ -349,7 +349,7 @@ func pick_up():
 	var _just_shot = poss_pick_obj.just_shot
 	equip_weap(_weap_num,_ammo_pick_up, _time_left, _just_shot)
 	poss_pick_obj.call_deferred("queue_free")
-	# poss_pick_obj.queue_free()
+	pick_up_stat()
 	if my_start_gun && start_equiped:
 		print_debug("pick up calling start gun to visible false")
 		my_start_gun.visible = false
@@ -362,6 +362,15 @@ func no_gun():
 		my_gun = null
 		if my_start_gun && start_equiped:
 			my_start_gun.visible = true
+
+func pick_up_stat():
+	Player_Stats.add_pick_up_count(player, 1)
+
+func throw_stat():
+	Player_Stats.add_throw_count(player, 1)
+
+func drop_stat():
+	Player_Stats.add_drop_count(player, 1)
 
 ##-------------------------------------------------------------------[add stuff]
 func add_nrg(_nrg):
@@ -539,6 +548,7 @@ func start_ready_show_player_ind():
 	timers.start_show_player_ind()
 
 func show_player_ind(_show):
+	toggle_pi_stat()
 	if _show:
 		player_indicator.visible = true
 	else:
@@ -546,6 +556,9 @@ func show_player_ind(_show):
 
 func get_player_ind_vis():
 	return player_indicator.visible
+
+func toggle_pi_stat():
+	Player_Stats.add_toggle_pi_count(player, 1)
 
 ##---------------------------------------------------------------[getter]---
 

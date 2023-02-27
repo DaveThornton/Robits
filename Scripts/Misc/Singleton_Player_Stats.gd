@@ -24,12 +24,13 @@ var px = {#vars to be added to all other player stats
 	weap_killed_by = {},
 
 	# suicide_count = 0,
-	# drop_count = 0,
-	# throw_count = 0,
+	drop_count = 0,
+	throw_count = 0,
+	pick_up_count = 0,
 	jump_count = 0,
 	jump_air_count = 0,
 	jump_down_count = 0,
-	# toggle_pi_count = 0,
+	toggle_pi_count = 0,
 	# ammo_box_count = 0,
 	# p_up_jump_count = 0,
 	# p_up_shield_count = 0,
@@ -428,6 +429,20 @@ func add_air_jump_count(_player, _amount):
 func add_jump_down_count(_player, _amount):
 	get_player_stats(_player)["jump_down_count"] += _amount
 
+func add_throw_count(_player,_amount):
+	get_player_stats(_player)["throw_count"] += _amount
+
+func add_drop_count(_player,_amount):
+	get_player_stats(_player)["drop_count"] += _amount
+
+func add_pick_up_count(_player, _amount):
+	get_player_stats(_player)["pick_up_count"] += _amount
+
+func add_toggle_pi_count(_player,_amount):
+	get_player_stats(_player)["toggle_pi_count"] += _amount
+
+func add_ammo_box_count(_player,_amount):
+	pass
 func add_suicide_count(_player,_amount): get_player_stats(_player)["suicide_count"] += _amount
 
 func get_place_name(_place):
