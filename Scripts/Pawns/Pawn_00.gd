@@ -493,6 +493,10 @@ func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
 	timers.set_nrg_up(_how_long)
 	timers.start_nrg_up()
 
+func ammo_box(how_much):
+	add_ammo(how_much)
+	ammo_box_stat()
+
 func add_coin(how_much_nrg, how_much_ammo):
 	add_nrg(how_much_nrg)
 	add_ammo(how_much_ammo)
@@ -507,6 +511,7 @@ func balloon_on():
 	grav -= 2
 	max_jump_power += 2
 	min_jump_power += 2
+	balloon_stat()
 
 func balloon_off():
 	grav +=2
@@ -516,6 +521,10 @@ func balloon_off():
 func coin_stat(): Player_Stats.add_coin_count(player, 1)
 
 func dot_stat(): Player_Stats.add_dot_count(player, 1)
+
+func ammo_box_stat(): Player_Stats.add_ammo_box_count(player, 1)
+
+func balloon_stat(): Player_Stats.add_balloon_count(player, 1)
 
 ##--------------------------------------------------------------------[Time Out]
 
