@@ -16,10 +16,9 @@ func change_shape(_disable):
 	shape.disabled = _disable
 
 func add_shield(_body):
-	var x = shield.instance()
-	_body.add_child(x)
-	x.global_position = _body.global_position
-	sprite.visible = false
-	call_deferred("change_shape",true)
-	shape.disabled = true
-	timer.start()
+	if is_instance_valid(_body):
+		_body.add_back_shield()
+		sprite.visible = false
+		call_deferred("change_shape",true)
+		shape.disabled = true
+		timer.start()

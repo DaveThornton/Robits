@@ -19,5 +19,6 @@ shape = SubResource( 1 )
 
 [node name="Respawn_Timer" type="Timer" parent="."]
 wait_time = 20.0
+
 [connection signal="body_entered" from="." to="." method="_on_PickUp07Puck_Dot_body_entered"]
 [connection signal="timeout" from="Respawn_Timer" to="." method="_on_Respawn_Timer_timeout"]

@@ -23,7 +23,7 @@ var px = {#vars to be added to all other player stats
 	weap_kill_w = {},
 	weap_killed_by = {},
 
-	# suicide_count = 0,
+	suicide_count = 0,
 	drop_count = 0,
 	throw_count = 0,
 	pick_up_count = 0,
@@ -34,10 +34,10 @@ var px = {#vars to be added to all other player stats
 	ammo_box_count = 0,
 	# p_up_jump_count = 0,
 	# p_up_shield_count = 0,
-	# p_up_battery_count = 0,
+	p_up_battery_count = 0,
 	p_up_coin_count = 0,
 	p_up_dot_count = 0,
-	# p_up_back_shield_count = 0,
+	p_up_back_shield_count = 0,
 	p_up_balloon_count = 0,
 
 	# ground_distance = 0.0,
@@ -438,11 +438,13 @@ func add_coin_count(_player,_amount): get_player_stats(_player)["p_up_coin_count
 	
 func add_dot_count(_player, _amount): get_player_stats(_player)["p_up_dot_count"] += _amount
 	
+func add_battery_count(_player, _amount): get_player_stats(_player)["p_up_battery_count"] += _amount
+
 func add_ammo_box_count(_player,_amount): get_player_stats(_player)["ammo_box_count"] += _amount
 
 func add_balloon_count(_player, _amount): get_player_stats(_player)["p_up_balloon_count"] += _amount
 
-
+func add_back_shield_count(_player, _amount): get_player_stats(_player)["p_up_back_shield_count"] += _amount
 
 
 

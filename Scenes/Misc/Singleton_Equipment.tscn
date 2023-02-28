@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=2]
+[gd_scene load_steps=128 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Hold/W_02-AK47_Hold.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Guns/Hold/W_50_ShotGun_hold.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Guns/Hold/W_60_Axe_Hold.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Guns/Hold/W_61_Sword_Hold.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-10-Back_Shield_On_Pawn.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-02-Shield_Power_Up.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-03-Speed_Power_Up.tscn" type="PackedScene" id=18]
@@ -125,6 +126,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_71_Tomahawk_Pick.tscn" type="PackedScene" id=124]
 [ext_resource path="res://Scenes/Guns/Pick/W_57_Henry_Pick.tscn" type="PackedScene" id=125]
 [ext_resource path="res://Scenes/Guns/Hold/W_68_D'k_Tahg_Hold.tscn" type="PackedScene" id=126]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-10-Back_Shield.tscn" type="PackedScene" id=127]
 
 [node name="Equipment" type="Node2D"]
 script = ExtResource( 1 )
@@ -237,6 +239,8 @@ item_pick_03 = ExtResource( 18 )
 item_pick_04 = ExtResource( 19 )
 item_pick_05 = ExtResource( 20 )
 item_pick_06 = ExtResource( 21 )
+item_pick_10 = ExtResource( 127 )
+item_equiped_10 = ExtResource( 15 )
 pawn_01 = ExtResource( 23 )
 pawn_02 = ExtResource( 40 )
 pawn_03 = ExtResource( 38 )

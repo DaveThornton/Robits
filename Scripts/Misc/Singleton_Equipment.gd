@@ -191,7 +191,7 @@ export(PackedScene) var item_pick_06
 #export(PackedScene) var item_pick_07
 #export(PackedScene) var item_pick_08
 #export(PackedScene) var item_pick_09
-#export(PackedScene) var item_pick_10
+export(PackedScene) var item_pick_10
 #export(PackedScene) var item_pick_11
 #export(PackedScene) var item_pick_12
 #export(PackedScene) var item_pick_13
@@ -202,6 +202,9 @@ export(PackedScene) var item_pick_06
 #export(PackedScene) var item_pick_18
 #export(PackedScene) var item_pick_19
 #export(PackedScene) var item_pick_20
+
+export(PackedScene) var item_equiped_10
+
 
 export(PackedScene) var pawn_01
 export(PackedScene) var pawn_02
@@ -583,6 +586,11 @@ func get_item(_item: int):
 		4:return item_pick_04
 		5:return item_pick_05
 		6:return item_pick_06
+
+func get_equiped_item(_item: int):
+	# match _item:
+	# 	10: return item_equiped_10
+	return item_equiped_10
 
 func get_pawn(_pawn_num: int):
 	match _pawn_num:

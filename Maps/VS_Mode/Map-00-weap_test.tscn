@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_18_Cricket_Pick.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Guns/Pick/W_23_Bomb_Man_Pick.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Guns/Pick/W_39_P_Mine_Pick.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-04-Jump_Power_Up.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Bad_Guys/Boss/BG-101-Boss.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=19]
@@ -22,13 +23,18 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Guns/Pick/W_66_Hammer_Pick.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Guns/Pick/W_69_Bat'leth_Pick.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-08-Ridged-Coin.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Guns/Pick/W_42_G-Launcher_Pick.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Guns/Pick/W_58_Derringer_Pick.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Guns/Pick/W_59_Bow_Pick.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-09-Coin_Area.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Scenes/Guns/Pick/W_84_Luger_Pick.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Scenes/Guns/Pick/W_83_Mauser_Pick.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-07-Puck_Dot.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Scenes/Power_Ups/Pick-Up-10-Back_Shield.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-13-Extra_Life.tscn" type="PackedScene" id=37]
 [ext_resource path="res://Scenes/Explosions/Parts/Mega_Explosion-03-Part_multi.tscn" type="PackedScene" id=38]
 
@@ -304,3 +310,21 @@ position = Vector2( 216, 1008 )
 
 [node name="W_39_P_Mine4" parent="." instance=ExtResource( 15 )]
 position = Vector2( 288, 1008 )
+
+[node name="Pick-Up-06-Battery" parent="." instance=ExtResource( 24 )]
+position = Vector2( 432, 1000 )
+
+[node name="Pick-Up-07-Puck_Dot" parent="." instance=ExtResource( 32 )]
+position = Vector2( 480, 912 )
+
+[node name="Pick-Up-08-Ridged-Coin-00" parent="." instance=ExtResource( 25 )]
+position = Vector2( 200, 856 )
+
+[node name="Pick-Up-09-Coin_Area_00" parent="." instance=ExtResource( 29 )]
+position = Vector2( 288, 856 )
+
+[node name="Pick-Up-01-Ammo" parent="." instance=ExtResource( 16 )]
+position = Vector2( 128, 936 )
+
+[node name="Pick-Up-10-Back_Shield" parent="." instance=ExtResource( 35 )]
+position = Vector2( 416, 928 )

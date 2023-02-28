@@ -497,6 +497,10 @@ func ammo_box(how_much):
 	add_ammo(how_much)
 	ammo_box_stat()
 
+func add_battery(how_much): 
+	add_nrg(how_much)
+	battery_stat()
+
 func add_coin(how_much_nrg, how_much_ammo):
 	add_nrg(how_much_nrg)
 	add_ammo(how_much_ammo)
@@ -506,6 +510,11 @@ func add_dot(how_much_nrg, how_much_ammo):
 	add_nrg(how_much_nrg)
 	add_ammo(how_much_ammo)
 	dot_stat()
+
+func add_back_shield():
+	var x = Equipment.get_equiped_item(10).instance()
+	self.add_child(x)
+	back_shield_stat()
 
 func balloon_on():
 	grav -= 2
@@ -522,9 +531,13 @@ func coin_stat(): Player_Stats.add_coin_count(player, 1)
 
 func dot_stat(): Player_Stats.add_dot_count(player, 1)
 
+func battery_stat(): Player_Stats.add_battery_count(player, 1)
+
 func ammo_box_stat(): Player_Stats.add_ammo_box_count(player, 1)
 
 func balloon_stat(): Player_Stats.add_balloon_count(player, 1)
+
+func back_shield_stat(): Player_Stats.add_back_shield_count(player, 1)
 
 ##--------------------------------------------------------------------[Time Out]
 
