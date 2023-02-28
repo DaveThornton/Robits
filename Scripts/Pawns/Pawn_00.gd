@@ -471,12 +471,14 @@ func put_shield_up(_how_long):
 	else:
 		timers.set_shield_up(_how_long)
 	timers.start_shield_up()
+	shield_up_stat()
 
 func put_speed_up(_how_long):
 	is_speed_up = true
 	speed_power_up = 2
 	timers.set_speed(_how_long)
 	timers.start_speed()
+	speed_up_stat()
 
 func put_jump_up(_how_long):
 	is_jump_up = true
@@ -486,12 +488,14 @@ func put_jump_up(_how_long):
 	else:
 		timers.set_jump_up(_how_long)
 	timers.start_jump()
+	jump_up_stat()
 
-func put_nrg_regen_speed_up(_how_long, _how_fast, _how_much):
+func put_nrg_regen_speed_up(_how_long, _how_fast):
 	nrg_regen_rate = _how_fast
-	nrg_regen_max = _how_much
+	nrg_regen_max = nrg_max
 	timers.set_nrg_up(_how_long)
 	timers.start_nrg_up()
+	nrg_regen_up_stat()
 
 func ammo_box(how_much):
 	add_ammo(how_much)
@@ -534,6 +538,14 @@ func dot_stat(): Player_Stats.add_dot_count(player, 1)
 func battery_stat(): Player_Stats.add_battery_count(player, 1)
 
 func ammo_box_stat(): Player_Stats.add_ammo_box_count(player, 1)
+
+func shield_up_stat(): Player_Stats.add_shield_up_count(player, 1)
+
+func speed_up_stat(): Player_Stats.add_speed_up_count(player, 1)
+
+func jump_up_stat(): Player_Stats.add_jump_up_count(player, 1)
+
+func nrg_regen_up_stat(): Player_Stats.add_nrg_regen_count(player, 1)
 
 func balloon_stat(): Player_Stats.add_balloon_count(player, 1)
 

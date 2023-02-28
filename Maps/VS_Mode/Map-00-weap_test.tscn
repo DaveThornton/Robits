@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -13,36 +13,20 @@
 [ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=11]
 [ext_resource path="res://Maps/map-00.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Guns/Pick/W_18_Cricket_Pick.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Guns/Pick/W_23_Bomb_Man_Pick.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Guns/Pick/W_39_P_Mine_Pick.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-04-Jump_Power_Up.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Bad_Guys/Boss/BG-101-Boss.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Guns/Pick/W_41_SPNKr_Pick.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Guns/Pick/W_66_Hammer_Pick.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Guns/Pick/W_69_Bat'leth_Pick.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=24]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-08-Ridged-Coin.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Guns/Pick/W_42_G-Launcher_Pick.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Scenes/Guns/Pick/W_58_Derringer_Pick.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Scenes/Guns/Pick/W_59_Bow_Pick.tscn" type="PackedScene" id=28]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-09-Coin_Area.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Scenes/Guns/Pick/W_84_Luger_Pick.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Scenes/Guns/Pick/W_83_Mauser_Pick.tscn" type="PackedScene" id=31]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-07-Puck_Dot.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=34]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-10-Back_Shield.tscn" type="PackedScene" id=35]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-13-Extra_Life.tscn" type="PackedScene" id=37]
 [ext_resource path="res://Scenes/Explosions/Parts/Mega_Explosion-03-Part_multi.tscn" type="PackedScene" id=38]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 128.0
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 125, 73 )
 
 [node name="Map-01-Disputed" type="Node2D"]
 script = ExtResource( 12 )
@@ -58,7 +42,7 @@ cell_size = Vector2( 20, 20 )
 collision_layer = 0
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 131072, 49, 0, 131073, 49, 0, 131074, 49, 0, 131075, 49, 0, 131076, 49, 0, 131077, 49, 0, 131078, 49, 0, 131079, 49, 0, 131080, 49, 0, 131081, 49, 0, 131082, 49, 0, 131109, 49, 0, 196608, 49, 0, 196609, 49, 0, 196610, 49, 0, 196611, 49, 0, 196612, 49, 0, 196613, 49, 0, 196614, 49, 0, 196619, 49, 0, 196620, 49, 0, 196621, 49, 0, 196622, 49, 0, 196623, 49, 0, 196624, 49, 0, 196625, 49, 0, 196630, 49, 0, 327773, 1, 0, 327774, 1, 0, 720917, 1, 0, 720918, 1, 0, 720919, 1, 0, 720920, 1, 0, 720921, 1, 0, 720922, 1, 0, 720923, 1, 0, 720924, 1, 0, 720925, 1, 0, 720926, 1, 0, 720927, 1, 0, 720928, 1, 0, 720929, 1, 0, 720930, 1, 0, 720931, 1, 0, 720932, 1, 0, 720933, 1, 0, 720934, 1, 0, 720935, 1, 0, 720936, 1, 0, 720937, 1, 0, 720938, 1, 0, 720939, 1, 0, 720940, 1, 0, 720941, 1, 0, 720942, 1, 0, 720943, 1, 0, 720944, 1, 0, 720945, 1, 0, 720946, 1, 0, 720947, 1, 0, 720948, 1, 0, 720949, 1, 0, 720950, 1, 0, 720951, 1, 0, 720952, 1, 0, 720953, 1, 0, 720954, 1, 0, 720955, 1, 0, 720956, 1, 0, 720957, 1, 0, 720958, 1, 0, 720959, 1, 0, 720960, 1, 0, 786453, 1, 0, 786454, 1, 0, 786455, 1, 0, 786456, 1, 0, 786457, 1, 0, 786458, 1, 0, 786459, 1, 0, 786460, 1, 0, 786461, 1, 0, 786462, 1, 0, 786463, 1, 0, 786464, 1, 0, 786465, 1, 0, 786466, 1, 0, 786467, 1, 0, 786468, 1, 0, 786469, 1, 0, 786470, 1, 0, 786471, 1, 0, 786472, 1, 0, 786473, 1, 0, 786474, 1, 0, 786475, 1, 0, 786476, 1, 0, 786477, 1, 0, 786478, 1, 0, 786479, 1, 0, 786480, 1, 0, 786481, 1, 0, 786482, 1, 0, 786483, 1, 0, 786484, 1, 0, 786485, 1, 0, 786486, 1, 0, 786487, 1, 0, 786488, 1, 0, 786489, 1, 0, 786490, 1, 0, 786491, 1, 0, 786492, 1, 0, 786493, 1, 0, 786494, 1, 0, 786495, 1, 0, 786496, 1, 0, 851989, 1, 0, 851990, 1, 0, 851991, 1, 0, 851992, 1, 0, 851993, 1, 0, 851994, 1, 0, 851995, 1, 0, 851996, 1, 0, 851997, 1, 0, 851998, 1, 0, 851999, 1, 0, 852000, 1, 0, 852001, 1, 0, 852002, 1, 0, 852003, 1, 0, 852004, 1, 0, 852005, 1, 0, 852006, 1, 0, 852007, 1, 0, 852008, 1, 0, 852009, 1, 0, 852010, 1, 0, 852011, 1, 0, 852012, 1, 0, 852013, 1, 0, 852014, 1, 0, 852015, 1, 0, 852016, 1, 0, 852017, 1, 0, 852018, 1, 0, 852019, 1, 0, 852020, 1, 0, 852021, 1, 0, 852022, 1, 0, 852023, 1, 0, 852024, 1, 0, 852025, 1, 0, 852026, 1, 0, 852027, 1, 0, 852028, 1, 0, 852029, 1, 0, 852030, 1, 0, 852031, 1, 0, 852032, 1, 0, 917525, 1, 0, 917526, 1, 0, 917527, 1, 0, 917528, 1, 0, 917529, 1, 0, 917530, 1, 0, 917531, 1, 0, 917532, 1, 0, 917533, 1, 0, 917534, 1, 0, 917535, 1, 0, 917536, 1, 0, 917537, 1, 0, 917538, 1, 0, 917539, 1, 0, 917540, 1, 0, 917541, 1, 0, 917542, 1, 0, 917543, 1, 0, 917544, 1, 0, 917545, 1, 0, 917546, 1, 0, 917547, 1, 0, 917548, 1, 0, 917549, 1, 0, 917550, 1, 0, 917551, 1, 0, 917552, 1, 0, 917553, 1, 0, 917554, 1, 0, 917555, 1, 0, 917556, 1, 0, 917557, 1, 0, 917558, 1, 0, 917559, 1, 0, 917560, 1, 0, 917561, 1, 0, 917562, 1, 0, 917563, 1, 0, 917564, 1, 0, 917565, 1, 0, 917566, 1, 0, 917567, 1, 0, 917568, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 1, 0, 983065, 1, 0, 983066, 1, 0, 983067, 1, 0, 983068, 1, 0, 983069, 1, 0, 983070, 1, 0, 983071, 1, 0, 983072, 1, 0, 983073, 1, 0, 983074, 1, 0, 983075, 1, 0, 983076, 1, 0, 983077, 1, 0, 983078, 1, 0, 983079, 1, 0, 983080, 1, 0, 983081, 1, 0, 983082, 1, 0, 983083, 1, 0, 983084, 1, 0, 983085, 1, 0, 983086, 1, 0, 983087, 1, 0, 983088, 1, 0, 983089, 1, 0, 983090, 1, 0, 983091, 1, 0, 983092, 1, 0, 983093, 1, 0, 983094, 1, 0, 983095, 1, 0, 983096, 1, 0, 983097, 1, 0, 983098, 1, 0, 983099, 1, 0, 983100, 1, 0, 983101, 1, 0, 983102, 1, 0, 983103, 1, 0, 983104, 1, 0, 2818047, -1073741821, 0, 2949119, -1073741823, 0, 3014654, -1073741823, 0, 3080189, -1073741823, 0, 3080190, -1073741823, 0, 3407888, 1, 0, 3407892, 1, 0, 3407898, 1, 0, 3473422, -1073741823, 0, 3473423, -1073741823, 0, 3473424, -1073741823, 0, 3473425, -1073741823, 0, 3473426, -1073741823, 0, 3473427, -1073741823, 0, 3473428, -1073741823, 0, 3473429, -1073741823, 0, 3473430, -1073741823, 0 )
+tile_data = PoolIntArray( 131072, 49, 0, 131073, 49, 0, 131074, 49, 0, 131075, 49, 0, 131076, 49, 0, 131077, 49, 0, 131078, 49, 0, 131079, 49, 0, 131080, 49, 0, 131081, 49, 0, 131082, 49, 0, 131109, 49, 0, 196608, 49, 0, 196609, 49, 0, 196610, 49, 0, 196611, 49, 0, 196612, 49, 0, 196613, 49, 0, 196614, 49, 0, 196619, 49, 0, 196620, 49, 0, 196621, 49, 0, 196622, 49, 0, 196623, 49, 0, 196624, 49, 0, 196625, 49, 0, 196630, 49, 0, 327773, 1, 0, 327774, 1, 0, 2818047, -1073741821, 0, 2949119, -1073741823, 0, 3014654, -1073741823, 0, 3080189, -1073741823, 0, 3080190, -1073741823, 0, 3407888, 1, 0, 3407892, 1, 0, 3407898, 1, 0, 3473422, -1073741823, 0, 3473423, -1073741823, 0, 3473424, -1073741823, 0, 3473425, -1073741823, 0, 3473426, -1073741823, 0, 3473427, -1073741823, 0, 3473428, -1073741823, 0, 3473429, -1073741823, 0, 3473430, -1073741823, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -222,20 +206,17 @@ one_shot = true
 autostart = true
 
 [node name="W_13_TOS_Pick" parent="." instance=ExtResource( 9 )]
-position = Vector2( 216, 808 )
+position = Vector2( 120, 944 )
 
 [node name="W_17_Mars_Pick" parent="." instance=ExtResource( 13 )]
 position = Vector2( 656, 800 )
 
-[node name="Jump_Power_Up" parent="." instance=ExtResource( 17 )]
-position = Vector2( 1280, 936 )
-
 [node name="BG-101-Boss" parent="." instance=ExtResource( 18 )]
-position = Vector2( 792, 1040 )
+position = Vector2( 768, 1040 )
 activation_num = 1
 
 [node name="MP-25-Activate_Area" parent="." instance=ExtResource( 19 )]
-position = Vector2( 424, 824 )
+position = Vector2( 416, 696 )
 activation_num = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MP-25-Activate_Area"]
@@ -243,88 +224,34 @@ position = Vector2( 800, -72 )
 shape = SubResource( 1 )
 
 [node name="W_41_SPNKr_Pick" parent="." instance=ExtResource( 20 )]
-position = Vector2( 535.791, 375.372 )
+position = Vector2( 144, 1000 )
 
 [node name="Weap-Pick-02-Ak-47" parent="." instance=ExtResource( 21 )]
-position = Vector2( 1360, 368 )
+position = Vector2( 1376, 992 )
 
 [node name="Weap-Pick-02-Ak-48" parent="." instance=ExtResource( 21 )]
-position = Vector2( 1464, 520 )
+position = Vector2( 1456, 992 )
 
 [node name="W_41_SPNKr_Pick2" parent="." instance=ExtResource( 20 )]
-position = Vector2( 1039.79, 391.372 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 640, -136 )
-collision_layer = 4278190080
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 1643, 879 )
-shape = SubResource( 2 )
+position = Vector2( 647.999, 1016 )
 
 [node name="W_42_G-Launcher" parent="." instance=ExtResource( 26 )]
-position = Vector2( 904, 1000 )
-
-[node name="W_58_Derringer_Pick" parent="." instance=ExtResource( 27 )]
-position = Vector2( 1400, 832.051 )
-
-[node name="W_59_Bow_Pick" parent="." instance=ExtResource( 28 )]
-position = Vector2( 1480, 840 )
-
-[node name="W_69_Bat\'leth" parent="." instance=ExtResource( 23 )]
-position = Vector2( 1480, 792.051 )
+position = Vector2( 1072, 1024 )
 
 [node name="W_66_Hammer_Pick" parent="." instance=ExtResource( 22 )]
-position = Vector2( 1560, 784.051 )
+position = Vector2( 1568, 984 )
 
 [node name="W_83_Mauser_Pick" parent="." instance=ExtResource( 31 )]
-position = Vector2( 1664, 912 )
+position = Vector2( 1672, 992 )
 
 [node name="W_84_Luger_Pick" parent="." instance=ExtResource( 30 )]
-position = Vector2( 1768, 840 )
+position = Vector2( 1776, 992 )
 
 [node name="W_05_Laser_Assault_Pick" parent="." instance=ExtResource( 33 )]
-position = Vector2( 576, 744 )
+position = Vector2( 320, 1016 )
 
 [node name="W_06_Atom_Rifle_Pick" parent="." instance=ExtResource( 34 )]
-position = Vector2( 824, 1008 )
-
-[node name="Pick_Up_13_Extra_Life_01" parent="." instance=ExtResource( 37 )]
-position = Vector2( 368, 858 )
+position = Vector2( 992, 1024 )
 
 [node name="Ex-203-Mega_03" parent="." instance=ExtResource( 38 )]
 position = Vector2( 632, 552 )
-
-[node name="W_23_Bomb_Man_Pick" parent="." instance=ExtResource( 14 )]
-position = Vector2( 56, 1000 )
-
-[node name="W_39_P_Mine" parent="." instance=ExtResource( 15 )]
-position = Vector2( 88, 1024 )
-
-[node name="W_39_P_Mine2" parent="." instance=ExtResource( 15 )]
-position = Vector2( 152, 1008 )
-
-[node name="W_39_P_Mine3" parent="." instance=ExtResource( 15 )]
-position = Vector2( 216, 1008 )
-
-[node name="W_39_P_Mine4" parent="." instance=ExtResource( 15 )]
-position = Vector2( 288, 1008 )
-
-[node name="Pick-Up-06-Battery" parent="." instance=ExtResource( 24 )]
-position = Vector2( 432, 1000 )
-
-[node name="Pick-Up-07-Puck_Dot" parent="." instance=ExtResource( 32 )]
-position = Vector2( 480, 912 )
-
-[node name="Pick-Up-08-Ridged-Coin-00" parent="." instance=ExtResource( 25 )]
-position = Vector2( 200, 856 )
-
-[node name="Pick-Up-09-Coin_Area_00" parent="." instance=ExtResource( 29 )]
-position = Vector2( 288, 856 )
-
-[node name="Pick-Up-01-Ammo" parent="." instance=ExtResource( 16 )]
-position = Vector2( 128, 936 )
-
-[node name="Pick-Up-10-Back_Shield" parent="." instance=ExtResource( 35 )]
-position = Vector2( 416, 928 )

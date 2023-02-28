@@ -5,52 +5,24 @@
 [ext_resource path="res://Sprites/Power_Ups/Proj-8x8-Red-Explode.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
 radius = 8.49299
 
 [node name="NRG_keep_Power_Up" type="Area2D"]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 script = ExtResource( 1 )
-respawn = true
-respawn_time = 25
-how_long = 15
-how_fast = 35
-how_much = 99
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
+[node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 z_index = -2
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Region", "Transform", "Z Index" ]
 
-[node name="Sprite2" type="Sprite" parent="." index="1"]
-
+[node name="Sprite2" type="Sprite" parent="."]
 z_index = -1
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Z Index" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Respawn_Timer" type="Timer" parent="." index="3"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = false
-autostart = false
+[node name="Respawn_Timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_NRG_keep_Power_Up_body_entered"]
-
 [connection signal="timeout" from="Respawn_Timer" to="." method="_on_Respawn_Timer_timeout"]
-
-

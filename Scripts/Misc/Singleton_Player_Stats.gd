@@ -32,8 +32,10 @@ var px = {#vars to be added to all other player stats
 	jump_down_count = 0,
 	toggle_pi_count = 0,
 	ammo_box_count = 0,
-	# p_up_jump_count = 0,
-	# p_up_shield_count = 0,
+	p_up_jump_count = 0,
+	p_up_shield_count = 0,
+	p_up_speed_count = 0,
+	p_up_nrg_regen = 0,
 	p_up_battery_count = 0,
 	p_up_coin_count = 0,
 	p_up_dot_count = 0,
@@ -446,7 +448,13 @@ func add_balloon_count(_player, _amount): get_player_stats(_player)["p_up_balloo
 
 func add_back_shield_count(_player, _amount): get_player_stats(_player)["p_up_back_shield_count"] += _amount
 
+func add_shield_up_count(_player, _amount): get_player_stats(_player)["p_up_shield_count"] += _amount
 
+func add_speed_up_count(_player, _amount): get_player_stats(_player)["p_up_speed_count"] += _amount
+
+func add_jump_up_count(_player, _amount): get_player_stats(_player)["p_up_jump_count"] += _amount
+
+func add_nrg_regen_count(_player, _amount): get_player_stats(_player)["p_up_nrg_regen"] += _amount
 
 func add_throw_count(_player,_amount): get_player_stats(_player)["throw_count"] += _amount
 
