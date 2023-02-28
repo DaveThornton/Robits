@@ -221,6 +221,8 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		timers.start_last_hit_by()
 	_im_hit = true
 	_hit_time += 0.11
+	dmg_given_stat(_by_who,_damage)
+	dmg_taken_stat(_damage)
 	if play_type == 1:
 		if is_shield_up:
 			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
@@ -551,6 +553,10 @@ func balloon_stat(): Player_Stats.add_balloon_count(player, 1)
 
 func back_shield_stat(): Player_Stats.add_back_shield_count(player, 1)
 
+
+func dmg_taken_stat(amount): Player_Stats.add_dmg_taken(player, amount)
+
+func dmg_given_stat(_player, amount): Player_Stats.add_dmg_given(_player, amount)
 ##--------------------------------------------------------------------[Time Out]
 
 func shielduptimer():

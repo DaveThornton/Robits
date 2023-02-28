@@ -24,6 +24,8 @@ var px = {#vars to be added to all other player stats
 	weap_killed_by = {},
 
 	suicide_count = 0,
+	dmg_taken = 0,
+	dmg_given = 0,
 	drop_count = 0,
 	throw_count = 0,
 	pick_up_count = 0,
@@ -428,6 +430,9 @@ func add_air_jump_count(_player, _amount): get_player_stats(_player)["jump_air_c
 
 func add_jump_down_count(_player, _amount): get_player_stats(_player)["jump_down_count"] += _amount
 
+func add_dmg_taken(_player, _damage): get_player_stats(_player)["dmg_taken"] += _damage
+
+func add_dmg_given(_player, _damage): get_player_stats(_player)["dmg_given"] += _damage
 
 func add_ground_distance(_player, _amount): 
 	pass
