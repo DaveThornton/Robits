@@ -44,9 +44,9 @@ var px = {#vars to be added to all other player stats
 	p_up_back_shield_count = 0,
 	p_up_balloon_count = 0,
 
-	# ground_distance = 0.0,
-	# air_distance = 0.0,
-	# drop_distance = 0.0,
+	ground_distance = 0.0,
+	air_distance = 0.0,
+	drop_distance = 0.0,
 	jump_up_distance = 0.0
 }
 var p1 = {
@@ -434,12 +434,13 @@ func add_dmg_taken(_player, _damage): get_player_stats(_player)["dmg_taken"] += 
 
 func add_dmg_given(_player, _damage): get_player_stats(_player)["dmg_given"] += _damage
 
-func add_ground_distance(_player, _amount): 
-	pass
+func add_ground_distance(_player, _amount): get_player_stats(_player)["ground_distance"] += _amount
 
-func add_air_distance(_player, _amount): 
-	pass
+func add_air_distance(_player, _amount): get_player_stats(_player)["air_distance"] += _amount
 
+func add_jump_up_distance(_player, _amount): get_player_stats(_player)["jump_up_distance"] += _amount
+
+func add_drop_dn_distance(_player, _amount): get_player_stats(_player)["drop_distance"] += _amount
 
 func add_coin_count(_player,_amount): get_player_stats(_player)["p_up_coin_count"] += _amount
 	

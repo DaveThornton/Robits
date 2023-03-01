@@ -135,6 +135,7 @@ func _process(delta):
 			shield_down()
 
 func _physics_process(delta):
+	var my_pos = self.global_position
 	var x_move = current_x_speed + knocked_back.x
 	var _1 = move_and_slide(Vector2(x_move , 0 + knocked_back.y ))
 	var movement = Vector2(0, ((vel.y + grav * delta)))
@@ -147,8 +148,17 @@ func _physics_process(delta):
 	if movement.y > terminal_vel:
 		movement.y = terminal_vel
 	vel = fix_vel(movement)
-
 	var _2 = move_and_collide(vel)
+	if int(self.global_position.x) != int(my_pos.x):
+		if on_floor:
+			move_on_land_stat(abs(int(self.global_position.x - my_pos.x)))
+		else:
+			move_in_air_stat(abs(int(self.global_position.x - my_pos.x)))
+	if int(self.global_position.y) != int(my_pos.y) && player == 1:
+		if int(self.global_position.y) > int(my_pos.y):
+			fall_dn_dis_stat(abs(int(self.global_position.y - my_pos.y)))
+		elif int(self.global_position.y) < int(my_pos.y):
+			jump_up_dis_stat(abs(int(self.global_position.y - my_pos.y)))
 
 ##-------------------------------------------------------------------[Move/jump]
 func move_x(_moving, _right):
@@ -532,7 +542,7 @@ func balloon_off():
 	grav +=2
 	max_jump_power -= 2
 	min_jump_power -= 2
-
+#------------------------------------------[stats stuff]------------------------------------------------
 func coin_stat(): Player_Stats.add_coin_count(player, 1)
 
 func dot_stat(): Player_Stats.add_dot_count(player, 1)
@@ -557,6 +567,16 @@ func back_shield_stat(): Player_Stats.add_back_shield_count(player, 1)
 func dmg_taken_stat(amount): Player_Stats.add_dmg_taken(player, amount)
 
 func dmg_given_stat(_player, amount): Player_Stats.add_dmg_given(_player, amount)
+
+
+func move_on_land_stat(amount):  Player_Stats.add_ground_distance(player, amount)
+
+func move_in_air_stat(amount): Player_Stats.add_air_distance(player, amount)
+
+func jump_up_dis_stat(amount): Player_Stats.add_jump_up_distance(player, amount)
+
+func fall_dn_dis_stat(amount): Player_Stats.add_drop_dn_distance(player, amount)
+
 ##--------------------------------------------------------------------[Time Out]
 
 func shielduptimer():
