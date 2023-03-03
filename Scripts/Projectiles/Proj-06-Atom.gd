@@ -9,7 +9,6 @@ onready var timer = $Timer
 onready var anim = $AnimationPlayer
 
 var owned = 1
-var my_name = "Atom"
 var damage = 0
 var damage_type = "laser"
 var gun_num = 0

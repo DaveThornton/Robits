@@ -6,7 +6,6 @@ onready var parts = $CPUParticles2D
 var power = 25
 var speed = 800
 var owned = 0
-var my_name = "Grenade Launcher"
 var damage = 0
 var gun_num = 0
 

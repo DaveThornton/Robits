@@ -10,7 +10,6 @@ onready var cast = $RayCast2D
 
 var speed = 700
 var owned = 1
-var my_name = "Mega-Laser"
 var damage = 0
 var damage_type = "laser"
 var gun_num = 0

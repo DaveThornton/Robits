@@ -6,7 +6,6 @@ onready var cast = $RayCast2D
 
 var speed = 1400
 var owned = -1
-var my_name = "12 Gauge"
 var damage = 16
 var damage_type = "Bullet"
 var life_time = .1

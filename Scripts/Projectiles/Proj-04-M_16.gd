@@ -8,7 +8,6 @@ onready var cast = $RayCast2D
 
 var speed = 1800
 var owned = 1
-var my_name = "5.56 mm"
 var damage = 0
 var damage_type = "Bullet"
 var gun_num = 0

@@ -41,7 +41,7 @@ export(PackedScene) var ex104
 export(PackedScene) var projhit_013
 export(PackedScene) var projhit_014
 
-func boom(_num, _owner, _pos, _weap_name, _pawn_num, _dmg):
+func boom(_num, _owner, _pos, _weap_num: int, _pawn_num, _dmg):
 	var x
 	match _num:
 		2:
@@ -82,7 +82,7 @@ func boom(_num, _owner, _pos, _weap_name, _pawn_num, _dmg):
 			x = ex104.instance()
 	if x:
 		Map_Hand.add_kid_to_map(x)
-		x.init(_owner, _pos, _weap_name, _pawn_num, _dmg)
+		x.init(_owner, _pos, _weap_num, _pawn_num, _dmg)
 	else:
 		print_debug("error in explosions invalid explosion number")
 

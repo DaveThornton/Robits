@@ -7,7 +7,6 @@ onready var anim = $AnimationPlayer
 
 var speed = 800
 var owned = 0
-var my_name = "SPNKr"
 var damage
 var gun_num = 0
 

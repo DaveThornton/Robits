@@ -43,7 +43,7 @@ var px = {#vars to be added to all other player stats
 	p_up_dot_count = 0,
 	p_up_back_shield_count = 0,
 	p_up_balloon_count = 0,
-
+	wow_count = 0,
 	ground_distance = 0.0,
 	air_distance = 0.0,
 	drop_distance = 0.0,
@@ -471,6 +471,8 @@ func add_pick_up_count(_player, _amount): get_player_stats(_player)["pick_up_cou
 func add_toggle_pi_count(_player,_amount): get_player_stats(_player)["toggle_pi_count"] += _amount
 
 func add_suicide_count(_player,_amount): get_player_stats(_player)["suicide_count"] += _amount
+
+func add_wow_count(_player, _amount): get_player_stats(_player)["wow_count"] += _amount
 
 func get_place_name(_place):
 	if _place == 0:

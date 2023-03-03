@@ -5,7 +5,6 @@ onready var cast_forward = $RayCast2D
 var speed = 800
 var owned = 0
 onready var anim = $AnimationPlayer
-var my_name = "RPG"
 var damage
 var gun_num = 0
 

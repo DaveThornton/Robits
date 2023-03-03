@@ -5,7 +5,6 @@ onready var cast_forward = $RayCast2D
 onready var anim = $AnimationPlayer
 var speed = 300
 var owned = 0
-var my_name = "BFG 9000"
 var damage
 var gun_num = 0
 

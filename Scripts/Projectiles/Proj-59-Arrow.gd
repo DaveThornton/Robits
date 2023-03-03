@@ -4,7 +4,6 @@ onready var ray = $RayCast2D
 onready var timer = $Timer
 var speed = 800
 var player = 1
-var my_name = "Arrow"
 var damage = 50
 var damage_type = "Arrow"
 var gun_num = 0

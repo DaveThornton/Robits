@@ -42,6 +42,7 @@ func _hit(_owned, _my_name, _damage_type, _damage):
 		hit_timer.start(time_between)
 		Map_Hand.call_pow()
 		check_frame()
+		Player_Stats.add_wow_count(_owned,1)
 
 func check_frame():
 	if hit_count < hit_max:
@@ -91,7 +92,7 @@ func check_frame():
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
-		hit(0, "head", "head",100)
+		hit(body.player, "head", "head",100)
 
 func disable_collision_shapes():
 	shape_00.disabled = true
@@ -103,7 +104,6 @@ func disable_collision_shapes():
 
 func _on_Hit_Timer_timeout():
 	can_hit = true
-
 
 func _on_Respawn_Timer_timeout():
 	hit_count = 0

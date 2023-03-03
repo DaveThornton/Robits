@@ -8,7 +8,6 @@ onready var timer = $Timer
 var can_damage = false
 var speed = 1800
 var owned = 1
-var my_name = "TOS Laser"
 var damage = 0
 var damage_type = "laser"
 var gun_num = 0

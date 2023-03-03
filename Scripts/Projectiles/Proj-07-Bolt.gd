@@ -6,8 +6,7 @@ extends Area2D
 onready var ray = $RayCast2D
 onready var timer = $Timer
 var speed = 1000
-var player = 1
-var my_name = "Crossbow Bolt"
+var player = 0
 var damage = 0
 var damage_type = "Arrow"
 var gun_num = 0

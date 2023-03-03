@@ -7,7 +7,6 @@ onready var timer = $Timer
 onready var cast = $RayCast2D
 var speed = 2200
 var owned = 1
-var my_name = ".44"
 var damage = 0
 var damage_type = "Bullet"
 var gun_num = 0
