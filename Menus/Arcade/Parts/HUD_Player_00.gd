@@ -104,6 +104,9 @@ func go_up():
 		in_score_box.up()
 	elif mode == 2:
 		in_game_box.up()
+	elif mode == 0:
+		print_debug("scroll up in player 00")
+		in_game_over_box.up()
 
 func go_down():
 	print_debug("down in hud player 00")
@@ -111,6 +114,8 @@ func go_down():
 		in_score_box.down()
 	elif mode == 2:
 		in_game_box.down()
+	elif mode == 0:
+		in_game_over_box.down()
 
 func go_back(): in_score_box.back()
 

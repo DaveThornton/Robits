@@ -37,7 +37,7 @@ scale = Vector2( 4, 4 )
 [node name="Pawn_02_Pic" parent="MarginContainer0" instance=ExtResource( 14 )]
 visible = false
 position = Vector2( 120, 270 )
-scale = Vector2( 4, 4 )
+scale = Vector2( 3, 3 )
 
 [node name="Pawn_03_Pic" parent="MarginContainer0" instance=ExtResource( 17 )]
 visible = false
@@ -112,13 +112,13 @@ scale = Vector2( 2, 2 )
 [node name="MarginContainer1" type="MarginContainer" parent="."]
 margin_top = 260.0
 margin_right = 256.0
-margin_bottom = 260.0
+margin_bottom = 275.0
 size_flags_vertical = 3
 
 [node name="HBox_Player" type="HBoxContainer" parent="."]
-margin_top = 264.0
+margin_top = 279.0
 margin_right = 256.0
-margin_bottom = 301.0
+margin_bottom = 316.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HBox_Player"]
 margin_right = 42.0
@@ -153,15 +153,15 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
-margin_top = 305.0
+margin_top = 320.0
 margin_right = 256.0
-margin_bottom = 305.0
+margin_bottom = 335.0
 size_flags_vertical = 3
 
 [node name="HBox_Score" type="HBoxContainer" parent="."]
-margin_top = 309.0
+margin_top = 339.0
 margin_right = 256.0
-margin_bottom = 346.0
+margin_bottom = 376.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBox_Score"]
 margin_right = 30.0
@@ -196,15 +196,15 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer3" type="MarginContainer" parent="."]
-margin_top = 350.0
+margin_top = 380.0
 margin_right = 256.0
-margin_bottom = 350.0
+margin_bottom = 396.0
 size_flags_vertical = 3
 
 [node name="HBox_Kills" type="HBoxContainer" parent="."]
-margin_top = 354.0
+margin_top = 400.0
 margin_right = 256.0
-margin_bottom = 391.0
+margin_bottom = 437.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBox_Kills"]
 margin_right = 34.0
@@ -239,15 +239,15 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer4" type="MarginContainer" parent="."]
-margin_top = 395.0
+margin_top = 441.0
 margin_right = 256.0
-margin_bottom = 395.0
+margin_bottom = 456.0
 size_flags_vertical = 3
 
 [node name="HBox_Deaths" type="HBoxContainer" parent="."]
-margin_top = 399.0
+margin_top = 460.0
 margin_right = 256.0
-margin_bottom = 436.0
+margin_bottom = 497.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBox_Deaths"]
 margin_right = 24.0
@@ -282,15 +282,15 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer5" type="MarginContainer" parent="."]
-margin_top = 440.0
+margin_top = 501.0
 margin_right = 256.0
-margin_bottom = 440.0
+margin_bottom = 517.0
 size_flags_vertical = 3
 
 [node name="HBox_KDR" type="HBoxContainer" parent="."]
-margin_top = 444.0
+margin_top = 521.0
 margin_right = 256.0
-margin_bottom = 481.0
+margin_bottom = 558.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBox_KDR"]
 margin_right = 42.0
@@ -325,15 +325,15 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer6" type="MarginContainer" parent="."]
-margin_top = 485.0
+margin_top = 562.0
 margin_right = 256.0
-margin_bottom = 485.0
+margin_bottom = 577.0
 size_flags_vertical = 3
 
 [node name="HBox_Shots" type="HBoxContainer" parent="."]
-margin_top = 489.0
+margin_top = 581.0
 margin_right = 256.0
-margin_bottom = 526.0
+margin_bottom = 618.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBox_Shots"]
 margin_right = 30.0
@@ -368,15 +368,15 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer7" type="MarginContainer" parent="."]
-margin_top = 530.0
+margin_top = 622.0
 margin_right = 256.0
-margin_bottom = 530.0
+margin_bottom = 638.0
 size_flags_vertical = 3
 
 [node name="HBox_Hits" type="HBoxContainer" parent="."]
-margin_top = 534.0
+margin_top = 642.0
 margin_right = 256.0
-margin_bottom = 571.0
+margin_bottom = 679.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBox_Hits"]
 margin_right = 41.0
@@ -411,15 +411,15 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer8" type="MarginContainer" parent="."]
-margin_top = 575.0
+margin_top = 683.0
 margin_right = 256.0
-margin_bottom = 575.0
+margin_bottom = 698.0
 size_flags_vertical = 3
 
 [node name="HBox_Miss" type="HBoxContainer" parent="."]
-margin_top = 579.0
+margin_top = 702.0
 margin_right = 256.0
-margin_bottom = 616.0
+margin_bottom = 739.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBox_Miss"]
 margin_right = 27.0
@@ -454,55 +454,15 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 
 [node name="MarginContainer9" type="MarginContainer" parent="."]
-margin_top = 620.0
+margin_top = 743.0
 margin_right = 256.0
-margin_bottom = 620.0
+margin_bottom = 759.0
 size_flags_vertical = 3
 
 [node name="Place_Label" type="Label" parent="."]
-margin_top = 624.0
+margin_top = 763.0
 margin_right = 256.0
-margin_bottom = 661.0
-custom_fonts/font = ExtResource( 5 )
-text = "Place"
-align = 1
-
-[node name="Place_Label2" type="Label" parent="."]
-margin_top = 665.0
-margin_right = 256.0
-margin_bottom = 702.0
-custom_fonts/font = ExtResource( 5 )
-text = "Place"
-align = 1
-
-[node name="Place_Label3" type="Label" parent="."]
-margin_top = 706.0
-margin_right = 256.0
-margin_bottom = 743.0
-custom_fonts/font = ExtResource( 5 )
-text = "Place"
-align = 1
-
-[node name="Place_Label4" type="Label" parent="."]
-margin_top = 747.0
-margin_right = 256.0
-margin_bottom = 784.0
-custom_fonts/font = ExtResource( 5 )
-text = "Place"
-align = 1
-
-[node name="Place_Label5" type="Label" parent="."]
-margin_top = 788.0
-margin_right = 256.0
-margin_bottom = 825.0
-custom_fonts/font = ExtResource( 5 )
-text = "Place"
-align = 1
-
-[node name="Place_Label6" type="Label" parent="."]
-margin_top = 829.0
-margin_right = 256.0
-margin_bottom = 866.0
+margin_bottom = 800.0
 custom_fonts/font = ExtResource( 5 )
 text = "Place"
 align = 1

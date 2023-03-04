@@ -15,4 +15,4 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		anim.queue("Hit")
 
 func explode():
-	FX.explode(55, -1, self.global_position, "Blast Door Destruct System", 0, 0)
+	FX.explode(55, -1, self.global_position, 0, 0, 0)

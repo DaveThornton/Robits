@@ -246,13 +246,17 @@ func show_lives(_show:bool):
 func game_over(): print_debug("game over doesnt do much in hud so fun!")
 
 func game_over_input(_player, _input):
-	print_debug(" game over input " , _player,"   ", _input)
+	print_debug(" game over input " , _player,"   ", _input,"     ",Game.get_mode(),"     ",  Player_Stats.get_done(_player))
 	if Game.get_mode() > 0:
 		if _input == 5:
 			count.change_count(-1)
 		elif _input ==6:
 			count.change_count(1)
-
+		if _input == -1:
+			get_player_hud(_player).go_up()
+		elif _input == -4:
+			get_player_hud(_player).go_down()
+		
 	elif Game.get_mode() == 0 && !Player_Stats.get_done(_player):
 		if _input == 1:
 			get_player_hud(_player).go_up()

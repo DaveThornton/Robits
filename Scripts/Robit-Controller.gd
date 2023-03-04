@@ -290,6 +290,14 @@ func _process(delta):
 			HUD.game_over_input(player, 4)
 		elif jump_input_j || shoot_input_j:
 			HUD.game_over_input(player, 5)
+		elif down_input_j:
+			HUD.game_over_input(player, 4) 
+		elif up_input:
+			HUD.game_over_input(player, -1)
+		elif down_input:
+			HUD.game_over_input(player, -4)
+
+
 
 func set_spawn_spot(_pos):
 	spawn_spot = _pos

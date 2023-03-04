@@ -1,19 +1,26 @@
 extends VBoxContainer
 
-onready var game_over_stats = $Player_End_VS_Stats
+onready var game_over_stats = $ScrollContainer/VBoxContainer/Player_End_VS_Stats
 onready var player_num_count = $HBox_Player/Label_Player_Count
 onready var player_num_go = $HBox_Player
 onready var player_done_go = $Label_Done
+onready var scroll_box = $ScrollContainer
 
 var game_done = false
 var player = 0
 
 func start():
+	scroll_box.get_v_scrollbar().modulate = Color(0, 0, 0, 0)
 	if Player_Stats.get_in_game(player):
 		game_over_not_done()
 		game_over_stats.update()
 	else:
 		not_in_game()
+
+func up(): 
+	print_debug("scroll up in game over")
+	scroll_box.scroll_vertical -= 10
+func down(): scroll_box.scroll_vertical += 10
 
 func player_num_update(_num):
 	player = _num
