@@ -1,6 +1,9 @@
 extends VBoxContainer
 
 onready var game_over_stats = $ScrollContainer/VBoxContainer/Player_End_VS_Stats
+onready var kill_w_stats = $ScrollContainer/VBoxContainer/Kill_W_Weap_End_Stats
+onready var kill_by_stats = $ScrollContainer/VBoxContainer/Kill_By_Weap_End_Stats
+
 onready var player_num_count = $HBox_Player/Label_Player_Count
 onready var player_num_go = $HBox_Player
 onready var player_done_go = $Label_Done
@@ -14,6 +17,8 @@ func start():
 	if Player_Stats.get_in_game(player):
 		game_over_not_done()
 		game_over_stats.update()
+		kill_w_stats.update_stats(player)
+		kill_by_stats.update_stats(player)
 	else:
 		not_in_game()
 
@@ -35,11 +40,15 @@ func not_in_game():
 	player_done_go.visible = false
 	player_num_go.visible = false
 	game_over_stats.visible = false
+	kill_w_stats.visible = false
+	kill_by_stats.visible = false
 
 func game_over_done():
 	player_done_go.visible = true
 	player_num_go.visible = true
 	game_over_stats.visible = false
+	kill_w_stats.visible = false
+	kill_by_stats.visible = false
 	Player_Stats.set_done(player,true)
 	game_done = true
 
@@ -47,6 +56,8 @@ func game_over_not_done():
 	player_done_go.visible = false
 	player_num_go.visible = false
 	game_over_stats.visible = true
+	kill_w_stats.visible = true
+	kill_by_stats.visible = true
 	Player_Stats.set_done(player,false)
 	game_done = false
 
