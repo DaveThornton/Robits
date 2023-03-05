@@ -22,7 +22,8 @@ var px = {#vars to be added to all other player stats
 	team = 0,
 	weap_kill_w = {},
 	weap_killed_by = {},
-
+	killed_by_who = [0,0,0,0,0,0,0,0,0],
+	killed_who = [0,0,0,0,0,0,0,0,0],
 	suicide_count = 0,
 	dmg_taken = 0,
 	dmg_given = 0,
@@ -141,19 +142,15 @@ func _ready():
 		p8["pawn_num"] = 2
 
 func add_kill(_killed: int, _killer: int, _point: int, _by_what: int):
-	# print_debug(_killed," by ",_killer," for ",_point, " points with ",_by_what)
-	if _killer == _killed:
-		add_suicide_count(_killer, 1)
-		# print_debug("suicide count is at : ",p1["suicide_count"]) 
 	if _killer > 0:
 		add_score(_killer, _point)
 		get_player_stats(_killer)["kill"] += 1
+		add_killed_by(_killed, _by_what)
+		add_kill_w(_killer, _by_what)
+		get_player_stats(_killer).killed_who[_killed] += 1
+		get_player_stats(_killed).killed_by_who[_killer] += 1
 	if _point > 1 && Settings.get_multi_minus_on_death():
 		add_score(_killed,(-1 * (_point -1)))
-	add_killed_by(_killed, _by_what)
-	add_kill_w(_killer, _by_what)
-	# get_player_stats(_killer).weap_kill_w.append(Vector2(_by_what,1))
-	# get_player_stats(_killed).weap_kill_by.append(Vector2(_by_what,1))
 	add_death(_killed)
 
 func add_death(_player: int):
@@ -325,6 +322,11 @@ func add_kill_w(_player: int, _weap):
 	else:
 		print_debug("didnt add kill bc weap number wasnt reconized")
 	print(get_player_stats(_player).weap_kill_w, "     kill with ", _player)
+
+
+func get_killed_who(_player: int): return get_player_stats(_player).killed_who
+
+func get_killed_by_who(_player: int): return get_player_stats(_player).killed_by_who
 
 func get_killed_by(_player: int): return get_player_stats(_player).weap_killed_by
 
