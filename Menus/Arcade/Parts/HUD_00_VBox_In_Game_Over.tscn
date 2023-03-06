@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menus/Arcade/Scripts/HUD_00_VBox_In_Game_Over.gd" type="Script" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Kill_By_Weap_End_Stats.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Killed_By_Who_End_Stats.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Killed_Who_End_Stats.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Menus/Arcade/Parts/End_Stats/Distance_Traveled_Stats.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Menus/Arcade/Parts/End_Stats/Killed_By_Who_End_Stats.gd" type="Script" id=10]
+[ext_resource path="res://Menus/Arcade/Parts/End_Stats/Other_Input_Stats.tscn" type="PackedScene" id=11]
 
 [node name="VBox_Game_Over" type="VBoxContainer"]
 margin_right = 184.0
@@ -98,114 +101,67 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 184.0
-margin_bottom = 377.0
+margin_bottom = 432.0
 
 [node name="Player_End_VS_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 visible = false
 margin_right = 184.0
 margin_bottom = 661.0
 
-[node name="HBox_Space_01" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-visible = false
-margin_right = 184.0
-margin_bottom = 37.0
-alignment = 1
-
-[node name="Label_Player_Text" type="Label" parent="ScrollContainer/VBoxContainer/HBox_Space_01"]
-margin_left = 92.0
-margin_right = 92.0
-margin_bottom = 37.0
-custom_fonts/font = ExtResource( 1 )
-align = 1
-
 [node name="Kill_W_Weap_End_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 5 )]
+visible = false
 margin_top = 0.0
 
-[node name="HBox_Space_02" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-visible = false
-margin_top = 109.0
-margin_right = 184.0
-margin_bottom = 146.0
-alignment = 1
-
-[node name="Label_Player_Text" type="Label" parent="ScrollContainer/VBoxContainer/HBox_Space_02"]
-margin_left = 92.0
-margin_right = 92.0
-margin_bottom = 37.0
-custom_fonts/font = ExtResource( 1 )
-align = 1
-
 [node name="Kill_By_Weap_End_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 6 )]
-margin_top = 109.0
-margin_bottom = 173.0
-
-[node name="HBox_Space_03" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
 visible = false
-margin_top = 177.0
-margin_right = 184.0
-margin_bottom = 214.0
-alignment = 1
-
-[node name="Label_Player_Text" type="Label" parent="ScrollContainer/VBoxContainer/HBox_Space_03"]
-margin_left = 92.0
-margin_right = 92.0
-margin_bottom = 37.0
-custom_fonts/font = ExtResource( 1 )
-align = 1
+margin_top = 0.0
 
 [node name="Killed_Who_End_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 8 )]
-margin_top = 177.0
-margin_bottom = 241.0
-
-[node name="HBox_Space_04" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
 visible = false
-margin_top = 245.0
-margin_right = 184.0
-margin_bottom = 282.0
-alignment = 1
-
-[node name="Label_Player_Text" type="Label" parent="ScrollContainer/VBoxContainer/HBox_Space_04"]
-margin_left = 92.0
-margin_right = 92.0
-margin_bottom = 37.0
-custom_fonts/font = ExtResource( 1 )
-align = 1
+margin_top = 0.0
 
 [node name="Killed_By_Who_End_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 7 )]
-margin_top = 245.0
-margin_bottom = 309.0
+margin_top = 0.0
+script = ExtResource( 10 )
 
-[node name="HBox_Space_05" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
-visible = false
-margin_top = 313.0
+[node name="Distance_Traveled_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 9 )]
+margin_top = 109.0
+margin_bottom = 214.0
+
+[node name="Other_Input_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 11 )]
+margin_top = 218.0
+margin_bottom = 323.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 327.0
 margin_right = 184.0
-margin_bottom = 350.0
+margin_bottom = 432.0
+rect_min_size = Vector2( 184, 0 )
+
+[node name="HBox_Space_05" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_right = 184.0
+margin_bottom = 37.0
 alignment = 1
 
-[node name="Label_Player_Text" type="Label" parent="ScrollContainer/VBoxContainer/HBox_Space_05"]
+[node name="Label_Player_Text" type="Label" parent="ScrollContainer/VBoxContainer/VBoxContainer/HBox_Space_05"]
 margin_left = 92.0
 margin_right = 92.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 1 )
 align = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 313.0
-margin_right = 184.0
-margin_bottom = 377.0
-rect_min_size = Vector2( 184, 0 )
-
 [node name="Awards_Text" type="Label" parent="ScrollContainer/VBoxContainer/VBoxContainer"]
+margin_top = 41.0
 margin_right = 184.0
-margin_bottom = 37.0
+margin_bottom = 78.0
 custom_fonts/font = ExtResource( 1 )
 text = "Awards"
 align = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/VBoxContainer"]
-margin_top = 41.0
+margin_top = 82.0
 margin_right = 184.0
-margin_bottom = 64.0
+margin_bottom = 105.0
 
 [node name="Award_Text_00" type="Label" parent="ScrollContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
 margin_right = 184.0

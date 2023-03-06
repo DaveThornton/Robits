@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menus/Arcade/Parts/HUD_70_2_Strings.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menus/Arcade/Parts/End_Stats/Other_Input_Stats.gd" type="Script" id=3]
+[ext_resource path="res://misc/line-text-kinda_small.tres" type="DynamicFont" id=4]
+
+[node name="Other_Input_Stats" type="VBoxContainer"]
+margin_top = 41.0
+margin_right = 184.0
+margin_bottom = 105.0
+rect_min_size = Vector2( 184, 0 )
+script = ExtResource( 3 )
+input_label = ExtResource( 2 )
+
+[node name="Blank_Text" type="Label" parent="."]
+margin_right = 184.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="Kill_By_W_Text" type="Label" parent="."]
+margin_top = 41.0
+margin_right = 184.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "Pick it Up"
+align = 1
+
+[node name="Kill_By_W_Text2" type="Label" parent="."]
+margin_top = 82.0
+margin_right = 184.0
+margin_bottom = 105.0
+custom_fonts/font = ExtResource( 4 )
+text = " put it down"
+align = 1
