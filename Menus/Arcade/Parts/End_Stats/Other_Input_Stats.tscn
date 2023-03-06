@@ -19,7 +19,7 @@ margin_bottom = 37.0
 custom_fonts/font = ExtResource( 1 )
 align = 1
 
-[node name="Kill_By_W_Text" type="Label" parent="."]
+[node name="Other_Text" type="Label" parent="."]
 margin_top = 41.0
 margin_right = 184.0
 margin_bottom = 78.0
@@ -27,7 +27,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "Pick it Up"
 align = 1
 
-[node name="Kill_By_W_Text2" type="Label" parent="."]
+[node name="Other_Text2" type="Label" parent="."]
 margin_top = 82.0
 margin_right = 184.0
 margin_bottom = 105.0

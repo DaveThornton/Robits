@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menus/Arcade/Scripts/HUD_00_VBox_In_Game_Over.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Distance_Traveled_Stats.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Killed_By_Who_End_Stats.gd" type="Script" id=10]
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Other_Input_Stats.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Menus/Arcade/Parts/End_Stats/Damage_Stats.tscn" type="PackedScene" id=12]
 
 [node name="VBox_Game_Over" type="VBoxContainer"]
 margin_right = 184.0
@@ -101,7 +102,7 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 184.0
-margin_bottom = 432.0
+margin_bottom = 623.0
 
 [node name="Player_End_VS_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 visible = false
@@ -117,25 +118,29 @@ visible = false
 margin_top = 0.0
 
 [node name="Killed_Who_End_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 8 )]
-visible = false
 margin_top = 0.0
 
 [node name="Killed_By_Who_End_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 7 )]
-margin_top = 0.0
+margin_top = 109.0
+margin_bottom = 214.0
 script = ExtResource( 10 )
 
 [node name="Distance_Traveled_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 9 )]
-margin_top = 109.0
-margin_bottom = 214.0
-
-[node name="Other_Input_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 11 )]
 margin_top = 218.0
 margin_bottom = 323.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="Other_Input_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 11 )]
 margin_top = 327.0
-margin_right = 184.0
 margin_bottom = 432.0
+
+[node name="Damage_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+margin_top = 436.0
+margin_bottom = 514.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+margin_top = 518.0
+margin_right = 184.0
+margin_bottom = 623.0
 rect_min_size = Vector2( 184, 0 )
 
 [node name="HBox_Space_05" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/VBoxContainer"]

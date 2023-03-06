@@ -478,23 +478,23 @@ func add_wow_count(_player, _amount): get_player_stats(_player)["wow_count"] += 
 
 #----------------------------------getters for end level Stats-------------------------------------------
 
-func get_jump_count(_player):  return get_player_stats(_player)["jump_count"]
+func get_jump_count(_player): return get_player_stats(_player)["jump_count"]
 	
 func get_air_jump_count(_player): return  get_player_stats(_player)["jump_air_count"]
 
-func get_jump_down_count(_player):  return get_player_stats(_player)["jump_down_count"]
+func get_jump_down_count(_player): return get_player_stats(_player)["jump_down_count"]
 
-func get_dmg_taken(_player):  return get_player_stats(_player)["dmg_taken"]
+func get_dmg_taken(_player): return get_player_stats(_player)["dmg_taken"]
 
-func get_dmg_given(_player):  return get_player_stats(_player)["dmg_given"]
+func get_dmg_given(_player): return get_player_stats(_player)["dmg_given"]
 
 func get_ground_distance(_player): return  get_player_stats(_player)["ground_distance"]
 
 func get_air_distance(_player): return  get_player_stats(_player)["air_distance"]
 
-func get_jump_up_distance(_player):  return get_player_stats(_player)["jump_up_distance"]
+func get_jump_up_distance(_player): return get_player_stats(_player)["jump_up_distance"]
 
-func get_drop_dn_distance(_player):  return get_player_stats(_player)["drop_distance"]
+func get_drop_dn_distance(_player): return get_player_stats(_player)["drop_distance"]
 
 func get_coin_count(_player): return  get_player_stats(_player)["p_up_coin_count"]
 	
@@ -502,9 +502,9 @@ func get_dot_count(_player):  return get_player_stats(_player)["p_up_dot_count"]
 	
 func get_battery_count(_player): return  get_player_stats(_player)["p_up_battery_count"]
 
-func get_ammo_box_count(_player):  return get_player_stats(_player)["ammo_box_count"]
+func get_ammo_box_count(_player): return get_player_stats(_player)["ammo_box_count"]
 
-func get_balloon_count(_player):  return get_player_stats(_player)["p_up_balloon_count"]
+func get_balloon_count(_player): return get_player_stats(_player)["p_up_balloon_count"]
 
 func get_back_shield_count(_player): return  get_player_stats(_player)["p_up_back_shield_count"]
 

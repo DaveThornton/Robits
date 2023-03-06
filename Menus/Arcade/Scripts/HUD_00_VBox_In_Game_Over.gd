@@ -7,6 +7,7 @@ onready var kill_who_stats = $ScrollContainer/VBoxContainer/Killed_Who_End_Stats
 onready var kill_by_who_stats = $ScrollContainer/VBoxContainer/Killed_By_Who_End_Stats
 onready var distance_traveled_stats = $ScrollContainer/VBoxContainer/Distance_Traveled_Stats
 onready var other_input_stats = $ScrollContainer/VBoxContainer/Other_Input_Stats
+onready var damage_stats = $ScrollContainer/VBoxContainer/Damage_Stats
 
 onready var player_num_count = $HBox_Player/Label_Player_Count
 onready var player_num_go = $HBox_Player
@@ -27,11 +28,12 @@ func start():
 		kill_by_who_stats.update_stats(player)
 		distance_traveled_stats.update_stats(player)
 		other_input_stats.update_stats(player)
+		damage_stats.update_stats(player)
 	else:
 		not_in_game()
 
 func up(): 
-	print_debug("scroll up in game over")
+	# print_debug("scroll up in game over")
 	scroll_box.scroll_vertical -= 10
 func down(): scroll_box.scroll_vertical += 10
 
@@ -54,6 +56,7 @@ func not_in_game():
 	kill_by_who_stats.visible = false
 	distance_traveled_stats.visible = false
 	other_input_stats.visible = false
+	damage_stats.visible = false
 
 func game_over_done():
 	player_done_go.visible = true
@@ -65,6 +68,7 @@ func game_over_done():
 	kill_by_who_stats.visible = false
 	distance_traveled_stats.visible = false
 	other_input_stats.visible = false
+	damage_stats.visible = false
 	Player_Stats.set_done(player,true)
 	game_done = true
 
@@ -78,6 +82,7 @@ func game_over_not_done():
 	kill_by_who_stats.visible = true
 	distance_traveled_stats.visible = true
 	other_input_stats.visible = true
+	damage_stats.visible = true
 	Player_Stats.set_done(player,false)
 	game_done = false
 
