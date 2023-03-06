@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Menus/Arcade/Parts/HUD_70_2_Strings.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Menus/Arcade/Parts/End_Stats/Power_Up_Stats.gd" type="Script" id=3]
+
+[node name="Power_Up_Stats" type="VBoxContainer"]
+margin_top = 41.0
+margin_right = 184.0
+margin_bottom = 105.0
+rect_min_size = Vector2( 184, 0 )
+script = ExtResource( 3 )
+power_label = ExtResource( 2 )
+
+[node name="Blank_Text" type="Label" parent="."]
+margin_right = 186.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+
+[node name="Distance_Text" type="Label" parent="."]
+margin_top = 41.0
+margin_right = 186.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "Power ups"
+align = 1
