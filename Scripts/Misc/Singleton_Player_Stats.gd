@@ -131,7 +131,7 @@ func _ready():
 	if test != 0:
 		print_debug("error Singleton Player Stats connecting to reset from world gd")
 	if get_tree().get_current_scene().game_mode == 3: #thats in world not in game
-		print_debug("pawns set in player stats")
+		print_debug("pawns set in player stats ready func")
 		p1["pawn_num"] = 3
 		p2["pawn_num"] = 1
 		p3["pawn_num"] = 12
@@ -143,7 +143,10 @@ func _ready():
 
 func add_kill(_killed: int, _killer: int, _point: int, _by_what: int):
 	if _killer > 0:
-		add_score(_killer, _point)
+		if _killer == _killed:
+			add_suicide_count(_killed,1)
+		else:
+			add_score(_killer, _point)
 		get_player_stats(_killer)["kill"] += 1
 		add_killed_by(_killed, _by_what)
 		add_kill_w(_killer, _by_what)
@@ -206,8 +209,7 @@ func nrg_update(_player: int, _nrg: int, _nrg_max: int):
 	var _current_nrg = int((float(_nrg) / _nrg_max)* 100)
 	HUD.set_nrg(_player, _current_nrg)
 
-func ammo_update(_player: int, _ammo: int):
-	HUD.set_ammo(_player, _ammo)
+func ammo_update(_player: int, _ammo: int): HUD.set_ammo(_player, _ammo)
 
 func can_player_start(_player: int):
 	if get_player_stats(_player)["credit"] > 0:
@@ -527,7 +529,6 @@ func get_toggle_pi_count(_player): return get_player_stats(_player)["toggle_pi_c
 func get_suicide_count(_player): return get_player_stats(_player)["suicide_count"]
 
 func get_wow_count(_player): return get_player_stats(_player)["wow_count"]
-
 
 func get_place_name(_place):
 	if _place == 0:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Menus/Arcade/Parts/HUD_Player_00.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Arcade/Parts/Scripts/HUD_Player_00.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/Parts/HUD_02_VBox_In_Game.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Menus/Arcade/Parts/HUD_00_VBox_In_Game_Over.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menus/Arcade/Parts/HUD_01_VBox_In_Menu.tscn" type="PackedScene" id=4]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://Maps/map-C-00.gd" type="Script" id=1]
+[ext_resource path="res://Maps/Scripts/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=4]

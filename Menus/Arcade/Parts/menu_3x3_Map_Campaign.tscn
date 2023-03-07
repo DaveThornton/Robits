@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Menus/Arcade/Parts/menu_3x3_Map_Campaign.gd" type="Script" id=1]
+[ext_resource path="res://Menus/Arcade/Parts/Scripts/menu_3x3_Map_Campaign.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Menu/Menu-Camp-Maps.png" type="Texture" id=2]
 
 [node name="Menu_3x3_Maps" type="Node2D"]

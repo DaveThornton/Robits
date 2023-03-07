@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/Menu/VS_Map_Select/Thumbnail_Maps.png" type="Texture" id=1]
-[ext_resource path="res://Menus/Arcade/Parts/menu_4x5_Map_VS.gd" type="Script" id=2]
+[ext_resource path="res://Menus/Arcade/Parts/Scripts/menu_4x5_Map_VS.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Misc/White_Pixel.png" type="Texture" id=3]
 
 [node name="Menu_5x4_Map" type="Node2D"]

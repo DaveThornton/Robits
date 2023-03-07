@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Menus/Arcade/Parts/HUD_18_Continue.gd" type="Script" id=2]
+[ext_resource path="res://Menus/Arcade/Parts/Scripts/HUD_18_Continue.gd" type="Script" id=2]
 
 [node name="HBox_Continue" type="HBoxContainer"]
 margin_top = -0.788239

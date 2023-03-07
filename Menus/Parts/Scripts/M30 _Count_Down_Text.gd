@@ -12,6 +12,7 @@ func _ready():
 	pass # Replace with function body
 
 func init():
+	FX.CAMERA.set_stop_trauma(true)
 	started = true
 	visible = true
 	current_count = count
@@ -33,6 +34,7 @@ func change_count(_amount):
 	self.text = str(current_count)
 
 func zero():
+	FX.CAMERA.set_stop_trauma(false)
 	visible = false
 	current_count = count
 	started = false

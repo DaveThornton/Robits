@@ -2,7 +2,7 @@
 
 [ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menus/Arcade/Scripts/HUD_04_VBox_In_Level_End.gd" type="Script" id=2]
-[ext_resource path="res://Menus/Arcade/Parts/Player_End_Level_Stats.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menus/Arcade/Parts/End_Stats/Player_End_Level_Stats.tscn" type="PackedScene" id=3]
 
 [node name="VBox_Level_End" type="VBoxContainer"]
 margin_right = 225.0

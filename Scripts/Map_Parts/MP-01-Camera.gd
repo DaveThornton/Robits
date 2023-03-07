@@ -15,6 +15,7 @@ var noise_y = 0
 var trauma: = 0.0
 var trauma_power: = 3
 var trauma_depletion: = 0.2
+var stop_trauma = false
 var max_c_off: = Vector2(35, 20)#was 50 25
 var max_c_rot: = 0.4
 var max_c_static: = 120
@@ -97,13 +98,11 @@ func get_crt_status():
 	return effect.visible
 
 func add_trauma(_amount):
-	if juice_on:
-#	print_debug("trauma added ", _amount, " amount in MP-01-Camera")
-		# trauma += _amount * 0.1
+	if juice_on && !stop_trauma:
 		trauma += _amount * juice_amount
-		# trauma = clamp(trauma,0,.4)
 		trauma = clamp(trauma,0,(juice_amount * 4))
-	# print_debug("trauma :", trauma, "    in MP-01-Camera")
+
+func set_stop_trauma(_stop): stop_trauma = _stop #set in m30 to keep end screen readable
 
 func _c_shake(_delta):
 	var amount = pow(trauma,trauma_power)

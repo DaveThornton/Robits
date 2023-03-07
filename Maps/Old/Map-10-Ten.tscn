@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Maps/map-00.gd" type="Script" id=1]
+[ext_resource path="res://Maps/Scripts/map-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/R_B_Back.tres" type="TileSet" id=2]
 [ext_resource path="res://Tilesets/R_BasicX20.tres" type="TileSet" id=3]
 [ext_resource path="res://Tilesets/R_B_Plat_X20.tres" type="TileSet" id=4]

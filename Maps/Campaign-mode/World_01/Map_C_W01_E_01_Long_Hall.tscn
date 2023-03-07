@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Maps/map-C-00.gd" type="Script" id=1]
+[ext_resource path="res://Maps/Scripts/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-04-Back-FX-Jungle.tres" type="TileSet" id=2]
 [ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Maps/Campaign-mode/World_01/Map_C_W01_F_01_The_Warden.tscn" type="PackedScene" id=4]

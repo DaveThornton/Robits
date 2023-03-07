@@ -1,15 +1,14 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menus/Arcade/Scripts/HUD_00_VBox_In_Game_Over.gd" type="Script" id=2]
-[ext_resource path="res://Menus/Arcade/Parts/Player_End_VS_Stats.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menus/Arcade/Parts/End_Stats/Player_End_VS_Stats.tscn" type="PackedScene" id=3]
 [ext_resource path="res://misc/line-text-kinda_small.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Kill_W_Weap_End_Stats.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Kill_By_Weap_End_Stats.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Killed_By_Who_End_Stats.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Killed_Who_End_Stats.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Distance_Traveled_Stats.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Menus/Arcade/Parts/End_Stats/Killed_By_Who_End_Stats.gd" type="Script" id=10]
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Other_Input_Stats.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Damage_Stats.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Menus/Arcade/Parts/End_Stats/Power_Up_Stats.tscn" type="PackedScene" id=13]
@@ -128,7 +127,6 @@ margin_right = 186.0
 margin_top = 109.0
 margin_right = 186.0
 margin_bottom = 214.0
-script = ExtResource( 10 )
 
 [node name="Distance_Traveled_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 9 )]
 margin_top = 218.0

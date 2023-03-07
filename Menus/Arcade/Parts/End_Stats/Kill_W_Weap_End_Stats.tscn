@@ -2,7 +2,7 @@
 
 [ext_resource path="res://misc/line-text.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Menus/Arcade/Parts/HUD_70_2_Strings.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Menus/Arcade/Parts/End_Stats/Kill_W_Weap_End_Stats.gd" type="Script" id=3]
+[ext_resource path="res://Menus/Arcade/Parts/End_Stats/Scripts/Kill_W_Weap_End_Stats.gd" type="Script" id=3]
 [ext_resource path="res://misc/line-text-kinda_small.tres" type="DynamicFont" id=4]
 
 [node name="Kill_W_Weap_End_Stats" type="VBoxContainer"]

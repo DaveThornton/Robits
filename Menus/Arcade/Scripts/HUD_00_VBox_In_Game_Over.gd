@@ -89,5 +89,6 @@ func game_over_not_done():
 	Player_Stats.set_done(player,false)
 	game_done = false
 
+
 func is_game_done():
 	return game_done
