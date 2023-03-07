@@ -419,136 +419,213 @@ export var award_names = {
 }
 
 func get_weap_hold(_weap: int):
-	if _weap < 26:
-		if _weap == 0:
-			return gun_hold_00
-		elif _weap == 1:
-			return gun_hold_01
-		elif _weap == 2:
-			return gun_hold_02
-		elif _weap == 3:
-			return gun_hold_03
-		elif _weap == 4:
-			return gun_hold_04
-		elif _weap == 5:
-			return gun_hold_05
-		elif _weap == 6:
-			return gun_hold_06
-		elif _weap == 7:
-			return gun_hold_07
-		elif _weap == 8:
-			return gun_hold_08
-		elif _weap == 9:
-			return gun_hold_09
-		elif _weap == 10:
-			return gun_hold_10
-		elif _weap == 11:
-			return gun_hold_11
-		elif _weap == 12:
-			return gun_hold_12
-		elif _weap == 13:
-			return gun_hold_13
-		elif _weap == 14:
-			return gun_hold_14
-		elif _weap == 15:
-			return gun_hold_15
-		elif _weap == 16:
-			return gun_hold_16
-		elif _weap == 17:
-			return gun_hold_17
-		elif _weap == 18:
-			return gun_hold_18
-		elif _weap == 19:
-			return gun_hold_19
-		elif _weap == 20:
-			return gun_hold_20
-		elif _weap == 21:
-			return gun_hold_21
-		elif _weap == 22:
-			return gun_hold_22
-		elif _weap == 23:
-			return gun_hold_23
-		elif _weap == 24:
-			return gun_hold_24
-		elif _weap == 25:
-			return gun_hold_25
-		else:
-			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
-			return gun_hold_02
-	elif _weap < 51:
-		if _weap == 27:
-			return gun_hold_27
-		elif _weap == 39:
-			return gun_hold_39
-		elif _weap == 40:
-			return gun_hold_40
-		elif _weap == 41:
-			return gun_hold_41
-		elif _weap == 42:
-			return gun_hold_42
-		elif _weap == 50:
-			return gun_hold_50
-		else:
-			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
-			return gun_hold_02
-	elif _weap < 75:
-		if _weap == 51:
-			return gun_hold_51
-		elif _weap == 52:
-			return gun_hold_52
-		elif _weap == 53:
-			return gun_hold_53
-		elif _weap == 56:
-			return gun_hold_56
-		elif _weap == 57:
-			return gun_hold_57
-		elif _weap == 58:
-			return gun_hold_58
-		elif _weap == 59:
-			return gun_hold_59
-		elif _weap == 60:
-			return gun_hold_60
-		elif _weap == 61:
-			return gun_hold_61
-		elif _weap == 62:
-			return gun_hold_62
-		elif _weap == 63:
-			return gun_hold_63
-		elif _weap == 64:
-			return gun_hold_64
-		elif _weap == 65:
-			return gun_hold_65
-		elif _weap == 66:
-			return gun_hold_66
-		elif _weap == 67:
-			return gun_hold_67
-		elif _weap == 68:
-			return gun_hold_68
-		elif _weap == 69:
-			return gun_hold_69
-		elif _weap == 70:
-			return gun_hold_70
-		elif _weap == 71:
-			return gun_hold_71
-		elif _weap == 72:
-			return gun_hold_72
-		elif _weap == 73:
-			return gun_hold_73
-		else:
-			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
-			return gun_hold_02
-	else:
-		if _weap == 80:
-			return gun_hold_80
-		elif _weap == 83:
-			return gun_hold_83
-		elif _weap == 84:
-			return gun_hold_84
-		else:
-			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
-			return gun_hold_02
+	match _weap:
+		0:return gun_hold_00
+		1:return gun_hold_01
+		2:return gun_hold_02
+		3:return gun_hold_03
+		4:return gun_hold_04
+		5:return gun_hold_05
+		6:return gun_hold_06
+		7:return gun_hold_07
+		8:return gun_hold_08
+		9:return gun_hold_09
+		10:return gun_hold_10
+		11:return gun_hold_11
+		12:return gun_hold_12
+		13:return gun_hold_13
+		14:return gun_hold_14
+		15:return gun_hold_15
+		16:return gun_hold_16
+		17:return gun_hold_17
+		18:return gun_hold_18
+		19:return gun_hold_19
+		20:return gun_hold_20
+		21:return gun_hold_21
+		22:return gun_hold_22
+		23:return gun_hold_23
+		24:return gun_hold_24
+		25:return gun_hold_25
+		26:return gun_hold_00
+		27:return gun_hold_00
+		28:return gun_hold_00
+		29:return gun_hold_00
+		30:return gun_hold_00
+		31:return gun_hold_00
+		32:return gun_hold_00
+		33:return gun_hold_00
+		34:return gun_hold_00
+		35:return gun_hold_00
+		36:return gun_hold_00
+		37:return gun_hold_00
+		38:return gun_hold_00
+		39:return gun_hold_39
+		40:return gun_hold_40
+		41:return gun_hold_41
+		42:return gun_hold_42
+		43:return gun_hold_00
+		44:return gun_hold_00
+		45:return gun_hold_00
+		46:return gun_hold_00
+		47:return gun_hold_00
+		48:return gun_hold_00
+		49:return gun_hold_00
+		50:return gun_hold_50
+		51:return gun_hold_51
+		52:return gun_hold_00
+		53:return gun_hold_00
+		54:return gun_hold_00
+		55:return gun_hold_00
+		56:return gun_hold_56
+		57:return gun_hold_57
+		58:return gun_hold_58
+		59:return gun_hold_59
+		60:return gun_hold_60
+		61:return gun_hold_61
+		62:return gun_hold_62
+		63:return gun_hold_63
+		64:return gun_hold_64
+		65:return gun_hold_65
+		66:return gun_hold_66
+		67:return gun_hold_67
+		68:return gun_hold_68
+		69:return gun_hold_69
+		70:return gun_hold_70
+		71:return gun_hold_71
+		72:return gun_hold_72
+		73:return gun_hold_73
+		74:return gun_hold_00
+		75:return gun_hold_00
+		76:return gun_hold_00
+		77:return gun_hold_00
+		78:return gun_hold_00
+		79:return gun_hold_00
+		80:return gun_hold_00
+		81:return gun_hold_00
+		82:return gun_hold_00
+		83:return gun_hold_83
+		84:return gun_hold_84
+		85:return gun_hold_00
+		86:return gun_hold_00
+		87:return gun_hold_00
+		88:return gun_hold_00
+		89:return gun_hold_00
+		90:return gun_hold_00
+		91:return gun_hold_00
+		92:return gun_hold_00
+		93:return gun_hold_00
+		94:return gun_hold_00
+		95:return gun_hold_00
+		96:return gun_hold_00
+		97:return gun_hold_00
+		98:return gun_hold_00
+		99:return gun_hold_00
+		100:return gun_hold_00
 
 func get_weap_pick(_weap: int):
+	match _weap:
+		0:return gun_pick_00
+		1:return gun_pick_01
+		2:return gun_pick_02
+		3:return gun_pick_03
+		4:return gun_pick_04
+		5:return gun_pick_05
+		6:return gun_pick_06
+		7:return gun_pick_07
+		8:return gun_pick_08
+		9:return gun_pick_09
+		10:return gun_pick_10
+		11:return gun_pick_11
+		12:return gun_pick_12
+		13:return gun_pick_13
+		14:return gun_pick_14
+		15:return gun_pick_15
+		16:return gun_pick_16
+		17:return gun_pick_17
+		18:return gun_pick_18
+		19:return gun_pick_19
+		20:return gun_pick_20
+		21:return gun_pick_21
+		22:return gun_pick_22
+		23:return gun_pick_23
+		24:return gun_pick_24
+		25:return gun_pick_25
+		26:return gun_pick_00
+		27:return gun_pick_00
+		28:return gun_pick_00
+		29:return gun_pick_00
+		30:return gun_pick_00
+		31:return gun_pick_00
+		32:return gun_pick_00
+		33:return gun_pick_00
+		34:return gun_pick_00
+		35:return gun_pick_00
+		36:return gun_pick_00
+		37:return gun_pick_00
+		38:return gun_pick_00
+		39:return gun_pick_39
+		40:return gun_pick_40
+		41:return gun_pick_41
+		42:return gun_pick_42
+		43:return gun_pick_00
+		44:return gun_pick_00
+		45:return gun_pick_00
+		46:return gun_pick_00
+		47:return gun_pick_00
+		48:return gun_pick_00
+		49:return gun_pick_00
+		50:return gun_pick_50
+		51:return gun_pick_51
+		52:return gun_pick_00
+		53:return gun_pick_00
+		54:return gun_pick_00
+		55:return gun_pick_00
+		56:return gun_pick_56
+		57:return gun_pick_57
+		58:return gun_pick_58
+		59:return gun_pick_59
+		60:return gun_pick_60
+		61:return gun_pick_61
+		62:return gun_pick_62
+		63:return gun_pick_63
+		64:return gun_pick_64
+		65:return gun_pick_65
+		66:return gun_pick_66
+		67:return gun_pick_67
+		68:return gun_pick_68
+		69:return gun_pick_69
+		70:return gun_pick_70
+		71:return gun_pick_71
+		72:return gun_pick_72
+		73:return gun_pick_73
+		74:return gun_pick_00
+		75:return gun_pick_00
+		76:return gun_pick_00
+		77:return gun_pick_00
+		78:return gun_pick_00
+		79:return gun_pick_00
+		80:return gun_pick_00
+		81:return gun_pick_00
+		82:return gun_pick_00
+		83:return gun_pick_83
+		84:return gun_pick_84
+		85:return gun_pick_00
+		86:return gun_pick_00
+		87:return gun_pick_00
+		88:return gun_pick_00
+		89:return gun_pick_00
+		90:return gun_pick_00
+		91:return gun_pick_00
+		92:return gun_pick_00
+		93:return gun_pick_00
+		94:return gun_pick_00
+		95:return gun_pick_00
+		96:return gun_pick_00
+		97:return gun_pick_00
+		98:return gun_pick_00
+		99:return gun_pick_00
+		100:return gun_pick_00
+
 	if _weap < 26:
 		if _weap == 0:
 			return gun_pick_00
