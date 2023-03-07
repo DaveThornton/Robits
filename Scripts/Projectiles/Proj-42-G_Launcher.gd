@@ -29,7 +29,7 @@ func _on_Timer_timeout():
 	entered()
 
 func _explode(_pos):
-	FX.explode(10, owned, _pos, "G_Launcher", 0, damage)
+	FX.explode(10, owned, _pos, gun_num, 0, damage)
 	remove_child(parts)
 	Map_Hand.add_kid_to_map(parts)
 	parts.time_out()
