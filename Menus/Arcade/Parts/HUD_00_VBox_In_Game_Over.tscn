@@ -21,21 +21,21 @@ size_flags_vertical = 3
 script = ExtResource( 2 )
 
 [node name="HBox_Player" type="HBoxContainer" parent="."]
-margin_right = 186.0
+margin_right = 198.0
 margin_bottom = 37.0
 alignment = 1
 
 [node name="Label_Player_Text" type="Label" parent="HBox_Player"]
-margin_left = 11.0
-margin_right = 151.0
+margin_left = 17.0
+margin_right = 157.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 1 )
 text = "Player "
 align = 1
 
 [node name="Label_Player_Count" type="Label" parent="HBox_Player"]
-margin_left = 155.0
-margin_right = 175.0
+margin_left = 161.0
+margin_right = 181.0
 margin_bottom = 37.0
 custom_fonts/font = ExtResource( 1 )
 text = "0"
@@ -74,7 +74,7 @@ align = 1
 
 [node name="Label_Done" type="Label" parent="."]
 margin_top = 41.0
-margin_right = 186.0
+margin_right = 198.0
 margin_bottom = 78.0
 custom_fonts/font = ExtResource( 1 )
 text = "done"
@@ -82,28 +82,28 @@ align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_top = 82.0
-margin_right = 186.0
+margin_right = 198.0
 margin_bottom = 82.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 margin_top = 86.0
-margin_right = 186.0
+margin_right = 198.0
 margin_bottom = 86.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 margin_top = 90.0
-margin_right = 186.0
+margin_right = 198.0
 margin_bottom = 760.0
 rect_min_size = Vector2( 0, 670 )
 scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 186.0
-margin_bottom = 404.0
+margin_bottom = 731.0
 
 [node name="Player_End_VS_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 3 )]
 visible = false
@@ -113,42 +113,47 @@ margin_bottom = 661.0
 [node name="Kill_W_Weap_End_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 5 )]
 visible = false
 margin_top = 0.0
+margin_right = 186.0
 
 [node name="Kill_By_Weap_End_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 6 )]
 visible = false
 margin_top = 0.0
+margin_right = 186.0
 
 [node name="Killed_Who_End_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 8 )]
-visible = false
 margin_top = 0.0
+margin_right = 186.0
 
 [node name="Killed_By_Who_End_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 7 )]
-visible = false
-margin_top = 0.0
+margin_top = 109.0
+margin_right = 186.0
+margin_bottom = 214.0
 script = ExtResource( 10 )
 
 [node name="Distance_Traveled_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 9 )]
-visible = false
-margin_top = 0.0
+margin_top = 218.0
+margin_right = 186.0
+margin_bottom = 323.0
 
 [node name="Other_Input_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 11 )]
-margin_top = 0.0
+margin_top = 327.0
 margin_right = 186.0
+margin_bottom = 432.0
 
 [node name="Damage_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
-margin_top = 109.0
+margin_top = 436.0
 margin_right = 186.0
-margin_bottom = 187.0
+margin_bottom = 514.0
 
 [node name="Power_Up_Stats" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 13 )]
-margin_top = 191.0
+margin_top = 518.0
 margin_right = 186.0
-margin_bottom = 269.0
+margin_bottom = 596.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 273.0
+margin_top = 600.0
 margin_right = 186.0
-margin_bottom = 404.0
+margin_bottom = 731.0
 rect_min_size = Vector2( 184, 0 )
 
 [node name="HBox_Space_05" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/VBoxContainer"]
@@ -186,14 +191,14 @@ align = 1
 
 [node name="MarginContainer3" type="MarginContainer" parent="."]
 margin_top = 764.0
-margin_right = 186.0
+margin_right = 198.0
 margin_bottom = 764.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer4" type="MarginContainer" parent="."]
 margin_top = 768.0
-margin_right = 186.0
+margin_right = 198.0
 margin_bottom = 768.0
 size_flags_horizontal = 3
 size_flags_vertical = 3

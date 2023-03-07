@@ -3,6 +3,7 @@ extends VBoxContainer
 export(PackedScene) var power_label
 
 func update_stats(_player):
+	clear_old()
 	var ammo_count = Player_Stats.get_ammo_box_count(_player)
 	var wow_count = Player_Stats.get_wow_count(_player)
 	var jump_count = Player_Stats.get_jump_up_count(_player)
@@ -49,3 +50,8 @@ func make_label(s1,s2):
 	var w = power_label.instance()
 	self.add_child(w)
 	w.update_strings(s1, s2)
+
+func clear_old():
+	for i in self.get_child_count():
+		if i > 1:
+			self.get_child(i).queue_free()

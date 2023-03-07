@@ -624,8 +624,35 @@ func reset_player(_player: int):
 	get_player_stats(_player)["team"] = 0
 	get_player_stats(_player)["weap_kill_w"].clear()
 	get_player_stats(_player)["weap_killed_by"].clear()
+	get_player_stats(_player)["killed_by_who"] = [0,0,0,0,0,0,0,0,0]
+	get_player_stats(_player)["killed_who"] = [0,0,0,0,0,0,0,0,0]
+	get_player_stats(_player)["suicide_count"] = 0
+	get_player_stats(_player)["dmg_taken"] = 0
+	get_player_stats(_player)["dmg_given"] = 0
+	get_player_stats(_player)["drop_count"] = 0
+	get_player_stats(_player)["throw_count"] = 0
+	get_player_stats(_player)["pick_up_count"] = 0
+	get_player_stats(_player)["jump_count"] = 0
+	get_player_stats(_player)["jump_air_count"] = 0
+	get_player_stats(_player)["jump_down_count"] = 0
+	get_player_stats(_player)["toggle_pi_count"] = 0
+	get_player_stats(_player)["ammo_box_count"] = 0
+	get_player_stats(_player)["p_up_jump_count"] = 0
+	get_player_stats(_player)["p_up_shield_count"] = 0
+	get_player_stats(_player)["p_up_speed_count"] = 0
+	get_player_stats(_player)["p_up_nrg_regen"] = 0
+	get_player_stats(_player)["p_up_battery_count"] = 0
+	get_player_stats(_player)["p_up_coin_count"] = 0
+	get_player_stats(_player)["p_up_dot_count"] = 0
+	get_player_stats(_player)["p_up_back_shield_count"] = 0
+	get_player_stats(_player)["p_up_balloon_count"] = 0
+	get_player_stats(_player)["wow_count"] = 0
+	get_player_stats(_player)["ground_distance"] = 0.0
+	get_player_stats(_player)["air_distance"] = 0.0
+	get_player_stats(_player)["drop_distance"] = 0.0
+	get_player_stats(_player)["jump_up_distance"] = 0.0
 
-func reset_player_not_score(_player: int):# or name or player indi or team or killed by and with
+func reset_player_not_score(_player: int):# or name or player indi or team or killed by and with or any other stats
 	get_player_stats(_player)["continuing"] = false
 	get_player_stats(_player)["can_spawn"]= true
 	get_player_stats(_player)["in_play"] = false

@@ -3,6 +3,7 @@ extends VBoxContainer
 export(PackedScene) var damage_label
 
 func update_stats(_player):
+	clear_old()
 	var dmg_given = Player_Stats.get_dmg_given(_player)
 	var dmg_taken = Player_Stats.get_dmg_taken(_player)
 
@@ -21,3 +22,8 @@ func make_label(s1,s2):
 	var w = damage_label.instance()
 	self.add_child(w)
 	w.update_strings(s1, s2)
+
+func clear_old():
+	for i in self.get_child_count():
+		if i > 1:
+			self.get_child(i).queue_free()

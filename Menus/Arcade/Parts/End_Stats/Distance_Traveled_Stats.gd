@@ -3,6 +3,7 @@ extends VBoxContainer
 export(PackedScene) var dis_label
 
 func update_stats(_player):
+	clear_old()
 	var dis_on_land = Player_Stats.get_ground_distance(_player)
 	var dis_in_air = Player_Stats.get_air_distance(_player)
 	var dis_jump_up = Player_Stats.get_jump_up_distance(_player)
@@ -36,3 +37,8 @@ func make_label(s1,s2):
 	var w = dis_label.instance()
 	self.add_child(w)
 	w.update_strings(s1, s2)
+
+func clear_old():
+	for i in self.get_child_count():
+		if i > 2:
+			self.get_child(i).queue_free()

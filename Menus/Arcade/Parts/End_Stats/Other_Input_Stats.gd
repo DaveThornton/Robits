@@ -3,6 +3,7 @@ extends VBoxContainer
 export(PackedScene) var input_label
 
 func update_stats(_player):
+	clear_old()
 	var pick_up_count = Player_Stats.get_pick_up_count(_player)
 	var drop_count = Player_Stats.get_drop_count(_player)
 	var throw_count = Player_Stats.get_throw_count(_player)
@@ -27,3 +28,8 @@ func make_label(s1,s2):
 	var w = input_label.instance()
 	self.add_child(w)
 	w.update_strings(s1, s2)
+
+func clear_old():
+	for i in self.get_child_count():
+		if i > 2:
+			self.get_child(i).queue_free()
