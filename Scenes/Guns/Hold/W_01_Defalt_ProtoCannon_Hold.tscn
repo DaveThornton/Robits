@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Sprites/Guns/W_11_MegaCannon.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Guns/Hold/W_00_Defalt_MegaCannon_Hold.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Guns/W_01_ProtoCannon.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Guns/Hold/W_01_Defalt_ProtoCannon_Hold.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
@@ -57,6 +57,11 @@ script = ExtResource( 2 )
 [node name="POS_Gun" type="Node2D" parent="."]
 
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
+texture = ExtResource( 1 )
+hframes = 4
+
+[node name="Gun_Sprite2" type="Sprite" parent="POS_Gun"]
+modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 1 )
 hframes = 4
 

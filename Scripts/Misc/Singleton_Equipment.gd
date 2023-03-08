@@ -1,6 +1,5 @@
 extends Node2D
 
-export(PackedScene) var gun_hold_00
 export(PackedScene) var gun_hold_01
 export(PackedScene) var gun_hold_02
 export(PackedScene) var gun_hold_03
@@ -90,7 +89,6 @@ export(PackedScene) var gun_hold_84
 #export(PackedScene) var gun_hold_88
 #export(PackedScene) var gun_hold_89
 
-export(PackedScene) var gun_pick_00
 export(PackedScene) var gun_pick_01
 export(PackedScene) var gun_pick_02
 export(PackedScene) var gun_pick_03
@@ -223,7 +221,6 @@ export(PackedScene) var pawn_14
 export(PackedScene) var pawn_15
 
 export var weap_names = {
-	0:"name",
 	1:"name",
 	2:"name",
 	3:"name",
@@ -377,6 +374,16 @@ export var award_names = {
 	48:"name",
 	49:"name",
 	50:"name",
+	51:"name",
+	52:"name",
+	53:"name",
+	54:"name",
+	55:"name",
+	56:"name",
+	57:"name",
+	58:"name",
+	59:"name",
+	60:"name",
 	61:"name",
 	62:"name",
 	63:"name",
@@ -420,7 +427,6 @@ export var award_names = {
 
 func get_weap_hold(_weap: int):
 	match _weap:
-		0:return gun_hold_00
 		1:return gun_hold_01
 		2:return gun_hold_02
 		3:return gun_hold_03
@@ -446,36 +452,36 @@ func get_weap_hold(_weap: int):
 		23:return gun_hold_23
 		24:return gun_hold_24
 		25:return gun_hold_25
-		26:return gun_hold_00
-		27:return gun_hold_00
-		28:return gun_hold_00
-		29:return gun_hold_00
-		30:return gun_hold_00
-		31:return gun_hold_00
-		32:return gun_hold_00
-		33:return gun_hold_00
-		34:return gun_hold_00
-		35:return gun_hold_00
-		36:return gun_hold_00
-		37:return gun_hold_00
-		38:return gun_hold_00
+		26:return gun_hold_01
+		27:return gun_hold_01
+		28:return gun_hold_01
+		29:return gun_hold_01
+		30:return gun_hold_01
+		31:return gun_hold_01
+		32:return gun_hold_01
+		33:return gun_hold_01
+		34:return gun_hold_01
+		35:return gun_hold_01
+		36:return gun_hold_01
+		37:return gun_hold_01
+		38:return gun_hold_01
 		39:return gun_hold_39
 		40:return gun_hold_40
 		41:return gun_hold_41
 		42:return gun_hold_42
-		43:return gun_hold_00
-		44:return gun_hold_00
-		45:return gun_hold_00
-		46:return gun_hold_00
-		47:return gun_hold_00
-		48:return gun_hold_00
-		49:return gun_hold_00
+		43:return gun_hold_01
+		44:return gun_hold_01
+		45:return gun_hold_01
+		46:return gun_hold_01
+		47:return gun_hold_01
+		48:return gun_hold_01
+		49:return gun_hold_01
 		50:return gun_hold_50
 		51:return gun_hold_51
-		52:return gun_hold_00
-		53:return gun_hold_00
-		54:return gun_hold_00
-		55:return gun_hold_00
+		52:return gun_hold_01
+		53:return gun_hold_01
+		54:return gun_hold_01
+		55:return gun_hold_01
 		56:return gun_hold_56
 		57:return gun_hold_57
 		58:return gun_hold_58
@@ -494,37 +500,36 @@ func get_weap_hold(_weap: int):
 		71:return gun_hold_71
 		72:return gun_hold_72
 		73:return gun_hold_73
-		74:return gun_hold_00
-		75:return gun_hold_00
-		76:return gun_hold_00
-		77:return gun_hold_00
-		78:return gun_hold_00
-		79:return gun_hold_00
-		80:return gun_hold_00
-		81:return gun_hold_00
-		82:return gun_hold_00
+		74:return gun_hold_01
+		75:return gun_hold_01
+		76:return gun_hold_01
+		77:return gun_hold_01
+		78:return gun_hold_01
+		79:return gun_hold_01
+		80:return gun_hold_01
+		81:return gun_hold_01
+		82:return gun_hold_01
 		83:return gun_hold_83
 		84:return gun_hold_84
-		85:return gun_hold_00
-		86:return gun_hold_00
-		87:return gun_hold_00
-		88:return gun_hold_00
-		89:return gun_hold_00
-		90:return gun_hold_00
-		91:return gun_hold_00
-		92:return gun_hold_00
-		93:return gun_hold_00
-		94:return gun_hold_00
-		95:return gun_hold_00
-		96:return gun_hold_00
-		97:return gun_hold_00
-		98:return gun_hold_00
-		99:return gun_hold_00
-		100:return gun_hold_00
+		85:return gun_hold_01
+		86:return gun_hold_01
+		87:return gun_hold_01
+		88:return gun_hold_01
+		89:return gun_hold_01
+		90:return gun_hold_01
+		91:return gun_hold_01
+		92:return gun_hold_01
+		93:return gun_hold_01
+		94:return gun_hold_01
+		95:return gun_hold_01
+		96:return gun_hold_01
+		97:return gun_hold_01
+		98:return gun_hold_01
+		99:return gun_hold_01
+		100:return gun_hold_01
 
 func get_weap_pick(_weap: int):
 	match _weap:
-		0:return gun_pick_00
 		1:return gun_pick_01
 		2:return gun_pick_02
 		3:return gun_pick_03
@@ -550,36 +555,36 @@ func get_weap_pick(_weap: int):
 		23:return gun_pick_23
 		24:return gun_pick_24
 		25:return gun_pick_25
-		26:return gun_pick_00
-		27:return gun_pick_00
-		28:return gun_pick_00
-		29:return gun_pick_00
-		30:return gun_pick_00
-		31:return gun_pick_00
-		32:return gun_pick_00
-		33:return gun_pick_00
-		34:return gun_pick_00
-		35:return gun_pick_00
-		36:return gun_pick_00
-		37:return gun_pick_00
-		38:return gun_pick_00
+		26:return gun_pick_01
+		27:return gun_pick_01
+		28:return gun_pick_01
+		29:return gun_pick_01
+		30:return gun_pick_01
+		31:return gun_pick_01
+		32:return gun_pick_01
+		33:return gun_pick_01
+		34:return gun_pick_01
+		35:return gun_pick_01
+		36:return gun_pick_01
+		37:return gun_pick_01
+		38:return gun_pick_01
 		39:return gun_pick_39
 		40:return gun_pick_40
 		41:return gun_pick_41
 		42:return gun_pick_42
-		43:return gun_pick_00
-		44:return gun_pick_00
-		45:return gun_pick_00
-		46:return gun_pick_00
-		47:return gun_pick_00
-		48:return gun_pick_00
-		49:return gun_pick_00
+		43:return gun_pick_01
+		44:return gun_pick_01
+		45:return gun_pick_01
+		46:return gun_pick_01
+		47:return gun_pick_01
+		48:return gun_pick_01
+		49:return gun_pick_01
 		50:return gun_pick_50
 		51:return gun_pick_51
-		52:return gun_pick_00
-		53:return gun_pick_00
-		54:return gun_pick_00
-		55:return gun_pick_00
+		52:return gun_pick_01
+		53:return gun_pick_01
+		54:return gun_pick_01
+		55:return gun_pick_01
 		56:return gun_pick_56
 		57:return gun_pick_57
 		58:return gun_pick_58
@@ -598,37 +603,37 @@ func get_weap_pick(_weap: int):
 		71:return gun_pick_71
 		72:return gun_pick_72
 		73:return gun_pick_73
-		74:return gun_pick_00
-		75:return gun_pick_00
-		76:return gun_pick_00
-		77:return gun_pick_00
-		78:return gun_pick_00
-		79:return gun_pick_00
-		80:return gun_pick_00
-		81:return gun_pick_00
-		82:return gun_pick_00
+		74:return gun_pick_01
+		75:return gun_pick_01
+		76:return gun_pick_01
+		77:return gun_pick_01
+		78:return gun_pick_01
+		79:return gun_pick_01
+		80:return gun_pick_01
+		81:return gun_pick_01
+		82:return gun_pick_01
 		83:return gun_pick_83
 		84:return gun_pick_84
-		85:return gun_pick_00
-		86:return gun_pick_00
-		87:return gun_pick_00
-		88:return gun_pick_00
-		89:return gun_pick_00
-		90:return gun_pick_00
-		91:return gun_pick_00
-		92:return gun_pick_00
-		93:return gun_pick_00
-		94:return gun_pick_00
-		95:return gun_pick_00
-		96:return gun_pick_00
-		97:return gun_pick_00
-		98:return gun_pick_00
-		99:return gun_pick_00
-		100:return gun_pick_00
+		85:return gun_pick_01
+		86:return gun_pick_01
+		87:return gun_pick_01
+		88:return gun_pick_01
+		89:return gun_pick_01
+		90:return gun_pick_01
+		91:return gun_pick_01
+		92:return gun_pick_01
+		93:return gun_pick_01
+		94:return gun_pick_01
+		95:return gun_pick_01
+		96:return gun_pick_01
+		97:return gun_pick_01
+		98:return gun_pick_01
+		99:return gun_pick_01
+		100:return gun_pick_01
 
 	if _weap < 26:
 		if _weap == 0:
-			return gun_pick_00
+			return gun_pick_01
 		elif _weap == 1:
 			return gun_pick_01
 		elif _weap == 2:

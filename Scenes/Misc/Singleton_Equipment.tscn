@@ -43,7 +43,7 @@
 [ext_resource path="res://Scenes/Guns/Hold/W_51-ContradictionS_Hold.tscn" type="PackedScene" id=41]
 [ext_resource path="res://Scenes/Guns/Hold/W_62_Diamond_Pick_Axe_Hold.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Scenes/Guns/Hold/W_12_OpenCannon_Hold.tscn" type="PackedScene" id=43]
-[ext_resource path="res://Scenes/Guns/Hold/W_00_Defalt_MegaCannon_Hold.tscn" type="PackedScene" id=44]
+[ext_resource path="res://Scenes/Guns/Hold/W_01_Defalt_ProtoCannon_Hold.tscn" type="PackedScene" id=44]
 [ext_resource path="res://Scenes/Guns/Hold/W_08-Uzi_Hold.tscn" type="PackedScene" id=45]
 [ext_resource path="res://Scenes/Guns/Hold/W_09_Magnum_Hold.tscn" type="PackedScene" id=46]
 [ext_resource path="res://Scenes/Guns/Hold/W_65_Knife_Hold.tscn" type="PackedScene" id=47]
@@ -130,7 +130,7 @@
 
 [node name="Equipment" type="Node2D"]
 script = ExtResource( 1 )
-gun_hold_00 = ExtResource( 44 )
+gun_hold_01 = ExtResource( 44 )
 gun_hold_02 = ExtResource( 2 )
 gun_hold_03 = ExtResource( 3 )
 gun_hold_04 = ExtResource( 4 )

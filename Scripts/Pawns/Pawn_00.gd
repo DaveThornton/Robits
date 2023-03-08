@@ -296,12 +296,12 @@ func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
 	if g != null:
 		my_gun = g
 		is_holding = true
-	if my_start_gun && start_equiped:
+	if my_start_gun != null:
 		print_debug("equip weap calling start gun to visible false")
 		my_start_gun.visible = false
 
 func equip_start_weap():
-	var g = Equipment.get_weap_hold(0).instance()
+	var g = Equipment.get_weap_hold(1).instance()
 	gun_pos.add_child(g)
 	g.init(false, player, 0, false)
 	start_equiped = true
@@ -653,7 +653,7 @@ func _on_Pick_Up_Area_body_exited(body):
 		wep_array.erase(body)
 
 func killed_by_map(_by_who, _by_what, _damage_type, _damage):
-	hit(_by_who, _by_what, _damage_type, (nrg* 2))
+	hit(_by_who, _by_what, 0, (nrg* 2))
 
 func start_next_level():
 	if !my_gun && start_equiped > 0:

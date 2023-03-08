@@ -8,7 +8,7 @@ onready var pos_shoot = $POS_Gun/POS/Shoot
 onready var shoot_cast = $POS_Gun/Raycast/Shoot
 
 var player = 1
-var gun_num = 0
+var gun_num = 1
 var ammo = 0
 var ammo_max = 0
 var take_ammo = false
