@@ -362,7 +362,7 @@ func pick_up():
 	equip_weap(_weap_num,_ammo_pick_up, _time_left, _just_shot)
 	poss_pick_obj.call_deferred("queue_free")
 	pick_up_stat()
-	if my_start_gun && start_equiped:
+	if my_start_gun:
 		print_debug("pick up calling start gun to visible false")
 		my_start_gun.visible = false
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_FX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=2]
@@ -74,6 +74,7 @@
 [ext_resource path="res://Sprites/FX/Static/Real/scene00025.png" type="Texture" id=72]
 [ext_resource path="res://Sprites/FX/Static/Real/scene00005.png" type="Texture" id=73]
 [ext_resource path="res://Sprites/FX/Static/Real/scene00020.png" type="Texture" id=74]
+[ext_resource path="res://Scenes/Projectiles/Proj-11-Mega-Cannon.tscn" type="PackedScene" id=75]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 470, 549 )
@@ -192,6 +193,7 @@ shape = SubResource( 2 )
 
 [node name="Projectlies" parent="." instance=ExtResource( 11 )]
 position = Vector2( 0, -1 )
+proj001 = ExtResource( 75 )
 
 [node name="Shells" parent="." instance=ExtResource( 13 )]
 
@@ -211,7 +213,7 @@ position = Vector2( 960, 543 )
 scale = Vector2( 1.15, 1.15 )
 frames = SubResource( 3 )
 animation = "Real"
-frame = 22
+frame = 36
 speed_scale = 7.0
 playing = true
 

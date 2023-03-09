@@ -51,7 +51,7 @@ tracks/0/keys = {
 "values": [ 2, 3, 1, 0 ]
 }
 
-[node name="W_00_Defalt_MegaCannon_Hold" type="Node2D"]
+[node name="W_01_Defalt_MegaCannon_Hold" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="POS_Gun" type="Node2D" parent="."]

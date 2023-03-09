@@ -1,5 +1,5 @@
 extends Node2D
-
+export(PackedScene) var proj001
 export(PackedScene) var proj002
 export(PackedScene) var proj003
 export(PackedScene) var proj004
@@ -45,6 +45,8 @@ func make_vs(_num,_rot, _pos, _scale, _owner, _dmg):
 	var new_projectile
 	var layer = no_hit_player_map
 	match _num:
+		1:
+			new_projectile = proj001.instance()
 		2:
 			new_projectile = proj002.instance()
 		3:
