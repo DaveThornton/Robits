@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_01_ProtoCannon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Hold/W_01_Defalt_ProtoCannon_Hold.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=4]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
@@ -53,6 +55,14 @@ tracks/0/keys = {
 
 [node name="W_01_Defalt_MegaCannon_Hold" type="Node2D"]
 script = ExtResource( 2 )
+gun_num = 1
+damage = 15
+melee_damage = 0
+dmg_type = "NRG"
+can_melee = false
+take_ammo = false
+walk_amount = 7.0
+throw_power = 0
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
@@ -67,18 +77,50 @@ hframes = 4
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 
+[node name="Shell" type="Position2D" parent="POS_Gun/POS"]
+
 [node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 31, 0 )
+position = Vector2( 25, 0 )
+
+[node name="Throw" type="Position2D" parent="POS_Gun/POS"]
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
 position = Vector2( -8, 0 )
 enabled = true
-cast_to = Vector2( 60, 0 )
+cast_to = Vector2( 35, 0 )
 collision_mask = 4278225408
+
+[node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
+enabled = true
+cast_to = Vector2( 20, 0 )
+collision_mask = 4278192128
+
+[node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
+enabled = true
+cast_to = Vector2( 35, 0 )
+collision_mask = 4278192650
+
+[node name="Melee_Area" type="Area2D" parent="POS_Gun"]
+collision_layer = 0
+collision_mask = 4278618752
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
+position = Vector2( 10, 0 )
+shape = SubResource( 4 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 anims/Shoot = SubResource( 1 )
+
+[node name="Shoot_Timer" type="Timer" parent="."]
+wait_time = 0.16
+
+[node name="Melee_Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
+[connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]

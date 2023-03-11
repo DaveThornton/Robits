@@ -167,6 +167,11 @@ tracks/3/keys = {
 
 [node name="W_08-Uzi_Hold" type="Node2D"]
 script = ExtResource( 3 )
+gun_num = 8
+damage = 16
+dmg_type = "Bullet"
+ammo_max = 300
+walk_amount = 4.0
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.1

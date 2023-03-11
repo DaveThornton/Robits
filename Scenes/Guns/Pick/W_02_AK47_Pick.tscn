@@ -10,7 +10,7 @@ bounce = 0.1
 radius = 2.99997
 height = 12.0001
 
-[node name="Weap-Pick-02-Ak-47" type="RigidBody2D" groups=["FX", "PickUp"]]
+[node name="W_02_AK47_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 917534
 physics_material_override = SubResource( 1 )

@@ -1,37 +1,4 @@
-# extends Node2D
 extends 'res://Scripts/Guns/Hold/W_00_Gun_Hold.gd'
-
-var my_gun_num = 1
-var my_take_ammo = false
-var my_damage = 15
-var my_walk_amount = 7.0
-
-func _ready():
-	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
-	if test1 != 0:
-		print_debug("failed to connect ammo change in weap hold 00 mega cannon")
-	if Game.get_mode() == 0:
-		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
-
-func init(_ammo, _player, _timer, _just_shot):
-	gun_num = my_gun_num
-	player = _player
-	ammo = _ammo
-	take_ammo = my_take_ammo
-	damage = my_damage
-	walk_amount = my_walk_amount
-	shoot_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1,false)
-	anim_fire.play("Idle")
-	emit_signal("ammo_change",player,ammo)
-
-func _process(delta):
-	if walk > 0.0:
-		if walk > 30:
-			walk -= delta * 50
-		else:
-			walk -= delta * 40
-		if walk < 0.0:
-			walk = 0.0
 
 func shoot_j():
 	if can_shoot:

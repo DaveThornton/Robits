@@ -87,7 +87,7 @@ tracks/3/keys = {
 "values": [ Color( 0, 0.470588, 1, 0.137255 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("POS_Gun/Area2D/CollisionShape2D:disabled")
+tracks/4/path = NodePath("POS_Gun/Melee_Area/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -162,7 +162,7 @@ tracks/4/keys = {
 "values": [ Vector2( 8, -1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("POS_Gun/Area2D/CollisionShape2D:disabled")
+tracks/5/path = NodePath("POS_Gun/Melee_Area/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -176,6 +176,10 @@ tracks/5/keys = {
 
 [node name="W_06_Atom_Rifle" type="Node2D"]
 script = ExtResource( 2 )
+gun_num = 6
+damage = 4
+dmg_type = "NRG"
+ammo_max = 100
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 
@@ -224,6 +228,9 @@ position = Vector2( 26, -2 )
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( 40, -3 )
 
+[node name="Shell" type="Position2D" parent="POS_Gun/POS"]
+visible = false
+
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
@@ -238,11 +245,17 @@ enabled = true
 cast_to = Vector2( 60, 0 )
 collision_mask = 4278192648
 
-[node name="Area2D" type="Area2D" parent="POS_Gun"]
-collision_layer = 0
+[node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
+visible = false
+position = Vector2( -15, 0 )
+cast_to = Vector2( 38, 0 )
+collision_mask = 4278190080
+
+[node name="Melee_Area" type="Area2D" parent="POS_Gun"]
+collision_layer = 262144
 collision_mask = 4278618752
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
 position = Vector2( 22, 0 )
 rotation = 1.5708
 shape = SubResource( 2 )
@@ -254,4 +267,4 @@ anims/Shoot = SubResource( 4 )
 
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Shoot_Timer_timeout"]
-[connection signal="body_entered" from="POS_Gun/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="POS_Gun/Melee_Area" to="." method="_on_Melee_Area_body_entered"]

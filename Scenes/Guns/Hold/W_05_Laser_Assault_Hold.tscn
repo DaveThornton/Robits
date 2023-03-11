@@ -193,6 +193,11 @@ tracks/5/keys = {
 
 [node name="W_05_Laser_Assault_Hold" type="Node2D"]
 script = ExtResource( 2 )
+gun_num = 5
+damage = 25
+dmg_type = "Laser"
+ammo_max = 90
+walk_amount = 1.0
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.16

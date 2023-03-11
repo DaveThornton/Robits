@@ -12,7 +12,7 @@ resource_name = "Melee"
 length = 0.4
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("POS_Gun/Area2D/CollisionShape2D:disabled")
+tracks/0/path = NodePath("POS_Gun/Melee_Area/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -87,7 +87,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 14, 0 ), Vector2( -4, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("POS_Gun/Area2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("POS_Gun/Melee_Area/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -139,7 +139,7 @@ tracks/2/keys = {
 "values": [ Vector2( -4, 0 ), Vector2( 14, 0 ), Vector2( 4, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("POS_Gun/Area2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("POS_Gun/Melee_Area/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -153,9 +153,13 @@ tracks/3/keys = {
 
 [node name="W_07_CrossBow_Hold" type="Node2D"]
 script = ExtResource( 3 )
+gun_num = 7
+damage = 120
+dmg_type = "Arrow"
+ammo_max = 8
 
 [node name="Shoot_Timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.2
 one_shot = true
 
 [node name="Reload_Timer" type="Timer" parent="."]
@@ -183,6 +187,9 @@ position = Vector2( 17, -3 )
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( 28, -2 )
 
+[node name="Shell" type="Position2D" parent="POS_Gun/POS"]
+visible = false
+
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
@@ -203,11 +210,11 @@ enabled = true
 cast_to = Vector2( 50, 0 )
 collision_mask = 4278192648
 
-[node name="Area2D" type="Area2D" parent="POS_Gun"]
+[node name="Melee_Area" type="Area2D" parent="POS_Gun"]
 collision_layer = 0
 collision_mask = 4278618752
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
 position = Vector2( 12, 0 )
 shape = SubResource( 1 )
 disabled = true
@@ -220,3 +227,4 @@ anims/Shoot = SubResource( 4 )
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
 [connection signal="timeout" from="Reload_Timer" to="." method="_on_Reload_Timer_timeout"]
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]
+[connection signal="body_entered" from="POS_Gun/Melee_Area" to="." method="_on_Melee_Area_body_entered"]
