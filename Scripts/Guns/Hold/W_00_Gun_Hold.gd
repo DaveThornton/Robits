@@ -21,16 +21,19 @@ export var dmg_type = "none"
 export var ammo_max = 0
 export var can_melee = true
 export var take_ammo = true
+export var use_ammo = true
+export var eject_shell = true
 export var walk_amount = 0.0
 export var throw_power = 1000
 export var time = 4.0
 
-var player = 1
-var ammo = 0
+var player:int = 1
+var ammo:int = 1
 var new_anim = "Un_pos"
 var old_anim = "Un_pos"
 var just_shot = false
 var can_shoot = true 
+var stop_shoot = false
 var shoot_pos = 3
 var change_shoot_pos = true
 var is_right = true
@@ -58,9 +61,12 @@ func init(_ammo, _player, _timer, _just_shot):
 	melee_area.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	emit_signal("ammo_change",player,ammo)
 	anim_fire.play("Idle")
-
+	post_set_up()
 
 func set_up():
+	pass
+
+func post_set_up():
 	pass
 
 func _process(delta):
@@ -81,6 +87,30 @@ func shoot():
 func shoot_r():
 	pass
 
+func _fire():
+	# print("shoot")
+	if can_shoot && !stop_shoot:
+		# print("shoot?   ", ammo)
+		if ammo > 0:
+			# print("shoot? ammo  ", ammo)
+			can_shoot = false
+			just_shot = true
+			shoot_timer.start()
+			# shoot_cast.force_raycast_update()
+			# melee_cast.force_raycast_update()
+			if !shoot_cast.is_colliding():
+				_fire_projectile()
+			elif can_melee && melee_cast.is_colliding():
+				melee()
+				
+			elif shoot_cast.is_colliding():
+				_fire_no_projectile()
+		else:
+			empty()
+		
+func _fire_sound():
+	SFX.projectile(gun_num)
+
 func _fire_projectile():
 	var _ss = pos_shoot.global_position
 	var _sr = pos_shoot.global_rotation
@@ -90,13 +120,42 @@ func _fire_projectile():
 		_sr = pos_shoot.global_rotation * -1
 	var _sss = pos_shoot.global_scale
 	FX.proj(gun_num, _sr, _ss, _sss, player, damage)
+	end_of_fire()
+	call_on_projectile_fired()
+
+func _fire_no_projectile():
+	var _thing = shoot_cast.get_collider()
+	if _thing.get_groups().has("hittable"):
+		_thing.hit(player, gun_num, dmg_type, damage)
+		end_of_fire()
+		call_on_hit_with_no_projectile(_thing)
+	
+func end_of_fire():
+	anim_fire.play("Shoot")
+	if use_ammo:
+		ammo = clamp(ammo - 1, 0, ammo_max)
+	emit_signal("ammo_change",player,ammo)
+	Player_Stats.add_shot(player, 1)
+	walk += walk_amount
+	_fire_sound()
+	if eject_shell:
+		shell()
+	call_on_all_projectile_fire()
+
+func call_on_all_projectile_fire(): pass
+func call_on_projectile_fired(): pass
+func call_on_hit_with_no_projectile(_thing): pass
 
 func melee():
-	if can_shoot:
-		can_shoot = false
-		anim_fire.play("Melee")
-		melee_timer.start()
-		Player_Stats.add_shot(player, 1)
+	can_shoot = false
+	anim_fire.play("Melee")
+	melee_timer.start()
+	Player_Stats.add_shot(player, 1)
+	call_on_melee()
+func call_on_melee(): pass
+
+func empty():
+	pass
 
 func shell(): FX.shell(gun_num, pos_shell.global_position, pos_shell.global_rotation)
 

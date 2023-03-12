@@ -30,6 +30,7 @@ melee_damage = 0
 dmg_type = "Laser"
 ammo_max = 150
 can_melee = false
+eject_shell = false
 throw_power = 1100
 
 [node name="Shoot_Timer" type="Timer" parent="."]

@@ -197,6 +197,7 @@ gun_num = 5
 damage = 25
 dmg_type = "Laser"
 ammo_max = 90
+eject_shell = false
 walk_amount = 1.0
 
 [node name="Shoot_Timer" type="Timer" parent="."]

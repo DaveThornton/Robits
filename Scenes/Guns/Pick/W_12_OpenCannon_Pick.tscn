@@ -1,22 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_12_OpenCannon.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Guns/Pick/W_12_OpenCannon_Pick.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.99999
 height = 18.0
 
-[node name="W_12_OpenCannon_Pick" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="W_12_OpenCannon_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 917534
 gravity_scale = 6.0
 script = ExtResource( 3 )
-smoke = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

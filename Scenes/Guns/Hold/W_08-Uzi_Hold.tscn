@@ -171,6 +171,7 @@ gun_num = 8
 damage = 16
 dmg_type = "Bullet"
 ammo_max = 300
+can_melee = false
 walk_amount = 4.0
 
 [node name="Shoot_Timer" type="Timer" parent="."]

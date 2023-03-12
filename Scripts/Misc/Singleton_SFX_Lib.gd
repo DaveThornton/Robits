@@ -6,6 +6,7 @@ onready var explosions = $Explosions
 onready var menus = $Menus
 onready var music_part = $Music_Part
 onready var coins = $Coins
+onready var projectiles = $SFX_Projectile_Part
 
 var hit_num = 0
 var swing_num = 0 
@@ -36,6 +37,9 @@ func swing():
 	if swing_num > swings.get_child_count()-1:
 		swing_num = 0
 
+func projectile(_num):
+	projectiles.play(_num)
+	
 func shell():
 	shells.get_child(shell_num).play()
 	shell_num += 1

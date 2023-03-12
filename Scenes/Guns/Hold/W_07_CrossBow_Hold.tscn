@@ -157,6 +157,7 @@ gun_num = 7
 damage = 120
 dmg_type = "Arrow"
 ammo_max = 8
+eject_shell = false
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.2

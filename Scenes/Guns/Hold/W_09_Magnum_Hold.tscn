@@ -69,6 +69,7 @@ melee_damage = 0
 dmg_type = "Bullet"
 ammo_max = 42
 can_melee = false
+eject_shell = false
 walk_amount = 45.0
 throw_power = 1100
 

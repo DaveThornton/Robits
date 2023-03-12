@@ -12,6 +12,7 @@ export(PackedScene) var proj010
 export(PackedScene) var proj011
 export(PackedScene) var proj012
 export(PackedScene) var proj013
+export(PackedScene) var proj014
 export(PackedScene) var proj015
 export(PackedScene) var proj016
 export(PackedScene) var proj017
@@ -79,6 +80,8 @@ func make_vs(_num,_rot, _pos, _scale, _owner, _dmg):
 			new_projectile = proj012.instance()
 		13:
 			new_projectile = proj013.instance()
+		14:
+			new_projectile = proj014.instance()
 		15:
 			new_projectile = proj015.instance()
 		16:

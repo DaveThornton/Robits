@@ -59,8 +59,11 @@ gun_num = 1
 damage = 15
 melee_damage = 0
 dmg_type = "NRG"
+ammo_max = 1
 can_melee = false
 take_ammo = false
+use_ammo = false
+eject_shell = false
 walk_amount = 7.0
 throw_power = 0
 

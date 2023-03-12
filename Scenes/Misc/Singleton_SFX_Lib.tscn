@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
@@ -102,6 +102,7 @@
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_10.ogg" type="AudioStream" id=100]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_07.ogg" type="AudioStream" id=101]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_05.ogg" type="AudioStream" id=102]
+[ext_resource path="res://Scenes/Misc/Parts/SFX_Projectile_Part.tscn" type="PackedScene" id=103]
 
 [node name="SFX_Lib" type="Node2D"]
 position = Vector2( 960, 540 )
@@ -767,3 +768,5 @@ stream = ExtResource( 9 )
 bus = "SFX"
 
 [node name="Music_Part" parent="." instance=ExtResource( 92 )]
+
+[node name="SFX_Projectile_Part" parent="." instance=ExtResource( 103 )]

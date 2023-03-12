@@ -178,8 +178,10 @@ tracks/5/keys = {
 script = ExtResource( 2 )
 gun_num = 6
 damage = 4
+melee_damage = 120
 dmg_type = "NRG"
 ammo_max = 100
+eject_shell = false
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 
@@ -205,10 +207,10 @@ hframes = 6
 frame = 3
 
 [node name="Tank" type="Sprite" parent="POS_Gun/Gun_Sprite"]
-self_modulate = Color( 0, 0.381291, 1, 1 )
+self_modulate = Color( 0, 0.335948, 1, 1 )
 texture = ExtResource( 1 )
 hframes = 24
-frame = 9
+frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="POS_Gun/Gun_Sprite/Tank"]
 anims/Tank_Idle = SubResource( 1 )
@@ -246,8 +248,8 @@ cast_to = Vector2( 60, 0 )
 collision_mask = 4278192648
 
 [node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
-visible = false
-position = Vector2( -15, 0 )
+position = Vector2( -7, 0 )
+enabled = true
 cast_to = Vector2( 38, 0 )
 collision_mask = 4278190080
 

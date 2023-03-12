@@ -243,19 +243,30 @@ tracks/4/keys = {
 
 [node name="W_14_TNG_Hold" type="Node2D"]
 script = ExtResource( 3 )
+gun_num = 14
+damage = 13
+melee_damage = 20
+dmg_type = "Laser"
+ammo_max = 650
+eject_shell = false
 
 [node name="Melee_Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="Shoot_Timer" type="Timer" parent="."]
+wait_time = 0.01
 
 [node name="POS_Gun" type="Node2D" parent="."]
 position = Vector2( 0, 1 )
 
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
-position = Vector2( 3, -3 )
+position = Vector2( 1, -3 )
 texture = ExtResource( 2 )
 hframes = 2
+frame = 1
 
 [node name="Laser_Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+visible = false
 self_modulate = Color( 1, 0, 0, 1 )
 material = SubResource( 1 )
 position = Vector2( 10, -1 )
@@ -264,6 +275,7 @@ texture = ExtResource( 1 )
 centered = false
 offset = Vector2( 0, -0.5 )
 hframes = 5
+frame = 2
 region_enabled = true
 region_rect = Rect2( 0, 0, 2500, 4 )
 
@@ -280,13 +292,19 @@ collision_mask = 4294347672
 [node name="POS" type="Node2D" parent="POS_Gun"]
 
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 28, -1 )
+position = Vector2( 19, -3 )
+
+[node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 13, -3 )
+
+[node name="Shell" type="Position2D" parent="POS_Gun/POS"]
+visible = false
+position = Vector2( 0, -4 )
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
 [node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
 position = Vector2( 0, -1 )
-enabled = true
 cast_to = Vector2( 19, 0 )
 collision_mask = 4294348184
 
@@ -299,11 +317,10 @@ collision_mask = 4294348184
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
 position = Vector2( 0, -3 )
 enabled = true
-cast_to = Vector2( 5, 0 )
+cast_to = Vector2( 15, 0 )
 collision_mask = 4294347672
 
 [node name="Melee_Area" type="Area2D" parent="POS_Gun"]
-visible = false
 collision_layer = 0
 collision_mask = 4294347672
 
@@ -319,3 +336,4 @@ anims/Shoot = SubResource( 5 )
 anims/UnShoot = SubResource( 6 )
 
 [connection signal="timeout" from="Melee_Timer" to="." method="_on_Melee_Timer_timeout"]
+[connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
