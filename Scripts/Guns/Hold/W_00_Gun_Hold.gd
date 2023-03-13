@@ -23,6 +23,7 @@ export var can_melee = true
 export var take_ammo = true
 export var use_ammo = true
 export var eject_shell = true
+export var is_bomb = false
 export var walk_amount = 0.0
 export var throw_power = 1000
 export var time = 4.0
@@ -35,6 +36,7 @@ var just_shot = false
 var can_shoot = true 
 var stop_shoot = false
 var shoot_pos = 3
+var explode_num = 10
 var change_shoot_pos = true
 var is_right = true
 var walk = 0.0
@@ -49,16 +51,20 @@ func _ready():
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 		melee_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 
-func init(_ammo, _player, _timer, _just_shot):
+func init(_ammo, _player, _time, _just_shot):
 	set_up()
 	player = _player
 	ammo = _ammo
-	time = _timer
+	time = _time
 	just_shot = _just_shot
-	shoot_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
-	melee_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	
 	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
-	melee_area.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	if !is_bomb:
+		shoot_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+	if can_melee:
+		melee_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+		melee_area.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
+
 	emit_signal("ammo_change",player,ammo)
 	anim_fire.play("Idle")
 	post_set_up()
@@ -77,6 +83,11 @@ func _process(delta):
 			walk -= delta * 40
 		if walk < 0.0:
 			walk = 0.0
+	if is_bomb:
+		if ammo <= 0:
+			time -= delta
+			if time <= 0:
+				go_boom()
 
 func shoot_j():
 	pass
@@ -96,6 +107,7 @@ func _fire():
 			can_shoot = false
 			just_shot = true
 			shoot_timer.start()
+			anim_fire.play("Shoot")
 			# shoot_cast.force_raycast_update()
 			# melee_cast.force_raycast_update()
 			if !shoot_cast.is_colliding():
@@ -154,6 +166,13 @@ func melee():
 	call_on_melee()
 func call_on_melee(): pass
 
+func go_boom():
+	var p = Controllers.get_pawn(player)
+	p.my_gun = null
+	p.is_holding = false
+	FX.explode(explode_num, player, self.global_position, gun_num, 0, damage)
+	call_deferred("free")
+
 func empty():
 	pass
 
@@ -165,7 +184,7 @@ func throw():
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
 	t.position = pos_throw.global_position
-	t.init(ammo, player, 1, is_right, shoot_pos, false)
+	t.init(ammo, player, time, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
 		t.position = self.global_position
 		_drop_where(t)
@@ -181,7 +200,7 @@ func _drop():
 	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
-	t.init(ammo, player, 1, is_right, shoot_pos, false)
+	t.init(ammo, player, time, is_right, shoot_pos, false)
 	_drop_where(t)
 	emit_signal("ammo_change",player,0)
 	call_deferred("free")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_03_Sniper_Pick.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Guns/Pick/W_16_Solo_Pick.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Scenes/Guns/Pick/W_17_Mars_Pick.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/Guns/Pick/W_19-Rail_Gun_Pick.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Scenes/Guns/Pick/W_20_Grenade_Pick.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-10-Back_Shield.tscn" type="PackedScene" id=35]
@@ -305,5 +307,11 @@ position = Vector2( 400, 1024 )
 [node name="W_17_Mars_Pick3" parent="." instance=ExtResource( 13 )]
 position = Vector2( 440, 1024 )
 
+[node name="Weap-Pick-03-Sniper" parent="W_17_Mars_Pick3" instance=ExtResource( 31 )]
+position = Vector2( -184, -88 )
+
 [node name="W_13_TOS_Pick2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 128, 784 )
+
+[node name="Weap-Pick-20-Grenade" parent="." instance=ExtResource( 32 )]
+position = Vector2( 296, 968 )

@@ -7,9 +7,10 @@ onready var timer = $Timer
 onready var hit_timer =  $Timer_Hit
 onready var spin_timer = $Timer_Spin
 onready var timer_boom = $Timer_Boom
-onready var sprite = $Sprite_Body
-onready var pin = $Sprite_Pin
+# onready var sprite = $Sprite_Body
+# onready var pin = $Sprite_Pin
 onready var label= $"FX-21-Timer_Label"
+onready var anim = $AnimationPlayer
 
 var player = 0
 var my_name = "Grenade"
@@ -26,10 +27,13 @@ func _ready():
 	timer_boom.wait_time = time
 	if armed:
 		ammo = 0
-		pin.visible = false
+		# pin.visible = false
 		label.visible = true
 		timer_boom.wait_time = time
 		timer_boom.start()
+		anim.play("Armed")
+	else:
+		anim.play("Idle")
 
 func _process(_delta):
 	if ammo == 0:
@@ -45,12 +49,14 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		ammo = int(clamp(_ammo,0,1))
 	if ammo == 0:
 		ammo = 0
-		pin.visible = false
+		# pin.visible = false
 		label.visible = true
 		timer_boom.start()
+		anim.play("Armed")
 	else:
 		label.visible = false
 		timer.start()
+		anim.play("Idle")
 
 func _on_Timer_Boom_timeout():
 	FX.explode(10, player, self.global_position, gun_num, 0, damage)
@@ -81,8 +87,8 @@ func _on_Timer_Spin_timeout():
 func set_dir(_is_right, _dir):
 	is_right = _is_right
 	if _is_right:
-		pin.position = Vector2(-6, -6)
-		sprite.scale.y = 1
+		# pin.position = Vector2(-6, -6)
+		# sprite.scale.y = 1
 		if _dir == 1:
 			self.rotation_degrees = -85
 		elif _dir == 2:
@@ -94,8 +100,8 @@ func set_dir(_is_right, _dir):
 		elif _dir == 5:
 			self.rotation_degrees = 85
 	else:
-		self.scale.y = -1
-		pin.position   = Vector2(-6, 6)
+		# self.scale.y = -1
+		# pin.position   = Vector2(-6, 6)
 		if _dir == 1:
 			self.rotation_degrees = -95
 		elif _dir == 2:

@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_20_Grenade_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Guns/W_20_Grenade.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Guns/Weap-20-Grenade.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -13,10 +12,175 @@ bounce = 0.5
 radius = 6.0
 height = 6.0
 
-[node name="Weap-Pick-20-Grenade" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[sub_resource type="Animation" id=3]
+resource_name = "Armed"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun/Main:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 2272.4, 1217.75, 1 ),
+"update": 0,
+"values": [ Color( 0.294118, 0.407843, 0.184314, 1 ), Color( 0.294118, 0.407843, 0.184314, 1 ), Color( 1, 1, 1, 1 ), Color( 0.294118, 0.407843, 0.184314, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun/Grid:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1448.16, 1499.23, 1 ),
+"update": 0,
+"values": [ Color( 0.0784314, 0.231373, 0.121569, 1 ), Color( 0.0784314, 0.231373, 0.121569, 1 ), Color( 1, 0, 0, 1 ), Color( 0.0784314, 0.231373, 0.121569, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("POS_Gun/Top:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 3444.31, 608.874, 1 ),
+"update": 0,
+"values": [ Color( 0.337255, 0.337255, 0.337255, 1 ), Color( 0.337255, 0.337255, 0.337255, 1 ), Color( 0, 0, 0, 1 ), Color( 0.337255, 0.337255, 0.337255, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("POS_Gun/Pin:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun/Main:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.294118, 0.407843, 0.184314, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun/Grid:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.0784314, 0.231373, 0.121569, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("POS_Gun/Top:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.337255, 0.337255, 0.337255, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("POS_Gun/Pin:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun/Main:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.294118, 0.407843, 0.184314, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun/Grid:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.0784314, 0.231373, 0.121569, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("POS_Gun/Top:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.337255, 0.337255, 0.337255, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("POS_Gun/Pin:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("POS_Gun/Top:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2 ]
+}
+
+[node name="Weap-Pick-20-Grenade" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 786462
 mass = 0.204082
@@ -27,15 +191,6 @@ contacts_reported = 12
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
-smoke = ExtResource( 3 )
-
-[node name="Sprite_Pin" type="Sprite" parent="."]
-position = Vector2( -6, -6 )
-texture = ExtResource( 4 )
-
-[node name="Sprite_Body" type="Sprite" parent="."]
-texture = ExtResource( 5 )
-hframes = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
@@ -55,6 +210,34 @@ wait_time = 4.0
 
 [node name="FX-21-Timer_Label" parent="." instance=ExtResource( 7 )]
 visible = false
+
+[node name="POS_Gun" type="Node2D" parent="."]
+
+[node name="Main" type="Sprite" parent="POS_Gun"]
+modulate = Color( 0.294118, 0.407843, 0.184314, 1 )
+texture = ExtResource( 2 )
+hframes = 5
+
+[node name="Grid" type="Sprite" parent="POS_Gun"]
+modulate = Color( 0.0784314, 0.231373, 0.121569, 1 )
+texture = ExtResource( 2 )
+hframes = 5
+frame = 1
+
+[node name="Top" type="Sprite" parent="POS_Gun"]
+modulate = Color( 0.337255, 0.337255, 0.337255, 1 )
+texture = ExtResource( 2 )
+hframes = 5
+frame = 2
+
+[node name="Pin" type="Sprite" parent="POS_Gun"]
+position = Vector2( -6, -6 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Armed = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/RESET = SubResource( 5 )
 
 [connection signal="body_entered" from="." to="." method="_on_WeapPick20Grenade_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_WeapPick20Grenade_body_exited"]
