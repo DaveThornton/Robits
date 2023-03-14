@@ -93,6 +93,9 @@ func init(_player_num, _pos, _start_equiped, _play_type):
 	nrg_update()
 	shield_down()
 	player_indicator.start(_player_num)
+	var test1 = Map_Hand.connect("wow", self, "wow")
+	if test1 != 0:
+		print_debug("error Singleton Map Handler connecting to pawn in pawn 00 gd")
 
 func _process(delta):
 	_is_on_floor()
@@ -454,7 +457,7 @@ func knock_back(_amount, _time):
 		if shoot_spot == 5:
 			knocked_back = Vector2((_amount * .1), -(_amount * .9))
 
-func pow():
+func wow():
 	if on_floor:
 		stun(0)
 		knock_dir(200,1,5,is_right)

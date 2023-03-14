@@ -9,6 +9,7 @@ onready var clearing_house = $clearing_house
 
 var level
 
+signal wow
 signal splash_done
 
 func spawn_pos():
@@ -27,6 +28,9 @@ func load_map( _map_to_load):
 	var test = get_tree().get_current_scene().connect("reset", m, "reset")
 	if test != 0:
 		print_debug("error Singleton Map Handler connecting map to reset from world gd")
+	# var test2 = map.connect("call_pow",map ,"call_pow")
+	# if test2 != 0:
+	# 	print_debug("error Singleton Map Handler connecting map to pow from world gd")
 
 func add_kid_to_map(_obj):
 	if is_instance_valid(map):
@@ -90,7 +94,7 @@ func _load_map_cam(_level):
 		m.next_spawn_spot += 1
 
 func call_pow():
-	map.call_pow()
+	emit_signal("wow")
 
 func add_pos(area):
 	if map != null:

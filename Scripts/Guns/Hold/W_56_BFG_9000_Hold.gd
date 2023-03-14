@@ -1,188 +1,48 @@
-extends Node2D
-
-# export(PackedScene) var RPG_Pickup
-# export(PackedScene) var projectile
+extends 'res://Scripts/Guns/Hold/W_00_Gun_Hold.gd'
 
 onready var sprite_gun = $POS_Gun/Gun_Sprite
-onready var anim_fire = $AnimationPlayer
 onready var anim_state = $AnimationPlayer2
-onready var shoot_timer = $Shoot_Timer
-onready var melee_timer = $Melee_Timer
-onready var shoot_cast = $POS_Gun/Raycast/Shoot
-onready var melee_cast = $POS_Gun/Raycast/Melee
-onready var throw_cast = $POS_Gun/Raycast/Throw
-onready var pos_throw = $POS_Gun/POS/Throw
-onready var pos_shoot = $POS_Gun/POS/Shoot
-onready var melee_area = $POS_Gun/Melee_Area
 
-var player = 1
-var pawn = 0
-var gun_num = 56
-var ammo = 3
-var ammo_max = 9
-var take_ammo = true
-var my_name = "BFG 9000"
-var new_anim = "Un_pos"
-var old_anim = "Un_pos"
-var dmg_type = "Boom"
-var damage = 100
-var can_shoot = true 
-var shoot_pos = 3
-var change_shoot_pos = true
-var is_right = true
-var walk = 0
-var time = 4.0
-
-signal ammo_change(player, ammo)
-
-func _ready():
-	anim_state.play("Idle")
-	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
-	if test1 != 0:
-		print_debug("failed to connect ammo change in weap hold 40 RPG")
-	if Game.get_mode() == 0:
-		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_b())
-		melee_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_b())
-
-func init(_ammo, _player, _timer, _just_shot):
-	ammo = _ammo
-	player = _player
-	shoot_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
-	melee_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
-	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
-	melee_area.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
-	emit_signal("ammo_change",player,ammo)
+func post_set_up():
 	if ammo <= 0:
 		sprite_gun.frame = 1
 	else:
 		sprite_gun.frame = 1
 
 func shoot_j():
-	if can_shoot:
-		if melee_cast.is_colliding():
-			if melee_cast.get_collider().get_groups().has("player"):
-				if melee_cast.get_collider().player == player:
-					fire_projectile()
-				else:
-					melee()
-			else:
-				melee()
-		elif ammo > 0:
-			fire_projectile()
+	_fire()
+	# if can_shoot:
+	# 	print_debug("i can shoot so whats the problem")
+	# 	if melee_cast.is_colliding():
+	# 		if melee_cast.get_collider().get_groups().has("player"):
+	# 			if melee_cast.get_collider().player == player:
+	# 				fire_projectile()
+	# 			else:
+	# 				melee()
+	# 		else:
+	# 			melee()
+	# 	elif ammo > 0:
+	# 		fire_projectile()
 
+# func fire_projectile():
+# 	if !shoot_cast.is_colliding():
+# 		var _ss = pos_shoot.global_position
+# 		var _sr = pos_shoot.global_rotation
+# 		if is_right:
+# 			_sr = pos_shoot.global_rotation
+# 		else:
+# 			_sr = pos_shoot.global_rotation * -1
+# 		var _sss = pos_shoot.global_scale
+# 		FX.proj(gun_num, _sr, _ss, _sss, player, damage)
+# 	else:
+# 		FX.explode(56.1, player, shoot_cast.get_collision_point(), gun_num, 0, damage)
+# 	SFX.play("W_56_Shoot")
+# 	ammo = clamp(ammo - 1, 0, ammo_max)
+# 	sprite_gun.frame = 1
+# 	emit_signal("ammo_change",player,ammo)
+# 	Player_Stats.add_shot(player, 1)
+# 	can_shoot = false
+# 	shoot_timer.start()
 
-func shoot():
-	pass
-
-func shoot_r():
-	pass
-
-func fire_projectile():
-	if !shoot_cast.is_colliding():
-		var _ss = pos_shoot.global_position
-		var _sr = pos_shoot.global_rotation
-		if is_right:
-			_sr = pos_shoot.global_rotation
-		else:
-			_sr = pos_shoot.global_rotation * -1
-		var _sss = pos_shoot.global_scale
-		FX.proj(gun_num, _sr, _ss, _sss, player, damage)
-	else:
-		FX.explode(56.1, player, shoot_cast.get_collision_point(), gun_num, 0, damage)
-	SFX.play("W_56_Shoot")
-	ammo = clamp(ammo - 1, 0, ammo_max)
-	sprite_gun.frame = 1
-	emit_signal("ammo_change",player,ammo)
-	Player_Stats.add_shot(player, 1)
-	can_shoot = false
-	shoot_timer.start()
-
-func melee():
-	if can_shoot:
-		can_shoot = false
-		anim_fire.play("Melee")
-		melee_timer.start()
-		Player_Stats.add_shot(player, 1)
-
-func _on_Melee_Area_body_entered(body):
-	if body.get_groups().has("player"):
-		if body.player != player:
-			body.hit(player, gun_num, dmg_type, damage)
-		else:
-			print_debug("quit hitting your self")
-
-func throw():
-	var t = Equipment.get_weap_pick(gun_num).instance()
-	Map_Hand.add_kid_to_map(t)
-	t.init(ammo, player, 1, is_right, shoot_pos, false)
-	if throw_cast.is_colliding():
-		t.position = self.global_position
-		_drop_where(t)
-	else:
-		t.position = pos_throw.global_position
-		_throw_where(t)
-	emit_signal("ammo_change",player,0)
-	call_deferred("free")
-
-func drop():
-	call_deferred("_drop")
-func _drop():
-	var t = Equipment.get_weap_pick(gun_num).instance()
-	Map_Hand.add_kid_to_map(t)
-	t.position = pos_throw.global_position
-	t.init(ammo, player, 1, is_right, shoot_pos, false)
-	_drop_where(t)
-	emit_signal("ammo_change",player,0)
-	call_deferred("free")
-
-func add_ammo(_ammo):
-	ammo = clamp(ammo + int(round(_ammo / 10)), 0, ammo_max)
-	_tip_update()
-	emit_signal("ammo_change",player,ammo)
-
-func set_shoot_pos(_num, _is_right):
-	if change_shoot_pos:
-		shoot_pos = _num
-		is_right = _is_right
-
-func _throw_where(_obj):
-	if is_right:
-		if shoot_pos == 1:
-			_obj.apply_impulse(pos_throw.position, Vector2(100, -800))
-		if shoot_pos == 2:
-			_obj.apply_impulse(pos_throw.position, Vector2(600, -600))
-		if shoot_pos == 3 ||shoot_pos == 6:
-			_obj.apply_impulse(pos_throw.position, Vector2(800, -200))
-		if shoot_pos == 4:
-			_obj.apply_impulse(pos_throw.position, Vector2(600, 200))
-		if shoot_pos == 5:
-			_obj.apply_impulse(pos_throw.position, Vector2(100, 700))
-	else:
-		if shoot_pos == 1:
-			_obj.apply_impulse(pos_throw.position, Vector2(-100, -800))
-		if shoot_pos == 2:
-			_obj.apply_impulse(pos_throw.position, Vector2(-600, -600))
-		if shoot_pos == 3 ||shoot_pos == 6:
-			_obj.apply_impulse(pos_throw.position, Vector2(-800, -200))
-		if shoot_pos == 4:
-			_obj.apply_impulse(pos_throw.position, Vector2(-600, 200))
-		if shoot_pos == 5:
-			_obj.apply_impulse(pos_throw.position, Vector2(-100, 700))
-
-func _drop_where(_obj):
-	_obj.set_collision_layer_bit( 1, false)
-	_obj.set_collision_mask_bit( 1, false)
-
-func _tip_update():
-	if ammo > 0:
-		sprite_gun.frame = 1
-	else:
-		sprite_gun.frame = 1
-
-func _on_Shoot_Timer_timeout():
-	can_shoot = true
-	_tip_update()
-
-func _on_Melee_Timer_timeout():
-	can_shoot = true
-	_tip_update()
+func _fire_no_projectile():
+	FX.explode(56.1, player, shoot_cast.get_collision_point(), gun_num, 0, damage)

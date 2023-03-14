@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_56_BFG9000.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Pick/W_56_BFG_9000_Pick.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 9.99995
@@ -25,16 +24,12 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5 ]
 }
 
-[node name="W_56_BFG9000_Pick" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="W_56_BFG9000_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 917534
 mass = 300.0
 gravity_scale = 6.0
 script = ExtResource( 2 )
-smoke = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 2 )

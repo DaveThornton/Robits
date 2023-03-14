@@ -115,6 +115,38 @@ bus = "SFX"
 stream = ExtResource( 24 )
 bus = "SFX"
 
+[node name="050" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "SFX"
+
+[node name="050_Reload" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+bus = "SFX"
+
+[node name="050_Empty" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "SFX"
+
+[node name="051" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+bus = "SFX"
+
+[node name="051_Empty" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "SFX"
+
+[node name="056" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+bus = "SFX"
+
+[node name="W_56_Projectile" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+bus = "SFX"
+
+[node name="W_56_Exp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+bus = "SFX"
+
 [node name="W_06_Melee" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )
 bus = "SFX"
@@ -165,38 +197,6 @@ bus = "SFX"
 
 [node name="W_19_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-bus = "SFX"
-
-[node name="W_50_Shoot" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-bus = "SFX"
-
-[node name="W_50_Reload" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
-bus = "SFX"
-
-[node name="W_50_Empty" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-bus = "SFX"
-
-[node name="W_51_Shoot" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 18 )
-bus = "SFX"
-
-[node name="W_51_Empty" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-bus = "SFX"
-
-[node name="W_56_Shoot" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 18 )
-bus = "SFX"
-
-[node name="W_56_Projectile" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 17 )
-bus = "SFX"
-
-[node name="W_56_Exp" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 19 )
 bus = "SFX"
 
 [node name="W_57_Shoot" type="AudioStreamPlayer" parent="."]

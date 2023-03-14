@@ -167,6 +167,12 @@ tracks/3/keys = {
 
 [node name="W_51_Contradiction_S" type="Node2D"]
 script = ExtResource( 5 )
+gun_num = 51
+damage = 10
+dmg_type = "Bullet"
+ammo_max = 90
+eject_shell = false
+walk_amount = 10.0
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.16
@@ -193,6 +199,8 @@ position = Vector2( 18, -1 )
 
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( 28, 0 )
+
+[node name="Shell" type="Position2D" parent="POS_Gun/POS"]
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 visible = false

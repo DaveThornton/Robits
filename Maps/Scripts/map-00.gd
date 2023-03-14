@@ -34,7 +34,6 @@ onready var pipes = $Pipes
 
 signal start
 signal activate(_num, _player)
-signal pow_sig
 
 func _ready():
 	Game.use_lives() #checks if number of lives are used
@@ -135,10 +134,6 @@ func get_pipe(_num):
 			return null
 		return null
 	return null
-
-func call_pow():
-	emit_signal("pow_sig")
-	# print_debug("!!!!!!!!!!!!POW!!!!!!!!!!!!   in map-00")
 
 func _on_Start_Timer_timeout():
 	pass
