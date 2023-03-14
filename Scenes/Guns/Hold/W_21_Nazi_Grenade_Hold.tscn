@@ -1,38 +1,376 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Sprites/Guns/Weap-21-Nazi-Grenade.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Guns/Hold/W_21_Nazi_Grenade_Hold.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Guns/W_21_Nazi_Grenade.png" type="Texture" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Armed"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun/Pin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun/Outline:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 3691.52, 3213.66, 1060.11 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.498039 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 0.498039 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("POS_Gun/Body:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 3691.52, 3213.66, 1060.11 ),
+"update": 0,
+"values": [ Color( 0.176471, 0.364706, 0.176471, 1 ), Color( 1, 1, 1, 1 ), Color( 0.176471, 0.364706, 0.176471, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("POS_Gun/Stripe:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 3691.52, 3213.66, 1060.11 ),
+"update": 0,
+"values": [ Color( 0, 0.2, 0.0627451, 1 ), Color( 1, 0, 0, 1 ), Color( 0, 0.2, 0.0627451, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("POS_Gun/Handle:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 3691.52, 3213.66, 1060.11 ),
+"update": 0,
+"values": [ Color( 0.537255, 0.356863, 0.00392157, 1 ), Color( 1, 1, 1, 1 ), Color( 0.537255, 0.356863, 0.00392157, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun/Pin:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun/Outline:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.498039 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("POS_Gun/Body:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.176471, 0.364706, 0.176471, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("POS_Gun/Stripe:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.2, 0.0627451, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("POS_Gun/Handle:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.537255, 0.356863, 0.00392157, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun/Main:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.294118, 0.407843, 0.184314, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun/Grid:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.0784314, 0.231373, 0.121569, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("POS_Gun/Top:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.337255, 0.337255, 0.337255, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("POS_Gun/Pin:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("POS_Gun/Top:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("POS_Gun/Outline:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.498039 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("POS_Gun/Body:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.176471, 0.364706, 0.176471, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("POS_Gun/Stripe:self_modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.2, 0.0627451, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("POS_Gun/Handle:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.537255, 0.356863, 0.00392157, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CPUParticles2D:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [node name="W_20_Nazi_Grenade_Hold" type="Node2D"]
 script = ExtResource( 3 )
+gun_num = 21
+damage = 130
+melee_damage = 0
+dmg_type = "Boom"
+ammo_max = 1
+can_melee = false
+take_ammo = false
+eject_shell = false
+is_bomb = true
+throw_power = 1200
+time = 4.5
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 4.5
+[node name="Shoot_Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Melee_Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 0, -24 )
+emitting = false
+local_coords = false
+direction = Vector2( 0, -1 )
+spread = 12.15
+gravity = Vector2( 0, -20 )
+initial_velocity = 20.0
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
-[node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
-position = Vector2( -1, -13 )
-rotation = 3.14159
-texture = ExtResource( 1 )
+[node name="Outline" type="Sprite" parent="POS_Gun"]
+self_modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 0, -14 )
+rotation = -3.14159
+texture = ExtResource( 4 )
+hframes = 4
+frame = 3
+
+[node name="Body" type="Sprite" parent="POS_Gun"]
+self_modulate = Color( 0.176471, 0.364706, 0.176471, 1 )
+position = Vector2( 0, -14 )
+rotation = -3.14159
+texture = ExtResource( 4 )
+hframes = 4
+
+[node name="Stripe" type="Sprite" parent="POS_Gun"]
+self_modulate = Color( 0, 0.2, 0.0627451, 1 )
+position = Vector2( 0, -14 )
+rotation = -3.14159
+texture = ExtResource( 4 )
 hframes = 4
 frame = 1
 
+[node name="Handle" type="Sprite" parent="POS_Gun"]
+self_modulate = Color( 0.537255, 0.356863, 0.00392157, 1 )
+position = Vector2( 0, -14 )
+rotation = -3.14159
+texture = ExtResource( 4 )
+hframes = 4
+frame = 2
+
 [node name="Pin" type="Sprite" parent="POS_Gun"]
-position = Vector2( -8, -15 )
+position = Vector2( -9, -22 )
 texture = ExtResource( 2 )
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 
-[node name="Position2D" type="Position2D" parent="POS_Gun/POS"]
+[node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
+
+[node name="Throw" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( 24, 0 )
+
+[node name="Shell" type="Position2D" parent="POS_Gun/POS"]
+visible = false
+position = Vector2( 0, -4 )
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
-[node name="RayCast2D" type="RayCast2D" parent="POS_Gun/Raycast"]
+[node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( 0, -5 )
+enabled = true
+cast_to = Vector2( 15, 0 )
+collision_mask = 4278225672
+
+[node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
 enabled = true
 cast_to = Vector2( 30, 0 )
-collision_mask = 4278193928
+collision_mask = 4278192648
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Armed = SubResource( 1 )
+anims/Idle = SubResource( 2 )
+anims/RESET = SubResource( 3 )

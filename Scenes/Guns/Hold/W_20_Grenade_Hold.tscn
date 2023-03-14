@@ -56,6 +56,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("CPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
@@ -107,6 +119,18 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -171,6 +195,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [ 2 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("CPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [node name="W_20_Grenade_Hold" type="Node2D"]
 script = ExtResource( 3 )
@@ -187,6 +223,13 @@ wait_time = 0.5
 
 [node name="Melee_Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+local_coords = false
+direction = Vector2( 0, -1 )
+spread = 12.15
+gravity = Vector2( 0, -20 )
+initial_velocity = 20.0
 
 [node name="POS_Gun" type="Node2D" parent="."]
 

@@ -1,132 +1,22 @@
-extends Node2D
+extends 'res://Scripts/Guns/Hold/W_00_Gun_Hold.gd'
 
-# export(PackedScene) var grenade_pickup
-# export(PackedScene) var pin
-# export(PackedScene) var boom
+# onready var sprite_pin = $POS_Gun/Pin
 
-onready var timer = $Timer
-onready var pos_throw = $POS_Gun/POS/Position2D
-onready var sprite_pin = $POS_Gun/Pin
-onready var throw_cast = $POS_Gun/Raycast/RayCast2D
+var ex_num = 10
 
-var player = 1
-var gun_num = 21
-var ammo = 1
-var take_ammo = false
-var my_name = "Grenade"
-var dmg_type = "Boom"
-var damage = 100
-var can_shoot = true 
-var shoot_pos = 3
-var change_shoot_pos = true
-var is_right = true
-var walk = 0.0
-var time = 4.0
-
-signal ammo_change(player, ammo)
-
-func _ready():
-	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
-	if test1 != 0:
-		print_debug("failed to connect ammo change in weap hold 20 Grenade")
-
-func init(_ammo, _player, _time, _just_shot):
-	player = _player
-	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
-	ammo = int(clamp(_ammo,0,1))
+func post_set_up():
+	explode_num = ex_num
 	if ammo <= 0:
-		sprite_pin.visible = false
-	time = _time
-	emit_signal("ammo_change",player,ammo)
-
-func _process(delta):
-	print_debug(time)
-	if ammo <= 0:
-		time -= delta
-		if time <= 0:
-			go_boom()
-
-func shoot_j():
-	pass
-
-func shoot():
-	pass
+		# sprite_pin.visible = false
+		anim_fire.play("Armed")
 
 func shoot_r():
 	if can_shoot:
 		if ammo > 0:
 			FX.shell(gun_num, pos_throw.global_position, pos_throw.global_rotation)
 			can_shoot = false
-			timer.start()
 			ammo = 0
-			sprite_pin.visible = false
+			# sprite_pin.visible = false
 			emit_signal("ammo_change",player, ammo)
 			Player_Stats.add_shot(player, 1)
-
-func melee():
-	pass
-
-func throw():
-	var t = Equipment.get_weap_pick(gun_num).instance()
-	Map_Hand.add_kid_to_map(t)
-	if shoot_pos == 6:
-		pos_throw.position.x = 30
-	t.position = pos_throw.global_position
-	t.init(ammo, player, time, is_right, shoot_pos, false)
-	if throw_cast.is_colliding():
-		t.position = self.global_position
-		_drop_where(t)
-	else:
-		t.position = pos_throw.global_position
-		_throw_where(t)
-	emit_signal("ammo_change",player,0)
-	call_deferred("free")
-
-func drop():
-	call_deferred("_drop")
-func _drop():
-	var t = Equipment.get_weap_pick(gun_num).instance()
-	Map_Hand.add_kid_to_map(t)
-	t.position = pos_throw.global_position
-	t.init(ammo, player, time, is_right, shoot_pos, false)
-	_drop_where(t)
-	emit_signal("ammo_change",player,0)
-	call_deferred("free")
-
-func _throw_where(_obj):
-	if is_right:
-		if shoot_pos == 1:
-			_obj.apply_impulse(pos_throw.position, Vector2(100, -700))
-		elif shoot_pos == 2:
-			_obj.apply_impulse(pos_throw.position, Vector2(600, -400))
-		elif shoot_pos == 3 || shoot_pos == 6:
-			_obj.apply_impulse(pos_throw.position, Vector2(600, -200))
-		elif shoot_pos == 4:
-			_obj.apply_impulse(pos_throw.position, Vector2(600, 200))
-		elif shoot_pos == 5:
-			_obj.apply_impulse(pos_throw.position, Vector2(100, 700))
-	else:
-		if shoot_pos == 1:
-			_obj.apply_impulse(pos_throw.position, Vector2(-100, -700))
-		elif shoot_pos == 2:
-			_obj.apply_impulse(pos_throw.position, Vector2(-600, -400))
-		elif shoot_pos == 3 ||shoot_pos == 6:
-			_obj.apply_impulse(pos_throw.position, Vector2(-600, -200))
-		elif shoot_pos == 4:
-			_obj.apply_impulse(pos_throw.position, Vector2(-600, 200))
-		elif shoot_pos == 5:
-			_obj.apply_impulse(pos_throw.position, Vector2(-100, 700))
-
-func _drop_where(_obj):
-	_obj.set_collision_layer_bit( 1, false)
-	_obj.set_collision_mask_bit( 1, false)
-
-func _on_Timer_timeout():
-	pass
-
-func go_boom():
-	var p = Controllers.get_pawn(player)
-	p.my_gun = null
-	p.is_holding = false
-	FX.explode(10, player, self.global_position, gun_num, 0, damage)
-	call_deferred("free")
+			anim_fire.play("Armed")

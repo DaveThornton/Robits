@@ -24,10 +24,9 @@ var hits = 0
 var hits_max = 5
 
 func _ready():
-	timer_boom.wait_time = time
+	# timer_boom.wait_time = time
 	if armed:
 		ammo = 0
-		# pin.visible = false
 		label.visible = true
 		timer_boom.wait_time = time
 		timer_boom.start()
@@ -38,7 +37,6 @@ func _ready():
 func _process(_delta):
 	if ammo == 0:
 		time = timer_boom.time_left
-		print_debug(time)
 		label.set_time(time)
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
@@ -49,7 +47,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		ammo = int(clamp(_ammo,0,1))
 	if ammo == 0:
 		ammo = 0
-		# pin.visible = false
 		label.visible = true
 		timer_boom.start()
 		anim.play("Armed")
@@ -87,8 +84,6 @@ func _on_Timer_Spin_timeout():
 func set_dir(_is_right, _dir):
 	is_right = _is_right
 	if _is_right:
-		# pin.position = Vector2(-6, -6)
-		# sprite.scale.y = 1
 		if _dir == 1:
 			self.rotation_degrees = -85
 		elif _dir == 2:
@@ -100,8 +95,6 @@ func set_dir(_is_right, _dir):
 		elif _dir == 5:
 			self.rotation_degrees = 85
 	else:
-		# self.scale.y = -1
-		# pin.position   = Vector2(-6, 6)
 		if _dir == 1:
 			self.rotation_degrees = -95
 		elif _dir == 2:

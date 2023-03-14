@@ -5,11 +5,11 @@ export var armed = false
 onready var timer = $Timer
 onready var spin_timer = $Timer_Spin
 onready var timer_boom = $Timer_Boom
-onready var sprite = $Sprite_Body
-onready var pin = $Sprite_Pin
 onready var hand_right = $handle
 onready var hand_left = $handle2
 onready var label= $"FX-21-Timer_Label"
+onready var anim = $AnimationPlayer
+onready var gun_pos = $POS_Gun
 
 var player = 0
 var my_name = "Nazi Grenade"
@@ -25,10 +25,13 @@ var hits_max = 5
 func _ready():
 	if armed:
 		ammo = 0
-		pin.visible = false
+		# pin.visible = false
 		label.visible = true
 		timer_boom.wait_time = time
 		timer_boom.start()
+		anim.play("Armed")
+	else:
+		anim.play("Idle")
 
 func _process(_delta):
 	if ammo == 0:
@@ -40,14 +43,20 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
 	player = _player
 	timer_boom.wait_time = _time
-	if _ammo == 0:
+	ammo = _ammo
+
+	if ammo == 0:
+		print_debug("armed grenade pick")
 		ammo = 0
-		pin.visible = false
+		# pin.visible = false
 		label.visible = true
 		timer_boom.start()
+		anim.play("Armed")
 	else:
 		label.visible = false
 		timer.start()
+		anim.play("Idle")
+
 func _on_Timer_Boom_timeout():
 	FX.explode(10,player, self.global_position, gun_num, 0, damage)
 	call_deferred("free")
@@ -75,7 +84,7 @@ func _on_WeapPick21NaziGrenade_body_entered(body):
 func set_dir(_is_right, _dir):
 	is_right = _is_right
 	if _is_right:
-		sprite.rotation_degrees = 180
+		gun_pos.rotation_degrees = 0
 		hand_right.disabled = false
 		hand_left.disabled = true
 		if _dir == 1:
@@ -89,7 +98,7 @@ func set_dir(_is_right, _dir):
 		elif _dir == 5:
 			self.rotation_degrees = 85
 	else:
-		sprite.rotation_degrees = 0
+		gun_pos.rotation_degrees = 180
 		hand_right.disabled = true
 		hand_left.disabled = false
 		if _dir == 1:

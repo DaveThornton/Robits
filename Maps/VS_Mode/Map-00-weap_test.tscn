@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-10-Back_Shield.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Scenes/Guns/Pick/W_21_Nazi_Grenade_Pick.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Scenes/Explosions/Parts/Mega_Explosion-03-Part_multi.tscn" type="PackedScene" id=38]
 [ext_resource path="res://Scenes/Map_Parts/MP-43-WOW.tscn" type="PackedScene" id=39]
 
@@ -315,3 +316,6 @@ position = Vector2( 128, 784 )
 
 [node name="Weap-Pick-20-Grenade" parent="." instance=ExtResource( 32 )]
 position = Vector2( 296, 968 )
+
+[node name="Weap-Pick-21-Nazi-Grenade" parent="." instance=ExtResource( 36 )]
+position = Vector2( 272.007, 1015.55 )
