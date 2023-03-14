@@ -51,8 +51,14 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -3, 0 ), Vector2( 0, 0 ) ]
 }
 
-[node name="W_40_RPG_Hold" type="Node2D"]
+[node name="W_41_SPNKr" type="Node2D"]
 script = ExtResource( 3 )
+gun_num = 41
+damage = 100
+dmg_type = "Boom"
+ammo_max = 9
+eject_shell = false
+throw_power = 900
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 
@@ -79,6 +85,9 @@ position = Vector2( 32, -9 )
 
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( 32, 0 )
+
+[node name="Shell" type="Position2D" parent="POS_Gun/POS"]
+visible = false
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
