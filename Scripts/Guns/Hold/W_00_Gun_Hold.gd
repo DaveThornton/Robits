@@ -88,6 +88,8 @@ func _process(delta):
 			time -= delta
 			if time <= 0:
 				go_boom()
+	called_on_process(delta)
+func called_on_process(_delta): pass
 
 func shoot_j():
 	pass

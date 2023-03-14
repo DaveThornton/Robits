@@ -1,14 +1,37 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_25_Time_Bomb.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Guns/Hold/W_25_Time_Bomb_Hold.gd" type="Script" id=6]
 
+[sub_resource type="Animation" id=1]
+resource_name = "Armed"
+length = 2.08
+step = 0.13
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 0.1
+
 [node name="W_24_TNT_Hold" type="Node2D"]
 script = ExtResource( 6 )
+gun_num = 25
+damage = 150
+melee_damage = 0
+dmg_type = "Boom"
+ammo_max = 1
+can_melee = false
+take_ammo = false
+eject_shell = false
+is_bomb = true
+throw_power = 600
+time = 6.0
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.5
+[node name="Shoot_Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Melee_Timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
@@ -17,20 +40,34 @@ position = Vector2( 11.4351, 0 )
 texture = ExtResource( 3 )
 
 [node name="FX-21-Timer_Label" parent="POS_Gun/Gun_Sprite" instance=ExtResource( 2 )]
-position = Vector2( 0.731312, 19.48 )
+position = Vector2( 0, 20 )
 stay_straight = false
 text_color = Color( 1, 1, 1, 1 )
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 
-[node name="Position2D" type="Position2D" parent="POS_Gun/POS"]
-position = Vector2( 30, 0 )
+[node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
+
+[node name="Throw" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 24, 0 )
+
+[node name="Shell" type="Position2D" parent="POS_Gun/POS"]
+visible = false
+position = Vector2( 0, -4 )
 
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
-[node name="RayCast2D" type="RayCast2D" parent="POS_Gun/Raycast"]
+[node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( 0, -5 )
 enabled = true
-cast_to = Vector2( 40, 0 )
-collision_mask = 4278193928
+cast_to = Vector2( 15, 0 )
+collision_mask = 4278225672
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
+enabled = true
+cast_to = Vector2( 30, 0 )
+collision_mask = 4278192648
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Armed = SubResource( 1 )
+anims/Idle = SubResource( 2 )

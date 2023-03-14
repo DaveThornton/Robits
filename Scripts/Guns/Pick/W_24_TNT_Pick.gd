@@ -6,7 +6,7 @@ export var armed = false
 onready var timer = $Timer
 onready var hit_timer =  $Timer_Hit
 onready var spin_timer = $Timer_Spin
-onready var timer_boom = $Timer_Boom
+# onready var timer_boom = $Timer_Boom
 onready var sprite = $Sprite_Body
 onready var label= $"FX-21-Timer_Label"
 onready var anim = $AnimationPlayer
@@ -26,13 +26,16 @@ func _ready():
 	if armed:
 		ammo = 0
 		label.visible = true
-		timer_boom.wait_time = time
-		timer_boom.start()
+		# timer_boom.wait_time = time
+		# timer_boom.start()
 
 func _process(_delta):
-	time = timer_boom.time_left
 	label.set_time(time)
-	
+	if ammo == 0:
+		time -= _delta
+		if time <= 0:
+			go_boom()
+		
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
@@ -42,15 +45,15 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		anim.play("Lit")
 		anim.seek((time - _time), true)
 		label.visible = true
-		timer_boom.wait_time = _time
-		timer_boom.start()
+		# timer_boom.wait_time = _time
+		# timer_boom.start()
 	else:
 		anim.play("Unlit")
 		label.visible = false
 		timer.wait_time = expire_time
 		timer.start()
 
-func _on_Timer_Boom_timeout():
+func go_boom():
 	FX.explode(24, player, self.global_position, gun_num, 0, damage)
 	call_deferred("free")
 

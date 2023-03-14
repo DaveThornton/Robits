@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_25_Time_Bomb_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/W_25_Time_Bomb.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=7]
 
@@ -11,10 +10,7 @@ bounce = 0.5
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8.88681, 15.8847 )
 
-[node name="W_24_TNT_Pick" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="W_24_TNT_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 786462
 mass = 600.0
@@ -25,7 +21,6 @@ contacts_reported = 12
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
-smoke = ExtResource( 3 )
 
 [node name="Sprite_Body" type="Sprite" parent="."]
 texture = ExtResource( 5 )

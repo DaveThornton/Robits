@@ -6,7 +6,7 @@ export var armed = false
 onready var timer = $Timer
 onready var hit_timer =  $Timer_Hit
 onready var spin_timer = $Timer_Spin
-onready var timer_boom = $Timer_Boom
+# onready var timer_boom = $Timer_Boom
 onready var sprite = $Sprite_Body
 onready var label= $"FX-21-Timer_Label"
 
@@ -25,12 +25,16 @@ func _ready():
 	if armed:
 		ammo = 0
 		label.visible = true
-		timer_boom.wait_time = time
-		timer_boom.start()
+		# timer_boom.wait_time = time
+		# timer_boom.start()
 
-func _process(_delta):
-	time = timer_boom.time_left
+func _process(delta):
+	# time = timer_boom.time_left
 	label.set_time(time)
+	if ammo <= 0:
+		time -= delta
+		if time <= 0:
+			go_boom()
 	
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
@@ -38,13 +42,14 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	player = _player
 	if _ammo == 0:
 		ammo = 0
-		timer_boom.wait_time = _time
-		timer_boom.start()
+		time = _time
+		# timer_boom.wait_time = _time
+		# timer_boom.start()
 	else:
 		timer.wait_time = expire_time
 		timer.start()
 
-func _on_Timer_Boom_timeout():
+func go_boom():
 	FX.explode(25, player, self.global_position, gun_num, 0, damage)
 	call_deferred("free")
 
@@ -73,7 +78,10 @@ func _on_Timer_Spin_timeout():
 func set_dir(_is_right, _dir):
 	is_right = _is_right
 	if _is_right:
-		sprite.scale.y = 1
+		# label.rotation = 0
+		# label.position = Vector2(0,20)
+		# label.scale.y = 1
+		self.scale.y = 1
 		if _dir == 1:
 			self.rotation_degrees = -85
 		elif _dir == 2:
@@ -85,6 +93,9 @@ func set_dir(_is_right, _dir):
 		elif _dir == 5:
 			self.rotation_degrees = 85
 	else:
+		# label.rotation = 180
+		# label.position = Vector2(0,-20)
+		# label.scale.y = -1
 		self.scale.y = -1
 		if _dir == 1:
 			self.rotation_degrees = -95

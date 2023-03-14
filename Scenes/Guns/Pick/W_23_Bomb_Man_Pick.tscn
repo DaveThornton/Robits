@@ -117,9 +117,6 @@ frames = SubResource( 6 )
 wait_time = 0.1
 autostart = true
 
-[node name="Timer_Boom" type="Timer" parent="."]
-wait_time = 3.75
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Lit = SubResource( 7 )
 
@@ -130,4 +127,3 @@ position = Vector2( 0, -24 )
 [connection signal="body_entered" from="." to="." method="_on_W_23_Bomb_Man_Pick_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_W_23_Bomb_Man_Pick_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Timer_Boom" to="." method="_on_TimerBoom_timeout"]

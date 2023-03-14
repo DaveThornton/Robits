@@ -1,14 +1,13 @@
 extends RigidBody2D
 
 onready var timer = $Timer
-onready var timer_boom = $Timer_Boom
 onready var anim = $AnimationPlayer
 onready var label_time= $"FX-21-Timer_Label"
 
 var player = 0
 var my_name = "Bomb-Man"
 var damage = 100
-var time = 3.8
+var time = 3.5
 var gun_num = 23
 var ammo = 1
 var ready = false
@@ -35,9 +34,14 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	self.set_collision_mask_bit( 11, just_shot)
 
 func _process(_delta):
+	if ammo == 0:
+		time -= _delta
+		if time <= 0:
+			fade_out()
 	if ready:
-		time = timer_boom.get_time_left()
 		label_time.set_time(time)
+	
+
 
 func _armed(_time):
 	ammo = 0
@@ -46,16 +50,13 @@ func _armed(_time):
 	label_time.visible = true
 	print_debug(_time,"  this is the time it is tring to set in bomb man pick maybe why it randomly explodes?")
 	anim.seek(time -_time, true)
-	timer_boom.wait_time = _time
-	timer_boom.start()
+	# timer_boom.wait_time = _time
+	# timer_boom.start()
 
 func hit(_owned, _my_name, _damage_type, _damage1):
 	if ready:
 		_armed(time)
 		player =  _owned
-
-func _on_TimerBoom_timeout():
-	fade_out()
 
 func fade_out():
 	FX.explode(25, player, self.global_position, gun_num, 0, damage)
