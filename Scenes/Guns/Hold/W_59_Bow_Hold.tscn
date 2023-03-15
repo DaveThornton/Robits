@@ -198,6 +198,9 @@ position = Vector2( 19, 0 )
 [node name="Throw" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( 24, 0 )
 
+[node name="Shell" type="Position2D" parent="POS_Gun/POS"]
+position = Vector2( 0, -3 )
+
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 visible = false
 

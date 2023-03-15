@@ -167,6 +167,13 @@ tracks/3/keys = {
 
 [node name="W_58_Derringer_Hold" type="Node2D"]
 script = ExtResource( 3 )
+gun_num = 58
+damage = 75
+dmg_type = "Bullet"
+ammo_max = 2
+eject_shell = false
+walk_amount = 4.0
+throw_power = 1500
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.1
