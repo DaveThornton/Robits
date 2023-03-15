@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_57_Henry_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Guns/W_57_Henery.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Guns/W_57_Henry.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -11,10 +11,7 @@ bounce = 0.1
 radius = 4.13037
 height = 36.9116
 
-[node name="W_57_Henry_Pick" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="W_57_Henry_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 917534
 physics_material_override = SubResource( 1 )
@@ -23,10 +20,9 @@ continuous_cd = 1
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
-smoke = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 hframes = 2
 
 [node name="Sprite2" type="Sprite" parent="."]

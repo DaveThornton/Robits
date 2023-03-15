@@ -147,6 +147,18 @@ bus = "SFX"
 stream = ExtResource( 19 )
 bus = "SFX"
 
+[node name="057" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "SFX"
+
+[node name="W_57_Empty" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "SFX"
+
+[node name="058" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "SFX"
+
 [node name="W_06_Melee" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )
 bus = "SFX"
@@ -197,18 +209,6 @@ bus = "SFX"
 
 [node name="W_19_Empty" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-bus = "SFX"
-
-[node name="W_57_Shoot" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-bus = "SFX"
-
-[node name="W_57_Empty" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
-bus = "SFX"
-
-[node name="W_58_Shoot" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
 bus = "SFX"
 
 [node name="W_83_Shoot" type="AudioStreamPlayer" parent="."]
