@@ -11,7 +11,7 @@ resource_name = "Melee"
 length = 0.4
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("POS_Gun/Area2D/CollisionShape2D:disabled")
+tracks/0/path = NodePath("POS_Gun/Melee_Area/CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -86,7 +86,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 11, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("POS_Gun/Area2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("POS_Gun/Melee_Area/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -150,7 +150,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 11, 0 ), Vector2( 4, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("POS_Gun/Area2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("POS_Gun/Melee_Area/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -162,8 +162,15 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[node name="W_07_CrossBow_Hold" type="Node2D"]
+[node name="W_59_Bow_Hold" type="Node2D"]
 script = ExtResource( 3 )
+gun_num = 59
+damage = 75
+dmg_type = "Bullet"
+ammo_max = 16
+eject_shell = false
+walk_amount = 15.0
+throw_power = 1100
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.1
@@ -222,11 +229,11 @@ enabled = true
 cast_to = Vector2( 60, 0 )
 collision_mask = 4278192648
 
-[node name="Area2D" type="Area2D" parent="POS_Gun"]
+[node name="Melee_Area" type="Area2D" parent="POS_Gun"]
 collision_layer = 0
 collision_mask = 4278618752
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
 position = Vector2( 12, 0 )
 shape = SubResource( 1 )
 disabled = true
