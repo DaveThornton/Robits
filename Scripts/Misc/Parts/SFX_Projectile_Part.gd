@@ -27,7 +27,10 @@ var list = {
 	56: "056",
 	57: "057",
 	58: "058",
-	59: "007"
+#TODO: give Weap 59 Bow its own sount FX
+	59: "007",
+	83: "083",
+	84: "084"
 }
 
 func play(_num):
