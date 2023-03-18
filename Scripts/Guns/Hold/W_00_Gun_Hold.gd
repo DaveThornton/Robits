@@ -248,5 +248,7 @@ func _on_Melee_Area_body_entered(body):
 			body.hit(player, gun_num, dmg_type, melee_damage)
 		else:
 			print_debug("quit hitting your self")
+	elif body.get_groups().has("hittable") && can_melee:
+		body.hit(player, gun_num, dmg_type,damage)
 	elif !can_melee:
 		print_debug("this gun is set to not melee so no damage was given")

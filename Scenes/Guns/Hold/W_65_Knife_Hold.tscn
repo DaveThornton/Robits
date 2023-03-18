@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_65_Knife.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Guns/Hold/W_65_Knife_Hold.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Guns/Hold/W_00_Gun_Melee_Hold.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.7846
@@ -9,6 +9,13 @@ height = 7.89017
 
 [node name="W_65_Knife_Hold" type="Node2D"]
 script = ExtResource( 2 )
+gun_num = 65
+damage = 33
+melee_damage = 33
+dmg_type = "Blade"
+ammo_max = 1
+walk_amount = 40.0
+throw_power = 1300
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
@@ -17,8 +24,14 @@ rotation = -1.5708
 texture = ExtResource( 1 )
 offset = Vector2( 10, 0 )
 
-[node name="POS_Throw" type="Position2D" parent="."]
+[node name="Throw_Pos" type="Position2D" parent="."]
 position = Vector2( 40, 0 )
+
+[node name="Throw_Ray" type="RayCast2D" parent="."]
+position = Vector2( -7, 0 )
+enabled = true
+cast_to = Vector2( 55, 0 )
+collision_mask = 4278193928
 
 [node name="Melee_Area" type="Area2D" parent="."]
 collision_layer = 0
@@ -28,11 +41,5 @@ collision_mask = 4278618752
 position = Vector2( 20, 0 )
 shape = SubResource( 1 )
 disabled = true
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( -7, 0 )
-enabled = true
-cast_to = Vector2( 55, 0 )
-collision_mask = 4278193928
 
 [connection signal="body_entered" from="Melee_Area" to="." method="_on_Melee_Area_body_entered"]
