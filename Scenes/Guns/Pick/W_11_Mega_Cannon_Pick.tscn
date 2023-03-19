@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_11_Mega_Cannon_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/Weap-11-Mega-Cannon-sheet.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -11,10 +10,7 @@ bounce = 0.2
 radius = 3.0
 height = 12.0
 
-[node name="Weap-Pick-11-Mega-Cannon" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="Weap-Pick-11-Mega-Cannon" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 917534
 mass = 0.612245
@@ -24,7 +20,8 @@ continuous_cd = 1
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
-smoke = ExtResource( 2 )
+gun_num = 11
+ammo = 60
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )

@@ -10,7 +10,7 @@ bounce = 0.1
 radius = 4.99995
 height = 28.0002
 
-[node name="Weap-Pick-03-Sniper" type="RigidBody2D" groups=["FX", "PickUp"]]
+[node name="W_19_Rail_Gun_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 917534
 physics_material_override = SubResource( 1 )
@@ -19,6 +19,8 @@ continuous_cd = 1
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
+gun_num = 19
+ammo = 8
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.0969925, -0.0969887 )

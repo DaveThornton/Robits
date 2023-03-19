@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_42_G-Launcher_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_42_G-Launcher_Top.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Guns/W_42_G-Launcher_Back.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Guns/W_42_G-Launcher_Mid.png" type="Texture" id=5]
@@ -14,10 +13,7 @@ bounce = 0.1
 radius = 6.99997
 height = 17.5892
 
-[node name="W_42_G-Launcher" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="W_42_G-Launcher" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 917534
 mass = 20.4082
@@ -28,7 +24,8 @@ contacts_reported = 9
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
-smoke = ExtResource( 2 )
+gun_num = 42
+ammo = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 self_modulate = Color( 0.678431, 0.678431, 0.678431, 1 )
@@ -58,5 +55,5 @@ hframes = 3
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 
-[connection signal="body_entered" from="." to="." method="_on_WeapPick40RPG_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_W_42_GLauncher_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Des_Timer_timeout"]

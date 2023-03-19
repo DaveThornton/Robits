@@ -30,6 +30,8 @@ collision_mask = 917534
 mass = 300.0
 gravity_scale = 6.0
 script = ExtResource( 2 )
+gun_num = 56
+ammo = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 2 )

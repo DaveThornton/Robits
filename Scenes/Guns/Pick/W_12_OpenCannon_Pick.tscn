@@ -12,6 +12,8 @@ collision_layer = 524288
 collision_mask = 917534
 gravity_scale = 6.0
 script = ExtResource( 3 )
+gun_num = 12
+ammo = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

@@ -6,9 +6,10 @@ extends 'res://Scripts/Guns/Pick/W_00_Gun_Pick.gd'
 # onready var timer = $Timer
 
 # var ready = false
-# var gun_num = 11
-# var ammo = 150
-# var time = .1
+# var gun_num = 83
+# var ammo = 10
+# var time = .7
+# var my_scale = 1.5
 # var is_right = true
 # var dir = 3
 # var just_shot = false
@@ -24,7 +25,7 @@ extends 'res://Scripts/Guns/Pick/W_00_Gun_Pick.gd'
 # 		if ammo < _ammo:
 # 			expire_time = expire_time * 2
 # 		elif ammo > _ammo:
-# 			expire_time = expire_time * .6
+# 			expire_time = expire_time * .75
 # 		elif _ammo == 0:
 # 			expire_time = expire_time * .1
 		
@@ -35,15 +36,16 @@ extends 'res://Scripts/Guns/Pick/W_00_Gun_Pick.gd'
 # 	time = _time
 # 	if ready:
 # 		set_dir(is_right, dir)
-	
-func _on_WeapPick11MegaCannon_body_shape_entered(_body_id, body, _body_shape, _local_shape):
+
+
+func _on_WeapPick03Sniper_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 	_entered(_body_id, body, _body_shape, _local_shape)
-# 	if hits < hits_max :
+# 	if hits < 3 :
 # 		hits += 1
 # 		SFX.hit()
 # 	if body.get_groups().has("player"):
 # 		body.stun(gun_num)
-# 	else:
+# 	else:#
 # 		self.set_collision_mask_bit( 1, false)
 
 # func set_dir(_is_right, _dir):
@@ -52,35 +54,35 @@ func _on_WeapPick11MegaCannon_body_shape_entered(_body_id, body, _body_shape, _l
 # 	if _is_right:
 # 		if _dir == 1:
 # 			self.rotation_degrees = -85
-# 			sprite.scale.y = 1
+# 			sprite.scale.y = my_scale
 # 		elif _dir == 2:
 # 			self.rotation_degrees = -45
-# 			sprite.scale.y = 1
+# 			sprite.scale.y = my_scale
 # 		elif _dir == 3 || _dir == 6:
 # 			self.rotation_degrees = 9
-# 			sprite.scale.y = 1
+# 			sprite.scale.y = my_scale
 # 		elif _dir == 4:
 # 			self.rotation_degrees = 45
-# 			sprite.scale.y = 1
+# 			sprite.scale.y = my_scale
 # 		elif _dir == 5:
 # 			self.rotation_degrees = 85
-# 			sprite.scale.y = 1
+# 			sprite.scale.y = my_scale
 # 	else:
 # 		if _dir == 1:
 # 			self.rotation_degrees = -95
-# 			sprite.scale.y = -1
+# 			sprite.scale.y = -my_scale
 # 		elif _dir == 2:
 # 			self.rotation_degrees = -135
-# 			sprite.scale.y = -1
+# 			sprite.scale.y = -my_scale
 # 		elif _dir == 3 || _dir == 6:
 # 			self.rotation_degrees = -171
-# 			sprite.scale.y = -1
+# 			sprite.scale.y = -my_scale
 # 		elif _dir == 4:
 # 			self.rotation_degrees = -220
-# 			sprite.scale.y = -1
+# 			sprite.scale.y = -my_scale
 # 		elif _dir == 5:
 # 			self.rotation_degrees = -265
-# 			sprite.scale.y = -1
+# 			sprite.scale.y = -my_scale
 
 # func _on_Timer_timeout():
 # 	fade_out()
@@ -88,6 +90,6 @@ func _on_WeapPick11MegaCannon_body_shape_entered(_body_id, body, _body_shape, _l
 # func fade_out():
 # 	FX.smoke(self.global_position)
 # 	call_deferred("free")
-
+	
 # func dont_hit_player():
-	# self.set_collision_mask_bit( 1, false)
+# 	self.set_collision_mask_bit( 1, false)

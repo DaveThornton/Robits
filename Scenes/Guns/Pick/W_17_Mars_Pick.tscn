@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_17_Mars_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_17_Mars.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -11,10 +10,7 @@ bounce = 0.2
 radius = 2.99996
 height = 22.0001
 
-[node name="W_17_Mars_Pick" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="W_17_Mars_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 917534
 mass = 0.612245
@@ -25,7 +21,8 @@ contacts_reported = 9
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
-smoke = ExtResource( 2 )
+gun_num = 17
+ammo = 30
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 2 )

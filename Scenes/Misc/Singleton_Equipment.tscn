@@ -71,7 +71,7 @@
 [ext_resource path="res://Scenes/Guns/Hold/W_59_Bow_Hold.tscn" type="PackedScene" id=69]
 [ext_resource path="res://Scenes/Guns/Hold/W_14_TNG_Hold.tscn" type="PackedScene" id=70]
 [ext_resource path="res://Scenes/Guns/Hold/W_84_Luger_Hold.tscn" type="PackedScene" id=71]
-[ext_resource path="res://Scenes/Guns/Hold/W_83-Mauser_Hold.tscn" type="PackedScene" id=72]
+[ext_resource path="res://Scenes/Guns/Hold/W_83-Gewehr_Hold.tscn" type="PackedScene" id=72]
 [ext_resource path="res://Scenes/Guns/Hold/W_73_Youth_Knife_Hold.tscn" type="PackedScene" id=73]
 [ext_resource path="res://Scenes/Guns/Hold/W_72_Cleaver_Hold.tscn" type="PackedScene" id=74]
 [ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=75]
@@ -119,7 +119,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_73_Youth_Knife_Pick.tscn" type="PackedScene" id=117]
 [ext_resource path="res://Scenes/Guns/Pick/W_14_TNG_Pick.tscn" type="PackedScene" id=118]
 [ext_resource path="res://Scenes/Guns/Pick/W_72_Cleaver_Pick.tscn" type="PackedScene" id=119]
-[ext_resource path="res://Scenes/Guns/Pick/W_83_Mauser_Pick.tscn" type="PackedScene" id=120]
+[ext_resource path="res://Scenes/Guns/Pick/W_83_Gewehr_Pick.tscn" type="PackedScene" id=120]
 [ext_resource path="res://Scenes/Guns/Pick/W_84_Luger_Pick.tscn" type="PackedScene" id=121]
 [ext_resource path="res://Scenes/Guns/Pick/W_59_Bow_Pick.tscn" type="PackedScene" id=122]
 [ext_resource path="res://Scenes/Guns/Pick/W_58_Derringer_Pick.tscn" type="PackedScene" id=123]
@@ -339,7 +339,7 @@ weap_names = {
 80: "name",
 81: "name",
 82: "name",
-83: "Mauser",
+83: "Gewehr",
 84: "Luger",
 85: "name",
 86: "name",

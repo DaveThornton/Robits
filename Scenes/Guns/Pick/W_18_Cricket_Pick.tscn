@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_18_Cricket_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/W_18_Cricket.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.2
@@ -11,10 +10,7 @@ bounce = 0.2
 radius = 5.99999
 height = 6.75002
 
-[node name="W_17_Mars_Pick" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="W_18_Cricket_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 917534
 mass = 0.612245
@@ -25,7 +21,8 @@ contacts_reported = 9
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
-smoke = ExtResource( 3 )
+gun_num = 18
+ammo = 20
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

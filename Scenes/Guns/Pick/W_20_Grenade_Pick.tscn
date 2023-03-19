@@ -227,6 +227,7 @@ contacts_reported = 12
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
+gun_num = 20
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
@@ -289,8 +290,8 @@ anims/Armed = SubResource( 3 )
 anims/Idle = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 
-[connection signal="body_entered" from="." to="." method="_on_WeapPick20Grenade_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_WeapPick20Grenade_body_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]
 [connection signal="timeout" from="Timer_Spin" to="." method="_on_Timer_Spin_timeout"]

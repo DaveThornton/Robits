@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_40_RPG_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/Weap-40-RPG.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -11,10 +10,7 @@ bounce = 0.1
 radius = 5.0
 height = 15.0
 
-[node name="Weap-Pick-40-RPG" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="Weap-Pick-40-RPG" type="RigidBody2D" groups=["FX", "PickUp"]]
 position = Vector2( -0.209351, -0.628044 )
 collision_layer = 524288
 collision_mask = 917534
@@ -26,7 +22,8 @@ contacts_reported = 9
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
-smoke = ExtResource( 2 )
+gun_num = 40
+ammo = 4
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
@@ -39,5 +36,5 @@ wait_time = 5.0
 rotation = 1.5708
 shape = SubResource( 2 )
 
-[connection signal="body_entered" from="." to="." method="_on_WeapPick40RPG_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_WeapPick40RPG_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Des_Timer_timeout"]

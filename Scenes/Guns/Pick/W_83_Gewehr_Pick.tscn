@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Guns/Pick/W_83_Mauser_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Guns/W_83_Mauser.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_83_Mauser.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Guns/Pick/W_83_Gewehr_Pick.gd" type="Script" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
@@ -18,16 +18,18 @@ gravity_scale = 6.0
 continuous_cd = 1
 contacts_reported = 1
 contact_monitor = true
-script = ExtResource( 1 )
+script = ExtResource( 2 )
+gun_num = 83
+ammo = 15
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.0969925, -0.0969887 )
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 hframes = 2
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 0.0969925, -0.0969887 )
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 hframes = 2
 frame = 1
 

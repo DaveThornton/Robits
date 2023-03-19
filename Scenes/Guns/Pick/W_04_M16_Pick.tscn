@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_04_M_16_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_04_M16.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -11,10 +10,7 @@ bounce = 0.1
 radius = 3.99995
 height = 24.0001
 
-[node name="Weap-Pick-04-M_16" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="Weap-Pick-04-M_16" type="RigidBody2D" groups=["FX", "PickUp"]]
 position = Vector2( -1.16385, 0.630419 )
 collision_layer = 524288
 collision_mask = 917534
@@ -24,7 +20,8 @@ continuous_cd = 1
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
-smoke = ExtResource( 2 )
+gun_num = 4
+ammo = 30
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 2.16385, -0.630419 )

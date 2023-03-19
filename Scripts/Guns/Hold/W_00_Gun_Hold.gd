@@ -143,6 +143,9 @@ func _fire_no_projectile():
 		_thing.hit(player, gun_num, dmg_type, damage)
 		end_of_fire()
 		call_on_hit_with_no_projectile(_thing)
+	else:
+		end_of_fire()
+		call_on_hit_with_no_projectile(_thing)
 	
 func end_of_fire():
 	anim_fire.play("Shoot")

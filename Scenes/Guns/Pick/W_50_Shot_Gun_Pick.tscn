@@ -20,6 +20,13 @@ continuous_cd = 1
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
+gun_num = 50
+ammo = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.16385, -0.630419 )
+rotation = 1.5708
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1.16385, -0.630419 )
@@ -31,11 +38,6 @@ position = Vector2( 1.16385, -0.630419 )
 texture = ExtResource( 3 )
 hframes = 2
 frame = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.16385, -0.630419 )
-rotation = 1.5708
-shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 
