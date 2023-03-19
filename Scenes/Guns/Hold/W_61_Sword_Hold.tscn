@@ -10,10 +10,7 @@ height = 7.89017
 [node name="W_61_Sword_Hold" type="Node2D"]
 script = ExtResource( 2 )
 gun_num = 61
-damage = 50
 dmg_type = "Blade"
-ammo_max = 1
-walk_amount = 40.0
 throw_power = 900
 
 [node name="POS_Gun" type="Node2D" parent="."]

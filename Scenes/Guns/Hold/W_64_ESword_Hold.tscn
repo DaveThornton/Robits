@@ -77,13 +77,11 @@ gun_num = 64
 damage = 100
 melee_damage = 100
 dmg_type = "Laser"
-ammo_max = 1
 can_melee = null
 take_ammo = false
 use_ammo = false
 eject_shell = false
 is_bomb = null
-walk_amount = 40.0
 
 [node name="POS_Gun" type="Node2D" parent="."]
 

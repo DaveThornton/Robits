@@ -10,10 +10,7 @@ height = 7.89017
 [node name="W_70_Bat_Hold" type="Node2D"]
 script = ExtResource( 2 )
 gun_num = 70
-damage = 50
 dmg_type = "Blunt"
-ammo_max = 1
-walk_amount = 40.0
 
 [node name="POS_Gun" type="Node2D" parent="."]
 

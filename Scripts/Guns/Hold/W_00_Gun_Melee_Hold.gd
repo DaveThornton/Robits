@@ -7,11 +7,11 @@ onready var pos_throw = $Throw_Pos
 onready var throw_cast = $Throw_Ray
 
 export var gun_num = 0
-export var damage = 0
+# export var damage = 0
 export var melee_damage = 50
 export var dmg_type = "none"
-export var ammo_max = 0
-export var walk_amount = 0.0
+export var ammo_max = 1
+export var walk_amount = 40.0
 export var throw_power = 1000
 export var time = 4.0
 
@@ -155,7 +155,7 @@ func _on_Melee_Area_body_entered(body):
 		else:
 			print_debug("quit hitting your self")
 	elif body.get_groups().has("hittable"):
-		body.hit(player, gun_num, dmg_type,damage)
+		body.hit(player, gun_num, dmg_type,melee_damage)
 
 func set_up():
 	pass

@@ -10,11 +10,8 @@ height = 7.89017
 [node name="W_62_Diamond_Pick_Hold" type="Node2D"]
 script = ExtResource( 1 )
 gun_num = 62
-damage = 33
 melee_damage = 33
 dmg_type = "Blunt"
-ammo_max = 1
-walk_amount = 40.0
 throw_power = 950
 
 [node name="POS_Gun" type="Node2D" parent="."]

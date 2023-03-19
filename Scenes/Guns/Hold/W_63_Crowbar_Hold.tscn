@@ -10,10 +10,8 @@ height = 7.89017
 [node name="W_63_Crowbar_Hold" type="Node2D"]
 script = ExtResource( 1 )
 gun_num = 63
-damage = 33
 melee_damage = 33
 dmg_type = "Blunt"
-ammo_max = 1
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
