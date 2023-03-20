@@ -12,7 +12,7 @@ radius = 2.23891
 height = 10.0773
 
 [sub_resource type="Animation" id=3]
-resource_name = "Lit"
+resource_name = "Armed"
 length = 2.08
 step = 0.13
 tracks/0/type = "value"
@@ -29,7 +29,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "Unlit"
+resource_name = "Idle"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite_Fuse:frame")
@@ -55,12 +55,16 @@ contacts_reported = 12
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
+gun_num = 24
+ex_num = 24
+my_time = 2.5
+use_time_label = false
 
 [node name="Sprite_Fuse" type="Sprite" parent="."]
 position = Vector2( 3.5, -2 )
 texture = ExtResource( 4 )
 hframes = 11
-frame = 1
+frame = 2
 
 [node name="Sprite_Body" type="Sprite" parent="."]
 texture = ExtResource( 4 )
@@ -72,25 +76,16 @@ shape = SubResource( 2 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 
-[node name="Timer_Hit" type="Timer" parent="."]
-wait_time = 0.3
-
 [node name="Timer_Spin" type="Timer" parent="."]
 wait_time = 0.1
-
-[node name="Timer_Boom" type="Timer" parent="."]
-wait_time = 2.5
 
 [node name="FX-21-Timer_Label" parent="." instance=ExtResource( 7 )]
 visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Lit = SubResource( 3 )
-anims/Unlit = SubResource( 4 )
+anims/Armed = SubResource( 3 )
+anims/Idle = SubResource( 4 )
 
-[connection signal="body_entered" from="." to="." method="_on_W_24_TNT_Pick_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_WeapPick20Grenade_body_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]
 [connection signal="timeout" from="Timer_Spin" to="." method="_on_Timer_Spin_timeout"]
-[connection signal="timeout" from="Timer_Boom" to="." method="_on_Timer_Boom_timeout"]

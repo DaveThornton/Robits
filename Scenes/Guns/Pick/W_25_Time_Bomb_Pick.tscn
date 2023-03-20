@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_25_Time_Bomb_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/W_25_Time_Bomb.png" type="Texture" id=5]
@@ -10,7 +10,13 @@ bounce = 0.5
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8.88681, 15.8847 )
 
-[node name="W_24_TNT_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
+[sub_resource type="Animation" id=3]
+resource_name = "Armed"
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle"
+
+[node name="W_25_Time_Bomb_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 786462
 mass = 600.0
@@ -21,6 +27,10 @@ contacts_reported = 12
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
+gun_num = 25
+damage = 125
+ex_num = 25
+my_time = 6.0
 
 [node name="Sprite_Body" type="Sprite" parent="."]
 texture = ExtResource( 5 )
@@ -46,8 +56,11 @@ text_color = Color( 1, 1, 1, 1 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
-[connection signal="body_entered" from="." to="." method="_on_W_24_TNT_Pick_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_WeapPick20Grenade_body_exited"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Armed = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]
 [connection signal="timeout" from="Timer_Spin" to="." method="_on_Timer_Spin_timeout"]

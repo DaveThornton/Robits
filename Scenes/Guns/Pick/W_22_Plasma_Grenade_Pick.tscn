@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_22_Plasma_Grenade_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Guns/Weap-22-Plasma-Grenade.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Guns/Parts/Weap-Part-22-DetParticles.tscn" type="PackedScene" id=6]
@@ -19,10 +18,7 @@ radius = 7.0
 [sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
 
-[node name="Weap-Pick-22-Plasma-Grenade" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="Weap-Pick-22-Plasma-Grenade" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 919582
 mass = 0.204082
@@ -32,7 +28,6 @@ continuous_cd = 2
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
-smoke = ExtResource( 3 )
 
 [node name="Sprite_Pin" type="Sprite" parent="."]
 position = Vector2( -11, 0 )

@@ -1,5 +1,5 @@
+# extends 'res://Scripts/Guns/Pick/W_00_Gun_Pick.gd'
 extends RigidBody2D
-
 export var expire_time = 30.0
 
 onready var sprite = $Sprite

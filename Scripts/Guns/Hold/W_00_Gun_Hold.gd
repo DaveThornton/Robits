@@ -240,7 +240,10 @@ func add_ammo(_ammo):
 	emit_signal("ammo_change",player,ammo)
 
 func _on_Shoot_Timer_timeout():
-	can_shoot = true
+	if is_bomb:
+		go_boom()
+	else:
+		can_shoot = true
 
 func _on_Melee_Timer_timeout():
 	can_shoot = true

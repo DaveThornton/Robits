@@ -242,6 +242,7 @@ contacts_reported = 9
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
+gun_num = 21
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2( -0.00648499, 0.452272 )
@@ -303,14 +304,10 @@ shape = SubResource( 3 )
 disabled = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-
-[node name="Timer_Hit" type="Timer" parent="."]
+wait_time = 30.0
 
 [node name="Timer_Spin" type="Timer" parent="."]
 wait_time = 0.1
-
-[node name="Timer_Boom" type="Timer" parent="."]
 
 [node name="FX-21-Timer_Label" parent="." instance=ExtResource( 6 )]
 visible = false
@@ -320,8 +317,6 @@ anims/Armed = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 anims/RESET = SubResource( 6 )
 
-[connection signal="body_entered" from="." to="." method="_on_WeapPick21NaziGrenade_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Timer_Hit" to="." method="_on_Timer_Hit_timeout"]
 [connection signal="timeout" from="Timer_Spin" to="." method="_on_Timer_Spin_timeout"]
-[connection signal="timeout" from="Timer_Boom" to="." method="_on_Timer_Boom_timeout"]

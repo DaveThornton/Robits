@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_23_Bomb_Fire.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Guns/W_23_Bomb.png" type="Texture" id=2]
@@ -33,7 +33,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
+resource_name = "Armed"
 length = 3.8
 tracks/0/type = "value"
 tracks/0/path = NodePath("Fuse:frame")
@@ -83,6 +84,72 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector2( 28, -10 ), Vector2( 25, -7 ), Vector2( 21, -5 ), Vector2( 18, -7 ), Vector2( 17, -9 ), Vector2( 15, -12 ), Vector2( 14, -16 ), Vector2( 13, -19 ), Vector2( 10, -22 ), Vector2( 6, -22 ), Vector2( 4, -21 ), Vector2( 2, -18 ), Vector2( 2, -16 ), Vector2( 0, -15 ), Vector2( 0, -10 ) ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/keys = {
+"times": PoolRealArray( 3.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "boom"
+} ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fuse:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Bomb:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Lit:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Lit:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 28, -10 ) ]
+}
 
 [node name="W_23_Bomb_Man_Pick" type="RigidBody2D" groups=["FX", "PickUp", "hittable"]]
 collision_layer = 2148007936
@@ -93,6 +160,11 @@ continuous_cd = 1
 contacts_reported = 5
 contact_monitor = true
 script = ExtResource( 4 )
+gun_num = 23
+damage = 120
+ex_num = 5
+use_time_label = false
+use_spin = false
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -113,17 +185,20 @@ visible = false
 position = Vector2( 28, -10 )
 frames = SubResource( 6 )
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Lit = SubResource( 7 )
+anims/Armed = SubResource( 8 )
+anims/Idle = SubResource( 7 )
 
 [node name="FX-21-Timer_Label" parent="." instance=ExtResource( 3 )]
 visible = false
-position = Vector2( 0, -24 )
 
-[connection signal="body_entered" from="." to="." method="_on_W_23_Bomb_Man_Pick_body_entered"]
-[connection signal="body_shape_entered" from="." to="." method="_on_W_23_Bomb_Man_Pick_body_shape_entered"]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="Timer_Boom" type="Timer" parent="."]
+
+[node name="Timer_Spin" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

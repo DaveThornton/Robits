@@ -6,6 +6,7 @@ func post_set_up():
 	explode_num = ex_num
 	if ammo <= 0:
 		anim_fire.play("Armed")
+		anim_fire.seek(4 - time, true)	
 
 func shoot_r():
 	if can_shoot:
