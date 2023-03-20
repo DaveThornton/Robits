@@ -18,7 +18,7 @@ func init(_player, _dmg, _pos, _rot):
 	player = _player 
 	damage = _dmg
 	self.position = _pos
-	self.rotation_degrees = _rot
+	self.global_rotation_degrees = _rot
 
 func destruct():
 	FX.explode(10, player, ex_spot.global_position, gun_num, 0, damage)

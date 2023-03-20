@@ -41,7 +41,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	call_end_of_init()
 
 func call_end_of_init(): pass	
-func call_if_armed(): pass
 
 func arm():
 	ammo = 0
@@ -51,6 +50,7 @@ func arm():
 	else:
 		label.visible = false
 	call_if_armed()
+func call_if_armed(): pass
 
 func _process(_delta):
 	if ammo == 0:
