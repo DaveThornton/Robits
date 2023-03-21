@@ -48,7 +48,7 @@ func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
 		print_debug("failed to connect ammo change in weap hold 00 mega cannon")
-	if Game.get_mode() == 0:
+	if Game.get_mode() == 0 && !is_bomb:
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 		melee_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 
@@ -102,17 +102,12 @@ func shoot_r():
 	pass
 
 func _fire():
-	# print("shoot")
 	if can_shoot && !stop_shoot:
-		# print("shoot?   ", ammo)
 		if ammo > 0:
-			# print("shoot? ammo  ", ammo)
 			can_shoot = false
 			just_shot = true
 			shoot_timer.start()
 			anim_fire.play("Shoot")
-			# shoot_cast.force_raycast_update()
-			# melee_cast.force_raycast_update()
 			if !shoot_cast.is_colliding():
 				_fire_projectile()
 			elif can_melee && melee_cast.is_colliding():
@@ -190,7 +185,7 @@ func throw():
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
 	t.position = pos_throw.global_position
-	t.init(ammo, player, time, is_right, shoot_pos, false)
+	init_pick(t)
 	if throw_cast.is_colliding():
 		t.position = self.global_position
 		_drop_where(t)
@@ -206,7 +201,7 @@ func _drop():
 	var t = Equipment.get_weap_pick(gun_num).instance()
 	Map_Hand.add_kid_to_map(t)
 	t.position = pos_throw.global_position
-	t.init(ammo, player, time, is_right, shoot_pos, false)
+	init_pick(t)
 	_drop_where(t)
 	emit_signal("ammo_change",player,0)
 	call_deferred("free")
@@ -238,8 +233,13 @@ func _drop_where(_obj):
 
 func add_ammo(_ammo):
 	ammo = clamp(ammo + (_ammo * ammo_up_amount), 0, ammo_max)
-	# ammo = clamp(ammo + _ammo, 0, ammo_max)
 	emit_signal("ammo_change",player,ammo)
+
+func init_pick(weap_pick):
+	weap_pick.init(ammo, player, time, is_right, shoot_pos, false)
+
+func no_gun():
+	Controllers.get_pawn(player).no_gun()
 
 func _on_Shoot_Timer_timeout():
 	if is_bomb:

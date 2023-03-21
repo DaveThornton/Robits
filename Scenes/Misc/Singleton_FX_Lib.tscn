@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_FX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=2]
@@ -13,11 +13,7 @@
 [ext_resource path="res://Scenes/Misc/Parts/Projectlies.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Misc/Parts/Bricks.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Misc/Parts/Shells.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Guns/Parts/W_07_Bolt_Stuck.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Guns/Parts/W_59_Arrow_Stuck.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Misc/Parts/MiscFX.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Guns/Parts/W_39_P_Mine_Part_Armed.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Sprites/FX/Static/static-640x480-00.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/FX/Static/static-640x480-07.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/FX/Static/static-640x480-02.png" type="Texture" id=21]
@@ -201,10 +197,6 @@ proj001 = ExtResource( 75 )
 
 [node name="MiscFX" parent="." instance=ExtResource( 17 )]
 position = Vector2( 0, -1 )
-arrow = ExtResource( 15 )
-bolt = ExtResource( 14 )
-mine = ExtResource( 18 )
-disappear = ExtResource( 16 )
 
 [node name="SpriteStatic3" type="AnimatedSprite" parent="."]
 visible = false
@@ -213,6 +205,7 @@ position = Vector2( 960, 543 )
 scale = Vector2( 1.15, 1.15 )
 frames = SubResource( 3 )
 animation = "Real"
+frame = 42
 speed_scale = 7.0
 playing = true
 

@@ -53,6 +53,9 @@ func stuck_arrow():
 func stuck_bolt():
 	return misc.stuck_bolt()
 
+func get_plasma_det():
+	return misc.get_plasma_det()
+
 func shell(_num, _pos, _rot):
 	shells.spawn(_num, _pos, _rot)
 

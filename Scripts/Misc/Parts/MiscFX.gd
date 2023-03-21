@@ -5,6 +5,7 @@ export(PackedScene) var bolt
 export(PackedScene) var mine
 export(PackedScene) var disappear
 export(PackedScene) var flame
+export(PackedScene) var plasma_det
 
 func stuck_arrow():
 	return arrow
@@ -22,3 +23,6 @@ func poof(_pos):
 	var s = disappear.instance()
 	Map_Hand.add_kid_to_map(s)
 	s.start( 0 , _pos, 0, 0)
+
+func get_plasma_det():
+	return plasma_det

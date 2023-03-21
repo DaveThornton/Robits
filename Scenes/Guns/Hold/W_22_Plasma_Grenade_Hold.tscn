@@ -1,15 +1,33 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/Guns/Parts/Weap-Part-22-DetParticles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Guns/Weap-22-Plasma-Grenade.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Guns/Hold/W_22_Plasma_Grenade_Hold.gd" type="Script" id=4]
 
-[sub_resource type="ShaderMaterial" id=1]
-resource_local_to_scene = true
+[sub_resource type="CircleShape2D" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Armed"
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
 
 [node name="W_22_Plasma_Grenade_Hold" type="Node2D" groups=["grenade"]]
 script = ExtResource( 4 )
+gun_num = 22
+damage = 200
+melee_damage = 0
+dmg_type = "Boom"
+ammo_max = 1
+can_melee = false
+take_ammo = false
+eject_shell = false
+
+[node name="Shoot_Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Melee_Timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 6.0
@@ -26,17 +44,47 @@ rotation = 1.5708
 texture = ExtResource( 2 )
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
+visible = false
 
-[node name="Position2D" type="Position2D" parent="POS_Gun/POS"]
+[node name="Shoot" type="Position2D" parent="POS_Gun/POS"]
+
+[node name="Throw" type="Position2D" parent="POS_Gun/POS"]
 position = Vector2( 24, 0 )
 
-[node name="Raycast" type="Node2D" parent="POS_Gun"]
+[node name="Shell" type="Position2D" parent="POS_Gun/POS"]
+visible = false
+position = Vector2( 0, -4 )
 
-[node name="RayCast2D" type="RayCast2D" parent="POS_Gun/Raycast"]
+[node name="Raycast" type="Node2D" parent="POS_Gun"]
+visible = false
+
+[node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( 0, -5 )
+enabled = true
+cast_to = Vector2( 15, 0 )
+collision_mask = 4278225672
+
+[node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
 enabled = true
 cast_to = Vector2( 30, 0 )
-collision_mask = 4278193928
+collision_mask = 4278192648
 
-[node name="22_plasma_det" parent="." instance=ExtResource( 1 )]
+[node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( -14, -1 )
+enabled = true
+cast_to = Vector2( 30, 0 )
+collision_mask = 4278190592
+
+[node name="Melee_Area" type="Area2D" parent="POS_Gun"]
 visible = false
-material = SubResource( 1 )
+collision_layer = 0
+collision_mask = 4278618626
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
+position = Vector2( 10, -5 )
+shape = SubResource( 3 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Armed = SubResource( 1 )
+anims/Idle = SubResource( 2 )

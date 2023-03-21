@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_20_Grenade.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Guns/Hold/W_20_Grenade_Hold.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=4]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Armed"
@@ -278,6 +280,22 @@ collision_mask = 4278225672
 enabled = true
 cast_to = Vector2( 30, 0 )
 collision_mask = 4278192648
+
+[node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( -14, -1 )
+enabled = true
+cast_to = Vector2( 30, 0 )
+collision_mask = 4278190592
+
+[node name="Melee_Area" type="Area2D" parent="POS_Gun"]
+visible = false
+collision_layer = 0
+collision_mask = 4278618626
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="POS_Gun/Melee_Area"]
+position = Vector2( 10, -5 )
+shape = SubResource( 4 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Armed = SubResource( 2 )
