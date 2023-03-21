@@ -87,6 +87,7 @@ ammo_max = 9
 eject_shell = false
 walk_amount = 20.0
 throw_power = 900
+ammo_up_amount = 6
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 

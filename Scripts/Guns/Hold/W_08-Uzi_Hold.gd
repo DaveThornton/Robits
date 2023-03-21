@@ -5,17 +5,8 @@ var walk_count = 0
 func shoot():
 	_fire()
 
-func end_of_fire():
-	anim_fire.play("Shoot")
-	if use_ammo:
-		ammo = clamp(ammo - 1, 0, ammo_max)
-	emit_signal("ammo_change",player,ammo)
-	Player_Stats.add_shot(player, 1)
+func call_on_all_projectile_fire():
 	walk = walk_where()
-	_fire_sound()
-	if eject_shell:
-		shell()
-	call_on_projectile_fired()
 
 func walk_where():
 	walk_count += 1

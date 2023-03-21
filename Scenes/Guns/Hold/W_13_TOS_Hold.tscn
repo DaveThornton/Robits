@@ -249,6 +249,7 @@ melee_damage = 35
 dmg_type = "Laser"
 ammo_max = 550
 eject_shell = false
+ammo_up_amount = 200
 
 [node name="Melee_Timer" type="Timer" parent="."]
 wait_time = 0.5

@@ -13,7 +13,7 @@ collision_mask = 917532
 gravity_scale = 6.0
 script = ExtResource( 3 )
 gun_num = 59
-ammo = 10
+ammo = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

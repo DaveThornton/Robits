@@ -29,6 +29,7 @@ damage = 55
 ammo_max = 100
 can_melee = false
 eject_shell = false
+ammo_up_amount = 30
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.5

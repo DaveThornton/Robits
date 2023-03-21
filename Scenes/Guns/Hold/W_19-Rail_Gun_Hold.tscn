@@ -328,6 +328,7 @@ dmg_type = "Laser"
 ammo_max = 90
 eject_shell = false
 throw_power = 700
+ammo_up_amount = 12
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 2.0

@@ -8,7 +8,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 
-[node name="W_20_Nazi_Grenade_Hold" type="Node2D" groups=["grenade"]]
+[node name="W_22_Plasma_Grenade_Hold" type="Node2D" groups=["grenade"]]
 script = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]

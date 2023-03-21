@@ -18,7 +18,7 @@ radius = 7.0
 [sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
 
-[node name="Weap-Pick-22-Plasma-Grenade" type="RigidBody2D" groups=["FX", "PickUp"]]
+[node name="W_22_Plasma_Grenade_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 919582
 mass = 0.204082

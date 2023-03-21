@@ -170,8 +170,9 @@ script = ExtResource( 2 )
 gun_num = 2
 damage = 21
 dmg_type = "Bullet"
-ammo_max = 90
+ammo_max = 120
 walk_amount = 8.0
+ammo_up_amount = 60
 
 [node name="POS_Gun" type="Node2D" parent="."]
 

@@ -27,7 +27,7 @@ color = Color( 0.34902, 0.368627, 0.992157, 1 )
 max_value = 5.0
 _data = [ Vector2( 0, 2.5 ), 0.0, 0.0, 0, 0, Vector2( 0.868726, 1.59091 ), -0.0535124, 0.0, 0, 0 ]
 
-[node name="22_plasma_det" type="Node2D"]
+[node name="W_22_Plasma_Grenade_Part_Particles" type="Node2D"]
 material = SubResource( 1 )
 z_index = 8
 z_as_relative = false

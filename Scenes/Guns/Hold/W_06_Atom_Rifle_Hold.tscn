@@ -180,8 +180,9 @@ gun_num = 6
 damage = 4
 melee_damage = 120
 dmg_type = "NRG"
-ammo_max = 100
+ammo_max = 60
 eject_shell = false
+ammo_up_amount = 30
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 

@@ -27,6 +27,7 @@ export var is_bomb = false
 export var walk_amount = 0.0
 export var throw_power = 1000
 export var time = 4.0
+export var ammo_up_amount = 0
 
 var player:int = 1
 var ammo:int = 1
@@ -236,7 +237,8 @@ func _drop_where(_obj):
 	_obj.set_collision_mask_bit( 1, false)
 
 func add_ammo(_ammo):
-	ammo = clamp(ammo + _ammo, 0, ammo_max)
+	ammo = clamp(ammo + (_ammo * ammo_up_amount), 0, ammo_max)
+	# ammo = clamp(ammo + _ammo, 0, ammo_max)
 	emit_signal("ammo_change",player,ammo)
 
 func _on_Shoot_Timer_timeout():

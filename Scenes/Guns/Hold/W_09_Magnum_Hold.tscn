@@ -67,11 +67,12 @@ gun_num = 9
 damage = 61
 melee_damage = 0
 dmg_type = "Bullet"
-ammo_max = 42
+ammo_max = 36
 can_melee = false
 eject_shell = false
 walk_amount = 45.0
 throw_power = 1100
+ammo_up_amount = 12
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.65

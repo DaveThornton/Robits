@@ -99,8 +99,9 @@ script = ExtResource( 6 )
 gun_num = 57
 damage = 111
 dmg_type = "Bullet"
-ammo_max = 50
+ammo_max = 36
 eject_shell = false
+ammo_up_amount = 20
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.2

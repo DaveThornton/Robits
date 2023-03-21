@@ -1,5 +1,5 @@
 extends RigidBody2D
-export var how_much = 30
+export var how_much = 1
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	pass
