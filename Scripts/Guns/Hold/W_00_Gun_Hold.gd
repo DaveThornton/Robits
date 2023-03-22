@@ -14,33 +14,33 @@ onready var melee_timer = $Melee_Timer
 onready var shoot_timer = $Shoot_Timer
 onready var anim_fire = $AnimationPlayer
 
-export var gun_num = 0
-export var damage = 0
-export var melee_damage = 50
-export var dmg_type = "none"
-export var ammo_max = 0
-export var can_melee = true
-export var take_ammo = true
-export var use_ammo = true
-export var eject_shell = true
-export var is_bomb = false
-export var walk_amount = 0.0
-export var throw_power = 1000
-export var time = 4.0
-export var ammo_up_amount = 0
+export var gun_num: int = 0
+export var damage: int = 0
+export var melee_damage: int = 50
+export var dmg_type: String = "none"
+export var ammo_max: int = 0
+export var can_melee: bool = true
+export var take_ammo: bool = true
+export var use_ammo: bool = true
+export var eject_shell: bool = true
+export var is_bomb: bool = false
+export var walk_amount: float = 0.0
+export var throw_power: int = 1000
+export var time: float = 4.0
+export var ammo_up_amount: int = 0
 
 var player:int = 1
 var ammo:int = 1
-var new_anim = "Un_pos"
-var old_anim = "Un_pos"
-var just_shot = false
-var can_shoot = true 
-var stop_shoot = false
-var shoot_pos = 3
-var explode_num = 10
-var change_shoot_pos = true
-var is_right = true
-var walk = 0.0
+var new_anim: String = "Un_pos"
+var old_anim: String = "Un_pos"
+var just_shot:bool = false
+var can_shoot:bool = true 
+var stop_shoot:bool = false
+var shoot_pos:int = 3
+var explode_num:int = 10
+var change_shoot_pos:bool = true
+var is_right:bool = true
+var walk:float = 0.0
 
 signal ammo_change(player, ammo)
 
@@ -105,16 +105,16 @@ func _fire():
 	if can_shoot && !stop_shoot:
 		if ammo > 0:
 			can_shoot = false
-			just_shot = true
 			shoot_timer.start()
 			anim_fire.play("Shoot")
 			if !shoot_cast.is_colliding():
 				_fire_projectile()
+				just_shot = true
 			elif can_melee && melee_cast.is_colliding():
 				melee()
-				
 			elif shoot_cast.is_colliding():
 				_fire_no_projectile()
+				just_shot = true
 		else:
 			empty()
 		
@@ -164,6 +164,7 @@ func melee():
 	anim_fire.play("Melee")
 	melee_timer.start()
 	Player_Stats.add_shot(player, 1)
+	SFX.swing()
 	call_on_melee()
 func call_on_melee(): pass
 
@@ -254,9 +255,14 @@ func _on_Melee_Area_body_entered(body):
 	if body.get_groups().has("player") && can_melee:
 		if body.player != player:
 			body.hit(player, gun_num, dmg_type, melee_damage)
+			melee_hit_sound()
 		else:
 			print_debug("quit hitting your self")
 	elif body.get_groups().has("hittable") && can_melee:
 		body.hit(player, gun_num, dmg_type,damage)
+		melee_hit_sound()
 	elif !can_melee:
 		print_debug("this gun is set to not melee so no damage was given")
+
+func melee_hit_sound():
+	SFX.melee_hit()

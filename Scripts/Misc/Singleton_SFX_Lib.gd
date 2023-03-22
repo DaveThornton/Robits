@@ -1,6 +1,6 @@
 extends Node2D
 onready var hits = $Hits
-onready var swings = $Swings
+onready var melee = $SFX_Melee_Part
 onready var shells = $Shells
 onready var explosions = $Explosions
 onready var menus = $Menus
@@ -32,10 +32,10 @@ func menu(_num):# 0:coin   1:start   2:select   3:Error  4: Back
 	menus.get_child(_num).play()
 
 func swing():
-	swings.get_child(swing_num).play()
-	swing_num += 1
-	if swing_num > swings.get_child_count()-1:
-		swing_num = 0
+	melee.get_child(1).play()
+
+func melee_hit():
+	melee.get_child(0).play()
 
 func projectile(_num):
 	projectiles.play(_num)

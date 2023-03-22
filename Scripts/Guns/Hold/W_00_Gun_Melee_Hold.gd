@@ -152,10 +152,15 @@ func _on_Melee_Area_body_entered(body):
 	if body.get_groups().has("player"):
 		if body.player != player:
 			body.hit(player, gun_num, dmg_type, melee_damage)
+			hit_sfx()
 		else:
 			print_debug("quit hitting your self")
 	elif body.get_groups().has("hittable"):
 		body.hit(player, gun_num, dmg_type,melee_damage)
+		hit_sfx()
+
+func hit_sfx():
+	SFX.melee_hit()
 
 func set_up():
 	pass
