@@ -63,7 +63,7 @@ func _process(_delta):
 func _entered(_body_id, body, _body_shape, _local_shape):
 	if hits < hits_max :
 		hits += 1
-		SFX.hit()
+		SFX.obj_collision()
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:
@@ -76,7 +76,7 @@ func go_boom():
 func _on_body_entered(body:Node):
 	if hits < hits_max :
 		hits += 1
-		SFX.hit()
+		SFX.obj_collision()
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:# body.get_groups().has("map_part"):

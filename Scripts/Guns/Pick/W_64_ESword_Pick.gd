@@ -32,7 +32,7 @@ func _on_WeapPick61Sword_body_entered(body):
 	if body.get_groups().has("hittable"):
 		body.hit(owned, my_name, damage_type,damage)
 	else:
-		SFX.hit()
+		SFX.obj_collision()
 		timer.start()
 
 func _on_Timer_timeout():

@@ -42,7 +42,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 func _entered(_body_id, body, _body_shape, _local_shape):
 	if hits < hits_max :
 		hits += 1
-		SFX.hit()
+		SFX.obj_collision()
 	if body.get_groups().has("player"):
 		body.stun(gun_num)
 	else:
