@@ -103,19 +103,19 @@ func jump_j(_down_input, _left_input, _right_input):
 			if ray_plat.is_colliding():
 				print_debug("ray_plat is colliding should it?")
 				self.set_collision_mask_bit(2,false)
-				SFX.play("Move_Jump_08")
+				jump_down_sound()
 				vel.y = terminal_vel / 1.4
 				self.position.y += 8
 				jump_down_stat()
 		else:
 			if !is_jump_pressed && on_floor && can_jump:
-				SFX.play("Move_Jump_01")
+				jump_ground_sound()
 				vel.y = -max_jump_power * jump_power_up
 				jump_top_pos = global_position.y - jump_height
 				jumping_up = true
 				jump_stat()
 			elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count:
-				SFX.play("Move_Jump_05")
+				jump_air_sound()
 				vel.y = -max_air_jump_power * jump_power_up
 				air_jump_count += 1
 				jump_air_stat()

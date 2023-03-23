@@ -252,13 +252,13 @@ func move_x(_moving, _right):
 func jump(down_input, _left_input, _right_input):
 	if can_move:
 		if !is_jump_pressed && on_floor && can_jump && !down_input:
-			SFX.play("Move_Jump_01")
+			# jump_ground_sound()
 			vel.y = -max_jump_power * jump_power_up
 			jump_top_pos = global_position.y - jump_height
 			jumping_up = true
 
 		elif !is_jump_pressed && !on_floor && can_jump && max_air_jump_count > air_jump_count && !down_input:
-			SFX.play("Move_Jump_05")
+			# jump_air_sound()
 			vel.y = -max_air_jump_power * jump_power_up
 			air_jump_count += 1
 
@@ -273,7 +273,7 @@ func jump(down_input, _left_input, _right_input):
 func jump_j(down_input, left_input, right_input):
 	if can_move:
 		if down_input && ray_plat_check.is_colliding() && !left_input && !right_input:
-			SFX.play("Move_Jump_08")
+			# jump_down_sound()
 			var thing1 = ray_plat_check.get_collider()		
 			if thing1:
 				if thing1.get_groups().has("map"):

@@ -227,6 +227,15 @@ func jump_air_stat():
 func jump_down_stat():
 	Player_Stats.add_jump_down_count(player, 1)
 
+func jump_ground_sound():
+	SFX.jump_ground()
+
+func jump_air_sound():
+	SFX.jump_air()
+
+func jump_down_sound():
+	SFX.jump_down()
+
 ##-------------------------------------------------------------------------[HIT]
 func hit(_by_who, _by_what, _damage_type, _damage):
 	if _by_who > 0:
@@ -329,12 +338,12 @@ func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 		take_ammo = false
 		is_holding = false
 		if !left_input && !right_input && !up_input && !down_input && !hold_input:
-			SFX.play("Blip_11")
+			SFX.drop()
 			if my_gun != null:
 				my_gun.drop()
 				drop_stat()
 		else:
-			SFX.play("Blip_06")
+			SFX.throw()
 			if my_gun != null:
 				my_gun.throw()
 				throw_stat()
@@ -344,7 +353,7 @@ func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 	elif wep_array.size() > 0:
 		pick_up()
 		if my_start_gun && start_equiped:
-			print_debug("pick throw calling start gun to visible false")
+			# print_debug("pick throw calling start gun to visible false")
 			my_start_gun.visible = false
 
 func let_go():
@@ -356,7 +365,7 @@ func let_go():
 			my_gun = null
 
 func pick_up():
-	SFX.play("Blip_04")
+	SFX.pick_up()
 	poss_pick_obj = wep_array.front()
 	var _time_left = poss_pick_obj.time
 	var _ammo_pick_up = poss_pick_obj.ammo

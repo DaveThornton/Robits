@@ -247,11 +247,11 @@ func jump(down_input, left_input, right_input):
 		vel.y = 2
 	elif can_move:
 		if down_input && on_floor && !left_input && !right_input:
-			SFX.play("Move_Jump_08")
+			# jump_down_sound()
 			vel.y += 1.5
 			self.position.y += 1.5
 		elif !is_jump_pressed && on_floor:# && !down_input:
-			SFX.play("Move_Jump_01")
+			# jump_ground_sound()
 			vel.y = -max_jump_power * jump_power_up
 		is_jump_pressed = true
 		on_ladder = false
@@ -267,14 +267,14 @@ func jump_j(_down_input, _left_input, _right_input):
 			vel.y = -max_air_jump_power * jump_power_up
 			jump_dir = 250.0
 			last_jump = 1
-			SFX.play("Move_Jump_05")
+			# jump_air_sound()
 			is_right = true
 			return
 		elif on_wall > 0:
 			vel.y = -max_air_jump_power * jump_power_up
 			jump_dir = -250.0
 			last_jump = -1
-			SFX.play("Move_Jump_05")
+			# jump_air_sound()
 			is_right = false
 			return
 
