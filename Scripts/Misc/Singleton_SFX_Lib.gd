@@ -1,14 +1,13 @@
 extends Node2D
 onready var obj_collisions = $SFX_Obj_Collision
-onready var melee = $SFX_Melee
-onready var shells = $SFX_Shells
+onready var melee = $SFX_Weapons/SFX_Melee
+onready var shells = $SFX_Weapons/SFX_Shells
 onready var explosions = $Explosions
 onready var menus = $SFX_Menus
 onready var music_part = $SFX_Music_Part
-onready var coins = $SFX_Coins
-onready var projectiles = $SFX_Projectile_Part
+onready var projectiles = $SFX_Weapons/SFX_Projectile_Part
 onready var pawn = $SFX_Pawn
-
+onready var powerups = $SFX_Power_Ups
 var oc_num = 0
 var swing_num = 0 
 var shell_num = 0
@@ -29,17 +28,14 @@ func obj_collision():
 	if oc_num > obj_collisions.get_child_count()-1:
 		oc_num = 0
 
-func menu(_num):# 0:coin   1:start   2:select   3:Error  4: Back
-	menus.get_child(_num).play()
+func menu(_num): menus.get_child(_num).play()# 0:coin   1:start   2:select   3:Error  4: Back
+	
+#-------------------------------------------Weapons------------------
+func swing(): melee.get_child(1).play()
 
-func swing():
-	melee.get_child(1).play()
+func melee_hit(): melee.get_child(0).play()
 
-func melee_hit():
-	melee.get_child(0).play()
-
-func projectile(_num):
-	projectiles.play(_num)
+func projectile(_num): projectiles.play(_num)
 	
 func shell():
 	shells.get_child(shell_num).play()
@@ -47,34 +43,26 @@ func shell():
 	if shell_num > shells.get_child_count()-1:
 		shell_num = 0
 
-func explosion(_num):#1: Pawn  2: Convetional  3: Energy
-	explosions.get_child(_num).get_child(exp_num).play()
+func explosion(_num): explosions.get_child(_num).get_child(exp_num).play() #1: Pawn  2: Convetional  3: Energy
+	
+#-------------------------------------------Power Ups----------------
 
-func coin():
-	coins.get_child(coin_num).play()
-	coin_num += 1
-	if coin_num > coins.get_child_count()-1:
-		coin_num = 0
+func coin(): powerups.get_node("Coin").play()
+	
 
 
 #-------------------------------------------Pawn Stuff---------------
-func throw():
-	pawn.get_node("Throw").play()
+func throw(): pawn.get_node("Throw").play()
 
-func drop():
-	pawn.get_node("Drop").play()
+func drop(): pawn.get_node("Drop").play()
 
-func pick_up():
-	pawn.get_node("Pick_Up").play()
+func pick_up(): pawn.get_node("Pick_Up").play()
 
-func jump_ground():
-	SFX.pawn.get_node("Jump_Ground").play()
+func jump_ground(): pawn.get_node("Jump_Ground").play()
 
-func jump_air():
-	SFX.pawn.get_node("Jump_Air").play()
+func jump_air(): pawn.get_node("Jump_Air").play()
 
-func jump_down():
-	SFX.pawn.get_node("Jump_Down").play()
+func jump_down(): pawn.get_node("Jump_Down").play()
 #-------------------------------------------End of Pawn Stuff-------
 
 func music(_play, _num):

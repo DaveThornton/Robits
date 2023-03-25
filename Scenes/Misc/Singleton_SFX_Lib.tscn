@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
@@ -78,22 +78,13 @@
 [ext_resource path="res://SFX/FX/SFX_H_002.wav" type="AudioStream" id=76]
 [ext_resource path="res://SFX/FX/SFX_H_001.wav" type="AudioStream" id=77]
 [ext_resource path="res://SFX/FX/SFX_H_003.wav" type="AudioStream" id=78]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_positive_01.ogg" type="AudioStream" id=79]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_positive_03.ogg" type="AudioStream" id=80]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_positive_08.ogg" type="AudioStream" id=81]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_i_Made/NRG_Power_Up.ogg" type="AudioStream" id=82]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_positive_05.ogg" type="AudioStream" id=83]
 [ext_resource path="res://Scenes/Misc/Parts/Music_Part.tscn" type="PackedScene" id=92]
-[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_06.ogg" type="AudioStream" id=93]
-[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_03.ogg" type="AudioStream" id=94]
-[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_01.ogg" type="AudioStream" id=95]
-[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_02.ogg" type="AudioStream" id=96]
-[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_04.ogg" type="AudioStream" id=97]
-[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_08.ogg" type="AudioStream" id=98]
-[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_09.ogg" type="AudioStream" id=99]
-[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_10.ogg" type="AudioStream" id=100]
-[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_07.ogg" type="AudioStream" id=101]
-[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_05.ogg" type="AudioStream" id=102]
 [ext_resource path="res://Scenes/Misc/Parts/SFX_Projectile_Part.tscn" type="PackedScene" id=103]
-
-[sub_resource type="AudioStreamRandomPitch" id=1]
-audio_stream = ExtResource( 33 )
-random_pitch = 1.2
 
 [sub_resource type="AudioStreamRandomPitch" id=2]
 audio_stream = ExtResource( 46 )
@@ -115,6 +106,35 @@ audio_stream = ExtResource( 51 )
 
 [sub_resource type="AudioStreamRandomPitch" id=7]
 audio_stream = ExtResource( 53 )
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+audio_stream = ExtResource( 33 )
+random_pitch = 1.2
+
+[sub_resource type="AudioStreamRandomPitch" id=8]
+audio_stream = ExtResource( 81 )
+random_pitch = 1.05
+
+[sub_resource type="AudioStreamRandomPitch" id=9]
+audio_stream = ExtResource( 79 )
+
+[sub_resource type="AudioStreamRandomPitch" id=10]
+audio_stream = ExtResource( 83 )
+
+[sub_resource type="AudioStreamRandomPitch" id=11]
+audio_stream = ExtResource( 80 )
+
+[sub_resource type="AudioStreamRandomPitch" id=12]
+audio_stream = ExtResource( 82 )
+
+[sub_resource type="AudioStreamRandomPitch" id=13]
+audio_stream = ExtResource( 82 )
+
+[sub_resource type="AudioStreamRandomPitch" id=14]
+
+[sub_resource type="AudioStreamRandomPitch" id=15]
+
+[sub_resource type="AudioStreamRandomPitch" id=16]
 
 [node name="SFX_Lib" type="Node2D"]
 position = Vector2( 960, 540 )
@@ -533,58 +553,6 @@ bus = "Menu"
 stream = ExtResource( 32 )
 bus = "Menu"
 
-[node name="SFX_Coins" type="Node2D" parent="."]
-
-[node name="C_00" type="AudioStreamPlayer" parent="SFX_Coins"]
-stream = ExtResource( 95 )
-mix_target = 2
-bus = "SFX"
-
-[node name="C_01" type="AudioStreamPlayer" parent="SFX_Coins"]
-stream = ExtResource( 96 )
-mix_target = 2
-bus = "SFX"
-
-[node name="C_02" type="AudioStreamPlayer" parent="SFX_Coins"]
-stream = ExtResource( 94 )
-mix_target = 2
-bus = "SFX"
-
-[node name="C_03" type="AudioStreamPlayer" parent="SFX_Coins"]
-stream = ExtResource( 97 )
-mix_target = 2
-bus = "SFX"
-
-[node name="C_04" type="AudioStreamPlayer" parent="SFX_Coins"]
-stream = ExtResource( 102 )
-mix_target = 2
-bus = "SFX"
-
-[node name="C_05" type="AudioStreamPlayer" parent="SFX_Coins"]
-stream = ExtResource( 93 )
-mix_target = 2
-bus = "SFX"
-
-[node name="C_06" type="AudioStreamPlayer" parent="SFX_Coins"]
-stream = ExtResource( 101 )
-mix_target = 2
-bus = "SFX"
-
-[node name="C_07" type="AudioStreamPlayer" parent="SFX_Coins"]
-stream = ExtResource( 98 )
-mix_target = 2
-bus = "SFX"
-
-[node name="C_08" type="AudioStreamPlayer" parent="SFX_Coins"]
-stream = ExtResource( 99 )
-mix_target = 2
-bus = "SFX"
-
-[node name="C_09" type="AudioStreamPlayer" parent="SFX_Coins"]
-stream = ExtResource( 100 )
-mix_target = 2
-bus = "SFX"
-
 [node name="SFX_Obj_Collision" type="Node2D" parent="."]
 
 [node name="H_00" type="AudioStreamPlayer" parent="SFX_Obj_Collision"]
@@ -651,73 +619,6 @@ bus = "SFX"
 stream = ExtResource( 78 )
 bus = "SFX"
 
-[node name="SFX_Shells" type="Node2D" parent="."]
-
-[node name="FX_Shell_01" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="FX_Shell_02" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="FX_Shell_03" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="FX_Shell_04" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="FX_Shell_05" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="FX_Shell_06" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="FX_Shell_07" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="FX_Shell_08" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="FX_Shell_09" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="FX_Shell_10" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="FX_Shell_11" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="FX_Shell_12" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="FX_Shell_13" type="AudioStreamPlayer" parent="SFX_Shells"]
-stream = ExtResource( 2 )
-bus = "Shell"
-
-[node name="SFX_Melee" type="Node2D" parent="."]
-position = Vector2( -960, -540 )
-
-[node name="Melee_Hit" type="AudioStreamPlayer" parent="SFX_Melee"]
-stream = SubResource( 1 )
-bus = "SFX"
-
-[node name="Melee_Swing" type="AudioStreamPlayer" parent="SFX_Melee"]
-stream = ExtResource( 59 )
-bus = "SFX"
-
-[node name="SFX_Projectile_Part" parent="." instance=ExtResource( 103 )]
-
 [node name="SFX_Music_Part" parent="." instance=ExtResource( 92 )]
 
 [node name="SFX_Pawn" type="Node2D" parent="."]
@@ -745,3 +646,126 @@ bus = "SFX"
 [node name="Jump_Down" type="AudioStreamPlayer" parent="SFX_Pawn"]
 stream = SubResource( 7 )
 bus = "SFX"
+
+[node name="SFX_Weapons" type="Node2D" parent="."]
+
+[node name="SFX_Projectile_Part" parent="SFX_Weapons" instance=ExtResource( 103 )]
+
+[node name="SFX_Melee" type="Node2D" parent="SFX_Weapons"]
+position = Vector2( -960, -540 )
+
+[node name="Melee_Hit" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Melee"]
+stream = SubResource( 1 )
+bus = "SFX"
+
+[node name="Melee_Swing" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Melee"]
+stream = ExtResource( 59 )
+bus = "SFX"
+
+[node name="SFX_Shells" type="Node2D" parent="SFX_Weapons"]
+
+[node name="FX_Shell_01" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="FX_Shell_02" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="FX_Shell_03" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="FX_Shell_04" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="FX_Shell_05" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="FX_Shell_06" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="FX_Shell_07" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="FX_Shell_08" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="FX_Shell_09" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="FX_Shell_10" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="FX_Shell_11" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="FX_Shell_12" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="FX_Shell_13" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
+stream = ExtResource( 2 )
+bus = "Shell"
+
+[node name="SFX_Power_Ups" type="Node2D" parent="."]
+
+[node name="Coin" type="AudioStreamPlayer" parent="SFX_Power_Ups"]
+stream = SubResource( 8 )
+mix_target = 2
+bus = "SFX"
+
+[node name="Ammo_Box" type="AudioStreamPlayer" parent="SFX_Power_Ups"]
+stream = SubResource( 9 )
+mix_target = 2
+bus = "SFX"
+
+[node name="Shield" type="AudioStreamPlayer" parent="SFX_Power_Ups"]
+stream = SubResource( 8 )
+mix_target = 2
+bus = "SFX"
+
+[node name="Speed" type="AudioStreamPlayer" parent="SFX_Power_Ups"]
+stream = SubResource( 10 )
+mix_target = 2
+bus = "SFX"
+
+[node name="Jump" type="AudioStreamPlayer" parent="SFX_Power_Ups"]
+stream = SubResource( 11 )
+mix_target = 2
+bus = "SFX"
+
+[node name="NRG" type="AudioStreamPlayer" parent="SFX_Power_Ups"]
+stream = SubResource( 12 )
+mix_target = 2
+bus = "SFX"
+
+[node name="Battery" type="AudioStreamPlayer" parent="SFX_Power_Ups"]
+stream = SubResource( 13 )
+mix_target = 2
+bus = "SFX"
+
+[node name="Puck" type="AudioStreamPlayer" parent="SFX_Power_Ups"]
+stream = SubResource( 14 )
+mix_target = 2
+bus = "SFX"
+
+[node name="Back_Shield" type="AudioStreamPlayer" parent="SFX_Power_Ups"]
+stream = SubResource( 15 )
+mix_target = 2
+bus = "SFX"
+
+[node name="Balloon" type="AudioStreamPlayer" parent="SFX_Power_Ups"]
+stream = SubResource( 16 )
+mix_target = 2
+bus = "SFX"
+
+[node name="Node2D3" type="Node2D" parent="."]
