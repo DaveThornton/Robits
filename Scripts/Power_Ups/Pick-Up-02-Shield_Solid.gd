@@ -17,6 +17,7 @@ func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
 		if !body.is_shield_up:
 			body.put_shield_up(how_long)
+			SFX.shield()
 			call_deferred("free")
 
 func _disappear():

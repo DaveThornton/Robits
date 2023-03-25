@@ -17,6 +17,7 @@ func change_shape(_disable):
 
 func add_shield(_body):
 	if is_instance_valid(_body):
+		SFX.back_shield()
 		_body.add_back_shield()
 		sprite.visible = false
 		call_deferred("change_shape",true)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
@@ -80,10 +80,13 @@
 [ext_resource path="res://SFX/FX/SFX_H_003.wav" type="AudioStream" id=78]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_positive_01.ogg" type="AudioStream" id=79]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_positive_03.ogg" type="AudioStream" id=80]
-[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_positive_08.ogg" type="AudioStream" id=81]
-[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_i_Made/NRG_Power_Up.ogg" type="AudioStream" id=82]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_i_Made/SFX_NRG_Power_Up.ogg" type="AudioStream" id=82]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_positive_05.ogg" type="AudioStream" id=83]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_i_Made/SFX_Back_Shield.ogg" type="AudioStream" id=84]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_i_Made/SFX_Add_Balloon.ogg" type="AudioStream" id=85]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_i_Made/SFX_Puck_01.ogg" type="AudioStream" id=86]
 [ext_resource path="res://Scenes/Misc/Parts/Music_Part.tscn" type="PackedScene" id=92]
+[ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_05.ogg" type="AudioStream" id=102]
 [ext_resource path="res://Scenes/Misc/Parts/SFX_Projectile_Part.tscn" type="PackedScene" id=103]
 
 [sub_resource type="AudioStreamRandomPitch" id=2]
@@ -112,7 +115,7 @@ audio_stream = ExtResource( 33 )
 random_pitch = 1.2
 
 [sub_resource type="AudioStreamRandomPitch" id=8]
-audio_stream = ExtResource( 81 )
+audio_stream = ExtResource( 102 )
 random_pitch = 1.05
 
 [sub_resource type="AudioStreamRandomPitch" id=9]
@@ -131,10 +134,13 @@ audio_stream = ExtResource( 82 )
 audio_stream = ExtResource( 82 )
 
 [sub_resource type="AudioStreamRandomPitch" id=14]
+audio_stream = ExtResource( 86 )
 
 [sub_resource type="AudioStreamRandomPitch" id=15]
+audio_stream = ExtResource( 84 )
 
 [sub_resource type="AudioStreamRandomPitch" id=16]
+audio_stream = ExtResource( 85 )
 
 [node name="SFX_Lib" type="Node2D"]
 position = Vector2( 960, 540 )

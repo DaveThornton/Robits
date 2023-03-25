@@ -34,6 +34,7 @@ func popped_balloon(_balloon):
 
 func spawn_balloon():
 	if balloons.size() < 4:
+		SFX.add_balloon()
 		var pin = PinJoint2D.new()
 		self.add_child(pin)
 		var new_balloon = balloon.instance()

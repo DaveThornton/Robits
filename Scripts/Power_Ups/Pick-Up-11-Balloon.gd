@@ -44,6 +44,7 @@ func _ready():
 	elif current_color == 3:
 		color(color_03,Color8(255,255,255,255))
 	point_01 = self.position
+	SFX.add_balloon()
 
 func hit(_by_who, _by_what, _damage_type, _damage):
 	call_deferred("pop")

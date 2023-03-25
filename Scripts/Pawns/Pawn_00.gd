@@ -209,32 +209,23 @@ func move_x(_moving, _right):
 			current_x_speed -= current_x_speed / 10
 	current_x_speed = clamp(current_x_speed, -max_x_speed , max_x_speed)
 
-func jump(_down_input, _left_input, _right_input):
-	pass
+func jump(_down_input, _left_input, _right_input): pass
 
-func jump_j(_down_input, _left_input, _right_input):
-	pass
+func jump_j(_down_input, _left_input, _right_input): pass
 
-func jump_rel():
-	pass
+func jump_rel(): pass
 
-func jump_stat():
-	Player_Stats.add_jump_count(player, 1)
+func jump_stat(): Player_Stats.add_jump_count(player, 1)
 
-func jump_air_stat():
-	Player_Stats.add_air_jump_count(player, 1)
+func jump_air_stat(): Player_Stats.add_air_jump_count(player, 1)
 
-func jump_down_stat():
-	Player_Stats.add_jump_down_count(player, 1)
+func jump_down_stat(): Player_Stats.add_jump_down_count(player, 1)
 
-func jump_ground_sound():
-	SFX.jump_ground()
+func jump_ground_sound(): SFX.jump_ground()
 
-func jump_air_sound():
-	SFX.jump_air()
+func jump_air_sound(): SFX.jump_air()
 
-func jump_down_sound():
-	SFX.jump_down()
+func jump_down_sound(): SFX.jump_down()
 
 ##-------------------------------------------------------------------------[HIT]
 func hit(_by_who, _by_what, _damage_type, _damage):

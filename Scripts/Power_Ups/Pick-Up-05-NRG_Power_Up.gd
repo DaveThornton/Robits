@@ -18,6 +18,7 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 func _on_NRG_Power_Up_body_entered(body):
 	if body.get_groups().has("player"):
 		body.put_nrg_regen_speed_up(how_long, how_much)
+		SFX.nrg()
 		if respawn:
 			r_timer.start()
 			call_deferred("_disappear")

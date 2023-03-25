@@ -18,6 +18,7 @@ func _on_Jump_Power_Up_body_entered(body):
 	if body.get_groups().has("player"):
 		if !body.is_jump_up:
 			body.put_jump_up(how_long)
+			SFX.jump()
 			if respawn:
 				r_timer.start()
 				call_deferred("_disappear")

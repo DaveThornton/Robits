@@ -15,6 +15,7 @@ func _on_Ammo_Box_body_entered(body):
 	if body.get_groups().has("player"):
 		if body.take_ammo:
 			body.add_ammo(how_much)
+			SFX.ammo()
 			if respawn:
 				r_timer.start()
 				call_deferred("_box_state", true, false)

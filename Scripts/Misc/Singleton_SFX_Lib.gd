@@ -49,7 +49,23 @@ func explosion(_num): explosions.get_child(_num).get_child(exp_num).play() #1: P
 
 func coin(): powerups.get_node("Coin").play()
 	
+func ammo(): powerups.get_node("Ammo_Box").play()
 
+func shield(): powerups.get_node("Shield").play()
+
+func speed(): powerups.get_node("Speed").play()
+	
+func jump(): powerups.get_node("Jump").play()
+
+func nrg(): powerups.get_node("NRG").play()
+
+func battery(): powerups.get_node("Battery").play()
+	
+func puck(): powerups.get_node("Puck").play()
+
+func back_shield(): powerups.get_node("Back_Shield").play()
+
+func add_balloon(): powerups.get_node("Balloon").play()
 
 #-------------------------------------------Pawn Stuff---------------
 func throw(): pawn.get_node("Throw").play()
@@ -71,39 +87,26 @@ func music(_play, _num):
 	else:
 		music_part.stop()
 
-func set_master_vol(_db):
-	AudioServer.set_bus_volume_db(0,_db)
+func set_master_vol(_db): AudioServer.set_bus_volume_db(0,_db)
 
-func set_music_vol(_db):
-	AudioServer.set_bus_volume_db(1,_db)
+func set_music_vol(_db): AudioServer.set_bus_volume_db(1,_db)
 
-func set_sfx_vol(_db):
-	AudioServer.set_bus_volume_db(2,_db)
+func set_sfx_vol(_db): AudioServer.set_bus_volume_db(2,_db)
 
-func set_menu_vol(_db):
-	AudioServer.set_bus_volume_db(3,_db)
+func set_menu_vol(_db): AudioServer.set_bus_volume_db(3,_db)
 
-func change_master_vol(_db):
-	AudioServer.set_bus_volume_db(0,((AudioServer.get_bus_volume_db(0) + _db)))
+func change_master_vol(_db): AudioServer.set_bus_volume_db(0,((AudioServer.get_bus_volume_db(0) + _db)))
 
-func change_music_vol(_db):
-	AudioServer.set_bus_volume_db(1,((AudioServer.get_bus_volume_db(1) + _db)))
+func change_music_vol(_db): AudioServer.set_bus_volume_db(1,((AudioServer.get_bus_volume_db(1) + _db)))
 
-func change_sfx_vol(_db):
-	AudioServer.set_bus_volume_db(2,((AudioServer.get_bus_volume_db(2) + _db)))
+func change_sfx_vol(_db): AudioServer.set_bus_volume_db(2,((AudioServer.get_bus_volume_db(2) + _db)))
 
-func change_menu_vol(_db):
-	AudioServer.set_bus_volume_db(3,((AudioServer.get_bus_volume_db(3) + _db)))
+func change_menu_vol(_db): AudioServer.set_bus_volume_db(3,((AudioServer.get_bus_volume_db(3) + _db)))
 
-func get_master_vol():
-	return AudioServer.get_bus_volume_db(0)
+func get_master_vol(): return AudioServer.get_bus_volume_db(0)
 	
-func get_music_vol():
-	return AudioServer.get_bus_volume_db(1)
+func get_music_vol(): return AudioServer.get_bus_volume_db(1)
 	
-func get_sfx_vol():
-	return AudioServer.get_bus_volume_db(2)
+func get_sfx_vol(): return AudioServer.get_bus_volume_db(2)
 	
-func get_menu_vol():
-	return AudioServer.get_bus_volume_db(3)
-	
+func get_menu_vol(): return AudioServer.get_bus_volume_db(3)
