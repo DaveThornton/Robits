@@ -79,8 +79,22 @@ func jump_ground(): pawn.get_node("Jump_Ground").play()
 func jump_air(): pawn.get_node("Jump_Air").play()
 
 func jump_down(): pawn.get_node("Jump_Down").play()
-#-------------------------------------------End of Pawn Stuff-------
+#-------------------------------------------Menu Stuff----------------
 
+func menu_coin(): menus.get_node("M_00_Coin").play()
+
+func menu_start(): menus.get_node("M_01_Start").play()
+
+func menu_select(): menus.get_node("M_02_Select").play()
+
+func menu_error(): menus.get_node("M_03_Error").play()
+
+func menu_back(): menus.get_node("M_04_Back").play()
+
+func menu_move(): menus.get_node("M_05_Move").play()
+
+func menu_click(): menus.get_node("M_06_Click_Short").play()
+#---------------------------------------------------------------------
 func music(_play, _num):
 	if _play:
 		music_part.play(_num)

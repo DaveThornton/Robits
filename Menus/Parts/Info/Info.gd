@@ -46,8 +46,6 @@ func print_next_char():
 		current_char += 1
 		SFX.play("Menu_Click_Short")
 		timer_next_char.start()
-	# else:
-	# 	print_about()
 
 func color(_pri, _sec):
 	bar_01.color(_pri, _sec)

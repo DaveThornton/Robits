@@ -220,7 +220,7 @@ func blank_squares():
 	s24.frame = 0
 
 func move_sound():
-	SFX.play("Menu_Move_01")
+	SFX.menu_move()
 
 func cant_move_sound():
-	SFX.play("Menu_Error_02")
+	SFX.menu_error()
