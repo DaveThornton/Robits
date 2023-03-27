@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
@@ -80,11 +80,14 @@
 [ext_resource path="res://SFX/FX/SFX_H_003.wav" type="AudioStream" id=78]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_positive_01.ogg" type="AudioStream" id=79]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_positive_03.ogg" type="AudioStream" id=80]
+[ext_resource path="res://Scenes/Misc/Parts/SFX_Click_Out_Part.tscn" type="PackedScene" id=81]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_i_Made/SFX_NRG_Power_Up.ogg" type="AudioStream" id=82]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_positive_05.ogg" type="AudioStream" id=83]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_i_Made/SFX_Back_Shield.ogg" type="AudioStream" id=84]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_i_Made/SFX_Add_Balloon.ogg" type="AudioStream" id=85]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_i_Made/SFX_Puck_01.ogg" type="AudioStream" id=86]
+[ext_resource path="res://Scenes/Misc/Parts/SFX_Explosions_Part.tscn" type="PackedScene" id=87]
+[ext_resource path="res://Scenes/Misc/Parts/SFX_Reload_Part.tscn" type="PackedScene" id=88]
 [ext_resource path="res://Scenes/Misc/Parts/Music_Part.tscn" type="PackedScene" id=92]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_05.ogg" type="AudioStream" id=102]
 [ext_resource path="res://Scenes/Misc/Parts/SFX_Projectile_Part.tscn" type="PackedScene" id=103]
@@ -409,9 +412,6 @@ bus = "SFX"
 stream = ExtResource( 61 )
 bus = "SFX"
 
-[node name="Menu_Click_Short" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 62 )
-
 [node name="Menu_Move_01" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 bus = "Menu"
@@ -559,6 +559,13 @@ bus = "Menu"
 stream = ExtResource( 32 )
 bus = "Menu"
 
+[node name="M_05_Move" type="AudioStreamPlayer" parent="SFX_Menus"]
+stream = ExtResource( 16 )
+bus = "Menu"
+
+[node name="M_06_Click_Short" type="AudioStreamPlayer" parent="SFX_Menus"]
+stream = ExtResource( 62 )
+
 [node name="SFX_Obj_Collision" type="Node2D" parent="."]
 
 [node name="H_00" type="AudioStreamPlayer" parent="SFX_Obj_Collision"]
@@ -653,9 +660,12 @@ bus = "SFX"
 stream = SubResource( 7 )
 bus = "SFX"
 
-[node name="SFX_Weapons" type="Node2D" parent="."]
+[node name="Jump_Land" type="AudioStreamPlayer" parent="SFX_Pawn"]
+stream = ExtResource( 54 )
+volume_db = 3.0
+bus = "SFX"
 
-[node name="SFX_Projectile_Part" parent="SFX_Weapons" instance=ExtResource( 103 )]
+[node name="SFX_Weapons" type="Node2D" parent="."]
 
 [node name="SFX_Melee" type="Node2D" parent="SFX_Weapons"]
 position = Vector2( -960, -540 )
@@ -721,6 +731,14 @@ bus = "Shell"
 [node name="FX_Shell_13" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
+
+[node name="SFX_Click_Out_Part" parent="SFX_Weapons" instance=ExtResource( 81 )]
+
+[node name="SFX_Projectile_Part" parent="SFX_Weapons" instance=ExtResource( 103 )]
+
+[node name="SFX_Reload_Part" parent="SFX_Weapons" instance=ExtResource( 88 )]
+
+[node name="SFX_Explosions_Part" parent="." instance=ExtResource( 87 )]
 
 [node name="SFX_Power_Ups" type="Node2D" parent="."]
 

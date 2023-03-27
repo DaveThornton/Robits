@@ -53,14 +53,14 @@ var px = {#vars to be added to all other player stats
 var p1 = {
 	collision_layer = 25,
 	color_2 = Color8(76, 255, 142, 255),
-	color_1 = Color8(232, 32, 75, 255),
+	color_1 = Color8(255, 28, 35, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p2 = {
 	collision_layer = 26,
 	color_2 = Color8(255, 0, 195, 255),
-	color_1 = Color8(103, 255, 85, 255),
+	color_1 = Color8(10, 143, 8, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 

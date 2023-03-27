@@ -99,7 +99,7 @@ func shoot():
 	pass
 
 func shoot_r():
-	pass
+	can_shoot = true
 
 func _fire():
 	if can_shoot && !stop_shoot:
@@ -117,6 +117,7 @@ func _fire():
 				just_shot = true
 		else:
 			empty()
+			can_shoot = false
 		
 func _fire_sound():
 	SFX.projectile(gun_num)
@@ -176,7 +177,7 @@ func go_boom():
 	call_deferred("free")
 
 func empty():
-	pass
+	SFX.empty(gun_num)
 
 func shell(): FX.shell(gun_num, pos_shell.global_position, pos_shell.global_rotation)
 
