@@ -44,7 +44,7 @@ func print_next_char():
 	if char_total > current_char:
 		about_label.text = about_label.text + about.substr(current_char, 1)
 		current_char += 1
-		SFX.play("Menu_Click_Short")
+		SFX.menu_click()
 		timer_next_char.start()
 
 func color(_pri, _sec):

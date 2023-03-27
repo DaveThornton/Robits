@@ -163,7 +163,7 @@ func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding() || ray_down_r2.is_colliding() || ray_down_l2.is_colliding():
 		if !on_floor && !is_jump_pressed:
 			on_floor = true
-			SFX.play("Move_Jump_19_Land")
+			SFX.jump_land()
 	else :
 		on_floor = false
 

@@ -156,7 +156,7 @@ func _is_on_floor():
 		if !on_floor && !is_jump_pressed:
 			on_floor = true
 			wheel.on_floor = true
-			SFX.play("Move_Jump_19_Land")
+			SFX.jump_land()
 	else :
 		on_floor = false
 	

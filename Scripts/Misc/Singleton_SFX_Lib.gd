@@ -79,6 +79,8 @@ func jump_ground(): pawn.get_node("Jump_Ground").play()
 func jump_air(): pawn.get_node("Jump_Air").play()
 
 func jump_down(): pawn.get_node("Jump_Down").play()
+
+func jump_land(): pawn.get_node("Jump_Land").play()
 #-------------------------------------------Menu Stuff----------------
 
 func menu_coin(): menus.get_node("M_00_Coin").play()

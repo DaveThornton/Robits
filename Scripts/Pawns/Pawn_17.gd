@@ -159,11 +159,11 @@ func _test_headroom():
 func _is_on_floor():
 	if ray_down_r_stand.is_colliding() || ray_down_l_stand.is_colliding() && !is_down:
 		if !on_floor && !is_jump_pressed:
-			SFX.play("Move_Jump_19_Land")
+			SFX.jump_land()
 			on_floor = true
 	elif ray_down_r_prone.is_colliding() || ray_down_l_prone.is_colliding() && is_down:
 		if !on_floor && !is_jump_pressed:
-			SFX.play("Move_Jump_19_Land")
+			SFX.jump_land()
 			on_floor = true
 	else:
 		on_floor = false

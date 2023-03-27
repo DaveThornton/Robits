@@ -120,6 +120,7 @@ func _test_headroom():
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding() || ray_down_r2.is_colliding() || ray_down_l2.is_colliding():
 		on_floor = true
+		SFX.jump_land()
 	else :
 		on_floor = false
 
