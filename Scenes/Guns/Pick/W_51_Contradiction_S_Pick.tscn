@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Guns/Pick/W_51_Contradiction_S_Pick.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 7.0
+radius = 16.0
 height = 16.0
 
 [node name="Weap-Pick-51-Contradiction_S" type="RigidBody2D" groups=["FX", "PickUp"]]
@@ -21,6 +21,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]

@@ -27,8 +27,7 @@ position = Vector2( 0.0969925, -0.0969887 )
 texture = ExtResource( 1 )
 hframes = 2
 
-[node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 0.0969925, -0.0969887 )
+[node name="Sprite2" type="Sprite" parent="Sprite"]
 texture = ExtResource( 1 )
 hframes = 2
 frame = 1

@@ -25,6 +25,7 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]

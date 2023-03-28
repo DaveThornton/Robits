@@ -4,8 +4,8 @@
 [ext_resource path="res://Scripts/Guns/Pick/W_56_BFG_9000_Pick.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 9.99995
-height = 34.0001
+radius = 13.9999
+height = 42.0001
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
@@ -39,6 +39,7 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 hframes = 6
 frame = 5

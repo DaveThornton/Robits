@@ -7,8 +7,8 @@
 bounce = 0.2
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 6.0
-height = 18.0
+radius = 5.99995
+height = 38.0001
 
 [node name="W_06_Atom_Rifle_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
@@ -30,15 +30,16 @@ shape = SubResource( 2 )
 one_way_collision_margin = 0.0
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 hframes = 6
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="Sprite2" type="Sprite" parent="Sprite"]
 texture = ExtResource( 3 )
 hframes = 6
 frame = 1
 
-[node name="Sprite3" type="Sprite" parent="."]
+[node name="Sprite3" type="Sprite" parent="Sprite"]
 modulate = Color( 0, 0.439216, 0.772549, 1 )
 texture = ExtResource( 3 )
 hframes = 24

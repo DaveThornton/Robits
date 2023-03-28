@@ -32,22 +32,23 @@ self_modulate = Color( 0.678431, 0.678431, 0.678431, 1 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
-[node name="Back" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 0.678431, 0.678431, 0.678431, 1 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 4 )
 hframes = 3
 frame = 2
 
-[node name="Mid_Back" type="Sprite" parent="."]
+[node name="Mid_Back" type="Sprite" parent="Sprite"]
 self_modulate = Color( 0.737255, 0.737255, 0.737255, 1 )
 texture = ExtResource( 6 )
 
-[node name="Mid" type="Sprite" parent="."]
+[node name="Mid" type="Sprite" parent="Sprite"]
 self_modulate = Color( 0.313726, 0.313726, 0.313726, 1 )
 texture = ExtResource( 5 )
 hframes = 3
 
-[node name="Top" type="Sprite" parent="."]
+[node name="Top" type="Sprite" parent="Sprite"]
 self_modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 3 )
 hframes = 3

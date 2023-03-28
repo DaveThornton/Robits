@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 6.0
-height = 20.0001
+height = 28.0
 
 [node name="W_59_Bow_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
@@ -16,11 +16,11 @@ gun_num = 59
 ammo = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -10, 0 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 hframes = 4
 

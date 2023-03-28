@@ -7,7 +7,7 @@
 bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 4.13037
+radius = 7.99993
 height = 36.9116
 
 [node name="W_57_Henry_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
@@ -28,10 +28,12 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 hframes = 2
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="Sprite2" type="Sprite" parent="Sprite"]
+show_behind_parent = true
 texture = ExtResource( 3 )
 hframes = 2
 frame = 1

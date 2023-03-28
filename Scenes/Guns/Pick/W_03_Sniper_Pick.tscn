@@ -11,6 +11,7 @@ radius = 3.99992
 height = 28.0002
 
 [node name="Weap-Pick-03-Sniper" type="RigidBody2D" groups=["FX", "PickUp"]]
+scale = Vector2( 1.5, 1.5 )
 collision_layer = 524288
 collision_mask = 917534
 physics_material_override = SubResource( 1 )

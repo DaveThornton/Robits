@@ -205,7 +205,6 @@ frame = 2
 position = Vector2( 21, -3 )
 texture = ExtResource( 1 )
 hframes = 5
-frame = 3
 
 [node name="Mid_Back" type="Sprite" parent="POS_Gun/Gun_Sprite"]
 self_modulate = Color( 0.737255, 0.737255, 0.737255, 1 )

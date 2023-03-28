@@ -25,12 +25,13 @@ gun_num = 9
 ammo = 12
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 3 )
 hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.31102, -1.49831 )
-rotation = 1.25315
+rotation = 1.5708
 shape = SubResource( 2 )
 one_way_collision_margin = 0.0
 
