@@ -52,57 +52,57 @@ var px = {#vars to be added to all other player stats
 }
 var p1 = {
 	collision_layer = 25,
-	color_2 = Color8(76, 255, 142, 255),
-	color_1 = Color8(255, 28, 35, 255),
+	color_2 = Color8(0, 255, 0, 255),
+	color_1 = Color8(255, 0, 0, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p2 = {
 	collision_layer = 26,
-	color_2 = Color8(255, 0, 195, 255),
-	color_1 = Color8(10, 143, 8, 255),
+	color_2 = Color8(255, 0, 0, 255),
+	color_1 = Color8(0, 255, 0, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p3 = {
 	collision_layer = 27,
-	color_2 = Color8(255, 151, 15, 255),
-	color_1 = Color8(25, 145, 255, 255),
+	color_2 = Color8(255, 255, 0, 255),
+	color_1 = Color8(0, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p4 = {
 	collision_layer = 28,
-	color_2 = Color8(82, 235, 0, 255),
+	color_2 = Color8(0, 255, 255, 255),
 	color_1 = Color8(255, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p5 = {
 	collision_layer = 29,
-	color_2 = Color8(255, 232, 0, 255),
-	color_1 = Color8(119, 0, 255, 255),
+	color_2 = Color8(0, 255, 0, 255),
+	color_1 = Color8(128, 0, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p6 = {
 	collision_layer = 30,
-	color_2 = Color8(225, 98, 15, 255),
-	color_1 = Color8(0, 255, 244, 255),
+	color_2 = Color8(255, 0, 255, 255),
+	color_1 = Color8(0, 255, 255, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p7 = {
 	collision_layer = 31,
-	color_2 = Color8(0, 30, 255, 255),
-	color_1 = Color8(255, 220, 72, 255),
+	color_2 = Color8(0, 0, 255, 255),
+	color_1 = Color8(255, 255, 0, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
 var p8 = {
 	collision_layer = 32,
-	color_2 = Color8(20, 255, 254, 255),
-	color_1 = Color8(255, 105, 45, 255),
+	color_2 = Color8(0, 255, 255, 255),
+	color_1 = Color8(255, 128, 0, 255),
 	color_3 = Color8(255, 225, 225, 222)
 }
 
