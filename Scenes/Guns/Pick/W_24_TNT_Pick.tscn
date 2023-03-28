@@ -64,9 +64,9 @@ use_time_label = false
 position = Vector2( 3.5, -2 )
 texture = ExtResource( 4 )
 hframes = 11
-frame = 2
+frame = 1
 
-[node name="Sprite_Body" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
 hframes = 11
 

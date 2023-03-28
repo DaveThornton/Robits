@@ -19,7 +19,7 @@ func start(_gun_num,_rot, _pos, _scale, _owner, _dmg):
 	owned = _owner
 	cast_forward.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_owner) - 1, false)
 	anim.play("fire")
-	SFX.prpjectle(gun_num)
+	SFX.projectile(gun_num)
 	if _scale.y < 0:
 		rotation *= -1
 

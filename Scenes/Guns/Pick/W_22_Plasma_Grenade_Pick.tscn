@@ -34,7 +34,7 @@ use_spin = false
 position = Vector2( -11, 0 )
 texture = ExtResource( 4 )
 
-[node name="Sprite_Body" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 hframes = 4

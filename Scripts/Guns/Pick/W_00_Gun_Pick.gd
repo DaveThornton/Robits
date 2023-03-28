@@ -52,7 +52,7 @@ func set_dir(_is_right, _dir):
 	is_right = _is_right
 	dir = _dir
 	if _is_right:
-		sprite.scale = Vector2(1.5, 1.5)
+		set_right()
 		if _dir == 1:
 			self.rotation_degrees = -85
 		elif _dir == 2:
@@ -64,7 +64,7 @@ func set_dir(_is_right, _dir):
 		elif _dir == 5:
 			self.rotation_degrees = 85
 	else:
-		sprite.scale = Vector2(1.5, -1.5)
+		set_left()
 		if _dir == 1:
 			self.rotation_degrees = -95
 		elif _dir == 2:
@@ -75,6 +75,12 @@ func set_dir(_is_right, _dir):
 			self.rotation_degrees = -220
 		elif _dir == 5:
 			self.rotation_degrees = -265
+
+func set_right():
+	pass
+
+func set_left():
+	pass
 
 func _on_Timer_timeout():
 	fade_out()

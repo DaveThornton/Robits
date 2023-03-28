@@ -21,6 +21,8 @@ var list = {
 	17: "017",
 	18: "018",
 	19: "019",
+	40: "040",
+	41: "041",
 	42: "042",
 	50: "050",
 	51: "051",
@@ -34,4 +36,7 @@ var list = {
 }
 
 func play(_num):
-	get_node(list[_num]).play()	
+	if list.has(_num):
+		get_node(list[_num]).play()	
+	else:
+		print_debug("error no sound for projectile  ", _num, "  in SFX.Projectile_part")
