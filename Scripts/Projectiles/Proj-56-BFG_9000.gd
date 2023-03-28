@@ -18,7 +18,7 @@ func start(_gun_num,_rot, _pos, _scale, _owner, _dmg):
 	owned = _owner
 	cast_forward.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_owner) - 1, false)
 	anim.play("Move")
-	SFX.play("W_56_Projectile")
+	SFX.projectile(gun_num)
 	print_debug("make sfx for BFG 9000 projectile")
 	if _scale.y < 0:
 		rotation *= -1
@@ -42,5 +42,5 @@ func set_layer(_bit):
 
 func _explode(_pos):
 	FX.explode(56.1, owned, _pos, gun_num, 0, damage)
-	SFX.stop("W_56_Projectile")
+	# SFX.stop("W_56_Projectile")
 	call_deferred("free")

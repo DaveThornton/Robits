@@ -9,7 +9,7 @@ func shoot():
 
 func empty():
 	if !clicked:
-		SFX.play("Laser_Empty")
+		SFX.empty(gun_num)
 		clicked = true
 
 func shoot_r():

@@ -13,13 +13,11 @@ func shoot_j():
 		_fire()
 	else:
 		anim_fire.play("Reload")
-		SFX.play("W_50_Reload")
+		SFX.reload(gun_num)
 		just_shot = false
 		can_shoot = false
 		shoot_timer.start()
 
-func empty():
-	SFX.play("W_50_Empty")
 
 func spawn_shell():
 	FX.shell(gun_num, pos_shell.global_position, pos_shell.global_rotation)

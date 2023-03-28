@@ -397,36 +397,7 @@ func remove_start_weap():
 	for i in gun_pos.get_child_count():
 		gun_pos.get_child(i).call_deferred("free")
 ##-------------------------------------------------------------------------[HIT]
-# func hit(_by_who, _by_what, _damage_type, _damage):
-# 	_im_hit = true
-# 	_hit_time += 0.11
-# 	if play_type == 1:
-# 		if is_shield_up:
-# 			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
-# 		else:
-# 			is_shield_up = true
-# 			print_debug("ive been hit. I'm player ",player)
-# 			let_go()
-# 			emit_signal("explode_p", player, self.position, _by_who, _by_what)
-# 			call_deferred("free")
-# 	elif play_type > 1:
-# 		shield_sprite.visible = true
-# 		head.shield_up()
-# #		key.shield_up()
-# 		shield_hit_timer.start()
-# 		if !is_shield_up:
-# 			nrg = nrg - (_damage - armor)
-# 			nrg_update()
-# 			if nrg <= 0:
-# 				is_shield_up = true
-# 				print_debug("ive been hit. I'm player ",player)
-# 				let_go()
-# 				emit_signal("explode_p", player, self.position, _by_who, _by_what)
-# 				call_deferred("free")
-# 			elif nrg < light_on_nrg:
-# 				print_debug("do something with less nrg in pawn 06 hit")
-# 			else:
-# 				print_debug("do something with less nrg in pawn 06 hit")
+
 func hit(_by_who, _by_what, _damage_type, _damage):
 	if _by_who > 0:
 		hit_last_by = _by_who

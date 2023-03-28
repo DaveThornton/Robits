@@ -6,6 +6,7 @@ onready var explosions = $Explosions
 onready var menus = $SFX_Menus
 onready var music_part = $SFX_Music_Part
 onready var projectiles = $SFX_Weapons/SFX_Projectile_Part
+onready var reloads = $SFX_Weapons/SFX_Reload_Part
 onready var click_out = $SFX_Weapons/SFX_Click_Out_Part
 onready var pawn = $SFX_Pawn
 onready var powerups = $SFX_Power_Ups
@@ -46,6 +47,9 @@ func shell():
 
 func explosion(_num): explosions.get_child(_num).get_child(exp_num).play() #1: Pawn  2: Convetional  3: Energy
 	
+func reload(_num):
+	reloads.reload(_num)
+
 func empty(_num):
 	click_out.empty(_num)
 #-------------------------------------------Power Ups----------------

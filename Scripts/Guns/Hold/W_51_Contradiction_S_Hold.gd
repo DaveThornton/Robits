@@ -25,4 +25,4 @@ func call_on_hit_with_no_projectile(_thing):
 
 func empty():
 	anim_fire.play("Click")
-	SFX.play("W_51_Empty")
+	SFX.empty(gun_num)

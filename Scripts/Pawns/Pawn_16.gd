@@ -98,8 +98,8 @@ func _test_headroom():
 func _is_on_floor():
 	if ray_down_r.is_colliding() || ray_down_l.is_colliding() || ray_down_c.is_colliding():
 		if !on_floor:
+			on_floor = true
 			SFX.jump_land()
-		on_floor = true
 	else :
 		on_floor = false
 		legs.play(8)

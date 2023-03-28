@@ -29,7 +29,7 @@ func start( _sr , _ss, _sss, _player):
 func boom_sec(_player):
 	if _player:
 		var _pos = _player.position
-		FX.explode(56.2, owned, _pos, my_name, 0, damage1)
+		FX.explode(56.2, owned, _pos, gun_num, 0, damage1)
 		Player_Stats.add_hit(owned,1)
 
 func _on_Area2Douter_body_entered(body):

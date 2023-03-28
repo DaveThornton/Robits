@@ -37,11 +37,11 @@ func shoot():
 				emit_signal("ammo_change",player,ammo)
 				Player_Stats.add_shot(player, 1)
 				just_shot = true
-				SFX.play("W_19_Shoot")
+				SFX.projectile(gun_num)
 				shoot_timer.start()
 				can_shoot = false
 			else:
-				SFX.play("W_19_Empty")
+				SFX.empty(gun_num)
 			shoot_pressed = false
 
 func shoot_r():
