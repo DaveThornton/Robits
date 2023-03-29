@@ -96,6 +96,7 @@ margin_left = -19.1527
 margin_top = -27.6163
 margin_right = 20.8473
 margin_bottom = -11.6163
+rect_pivot_offset = Vector2( 20, 8 )
 custom_fonts/font = ExtResource( 1 )
 text = "5.0"
 align = 1

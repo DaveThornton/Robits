@@ -20,6 +20,14 @@ func _process(_delta):
 
 func right(is_right):
 	if is_right:
-		anim.play("Right")
+		label.rect_scale.y = 1
+		# anim.play("Right")
 	else:
-		anim.play("Left")
+		label.rect_scale.y = -1
+		# anim.play("Left")
+
+func up(is_up):
+	if is_up:
+		label.rect_scale.x = 1
+	else:
+		label.rect_scale.x = -1
