@@ -35,6 +35,10 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	time = _time
 	if ready:
 		set_dir(is_right, dir)
+	call_end_init()
+
+func call_end_init():
+	pass
 
 # func _on_WeapPick02Ak47_body_shape_entered(_body_id, body, _body_shape, _local_shape):
 # 	_entered(_body_id, body, _body_shape, _local_shape)
