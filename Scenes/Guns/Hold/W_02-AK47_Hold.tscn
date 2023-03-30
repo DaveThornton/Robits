@@ -178,7 +178,11 @@ ammo_up_amount = 60
 
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
 texture = ExtResource( 3 )
-hframes = 2
+hframes = 4
+
+[node name="Gun_Sprite2" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+texture = ExtResource( 3 )
+hframes = 4
 frame = 1
 
 [node name="Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
