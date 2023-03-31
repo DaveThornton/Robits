@@ -6,13 +6,18 @@ func shoot():
 	_fire()
 
 func post_set_up():
-	check_if_zero()
+	mag_visible(bool(ammo > 0))
 
 func call_on_all_projectile_fire():
-	check_if_zero()
+	mag_visible(bool(ammo > 0))
 
-func check_if_zero():
+func call_on_projectile_fired():
 	if ammo == 0:
-		sprite2.visible = false
-	else:
-		sprite2.visible = true
+		mag_visible(false)
+
+func end_add_ammo(_ammo):
+	if ammo < 0:
+		mag_visible(true)
+
+func mag_visible(_vis):
+	sprite2.visible = _vis

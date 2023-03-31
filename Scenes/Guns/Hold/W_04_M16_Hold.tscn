@@ -132,11 +132,17 @@ wait_time = 0.5
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
 position = Vector2( 6, 0 )
 texture = ExtResource( 2 )
+hframes = 2
 
 [node name="Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
 position = Vector2( 29, -3 )
 texture = ExtResource( 1 )
 hframes = 5
+
+[node name="Sprite2" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+texture = ExtResource( 2 )
+hframes = 2
+frame = 1
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 

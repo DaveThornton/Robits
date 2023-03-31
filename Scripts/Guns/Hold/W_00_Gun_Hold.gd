@@ -236,6 +236,9 @@ func _drop_where(_obj):
 func add_ammo(_ammo):
 	ammo = clamp(ammo + (_ammo * ammo_up_amount), 0, ammo_max)
 	emit_signal("ammo_change",player,ammo)
+	end_add_ammo(_ammo)
+
+func end_add_ammo(_ammo): pass
 
 func init_pick(weap_pick):
 	weap_pick.init(ammo, player, time, is_right, shoot_pos, false)
