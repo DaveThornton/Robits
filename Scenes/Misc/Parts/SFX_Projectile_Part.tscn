@@ -99,11 +99,11 @@ bus = "SFX"
 stream = ExtResource( 4 )
 bus = "SFX"
 
-[node name="40" type="AudioStreamPlayer" parent="."]
+[node name="040" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 bus = "SFX"
 
-[node name="41" type="AudioStreamPlayer" parent="."]
+[node name="041" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 bus = "SFX"
 
