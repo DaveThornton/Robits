@@ -19,7 +19,7 @@ func call_on_projectile_fired():
 		mag_visible(false)
 
 func end_add_ammo(_ammo):
-	if ammo < 0:
+	if ammo > 0:
 		mag_visible(true)
 
 func mag_visible(_vis):

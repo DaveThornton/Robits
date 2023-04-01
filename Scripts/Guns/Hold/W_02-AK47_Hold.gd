@@ -12,11 +12,10 @@ func call_on_all_projectile_fire():
 	mag_visible(bool(ammo > 0))
 
 func call_on_projectile_fired():
-	if ammo == 0:
-		mag_visible(false)
+	mag_visible(bool(ammo > 0))
 
 func end_add_ammo(_ammo):
-	if ammo < 0:
+	if ammo > 0:
 		mag_visible(true)
 
 func mag_visible(_vis):
