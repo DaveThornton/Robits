@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_56_BFG9000.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Pick/W_56_BFG_9000_Pick.gd" type="Script" id=2]
@@ -24,6 +24,36 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5 ]
 }
 
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Stop"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
 [node name="W_56_BFG9000_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 collision_layer = 524288
 collision_mask = 917534
@@ -42,12 +72,13 @@ shape = SubResource( 1 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 hframes = 6
-frame = 5
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 2 )
+anims/RESET = SubResource( 4 )
+anims/Stop = SubResource( 3 )
 
 [connection signal="body_shape_entered" from="." to="." method="_on_WeapPick51Contradiction_S_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
