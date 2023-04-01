@@ -10,3 +10,6 @@ func set_right():
 
 func set_left():
 	sprite.scale.y = -1.5
+
+func ammo_is_zero():
+	sprite3.visible = false

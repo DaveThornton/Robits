@@ -5,7 +5,7 @@ onready var timer = $Timer
 
 export var gun_num = 0
 export var expire_time = 30.0
-export var ammo = 0
+export var ammo = -2
 export var time = .1
 
 var ready = false
@@ -20,15 +20,10 @@ func _ready():
 	set_dir(is_right, dir)
 	
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
-	if ammo != _ammo:
-		if ammo < _ammo:
-			expire_time = expire_time * 2
-		elif ammo > _ammo:
-			expire_time = expire_time * .75
-		elif _ammo == 0:
-			expire_time = expire_time * .1
-		if _ammo != -1: 
-			ammo = _ammo
+	if _ammo != -1: 
+		ammo = _ammo
+	if ammo == 0:
+		call_deferred("ammo_is_zero")
 	is_right = _is_right
 	timer.wait_time = expire_time
 	timer.start()
@@ -39,9 +34,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 
 func call_end_init():
 	pass
-
-# func _on_WeapPick02Ak47_body_shape_entered(_body_id, body, _body_shape, _local_shape):
-# 	_entered(_body_id, body, _body_shape, _local_shape)
 
 func _entered(_body_id, body, _body_shape, _local_shape):
 	if hits < hits_max :
@@ -84,6 +76,9 @@ func set_right():
 	pass
 
 func set_left():
+	pass
+
+func ammo_is_zero():
 	pass
 
 func _on_Timer_timeout():
