@@ -103,15 +103,15 @@ func shoot_r():
 
 func _fire():
 	if can_shoot && !stop_shoot:
-		if ammo > 0:
+		if can_melee && melee_cast.is_colliding():
+			melee()
+		elif ammo > 0:
 			can_shoot = false
 			shoot_timer.start()
 			anim_fire.play("Shoot")
 			if !shoot_cast.is_colliding():
 				_fire_projectile()
 				just_shot = true
-			elif can_melee && melee_cast.is_colliding():
-				melee()
 			elif shoot_cast.is_colliding():
 				_fire_no_projectile()
 				just_shot = true
