@@ -51,7 +51,7 @@ func body_entered(body, per):
 	body.hit(owned, gun_num, damage_type, dmg)
 
 func _on_Timer_timeout():
-	call_deferred("free")	
+	call_deferred("free")
 
 func _on_Timer2_timeout():
 	damage_area.disable_shape(true)
