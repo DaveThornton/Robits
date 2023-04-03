@@ -44,7 +44,6 @@ func _ready():
 func _process(delta):
 	modulate -= less_color
 	if modulate.a8 == 0:
-		print_debug("calling queue free on mega ex in mega ex 203")
 		call_deferred("queue_free")
 	e1.move(d1 * first_speed)
 	e2.move(d2 * first_speed)

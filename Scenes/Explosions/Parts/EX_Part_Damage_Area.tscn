@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Explosions/parts/EX_Part_Damage_Area.gd" type="Script" id=1]
+
+[node name="EX_Part_Damage_Area" type="Area2D"]
+collision_layer = 4278452224
+collision_mask = 4278190080
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0, -10, 7.5, -7.5, 10, 0, 7.5, 7.5, 0, 10, -7.5, 7.5, -10, 0, -7.5, -7.5 )
+
+[node name="RayCasts" type="Node2D" parent="."]
+
+[node name="RayCast2D_Up" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( 0, -10 )
+collision_mask = 257
+
+[node name="RayCast2D_UL" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( -7.5, -7.5 )
+collision_mask = 257
+
+[node name="RayCast2D_UR" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( 7.5, -7.5 )
+collision_mask = 257
+
+[node name="RayCast2D_DR" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( 7.5, 7.5 )
+collision_mask = 257
+
+[node name="RayCast2D_DL" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( -7.5, 7.5 )
+collision_mask = 257
+
+[node name="RayCast2D_DN" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 257
+
+[node name="RayCast2D_LT" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( -10, 0 )
+collision_mask = 257
+
+[node name="RayCast2D_RT" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( 10, 0 )
+collision_mask = 257
+
+[connection signal="body_entered" from="." to="." method="_on_EX_Part_Damage_Area_body_entered"]

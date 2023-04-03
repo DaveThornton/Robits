@@ -47,6 +47,9 @@ func proj_hit(_num, _pos, _moving):
 func smoke(_pos):
 	misc.poof(_pos)
 
+func mega_ex(_pos):
+	misc.mega_boom(_pos)
+
 func stuck_arrow():
 	return misc.stuck_arrow()
 

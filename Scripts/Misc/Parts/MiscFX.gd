@@ -6,6 +6,7 @@ export(PackedScene) var mine
 export(PackedScene) var disappear
 export(PackedScene) var flame
 export(PackedScene) var plasma_det
+export(PackedScene) var mega_ex
 
 func stuck_arrow():
 	return arrow
@@ -18,6 +19,11 @@ func armed_mine():
 
 func get_flame():
 	return flame
+
+func mega_boom(_pos):
+	var s = mega_ex.instance()
+	Map_Hand.add_kid_to_map(s)
+	s.global_position = _pos
 
 func poof(_pos):
 	var s = disappear.instance()

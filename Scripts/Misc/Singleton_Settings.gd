@@ -6,7 +6,7 @@ var campaign_start_gun = false
 
 var multi_start_gun = false
 var multi_lives = 5
-var multi_score_to_win = 2
+var multi_score_to_win = 12
 var multi_minus_on_death = false
 var multi_use_lives = false
 var multi_time = 2
