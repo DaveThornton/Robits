@@ -165,14 +165,14 @@ polygon = PoolVector2Array( 1.14441e-05, -72.1249, 50.9117, -50.9117, 0, 0 )
 disabled = true
 
 [node name="Area2D-Blast" type="Area2D" parent="."]
+collision_layer = 131072
+collision_mask = 920578
 space_override = 3
 gravity_distance_scale = 1024.0
 gravity_vec = Vector2( -2, -2 )
 gravity = -1024.0
 linear_damp = 0.0
 angular_damp = 0.0
-collision_layer = 131072
-collision_mask = 920578
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Blast"]
 shape = SubResource( 3 )
