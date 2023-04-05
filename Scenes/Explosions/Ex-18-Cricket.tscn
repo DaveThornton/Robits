@@ -58,6 +58,7 @@ radius = 60.0
 [node name="Ex-18-Cricket" type="Node2D"]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
+trauma = 0.1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
