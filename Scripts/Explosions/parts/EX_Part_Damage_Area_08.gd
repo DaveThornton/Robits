@@ -21,6 +21,12 @@ signal obj_entered
 # func _ready():
 # 	update_shape()
 
+func set_size(_size):
+	size = _size
+
+func set_pos(_pos):
+	self.global_position = _pos
+
 func update_shape():
 	shape_vec.clear()
 	var p1 = Vector2(0,-size)
@@ -85,9 +91,6 @@ func disable_shape(dis):
 	shape.disabled = dis
 
 func _on_EX_Part_Damage_Area_body_entered(body:Node):
-	if body.get_groups().has("hittable"):
-		var dis = self.global_position.distance_to(body.global_position)
-		var per = abs((dis / (size + buffer_distance))) #clamp(size / dis * 100,15.0,100.0)
-		# print(per)
-		print_debug("entered area get damage now in area")
-		emit_signal("obj_entered", body, per)
+	var dis = self.global_position.distance_to(body.global_position)
+	var per = abs((dis / (size + buffer_distance))) #clamp(size / dis * 100,15.0,100.0)
+	emit_signal("obj_entered", body, per)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Explosions/Ex-18-Cricket.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Explosions/Parts/EX_Part_Damage_Area.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Explosions/Parts/EX_Part_Damage_Area_08.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Explosions/Cricket/EX_18_Cricket.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=6]

@@ -1,6 +1,8 @@
 extends Node2D
 
 export var trauma = 0.0
+export var ex_size = 100
+
 
 onready var anim_sprite = $AnimatedSprite
 onready var damage_area = $EX_Part_Damage_Area
@@ -16,13 +18,15 @@ func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 	owned = _owner
 	self.global_position = _pos
 	gun_num = _weap_name
-
 	damage = _dmg
 
+	# var damage_area = FX.get_ex_shape(6)
 	var test = damage_area.connect("obj_entered", self, "body_entered")
 	if !test:
 		print_debug("error in ex 03 pawn didnt connect to ex area")
-	damage_area.update_shape()
+	damage_area.set_pos(self.global_position)
+	damage_area.set_size(ex_size)
+	damage_area.call_deferred("update_shape")
 
 	ex_sfx()
 	FX.add_trauma(trauma)
@@ -37,7 +41,8 @@ func ex_sfx():
 	SFX.play("EX_Standard")
 
 func body_entered(body, _per):
-	body.hit(owned, gun_num, damage_type, damage)
+	if body.get_groups().has("hittable"):
+		body.hit(owned, gun_num, damage_type, damage)
 
 func _on_AnimatedSprite_animation_finished():
 	call_deferred("free")

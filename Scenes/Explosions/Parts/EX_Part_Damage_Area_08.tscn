@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scripts/Explosions/parts/EX_Part_Damage_Area.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Explosions/parts/EX_Part_Damage_Area_08.gd" type="Script" id=1]
 
-[node name="EX_Part_Damage_Area" type="Area2D"]
+[node name="EX_Part_Damage_Area_08" type="Area2D"]
 collision_layer = 4278452224
 collision_mask = 4278190080
 script = ExtResource( 1 )

@@ -41,46 +41,31 @@ export(PackedScene) var ex104
 export(PackedScene) var projhit_013
 export(PackedScene) var projhit_014
 
+export(PackedScene) var shape_00
+export(PackedScene) var shape_06
+
 func boom(_num, _owner, _pos, _weap_num: int, _pawn_num, _dmg):
-	var x
+	var x = null
 	match _num:
-		2:
-			x = ex002.instance()
-		3:
-			x = ex003.instance()
-		4:
-			x = ex004.instance()
-		5:
-			x = ex005.instance()
-		6:
-			x = ex006.instance()
-		7:
-			x = ex007.instance()
-		10:
-			x = ex010.instance()
-		11:
-			x = ex011.instance()
-		18:
-			x = ex018.instance()
-		19:
-			x = ex019.instance()
-		24:
-			x = ex024.instance()
-		25:
-			x = ex025.instance()
-		40:
-			x = ex040.instance()
-		55:
-			x = ex055.instance()
-		56.1:
-			x = ex056_1.instance()
-		56.2:
-			x = ex056_2.instance()
-		103:
-			x = ex103.instance()
-		104:
-			x = ex104.instance()
-	if x:
+		2: x = ex002.instance()
+		3: x = ex003.instance()
+		4: x = ex004.instance()
+		5: x = ex005.instance()
+		6: x = ex006.instance()
+		7: x = ex007.instance()
+		10: x = ex010.instance()
+		11: x = ex011.instance()
+		18: x = ex018.instance()
+		19: x = ex019.instance()
+		24: x = ex024.instance()
+		25: x = ex025.instance()
+		40: x = ex040.instance()
+		55: x = ex055.instance()
+		56.1: x = ex056_1.instance()
+		56.2: x = ex056_2.instance()
+		103: x = ex103.instance()
+		104: x = ex104.instance()
+	if x != null:
 		Map_Hand.add_kid_to_map(x)
 		x.init(_owner, _pos, _weap_num, _pawn_num, _dmg)
 	else:
@@ -95,3 +80,10 @@ func proj_hit(_num, _pos, _moving):
 
 	Map_Hand.add_kid_to_map(y)
 	y.global_position = _pos
+
+func get_shape(_num):
+	var x
+	match _num:
+		0: x = shape_00.instance()
+		6: x = shape_06.instance()
+	return x

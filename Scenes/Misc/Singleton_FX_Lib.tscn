@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_FX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://Scenes/Misc/Parts/Projectlies.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Misc/Parts/Bricks.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Misc/Parts/Shells.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/FX/FX-02_Mega_Explosion_Multi.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Misc/Parts/MiscFX.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Sprites/FX/Static/static-640x480-00.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/FX/Static/static-640x480-07.png" type="Texture" id=20]
@@ -198,7 +197,6 @@ proj001 = ExtResource( 75 )
 
 [node name="MiscFX" parent="." instance=ExtResource( 17 )]
 position = Vector2( 0, -1 )
-mega_ex = ExtResource( 14 )
 
 [node name="SpriteStatic3" type="AnimatedSprite" parent="."]
 visible = false
@@ -207,7 +205,7 @@ position = Vector2( 960, 543 )
 scale = Vector2( 1.15, 1.15 )
 frames = SubResource( 3 )
 animation = "Real"
-frame = 10
+frame = 41
 speed_scale = 7.0
 playing = true
 

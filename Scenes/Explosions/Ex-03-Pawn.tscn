@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Explosions/Ex-03-Pawn.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/FX/FX-05-Robit-Wreckage.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Explosions/Parts/EX_Part_Damage_Area.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Explosions/Parts/EX_Part_Damage_Area_08.tscn" type="PackedScene" id=5]
 
 [node name="Ex-03-Pawn" type="Node2D"]
 z_index = -3

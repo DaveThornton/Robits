@@ -41,6 +41,9 @@ func add_kid(_kid):
 func explode(_num, _owner, _pos, _weap_name, _pawn_num, _dmg):
 	explosions.call_deferred("boom",_num, _owner, _pos, _weap_name, _pawn_num, _dmg)
 
+func get_ex_shape(_num):
+	return explosions.get_shape(_num)
+
 func proj_hit(_num, _pos, _moving):
 	explosions.call_deferred("proj_hit",_num, _pos, _moving)
 
