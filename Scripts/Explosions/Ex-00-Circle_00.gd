@@ -4,7 +4,7 @@ export var trauma = 0.0
 export var ex_size = 100.0
 
 onready var anim_sprite = $AnimatedSprite
-onready var damage_area = $EX_Part_Damage_Area_08
+onready var damage_area = $EX_Part_Damage_Area_00
 onready var kick_area = $EX_Part_Kick_Area
 
 var owned = 0

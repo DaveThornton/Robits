@@ -18,9 +18,6 @@ var dag_size = .75
 
 signal obj_entered
 
-# func _ready():
-# 	update_shape()
-
 func set_size(_size):
 	size = _size
 
@@ -28,6 +25,8 @@ func set_pos(_pos):
 	self.global_position = _pos
 
 func update_shape():
+	call_deferred("_update_shape")
+func _update_shape():
 	shape_vec.clear()
 	var p1 = Vector2(0,-size)
 	var p2 = Vector2(size * dag_size, -size * dag_size)
@@ -91,6 +90,7 @@ func disable_shape(dis):
 	shape.disabled = dis
 
 func _on_EX_Part_Damage_Area_body_entered(body:Node):
-	var dis = self.global_position.distance_to(body.global_position)
-	var per = abs((dis / (size + buffer_distance))) #clamp(size / dis * 100,15.0,100.0)
-	emit_signal("obj_entered", body, per)
+	if body.get_groups().has("hittable"):
+		var dis = self.global_position.distance_to(body.global_position)
+		var per = abs((dis / (size + buffer_distance))) #clamp(size / dis * 100,15.0,100.0)
+		emit_signal("obj_entered", body, per)

@@ -3,6 +3,7 @@
 [ext_resource path="res://Sprites/gen-boom/Generic-boom-02-sheet.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Explosions/Ex-25-Directional-Time_Bomb.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Explosions/Parts/EX_Part_Damage_Area_08.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Explosions/Parts/EX_Part_Kick_Area.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
@@ -45,34 +46,19 @@ animations = [ {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "default",
-"speed": 16.0
+"speed": 12.0
 } ]
-
-[sub_resource type="CircleShape2D" id=3]
-radius = 162.0
 
 [node name="Ex-10-Directional-Basic" type="Node2D"]
 script = ExtResource( 2 )
+ex_size = 200
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 6, 6 )
 frames = SubResource( 13 )
 
-[node name="Area2D-Blast" type="Area2D" parent="."]
-collision_layer = 131072
-collision_mask = 920578
-space_override = 2
-gravity_point = true
-gravity_distance_scale = 1024.0
-gravity_vec = Vector2( -2, -2 )
-gravity = -1024.0
-linear_damp = 0.0
-angular_damp = 0.0
+[node name="EX_Part_Damage_Area_08" parent="." instance=ExtResource( 3 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Blast"]
-shape = SubResource( 3 )
-
-[node name="EX_Part_Damage_Area" parent="." instance=ExtResource( 3 )]
-size = 162
+[node name="EX_Part_Kick_Area" parent="." instance=ExtResource( 4 )]
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

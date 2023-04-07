@@ -1,7 +1,8 @@
 [gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Explosions/Ex-18-Cricket.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Explosions/Parts/EX_Part_Damage_Area_08.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Explosions/Parts/EX_Part_Kick_Area.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Explosions/Parts/EX_Part_Damage_Area_00.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Explosions/Cricket/EX_18_Cricket.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=6]
@@ -52,9 +53,6 @@ animations = [ {
 "speed": 18.0
 } ]
 
-[sub_resource type="CircleShape2D" id=5]
-radius = 60.0
-
 [node name="Ex-18-Cricket" type="Node2D"]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 1 )
@@ -66,22 +64,8 @@ frames = SubResource( 16 )
 frame = 8
 speed_scale = 2.0
 
-[node name="EX_Part_Damage_Area" parent="." instance=ExtResource( 3 )]
-size = 40
+[node name="EX_Part_Kick_Area" parent="." instance=ExtResource( 2 )]
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 786432
-collision_mask = 983040
-monitoring = false
-monitorable = false
-space_override = 2
-gravity_point = true
-gravity_vec = Vector2( -1, -1 )
-gravity = -750.0
-linear_damp = 0.0
-angular_damp = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 5 )
+[node name="EX_Part_Damage_Area_00" parent="." instance=ExtResource( 3 )]
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
