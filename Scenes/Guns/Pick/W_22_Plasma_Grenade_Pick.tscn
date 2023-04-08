@@ -27,7 +27,7 @@ contact_monitor = true
 script = ExtResource( 1 )
 gun_num = 22
 damage = 200
-ex_num = 40
+ex_num = 22
 use_spin = false
 
 [node name="Sprite_Pin" type="Sprite" parent="."]

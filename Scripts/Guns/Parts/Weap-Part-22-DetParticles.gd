@@ -27,6 +27,6 @@ func _process(delta):
 			go_boom()
 
 func go_boom():
-	FX.explode(40, player, self.global_position, gun_num, 0, damage)
+	FX.explode(gun_num, player, self.global_position, gun_num, 0, damage)
 	emit_signal("blowed_up")
 	call_deferred("free")

@@ -1,10 +1,10 @@
 extends Node2D
 
 export(PackedScene) var pawn_part
-
+export var ex_size = 100.0
 export var trauma = 0.5
 onready var damage_area = $EX_Part_Damage_Area
-
+onready var kick_area = $EX_Part_Kick_Area
 var owned = 0
 var my_name = "Explosion"
 var weap_name = "Explosion"
@@ -39,6 +39,8 @@ func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 	var test = damage_area.connect("obj_entered", self, "body_entered")
 	if !test:
 		print_debug("error in ex 03 pawn didnt connect to ex area")
+	damage_area.set_size(ex_size)
+	kick_area.set_size(ex_size)
 	damage_area.update_shape()
 
 func start( _sr , _ss, _sss, _player):
