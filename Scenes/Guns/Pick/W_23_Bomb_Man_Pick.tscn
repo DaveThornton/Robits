@@ -162,7 +162,7 @@ contact_monitor = true
 script = ExtResource( 4 )
 gun_num = 23
 damage = 120
-ex_num = 5
+ex_num = 23
 use_time_label = false
 use_spin = false
 

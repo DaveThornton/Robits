@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/EX_23_Bomb_Man.png-568c13b9a4a11530cf612c212bbe1162.stex"
+path="res://.import/EX_23_Length_128.png-83c8cfee187b431a0b5a7c777ed04e34.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Explosions/EX_23_Bomb_Man.png"
-dest_files=[ "res://.import/EX_23_Bomb_Man.png-568c13b9a4a11530cf612c212bbe1162.stex" ]
+source_file="res://Sprites/Explosions/EX_23_Bomb_Man/EX_23_Length_128.png"
+dest_files=[ "res://.import/EX_23_Length_128.png-83c8cfee187b431a0b5a7c777ed04e34.stex" ]
 
 [params]
 

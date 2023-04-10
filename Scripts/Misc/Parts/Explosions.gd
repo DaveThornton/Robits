@@ -21,7 +21,7 @@ export(PackedScene) var ex019
 # export(PackedScene) var ex020
 # export(PackedScene) var ex021
 export(PackedScene) var ex022
-# export(PackedScene) var ex023
+export(PackedScene) var ex023
 export(PackedScene) var ex024
 export(PackedScene) var ex025
 # export(PackedScene) var ex026
@@ -58,6 +58,7 @@ func boom(_num, _owner, _pos, _weap_num: int, _pawn_num, _dmg):
 		18: x = ex018.instance()
 		19: x = ex019.instance()
 		22: x = ex022.instance()
+		23: x = ex023.instance()
 		24: x = ex024.instance()
 		25: x = ex025.instance()
 		40: x = ex040.instance()

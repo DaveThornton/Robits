@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/Explosions/EX_23_Bomb_Man/EX_23_Length_128.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Explosions/EX_23_Bomb_Man/EX_23_End_8.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Explosions/parts/EX_23_Part_Length_128.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fire"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ex23Length128:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Ex23End8:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ex23End8:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[node name="EX_23_Length_128_00" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Ex23Length128" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, -16 )
+vframes = 2
+frame = 1
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 64 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fire = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="Ex23End8" type="Sprite" parent="."]
+position = Vector2( 128, 0 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( 0, -16 )
+hframes = 2
