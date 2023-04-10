@@ -193,9 +193,10 @@ cast_to = Vector2( 15, 0 )
 collision_mask = 4278225672
 
 [node name="Throw" type="RayCast2D" parent="POS_Gun/Raycast"]
+position = Vector2( -20, 0 )
 enabled = true
-cast_to = Vector2( 30, 0 )
-collision_mask = 4278192648
+cast_to = Vector2( 44, 0 )
+collision_mask = 4278192650
 
 [node name="Melee" type="RayCast2D" parent="POS_Gun/Raycast"]
 position = Vector2( -7, 0 )

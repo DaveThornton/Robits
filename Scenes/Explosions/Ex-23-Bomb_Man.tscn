@@ -79,16 +79,6 @@ rotation = 1.5708
 
 [node name="RayCasts" type="Node2D" parent="."]
 
-[node name="RayCast2D_Down" type="RayCast2D" parent="RayCasts"]
-enabled = true
-cast_to = Vector2( 0, 144 )
-collision_mask = 264
-
-[node name="RayCast2D_Up" type="RayCast2D" parent="RayCasts"]
-enabled = true
-cast_to = Vector2( 0, -144 )
-collision_mask = 264
-
 [node name="RayCast2D_Right" type="RayCast2D" parent="RayCasts"]
 enabled = true
 cast_to = Vector2( 144, 0 )
@@ -99,9 +89,34 @@ enabled = true
 cast_to = Vector2( -144, 0 )
 collision_mask = 264
 
+[node name="RayCast2D_Up" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( 0, -144 )
+collision_mask = 264
+
+[node name="RayCast2D_Down" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( 0, 144 )
+collision_mask = 264
+
+[node name="RayCast2D_Sit_Right" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( 16, 0 )
+collision_mask = 264
+
+[node name="RayCast2D_Sit_Left" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( -16, 0 )
+collision_mask = 264
+
+[node name="RayCast2D_Sit_Up" type="RayCast2D" parent="RayCasts"]
+enabled = true
+cast_to = Vector2( 0, -16 )
+collision_mask = 264
+
 [node name="RayCast2D_Sit_Down" type="RayCast2D" parent="RayCasts"]
 enabled = true
-cast_to = Vector2( 0, 18 )
+cast_to = Vector2( 0, 16 )
 collision_mask = 264
 
 [node name="Area2D" type="Area2D" parent="."]

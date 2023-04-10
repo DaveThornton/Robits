@@ -1,6 +1,6 @@
 extends 'res://Scripts/Guns/Hold/W_00_Gun_Hold.gd'
 
-var ex_num = 25
+export var ex_num = 23
 
 func post_set_up():
 	explode_num = ex_num
