@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/Guns/Hold/W_19-Rail_Gun_Hold.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Guns/W_19_Rail_Gun.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_19_Rail_Gun_01.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/FX/FX-19-Laser_Beam.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/FX/FX-23-plasma-cloud.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/FX/FX-19-Laser_Beam_End.png" type="Texture" id=7]
@@ -25,7 +25,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 4 ]
+"values": [ 7 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("POS_Gun/Gun_Sprite/Sprite:self_modulate")
@@ -77,7 +77,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 2 ]
+"values": [ 7 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("POS_Gun/Gun_Sprite/Sprite:self_modulate")
@@ -168,6 +168,59 @@ tracks/3/keys = {
 "values": [ 0.0 ]
 }
 
+[sub_resource type="Animation" id=8]
+resource_name = "Idle"
+length = 0.15
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun/Gun_Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 12, -2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun/Gun_Sprite/Sprite:frame")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("POS_Gun/Melee_Area/CollisionShape2D:disabled")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("POS_Gun/Gun_Sprite:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
 [sub_resource type="Animation" id=6]
 length = 0.4
 step = 0.05
@@ -220,6 +273,21 @@ tracks/3/keys = {
 "values": [ 0 ]
 }
 
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun/Gun_Sprite/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 7 ]
+}
+
 [sub_resource type="Animation" id=7]
 length = 2.0
 step = 0.025
@@ -242,10 +310,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 4, 3, 2 ]
+"values": [ 7 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("POS_Gun/Melee_Area/CollisionShape2D:disabled")
@@ -302,10 +370,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.225, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("POS_Gun/Gun_Sprite/CPUParticles2D:emitting")
@@ -323,12 +391,12 @@ tracks/7/keys = {
 [node name="W_19-Rail_Gun_Hold" type="Node2D"]
 script = ExtResource( 1 )
 gun_num = 19
-damage = 130
+damage = 200
 dmg_type = "Laser"
-ammo_max = 90
+ammo_max = 5
 eject_shell = false
 throw_power = 700
-ammo_up_amount = 12
+ammo_up_amount = 2
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -339,23 +407,26 @@ wait_time = 0.5
 [node name="POS_Gun" type="Node2D" parent="."]
 
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
+self_modulate = Color( 0.215686, 0.278431, 0.309804, 1 )
 position = Vector2( 12, -2 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 offset = Vector2( 0, 2 )
-hframes = 5
+hframes = 8
 
 [node name="Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite"]
-modulate = Color( 1, 0, 0, 1 )
+modulate = Color( 0.815686, 0.0901961, 0.0862745, 1 )
+self_modulate = Color( 1, 1, 1, 0 )
 show_behind_parent = true
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 offset = Vector2( 0, 2 )
-hframes = 5
+hframes = 8
+frame = 7
 
 [node name="Beam" type="Sprite" parent="POS_Gun/Gun_Sprite"]
 visible = false
 self_modulate = Color( 1, 0, 0, 0.294118 )
 show_behind_parent = true
-position = Vector2( -1, 0 )
+position = Vector2( -1, 0.5 )
 texture = ExtResource( 5 )
 centered = false
 offset = Vector2( 0, -2 )
@@ -366,7 +437,6 @@ region_rect = Rect2( 1, 0.13, 1920, 4 )
 visible = false
 
 [node name="Sprite" type="Sprite" parent="POS_Gun/Gun_Sprite/Beam_End"]
-visible = false
 self_modulate = Color( 1, 0, 0, 0.521569 )
 texture = ExtResource( 7 )
 
@@ -380,6 +450,54 @@ texture = ExtResource( 6 )
 gravity = Vector2( -5, -10 )
 scale_amount_curve = SubResource( 1 )
 color = Color( 1, 0, 0, 0.376471 )
+
+[node name="Outline" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+self_modulate = Color( 1, 1, 1, 0.321569 )
+show_behind_parent = true
+position = Vector2( 0, 2 )
+texture = ExtResource( 2 )
+hframes = 8
+frame = 1
+
+[node name="Ammo_01" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+self_modulate = Color( 0.815686, 0.0901961, 0.0862745, 1 )
+show_behind_parent = true
+position = Vector2( 0, 2 )
+texture = ExtResource( 2 )
+hframes = 8
+frame = 2
+
+[node name="Ammo_02" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+self_modulate = Color( 0.815686, 0.0901961, 0.0862745, 1 )
+show_behind_parent = true
+position = Vector2( 0, 2 )
+texture = ExtResource( 2 )
+hframes = 8
+frame = 3
+
+[node name="Ammo_03" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+self_modulate = Color( 0.815686, 0.0901961, 0.0862745, 1 )
+show_behind_parent = true
+position = Vector2( 0, 2 )
+texture = ExtResource( 2 )
+hframes = 8
+frame = 4
+
+[node name="Ammo_04" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+self_modulate = Color( 0.815686, 0.0901961, 0.0862745, 1 )
+show_behind_parent = true
+position = Vector2( 0, 2 )
+texture = ExtResource( 2 )
+hframes = 8
+frame = 5
+
+[node name="Ammo_05" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+self_modulate = Color( 0.815686, 0.0901961, 0.0862745, 1 )
+show_behind_parent = true
+position = Vector2( 0, 2 )
+texture = ExtResource( 2 )
+hframes = 8
+frame = 6
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 
@@ -395,7 +513,7 @@ position = Vector2( 45, -3 )
 [node name="Raycast" type="Node2D" parent="POS_Gun"]
 
 [node name="Shoot" type="RayCast2D" parent="POS_Gun/Raycast"]
-position = Vector2( -8, -2 )
+position = Vector2( -8, -1.5 )
 enabled = true
 cast_to = Vector2( 2000, 0 )
 collision_mask = 4278226440
@@ -425,7 +543,9 @@ disabled = true
 anims/ChargeUp = SubResource( 3 )
 anims/Chargedown = SubResource( 4 )
 anims/Click = SubResource( 5 )
+anims/Idle = SubResource( 8 )
 anims/Melee = SubResource( 6 )
+anims/RESET = SubResource( 9 )
 anims/Shoot = SubResource( 7 )
 
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]
