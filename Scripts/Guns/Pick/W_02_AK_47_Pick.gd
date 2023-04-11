@@ -9,13 +9,13 @@ func set_right():
 	call_deferred("deferred_right")
 func deferred_right():
 	sprite.scale.y = 1
-	sprite2.scale.y = 1
+	# sprite2.scale.y = 1
 
 func set_left():
 	call_deferred("deferred_left")
 func deferred_left():
 	sprite.scale.y = -1
-	sprite2.scale.y = -1
+	# sprite2.scale.y = -1
 
 func ammo_is_zero():
 	sprite2.visible = false
