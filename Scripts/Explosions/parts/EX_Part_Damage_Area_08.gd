@@ -20,6 +20,7 @@ signal obj_entered
 
 func set_size(_size):
 	size = _size
+	update_shape()
 
 func set_pos(_pos):
 	self.global_position = _pos

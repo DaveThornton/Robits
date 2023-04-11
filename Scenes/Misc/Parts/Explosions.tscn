@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/Misc/Parts/Explosions.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Explosions/Ex-18-Cricket.tscn" type="PackedScene" id=2]
@@ -17,11 +17,10 @@
 [ext_resource path="res://Scenes/Explosions/Ex-103-BG.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Explosions/Ex-40-RPG.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Explosions/Ex-104-BG-Cannon.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Explosions/Ex-24-Directional-TNT.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Explosions/Ex-24-TNT.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Explosions/Ex-25-Directional-Time_Bomb.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Explosions/Ex-06-BG-Pokey.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/FX/FX-13-Phaser-Hit.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/Explosions/Parts/EX_Part_Damage_Area_08.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Explosions/Ex-22--Plasma_Grenade.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Explosions/Ex-23-Bomb_Man.tscn" type="PackedScene" id=24]
 
@@ -50,4 +49,3 @@ ex103 = ExtResource( 15 )
 ex104 = ExtResource( 17 )
 projhit_013 = ExtResource( 21 )
 projhit_014 = ExtResource( 21 )
-shape_06 = ExtResource( 22 )

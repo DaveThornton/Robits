@@ -42,7 +42,7 @@ export(PackedScene) var projhit_013
 export(PackedScene) var projhit_014
 
 export(PackedScene) var shape_00
-export(PackedScene) var shape_06
+export(PackedScene) var shape_08
 
 func boom(_num, _owner, _pos, _weap_num: int, _pawn_num, _dmg):
 	var x = null
@@ -87,5 +87,5 @@ func get_shape(_num):
 	var x
 	match _num:
 		0: x = shape_00.instance()
-		6: x = shape_06.instance()
+		6: x = shape_08.instance()
 	return x

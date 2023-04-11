@@ -2,6 +2,7 @@ extends Node2D
 
 export var trauma = 0.0
 export var ex_size = 100.0
+export var damage = 75
 
 onready var anim_sprite = $AnimatedSprite
 onready var damage_area = $EX_Part_Damage_Area_00
@@ -10,7 +11,7 @@ onready var kick_area = $EX_Part_Kick_Area
 var owned = 0
 var my_name = "Explosion"
 var weap_name = "Explosion"
-var damage = 75
+
 var damage_type = "Explosion"
 var gun_num = 0
 
@@ -25,7 +26,7 @@ func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 		print_debug("error in ex 03 pawn didnt connect to ex area")
 	damage_area.set_size(ex_size)
 	kick_area.set_size(ex_size)
-	damage_area.update_shape()
+	# damage_area.update_shape()
 
 	ex_sfx()
 	FX.add_trauma(trauma)
