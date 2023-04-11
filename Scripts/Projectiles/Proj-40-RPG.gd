@@ -26,7 +26,7 @@ func _physics_process(delta):
 	move_local_x(speed * delta)
 	speed = speed * 1.01
 	if cast_forward.is_colliding():
-		FX.explode(2, owned, self.global_position, gun_num, 0, damage)
+		FX.explode(gun_num, owned, self.global_position, gun_num, 0, damage)
 		call_deferred("_explode", position)
 
 
@@ -42,5 +42,5 @@ func set_layer(_bit):#camp 2048
 	cast_forward.set_collision_mask(_bit)
 
 func _explode(_pos):
-	FX.explode(10, owned, _pos, "RPG", 0, damage)
+	FX.explode(gun_num, owned, _pos, "RPG", 0, damage)
 	call_deferred("free")
