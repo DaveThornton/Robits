@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_07_CrossBow.png-e03ff6e5f1fc76a78e7df7db11db8ead.stex"
+path="res://.import/W_07_CrossBow_Outline.png-c82353602e0c044617b8ccb38b86e06b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_07_CrossBow.png"
-dest_files=[ "res://.import/W_07_CrossBow.png-e03ff6e5f1fc76a78e7df7db11db8ead.stex" ]
+source_file="res://Sprites/Guns/W_07_CrossBow_Outline.png"
+dest_files=[ "res://.import/W_07_CrossBow_Outline.png-c82353602e0c044617b8ccb38b86e06b.stex" ]
 
 [params]
 

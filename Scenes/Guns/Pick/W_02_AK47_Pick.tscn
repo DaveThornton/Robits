@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_02_AK_47_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/Misc/Parts/Outline.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Pick.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Guns/W_02-AK47.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]

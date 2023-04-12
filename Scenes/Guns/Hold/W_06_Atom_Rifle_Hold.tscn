@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_06_Atom_Rifle.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Hold/W_06_Atom_Rifle_Hold.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Hold.gd" type="Script" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Tank_Idle"
@@ -272,6 +273,13 @@ wait_time = 0.75
 position = Vector2( 8, -1 )
 texture = ExtResource( 1 )
 hframes = 6
+
+[node name="Outline" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+show_behind_parent = true
+texture = ExtResource( 1 )
+hframes = 6
+frame = 3
+script = ExtResource( 3 )
 
 [node name="Knife" type="Sprite" parent="POS_Gun/Gun_Sprite"]
 texture = ExtResource( 1 )

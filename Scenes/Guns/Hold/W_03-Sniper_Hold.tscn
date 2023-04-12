@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/FX/shot-right-01.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Misc/Parts/Outline.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Hold.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Guns/W_03_Sniper.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Guns/Hold/W_03-Sniper_Hold.gd" type="Script" id=5]
 
