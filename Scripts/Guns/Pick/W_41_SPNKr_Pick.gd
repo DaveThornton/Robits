@@ -4,7 +4,7 @@ func _on_W_41_SPNKr_Pick_body_shape_entered(body_rid:RID, body:Node, body_shape_
 	_entered(body_rid, body, body_shape_index, local_shape_index)
 
 func set_right():
-	sprite.scale.y = 1.5
+	sprite.scale.y = 1
 
 func set_left():
-	sprite.scale.y = -1.5
+	sprite.scale.y = -1

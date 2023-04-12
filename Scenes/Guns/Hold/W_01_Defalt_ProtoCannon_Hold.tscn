@@ -74,7 +74,6 @@ texture = ExtResource( 1 )
 hframes = 4
 
 [node name="Gun_Sprite2" type="Sprite" parent="POS_Gun"]
-modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 1 )
 hframes = 4
 

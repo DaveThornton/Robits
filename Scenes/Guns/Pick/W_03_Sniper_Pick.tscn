@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_03_Sniper_Pick.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Misc/Parts/Outline.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Guns/W_03_Sniper.png" type="Texture" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -30,6 +31,15 @@ shape = SubResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.0969925, -0.0969887 )
 texture = ExtResource( 3 )
+hframes = 2
+
+[node name="Outline" type="Sprite" parent="Sprite"]
+self_modulate = Color( 1, 1, 1, 0.439216 )
+show_behind_parent = true
+texture = ExtResource( 3 )
+hframes = 2
+frame = 1
+script = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 

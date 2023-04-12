@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_41_SPNKr.png-1ba51e40eb6dc8f1c2d56f6765eec5a4.stex"
+path="res://.import/EX_41_SPNKr.png-b9a20bb1f8e0ea84ead8d7030d0ac684.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_41_SPNKr.png"
-dest_files=[ "res://.import/W_41_SPNKr.png-1ba51e40eb6dc8f1c2d56f6765eec5a4.stex" ]
+source_file="res://Sprites/Explosions/EX_41_SPNKr.png"
+dest_files=[ "res://.import/EX_41_SPNKr.png-b9a20bb1f8e0ea84ead8d7030d0ac684.stex" ]
 
 [params]
 

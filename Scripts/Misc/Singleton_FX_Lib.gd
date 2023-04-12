@@ -9,6 +9,7 @@ onready var shells = $Shells
 onready var bricks = $Bricks
 onready var misc = $MiscFX
 
+export var outline_color = Color8(255,255,255,112)
 
 var spot_to_add = []
 var spot_to_remove = []
@@ -76,6 +77,10 @@ func four_brick(_owner, _pos, _color):
 
 func get_brick_color(_color):
 	return bricks.get_color(_color)
+
+func get_outline_color(): return outline_color
+
+func set_outline_color(_color): outline_color = _color
 
 func crt(_on):
 	if _on:

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_41_SPNKr_Pick.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Guns/W_41_SPNKr_Outline.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Guns/W_41_SPNKr.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Misc/Parts/Outline.gd" type="Script" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
@@ -33,6 +35,12 @@ shape = SubResource( 2 )
 position = Vector2( 6, 1 )
 texture = ExtResource( 3 )
 hframes = 2
+
+[node name="Outline" type="Sprite" parent="Sprite"]
+self_modulate = Color( 1, 1, 1, 0.439216 )
+show_behind_parent = true
+texture = ExtResource( 2 )
+script = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

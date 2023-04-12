@@ -1,7 +1,7 @@
 extends Area2D
 
 export var time_out = 1.0
-
+export var ex_num = 41
 onready var cast_forward = $RayCast2D
 onready var anim = $AnimationPlayer
 
@@ -28,7 +28,7 @@ func _physics_process(delta):
 	move_local_x(speed * delta)
 	speed = speed * 1.01
 	if cast_forward.is_colliding():
-		FX.explode(2, owned, self.global_position, gun_num, 0, damage)
+		FX.explode(ex_num, owned, self.global_position, gun_num, 0, damage)
 		call_deferred("_explode", position)
 	if time_out <= 0.0:
 		_explode(self.global_position)
