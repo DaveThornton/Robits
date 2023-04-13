@@ -29,7 +29,6 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 0.0117647, 0.662745, 0.956863, 1 )
 texture = ExtResource( 3 )
 hframes = 8
 

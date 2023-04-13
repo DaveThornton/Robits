@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_10_Blaster_Pistol_Pick.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Pick.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Guns/W_10_BlasterPistol.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_10_BlasterPistol_Outline.png" type="Texture" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.2
@@ -27,6 +29,11 @@ ammo = 30
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 hframes = 6
+
+[node name="Outline" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+texture = ExtResource( 4 )
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_11_MegaCannon.png-6a749cdf92ebe8e2b3bfaac163feeb07.stex"
+path="res://.import/W_11_MegaCannon_Outline.png-5d93c6e89d75c61b954abff45726e91f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_11_MegaCannon.png"
-dest_files=[ "res://.import/W_11_MegaCannon.png-6a749cdf92ebe8e2b3bfaac163feeb07.stex" ]
+source_file="res://Sprites/Guns/W_11_MegaCannon_Outline.png"
+dest_files=[ "res://.import/W_11_MegaCannon_Outline.png-5d93c6e89d75c61b954abff45726e91f.stex" ]
 
 [params]
 

@@ -212,7 +212,6 @@ wait_time = 0.5
 [node name="POS_Gun" type="Node2D" parent="."]
 
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
-self_modulate = Color( 0.0117647, 0.662745, 0.956863, 1 )
 texture = ExtResource( 3 )
 offset = Vector2( 7, -3 )
 hframes = 8
