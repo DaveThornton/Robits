@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Guns/Hold/W_17_Mars_Hold.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Hold.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Guns/W_17_Mars_Outline.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Guns/W_17_Mars.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -42,6 +44,11 @@ wait_time = 0.5
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
 position = Vector2( 6, -1.5 )
 texture = ExtResource( 4 )
+
+[node name="Outline" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+show_behind_parent = true
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 

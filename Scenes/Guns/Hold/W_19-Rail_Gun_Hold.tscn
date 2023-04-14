@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Guns/Hold/W_19-Rail_Gun_Hold.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/W_19_Rail_Gun_01.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Hold.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/FX/FX-19-Laser_Beam.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/FX/FX-23-plasma-cloud.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/FX/FX-19-Laser_Beam_End.png" type="Texture" id=7]
@@ -452,12 +453,12 @@ scale_amount_curve = SubResource( 1 )
 color = Color( 1, 0, 0, 0.376471 )
 
 [node name="Outline" type="Sprite" parent="POS_Gun/Gun_Sprite"]
-self_modulate = Color( 1, 1, 1, 0.321569 )
 show_behind_parent = true
 position = Vector2( 0, 2 )
 texture = ExtResource( 2 )
 hframes = 8
 frame = 1
+script = ExtResource( 3 )
 
 [node name="Ammo_01" type="Sprite" parent="POS_Gun/Gun_Sprite"]
 self_modulate = Color( 0.815686, 0.0901961, 0.0862745, 1 )

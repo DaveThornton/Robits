@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Sprites/Guns/Weap-60-Axe.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Guns/W_60_Axe.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Hold/W_00_Gun_Melee_Hold.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]

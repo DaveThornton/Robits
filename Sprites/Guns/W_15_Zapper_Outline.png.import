@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Weap-50-Shot_Gun.png-d65babfa72b7f1af59f5576f84197aee.stex"
+path="res://.import/W_15_Zapper_Outline.png-bfb1fe54418fe73956bf7acdd119cbb8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/Weap-50-Shot_Gun.png"
-dest_files=[ "res://.import/Weap-50-Shot_Gun.png-d65babfa72b7f1af59f5576f84197aee.stex" ]
+source_file="res://Sprites/Guns/W_15_Zapper_Outline.png"
+dest_files=[ "res://.import/W_15_Zapper_Outline.png-bfb1fe54418fe73956bf7acdd119cbb8.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

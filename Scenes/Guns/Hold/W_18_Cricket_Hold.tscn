@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Guns/Hold/W_18_Cricket_Hold.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Guns/W_18_Cricket_Outline.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Hold.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/Guns/W_18_Cricket.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=3]
@@ -10,32 +12,59 @@ resource_name = "Idle"
 length = 0.8
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("POS_Gun/Gun_Sprite:frame")
+tracks/0/path = NodePath("POS_Gun/Gun_Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 4, 3, 2, 1 ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, -2 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("POS_Gun/Gun_Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5, -2 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 length = 0.55
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("POS_Gun/Gun_Sprite:frame")
+tracks/0/path = NodePath("POS_Gun/Gun_Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.35, 0.4, 0.45, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 5, 1, 2, 3, 4, 0 ]
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -2 ), Vector2( 5, -2 ) ]
 }
 
 [node name="W_17_Mars_Hold" type="Node2D"]
@@ -43,11 +72,14 @@ script = ExtResource( 1 )
 gun_num = 18
 damage = 75
 dmg_type = "Laser"
-ammo_max = 55
+ammo_max = 8
 can_melee = false
 eject_shell = false
 throw_power = 1300
 ammo_up_amount = 25
+color_for_2_ammo = Color( 0.0117647, 0.607843, 0.898039, 1 )
+color_for_1_ammo = Color( 0.0392157, 0.560784, 0.0313726, 1 )
+color_for_0_ammo = Color( 0.768627, 0.0784314, 0.0666667, 1 )
 
 [node name="Shoot_Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -58,10 +90,45 @@ wait_time = 0.5
 [node name="POS_Gun" type="Node2D" parent="."]
 
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
+position = Vector2( 5, -2 )
+texture = ExtResource( 4 )
+hframes = 5
+
+[node name="Ammo_01" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+self_modulate = Color( 0.0117647, 0.607843, 0.898039, 1 )
+texture = ExtResource( 4 )
+hframes = 5
+frame = 1
+
+[node name="Ammo_02" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+self_modulate = Color( 0.0117647, 0.607843, 0.898039, 1 )
+texture = ExtResource( 4 )
+hframes = 5
+frame = 2
+
+[node name="Ammo_03" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+self_modulate = Color( 0.0117647, 0.607843, 0.898039, 1 )
+texture = ExtResource( 4 )
+hframes = 5
+frame = 3
+
+[node name="Ammo_04" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+self_modulate = Color( 0.0117647, 0.607843, 0.898039, 1 )
+texture = ExtResource( 4 )
+hframes = 5
+frame = 4
+
+[node name="Outline" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+show_behind_parent = true
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Gun_Sprite_old" type="Sprite" parent="POS_Gun"]
+visible = false
 position = Vector2( 4, -2 )
 texture = ExtResource( 4 )
 hframes = 6
-frame = 4
+frame = 5
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 
@@ -107,6 +174,7 @@ disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 1 )
+anims/RESET = SubResource( 4 )
 anims/Shoot = SubResource( 2 )
 
 [connection signal="timeout" from="Shoot_Timer" to="." method="_on_Shoot_Timer_timeout"]

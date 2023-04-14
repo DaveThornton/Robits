@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_40_RPG_Pick.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Guns/Weap-40-RPG.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_40_RPG.png" type="Texture" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 5.0
-height = 15.0
+height = 38.0
 
 [node name="Weap-Pick-40-RPG" type="RigidBody2D" groups=["FX", "PickUp"]]
 position = Vector2( -0.209351, -0.628044 )
@@ -26,13 +26,15 @@ gun_num = 40
 ammo = 4
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
-hframes = 5
+position = Vector2( 0.209351, 2.62804 )
+texture = ExtResource( 2 )
+hframes = 3
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.209351, 0.628044 )
 rotation = 1.5708
 shape = SubResource( 2 )
 

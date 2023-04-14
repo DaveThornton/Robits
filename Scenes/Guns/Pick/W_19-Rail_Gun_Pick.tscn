@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_19-Rail_Gun_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/W_19_Rail_Gun_01.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Pick.gd" type="Script" id=3]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
@@ -30,11 +31,11 @@ texture = ExtResource( 2 )
 hframes = 8
 
 [node name="Outline" type="Sprite" parent="Sprite"]
-self_modulate = Color( 1, 1, 1, 0.321569 )
 show_behind_parent = true
 texture = ExtResource( 2 )
 hframes = 8
 frame = 1
+script = ExtResource( 3 )
 
 [node name="Ammo_01" type="Sprite" parent="Sprite"]
 self_modulate = Color( 0.815686, 0.0901961, 0.0862745, 1 )

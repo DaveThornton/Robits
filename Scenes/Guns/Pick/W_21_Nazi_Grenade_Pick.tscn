@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_21_Nazi_Grenade_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/W_21_Nazi_Grenade.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Pick.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=6]
 
@@ -267,6 +268,7 @@ rotation = -3.14159
 texture = ExtResource( 2 )
 hframes = 4
 frame = 3
+script = ExtResource( 3 )
 
 [node name="Body" type="Sprite" parent="POS_Gun"]
 self_modulate = Color( 0.176471, 0.364706, 0.176471, 1 )

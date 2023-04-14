@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Weap-60-Axe.png-66dfe2b23365955c346f18a87d704557.stex"
+path="res://.import/W_20_Grenade_Outline.png-5fe45d4ae7c47be0d7e3b630e80eb6fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/Weap-60-Axe.png"
-dest_files=[ "res://.import/Weap-60-Axe.png-66dfe2b23365955c346f18a87d704557.stex" ]
+source_file="res://Sprites/Guns/W_20_Grenade_Outline.png"
+dest_files=[ "res://.import/W_20_Grenade_Outline.png-5fe45d4ae7c47be0d7e3b630e80eb6fb.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

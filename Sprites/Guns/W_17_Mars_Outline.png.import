@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Weap-10-Blaster_Pistol.png-45337b514e881b789045d154ff1c509d.stex"
+path="res://.import/W_17_Mars_Outline.png-890a4d4840d0be62c65995d43099f6b4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/Weap-10-Blaster_Pistol.png"
-dest_files=[ "res://.import/Weap-10-Blaster_Pistol.png-45337b514e881b789045d154ff1c509d.stex" ]
+source_file="res://Sprites/Guns/W_17_Mars_Outline.png"
+dest_files=[ "res://.import/W_17_Mars_Outline.png-890a4d4840d0be62c65995d43099f6b4.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

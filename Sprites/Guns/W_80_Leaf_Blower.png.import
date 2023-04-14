@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Weap-61-Sword.png-55085f23cc8d06a5759537b9fed31f48.stex"
+path="res://.import/W_80_Leaf_Blower.png-23583bdff60bfb1854b466d219c28c5b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/Weap-61-Sword.png"
-dest_files=[ "res://.import/Weap-61-Sword.png-55085f23cc8d06a5759537b9fed31f48.stex" ]
+source_file="res://Sprites/Guns/W_80_Leaf_Blower.png"
+dest_files=[ "res://.import/W_80_Leaf_Blower.png-23583bdff60bfb1854b466d219c28c5b.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

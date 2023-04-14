@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Guns/Pick/W_22_Plasma_Grenade_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Guns/Weap-22-Plasma-Grenade.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Guns/W_22_Plasma_Grenade.png" type="Texture" id=5]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.25

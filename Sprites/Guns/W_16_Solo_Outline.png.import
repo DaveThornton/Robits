@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Weap-04-M_16.png-2d09edf65b8168539d096d148e3f1b35.stex"
+path="res://.import/W_16_Solo_Outline.png-5dadada808e1b13dba14623460f5d795.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/Weap-04-M_16.png"
-dest_files=[ "res://.import/Weap-04-M_16.png-2d09edf65b8168539d096d148e3f1b35.stex" ]
+source_file="res://Sprites/Guns/W_16_Solo_Outline.png"
+dest_files=[ "res://.import/W_16_Solo_Outline.png-5dadada808e1b13dba14623460f5d795.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_18_Cricket_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/W_18_Cricket.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Guns/W_18_Cricket_Outline.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Pick.gd" type="Script" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.2
@@ -22,11 +24,43 @@ contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
 gun_num = 18
-ammo = 20
+ammo = 8
+color_for_2_ammo = Color( 0.0117647, 0.607843, 0.898039, 1 )
+color_for_1_ammo = Color( 0.0392157, 0.560784, 0.0313726, 1 )
+color_for_0_ammo = Color( 0.768627, 0.0784314, 0.0666667, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
-hframes = 6
+hframes = 5
+
+[node name="Ammo_01" type="Sprite" parent="Sprite"]
+self_modulate = Color( 0.0117647, 0.607843, 0.898039, 1 )
+texture = ExtResource( 2 )
+hframes = 5
+frame = 1
+
+[node name="Ammo_02" type="Sprite" parent="Sprite"]
+self_modulate = Color( 0.0117647, 0.607843, 0.898039, 1 )
+texture = ExtResource( 2 )
+hframes = 5
+frame = 2
+
+[node name="Ammo_03" type="Sprite" parent="Sprite"]
+self_modulate = Color( 0.0117647, 0.607843, 0.898039, 1 )
+texture = ExtResource( 2 )
+hframes = 5
+frame = 3
+
+[node name="Ammo_04" type="Sprite" parent="Sprite"]
+self_modulate = Color( 0.0117647, 0.607843, 0.898039, 1 )
+texture = ExtResource( 2 )
+hframes = 5
+frame = 4
+
+[node name="Outline" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+texture = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

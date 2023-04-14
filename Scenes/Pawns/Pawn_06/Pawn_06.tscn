@@ -1,11 +1,11 @@
 [gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Body.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Arm.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Pawns/Pawn_06/Parts/Pawn_06_Part_Head.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Pawns/Pawn_06/Parts/Pawn_06_Part_Hover.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Pawns/Pawn_06.gd" type="Script" id=5]
 [ext_resource path="res://Sprites/Pawns/Pawn_06/Pawn_06_Part_Body-Sheild.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Guns/Weap-02-AK-47.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Pawns/Pawn_06/Parts/Pawn_06_Part_Arm.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Pawns/Parts/Timers.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Pawns/Parts/Attachment_Point.tscn" type="PackedScene" id=10]
@@ -1861,7 +1861,7 @@ position = Vector2( -2, -13 )
 [node name="POS_Arm1" type="Sprite" parent="."]
 visible = false
 position = Vector2( 5, -5 )
-texture = ExtResource( 7 )
+texture = ExtResource( 2 )
 hframes = 17
 frame = 7
 

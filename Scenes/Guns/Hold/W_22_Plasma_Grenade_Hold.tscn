@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Guns/Weap-22-Plasma-Grenade.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_22_Plasma_Grenade.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Guns/Hold/W_22_Plasma_Grenade_Hold.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=3]
