@@ -29,9 +29,10 @@ angular_velocity = 90.0
 angular_velocity_random = 1.0
 orbit_velocity_random = 1.0
 scale_amount_curve = SubResource( 3 )
-color = Color( 0, 0, 1, 0.67451 )
+color = Color( 0, 0, 1, 1 )
 
 [node name="White_Pixel" type="Sprite" parent="CPUParticles2D"]
-modulate = Color( 0, 0, 1, 0.67451 )
-scale = Vector2( 12, 12 )
+self_modulate = Color( 0, 0, 1, 1 )
+position = Vector2( 2.98023e-08, 0 )
+scale = Vector2( 10, 10 )
 texture = ExtResource( 5 )

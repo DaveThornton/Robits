@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Sprites/Guns/pin.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Hold.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Guns/W_22_Plasma_Grenade_Outline.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Guns/W_22_Plasma_Grenade.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Guns/Hold/W_22_Plasma_Grenade_Hold.gd" type="Script" id=4]
 
@@ -36,12 +37,10 @@ wait_time = 6.0
 
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
 texture = ExtResource( 3 )
-hframes = 4
 
-[node name="Pin" type="Sprite" parent="POS_Gun"]
-position = Vector2( 0, -10 )
-rotation = 1.5708
+[node name="Outline" type="Sprite" parent="POS_Gun/Gun_Sprite"]
 texture = ExtResource( 2 )
+script = ExtResource( 1 )
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 visible = false

@@ -1,14 +1,11 @@
 extends 'res://Scripts/Guns/Pick/W_00_Bomb_Pick.gd'
 
-onready var pin = $Sprite_Pin
-
 var detonator
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	player = _player
 	if _ammo  == 0:
 		ammo = 0
-		pin.visible = false
 
 func add_det(_det):
 	detonator = _det
