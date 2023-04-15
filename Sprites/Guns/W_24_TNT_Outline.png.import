@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_24_TNT.png-53e7690cafa5836975b11c4faa8d0e12.stex"
+path="res://.import/W_24_TNT_Outline.png-4b6a97ae1737bc9aa154e74c2eb58c0d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_24_TNT.png"
-dest_files=[ "res://.import/W_24_TNT.png-53e7690cafa5836975b11c4faa8d0e12.stex" ]
+source_file="res://Sprites/Guns/W_24_TNT_Outline.png"
+dest_files=[ "res://.import/W_24_TNT_Outline.png-4b6a97ae1737bc9aa154e74c2eb58c0d.stex" ]
 
 [params]
 

@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Hold.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Guns/W_25_Time_Bomb.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_25_Time_Bomb_Outline.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/Guns/Hold/W_25_Time_Bomb_Hold.gd" type="Script" id=6]
 
 [sub_resource type="CircleShape2D" id=3]
@@ -45,6 +47,11 @@ texture = ExtResource( 3 )
 position = Vector2( 0, 20 )
 stay_straight = false
 text_color = Color( 1, 1, 1, 1 )
+
+[node name="Outline" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+show_behind_parent = true
+texture = ExtResource( 4 )
+script = ExtResource( 1 )
 
 [node name="POS" type="Node2D" parent="POS_Gun"]
 

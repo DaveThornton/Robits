@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_24_TNT_Pick.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Pick.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Guns/W_24_TNT_Outline.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Guns/W_24_TNT.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/FX/FX-21-Timer_Label.tscn" type="PackedScene" id=7]
 
@@ -69,6 +71,11 @@ frame = 1
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
 hframes = 11
+
+[node name="Outline" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
