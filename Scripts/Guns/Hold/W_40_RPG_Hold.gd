@@ -1,6 +1,7 @@
 extends 'res://Scripts/Guns/Hold/W_00_Gun_Hold.gd'
 
 onready var sprite_gun = $POS_Gun/Gun_Sprite
+onready var sprite_outline = $POS_Gun/Gun_Sprite/Outline
 
 func post_set_up():
 	_tip_update()
@@ -15,5 +16,7 @@ func call_on_all_projectile_fire(): _tip_update()
 func _tip_update():
 	if ammo > 0:
 		sprite_gun.frame = 0
+		sprite_outline.frame = 0
 	else:
 		sprite_gun.frame = 1
+		sprite_outline.frame = 1

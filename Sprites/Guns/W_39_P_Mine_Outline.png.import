@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_42_G-Launcher_Back.png-82f24fb84598cd3c6166cabaa69fef68.stex"
+path="res://.import/W_39_P_Mine_Outline.png-b0298d3b7e2c3f5c22b6b7374e7d140b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_42_G-Launcher_Back.png"
-dest_files=[ "res://.import/W_42_G-Launcher_Back.png-82f24fb84598cd3c6166cabaa69fef68.stex" ]
+source_file="res://Sprites/Guns/W_39_P_Mine_Outline.png"
+dest_files=[ "res://.import/W_39_P_Mine_Outline.png-b0298d3b7e2c3f5c22b6b7374e7d140b.stex" ]
 
 [params]
 

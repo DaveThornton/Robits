@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_42_G-Launcher_Pick.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Pick.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Guns/W_42_G-Launcher_Top.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Guns/W_42_G-Launcher_Back.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Guns/W_42_G-Launcher_Mid.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Guns/W_42_G-Launcher_Back_2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Guns/W_42_G-Launcher_Outline.png" type="Texture" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
@@ -33,25 +35,25 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 0.678431, 0.678431, 0.678431, 1 )
-scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 4 )
-hframes = 3
+hframes = 4
 frame = 2
 
 [node name="Mid_Back" type="Sprite" parent="Sprite"]
-self_modulate = Color( 0.737255, 0.737255, 0.737255, 1 )
 texture = ExtResource( 6 )
 
 [node name="Mid" type="Sprite" parent="Sprite"]
-self_modulate = Color( 0.313726, 0.313726, 0.313726, 1 )
 texture = ExtResource( 5 )
 hframes = 3
 
 [node name="Top" type="Sprite" parent="Sprite"]
-self_modulate = Color( 1, 0, 0, 1 )
 texture = ExtResource( 3 )
 hframes = 3
+
+[node name="Outline" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+texture = ExtResource( 7 )
+script = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

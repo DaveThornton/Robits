@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_42_G-Launcher_Back.png-82f24fb84598cd3c6166cabaa69fef68.stex"
+path="res://.import/W_42_G-Launcher_Outline.png-73c13c18c4b25452f1500f402a074c38.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_42_G-Launcher_Back.png"
-dest_files=[ "res://.import/W_42_G-Launcher_Back.png-82f24fb84598cd3c6166cabaa69fef68.stex" ]
+source_file="res://Sprites/Guns/W_42_G-Launcher_Outline.png"
+dest_files=[ "res://.import/W_42_G-Launcher_Outline.png-73c13c18c4b25452f1500f402a074c38.stex" ]
 
 [params]
 

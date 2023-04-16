@@ -10,7 +10,7 @@ collision_mask = 983040
 space_override = 2
 gravity_point = true
 gravity_vec = Vector2( -1, -1 )
-gravity = -750.0
+gravity = -1400.0
 linear_damp = 0.0
 script = ExtResource( 1 )
 

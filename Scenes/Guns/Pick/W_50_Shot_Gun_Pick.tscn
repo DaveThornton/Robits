@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_50_Shot_Gun_Pick.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Pick.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Guns/W_50_ShotGun.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_50_ShotGun_Outline.png" type="Texture" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1
@@ -38,6 +40,19 @@ hframes = 2
 texture = ExtResource( 3 )
 hframes = 2
 frame = 1
+
+[node name="Outline" type="Sprite" parent="Sprite/Sprite2"]
+show_behind_parent = true
+texture = ExtResource( 4 )
+hframes = 2
+frame = 1
+script = ExtResource( 2 )
+
+[node name="Outline" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+texture = ExtResource( 4 )
+hframes = 2
+script = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 
