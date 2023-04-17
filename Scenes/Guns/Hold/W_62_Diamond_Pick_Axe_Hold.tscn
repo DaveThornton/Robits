@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Guns/Hold/W_00_Gun_Melee_Hold.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Hold.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Guns/W_62_Diamond_PickAxe.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Guns/W_62_Diamond_PickAxe_Outline.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.7846
@@ -20,8 +22,11 @@ throw_power = 950
 position = Vector2( -0.244889, -12.6742 )
 rotation = -0.785398
 texture = ExtResource( 3 )
-hframes = 2
-frame = 1
+
+[node name="Outline" type="Sprite" parent="POS_Gun/Axe"]
+show_behind_parent = true
+texture = ExtResource( 4 )
+script = ExtResource( 2 )
 
 [node name="Throw_Pos" type="Position2D" parent="."]
 position = Vector2( 40, 0 )

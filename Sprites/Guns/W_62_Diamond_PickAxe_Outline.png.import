@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_62_Diamond_PickAxe.png-73b63bbb7eb918a06a8bc5589a66557f.stex"
+path="res://.import/W_62_Diamond_PickAxe_Outline.png-026c79f31373befd9608f6e506a0f652.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_62_Diamond_PickAxe.png"
-dest_files=[ "res://.import/W_62_Diamond_PickAxe.png-73b63bbb7eb918a06a8bc5589a66557f.stex" ]
+source_file="res://Sprites/Guns/W_62_Diamond_PickAxe_Outline.png"
+dest_files=[ "res://.import/W_62_Diamond_PickAxe_Outline.png-026c79f31373befd9608f6e506a0f652.stex" ]
 
 [params]
 
