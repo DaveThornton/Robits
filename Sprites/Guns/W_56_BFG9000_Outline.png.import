@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_51_Contradiction_Hold.png-7350663274af591ba62c90eb0fbff666.stex"
+path="res://.import/W_56_BFG9000_Outline.png-8a0bfb77026c045e2f4a0e74e862ed34.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_51_Contradiction_Hold.png"
-dest_files=[ "res://.import/W_51_Contradiction_Hold.png-7350663274af591ba62c90eb0fbff666.stex" ]
+source_file="res://Sprites/Guns/W_56_BFG9000_Outline.png"
+dest_files=[ "res://.import/W_56_BFG9000_Outline.png-8a0bfb77026c045e2f4a0e74e862ed34.stex" ]
 
 [params]
 

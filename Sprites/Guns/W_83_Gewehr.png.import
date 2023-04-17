@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_58_Derringer-sheet.png-c808559bf9f2588a7792e2d3512971d9.stex"
+path="res://.import/W_83_Gewehr.png-ac67fc1936673be5b7a5f545d3861059.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_58_Derringer-sheet.png"
-dest_files=[ "res://.import/W_58_Derringer-sheet.png-c808559bf9f2588a7792e2d3512971d9.stex" ]
+source_file="res://Sprites/Guns/W_83_Gewehr.png"
+dest_files=[ "res://.import/W_83_Gewehr.png-ac67fc1936673be5b7a5f545d3861059.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

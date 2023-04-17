@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_09_Magnum.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Hold/W_84_Luger_Hold.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Hold.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Guns/W_84_Luger_Outline.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Guns/W_84_Luger.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=3]
@@ -80,6 +82,12 @@ wait_time = 0.65
 
 [node name="Gun_Sprite" type="Sprite" parent="POS_Gun"]
 texture = ExtResource( 5 )
+
+[node name="Outline" type="Sprite" parent="POS_Gun/Gun_Sprite"]
+show_behind_parent = true
+position = Vector2( -0.00857162, -0.0890169 )
+texture = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="Fire_Sprite" type="Sprite" parent="POS_Gun"]
 position = Vector2( 17, -4 )
