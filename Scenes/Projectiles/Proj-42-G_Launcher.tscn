@@ -5,8 +5,8 @@
 [ext_resource path="res://Scenes/FX/FX-42-Grenade_Trail.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 2.0
-height = 8.0
+radius = 4.99999
+height = 12.0
 
 [node name="Proj-42-G_Launcher" type="RigidBody2D" groups=["projectile"]]
 collision_layer = 512
@@ -28,7 +28,27 @@ shape = SubResource( 1 )
 wait_time = 2.0
 
 [node name="CPUParticles2D" parent="." instance=ExtResource( 4 )]
+draw_order = 0
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 16, 0 )
+collision_mask = 778
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -16, 0 )
+collision_mask = 778
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 778
+
+[node name="RayCast2D4" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, -8 )
+collision_mask = 778
 
 [connection signal="body_entered" from="." to="." method="_on_Proj42G_Launcher_body_entered"]
-[connection signal="body_shape_entered" from="." to="." method="_on_Proj42G_Launcher_body_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

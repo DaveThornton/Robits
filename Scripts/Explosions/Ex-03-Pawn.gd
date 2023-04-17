@@ -57,3 +57,4 @@ func _on_Timer_timeout():
 
 func _on_Timer2_timeout():
 	damage_area.disable_shape(true)
+	kick_area.disable_shape(true)
