@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_68_D'k_tahg.png-42c50e59aaa9fd2e888cf9b9d9bc5d5b.stex"
+path="res://.import/W_60_Axe_Outline.png-eee419b4945891994643f8437afc4c20.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_68_D'k_tahg.png"
-dest_files=[ "res://.import/W_68_D'k_tahg.png-42c50e59aaa9fd2e888cf9b9d9bc5d5b.stex" ]
+source_file="res://Sprites/Guns/W_60_Axe_Outline.png"
+dest_files=[ "res://.import/W_60_Axe_Outline.png-eee419b4945891994643f8437afc4c20.stex" ]
 
 [params]
 

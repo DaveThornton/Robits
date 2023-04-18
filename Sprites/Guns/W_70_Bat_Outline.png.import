@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_60_Axe-sheet_Outline.png-d1d38848932f47b5f69aadcae6a4f1b2.stex"
+path="res://.import/W_70_Bat_Outline.png-457b4d6e9fcc0fb40f9663ec6c0577fe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_60_Axe-sheet_Outline.png"
-dest_files=[ "res://.import/W_60_Axe-sheet_Outline.png-d1d38848932f47b5f69aadcae6a4f1b2.stex" ]
+source_file="res://Sprites/Guns/W_70_Bat_Outline.png"
+dest_files=[ "res://.import/W_70_Bat_Outline.png-457b4d6e9fcc0fb40f9663ec6c0577fe.stex" ]
 
 [params]
 

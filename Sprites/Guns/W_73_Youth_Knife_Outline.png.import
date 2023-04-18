@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_68_D'k_tahg.png-42c50e59aaa9fd2e888cf9b9d9bc5d5b.stex"
+path="res://.import/W_73_Youth_Knife_Outline.png-94f80f9d30e83edd0e3e30c7abc32a8a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_68_D'k_tahg.png"
-dest_files=[ "res://.import/W_68_D'k_tahg.png-42c50e59aaa9fd2e888cf9b9d9bc5d5b.stex" ]
+source_file="res://Sprites/Guns/W_73_Youth_Knife_Outline.png"
+dest_files=[ "res://.import/W_73_Youth_Knife_Outline.png-94f80f9d30e83edd0e3e30c7abc32a8a.stex" ]
 
 [params]
 
