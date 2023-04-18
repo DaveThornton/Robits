@@ -1,17 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_65_Knife_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/W_65_Knife.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Pick.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Guns/W_65_Knife_Outline.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.78738
 height = 12.4252
 
-[node name="W_65_Knife_Pick" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="W_65_Knife_Pick" type="RigidBody2D" groups=["FX", "PickUp"]]
 position = Vector2( 0, 0.0510483 )
 collision_layer = 524288
 collision_mask = 917532
@@ -21,10 +19,15 @@ contacts_reported = 9
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
-smoke = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="Outline" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+position = Vector2( 0, -0.0510483 )
+texture = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3

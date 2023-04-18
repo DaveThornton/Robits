@@ -1,56 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Guns/Hold/W_64_ESword_Hold.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Hold.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Guns/W_64_ESword.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Guns/W_64_ESword_Flash.png" type="Texture" id=4]
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 48, 32 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 3 )
-region = Rect2( 48, 0, 48, 32 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 3 )
-region = Rect2( 96, 0, 48, 32 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 3 )
-region = Rect2( 144, 0, 48, 32 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 48, 32 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 3 )
-region = Rect2( 240, 0, 48, 32 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 3 )
-region = Rect2( 288, 0, 48, 32 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 3 )
-region = Rect2( 336, 0, 48, 32 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 3 )
-region = Rect2( 384, 0, 48, 32 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 3 )
-region = Rect2( 432, 0, 48, 32 )
-
-[sub_resource type="SpriteFrames" id=12]
-animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
-"loop": true,
-"name": "default",
-"speed": 7.0
-} ]
+[ext_resource path="res://Sprites/Guns/W_64_ESword_Outline.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.7846
@@ -59,7 +13,7 @@ height = 7.89017
 [sub_resource type="Animation" id=13]
 resource_name = "Flash"
 tracks/0/type = "value"
-tracks/0/path = NodePath("POS_Gun/Bar:frame")
+tracks/0/path = NodePath("POS_Gun/Sprite/Bar:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -71,35 +25,46 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
 }
 
+[sub_resource type="Animation" id=14]
+resource_name = "Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("POS_Gun/Sprite/Bar:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
 [node name="W_64_ESword_Hold" type="Node2D"]
 script = ExtResource( 1 )
 gun_num = 64
-damage = 100
 melee_damage = 100
 dmg_type = "Laser"
-can_melee = null
-take_ammo = false
-use_ammo = false
-eject_shell = false
-is_bomb = null
 
 [node name="POS_Gun" type="Node2D" parent="."]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="POS_Gun"]
-position = Vector2( 2, -6 )
+[node name="Sprite" type="Sprite" parent="POS_Gun"]
 rotation = -1.22173
-frames = SubResource( 12 )
-frame = 5
-playing = true
-offset = Vector2( 10, 0 )
+texture = ExtResource( 3 )
+offset = Vector2( 16, 0 )
 
-[node name="Bar" type="Sprite" parent="POS_Gun"]
-self_modulate = Color( 1, 1, 1, 0.517647 )
-position = Vector2( 2, -6 )
-rotation = -1.22173
+[node name="Bar" type="Sprite" parent="POS_Gun/Sprite"]
 texture = ExtResource( 4 )
-offset = Vector2( 10, 0 )
+offset = Vector2( 16, 0 )
 hframes = 10
+
+[node name="Outline" type="Sprite" parent="POS_Gun/Sprite"]
+show_behind_parent = true
+position = Vector2( 2.38419e-07, 4.76837e-07 )
+texture = ExtResource( 5 )
+offset = Vector2( 16, 0 )
+script = ExtResource( 2 )
 
 [node name="Throw_Pos" type="Position2D" parent="."]
 position = Vector2( 40, 0 )
@@ -125,6 +90,7 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Flash = SubResource( 13 )
+anims/Idle = SubResource( 14 )
 
 [connection signal="body_entered" from="Melee_Area" to="." method="_on_Melee_Area_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

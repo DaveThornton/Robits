@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/W_67_Wood_Sword.png-4c8c423e1fe56c9443e928d7c1883d53.stex"
+path="res://.import/W_65_Knife_Outline.png-27fc45547000ca2807570666ee529f67.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Guns/W_67_Wood_Sword.png"
-dest_files=[ "res://.import/W_67_Wood_Sword.png-4c8c423e1fe56c9443e928d7c1883d53.stex" ]
+source_file="res://Sprites/Guns/W_65_Knife_Outline.png"
+dest_files=[ "res://.import/W_65_Knife_Outline.png-27fc45547000ca2807570666ee529f67.stex" ]
 
 [params]
 

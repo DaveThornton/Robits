@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/Guns/W_65_Knife.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Guns/Hold/W_00_Gun_Melee_Hold.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Hold.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Guns/W_65_Knife_Outline.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.7846
@@ -20,6 +22,12 @@ throw_power = 1300
 rotation = -1.5708
 texture = ExtResource( 1 )
 offset = Vector2( 10, 0 )
+
+[node name="Outline" type="Sprite" parent="POS_Gun/Bar"]
+show_behind_parent = true
+position = Vector2( 10, 3.62396e-05 )
+texture = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="Throw_Pos" type="Position2D" parent="."]
 position = Vector2( 40, 0 )
