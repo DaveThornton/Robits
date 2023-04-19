@@ -145,12 +145,14 @@ func _anim_prone_crawl():
 
 func _anim_stun():
 	print_debug("make stun animation pawn 18")
-	if is_right:
-		_body(1)
-		new_anim = "Stun-Right"
-	else:
-		_body(1)
-		new_anim = "Stun-Left"
+	_body(1)
+	new_anim = "Stun"
+	# if is_right:
+	# 	_body(1)
+	# 	new_anim = "Stun-Right"
+	# else:
+	# 	_body(1)
+	# 	new_anim = "Stun-Left"
 	head.play("Stun")
 
 func _anim_Knock():
