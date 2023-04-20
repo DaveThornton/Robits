@@ -1,15 +1,15 @@
 [gd_resource type="TileSet" load_steps=485 format=2]
 
-[ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Steel-plates.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Blank.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Tile_Sets/TS-G-07-Bricks-02.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Tile_Sets/TS-G-07-Bricks-01.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Tile_Sets/TS-G-08-SciFi.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Tile_Sets/TS-G-09-SciFi.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Tile_Sets/TS-G-13-Tile.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Puck_Fan.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Steel-plates_02.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Castle.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-05-Main-Blank.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-G-07-Bricks-01.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-G-09-SciFi.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-G-07-Bricks-02.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-G-08-SciFi.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-05-Main-Puck_Fan.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-05-Main-Castle.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-05-Main-Steel-plates.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-G-13-Tile.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-05-Main-Steel-plates_02.png" type="Texture" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
@@ -1435,7 +1435,7 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 
 [resource]
 2/name = "TS-05-Main-Steel-plates.png 2"
-2/texture = ExtResource( 3 )
+2/texture = ExtResource( 8 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 220, 100 )
@@ -1741,7 +1741,7 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 } ]
 2/z_index = 0
 7/name = "TS-05-Main-Blank.png 7"
-7/texture = ExtResource( 8 )
+7/texture = ExtResource( 1 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 0, 220, 100 )
@@ -2047,7 +2047,7 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 } ]
 7/z_index = 0
 9/name = "TS-G-07-Bricks-01.png 9"
-9/texture = ExtResource( 10 )
+9/texture = ExtResource( 2 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 0, 0, 220, 100 )
@@ -2353,7 +2353,7 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 } ]
 9/z_index = 0
 10/name = "TS-G-07-Bricks-02.png 10"
-10/texture = ExtResource( 9 )
+10/texture = ExtResource( 4 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 0, 0, 220, 100 )
@@ -2659,7 +2659,7 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 } ]
 10/z_index = 0
 11/name = "TS-G-08-SciFi.png 11"
-11/texture = ExtResource( 11 )
+11/texture = ExtResource( 5 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 0, 0, 220, 100 )
@@ -2965,7 +2965,7 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 } ]
 11/z_index = 0
 12/name = "TS-G-09-SciFi.png 12"
-12/texture = ExtResource( 12 )
+12/texture = ExtResource( 3 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 0, 0, 220, 100 )
@@ -3271,7 +3271,7 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 } ]
 12/z_index = 0
 13/name = "TS-G-13-Tile.png 13"
-13/texture = ExtResource( 13 )
+13/texture = ExtResource( 9 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 0, 0, 220, 100 )
@@ -3577,7 +3577,7 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 } ]
 13/z_index = 0
 17/name = "TS-05-Main-Puck_Fan.png 17"
-17/texture = ExtResource( 17 )
+17/texture = ExtResource( 6 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 0, 0, 220, 100 )
@@ -3883,7 +3883,7 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 } ]
 17/z_index = 0
 20/name = "TS-05-Main-Steel-plates_02.png 20"
-20/texture = ExtResource( 20 )
+20/texture = ExtResource( 10 )
 20/tex_offset = Vector2( 0, 0 )
 20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 0, 0, 220, 100 )
@@ -4207,7 +4207,7 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 } ]
 20/z_index = 0
 21/name = "TS-05-Main-Castle.png 21"
-21/texture = ExtResource( 21 )
+21/texture = ExtResource( 7 )
 21/tex_offset = Vector2( 0, 0 )
 21/modulate = Color( 1, 1, 1, 1 )
 21/region = Rect2( 0, 0, 220, 100 )
@@ -4513,7 +4513,7 @@ points = PoolVector2Array( 20, 20, 0, 20, 0, 0, 20, 0 )
 } ]
 21/z_index = 0
 22/name = "TS-05-Main-Steel-plates_02.png 22"
-22/texture = ExtResource( 20 )
+22/texture = ExtResource( 10 )
 22/tex_offset = Vector2( 0, 0 )
 22/modulate = Color( 1, 1, 1, 1 )
 22/region = Rect2( 60, 80, 20, 20 )

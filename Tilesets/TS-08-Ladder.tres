@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=53 format=2]
 
-[ext_resource path="res://Sprites/Tile_Sets/TS-08-Ladders.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Tile_Sets/TS-G-06-Fence.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-08-Ladders.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-G-06-Fence.png" type="Texture" id=2]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 20, 0, 20, 20, 0, 20 )

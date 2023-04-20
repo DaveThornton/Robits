@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="TM_02_BACK_FX_00" type="TileMap"]
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
+format = 1

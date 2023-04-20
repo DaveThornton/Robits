@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=3 format=2]
 
-[ext_resource path="res://Sprites/Tile_Sets/TS-04-Back-FX-Circuit_01.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Tile_Sets/TS-04-Back-FX-Circuit_02.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-04-Back-FX-Circuit_01.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-04-Back-FX-Circuit_02.png" type="Texture" id=2]
 
 [resource]
 12/name = "TS-04-Back-FX-Curcuit_01.png 12"

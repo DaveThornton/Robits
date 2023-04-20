@@ -1,14 +1,14 @@
 [gd_resource type="TileSet" load_steps=10 format=2]
 
-[ext_resource path="res://Sprites/Tile_Sets/TS-03-Back-Brick.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Tile_Sets/TS-G-10-Back-Window.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Tile_Sets/TS-03-Back-Dirt-Dirt.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Sand-Back.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Tile_Sets/TS-07-plat-Snow.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Tile_Sets/TS-05-Main-Castle.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Tile_Sets/Background/Brick_01.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Tile_Sets/Background/Brick_03.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Tile_Sets/Background/Brick_02.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-03-Back-Brick.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-G-10-Back-Window.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-03-Back-Dirt-Dirt.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-05-Main-Sand-Back.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-07-plat-Snow.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Tile_Sets/Old/TS-05-Main-Castle.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Tile_Sets/Old/Background/Brick_01.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Tile_Sets/Old/Background/Brick_03.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Tile_Sets/Old/Background/Brick_02.png" type="Texture" id=9]
 
 [resource]
 0/name = "TS-G-10-Back-Window.png 0"
