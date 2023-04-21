@@ -234,8 +234,12 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		timers.start_last_hit_by()
 	_im_hit = true
 	_hit_time += 0.11
-	dmg_given_stat(_by_who,_damage)
-	dmg_taken_stat(_damage)
+	if _damage > nrg:
+		dmg_given_stat(_by_who,nrg)
+		dmg_taken_stat(nrg)
+	else:
+		dmg_given_stat(_by_who,_damage)
+		dmg_taken_stat(_damage)
 	if play_type == 1:
 		if is_shield_up:
 			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
@@ -246,7 +250,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 			call_deferred("free")
 	elif play_type > 1:
-		if !is_shield_up:
+		if !is_shield_up || _by_who == 0:
 			nrg = nrg - (_damage - armor)
 			nrg_update()
 			shield_up()
@@ -656,7 +660,7 @@ func _on_Pick_Up_Area_body_exited(body):
 		wep_array.erase(body)
 
 func killed_by_map(_by_who, _by_what, _damage_type, _damage):
-	hit(_by_who, _by_what, 0, (nrg* 2))
+	hit(_by_who, 0, 0, (nrg* 2))#who,what,type,damage
 
 func start_next_level():
 	if !my_gun && start_equiped > 0:

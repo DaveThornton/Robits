@@ -14,6 +14,7 @@ var damage_type = "Explosion"
 var gun_num = 0
 
 func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
+	print_debug("init called inside of pawn ex")
 	self.global_position = _pos
 	damage1 = (_dmg * .5)
 
@@ -36,9 +37,9 @@ func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 	FX.add_trauma(trauma)
 	gun_num = _weap_name
 	FX.mega_ex(_pos)
-	var test = damage_area.connect("obj_entered", self, "body_entered")
-	if !test:
-		print_debug("error in ex 03 pawn didnt connect to ex area")
+	var _test = damage_area.connect("obj_entered", self, "body_entered")
+	# if !test:
+	# 	print_debug("error in ex 03 pawn didnt connect to ex area")
 	damage_area.set_size(ex_size)
 	kick_area.set_size(ex_size)
 	damage_area.update_shape()
@@ -48,6 +49,7 @@ func start( _sr , _ss, _sss, _player):
 	self.position = _ss
 
 func body_entered(body, per):
+	print("body entered")
 	var dmg = clamp(damage2 * per,(damage2 * .2),damage2)
 	# print_debug("body entered and take damage given is ",dmg)
 	body.hit(owned, gun_num, damage_type, dmg)

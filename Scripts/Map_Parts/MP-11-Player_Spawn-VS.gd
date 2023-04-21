@@ -20,7 +20,6 @@ func _on_Area2D_body_entered(body):
 			Map_Hand.map.remove_spawn_pos(self)
 		spawnable = false 
 		count += 1
-#	print_debug("entered    ",spawnable)
 
 func _on_Area2D_body_exited(body):
 	if body.get_groups().has("player"):
@@ -29,5 +28,3 @@ func _on_Area2D_body_exited(body):
 			if Map_Hand.map:
 				Map_Hand.map.add_spawn_pos(self)
 			spawnable = true
-#			count = 0
-#	print_debug("exited    ",spawnable)

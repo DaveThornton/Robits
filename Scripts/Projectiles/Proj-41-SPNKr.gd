@@ -28,10 +28,9 @@ func _physics_process(delta):
 	move_local_x(speed * delta)
 	speed = speed * 1.01
 	if cast_forward.is_colliding():
-		FX.explode(ex_num, owned, self.global_position, gun_num, 0, damage)
-		call_deferred("_explode", position)
+		call_deferred("_explode", global_position)
 	if time_out <= 0.0:
-		_explode(self.global_position)
+		call_deferred("_explode", global_position)
 
 func set_layer(_bit):
 	self.set_collision_layer(_bit)

@@ -21,9 +21,9 @@ func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 	gun_num = _weap_name
 	damage = _dmg
 
-	var test = damage_area.connect("obj_entered", self, "body_entered")
-	if !test:
-		print_debug("error in ex 03 pawn didnt connect to ex area")
+	var _test = damage_area.connect("obj_entered", self, "body_entered")
+	# if !test:
+	# 	print_debug("error in ex 00 didnt connect to ex area")
 	damage_area.set_size(ex_size)
 	kick_area.set_size(ex_size)
 	# damage_area.update_shape()
@@ -41,6 +41,7 @@ func ex_sfx():
 	SFX.play("EX_Standard")
 
 func body_entered(body, _per):
+	print_debug("body entered")
 	if body.get_groups().has("hittable"):
 		body.hit(owned, gun_num, damage_type, damage)
 

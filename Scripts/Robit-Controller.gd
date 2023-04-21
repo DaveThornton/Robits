@@ -152,8 +152,6 @@ func explode_pawn(_player, _pos, _by_who, _by_what):
 	FX.explode(3, player, _pos + Vector2(0,-30), 1001, Player_Stats.get_pawn_num(player), 2)
 	alive = false
 	clear_pawn()
-	# my_pawn.call_deferred("free")
-	# my_pawn = null
 	if !Game.get_game_over():
 		Player_Stats.add_kill(player, _by_who , 1, _by_what)
 		if Game.get_mode() != 0:
