@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Tile_Sets/TS_32_04_Platforms.tres" type="TileSet" id=1]
+
+[node name="TM_04_PLATFORMS_00" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 8 )
+cell_custom_transform = Transform2D( 32, 0, 0, 8, 0, 0 )
+collision_layer = 4
+collision_mask = 4
+format = 1

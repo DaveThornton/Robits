@@ -11,7 +11,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_24_TNT_Pick.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=11]
-[ext_resource path="res://Maps/Scripts/map-00.gd" type="Script" id=12]
+[ext_resource path="res://Maps/Scripts/Old/map-00.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Guns/Pick/W_19-Rail_Gun_Pick.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Explosions/Ex-23-Bomb_Man.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Guns/Pick/W_23_Bomb_Man_Pick.tscn" type="PackedScene" id=15]
@@ -324,6 +324,12 @@ position = Vector2( 1520, 850 )
 
 [node name="W_41_SPNKr_Pick" parent="." instance=ExtResource( 22 )]
 position = Vector2( 894.791, 979.372 )
+
+[node name="W_41_SPNKr_Pick2" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1080, 970 )
+
+[node name="W_41_SPNKr_Pick3" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1340, 1000 )
 
 [node name="W_24_TNT_Pick14" parent="." instance=ExtResource( 9 )]
 position = Vector2( 385, 800 )

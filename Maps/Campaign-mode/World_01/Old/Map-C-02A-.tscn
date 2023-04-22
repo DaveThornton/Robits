@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=2]
 
-[ext_resource path="res://Maps/Scripts/map-C-00.gd" type="Script" id=1]
+[ext_resource path="res://Maps/Scripts/Old/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/TS-05-Main-Brick.tres" type="TileSet" id=2]
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=3]
 [ext_resource path="res://Tilesets/TS-08-Ladder.tres" type="TileSet" id=4]

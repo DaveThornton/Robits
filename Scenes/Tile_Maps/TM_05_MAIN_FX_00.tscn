@@ -1,0 +1,4 @@
+[gd_scene format=2]
+
+[node name="TM_05_MAIN_FX_00" type="TileMap"]
+format = 1
