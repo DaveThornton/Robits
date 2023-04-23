@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/Tile_Sets/Main/TS_01_32_Dirt.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Tile_Sets/Main/TS_03_32_Dirt_Snow_Dark.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Tile_Sets/Main/TS_04_32_Red_Brick.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Tile_Sets/Main/TS_06_32_Puck_Fan.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Tile_Sets/Main/TS_05_32_White_Brick.png" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -640,7 +640,7 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=212]
-points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=213]
 points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
@@ -2008,7 +2008,7 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 0, 32, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
-4/name = "TS_06_32_Puck_Fan.png 4"
+4/name = "TS_05_32_White_Brick.png 4"
 4/texture = ExtResource( 5 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )

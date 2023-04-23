@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TS_06_32_Puck_Fan.png-cc3712f99431c41edf377947b7d8808b.stex"
+path="res://.import/TS_06_32_Castle_Main.png-894fd2401307d3a2fd0083881577ae8d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tile_Sets/Main/TS_06_32_Puck_Fan.png"
-dest_files=[ "res://.import/TS_06_32_Puck_Fan.png-cc3712f99431c41edf377947b7d8808b.stex" ]
+source_file="res://Sprites/Tile_Sets/Main/TS_06_32_Castle_Main.png"
+dest_files=[ "res://.import/TS_06_32_Castle_Main.png-894fd2401307d3a2fd0083881577ae8d.stex" ]
 
 [params]
 
