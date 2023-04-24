@@ -3,6 +3,7 @@
 [ext_resource path="res://Scenes/Tile_Sets/TS_32_01_Back.tres" type="TileSet" id=1]
 
 [node name="TM_01_BACK_00" type="TileMap"]
+z_index = -10
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
