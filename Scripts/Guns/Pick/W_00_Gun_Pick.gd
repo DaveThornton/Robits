@@ -18,6 +18,8 @@ var hits_max = 5
 func _ready():
 	ready = true
 	set_dir(is_right, dir)
+	timer.wait_time = expire_time
+	timer.start()
 	
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if _ammo != -1: 
@@ -25,8 +27,6 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if ammo == 0:
 		call_deferred("ammo_is_zero")
 	is_right = _is_right
-	timer.wait_time = expire_time
-	timer.start()
 	time = _time
 	if ready:
 		set_dir(is_right, dir)

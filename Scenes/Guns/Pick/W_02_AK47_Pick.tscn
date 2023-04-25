@@ -33,7 +33,6 @@ hframes = 6
 frame = 2
 
 [node name="Outline" type="Sprite" parent="Sprite"]
-self_modulate = Color( 1, 1, 1, 0.478431 )
 show_behind_parent = true
 texture = ExtResource( 3 )
 hframes = 6
@@ -47,7 +46,6 @@ hframes = 6
 frame = 3
 
 [node name="Outline" type="Sprite" parent="Sprite/Sprite2"]
-self_modulate = Color( 1, 1, 1, 0.439216 )
 show_behind_parent = true
 texture = ExtResource( 3 )
 hframes = 6

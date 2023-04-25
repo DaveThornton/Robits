@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/Power_Ups/Pick-Up-04-Jump_Power_Up.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_01.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-10-R_Mark_01.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Guns/Pick/W_40_RPG_Pick.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=11]
 
