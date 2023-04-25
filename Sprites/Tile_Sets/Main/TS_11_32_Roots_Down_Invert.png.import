@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TS_10_32_Puck_Fan_Blue.png-1ea72069e8863cd80a95bfe281151fca.stex"
+path="res://.import/TS_11_32_Roots_Down_Invert.png-38edd8364a275dd65c7787c6673a42b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tile_Sets/Main/TS_10_32_Puck_Fan_Blue.png"
-dest_files=[ "res://.import/TS_10_32_Puck_Fan_Blue.png-1ea72069e8863cd80a95bfe281151fca.stex" ]
+source_file="res://Sprites/Tile_Sets/Main/TS_11_32_Roots_Down_Invert.png"
+dest_files=[ "res://.import/TS_11_32_Roots_Down_Invert.png-38edd8364a275dd65c7787c6673a42b0.stex" ]
 
 [params]
 

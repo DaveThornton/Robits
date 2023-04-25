@@ -3,6 +3,7 @@
 [ext_resource path="res://Scenes/Tile_Sets/TS_32_07_Front_FX.tres" type="TileSet" id=1]
 
 [node name="TM_07_FRONT_FX_00" type="TileMap"]
+z_index = 10
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1

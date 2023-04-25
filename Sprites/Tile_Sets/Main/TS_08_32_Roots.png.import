@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TS_02_32_Steel_Plates.png-47f9490d18d609a7fb1b52cc3f35ce6c.stex"
+path="res://.import/TS_08_32_Roots.png-257d8a9807a5563c47ee646774f55bd9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tile_Sets/Main/TS_02_32_Steel_Plates.png"
-dest_files=[ "res://.import/TS_02_32_Steel_Plates.png-47f9490d18d609a7fb1b52cc3f35ce6c.stex" ]
+source_file="res://Sprites/Tile_Sets/Main/TS_08_32_Roots.png"
+dest_files=[ "res://.import/TS_08_32_Roots.png-257d8a9807a5563c47ee646774f55bd9.stex" ]
 
 [params]
 

@@ -6,6 +6,7 @@
 [ext_resource path="res://Sprites/Misc/White_Pixel.png" type="Texture" id=4]
 
 [node name="Pawn_Part_Player_Indicator" type="Node2D"]
+z_index = 50
 script = ExtResource( 3 )
 
 [node name="WhitePixel" type="Sprite" parent="."]
