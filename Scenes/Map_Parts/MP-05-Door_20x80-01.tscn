@@ -294,9 +294,7 @@ extents = Vector2( 10, 2.5 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 6, 18.993 )
 
-[node name="Door-80_Tall" type="Node2D" groups=[
-"map",
-]]
+[node name="Door-80_Tall" type="Node2D" groups=["map"]]
 script = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 1 )]
@@ -332,9 +330,7 @@ position = Vector2( 42, 0 )
 shape = SubResource( 4 )
 disabled = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
-"map",
-]]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["map"]]
 collision_layer = 8
 collision_mask = 885279
 
