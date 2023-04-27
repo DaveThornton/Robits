@@ -29,6 +29,7 @@ func _ready():
 	area_right.set_collision_mask_bit(10,open_for_player)
 	area_left.set_collision_mask_bit(11,open_for_bg)
 	area_right.set_collision_mask_bit(11,open_for_bg)
+	anim.play("Door_Open",0,-1,true)
 
 
 func _process(_delta):
