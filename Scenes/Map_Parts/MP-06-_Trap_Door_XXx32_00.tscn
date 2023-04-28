@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Map_Parts/MP-06-Trap_Door-64x32.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Map_Parts/MP-06-_Trap_Door_XXx32_00.gd" type="Script" id=2]
+
+[node name="MP-06-Trap_Door_XXx32_00" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 32, 16 )
+texture = ExtResource( 1 )
+vframes = 8
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D_Top" type="Area2D" parent="."]
+collision_layer = 1026
+collision_mask = 1026
+
+[node name="Close" type="CollisionShape2D" parent="Area2D_Top"]
+
+[node name="Far" type="CollisionShape2D" parent="Area2D_Top"]
+
+[node name="Area2D_Bot" type="Area2D" parent="."]
+collision_layer = 1026
+collision_mask = 1026
+
+[node name="Close" type="CollisionShape2D" parent="Area2D_Bot"]
+
+[node name="Far" type="CollisionShape2D" parent="Area2D_Bot"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 264
+collision_mask = 264
+
+[node name="Left" type="CollisionShape2D" parent="StaticBody2D"]
+
+[node name="Mid_L" type="CollisionShape2D" parent="StaticBody2D"]
+
+[node name="Mid_R" type="CollisionShape2D" parent="StaticBody2D"]
+
+[node name="Right" type="CollisionShape2D" parent="StaticBody2D"]
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Area2D_Top" to="." method="_on_Area2D_Top_body_entered"]
+[connection signal="body_exited" from="Area2D_Top" to="." method="_on_Area2D_Top_body_exited"]
+[connection signal="body_entered" from="Area2D_Bot" to="." method="_on_Area2D_Bot_body_entered"]
+[connection signal="body_exited" from="Area2D_Bot" to="." method="_on_Area2D_Bot_body_exited"]

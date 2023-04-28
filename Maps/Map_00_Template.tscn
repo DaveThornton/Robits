@@ -15,8 +15,8 @@
 [ext_resource path="res://Scenes/Map_Parts/Old/MP-10-R_Mark_01.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_00.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_DN_32x128-00.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scripts/Map_Parts/MP-05-Door_32xXX-00.gd" type="Script" id=16]
-[ext_resource path="res://Scenes/Map_Parts/MP-05-Door_UP_32x64-00.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Map_Parts/MP-06-Trap_Door_64x32_00.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Map_Parts/MP-05-Door_DN_32x64-00.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_UP_32x128-00.tscn" type="PackedScene" id=18]
 
 [node name="Map_00_Template" type="Node2D"]
@@ -105,11 +105,12 @@ position = Vector2( 392, 816 )
 
 [node name="MP-05-Door_DN_32x128-00" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1080, 960 )
-script = ExtResource( 16 )
-
-[node name="MP-05-Door_32xXX-00" parent="." instance=ExtResource( 17 )]
-position = Vector2( 872, 960 )
-script = ExtResource( 16 )
 
 [node name="MP-05-Door_UP_32x128-00" parent="." instance=ExtResource( 18 )]
-position = Vector2( 1104, 960 )
+position = Vector2( 968, 960 )
+
+[node name="MP-05-Door_DN_32x64-00" parent="." instance=ExtResource( 17 )]
+position = Vector2( 888, 960 )
+
+[node name="MP-056-Trap_Door_64x32_00" parent="." instance=ExtResource( 16 )]
+position = Vector2( 544, 688 )

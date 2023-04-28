@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_32xXX-00.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Map_Parts/MP-05-Door-32x128.png" type="Texture" id=2]
@@ -7,8 +7,14 @@
 radius = 32.0
 height = 64.0
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 10, 4 )
+
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8, 24 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 10, 4 )
 
 [sub_resource type="Animation" id=6]
 resource_name = "Door_Open"
@@ -26,7 +32,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("StaticBody2D/Top:position")
+tracks/1/path = NodePath("StaticBody2D/Bot:shape:extents")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -35,10 +41,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -124 ), Vector2( 0, -127.5 ) ]
+"values": [ Vector2( 10, 4 ), Vector2( 10, 0.5 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("StaticBody2D/Top:shape:extents")
+tracks/2/path = NodePath("StaticBody2D/Bot:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -47,10 +53,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 10, 4 ), Vector2( 10, 0.5 ) ]
+"values": [ Vector2( 0, -4 ), Vector2( 0, -0.5 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("StaticBody2D/Bot:shape:extents")
+tracks/3/path = NodePath("StaticBody2D/Mid:shape:extents")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -59,10 +65,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 10, 4 ), Vector2( 10, 0.5 ) ]
+"values": [ Vector2( 8, 56 ), Vector2( 8, 0.5 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("StaticBody2D/Bot:position")
+tracks/4/path = NodePath("StaticBody2D/Mid:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -71,10 +77,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -4 ), Vector2( 0, -0.5 ) ]
+"values": [ Vector2( 0, -64 ), Vector2( 0, -127.5 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("StaticBody2D/Mid:shape:extents")
+tracks/5/path = NodePath("StaticBody2D/Top:shape:extents")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -83,10 +89,10 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 8, 56 ), Vector2( 8, 0.5 ) ]
+"values": [ Vector2( 10, 4 ), Vector2( 10, 1 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("StaticBody2D/Mid:position")
+tracks/6/path = NodePath("StaticBody2D/Top:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -95,7 +101,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -64 ), Vector2( 0, -127.5 ) ]
+"values": [ Vector2( 0, -124 ), Vector2( 0, -127 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -208,8 +214,14 @@ shape = SubResource( 4 )
 position = Vector2( 104, -64 )
 shape = SubResource( 4 )
 
+[node name="Top" parent="StaticBody2D" index="0"]
+shape = SubResource( 8 )
+
 [node name="Mid" parent="StaticBody2D" index="1"]
-shape = SubResource( 5 )
+shape = SubResource( 9 )
+
+[node name="Bot" parent="StaticBody2D" index="2"]
+shape = SubResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 anims/Door_Open = SubResource( 6 )

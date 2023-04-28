@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_32xXX-00.tscn" type="PackedScene" id=1]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 32.0
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10, 4 )
+
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8, 24 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 10, 4 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "Door_Open"
@@ -204,8 +210,14 @@ shape = SubResource( 3 )
 position = Vector2( 103, -32 )
 shape = SubResource( 3 )
 
+[node name="Top" parent="StaticBody2D" index="0"]
+shape = SubResource( 7 )
+
 [node name="Mid" parent="StaticBody2D" index="1"]
-shape = SubResource( 4 )
+shape = SubResource( 8 )
+
+[node name="Bot" parent="StaticBody2D" index="2"]
+shape = SubResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 anims/Door_Open = SubResource( 5 )
