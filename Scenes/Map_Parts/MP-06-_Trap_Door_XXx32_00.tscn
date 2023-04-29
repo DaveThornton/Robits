@@ -12,6 +12,7 @@ texture = ExtResource( 1 )
 vframes = 8
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Area2D_Top" type="Area2D" parent="."]
 collision_layer = 1026
