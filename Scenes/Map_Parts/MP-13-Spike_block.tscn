@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Map_Parts/MP-13-Spike_block.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Map_Parts/MP-13-Spike_Block.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Map_Parts/MP-13-Spike_Block_32X32.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Map_Parts/MP-13-Spike_Block_32X32_Outline.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15, 15 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14, 14 )
 
 [node name="MP-13-Spike_Block" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,10 +21,18 @@ collision_mask = 2
 shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 131080
+collision_mask = 131080
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="Outline" type="Sprite" parent="Sprite"]
+self_modulate = Color( 1, 1, 1, 0.160784 )
+show_behind_parent = true
+texture = ExtResource( 3 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

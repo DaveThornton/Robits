@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MP-50-Thwomp.png-62edddc8985cbba1b421dcc78df6b658.stex"
+path="res://.import/MP-13-Spike_Block_32X32.png-5dd25cfd4abe4da63ca08ec2398698ad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Map_Parts/MP-50-Thwomp.png"
-dest_files=[ "res://.import/MP-50-Thwomp.png-62edddc8985cbba1b421dcc78df6b658.stex" ]
+source_file="res://Sprites/Map_Parts/MP-13-Spike_Block_32X32.png"
+dest_files=[ "res://.import/MP-13-Spike_Block_32X32.png-5dd25cfd4abe4da63ca08ec2398698ad.stex" ]
 
 [params]
 
