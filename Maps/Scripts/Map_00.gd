@@ -1,4 +1,5 @@
 extends Node2D
+
 enum NADE_NAME {Grenade, Nazi_Grenade,Plasma_Grenade,Bomberman,TNT,Time_Bomb, Prox_Mine = 19}
 enum POWER_UP_NAME {Ammo, Shield, Speed, Jump, Nrg, Battery,Back_Shield = 9}
 
@@ -29,6 +30,7 @@ export(POWER_UP_NAME) var power_up_04
 
 onready var player_spawns = $Player_spawns
 onready var parts = $Map_parts 
+
 var first = true
 var next_spawn_spot = 0
 var spawn_spots = []

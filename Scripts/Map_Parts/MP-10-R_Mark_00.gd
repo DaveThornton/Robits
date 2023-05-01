@@ -1,10 +1,11 @@
 extends Node2D
-
+enum BOX_TYPE {Blank, R, O, B, I, T, S, Bang}
+enum SPAWN_THING {Pick_Up, Gun}
 export var used = false
-export var spawn_gun = true
+export(SPAWN_THING) var spawn = 1
 export var gun_num = 2
 export var pick_up_num = 1
-export var mark = 1
+export(BOX_TYPE) var mark = 1
 onready var sprite = $Sprite
 onready var anim = $AnimationPlayer
 onready var spawn_pos = $Pos2D_Spawn
@@ -39,7 +40,7 @@ func hit(_owned, _my_name, _damage_type, _damage1):
 		elif mark == 7:
 			anim.play("Hit_Bang")
 		else:
-			anim.play("Hit_R")
+			anim.play("Hit_Blank")
 
 
 func _on_Timer_Hit_timeout():
@@ -67,13 +68,28 @@ func start_gfx():
 		elif mark == 7:
 			anim.play("Start_Bang")
 		else:
-			anim.play("Hit_R")
+			anim.play("Start_Blank")
 	else:
-		anim.play("Used")
+		if mark == 1:
+			anim.play("Used_R")
+		elif mark == 2:
+			anim.play("Used_O")
+		elif mark == 3:
+			anim.play("Used_B")
+		elif mark == 4:
+			anim.play("Used_I")
+		elif mark == 5:
+			anim.play("Used_T")
+		elif mark == 6:
+			anim.play("Used_S")
+		elif mark == 7:
+			anim.play("Used_Bang")
+		else:
+			anim.play("Used_Blank")
 
 func _spawn_thing():
 	var t
-	if spawn_gun:
+	if spawn:
 		t = Equipment.get_weap_pick(gun_num).instance()
 	else:
 		t = Equipment.get_item(pick_up_num).instance()
