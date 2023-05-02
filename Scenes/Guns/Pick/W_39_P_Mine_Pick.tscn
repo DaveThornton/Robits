@@ -93,16 +93,16 @@ my_time = 10.0
 use_time_label = false
 use_spin = false
 
-[node name="Outline" type="Sprite" parent="."]
-scale = Vector2( 2, 2 )
-texture = ExtResource( 5 )
-script = ExtResource( 4 )
-
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 hframes = 19
 frame = 7
+
+[node name="Outline" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+texture = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="Sprite3" type="Sprite" parent="."]
 visible = false

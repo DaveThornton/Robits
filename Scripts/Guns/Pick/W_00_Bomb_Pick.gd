@@ -4,6 +4,7 @@ onready var timer = $Timer
 onready var spin_timer = $Timer_Spin
 onready var anim = $AnimationPlayer
 onready var label= $"FX-21-Timer_Label"
+onready var outline = $Sprite/Outline
 
 export var gun_num = 0
 export var damage = 100
@@ -139,3 +140,6 @@ func fade_out():
 	
 func dont_hit_player():
 	self.set_collision_mask_bit( 1, false)
+
+func set_outline_color(_color):
+	outline.self_modulate = _color

@@ -13,3 +13,7 @@ func call_end_of_set_dir():
 		gun_pos.rotation_degrees = 180
 		hand_right.disabled = true
 		hand_left.disabled = false
+
+func set_outline_color(_color):
+    outline = $POS_Gun/Outline
+    outline.self_modulate = _color

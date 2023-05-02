@@ -9,7 +9,7 @@ extents = Vector2( 16, 16 )
 
 [sub_resource type="CapsuleShape2D" id=22]
 radius = 3.0
-height = 18.0
+height = 8.00001
 
 [sub_resource type="Animation" id=4]
 length = 0.2

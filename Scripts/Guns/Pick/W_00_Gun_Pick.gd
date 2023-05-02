@@ -2,7 +2,7 @@ extends RigidBody2D
 
 onready var sprite = $Sprite
 onready var timer = $Timer
-
+onready var outline = $Sprite/Outline
 export var gun_num = 0
 export var expire_time = 30.0
 export var ammo = -2
@@ -15,11 +15,13 @@ var just_shot = false
 var hits = 0
 var hits_max = 5
 
+
 func _ready():
 	ready = true
 	set_dir(is_right, dir)
 	timer.wait_time = expire_time
 	timer.start()
+	call_end_ready()
 	
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if _ammo != -1: 
@@ -28,11 +30,16 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 		call_deferred("ammo_is_zero")
 	is_right = _is_right
 	time = _time
+	if _time < 0:
+		timer.stop()
 	if ready:
 		set_dir(is_right, dir)
 	call_end_init()
 
 func call_end_init():
+	pass
+
+func call_end_ready():
 	pass
 
 func _entered(_body_id, body, _body_shape, _local_shape):
@@ -90,3 +97,6 @@ func fade_out():
 	
 func dont_hit_player():
 	self.set_collision_mask_bit( 1, false)
+
+func set_outline_color(_color):
+	outline.self_modulate = _color

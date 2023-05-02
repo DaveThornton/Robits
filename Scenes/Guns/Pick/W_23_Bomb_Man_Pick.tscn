@@ -51,7 +51,7 @@ tracks/0/keys = {
 "values": [ 3, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Bomb:frame")
+tracks/1/path = NodePath("Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -117,7 +117,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Bomb:frame")
+tracks/1/path = NodePath("Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -172,11 +172,11 @@ use_spin = false
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="Bomb" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 hframes = 18
 
-[node name="Outline" type="Sprite" parent="Bomb"]
+[node name="Outline" type="Sprite" parent="Sprite"]
 show_behind_parent = true
 texture = ExtResource( 6 )
 script = ExtResource( 5 )
