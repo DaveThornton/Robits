@@ -6,7 +6,7 @@
 [ext_resource path="res://Sprites/Tile_Sets/Back/TS_03_32_Dirt_Snow.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Tile_Sets/Back/TS_06_32_White_Square.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Tile_Sets/Back/TS_05_32_Black_Square.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Tile_Sets/Back/TS_07_32_Sand.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Tile_Sets/Back/TS_30_32_Sand.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Tile_Sets/Back/TS_16_32_Concrete_Grey_Dark.png" type="Texture" id=8]
 
 [resource]
@@ -130,7 +130,7 @@
 5/shape_one_way_margin = 0.0
 5/shapes = [  ]
 5/z_index = 0
-6/name = "TS_07_Sand"
+6/name = "TS_30_Sand"
 6/texture = ExtResource( 7 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )

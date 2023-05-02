@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TS_07_32_Sand.png-d70a214b4f14ce0b66076211379863af.stex"
+path="res://.import/TS_31_32_Sand_Castle_No_Top.png-50b56e75c7fe2c619cb9aea026838690.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tile_Sets/Front/TS_07_32_Sand.png"
-dest_files=[ "res://.import/TS_07_32_Sand.png-d70a214b4f14ce0b66076211379863af.stex" ]
+source_file="res://Sprites/Tile_Sets/Main/TS_31_32_Sand_Castle_No_Top.png"
+dest_files=[ "res://.import/TS_31_32_Sand_Castle_No_Top.png-50b56e75c7fe2c619cb9aea026838690.stex" ]
 
 [params]
 
