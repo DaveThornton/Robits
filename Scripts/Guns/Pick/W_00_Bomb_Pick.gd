@@ -30,13 +30,15 @@ func _ready():
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
 	player = _player
-	time = _time
 	if _ammo == 0:
 		arm()
+		time = _time
 	else:
 		timer.wait_time = expire_time
 		timer.start()
 		anim.play("Idle")
+	if _time < 0:
+		timer.stop()
 	if player > 0 && use_spin:
 		spin(spin_amount)
 	call_end_of_init()
