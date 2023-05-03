@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Power_Ups/Pick_Up_R_03_Speed_Power_Up.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Power_Ups/Pick_Up_01_Ammo.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Projectiles/Proj.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 7.0
@@ -9,7 +9,7 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 11.2361
 
-[node name="Pick_Up_Rigid_02_Shield_Power_Up" type="RigidBody2D"]
+[node name="Pick_Up_Rigid_03_Speed_Power_Up" type="RigidBody2D"]
 collision_layer = 524288
 collision_mask = 983068
 gravity_scale = 4.0

@@ -1,9 +1,6 @@
-extends RigidBody2D
+extends 'res://Scripts/Power_Ups/Pick_Up_R_00.gd'
 
 export var how_much_nrg = 50
-
-func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
-	pass
 
 func _on_Area2D_body_entered(body):
 	if body.get_groups().has("player"):
@@ -11,6 +8,3 @@ func _on_Area2D_body_entered(body):
 			body.add_battery(how_much_nrg)
 			SFX.battery()
 			call_deferred("free")
-
-func dont_hit_player():
-	pass
