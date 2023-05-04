@@ -1,13 +1,12 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Power_Ups/Pick_Up_R_04_Jump_Power_Up.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Projectiles/Proj.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Power_Ups/Power_Up_32_00.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 7.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 11.2361
+radius = 12.0
 
 [node name="Pick_Up_Rigid_04_Jump_Power_Up" type="RigidBody2D"]
 collision_layer = 524288
@@ -23,8 +22,9 @@ script = ExtResource( 1 )
 position = Vector2( 0, -7 )
 scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 2 )
-hframes = 12
-frame = 10
+hframes = 5
+vframes = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -7 )

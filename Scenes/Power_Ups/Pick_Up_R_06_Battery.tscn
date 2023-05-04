@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/Power_Ups/Pick-Up-06-Battery.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 9.99996
+radius = 7.99996
 height = 20.0001
 
 [sub_resource type="CapsuleShape2D" id=2]
