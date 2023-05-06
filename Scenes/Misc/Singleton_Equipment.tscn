@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=2]
+[gd_scene load_steps=135 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Hold/W_02-AK47_Hold.tscn" type="PackedScene" id=2]
@@ -15,11 +15,11 @@
 [ext_resource path="res://Scenes/Guns/Hold/W_60_Axe_Hold.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Guns/Hold/W_61_Sword_Hold.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-10-Back_Shield_On_Pawn.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-01-Ammo.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-02-Shield_Power_Up.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-03-Speed_Power_Up.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-04-Jump_Power_Up.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-05-NRG_Power_Up.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_A_04_Jump_Power_Up.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_A_07_Puck_Dot.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_A_02_Shield_Power_Up.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_A_13_Extra_Life.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_A_05_NRG_Power_Up.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_06_Battery.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Pawns/Pawn_10/Pawn_10.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Pawns/Pawn_01/Pawn_01.tscn" type="PackedScene" id=23]
@@ -126,7 +126,14 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_71_Tomahawk_Pick.tscn" type="PackedScene" id=124]
 [ext_resource path="res://Scenes/Guns/Pick/W_57_Henry_Pick.tscn" type="PackedScene" id=125]
 [ext_resource path="res://Scenes/Guns/Hold/W_68_D'k_Tahg_Hold.tscn" type="PackedScene" id=126]
-[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-10-Back_Shield.tscn" type="PackedScene" id=127]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_A_08_Coin.tscn" type="PackedScene" id=127]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_02_Shield_Power_Up.tscn" type="PackedScene" id=128]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_05_NRG_Power_Up.tscn" type="PackedScene" id=129]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_03_Speed_Power_Up.tscn" type="PackedScene" id=130]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_08_Coin.tscn" type="PackedScene" id=131]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_01_Ammo.tscn" type="PackedScene" id=132]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_04_Jump_Power_Up.tscn" type="PackedScene" id=133]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_A_03_Speed_Power_Up.tscn" type="PackedScene" id=134]
 
 [node name="Equipment" type="Node2D"]
 script = ExtResource( 1 )
@@ -233,13 +240,20 @@ gun_pick_72 = ExtResource( 119 )
 gun_pick_73 = ExtResource( 117 )
 gun_pick_83 = ExtResource( 120 )
 gun_pick_84 = ExtResource( 121 )
-item_pick_01 = ExtResource( 16 )
-item_pick_02 = ExtResource( 17 )
-item_pick_03 = ExtResource( 18 )
-item_pick_04 = ExtResource( 19 )
-item_pick_05 = ExtResource( 20 )
-item_pick_06 = ExtResource( 21 )
-item_pick_10 = ExtResource( 127 )
+item_area_pick_02 = ExtResource( 18 )
+item_area_pick_03 = ExtResource( 134 )
+item_area_pick_04 = ExtResource( 16 )
+item_area_pick_05 = ExtResource( 20 )
+item_area_pick_07 = ExtResource( 17 )
+item_area_pick_08 = ExtResource( 127 )
+item_area_pick_13 = ExtResource( 19 )
+item_rigid_pick_01 = ExtResource( 132 )
+item_rigid_pick_02 = ExtResource( 128 )
+item_rigid_pick_03 = ExtResource( 130 )
+item_rigid_pick_04 = ExtResource( 133 )
+item_rigid_pick_05 = ExtResource( 129 )
+item_rigid_pick_06 = ExtResource( 21 )
+item_rigid_pick_08 = ExtResource( 131 )
 item_equiped_10 = ExtResource( 15 )
 pawn_01 = ExtResource( 23 )
 pawn_02 = ExtResource( 40 )

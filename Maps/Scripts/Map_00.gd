@@ -1,7 +1,7 @@
 extends Node2D
 
 enum NADE_NAME {Grenade, Nazi_Grenade,Plasma_Grenade,Bomberman,TNT,Time_Bomb, Prox_Mine = 19}
-enum POWER_UP_NAME {Ammo, Shield, Speed, Jump, Nrg, Battery,Back_Shield = 9}
+enum POWER_UP_NAME {Ammo, Shield, Speed, Jump, Nrg, Battery, Coin}
 
 export var show_splash = false
 export var title_text = "top_text"
@@ -23,10 +23,10 @@ export(NADE_NAME) var nade_01
 export(NADE_NAME) var nade_02
 export(NADE_NAME) var nade_03
 export(NADE_NAME) var nade_04
-export(POWER_UP_NAME) var power_up_01
-export(POWER_UP_NAME) var power_up_02
-export(POWER_UP_NAME) var power_up_03
-export(POWER_UP_NAME) var power_up_04
+export(POWER_UP_NAME) var pick_up_01
+export(POWER_UP_NAME) var pick_up_02
+export(POWER_UP_NAME) var pick_up_03
+export(POWER_UP_NAME) var pick_up_04
 
 onready var player_spawns = $Player_spawns
 onready var parts = $Map_parts 
@@ -61,7 +61,7 @@ func next_spawn_pos():
 	spawn_spots.shuffle()
 	return spawn_spots.pop_front().position
 
-func get_gun(_num):
+func get_gun(_num: int):
 	if _num == 1: return Equipment.get_weap_pick(gun_01)
 	elif _num == 2: return Equipment.get_weap_pick(gun_02)
 	elif _num == 3: return Equipment.get_weap_pick(gun_03)
@@ -71,17 +71,23 @@ func get_gun(_num):
 	elif _num == 7: return Equipment.get_weap_pick(gun_07)
 	elif _num == 8: return Equipment.get_weap_pick(gun_08)
 
-func get_nade(_num):
+func get_nade(_num: int):
 	if _num == 1: return Equipment.get_weap_pick(nade_01 + 20)
 	elif _num == 2: return Equipment.get_weap_pick(nade_02 + 20)
 	elif _num == 3: return Equipment.get_weap_pick(nade_03 + 20)
 	elif _num == 4: return Equipment.get_weap_pick(nade_04 + 20)
 
-func get_power_up(_num):
-	if _num == 1: return Equipment.get_item(power_up_01 + 1)
-	elif _num == 2: return Equipment.get_item(power_up_02 + 1)
-	elif _num == 3: return Equipment.get_item(power_up_03 + 1)
-	elif _num == 4: return Equipment.get_item(power_up_04 + 1)
+func get_pick_up(_num: int,_is_area: bool):
+	if _is_area:
+		if _num == 1: return Equipment.get_area_item(pick_up_01 + 1)
+		elif _num == 2: return Equipment.get_area_item(pick_up_02 + 1)
+		elif _num == 3: return Equipment.get_area_item(pick_up_03 + 1)
+		elif _num == 4: return Equipment.get_area_item(pick_up_04 + 1)
+	else:
+		if _num == 1: return Equipment.get_rigid_item(pick_up_01 + 1)
+		elif _num == 2: return Equipment.get_rigid_item(pick_up_02 + 1)
+		elif _num == 3: return Equipment.get_rigid_item(pick_up_03 + 1)
+		elif _num == 4: return Equipment.get_rigid_item(pick_up_04 + 1)
 
 func remove_spawn_pos(_pos): if spawn_spots.has(_pos): spawn_spots.erase(_pos)
 

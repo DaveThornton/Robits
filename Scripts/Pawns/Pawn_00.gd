@@ -77,8 +77,7 @@ var last_anim = "Right-Run"
 
 signal explode_p
 
-func _ready():
-	pass
+func _ready(): pass
 
 func init(_player_num, _pos, _start_equiped, _play_type):
 	player = _player_num
@@ -262,7 +261,6 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 				emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 				call_deferred("free")
 
-
 ##-----------------------------------------------------------------------[Shoot]
 func shoot_j():
 	if my_gun != null:
@@ -397,8 +395,7 @@ func add_ammo(_ammo):
 		if my_gun != null:
 			my_gun.add_ammo(_ammo)
 
-func change_pos(_pos):
-	self.position = _pos
+func change_pos(_pos): self.position = _pos
 
 func nrg_update(): Player_Stats.nrg_update(player, nrg, nrg_max)
 	
@@ -589,8 +586,7 @@ func shielduptimer():
 	shield_down()
 	is_shield_up = false
 
-func shieldhittimer():
-	shield_down()
+func shieldhittimer(): shield_down()
 
 func speedtimer():
 	is_speed_up = false
@@ -605,17 +601,13 @@ func nrguptimer():
 	nrg_regen_rate = nrg_default_regen_rate
 	nrg_regen_max = nrg_default_regen_max
 
-func stuntimer():
-	can_move = true
+func stuntimer(): can_move = true
 
-func knockbacktimer():
-	knocked_back = Vector2(0, 0)
+func knockbacktimer(): knocked_back = Vector2(0, 0)
 
-func jumptimer():
-	print_debug("jump timer timed out dont know why in this pawn player stats says its pawn ",Player_Stats.get_pawn_num(player))
+func jumptimer(): print_debug("jump timer timed out dont know why in this pawn player stats says its pawn ",Player_Stats.get_pawn_num(player))
 
-func hitbytimer():
-	hit_last_by = -1
+func hitbytimer(): hit_last_by = -1
 
 ##------------------------------------------------------[player indicator stuff]
 func set_ready_show_player_ind(_ready):
@@ -634,20 +626,15 @@ func show_player_ind(_show):
 	else:
 		player_indicator.visible = false
 
-func get_player_ind_vis():
-	return player_indicator.visible
+func get_player_ind_vis(): return player_indicator.visible
 
-func toggle_pi_stat():
-	Player_Stats.add_toggle_pi_count(player, 1)
+func toggle_pi_stat(): Player_Stats.add_toggle_pi_count(player, 1)
 
 ##---------------------------------------------------------------[getter]---
 
-func get_player_num():
-	return player
+func get_player_num(): return player
 
-func get_on_floor():
-	return on_floor
-
+func get_on_floor(): return on_floor
 
 ##-------------------------------------------------------------[The in and outs]
 
@@ -667,26 +654,19 @@ func start_next_level():
 		equip_start_weap()
 
 #----------------------------------------[stuff to be replaced in other scripts]--
-func shield_up():
-	pass
+func shield_up(): pass
 
-func shield_down():
-	pass
+func shield_down(): pass
 
-func _test_headroom():
-	pass
+func _test_headroom(): pass
 
-func _is_on_floor():
-	pass
+func _is_on_floor(): pass
 
-func _set_gun_dir():
-	pass
+func _set_gun_dir(): pass
 
-func fix_vel(_vel):
-	return _vel
+func fix_vel(_vel): return _vel
 
-func set_right(_right):
-	is_right = _right
+func set_right(_right): is_right = _right
 
 ##-------------------------------------------------------------------[Animation]
 
@@ -795,23 +775,16 @@ func anim_update(left_input, right_input, up_input, down_input, _jump_input, hol
 		# else:
 			# print_debug("005")
 
-func _anim_idle():
-	pass
+func _anim_idle(): pass
 
-func _anim_run():
-	pass
+func _anim_run(): pass
 
-func _anim_jump():
-	pass
+func _anim_jump(): pass
 
-func _anim_prone_idle():
-	pass
+func _anim_prone_idle(): pass
 
-func _anim_prone_crawl():
-	pass
+func _anim_prone_crawl(): pass
 
-func _anim_stun():
-	pass
+func _anim_stun(): pass
 
-func _anim_Knock():
-	pass
+func _anim_Knock(): pass

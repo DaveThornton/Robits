@@ -180,26 +180,33 @@ export(PackedScene) var gun_pick_84
 
 
 
-export(PackedScene) var item_pick_01
-export(PackedScene) var item_pick_02
-export(PackedScene) var item_pick_03
-export(PackedScene) var item_pick_04
-export(PackedScene) var item_pick_05
-export(PackedScene) var item_pick_06
-#export(PackedScene) var item_pick_07
-#export(PackedScene) var item_pick_08
-#export(PackedScene) var item_pick_09
-export(PackedScene) var item_pick_10
-#export(PackedScene) var item_pick_11
-#export(PackedScene) var item_pick_12
-#export(PackedScene) var item_pick_13
-#export(PackedScene) var item_pick_14
-#export(PackedScene) var item_pick_15
-#export(PackedScene) var item_pick_16
-#export(PackedScene) var item_pick_17
-#export(PackedScene) var item_pick_18
-#export(PackedScene) var item_pick_19
-#export(PackedScene) var item_pick_20
+# export(PackedScene) var item_area_pick_01
+export(PackedScene) var item_area_pick_02
+export(PackedScene) var item_area_pick_03
+export(PackedScene) var item_area_pick_04
+export(PackedScene) var item_area_pick_05
+# export(PackedScene) var item_area_pick_06
+export(PackedScene) var item_area_pick_07
+export(PackedScene) var item_area_pick_08
+# export(PackedScene) var item_area_pick_09
+# export(PackedScene) var item_area_pick_10
+# export(PackedScene) var item_area_pick_11
+# export(PackedScene) var item_area_pick_12
+export(PackedScene) var item_area_pick_13
+
+export(PackedScene) var item_rigid_pick_01
+export(PackedScene) var item_rigid_pick_02
+export(PackedScene) var item_rigid_pick_03
+export(PackedScene) var item_rigid_pick_04
+export(PackedScene) var item_rigid_pick_05
+export(PackedScene) var item_rigid_pick_06
+# export(PackedScene) var item_rigid_pick_07
+export(PackedScene) var item_rigid_pick_08
+# export(PackedScene) var item_rigid_pick_09
+# export(PackedScene) var item_rigid_pick_10
+# export(PackedScene) var item_rigid_pick_11
+# export(PackedScene) var item_rigid_pick_12
+# export(PackedScene) var item_rigid_pick_13
 
 export(PackedScene) var item_equiped_10
 
@@ -764,14 +771,37 @@ func get_weap_name(_weap: int): return weap_names[_weap]
 
 func get_award_name(_award: int): return award_names[_award]
 
-func get_item(_item: int):
+func get_area_item(_item: int):
 	match _item:
-		1:return item_pick_01
-		2:return item_pick_02
-		3:return item_pick_03
-		4:return item_pick_04
-		5:return item_pick_05
-		6:return item_pick_06
+		# 1:return item_area_pick_01
+		2:return item_area_pick_02
+		3:return item_area_pick_03
+		4:return item_area_pick_04
+		5:return item_area_pick_05
+		# 6:return item_area_pick_06
+		7:return item_area_pick_07
+		8:return item_area_pick_08
+		# 9:return item_area_pick_09
+		# 10:return item_area_pick_10
+		# 11:return item_area_pick_11
+		# 12:return item_area_pick_12
+		13:return item_area_pick_13
+
+func get_rigid_item(_item: int):
+	match _item:
+		1:return item_rigid_pick_01
+		2:return item_rigid_pick_02
+		3:return item_rigid_pick_03
+		4:return item_rigid_pick_04
+		5:return item_rigid_pick_05
+		6:return item_rigid_pick_06
+		# 7:return item_rigid_pick_07
+		8:return item_rigid_pick_08
+		# 9:return item_rigid_pick_09
+		# 10:return item_rigid_pick_10
+		# 11:return item_rigid_pick_11
+		# 12:return item_rigid_pick_12
+		# 13:return item_rigid_pick_13
 
 func get_equiped_item(_item: int):
 	# match _item:

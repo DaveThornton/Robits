@@ -1,10 +1,14 @@
 extends Node2D
 enum BOX_TYPE {Blank, R, O, B, I, T, S, Bang}
-enum SPAWN_THING {Pick_Up, Gun}
+enum SPAWN_THING {Pick_Up, Gun, Nade}
+enum MAP_GUN_LIST {map_gun_1, map_gun_2, map_gun_3, map_gun_4, map_gun_5, map_gun_6, map_gun_7, map_gun_8}
+enum MAP_NADE_LIST {map_nade_1, map_nade_2, map_nade_3, map_nade_4}
+enum MAP_PICK_LIST {map_pick_up_1, map_pick_up_2, map_pick_up_3, map_pick_up_4}
 export var used = false
 export(SPAWN_THING) var spawn = 1
-export var gun_num = 2
-export var pick_up_num = 1
+export(MAP_GUN_LIST) var map_gun_num = 0
+export(MAP_NADE_LIST) var map_nade_num = 0
+export(MAP_PICK_LIST) var map_pick_up_num = 0
 export(BOX_TYPE) var mark = 1
 onready var sprite = $Sprite
 onready var anim = $AnimationPlayer
@@ -41,7 +45,6 @@ func hit(_owned, _my_name, _damage_type, _damage1):
 			anim.play("Hit_Bang")
 		else:
 			anim.play("Hit_Blank")
-
 
 func _on_Timer_Hit_timeout():
 	call_deferred("_spawn_thing")
@@ -89,10 +92,10 @@ func start_gfx():
 
 func _spawn_thing():
 	var t
-	if spawn:
-		t = Equipment.get_weap_pick(gun_num).instance()
-	else:
-		t = Equipment.get_item(pick_up_num).instance()
+	if spawn == 1: t = Map_Hand.map.get_gun(map_gun_num + 1).instance()
+	elif spawn == 0: t = Map_Hand.map.get_pick_up(map_pick_up_num + 1, false).instance()
+	else: t = Map_Hand.map.get_nade(map_nade_num + 1).instance()
+
 	Map_Hand.add_kid_to_map(t)
 	t.global_position = spawn_pos.global_position
 	t.set_collision_layer_bit( 1, false)
