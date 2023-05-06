@@ -9,7 +9,7 @@ extents = Vector2( 20, 10 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 21.5, 11 )
 
-[node name="Pick_Up_Rigid_01_Ammo" type="RigidBody2D"]
+[node name="Pick_Up_Rigid_01_Ammo_00" type="RigidBody2D"]
 collision_layer = 524288
 collision_mask = 983068
 gravity_scale = 4.0

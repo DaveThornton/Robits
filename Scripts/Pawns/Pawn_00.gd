@@ -495,6 +495,7 @@ func put_shield_up(_how_long):
 func put_speed_up(_how_long):
 	is_speed_up = true
 	speed_power_up = 2
+	max_x_speed *= 2
 	timers.set_speed(_how_long)
 	timers.start_speed()
 	speed_up_stat()
@@ -524,14 +525,12 @@ func add_battery(how_much):
 	add_nrg(how_much)
 	battery_stat()
 
-func add_coin(how_much_nrg, how_much_ammo):
+func add_coin(how_much_nrg):
 	add_nrg(how_much_nrg)
-	add_ammo(how_much_ammo)
 	coin_stat()
 
-func add_dot(how_much_nrg, how_much_ammo):
+func add_dot(how_much_nrg):
 	add_nrg(how_much_nrg)
-	add_ammo(how_much_ammo)
 	dot_stat()
 
 func add_back_shield():
@@ -596,6 +595,7 @@ func shieldhittimer():
 func speedtimer():
 	is_speed_up = false
 	speed_power_up = 1
+	max_x_speed /= 2
 
 func jumpuptimer():
 	is_jump_up = false

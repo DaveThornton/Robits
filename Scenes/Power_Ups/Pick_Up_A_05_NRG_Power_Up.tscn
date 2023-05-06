@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Power_Ups/Pick_Up_A_05_NRG_Power_Up.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Power_Ups/Power_Up_32_00.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 12.0
+
+[node name="Pick_Up_Area_05_NRG_Power_Up_00" type="Area2D"]
+collision_layer = 327680
+collision_mask = 65536
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 2
+frame = 8
+
+[node name="Respawn_Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Respawn_Timer" to="." method="_on_Respawn_Timer_timeout"]

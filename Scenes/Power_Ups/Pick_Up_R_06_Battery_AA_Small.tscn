@@ -11,7 +11,7 @@ height = 14.0
 radius = 8.0
 height = 16.0
 
-[node name="Pick_Up_R_06_Battery_AA" type="RigidBody2D"]
+[node name="Pick_Up_Rigid_06_Battery_AA_00" type="RigidBody2D"]
 collision_layer = 524288
 collision_mask = 65804
 mass = 10.0
@@ -20,10 +20,12 @@ script = ExtResource( 1 )
 how_much_nrg = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -5 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -5 )
 texture = ExtResource( 2 )
 hframes = 2
 frame = 1
@@ -33,6 +35,7 @@ collision_layer = 65536
 collision_mask = 131074
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -5 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
