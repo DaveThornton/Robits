@@ -28,19 +28,21 @@ func start( _sr , _ss, _sss, _player):
 	self.position = _ss
 
 func _on_Area2Douter_body_entered(body):
-	if body.get_groups().has("player"):
-		Player_Stats.add_hit(owned,1)
-		body.hit(owned, gun_num, damage_type, damage2)
-	elif body.get_groups().has("hittable"):
-		body.hit(owned, gun_num, damage_type, damage1)
+	pass
+	# if body.get_groups().has("player"):
+	# 	Player_Stats.add_hit(owned,1)
+	# 	body.hit(owned, gun_num, damage_type, damage2)
+	# elif body.get_groups().has("hittable"):
+	# 	body.hit(owned, gun_num, damage_type, damage1)
 
 func _on_Area2D2inner_body_entered(body):
-	if body.get_groups().has("player"):
-		Player_Stats.add_hit(owned,1)
-		body.hit(owned, gun_num, damage_type, damage2)
-	elif body.get_groups().has("hittable"):
-		print_debug("trying to call hit on something hittable ex-02")
-		body.hit(owned, gun_num, damage_type, damage2)
+	pass
+	# if body.get_groups().has("player"):
+	# 	Player_Stats.add_hit(owned,1)
+	# 	body.hit(owned, gun_num, damage_type, damage2)
+	# elif body.get_groups().has("hittable"):
+	# 	print_debug("trying to call hit on something hittable ex-02")
+	# 	body.hit(owned, gun_num, damage_type, damage2)
 
 func _on_Timer_timeout():
 	anim.play("fade")

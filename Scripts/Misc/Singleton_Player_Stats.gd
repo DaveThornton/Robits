@@ -152,33 +152,33 @@ func add_kill(_killed: int, _killer: int, _point: int, _by_what: int):
 		add_kill_w(_killer, _by_what)
 		get_player_stats(_killer).killed_who[_killed] += 1
 		get_player_stats(_killed).killed_by_who[_killer] += 1
-	if _point > 1 && Settings.get_multi_minus_on_death():
-		add_score(_killed,(-1 * (_point -1)))
-	add_death(_killed)
+		if _point > 1 && Settings.get_multi_minus_on_death():
+			add_score(_killed,(-1 * (_point -1)))
+		add_death(_killed)
 
 func add_death(_player: int):
-	get_player_stats(_player)["death"] += 1
-	if Settings.get_multi_minus_on_death():
-		add_score(_player,-1)
-	if Game.use_lives():
-		var _ps = get_player_stats(_player)
-		_ps["lives"] -= 1
-		HUD.set_lives(_player,_ps["lives"])
-		if _ps["lives"] == 0:
-			HUD.set_continue(_player, true)
+	if _player > 0:
+		get_player_stats(_player)["death"] += 1
+		if Settings.get_multi_minus_on_death():
+			add_score(_player,-1)
+		if Game.use_lives():
+			var _ps = get_player_stats(_player)
+			_ps["lives"] -= 1
+			HUD.set_lives(_player,_ps["lives"])
+			if _ps["lives"] == 0:
+				HUD.set_continue(_player, true)
 
 func add_score(_player: int, _score_amount: int):
 	if _player > 0:
 		get_player_stats(_player)["score"] += _score_amount
+		HUD.set_score(_player)
 	elif _player == -1:
 		print_debug("singleton_player_stats map kill")
-	HUD.set_score(_player)
 
-func add_shot(_player: int, _shot_amount: int): get_player_stats(_player)["shot"] += _shot_amount
 
-func add_hit(_player: int, _hit_amount):
-	if _player > 0:
-		get_player_stats(_player)["hit"] += _hit_amount
+func add_shot(_player: int, _shot_amount: int): if _player > 0: get_player_stats(_player)["shot"] += _shot_amount
+
+func add_hit(_player: int, _hit_amount): if _player > 0: get_player_stats(_player)["hit"] += _hit_amount
 
 func coin_insert( _player: int):
 	if _player > 0:
@@ -209,7 +209,7 @@ func nrg_update(_player: int, _nrg: int, _nrg_max: int):
 	var _current_nrg = int((float(_nrg) / _nrg_max)* 100)
 	HUD.set_nrg(_player, _current_nrg)
 
-func ammo_update(_player: int, _ammo: int): HUD.set_ammo(_player, _ammo)
+func ammo_update(_player: int, _ammo: int): if _player >0: HUD.set_ammo(_player, _ammo)
 
 func can_player_start(_player: int):
 	if get_player_stats(_player)["credit"] > 0:
@@ -305,25 +305,27 @@ func set_team(_player: int, _team): get_player_stats(_player)["team"] = _team
 func set_continuing(_player: int, _continue): get_player_stats(_player)["continuing"] = _continue
 
 func add_killed_by(_player: int, _weap):
-	if _weap < 100:
-		if get_player_stats(_player).weap_killed_by.has(_weap):
-			get_player_stats(_player).weap_killed_by[_weap] += 1
+	if _player > 0:
+		if _weap < 100:
+			if get_player_stats(_player).weap_killed_by.has(_weap):
+				get_player_stats(_player).weap_killed_by[_weap] += 1
+			else:
+				get_player_stats(_player).weap_killed_by[_weap] = 1
 		else:
-			get_player_stats(_player).weap_killed_by[_weap] = 1
-	else:
-		print_debug("didnt add kill bc weap number wasnt reconized")
-	print(get_player_stats(_player).weap_killed_by, "     killed by ", _player)
+			print_debug("didnt add kill bc weap number wasnt reconized")
+		print(get_player_stats(_player).weap_killed_by, "     killed by ", _player)
 
 func add_kill_w(_player: int, _weap):
-	if _weap < 100:
-		if get_player_stats(_player).weap_kill_w.has(_weap):
-			var p = get_player_stats(_player).weap_kill_w[_weap]
-			get_player_stats(_player).weap_kill_w[_weap] = p + 1
+	if _player > 0:
+		if _weap < 100:
+			if get_player_stats(_player).weap_kill_w.has(_weap):
+				var p = get_player_stats(_player).weap_kill_w[_weap]
+				get_player_stats(_player).weap_kill_w[_weap] = p + 1
+			else:
+				get_player_stats(_player).weap_kill_w[_weap] = 1
 		else:
-			get_player_stats(_player).weap_kill_w[_weap] = 1
-	else:
-		print_debug("didnt add kill bc weap number wasnt reconized")
-	print(get_player_stats(_player).weap_kill_w, "     kill with ", _player)
+			print_debug("didnt add kill bc weap number wasnt reconized")
+		print(get_player_stats(_player).weap_kill_w, "     kill with ", _player)
 
 
 func get_killed_who(_player: int): return get_player_stats(_player).killed_who
@@ -423,60 +425,60 @@ func get_player_stats(_num):
 		return p8
 	else:
 		print_debug("invalid get player stats, get player stats thats dumb  -->  ", _num)
-		return p8
+		# return p8
 
-func get_player_collision_layer(_player: int): return get_player_stats(_player)["collision_layer"]
+func get_player_collision_layer(_player: int): if _player > 0: return get_player_stats(_player)["collision_layer"]
 
 #---------------Stats for end of Level--------------------------------------------------------------------------
-func add_jump_count(_player, _amount): get_player_stats(_player)["jump_count"] += _amount
+func add_jump_count(_player, _amount):	if _player > 0: get_player_stats(_player)["jump_count"] += _amount
 	
-func add_air_jump_count(_player, _amount): get_player_stats(_player)["jump_air_count"] += _amount
+func add_air_jump_count(_player, _amount): if _player > 0: get_player_stats(_player)["jump_air_count"] += _amount
 
-func add_jump_down_count(_player, _amount): get_player_stats(_player)["jump_down_count"] += _amount
+func add_jump_down_count(_player, _amount): if _player > 0: get_player_stats(_player)["jump_down_count"] += _amount
 
-func add_dmg_taken(_player, _damage): get_player_stats(_player)["dmg_taken"] += _damage
+func add_dmg_taken(_player, _damage): if _player > 0: get_player_stats(_player)["dmg_taken"] += _damage
 
-func add_dmg_given(_player, _damage): get_player_stats(_player)["dmg_given"] += _damage
+func add_dmg_given(_player, _damage): if _player > 0: get_player_stats(_player)["dmg_given"] += _damage
 
-func add_ground_distance(_player, _amount): get_player_stats(_player)["ground_distance"] += _amount
+func add_ground_distance(_player, _amount): if _player > 0: get_player_stats(_player)["ground_distance"] += _amount
 
-func add_air_distance(_player, _amount): get_player_stats(_player)["air_distance"] += _amount
+func add_air_distance(_player, _amount): if _player > 0: get_player_stats(_player)["air_distance"] += _amount
 
-func add_jump_up_distance(_player, _amount): get_player_stats(_player)["jump_up_distance"] += _amount
+func add_jump_up_distance(_player, _amount): if _player > 0: get_player_stats(_player)["jump_up_distance"] += _amount
 
-func add_drop_dn_distance(_player, _amount): get_player_stats(_player)["drop_distance"] += _amount
+func add_drop_dn_distance(_player, _amount): if _player > 0: get_player_stats(_player)["drop_distance"] += _amount
 
-func add_coin_count(_player,_amount): get_player_stats(_player)["p_up_coin_count"] += _amount
+func add_coin_count(_player,_amount): if _player > 0: get_player_stats(_player)["p_up_coin_count"] += _amount
 	
-func add_dot_count(_player, _amount): get_player_stats(_player)["p_up_dot_count"] += _amount
+func add_dot_count(_player, _amount): if _player > 0: get_player_stats(_player)["p_up_dot_count"] += _amount
 	
-func add_battery_count(_player, _amount): get_player_stats(_player)["p_up_battery_count"] += _amount
+func add_battery_count(_player, _amount): if _player > 0: get_player_stats(_player)["p_up_battery_count"] += _amount
 
-func add_ammo_box_count(_player,_amount): get_player_stats(_player)["ammo_box_count"] += _amount
+func add_ammo_box_count(_player,_amount): if _player > 0: get_player_stats(_player)["ammo_box_count"] += _amount
 
-func add_balloon_count(_player, _amount): get_player_stats(_player)["p_up_balloon_count"] += _amount
+func add_balloon_count(_player, _amount): if _player > 0: get_player_stats(_player)["p_up_balloon_count"] += _amount
 
-func add_back_shield_count(_player, _amount): get_player_stats(_player)["p_up_back_shield_count"] += _amount
+func add_back_shield_count(_player, _amount): if _player > 0: get_player_stats(_player)["p_up_back_shield_count"] += _amount
 
-func add_shield_up_count(_player, _amount): get_player_stats(_player)["p_up_shield_count"] += _amount
+func add_shield_up_count(_player, _amount): if _player > 0: get_player_stats(_player)["p_up_shield_count"] += _amount
 
-func add_speed_up_count(_player, _amount): get_player_stats(_player)["p_up_speed_count"] += _amount
+func add_speed_up_count(_player, _amount): if _player > 0: get_player_stats(_player)["p_up_speed_count"] += _amount
 
-func add_jump_up_count(_player, _amount): get_player_stats(_player)["p_up_jump_count"] += _amount
+func add_jump_up_count(_player, _amount): if _player > 0: get_player_stats(_player)["p_up_jump_count"] += _amount
 
-func add_nrg_regen_count(_player, _amount): get_player_stats(_player)["p_up_nrg_regen"] += _amount
+func add_nrg_regen_count(_player, _amount): if _player > 0: get_player_stats(_player)["p_up_nrg_regen"] += _amount
 
-func add_throw_count(_player,_amount): get_player_stats(_player)["throw_count"] += _amount
+func add_throw_count(_player,_amount): if _player > 0: get_player_stats(_player)["throw_count"] += _amount
 
-func add_drop_count(_player,_amount): get_player_stats(_player)["drop_count"] += _amount
+func add_drop_count(_player,_amount): if _player > 0: get_player_stats(_player)["drop_count"] += _amount
 	
-func add_pick_up_count(_player, _amount): get_player_stats(_player)["pick_up_count"] += _amount
+func add_pick_up_count(_player, _amount): if _player > 0: get_player_stats(_player)["pick_up_count"] += _amount
 	
-func add_toggle_pi_count(_player,_amount): get_player_stats(_player)["toggle_pi_count"] += _amount
+func add_toggle_pi_count(_player,_amount): if _player > 0: get_player_stats(_player)["toggle_pi_count"] += _amount
 
-func add_suicide_count(_player,_amount): get_player_stats(_player)["suicide_count"] += _amount
+func add_suicide_count(_player,_amount): if _player > 0: get_player_stats(_player)["suicide_count"] += _amount
 
-func add_wow_count(_player, _amount): get_player_stats(_player)["wow_count"] += _amount
+func add_wow_count(_player, _amount): if _player > 0: get_player_stats(_player)["wow_count"] += _amount
 
 #----------------------------------getters for end level Stats-------------------------------------------
 

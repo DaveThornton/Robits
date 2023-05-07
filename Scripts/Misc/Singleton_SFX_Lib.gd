@@ -18,12 +18,17 @@ var coin_num = 0
 
 func play(sfx = null):
 	if sfx:
-		get_node(sfx).play()
+		if has_node(sfx):
+			get_node(sfx).play()
+		else:
+			print_debug("error in singleton sfx no sfx ", sfx)
 
 func stop(sfx = null):
 	if sfx:
-		get_node(sfx).stop()
-
+		if has_node(sfx):
+			get_node(sfx).stop()
+		else:
+			print_debug("error in singleton sfx no sfx ", sfx)
 func obj_collision():
 	obj_collisions.get_child(oc_num).play()
 	oc_num += 1
