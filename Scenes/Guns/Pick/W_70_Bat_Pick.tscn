@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_70_Bat_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/W_70_Bat.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Pick.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Guns/W_70_Bat_Outline.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.99996
@@ -17,6 +19,8 @@ contacts_reported = 9
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
+gun_num = 70
+damage = 90
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -0.0510483 )
@@ -26,6 +30,12 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
+[node name="Outline" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+position = Vector2( -0.0923271, 0.0193233 )
+texture = ExtResource( 4 )
+script = ExtResource( 3 )
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
@@ -33,6 +43,6 @@ one_shot = true
 [node name="Timer_Spin" type="Timer" parent="."]
 wait_time = 0.1
 
-[connection signal="body_entered" from="." to="." method="_on_W_65_Knife_Pick_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Spin" to="." method="_on_Timer_Spin_timeout"]

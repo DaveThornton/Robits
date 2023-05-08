@@ -23,6 +23,8 @@ contacts_reported = 9
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
+gun_num = 66
+damage = 120
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( 17, 0 )
@@ -48,6 +50,6 @@ one_shot = true
 [node name="Timer_Spin" type="Timer" parent="."]
 wait_time = 0.1
 
-[connection signal="body_entered" from="." to="." method="_on_W_65_Knife_Pick_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Spin" to="." method="_on_Timer_Spin_timeout"]

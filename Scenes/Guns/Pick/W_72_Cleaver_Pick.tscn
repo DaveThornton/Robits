@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Guns/Pick/W_72_Cleaver_Pick.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Guns/W_72_Cleaver.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Misc/Parts/Outline_Pick.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Guns/W_72_Cleaver_Outline.png" type="Texture" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.4
@@ -11,10 +12,7 @@ bounce = 0.4
 radius = 5.27122
 height = 15.2468
 
-[node name="W_72_Cleaver" type="RigidBody2D" groups=[
-"FX",
-"PickUp",
-]]
+[node name="W_72_Cleaver" type="RigidBody2D" groups=["FX", "PickUp"]]
 position = Vector2( 0, 0.0510483 )
 collision_layer = 524288
 collision_mask = 917532
@@ -25,10 +23,16 @@ contacts_reported = 9
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
-smoke = ExtResource( 3 )
+gun_num = 72
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="Outline" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+position = Vector2( -0.0923271, 0.0193233 )
+texture = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
@@ -41,6 +45,6 @@ wait_time = 0.1
 rotation = 1.5708
 shape = SubResource( 2 )
 
-[connection signal="body_entered" from="." to="." method="_on_WeapPick60Axe_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Timer_Spin" to="." method="_on_Timer_Spin_timeout"]

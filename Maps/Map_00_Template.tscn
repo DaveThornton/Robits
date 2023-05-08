@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Scenes/Tile_Maps/TM_03_MAIN_00.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Tile_Maps/TM_01_BACK_00.tscn" type="PackedScene" id=2]
@@ -25,6 +25,20 @@
 [ext_resource path="res://Scenes/Power_Ups/Pick_Up_A_03_Speed_Power_Up.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Power_Ups/Pick_Up_A_02_Shield_Power_Up.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Bad_Guys/BG-01-Yellow_Space_Suit.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Scenes/Guns/Pick/W_61_Sword_Pick.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Scenes/Guns/Pick/W_60_Axe_Pick.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Guns/Pick/W_62_Diamond_PickAxe_Pick.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Guns/Pick/W_71_Tomahawk_Pick.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/Guns/Pick/W_72_Cleaver_Pick.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/Guns/Pick/W_68_D'k_Tahg_Pick.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Scenes/Guns/Pick/W_63_Crowbar_Pick.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Scenes/Guns/Pick/W_69_Bat'leth_Pick.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Scenes/Guns/Pick/W_67_Wood_Sword_Pick.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Scenes/Guns/Pick/W_70_Bat_Pick.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Scenes/Guns/Pick/W_65_Knife_Pick.tscn" type="PackedScene" id=36]
+[ext_resource path="res://Scenes/Guns/Pick/W_73_Youth_Knife_Pick.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Scenes/Guns/Pick/W_64_ESword_Pick.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Scenes/Guns/Pick/W_66_Hammer_Pick.tscn" type="PackedScene" id=39]
 
 [node name="Map_00_Template" type="Node2D"]
 script = ExtResource( 5 )
@@ -184,3 +198,45 @@ position = Vector2( 368, 928 )
 
 [node name="BG-01-Yellow_Space_Suit-00" parent="." instance=ExtResource( 25 )]
 position = Vector2( 1024, 912 )
+
+[node name="Weap-Pick-60-Axe" parent="." instance=ExtResource( 27 )]
+position = Vector2( 432, 672.051 )
+
+[node name="Weap-Pick-61-Sword" parent="." instance=ExtResource( 26 )]
+position = Vector2( 368, 544.051 )
+
+[node name="Weap-Pick-62-PickAxe" parent="." instance=ExtResource( 28 )]
+position = Vector2( 528, 688.051 )
+
+[node name="Weap-Pick-63-Crowbar" parent="." instance=ExtResource( 32 )]
+position = Vector2( 1152, 656.051 )
+
+[node name="W_64_ESword_Pick" parent="." instance=ExtResource( 38 )]
+position = Vector2( 1072, 608.051 )
+
+[node name="W_65_Knife_Pick" parent="." instance=ExtResource( 36 )]
+position = Vector2( 1152, 752.051 )
+
+[node name="W_66_Hammer_Pick" parent="." instance=ExtResource( 39 )]
+position = Vector2( 1264, 704.051 )
+
+[node name="W_67_Wood_Sword_Pick" parent="." instance=ExtResource( 34 )]
+position = Vector2( 1248, 608.051 )
+
+[node name="W_68_D\'k_Tahg_Pick" parent="." instance=ExtResource( 31 )]
+position = Vector2( 736, 592.051 )
+
+[node name="W_69_Bat\'leth" parent="." instance=ExtResource( 33 )]
+position = Vector2( 656, 608.051 )
+
+[node name="W_70_Bat_Pick" parent="." instance=ExtResource( 35 )]
+position = Vector2( 128, 800.051 )
+
+[node name="W_71_Tomahawk_Pick" parent="." instance=ExtResource( 29 )]
+position = Vector2( 208, 816.051 )
+
+[node name="W_72_Cleaver" parent="." instance=ExtResource( 30 )]
+position = Vector2( 272, 832.051 )
+
+[node name="W_73_Youth_Knife" parent="." instance=ExtResource( 37 )]
+position = Vector2( 352, 816.051 )

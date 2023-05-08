@@ -231,35 +231,36 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	if _by_who > 0:
 		hit_last_by = _by_who
 		timers.start_last_hit_by()
-	_im_hit = true
-	_hit_time += 0.11
-	if _damage > nrg:
-		dmg_given_stat(_by_who,nrg)
-		dmg_taken_stat(nrg)
-	else:
-		dmg_given_stat(_by_who,_damage)
-		dmg_taken_stat(_damage)
-	if play_type == 1:
-		if is_shield_up:
-			print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+
+		_im_hit = true
+		_hit_time += 0.11
+		if _damage > nrg:
+			dmg_given_stat(_by_who,nrg)
+			dmg_taken_stat(nrg)
 		else:
-			is_shield_up = true
-			print_debug("ive been hit. I'm player ",player)
-			let_go()
-			emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
-			call_deferred("free")
-	elif play_type > 1:
-		if !is_shield_up || _by_who == 0:
-			nrg = nrg - (_damage - armor)
-			nrg_update()
-			shield_up()
-			timers.start_shield_hit()
-			if nrg <= 0:
+			dmg_given_stat(_by_who,_damage)
+			dmg_taken_stat(_damage)
+		if play_type == 1:
+			if is_shield_up:
+				print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
+			else:
 				is_shield_up = true
 				print_debug("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 				call_deferred("free")
+		elif play_type > 1:
+			if !is_shield_up || _by_who == 0:
+				nrg = nrg - (_damage - armor)
+				nrg_update()
+				shield_up()
+				timers.start_shield_hit()
+				if nrg <= 0:
+					is_shield_up = true
+					print_debug("ive been hit. I'm player ",player)
+					let_go()
+					emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
+					call_deferred("free")
 
 ##-----------------------------------------------------------------------[Shoot]
 func shoot_j():
@@ -569,7 +570,7 @@ func back_shield_stat(): Player_Stats.add_back_shield_count(player, 1)
 
 func dmg_taken_stat(amount): Player_Stats.add_dmg_taken(player, amount)
 
-func dmg_given_stat(_player, amount): Player_Stats.add_dmg_given(_player, amount)
+func dmg_given_stat(_player, amount): if _player > 0: Player_Stats.add_dmg_given(_player, amount)
 
 
 func move_on_land_stat(amount):  Player_Stats.add_ground_distance(player, amount)
