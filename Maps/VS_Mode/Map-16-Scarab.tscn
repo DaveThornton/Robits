@@ -1,11 +1,11 @@
 [gd_scene load_steps=31 format=2]
 
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery-AA-Small.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_06_Battery_AA_Small.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Guns/Pick/W_21_Nazi_Grenade_Pick.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Guns/Pick/W_22_Plasma_Grenade_Pick.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Guns/Pick/W_40_RPG_Pick.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-01-Ammo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_06_Battery.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Guns/Pick/W_15_Zapper_Pick.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Guns/Pick/W_16_Solo_Pick.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Guns/Pick/W_84_Luger_Pick.tscn" type="PackedScene" id=11]
@@ -28,7 +28,7 @@
 [ext_resource path="res://Tilesets/TS-05-Main-Brick-Sand.tres" type="TileSet" id=29]
 [ext_resource path="res://Tilesets/TS-04-Back-FX-Sand.tres" type="TileSet" id=30]
 [ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner.tscn" type="PackedScene" id=31]
-[ext_resource path="res://Scenes/Map_Parts/MP-18-Nade_Spawner.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-18-Nade_Spawner.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Map_Parts/MP-19-PowerUp_Spawner.tscn" type="PackedScene" id=33]
 
 [node name="Map-16-Scarab" type="Node2D"]

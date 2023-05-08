@@ -21,7 +21,8 @@ func play(sfx = null):
 		if has_node(sfx):
 			get_node(sfx).play()
 		else:
-			print_debug("error in singleton sfx no sfx ", sfx)
+			get_node("Menu_Error_09").play()
+			print_debug("error in singleton sfx no sfx ", sfx, "so it played a stupid sound")
 
 func stop(sfx = null):
 	if sfx:

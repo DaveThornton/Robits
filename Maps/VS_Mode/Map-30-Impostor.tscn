@@ -13,12 +13,12 @@
 [ext_resource path="res://Maps/Scripts/Old/map-00.gd" type="Script" id=12]
 [ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Map_Parts/MP-19-PowerUp_Spawner.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Scenes/Map_Parts/MP-18-Nade_Spawner.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery-AA-Small.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-18-Nade_Spawner.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_06_Battery_AA_Small.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Guns/Pick/W_21_Nazi_Grenade_Pick.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-01-Ammo.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_06_Battery.tscn" type="PackedScene" id=20]
 
 [node name="Map-30-Impostor" type="Node2D"]
 script = ExtResource( 12 )

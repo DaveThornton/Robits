@@ -3,7 +3,7 @@
 [ext_resource path="res://Maps/Scripts/Old/map-C-00.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Map_Parts/MP-70-Bridge_01.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-70-Bridge_01.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawn-Camp.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Tilesets/TS-05-Main-Brick.tres" type="TileSet" id=7]
@@ -15,9 +15,9 @@
 [ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=13]
 [ext_resource path="res://Tilesets/TS-06-Main-FX-Balloon.tres" type="TileSet" id=14]
 [ext_resource path="res://Scenes/Bad_Guys/BG-09-Window_Guy.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Map_Parts/MP-71-Window.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-71-Window.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Map_Parts/MP-52-Door-BG-Spawner_Wood.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/Map_Parts/MP-73-Truck.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-73-Truck.tscn" type="PackedScene" id=18]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 30.0984

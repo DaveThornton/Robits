@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Power_Ups/Pick_Up_10_Shield.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Power_Ups/Pick-Up-10-Back_Shield_On_Pawn.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Power_Ups/Old/Pick-Up-10-Back_Shield_On_Pawn.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Power_Ups/parts/Pick-Up-10-Back_Shield_Part_Hit_Body.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]

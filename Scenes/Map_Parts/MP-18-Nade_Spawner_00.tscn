@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Map_Parts/MP-18-Nade_Spawner_00.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/FX/FX-20-plasma-cloud.png" type="Texture" id=2]
@@ -10,11 +10,6 @@ extents = Vector2( 16, 16 )
 [sub_resource type="Curve" id=2]
 max_value = 3.0
 _data = [ Vector2( 0.122449, 0.515909 ), 0.0, 0.0, 0, 0, Vector2( 0.747449, 2.03182 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="Curve" id=8]
-min_value = 1.0
-max_value = 3.0
-_data = [ Vector2( 0.0994898, 2.53636 ), 0.0, 0.0, 0, 0, Vector2( 0.545918, 1.15455 ), 0.0, 0.0, 0, 0 ]
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 26.0
@@ -34,48 +29,36 @@ tracks/0/keys = {
 "update": 1,
 "values": [ false ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("CPUParticles2D2:emitting")
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
 }
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"values": [  ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 18, 28 ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -97,7 +80,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("CPUParticles2D2:emitting")
+tracks/1/path = NodePath("Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -106,27 +89,15 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ 7 ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:frame")
+tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 7 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -148,25 +119,13 @@ tracks/0/keys = {
 "update": 1,
 "values": [ true ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("CPUParticles2D2:emitting")
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -174,25 +133,25 @@ tracks/2/keys = {
 "method": "spawn"
 } ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 8 ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
@@ -206,7 +165,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 3 )
 hframes = 10
 vframes = 3
-frame = 7
+frame = 8
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 visible = false
@@ -224,6 +183,7 @@ one_shot = true
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 show_behind_parent = true
 position = Vector2( 0, -15 )
+emitting = false
 amount = 5
 lifetime = 0.4
 texture = ExtResource( 2 )
@@ -233,24 +193,6 @@ initial_velocity = 110.0
 scale_amount = 2.0
 scale_amount_random = 0.42
 scale_amount_curve = SubResource( 2 )
-color = Color( 0.0392157, 0.560784, 0.0313726, 1 )
-
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-visible = false
-position = Vector2( 22, -45 )
-amount = 15
-lifetime = 2.5
-texture = ExtResource( 2 )
-direction = Vector2( 0, -1 )
-spread = 15.0
-gravity = Vector2( 0, -20 )
-initial_velocity = 83.33
-initial_velocity_random = 0.15
-orbit_velocity = 0.75
-orbit_velocity_random = 0.15
-scale_amount = 2.0
-scale_amount_random = 0.42
-scale_amount_curve = SubResource( 8 )
 color = Color( 0.0392157, 0.560784, 0.0313726, 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -269,6 +211,7 @@ angular_damp = 10.0
 shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
 anims/Off = SubResource( 7 )
 anims/RESET = SubResource( 5 )
 anims/Spawn = SubResource( 6 )

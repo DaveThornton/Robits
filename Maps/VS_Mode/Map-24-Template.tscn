@@ -8,7 +8,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_06_Battery.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=11]
 [ext_resource path="res://Maps/Scripts/Old/map-00.gd" type="Script" id=12]
@@ -20,10 +20,10 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_69_Bat'leth_Pick.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Guns/Pick/W_13_TOS_Pick.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Guns/Pick/W_18_Cricket_Pick.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery-AA-Small.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-01-Ammo.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_06_Battery_AA_Small.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Scenes/Map_Parts/MP-18-Nade_Spawner.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-18-Nade_Spawner.tscn" type="PackedScene" id=24]
 
 [node name="Map-01-Disputed" type="Node2D"]
 script = ExtResource( 12 )

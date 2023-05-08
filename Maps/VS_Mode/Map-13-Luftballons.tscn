@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-11-Balloon_Tanks.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-11-Balloon_Tanks.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=4]
@@ -10,7 +10,7 @@
 [ext_resource path="res://Maps/Scripts/Old/map-00.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-12-Bubble_Spawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-12-Bubble_Spawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Tilesets/TS-04-Back-FX-Balloon.tres" type="TileSet" id=12]
 [ext_resource path="res://Tilesets/TS-06-Main-FX-Balloon.tres" type="TileSet" id=13]
 [ext_resource path="res://Scenes/Guns/Pick/W_66_Hammer_Pick.tscn" type="PackedScene" id=14]
@@ -20,9 +20,9 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_22_Plasma_Grenade_Pick.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/Guns/Pick/W_21_Nazi_Grenade_Pick.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Guns/Pick/W_39_P_Mine_Pick.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Guns/Pick/W_24_TNT_Pick.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner-Small.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-08-RigidBody_Spawner-Small.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Map_Parts/MP-46-Balloon_Fish.tscn" type="PackedScene" id=25]
 
 [node name="Map-13-Luftballons" type="Node2D"]

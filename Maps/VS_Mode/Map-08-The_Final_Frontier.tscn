@@ -1,8 +1,8 @@
 [gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://Scenes/Map_Parts/MP-18-Nade_Spawner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-18-Nade_Spawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-19-PowerUp_Spawner.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-06-Battery.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_06_Battery.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Guns/Pick/W_13_TOS_Pick.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Guns/Pick/W_41_SPNKr_Pick.tscn" type="PackedScene" id=6]
@@ -12,7 +12,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Guns/Pick/W_17_Mars_Pick.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Guns/Pick/W_22_Plasma_Grenade_Pick.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Map_Parts/MP-05-Door_20x80-01.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-05-Door_20x80-01.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Map_Parts/MP-04-Navigation2D.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=16]
@@ -22,7 +22,7 @@
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=20]
 [ext_resource path="res://Tilesets/TS-04-Back-FX.tres" type="TileSet" id=21]
 [ext_resource path="res://Maps/Scripts/Old/map-00.gd" type="Script" id=22]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-01-Ammo.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=25]
 

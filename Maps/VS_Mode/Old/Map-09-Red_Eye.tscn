@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_10_Blaster_Pistol_Pick.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Guns/Pick/W_40_RPG_Pick.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Guns/Pick/W_60_Axe_Pick.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Power_Ups/Pick-Up-01-Ammo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-01-Ammo.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=8]
 [ext_resource path="res://SFX/Music/No Monkey.wav" type="AudioStream" id=9]
 [ext_resource path="res://Tilesets/TS-07-Plats.tres" type="TileSet" id=10]
@@ -14,7 +14,7 @@
 [ext_resource path="res://Tilesets/TS-08-Ladder.tres" type="TileSet" id=13]
 [ext_resource path="res://Tilesets/TS-03-Back-Bricks.tres" type="TileSet" id=14]
 [ext_resource path="res://Scenes/Map_Parts/Old/MP-10-R_Mark_01.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Scenes/Map_Parts/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-08-RigidBody_Spawner.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=18]
 

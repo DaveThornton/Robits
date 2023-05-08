@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Sprites/Map_Parts/parts/MP-73-Truck_Glass.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Map_Parts/parts/MP-73-Truck_Tire.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Map_Parts/parts/MP-73-Truck_Tire.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Map_Parts/parts/MP-73-Truck_Glass.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Map_Parts/parts/MP-73-Truck.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Map_Parts/MP-73-Truck.gd" type="Script" id=4]
 
@@ -91,9 +91,7 @@ tracks/2/keys = {
 "values": [ 0 ]
 }
 
-[node name="MP-73-Truck" type="StaticBody2D" groups=[
-"hittable",
-]]
+[node name="MP-73-Truck" type="StaticBody2D" groups=["hittable"]]
 collision_layer = 520
 collision_mask = 520
 script = ExtResource( 4 )
@@ -114,13 +112,13 @@ hframes = 2
 
 [node name="MP-73-Truck_Tire" type="Sprite" parent="MP-73-Truck"]
 show_behind_parent = true
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
 hframes = 2
 
 [node name="MP-73-Truck_Glass" type="Sprite" parent="MP-73-Truck"]
 modulate = Color( 0, 0.517647, 1, 1 )
 show_behind_parent = true
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scripts/Power_Ups/NRG_keep_Power_Up.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Power_Ups/Old/NRG_keep_Power_Up.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Power_Ups/Proj-8x8-Blue.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Power_Ups/Proj-8x8-Red-Explode.png" type="Texture" id=3]
 

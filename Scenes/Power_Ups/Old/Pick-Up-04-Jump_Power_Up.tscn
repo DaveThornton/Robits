@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Scripts/Power_Ups/Pick-Up-04-Jump_Power_Up.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Power_Ups/Old/Pick-Up-04-Jump_Power_Up.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Projectiles/Proj.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]

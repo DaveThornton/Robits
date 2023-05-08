@@ -1,6 +1,6 @@
 [gd_scene load_steps=64 format=2]
 
-[ext_resource path="res://Scripts/Map_Parts/MP-01-Camera-old.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Map_Parts/Old/MP-01-Camera-old.gd" type="Script" id=1]
 [ext_resource path="res://misc/CRT-Shader/crt_material.tres" type="Material" id=2]
 [ext_resource path="res://Sprites/Misc/Left_Side_Pannel.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Misc/Right_Side_Pannel.png" type="Texture" id=4]

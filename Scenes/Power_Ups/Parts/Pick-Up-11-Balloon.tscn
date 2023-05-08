@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Sprites/Misc/White_Pixel.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Power_Ups/Pick_Up_11_Balloon.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Power_Ups/Pick-Up-11-Balloon.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Power_Ups/Old/Pick-Up-11-Balloon.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/FX/Balloon_pop_01.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Power_Ups/parts/11-01-Balloon_Body.gd" type="Script" id=5]
 

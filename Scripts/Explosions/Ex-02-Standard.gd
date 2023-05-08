@@ -27,7 +27,7 @@ func start( _sr , _ss, _sss, _player):
 	owned = _player
 	self.position = _ss
 
-func _on_Area2Douter_body_entered(body):
+func _on_Area2Douter_body_entered(_body):
 	pass
 	# if body.get_groups().has("player"):
 	# 	Player_Stats.add_hit(owned,1)
@@ -35,7 +35,7 @@ func _on_Area2Douter_body_entered(body):
 	# elif body.get_groups().has("hittable"):
 	# 	body.hit(owned, gun_num, damage_type, damage1)
 
-func _on_Area2D2inner_body_entered(body):
+func _on_Area2D2inner_body_entered(_body):
 	pass
 	# if body.get_groups().has("player"):
 	# 	Player_Stats.add_hit(owned,1)

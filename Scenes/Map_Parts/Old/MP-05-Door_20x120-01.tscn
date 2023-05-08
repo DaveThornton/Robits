@@ -191,9 +191,7 @@ extents = Vector2( 10, 2.5 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 6, 29 )
 
-[node name="Door-120_Tall" type="Node2D" groups=[
-"map",
-]]
+[node name="Door-120_Tall" type="Node2D" groups=["map"]]
 script = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 1 )]
@@ -229,9 +227,7 @@ shape = SubResource( 7 )
 position = Vector2( 53, -7 )
 shape = SubResource( 7 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
-"map",
-]]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["map"]]
 collision_layer = 8
 collision_mask = 885279
 
@@ -254,6 +250,7 @@ one_shot = true
 stream = ExtResource( 2 )
 volume_db = -22.0
 bus = "SFX"
+
 [connection signal="body_entered" from="Area2D-Left" to="." method="_on_Area2DLeft_body_entered"]
 [connection signal="body_exited" from="Area2D-Left" to="." method="_on_Area2DLeft_body_exited"]
 [connection signal="body_entered" from="Area2D-Right" to="." method="_on_Area2DRight_body_entered"]
