@@ -23,10 +23,12 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	time = _time
 	ammo = _ammo
 	self.set_collision_mask_bit( 1, _just_shot)
-	self.set_collision_mask_bit( 12, _just_shot)
+	self.set_collision_mask_bit( 9, _just_shot)
+	self.set_collision_mask_bit( 11, _just_shot)
 
 func _on_Timer_timeout():
 	self.set_collision_mask_bit( 1, false)
+	self.set_collision_mask_bit( 9, false)
 	self.set_collision_mask_bit( 11, false)
 
 func spin(_how_much):

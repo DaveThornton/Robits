@@ -47,7 +47,7 @@ signal ammo_change(player, ammo)
 func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print_debug("failed to connect ammo change in gun hold 00")
+		print_debug("failed to connect ammo change in weap hold 00 mega cannon")
 	if Game.get_mode() == 0 && !is_bomb:
 		shoot_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())
 		melee_cast.set_collision_mask(FX.projectiles.get_layer_mode_0_a())

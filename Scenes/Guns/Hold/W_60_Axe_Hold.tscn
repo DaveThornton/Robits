@@ -12,6 +12,7 @@ height = 13.2813
 [node name="W_60_Axe_Hold" type="Node2D"]
 script = ExtResource( 2 )
 gun_num = 60
+melee_damage = 33
 dmg_type = "Blade"
 
 [node name="POS_Gun" type="Node2D" parent="."]

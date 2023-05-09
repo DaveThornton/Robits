@@ -2,14 +2,13 @@
 extends Node2D
 
 onready var gun_pos = $POS_Gun
-onready var hit_area = $Melee_Area
-onready var hit_area_shape = $Melee_Area/CollisionShape2D
+onready var hit_area = $Melee_Area/CollisionShape2D
 onready var pos_throw = $Throw_Pos
 onready var throw_cast = $Throw_Ray
 
 export var gun_num = 0
 # export var damage = 0
-export var damage = 50
+export var melee_damage = 50
 export var dmg_type = "none"
 export var ammo_max = 1
 export var walk_amount = 40.0
@@ -43,9 +42,7 @@ signal ammo_change(player, ammo)
 func _ready():
 	var test1 = self.connect("ammo_change", Player_Stats, "ammo_update")
 	if test1 != 0:
-		print_debug("failed to connect ammo change in gun melee hold 00. weap num ",gun_num)
-	if Game.get_mode() == 0:
-		hit_area.set_collision_layer(FX.projectiles.get_layer_mode_0_a())
+	    print_debug("failed to connect ammo change in weap hold 00 mega cannon")
 
 func init(_ammo, _player, _time, _just_shot):
 	set_up()
@@ -53,8 +50,6 @@ func init(_ammo, _player, _time, _just_shot):
 	ammo = _ammo
 	time = _time
 	just_shot = _just_shot
-	throw_cast.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
-	hit_area.set_collision_mask_bit(Player_Stats.get_player_collision_layer(_player) - 1, false)
 	emit_signal("ammo_change",player,ammo)
 	post_set_up()
 
@@ -62,7 +57,7 @@ func shoot_j():
 	swing()
 
 func shoot():
-	pass
+    pass
 
 func shoot_r():
 	un_swing()
@@ -81,21 +76,21 @@ func _process(delta):
 	if time_swing == 0.0:
 		return
 	elif time_swing < 0.0:
-		hit_area_shape.disabled = true
+		hit_area.disabled = true
 		time_swing = 0.0
 	time_swing -= delta
 
 func swing():
-	swinging = true
-	Player_Stats.add_shot(player, 1)
-	hit_area_shape.disabled = false
-	time_swing = 0.5
-	SFX.swing()
+    swinging = true
+    Player_Stats.add_shot(player, 1)
+    hit_area.disabled = false
+    time_swing = 0.5
+    SFX.swing()
 
 func un_swing():
 	swinging = false
 	time_swing = 0.0
-	hit_area_shape.disabled = true
+	hit_area.disabled = true
 
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()
@@ -103,7 +98,7 @@ func throw():
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
 	t.position = pos_throw.global_position
-	t.init(ammo, player, time, is_right, shoot_pos, true)
+	t.init(ammo, player, time, is_right, shoot_pos, false)
 	if throw_cast.is_colliding():
 		t.position = self.global_position
 		_drop_where(t)
@@ -156,12 +151,12 @@ func add_ammo(_ammo):
 func _on_Melee_Area_body_entered(body):
 	if body.get_groups().has("player"):
 		if body.player != player:
-			body.hit(player, gun_num, dmg_type, damage)
+			body.hit(player, gun_num, dmg_type, melee_damage)
 			hit_sfx()
 		else:
 			print_debug("quit hitting your self")
 	elif body.get_groups().has("hittable"):
-		body.hit(player, gun_num, dmg_type, damage)
+		body.hit(player, gun_num, dmg_type,melee_damage)
 		hit_sfx()
 
 func hit_sfx():
