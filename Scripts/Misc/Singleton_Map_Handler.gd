@@ -7,6 +7,9 @@ var next_map
 var default_splash_time = 1.0
 onready var clearing_house = $clearing_house
 
+export(PackedScene) var player_spawn_vs
+
+
 var level
 
 signal wow
@@ -120,3 +123,4 @@ func _on_Splash_Timer_timeout():
 	splash_scn.visible = false
 	splash_timer.wait_time = default_splash_time
 	
+func get_player_spawn_vs(): return player_spawn_vs

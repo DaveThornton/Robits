@@ -128,14 +128,14 @@ func shoot():
 		if _body.get_groups().has("player"):
 			_body.knock_back(1600, .4)
 			_body.stun(01)
-			_body.hit(9, "Bad Guy", "Melee", 10)
+			_body.hit(-1, "Bad Guy", "Melee", 10)
 		can_shoot = false
 		shoot_timer.start()
 
 func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	if health <= 0:
-		FX.explode(2,9, self.position, 201, 0, 0)
+		FX.explode(2,-1, self.position, 201, 0, 0)
 		call_deferred("free")
 
 func _on_floor():

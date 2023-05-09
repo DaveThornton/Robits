@@ -1,5 +1,7 @@
 extends Node2D
 
+const PLAYER_SPAWN_CELL_NUM = 0
+
 enum NADE_NAME {Grenade, Nazi_Grenade,Plasma_Grenade,Bomberman,TNT,Time_Bomb, Prox_Mine = 19}
 enum POWER_UP_NAME {Ammo, Shield, Speed, Jump, Nrg, Battery, Coin}
 
@@ -30,6 +32,7 @@ export(POWER_UP_NAME) var pick_up_04
 
 onready var player_spawns = $Player_spawns
 onready var parts = $Map_parts 
+onready var player_npc_spawn_map = $TM_10_Player_NPC_Spawn_00
 
 var first = true
 var next_spawn_spot = 0
@@ -38,9 +41,9 @@ var spawn_spots = []
 signal start
 
 func _ready():
+	start_player_spawns()
 	if show_splash:
 		HUD.splash(title_text, body_text, splash_time, true)
-
 	FX.set_back(background)
 	FX.CAMERA.max_right = camera_max_right
 	FX.camera_move(camera_move)
@@ -50,6 +53,7 @@ func _ready():
 	else:
 		SFX.music(false, music)
 	_start()
+
 
 func _start(): emit_signal("start")		
 
@@ -98,6 +102,24 @@ func set_music(_music: int):
 		SFX.music(true, music)
 	else:
 		SFX.music(false, music)
+
+func start_player_spawns():
+	var cells = player_npc_spawn_map.get_used_cells()
+	for cell in cells:
+		var index = player_npc_spawn_map.get_cell(cell.x, cell.y)
+		print("index :   ",index)
+		match index:
+			PLAYER_SPAWN_CELL_NUM:
+				spawn_player_spawn(cell)
+
+
+func spawn_player_spawn(pos):
+	player_npc_spawn_map.set_cell(pos.x, pos.y, -1)
+	var sp = Map_Hand.get_player_spawn_vs().instance()
+	player_spawns.add_child(sp)
+	sp.global_position = player_npc_spawn_map.map_to_world(pos)
+	print("spawn pos   ",pos)
+
 
 func remove_map(): reset()
 
