@@ -41,13 +41,11 @@ var spawn_spots = []
 signal start
 
 func _ready():
-	start_player_spawns()
 	if show_splash:
 		HUD.splash(title_text, body_text, splash_time, true)
 	FX.set_back(background)
 	FX.CAMERA.max_right = camera_max_right
 	FX.camera_move(camera_move)
-
 	if music > 0:
 		SFX.music(true, music)
 	else:
@@ -59,6 +57,7 @@ func _start(): emit_signal("start")
 
 func next_spawn_pos():
 	if first:
+		start_player_spawns()
 		for i in player_spawns.get_child_count():
 			spawn_spots.append(player_spawns.get_child(i))
 		first = false
@@ -112,14 +111,11 @@ func start_player_spawns():
 			PLAYER_SPAWN_CELL_NUM:
 				spawn_player_spawn(cell)
 
-
 func spawn_player_spawn(pos):
 	player_npc_spawn_map.set_cell(pos.x, pos.y, -1)
 	var sp = Map_Hand.get_player_spawn_vs().instance()
 	player_spawns.add_child(sp)
 	sp.global_position = player_npc_spawn_map.map_to_world(pos)
-	print("spawn pos   ",pos)
-
 
 func remove_map(): reset()
 

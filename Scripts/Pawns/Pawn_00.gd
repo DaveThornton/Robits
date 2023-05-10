@@ -241,11 +241,8 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 			dmg_given_stat(_by_who,_damage)
 			dmg_taken_stat(_damage)
 		if play_type == 1:
-			if is_shield_up:
-				print_debug(_by_who, "'s ", _by_what, " has bounced off of ", player, "'s Shield")
-			else:
+			if !is_shield_up:
 				is_shield_up = true
-				print_debug("ive been hit. I'm player ",player)
 				let_go()
 				emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 				call_deferred("free")
@@ -257,7 +254,6 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 				timers.start_shield_hit()
 				if nrg <= 0:
 					is_shield_up = true
-					print_debug("ive been hit. I'm player ",player)
 					let_go()
 					emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 					call_deferred("free")
@@ -303,7 +299,6 @@ func equip_weap(_weap_num, _ammo_pick_up, _time_left, _just_shot):
 		my_gun = g
 		is_holding = true
 	if my_start_gun != null:
-		print_debug("equip weap calling start gun to visible false")
 		my_start_gun.visible = false
 
 func equip_start_weap():
@@ -313,7 +308,6 @@ func equip_start_weap():
 	start_equiped = true
 	my_start_gun = g
 	if is_holding:
-		print_debug("equip start weap calling start gun to visible false")
 		my_start_gun.visible = false
 
 func remove_start_weap():
@@ -648,7 +642,10 @@ func _on_Pick_Up_Area_body_exited(body):
 		wep_array.erase(body)
 
 func killed_by_map(_by_who, _by_what, _damage_type, _damage):
-	hit(_by_who, 0, 0, (nrg* 2))#who,what,type,damage
+	is_shield_up = true
+	let_go()
+	emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
+	call_deferred("free")
 
 func start_next_level():
 	if !my_gun && start_equiped > 0:
