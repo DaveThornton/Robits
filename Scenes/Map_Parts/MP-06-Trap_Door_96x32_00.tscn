@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/Map_Parts/MP-06-Trap_Door-96x32.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Map_Parts/MP-06-_Trap_Door_XXx32_00.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Map_Parts/MP-06-Trap_Door_XXx32_00.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape2D" id=6]
 radius = 16.0

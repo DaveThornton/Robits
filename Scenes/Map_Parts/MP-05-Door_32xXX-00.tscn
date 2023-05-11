@@ -27,6 +27,7 @@ collision_mask = 1026
 [node name="Close" type="CollisionShape2D" parent="Area2D_Left"]
 
 [node name="Far" type="CollisionShape2D" parent="Area2D_Left"]
+disabled = true
 
 [node name="Area2D_Right" type="Area2D" parent="."]
 collision_layer = 1026
@@ -35,6 +36,7 @@ collision_mask = 1026
 [node name="Close" type="CollisionShape2D" parent="Area2D_Right"]
 
 [node name="Far" type="CollisionShape2D" parent="Area2D_Right"]
+disabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 264

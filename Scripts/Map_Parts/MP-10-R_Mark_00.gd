@@ -101,3 +101,7 @@ func _spawn_thing():
 	t.set_collision_layer_bit( 1, false)
 	t.set_collision_mask_bit( 1, false)
 	t.call_deferred("init", -1, 0, 1, true, 3, false )
+
+func set_grfx(mark_num: int):
+	mark = mark_num
+	start_gfx()
