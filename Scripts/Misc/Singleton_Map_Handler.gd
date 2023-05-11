@@ -6,7 +6,7 @@ var map
 var next_map
 var default_splash_time = 1.0
 onready var clearing_house = $clearing_house
-
+onready var parts = $Parts
 export(PackedScene) var player_spawn_vs
 
 
@@ -48,6 +48,9 @@ func _add_bg_to_map(_obj):
 		map.badguys.add_child(_obj)#weird error
 	else:
 		clearing_house.add_child(_obj)
+
+func add_part_to_map(part):
+	map.add_kid_to_parts(part)
 
 func set_map(_map):
 	if map:
@@ -124,3 +127,5 @@ func _on_Splash_Timer_timeout():
 	splash_timer.wait_time = default_splash_time
 	
 func get_player_spawn_vs(): return player_spawn_vs
+
+func get_map_part(num): return parts.get_part(num)

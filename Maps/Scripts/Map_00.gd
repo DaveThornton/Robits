@@ -31,7 +31,7 @@ export(POWER_UP_NAME) var pick_up_03
 export(POWER_UP_NAME) var pick_up_04
 
 onready var player_spawns = $Player_spawns
-onready var parts = $Map_parts 
+onready var parts = $Map_Parts 
 onready var player_npc_spawn_map = $TM_10_Player_NPC_Spawn_00
 
 var first = true
@@ -106,7 +106,6 @@ func start_player_spawns():
 	var cells = player_npc_spawn_map.get_used_cells()
 	for cell in cells:
 		var index = player_npc_spawn_map.get_cell(cell.x, cell.y)
-		print("index :   ",index)
 		match index:
 			PLAYER_SPAWN_CELL_NUM:
 				spawn_player_spawn(cell)
@@ -116,6 +115,8 @@ func spawn_player_spawn(pos):
 	var sp = Map_Hand.get_player_spawn_vs().instance()
 	player_spawns.add_child(sp)
 	sp.global_position = player_npc_spawn_map.map_to_world(pos)
+
+func add_kid_to_parts(kid): parts.add_child(kid)
 
 func remove_map(): reset()
 

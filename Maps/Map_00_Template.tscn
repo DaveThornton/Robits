@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Tile_Maps/TM_03_MAIN_00.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Tile_Maps/TM_01_BACK_00.tscn" type="PackedScene" id=2]
@@ -7,30 +7,13 @@
 [ext_resource path="res://Maps/Scripts/Map_00.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Tile_Sets/Map_Parts/MP_51_Saw.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Tile_Maps/TM_08_Map_Parts_00.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Tile_Maps/TM_04_PLATFORMS_00.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Tile_Maps/TM_07_FRONT_FX_00.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Tile_Maps/TM_06_FRONT_00.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner_00.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_00.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Sprites/Tile_Sets/Player_and_NPC/Player_Spawn.png" type="Texture" id=41]
-
-[sub_resource type="TileSet" id=2]
-0/name = "MP_51_Saw"
-0/texture = ExtResource( 9 )
-0/tex_offset = Vector2( -16, -16 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 64, 64 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
 
 [sub_resource type="TileSet" id=1]
 0/name = "PLAYER"
@@ -78,13 +61,8 @@ tile_data = PoolIntArray( 5636115, 4, 0, 5636116, 4, 1, 5636117, 4, 1, 5636118, 
 
 [node name="TM_07_FRONT_FX_00" parent="." instance=ExtResource( 11 )]
 
-[node name="TM_08_Map_Parts_00" type="TileMap" parent="."]
-tile_set = SubResource( 2 )
-cell_size = Vector2( 32, 32 )
-cell_quadrant_size = 32
-cell_custom_transform = Transform2D( 64, 0, 0, 32, 0, 0 )
-format = 1
-tile_data = PoolIntArray( 1507364, 0, 0 )
+[node name="TM_08_Map_Parts_00" parent="." instance=ExtResource( 9 )]
+tile_data = PoolIntArray( 983063, 0, 0, 1114129, 0, 0, 1114143, 0, 0, 1114149, 0, 0, 1179692, 0, 0, 1507362, 0, 0, 1507368, 0, 0, 1572911, 0, 0 )
 
 [node name="TM_09_Item_Spawn_00" type="TileMap" parent="."]
 cell_size = Vector2( 32, 32 )
@@ -104,15 +82,12 @@ tile_data = PoolIntArray( 1441797, 0, 0, 1572895, 0, 0, 1769495, 0, 0, 1769512, 
 
 [node name="Power_Ups" type="Node2D" parent="."]
 
-[node name="Map_parts" type="Node2D" parent="." groups=["map_part"]]
+[node name="Map_Parts" type="Node2D" parent="." groups=["map_part"]]
 
-[node name="MP-03-SideScroll_Over" parent="Map_parts" instance=ExtResource( 7 )]
+[node name="MP-03-SideScroll_Over" parent="Map_Parts" instance=ExtResource( 7 )]
 
-[node name="Kill_Zone" parent="Map_parts" instance=ExtResource( 6 )]
-position = Vector2( 1016.51, 1127.47 )
-
-[node name="MP-51-Saw" parent="Map_parts" instance=ExtResource( 8 )]
-position = Vector2( 1328, 832 )
+[node name="Kill_Zone" parent="Map_Parts" instance=ExtResource( 6 )]
+position = Vector2( 1040, 1248 )
 
 [node name="MP-10-R_Mark_01_01" parent="." instance=ExtResource( 14 )]
 position = Vector2( 168, 752 )
