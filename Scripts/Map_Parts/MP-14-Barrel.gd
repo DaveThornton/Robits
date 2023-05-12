@@ -1,9 +1,7 @@
 extends RigidBody2D
 
 export var armor = 0
-export var damage = 111
-export var color_lquid = Color8(0,255,0,255)
-export var color_barrel = Color8(255,255,255,255)
+export var damage = 140
 
 onready var barrel_l = $"MP-14-Barrel-Lquid"
 onready var barrel_b = $"MP-14-Barrel-Still"
@@ -16,10 +14,6 @@ var is_right = true
 
 signal boom
 
-func _ready():
-	barrel_l.self_modulate = color_lquid
-	barrel_b.self_modulate = color_barrel
-
 func init(_health,_gpos):
 	if _health > 0:
 		health = _health
@@ -29,7 +23,8 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	health -= (_damage - armor)
 	if health <= 0 && !is_dead:
 		is_dead = true
-		FX.explode(2, _by_who, self.position, my_name, Player_Stats.get_pawn_num(_by_who), damage)
+		FX.explode(10, _by_who, self.global_position + Vector2(0,-32), -1, Player_Stats.get_pawn_num(_by_who), damage)
+		print_debug("TO DO: make barrel its own explosion")
 		self.emit_signal("boom")
 		queue_free()
 	else:
