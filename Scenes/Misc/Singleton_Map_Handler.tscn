@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Map_Handler.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Parts/M10-Splash.tscn" type="PackedScene" id=2]
@@ -13,6 +13,9 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_DN_32x96-00.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_DN_32x64-00.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Map_Parts/MP-27-Barrel-Spawner.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Map_Parts/MP-06-Trap_Door_128x32_00.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Map_Parts/MP-06-Trap_Door_64x32_00.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Map_Parts/MP-06-Trap_Door_96x32_00.tscn" type="PackedScene" id=16]
 
 [node name="Map_Handler" type="Node2D"]
 pause_mode = 2
@@ -33,6 +36,9 @@ mp005_96_dn = ExtResource( 11 )
 mp005_96_up = ExtResource( 9 )
 mp005_64_dn = ExtResource( 12 )
 mp005_64_up = ExtResource( 10 )
+mp006_128 = ExtResource( 14 )
+mp006_96 = ExtResource( 16 )
+mp006_64 = ExtResource( 15 )
 mp010 = ExtResource( 6 )
 mp013 = ExtResource( 5 )
 mp027 = ExtResource( 13 )

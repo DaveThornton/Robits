@@ -9,6 +9,9 @@ const MP_05_DOOR_UP_96 = 5
 const MP_05_DOOR_DN_64 = 6
 const MP_05_DOOR_UP_64 = 7
 const MP_27_BARREL_SPAWNER = 8
+const MP_06_TRAP_DOOR_128 = 9
+const MP_06_TRAP_DOOR_96 = 10
+const MP_06_TRAP_DOOR_64 = 11
 
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
@@ -24,6 +27,7 @@ func start_spawning_parts():
 			MP_51_SAW:
 				spawn_part(cell, 51, part_offset)
 			MP_13_SPIKE_BLOCK:
+				part_offset = Vector2(16,16)
 				spawn_part(cell, 13, part_offset)
 			MP_05_DOOR_DN_128:
 				part_offset = Vector2(16,32)
@@ -46,6 +50,16 @@ func start_spawning_parts():
 			MP_27_BARREL_SPAWNER:
 				part_offset = Vector2(16,30)
 				spawn_part(cell, 27, part_offset)				
+			MP_06_TRAP_DOOR_128:
+				# part_offset = Vector2(0,0)
+				spawn_part(cell, 06.1, part_offset)
+			MP_06_TRAP_DOOR_96:
+				# part_offset = Vector2(0,0)
+				spawn_part(cell, 06.2, part_offset)
+			MP_06_TRAP_DOOR_64:
+				# part_offset = Vector2(0,0)
+				spawn_part(cell, 06.3, part_offset)
+
 
 func spawn_part(pos, mp_num, offset):
 	self.set_cell(pos.x, pos.y, -1)
