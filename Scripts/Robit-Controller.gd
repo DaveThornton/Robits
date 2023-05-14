@@ -21,9 +21,7 @@ var auto_respawn = true
 var alive = false
 var start_equiped = 0
 
-func _ready():
-	pass
-
+# this function sets which player inputs will be used by this instance of the controller 
 func init(_player_num):
 	player = _player_num
 	if player == 1:
@@ -124,6 +122,7 @@ func init(_player_num):
 		player_input_coin = "P8_Coin"
 	else: print_debug("Error in Robit controller init player number invald")
 
+# spawns a new pawn aka robit
 func spawn_pawn():
 	if my_pawn != null:
 		print("spawning pawn when i have a pawn ?? player: ",player, " in controller")
@@ -147,7 +146,7 @@ func _init_pawn():
 	else:
 		my_pawn.init(player, Map_Hand.spawn_pos(), Settings.get_multi_start_gun(), play_type)
 
-
+# spawning and explosion where the pawn is and calling to clear it
 func explode_pawn(_player, _pos, _by_who, _by_what):
 	FX.explode(3, player, _pos + Vector2(0,-30), 1001, Player_Stats.get_pawn_num(player), 2)
 	alive = false
@@ -159,7 +158,7 @@ func explode_pawn(_player, _pos, _by_who, _by_what):
 		if auto_respawn:
 			if Player_Stats.get_in_game(player):
 				r_timer.start()
-
+# deleting the pawn
 func clear_pawn():
 	if my_pawn:
 		my_pawn.call_deferred("free")
