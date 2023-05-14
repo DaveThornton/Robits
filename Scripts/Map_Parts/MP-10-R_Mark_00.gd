@@ -105,3 +105,11 @@ func _spawn_thing():
 func set_grfx(mark_num: int):
 	mark = mark_num
 	start_gfx()
+
+func set_spawn(mark_num, _thing_to_spawn, _num_to_spawn):
+	if _thing_to_spawn >= 0 && _thing_to_spawn < 4:
+		spawn = _thing_to_spawn
+		map_gun_num = _num_to_spawn
+		map_nade_num = _num_to_spawn
+		map_pick_up_num = _num_to_spawn
+		set_grfx(mark_num)
