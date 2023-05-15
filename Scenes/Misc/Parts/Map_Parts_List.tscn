@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Misc/Parts/Map_Parts_List.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Map_Parts/MP-19-PowerUp_Spawner_00.tscn" type="PackedScene" id=3]
 
 [node name="Parts" type="Node2D"]
 script = ExtResource( 1 )
+mp019 = ExtResource( 3 )
 mp051 = ExtResource( 2 )

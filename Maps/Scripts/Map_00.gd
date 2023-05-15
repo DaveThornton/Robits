@@ -3,7 +3,7 @@ extends Node2D
 const PLAYER_SPAWN_CELL_NUM = 0
 
 enum NADE_NAME {Grenade, Nazi_Grenade,Plasma_Grenade,Bomberman,TNT,Time_Bomb, Prox_Mine = 19}
-enum POWER_UP_NAME {Ammo, Shield, Speed, Jump, Nrg, Battery, Coin}
+enum POWER_UP_NAME {Ammo, Shield, Speed, Jump, Nrg, Battery, Coin = 7}
 
 export var show_splash = false
 export var title_text = "top_text"
@@ -81,6 +81,7 @@ func get_nade(_num: int):
 	elif _num == 4: return Equipment.get_weap_pick(nade_04 + 20)
 
 func get_pick_up(_num: int,_is_area: bool):
+	print_debug(_num, _is_area)
 	if _is_area:
 		if _num == 1: return Equipment.get_area_item(pick_up_01 + 1)
 		elif _num == 2: return Equipment.get_area_item(pick_up_02 + 1)

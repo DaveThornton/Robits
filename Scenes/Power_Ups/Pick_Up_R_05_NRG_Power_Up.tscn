@@ -9,7 +9,7 @@ radius = 9.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 11.2361
 
-[node name="Pick_Up_Rigid_05_NRG_Power_Up_00" type="RigidBody2D"]
+[node name="Pick_Up_Rigid_05_NRG_Power_Up_00" type="RigidBody2D" groups=["PickUp"]]
 collision_layer = 524288
 collision_mask = 983068
 gravity_scale = 4.0

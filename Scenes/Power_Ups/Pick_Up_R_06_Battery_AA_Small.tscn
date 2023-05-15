@@ -11,7 +11,7 @@ height = 14.0
 radius = 8.0
 height = 16.0
 
-[node name="Pick_Up_Rigid_06_Battery_AA_00" type="RigidBody2D"]
+[node name="Pick_Up_Rigid_06_Battery_AA_00" type="RigidBody2D" groups=["PickUp"]]
 collision_layer = 524288
 collision_mask = 65804
 mass = 10.0

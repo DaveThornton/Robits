@@ -30,19 +30,19 @@ position = Vector2( 2.16385, -0.630419 )
 texture = ExtResource( 3 )
 hframes = 2
 
-[node name="Sprite2" type="Sprite" parent="Sprite"]
-show_behind_parent = true
-texture = ExtResource( 3 )
-hframes = 2
-frame = 1
-
-[node name="Outline" type="Sprite" parent="Sprite/Sprite2"]
+[node name="Outline" type="Sprite" parent="Sprite"]
 show_behind_parent = true
 position = Vector2( -1.19209e-07, 0 )
 texture = ExtResource( 4 )
 hframes = 2
 frame = 1
 script = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="Sprite"]
+show_behind_parent = true
+texture = ExtResource( 3 )
+hframes = 2
+frame = 1
 
 [node name="Outline" type="Sprite" parent="."]
 show_behind_parent = true

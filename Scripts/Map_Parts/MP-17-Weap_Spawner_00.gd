@@ -20,7 +20,7 @@ func _ready():
 func start():
 	print_debug("started")
 	timer.wait_time = respawn_time
-	obj = Map_Hand.map.get_gun(gun_number)
+	obj = Map_Hand.map.get_gun(gun_number + 1)
 	if spawn_area.get_overlapping_bodies().size() == 0:
 		anim.play("Spawn")
 
@@ -32,6 +32,10 @@ func spawn():
 	spawned_obj.global_position = top.global_position
 	spawned_obj.dont_hit_player()
 	spawned_obj.init(-1, 0, -1, true, 3, false)
+
+func set_spawn(gun_num):
+	gun_number = gun_num
+	start()
 
 func _on_Area2D_body_entered(body:Node):
 	if body.get_groups().has("PickUp"):
