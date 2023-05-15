@@ -767,7 +767,11 @@ func get_weap_pick(_weap: int):
 			print_debug("Error in Singleton Equipment wrong weap number ----> ", _weap, " ... so you get a AK-47")
 			return gun_pick_02
 
-func get_weap_name(_weap: int): return weap_names[_weap]
+func get_weap_name(_weap: int): 
+	if _weap > 0 && _weap < 100:
+		return weap_names[_weap]
+	else:
+		return "Map Part"
 
 func get_award_name(_award: int): return award_names[_award]
 
