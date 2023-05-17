@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=6 format=2]
+[gd_resource type="TileSet" load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Tile_Sets/Map_Parts/MP_51_Saw.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Map_Parts/MP-13-Spike_Block_32X32.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Tile_Sets/Map_Parts/MP_05_Door.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Map_Parts/MP-14-Barrel-Still.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Tile_Sets/Map_Parts/MP_06_Trap_Door.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Tile_Sets/Map_Parts/Misc_Map_Parts_00.png" type="Texture" id=6]
 
 [resource]
 0/name = "51_Saw"
@@ -175,3 +176,17 @@
 11/shape_one_way_margin = 0.0
 11/shapes = [  ]
 11/z_index = 0
+12/name = "43_WOW"
+12/texture = ExtResource( 6 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 0, 0, 32, 32 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0

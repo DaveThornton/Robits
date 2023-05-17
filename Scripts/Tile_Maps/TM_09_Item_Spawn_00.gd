@@ -74,6 +74,64 @@ const POWERUP_02_HOLDER = 69
 const POWERUP_03_HOLDER = 70
 const POWERUP_04_HOLDER = 71
 
+const NADE_01_R = 72
+const NADE_01_O = 73
+const NADE_01_B = 74
+const NADE_01_I = 75
+const NADE_01_T = 76
+const NADE_01_S = 77
+const NADE_01_BANG = 78
+const NADE_02_R = 79
+const NADE_02_O = 80
+const NADE_02_B = 81
+const NADE_02_I = 82
+const NADE_02_T = 83
+const NADE_02_S = 84
+const NADE_02_BANG = 85
+const NADE_03_R = 86
+const NADE_03_O = 87
+const NADE_03_B = 88
+const NADE_03_I = 89
+const NADE_03_T = 90
+const NADE_03_S = 91
+const NADE_03_BANG = 92
+const NADE_04_R = 93
+const NADE_04_O = 94
+const NADE_04_B = 95
+const NADE_04_I = 96
+const NADE_04_T = 97
+const NADE_04_S = 98
+const NADE_04_BANG = 99
+
+const POWERUP_01_R = 100
+const POWERUP_01_O = 101
+const POWERUP_01_B = 102
+const POWERUP_01_I = 103
+const POWERUP_01_T = 104
+const POWERUP_01_S = 105
+const POWERUP_01_BANG = 106
+const POWERUP_02_R = 107
+const POWERUP_02_O = 108
+const POWERUP_02_B = 109
+const POWERUP_02_I = 127#<-------------------------
+const POWERUP_02_T = 110
+const POWERUP_02_S = 111
+const POWERUP_02_BANG = 112
+const POWERUP_03_R = 113
+const POWERUP_03_O = 114
+const POWERUP_03_B = 115
+const POWERUP_03_I = 116
+const POWERUP_03_T = 117
+const POWERUP_03_S = 118
+const POWERUP_03_BANG = 119
+const POWERUP_04_R = 120
+const POWERUP_04_O = 121
+const POWERUP_04_B = 122
+const POWERUP_04_I = 123
+const POWERUP_04_T = 124
+const POWERUP_04_S = 125
+const POWERUP_04_BANG = 126
+
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
 
@@ -303,7 +361,174 @@ func start_spawning_parts():
 				var new_mark = spawn_part(cell, 19, part_offset)
 				new_mark.set_spawn(3)
 
-
+			NADE_01_R:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(1, 2, 0)
+			NADE_01_O:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(2, 2, 0)
+			NADE_01_B:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(3, 2, 0)
+			NADE_01_I:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(4, 2, 0)
+			NADE_01_T:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(5, 2, 0)
+			NADE_01_S:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(6, 2, 0)
+			NADE_01_BANG:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(7, 2, 0)
+			NADE_02_R:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(1, 2, 1)
+			NADE_02_O:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(2, 2, 1)
+			NADE_02_B:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(3, 2, 1)
+			NADE_02_I:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(4, 2, 1)
+			NADE_02_T:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(5, 2, 1)
+			NADE_02_S:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(6, 1, 1)
+			NADE_02_BANG:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(7, 2, 1)
+			NADE_03_R:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(1, 2, 2)
+			NADE_03_O:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(2, 2, 2)
+			NADE_03_B:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(3, 2, 2)
+			NADE_03_I:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(4, 2, 2)
+			NADE_03_T:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(5, 2, 2)
+			NADE_03_S:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(6, 2, 2)
+			NADE_03_BANG:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(7, 2, 2)
+			NADE_04_R:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(1, 2, 3)
+			NADE_04_O:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(2, 2, 3)
+			NADE_04_B:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(3, 2, 3)
+			NADE_04_I:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(4, 2, 3)
+			NADE_04_T:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(5, 2, 3)
+			NADE_04_S:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(6, 2, 3)
+			NADE_04_BANG:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(7, 2, 3)
+			POWERUP_01_R:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(1, 0, 0)
+			POWERUP_01_O:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(2, 0, 0)
+			POWERUP_01_B:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(3, 0, 0)
+			POWERUP_01_I:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(4, 0, 0)
+			POWERUP_01_T:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(5, 0, 0)
+			POWERUP_01_S:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(6, 0, 0)
+			POWERUP_01_BANG:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(7, 0, 0)
+			POWERUP_02_R:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(1, 0, 1)
+			POWERUP_02_O:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(2, 0, 1)
+			POWERUP_02_B:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(3, 0, 1)
+			POWERUP_02_I:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(4, 0, 1)
+			POWERUP_02_T:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(5, 0, 1)
+			POWERUP_02_S:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(6, 0, 1)
+			POWERUP_02_BANG:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(7, 0, 1)
+			POWERUP_03_R:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(1, 0, 2)
+			POWERUP_03_O:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(2, 0, 2)
+			POWERUP_03_B:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(3, 0, 2)
+			POWERUP_03_I:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(4, 0, 2)
+			POWERUP_03_T:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(5, 0, 2)
+			POWERUP_03_S:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(6, 0, 2)
+			POWERUP_03_BANG:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(7, 0, 2)
+			POWERUP_04_R:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(1, 0, 3)
+			POWERUP_04_O:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(2, 0, 3)
+			POWERUP_04_B:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(3, 0, 3)
+			POWERUP_04_I:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(4, 0, 3)
+			POWERUP_04_T:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(5, 0, 3)
+			POWERUP_04_S:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(6, 0, 3)
+			POWERUP_04_BANG:
+				var new_mark = spawn_part(cell, 10, part_offset)
+				new_mark.set_spawn(7, 0, 3)
 
 func spawn_part(pos, mp_num, offset):
 	self.set_cell(pos.x, pos.y, -1)

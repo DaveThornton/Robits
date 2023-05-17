@@ -5,10 +5,10 @@ const PLAYER_SPAWN_CELL_NUM = 0
 enum NADE_NAME {Grenade, Nazi_Grenade,Plasma_Grenade,Bomberman,TNT,Time_Bomb, Prox_Mine = 19}
 enum POWER_UP_NAME {Ammo, Shield, Speed, Jump, Nrg, Battery, Coin = 7}
 
-export var show_splash = false
-export var title_text = "top_text"
-export var body_text = "body_text testing levely stuff blah blah ... blah!!!"
-export var splash_time = 1.5
+export var show_start_splash = false
+export var start_splash_title = "top_text"
+export var start_splash_body = "start_splash_body testing levely stuff blah blah ... blah!!!"
+export var splash_time_sec = 1.5
 export var camera_move = false
 export var camera_max_right = 1920
 export var background = 1
@@ -41,8 +41,8 @@ var spawn_spots = []
 signal start
 
 func _ready():
-	if show_splash:
-		HUD.splash(title_text, body_text, splash_time, true)
+	if show_start_splash:
+		HUD.splash(start_splash_title, start_splash_body, splash_time_sec, true)
 	FX.set_back(background)
 	FX.CAMERA.max_right = camera_max_right
 	FX.camera_move(camera_move)
