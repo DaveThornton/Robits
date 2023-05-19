@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Misc/Parts/Map_Parts_List.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Map_Parts/MP-19-PowerUp_Spawner_00.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Map_Parts/MP-50_ThwompBit_00.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Map_Parts/MP-27-Barrel-Spawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Map_Parts/MP-43-WOW_32x32.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Map_Parts/MP-29-Trash_Spawner.tscn" type="PackedScene" id=7]
 
 [node name="Parts" type="Node2D"]
 script = ExtResource( 1 )
 mp019 = ExtResource( 3 )
+mp027 = ExtResource( 5 )
+mp029 = ExtResource( 7 )
+mp043 = ExtResource( 6 )
+mp050 = ExtResource( 4 )
 mp051 = ExtResource( 2 )

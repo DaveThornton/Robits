@@ -19,6 +19,7 @@ export(PackedScene) var mp019
 export(PackedScene) var mp027
 export(PackedScene) var mp029
 export(PackedScene) var mp043
+export(PackedScene) var mp050
 export(PackedScene) var mp051
 
 func get_part(num):
@@ -41,4 +42,5 @@ func get_part(num):
 		27: return mp027
 		29: return mp029
 		43: return mp043
+		50: return mp050
 		51: return mp051

@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scripts/Map_Parts/MP-50-Thwomp.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Map_Parts/MP-50-Thwomp.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Tye-set/Open_Gunner_Tile-Set.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Map_Parts/MP-50-Thwomp_00.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Tye-set/Open_Gunner_Tile-Set.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Map_Parts/MP-50_ThwompBit_00.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20, 40 )
+extents = Vector2( 16, 32 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 20, 10 )
@@ -17,7 +17,7 @@ extents = Vector2( 20, 10 )
 radius = 35.4749
 
 [node name="MP-50-Thwomp" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 collision_layer = 8
@@ -27,7 +27,8 @@ collision_mask = 3082
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
-texture = ExtResource( 2 )
+texture = ExtResource( 1 )
+hframes = 2
 
 [node name="Area2D-Thuwmp" type="Area2D" parent="KinematicBody2D"]
 collision_layer = 8
@@ -78,7 +79,7 @@ shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Area2D-Bottom"]
 position = Vector2( 0, 10 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 hframes = 40
 vframes = 2
 frame = 32
