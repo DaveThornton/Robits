@@ -19,9 +19,10 @@ var slamming = false
 var speed_down = 2000.0
 var speed_up = -2000.0
 var start_x = 0.0
+var first = true
 
 func _ready():
-	start_x = global_position.x
+	# start_x = global_position.x
 	if !trigger_on_prox:
 		var con = self.get_tree().get_current_scene().connect("second", self, "second")
 		if con != 0:
@@ -32,6 +33,9 @@ func _ready():
 		bottom.global_position = cast_down.get_collision_point()
 
 func _process(delta):
+	if first:
+		first = false
+		start_x = global_position.x
 	var cposx = hammer.global_position.x - start_x
 	if slamming:
 		hammer.move_and_collide(Vector2(-cposx, speed_down * delta))

@@ -106,6 +106,13 @@ var p8 = {
 	color_3 = Color8(255, 225, 225, 222)
 }
 
+var map_stats = {
+	collision_layer = 25, #needs its own num this is p1s
+	color_2 = Color8(0, 0, 0, 0),
+	color_1 = Color8(0, 0, 0, 0),
+	color_3 = Color8(0, 0, 0, 0)
+}
+
 var p_in_p = 0
 
 signal player_count_change
@@ -127,6 +134,8 @@ func _ready():
 	p7.merge(p0,false)
 	p0 = px.duplicate(true)
 	p8.merge(p0,false)
+	p0 = px.duplicate(true)
+	map_stats.merge(p0,false)
 	var test = get_tree().get_current_scene().connect("reset", self, "reset")
 	if test != 0:
 		print_debug("error Singleton Player Stats connecting to reset from world gd")
@@ -425,7 +434,7 @@ func get_player_stats(_num):
 		return p8
 	else:
 		print_debug("invalid get player stats, get player stats thats dumb  -->  ", _num)
-		# return p8
+		return map_stats
 
 func get_player_collision_layer(_player: int): if _player > 0: return get_player_stats(_player)["collision_layer"]
 

@@ -13,7 +13,8 @@ const MP_06_TRAP_DOOR_128 = 9
 const MP_06_TRAP_DOOR_96 = 10
 const MP_06_TRAP_DOOR_64 = 11
 const MP_43_WOW = 12
-const MP_29_TRASH= 13
+const MP_29_TRASH = 13
+const MP_50_THWOMP = 14
 
 
 func _ready():
@@ -68,13 +69,16 @@ func start_spawning_parts():
 			MP_29_TRASH:
 				part_offset = Vector2(16,16)
 				spawn_part(cell, 29, part_offset)
-
+			MP_50_THWOMP:
+				part_offset = Vector2(16,16)
+				spawn_part(cell, 50, part_offset)
 
 func spawn_part(pos, mp_num, offset):
 	self.set_cell(pos.x, pos.y, -1)
 	var sp = Map_Hand.get_map_part(mp_num).instance()
 	add_part_to_map(sp)
 	sp.global_position = self.map_to_world(pos) + offset
+
 
 func add_part_to_map(part):
 	Map_Hand.add_part_to_map(part)
