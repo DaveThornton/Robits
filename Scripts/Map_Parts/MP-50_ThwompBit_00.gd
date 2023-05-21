@@ -3,7 +3,7 @@ export var hit_on_second = 1
 export var count_to_second = 4
 export var trigger_on_prox = false
 
-onready var cast_down = $RayCast2D
+onready var cast_down = $KinematicBody2D/RayCast2D
 onready var cast_up1 = $KinematicBody2D/RayCast2D_Up
 onready var cast_up2 = $KinematicBody2D/RayCast2D_Up2
 onready var cast_up3 = $KinematicBody2D/RayCast2D_Up3
@@ -22,7 +22,7 @@ var start_x = 0.0
 var first = true
 
 func _ready():
-	# start_x = global_position.x
+	start_x = global_position.x
 	if !trigger_on_prox:
 		var con = self.get_tree().get_current_scene().connect("second", self, "second")
 		if con != 0:
@@ -35,7 +35,8 @@ func _ready():
 func _process(delta):
 	if first:
 		first = false
-		start_x = global_position.x
+		_ready()
+		# start_x = global_position.x
 	var cposx = hammer.global_position.x - start_x
 	if slamming:
 		hammer.move_and_collide(Vector2(-cposx, speed_down * delta))
@@ -75,6 +76,12 @@ func second():
 		sprite.frame = 0
 	if current_count >= count_to_second:
 		current_count = 0
+
+func setup(_trigger_on_prox, _hit_on_second, _count_to_second, _wait_time):
+	trigger_on_prox = _trigger_on_prox
+	hit_on_second = _hit_on_second
+	count_to_second = _count_to_second
+	timer.wait_time = _wait_time
 
 func _on_Timer_timeout():
 	slamming = false

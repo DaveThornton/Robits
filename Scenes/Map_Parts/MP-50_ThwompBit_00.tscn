@@ -5,19 +5,20 @@
 [ext_resource path="res://Scripts/Map_Parts/MP-50_ThwompBit_00.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 32 )
+extents = Vector2( 14, 32 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 20, 10 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 20, 10 )
+extents = Vector2( 32, 16 )
 
 [sub_resource type="CapsuleShape2D" id=4]
 radius = 35.4749
 
 [node name="MP-50-Thwomp" type="Node2D"]
 script = ExtResource( 3 )
+trigger_on_prox = true
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 collision_layer = 8
@@ -62,11 +63,19 @@ enabled = true
 cast_to = Vector2( 0, -20 )
 collision_mask = 2
 
+[node name="RayCast2D" type="RayCast2D" parent="KinematicBody2D"]
+position = Vector2( 0, 50 )
+cast_to = Vector2( 0, 1080 )
+collision_mask = 8
+
 [node name="Area2D-Bottom" type="Area2D" parent="."]
 visible = false
-position = Vector2( 0, 100 )
+position = Vector2( 0, 112 )
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Bottom"]
+position = Vector2( 0, 16 )
 shape = SubResource( 3 )
 
 [node name="Area2D-Trigger" type="Area2D" parent="Area2D-Bottom"]
@@ -74,20 +83,16 @@ collision_layer = 8
 collision_mask = 3074
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D-Bottom/Area2D-Trigger"]
-position = Vector2( 0, -60 )
+position = Vector2( 0, -32 )
 shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Area2D-Bottom"]
-position = Vector2( 0, 10 )
+position = Vector2( 0, 32 )
+scale = Vector2( 1.28, 1.28 )
 texture = ExtResource( 2 )
 hframes = 40
 vframes = 2
 frame = 32
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 0, 50 )
-cast_to = Vector2( 0, 500 )
-collision_mask = 8
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
