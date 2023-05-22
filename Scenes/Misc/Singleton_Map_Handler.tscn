@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Map_Handler.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Parts/M10-Splash.tscn" type="PackedScene" id=2]
@@ -12,14 +12,11 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_UP_32x64-00.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_DN_32x96-00.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Map_Parts/MP-05-Door_DN_32x64-00.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Scenes/Map_Parts/MP-27-Barrel-Spawner.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Map_Parts/MP-06-Trap_Door_128x32_00.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Map_Parts/MP-06-Trap_Door_64x32_00.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Map_Parts/MP-06-Trap_Door_96x32_00.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Map_Parts/MP-18-Nade_Spawner_00.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner_00.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/Map_Parts/MP-43-WOW_32x32.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/Map_Parts/MP-29-Trash_Spawner.tscn" type="PackedScene" id=20]
 
 [node name="Map_Handler" type="Node2D"]
 pause_mode = 2
@@ -47,8 +44,5 @@ mp010 = ExtResource( 6 )
 mp013 = ExtResource( 5 )
 mp017 = ExtResource( 18 )
 mp018 = ExtResource( 17 )
-mp027 = ExtResource( 13 )
-mp029 = ExtResource( 20 )
-mp043 = ExtResource( 19 )
 
 [connection signal="timeout" from="Splash_Timer" to="." method="_on_Splash_Timer_timeout"]

@@ -22,6 +22,8 @@ const MP_50_THWOMP_1OF4 = 18
 const MP_50_THWOMP_2OF4 = 19
 const MP_50_THWOMP_3OF4 = 20
 const MP_50_THWOMP_4OF4 = 21
+# const MP_02_KILL_ZONE = 22
+
 
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
