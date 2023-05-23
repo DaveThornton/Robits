@@ -57,9 +57,7 @@ tracks/0/keys = {
 "values": [ 5, 6, 7, 8, 9 ]
 }
 
-[node name="MP-31-Falling-Block" type="Node2D" groups=[
-"unkillable",
-]]
+[node name="MP-31-Falling-Block" type="Node2D" groups=["unkillable"]]
 position = Vector2( 10, 0 )
 script = ExtResource( 1 )
 
@@ -71,10 +69,7 @@ one_shot = true
 wait_time = 15.0
 one_shot = true
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=[
-"map",
-"unkillable",
-]]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=["map", "unkillable"]]
 collision_layer = 20
 collision_mask = 983062
 
@@ -87,8 +82,9 @@ one_way_collision_margin = 50.0
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
 position = Vector2( -10, 10 )
 texture = ExtResource( 2 )
-vframes = 2
 hframes = 5
+vframes = 2
+frame = 5
 
 [node name="Area2D_Player" type="Area2D" parent="KinematicBody2D"]
 position = Vector2( -10, -2 )
@@ -103,6 +99,7 @@ shape = SubResource( 2 )
 anims/Falling = SubResource( 3 )
 anims/Start = SubResource( 4 )
 anims/Warning = SubResource( 5 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="Start_Timer" to="." method="_on_Start_Timer_timeout"]
 [connection signal="body_entered" from="KinematicBody2D/Area2D_Player" to="." method="_on_Area2D_Player_body_entered"]

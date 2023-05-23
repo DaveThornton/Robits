@@ -22,6 +22,7 @@ const MP_50_THWOMP_1OF4 = 18
 const MP_50_THWOMP_2OF4 = 19
 const MP_50_THWOMP_3OF4 = 20
 const MP_50_THWOMP_4OF4 = 21
+const MP_31_FALLING_BLOCK= 22
 # const MP_02_KILL_ZONE = 22
 
 func _ready():
@@ -104,6 +105,9 @@ func start_spawning_parts():
 				part_offset = Vector2(16,16)
 				var part = spawn_part(cell, 50, part_offset, true)
 				part.setup(false, 4, 4, 1)
+			MP_31_FALLING_BLOCK:
+				spawn_part(cell, 31, part_offset, true)
+
 
 func spawn_part(pos, mp_num, offset, _return):
 	self.set_cell(pos.x, pos.y, -1)
