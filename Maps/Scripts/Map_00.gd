@@ -52,15 +52,9 @@ func _ready():
 		SFX.music(false, music)
 	_start()
 
-
 func _start(): emit_signal("start")		
 
 func next_spawn_pos():
-	if first:
-		start_player_spawns()
-		for i in player_spawns.get_child_count():
-			spawn_spots.append(player_spawns.get_child(i))
-		first = false
 	spawn_spots.shuffle()
 	return spawn_spots.pop_front().position
 
@@ -98,26 +92,14 @@ func remove_spawn_pos(_pos): if spawn_spots.has(_pos): spawn_spots.erase(_pos)
 func add_spawn_pos(_pos): if !spawn_spots.has(_pos): spawn_spots.append(_pos)
 
 func set_music(_music: int):
-	if _music > 0:
-		SFX.music(true, music)
-	else:
-		SFX.music(false, music)
-
-func start_player_spawns():
-	var cells = player_npc_spawn_map.get_used_cells()
-	for cell in cells:
-		var index = player_npc_spawn_map.get_cell(cell.x, cell.y)
-		match index:
-			PLAYER_SPAWN_CELL_NUM:
-				spawn_player_spawn(cell)
-
-func spawn_player_spawn(pos):
-	player_npc_spawn_map.set_cell(pos.x, pos.y, -1)
-	var sp = Map_Hand.get_player_spawn_vs().instance()
-	player_spawns.add_child(sp)
-	sp.global_position = player_npc_spawn_map.map_to_world(pos)
+	if _music > 0: SFX.music(true, music)
+	else: SFX.music(false, music)
 
 func add_kid_to_parts(kid): parts.add_child(kid)
+
+func add_player_spawn(spawn_spot): 
+	player_spawns.add_child(spawn_spot)
+	spawn_spots.append(spawn_spot)
 
 func remove_map(): reset()
 

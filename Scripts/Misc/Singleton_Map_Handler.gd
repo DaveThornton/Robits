@@ -9,7 +9,6 @@ onready var clearing_house = $clearing_house
 onready var parts = $Parts
 export(PackedScene) var player_spawn_vs
 
-
 var level
 
 signal wow
@@ -40,6 +39,12 @@ func add_kid_to_map(_obj):
 		map.add_child(_obj) #weird error
 	else:
 		clearing_house.add_child(_obj)
+
+func add_player_spawn(part):
+	if is_instance_valid(map):
+		map.add_player_spawn(part) #weird error
+	else:
+		clearing_house.add_child(part)
 
 func add_bg_to_map(_obj):
 	call_deferred("_add_bg_to_map",_obj)
@@ -92,7 +97,6 @@ func _load_map_cam(_level):
 	if map:
 		map.call_deferred("queue_free")
 	map = m
-	# call_deferred("set_map",_level)
 	add_child(m)
 
 	for p in get_tree().get_current_scene().pawns.get_children():
@@ -125,7 +129,5 @@ func _on_Splash_Timer_timeout():
 	splash_scn.change_text("error", "error in map hand")
 	splash_scn.visible = false
 	splash_timer.wait_time = default_splash_time
-	
-func get_player_spawn_vs(): return player_spawn_vs
 
 func get_map_part(num): return parts.get_part(num)

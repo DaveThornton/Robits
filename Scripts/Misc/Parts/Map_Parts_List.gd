@@ -1,6 +1,5 @@
 extends Node2D
 
-# export(PackedScene) var ex002
 export(PackedScene) var mp002
 export(PackedScene) var mp005_128_dn
 export(PackedScene) var mp005_128_up
@@ -12,6 +11,8 @@ export(PackedScene) var mp006_128
 export(PackedScene) var mp006_96
 export(PackedScene) var mp006_64
 export(PackedScene) var mp010
+export(PackedScene) var mp011
+export(PackedScene) var mp011_camp
 export(PackedScene) var mp013
 export(PackedScene) var mp017
 export(PackedScene) var mp018
@@ -37,6 +38,8 @@ func get_part(num):
 		6.3: return mp006_64
 
 		10: return mp010
+		11: return mp011
+		11.1: return mp011_camp
 		13: return mp013
 		17: return mp017
 		18: return mp018

@@ -5,4 +5,5 @@
 
 [node name="MP-23-Activate_Campaign_Map_Screen" type="Node2D"]
 script = ExtResource( 1 )
+activation_num = 4
 camp_map_screen = ExtResource( 2 )

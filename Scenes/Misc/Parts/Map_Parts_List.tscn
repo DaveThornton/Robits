@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Misc/Parts/Map_Parts_List.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=2]
@@ -13,11 +13,15 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner_00.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Map_Parts/MP-10-R_Mark_00.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Map_Parts/MP-13-Spike_block.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawn-Camp.tscn" type="PackedScene" id=15]
 
 [node name="Parts" type="Node2D"]
 script = ExtResource( 1 )
 mp002 = ExtResource( 8 )
 mp010 = ExtResource( 12 )
+mp011 = ExtResource( 14 )
+mp011_camp = ExtResource( 15 )
 mp013 = ExtResource( 13 )
 mp017 = ExtResource( 11 )
 mp018 = ExtResource( 10 )

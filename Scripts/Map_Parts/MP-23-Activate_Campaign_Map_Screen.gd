@@ -1,6 +1,6 @@
 extends Node2D
 
-export var activation_num = 10
+export var activation_num = 4
 export(PackedScene) var camp_map_screen
 export var splash_time = 5
 export var top = "top text"
@@ -15,7 +15,6 @@ func _ready():
 func activate(_num,_body):
 	if _num == activation_num:
 		Campaign.complete_level(complete_what_level)
-		# print_debug(" tring to load map menu from in level MP 23")
 		Map_Hand.splash_w_timer(top,bot,splash_time)
 		HUD.load_screen(camp_map_screen)
 		Game.set_started(false)
@@ -24,4 +23,3 @@ func activate(_num,_body):
 		HUD.set_mode(1)
 		FX.set_back(0)
 		Map_Hand.clear_map()
-		print_debug(_body, "     in mp 23 activate")

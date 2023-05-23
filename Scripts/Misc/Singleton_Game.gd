@@ -50,7 +50,6 @@ func set_game_over(_over):
 		Map_Hand.clear_map()
 		HUD.state_machine()
 		HUD.start_count()
-		# timer.start()
 	elif game_over && game_mode == 0:
 		HUD.state_machine()
 		print_debug("game over in game for campaign and nothing?")

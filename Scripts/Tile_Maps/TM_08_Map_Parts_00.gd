@@ -24,7 +24,6 @@ const MP_50_THWOMP_3OF4 = 20
 const MP_50_THWOMP_4OF4 = 21
 # const MP_02_KILL_ZONE = 22
 
-
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
 
@@ -63,13 +62,10 @@ func start_spawning_parts():
 				part_offset = Vector2(16,30)
 				spawn_part(cell, 27, part_offset, false)				
 			MP_06_TRAP_DOOR_128:
-				# part_offset = Vector2(0,0)
 				spawn_part(cell, 06.1, part_offset, false)
 			MP_06_TRAP_DOOR_96:
-				# part_offset = Vector2(0,0)
 				spawn_part(cell, 06.2, part_offset, false)
 			MP_06_TRAP_DOOR_64:
-				# part_offset = Vector2(0,0)
 				spawn_part(cell, 06.3, part_offset, false)
 			MP_43_WOW:
 				part_offset = Vector2(16,16)
@@ -109,7 +105,6 @@ func start_spawning_parts():
 				var part = spawn_part(cell, 50, part_offset, true)
 				part.setup(false, 4, 4, 1)
 
-
 func spawn_part(pos, mp_num, offset, _return):
 	self.set_cell(pos.x, pos.y, -1)
 	var sp = Map_Hand.get_map_part(mp_num).instance()
@@ -117,7 +112,6 @@ func spawn_part(pos, mp_num, offset, _return):
 	sp.global_position = self.map_to_world(pos) + offset
 	if _return:
 		return sp
-
 
 func add_part_to_map(part):
 	Map_Hand.add_part_to_map(part)
