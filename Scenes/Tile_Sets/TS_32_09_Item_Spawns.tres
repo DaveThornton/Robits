@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=3 format=2]
+[gd_resource type="TileSet" load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/Tile_Sets/Map_Parts/MP_10_R_Marks_Weapon_Spawns.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tile_Sets/Map_Parts/MP_10_R_Marks_Nade_P_Up_Spawns.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Power_Ups/Power_Up_32_01.png" type="Texture" id=3]
 
 [resource]
 0/name = "W_1_1R"
@@ -1796,3 +1797,31 @@
 127/shape_one_way_margin = 0.0
 127/shapes = [  ]
 127/z_index = 0
+128/name = "Z_Puck_Fan_Dot"
+128/texture = ExtResource( 3 )
+128/tex_offset = Vector2( 0, 0 )
+128/modulate = Color( 1, 1, 1, 1 )
+128/region = Rect2( 32, 0, 32, 32 )
+128/tile_mode = 0
+128/occluder_offset = Vector2( 0, 0 )
+128/navigation_offset = Vector2( 0, 0 )
+128/shape_offset = Vector2( 0, 0 )
+128/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+128/shape_one_way = false
+128/shape_one_way_margin = 0.0
+128/shapes = [  ]
+128/z_index = 0
+129/name = "Z_Coin"
+129/texture = ExtResource( 3 )
+129/tex_offset = Vector2( 0, 0 )
+129/modulate = Color( 1, 1, 1, 1 )
+129/region = Rect2( 0, 0, 32, 32 )
+129/tile_mode = 0
+129/occluder_offset = Vector2( 0, 0 )
+129/navigation_offset = Vector2( 0, 0 )
+129/shape_offset = Vector2( 0, 0 )
+129/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+129/shape_one_way = false
+129/shape_one_way_margin = 0.0
+129/shapes = [  ]
+129/z_index = 0

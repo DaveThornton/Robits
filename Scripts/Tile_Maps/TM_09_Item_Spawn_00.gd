@@ -131,6 +131,9 @@ const POWERUP_04_I = 123
 const POWERUP_04_T = 124
 const POWERUP_04_S = 125
 const POWERUP_04_BANG = 126
+const PUCK_FAN_DOT = 128
+const COIN_AREA = 129
+
 
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
@@ -529,6 +532,12 @@ func start_spawning_parts():
 			POWERUP_04_BANG:
 				var new_mark = spawn_part(cell, 10, part_offset)
 				new_mark.set_spawn(7, 0, 3)
+			PUCK_FAN_DOT:
+				part_offset = Vector2(16,16)
+				spawn_power_up(cell, 7, part_offset)
+			COIN_AREA:
+				part_offset = Vector2(16,16)
+				spawn_power_up(cell, 8, part_offset)
 
 func spawn_part(pos, mp_num, offset):
 	self.set_cell(pos.x, pos.y, -1)
@@ -536,6 +545,13 @@ func spawn_part(pos, mp_num, offset):
 	add_part_to_map(sp)
 	sp.global_position = self.map_to_world(pos) + offset
 	return sp
+
+func spawn_power_up(pos,power_up_num,offset):
+	self.set_cell(pos.x, pos.y, -1)
+	var sp = Equipment.get_area_item(power_up_num).instance()
+	# var sp = Map_Hand.get_map_part(mp_num).instance()
+	add_part_to_map(sp)
+	sp.global_position = self.map_to_world(pos) + offset
 
 func add_part_to_map(part):
 	Map_Hand.add_part_to_map(part)
