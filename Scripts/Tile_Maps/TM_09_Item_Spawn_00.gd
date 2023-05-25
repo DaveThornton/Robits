@@ -133,6 +133,10 @@ const POWERUP_04_S = 125
 const POWERUP_04_BANG = 126
 const PUCK_FAN_DOT = 128
 const COIN_AREA = 129
+const POWERUP_01_AREA = 130
+const POWERUP_02_AREA = 131
+const POWERUP_03_AREA = 132
+const POWERUP_04_AREA = 133
 
 
 func _ready():
@@ -538,6 +542,18 @@ func start_spawning_parts():
 			COIN_AREA:
 				part_offset = Vector2(16,16)
 				spawn_power_up(cell, 8, part_offset)
+			POWERUP_01_AREA:
+				part_offset = Vector2(16,16)
+				spawn_power_up(cell, Map_Hand.map.get_pick_up_num(1), part_offset)
+			POWERUP_02_AREA:
+				part_offset = Vector2(16,16)
+				spawn_power_up(cell, Map_Hand.map.get_pick_up_num(2), part_offset)
+			POWERUP_03_AREA:
+				part_offset = Vector2(16,16)
+				spawn_power_up(cell, Map_Hand.map.get_pick_up_num(3), part_offset)
+			POWERUP_04_AREA:
+				part_offset = Vector2(16,16)
+				spawn_power_up(cell, Map_Hand.map.get_pick_up_num(4), part_offset)
 
 func spawn_part(pos, mp_num, offset):
 	self.set_cell(pos.x, pos.y, -1)

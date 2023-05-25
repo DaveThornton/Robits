@@ -11,6 +11,8 @@ export var start_splash_body = "start_splash_body testing levely stuff blah blah
 export var splash_time_sec = 1.5
 export var camera_move = false
 export var camera_max_right = 1920
+export var overide_static_default = false
+export var static_default = 0.0
 export var background = 1
 export var music = 0 # 0 is none
 export var gun_01 = 2
@@ -86,6 +88,12 @@ func get_pick_up(_num: int,_is_area: bool):
 		elif _num == 2: return Equipment.get_rigid_item(pick_up_02 + 1)
 		elif _num == 3: return Equipment.get_rigid_item(pick_up_03 + 1)
 		elif _num == 4: return Equipment.get_rigid_item(pick_up_04 + 1)
+
+func get_pick_up_num(_num: int):
+	if _num ==1: return pick_up_01 +1
+	elif _num == 2: return pick_up_02 + 1
+	elif _num == 3: return pick_up_03 + 1
+	elif _num == 4: return pick_up_04 + 1
 
 func remove_spawn_pos(_pos): if spawn_spots.has(_pos): spawn_spots.erase(_pos)
 
