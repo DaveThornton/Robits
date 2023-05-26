@@ -145,6 +145,10 @@ const WEAP_05_AREA = 138
 const WEAP_06_AREA = 139
 const WEAP_07_AREA = 140
 const WEAP_08_AREA = 141
+const NADE_01_AREA = 142
+const NADE_02_AREA = 143
+const NADE_03_AREA = 144
+const NADE_04_AREA = 145
 
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
@@ -564,35 +568,55 @@ func start_spawning_parts():
 			WEAP_01_AREA:
 				part_offset = Vector2(16,16)
 				var new_weap_area = spawn_part(cell, 60, part_offset)
-				new_weap_area.set_spawn(1)
+				new_weap_area.set_spawn(0)
 			WEAP_02_AREA:
 				part_offset = Vector2(16,16)
 				var new_weap_area = spawn_part(cell, 60, part_offset)
-				new_weap_area.set_spawn(2)
+				new_weap_area.set_spawn(1)
 			WEAP_03_AREA:
 				part_offset = Vector2(16,16)
 				var new_weap_area = spawn_part(cell, 60, part_offset)
-				new_weap_area.set_spawn(3)
+				new_weap_area.set_spawn(2)
 			WEAP_04_AREA:
 				part_offset = Vector2(16,16)
 				var new_weap_area = spawn_part(cell, 60, part_offset)
-				new_weap_area.set_spawn(4)
+				new_weap_area.set_spawn(3)
 			WEAP_05_AREA:
 				part_offset = Vector2(16,16)
 				var new_weap_area = spawn_part(cell, 60, part_offset)
-				new_weap_area.set_spawn(5)
+				new_weap_area.set_spawn(4)
 			WEAP_06_AREA:
 				part_offset = Vector2(16,16)
 				var new_weap_area = spawn_part(cell, 60, part_offset)
-				new_weap_area.set_spawn(6)
+				new_weap_area.set_spawn(5)
 			WEAP_07_AREA:
 				part_offset = Vector2(16,16)
 				var new_weap_area = spawn_part(cell, 60, part_offset)
-				new_weap_area.set_spawn(7)
+				new_weap_area.set_spawn(6)
 			WEAP_08_AREA:
 				part_offset = Vector2(16,16)
 				var new_weap_area = spawn_part(cell, 60, part_offset)
-				new_weap_area.set_spawn(8)
+				new_weap_area.set_spawn(7)
+			NADE_01_AREA:
+				part_offset = Vector2(16,16)
+				var new_weap_area = spawn_part(cell, 61, part_offset)
+				new_weap_area.set_spawn(0)
+			NADE_02_AREA:
+				part_offset = Vector2(16,16)
+				var new_weap_area = spawn_part(cell, 61, part_offset)
+				new_weap_area.set_spawn(1)
+			NADE_03_AREA:
+				part_offset = Vector2(16,16)
+				var new_weap_area = spawn_part(cell, 61, part_offset)
+				new_weap_area.set_spawn(2)
+			NADE_04_AREA:
+				part_offset = Vector2(16,16)
+				var new_weap_area = spawn_part(cell, 61, part_offset)
+				new_weap_area.set_spawn(3)
+
+
+
+
 
 func spawn_part(pos, mp_num, offset):
 	self.set_cell(pos.x, pos.y, -1)
