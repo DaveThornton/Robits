@@ -49,6 +49,7 @@ show_behind_parent = true
 texture = ExtResource( 4 )
 hframes = 2
 frame = 1
+script = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3

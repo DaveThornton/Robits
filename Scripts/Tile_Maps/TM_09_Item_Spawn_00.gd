@@ -137,7 +137,14 @@ const POWERUP_01_AREA = 130
 const POWERUP_02_AREA = 131
 const POWERUP_03_AREA = 132
 const POWERUP_04_AREA = 133
-
+const WEAP_01_AREA = 134
+const WEAP_02_AREA = 135
+const WEAP_03_AREA = 136
+const WEAP_04_AREA = 137
+const WEAP_05_AREA = 138
+const WEAP_06_AREA = 139
+const WEAP_07_AREA = 140
+const WEAP_08_AREA = 141
 
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
@@ -554,6 +561,38 @@ func start_spawning_parts():
 			POWERUP_04_AREA:
 				part_offset = Vector2(16,16)
 				spawn_power_up(cell, Map_Hand.map.get_pick_up_num(4), part_offset)
+			WEAP_01_AREA:
+				part_offset = Vector2(16,16)
+				var new_weap_area = spawn_part(cell, 60, part_offset)
+				new_weap_area.set_spawn(1)
+			WEAP_02_AREA:
+				part_offset = Vector2(16,16)
+				var new_weap_area = spawn_part(cell, 60, part_offset)
+				new_weap_area.set_spawn(2)
+			WEAP_03_AREA:
+				part_offset = Vector2(16,16)
+				var new_weap_area = spawn_part(cell, 60, part_offset)
+				new_weap_area.set_spawn(3)
+			WEAP_04_AREA:
+				part_offset = Vector2(16,16)
+				var new_weap_area = spawn_part(cell, 60, part_offset)
+				new_weap_area.set_spawn(4)
+			WEAP_05_AREA:
+				part_offset = Vector2(16,16)
+				var new_weap_area = spawn_part(cell, 60, part_offset)
+				new_weap_area.set_spawn(5)
+			WEAP_06_AREA:
+				part_offset = Vector2(16,16)
+				var new_weap_area = spawn_part(cell, 60, part_offset)
+				new_weap_area.set_spawn(6)
+			WEAP_07_AREA:
+				part_offset = Vector2(16,16)
+				var new_weap_area = spawn_part(cell, 60, part_offset)
+				new_weap_area.set_spawn(7)
+			WEAP_08_AREA:
+				part_offset = Vector2(16,16)
+				var new_weap_area = spawn_part(cell, 60, part_offset)
+				new_weap_area.set_spawn(8)
 
 func spawn_part(pos, mp_num, offset):
 	self.set_cell(pos.x, pos.y, -1)
@@ -568,6 +607,13 @@ func spawn_power_up(pos,power_up_num,offset):
 	# var sp = Map_Hand.get_map_part(mp_num).instance()
 	add_part_to_map(sp)
 	sp.global_position = self.map_to_world(pos) + offset
+
+func spawn_weapon(pos,weap_num,offset): #not used right now
+	self.set_cell(pos.x, pos.y, -1)
+	var sp = Equipment.get_weap_pick(weap_num).instance()
+	add_part_to_map(sp)
+	sp.global_position = self.map_to_world(pos) + offset
+	return sp
 
 func add_part_to_map(part):
 	Map_Hand.add_part_to_map(part)

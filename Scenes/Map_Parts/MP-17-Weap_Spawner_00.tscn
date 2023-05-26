@@ -206,7 +206,7 @@ script = ExtResource( 3 )
 texture = ExtResource( 2 )
 hframes = 10
 vframes = 3
-frame = 7
+frame = 17
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 visible = false
@@ -257,7 +257,6 @@ scale_amount_curve = SubResource( 8 )
 color = Color( 0.0392157, 0.560784, 0.0313726, 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 position = Vector2( 1, -46 )
 collision_layer = 524288
 collision_mask = 720896
@@ -270,6 +269,7 @@ angular_damp = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 4 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false

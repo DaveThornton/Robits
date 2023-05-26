@@ -70,6 +70,16 @@ func get_gun(_num: int):
 	elif _num == 7: return Equipment.get_weap_pick(gun_07)
 	elif _num == 8: return Equipment.get_weap_pick(gun_08)
 
+func get_gun_num(_num):
+	if _num == 1: return gun_01
+	elif _num == 2: return gun_02
+	elif _num == 3: return gun_03
+	elif _num == 4: return gun_04
+	elif _num == 5: return gun_05
+	elif _num == 6: return gun_06
+	elif _num == 7: return gun_07
+	elif _num == 8: return gun_08
+
 func get_nade(_num: int):
 	if _num == 1: return Equipment.get_weap_pick(nade_01 + 20)
 	elif _num == 2: return Equipment.get_weap_pick(nade_02 + 20)
