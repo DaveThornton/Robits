@@ -37,9 +37,8 @@ func set_spawn(_power_up_num: int):
 	start()
 
 func _on_Area2D_body_entered(body:Node):
-	pass
-	# if body.get_groups().has("PickUp"):
-	# 	body.set_outline_color(Color(255,0,0,255))
+	if body.get_groups().has("PickUp"):
+		body.set_outline_color(Color(255,0,0,255))
 
 func _on_Area2D_body_exited(body:Node):
 	if body.get_groups().has("PickUp"):

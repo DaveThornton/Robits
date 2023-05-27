@@ -11,8 +11,9 @@ export var start_splash_body = "start_splash_body testing levely stuff blah blah
 export var splash_time_sec = 1.5
 export var camera_move = false
 export var camera_max_right = 1920
-export var overide_static_default = false
-export var static_default = 0.0
+export var override_outline_color = false
+export var outline_color_pick = Color8(255,255,255,255)
+export var outline_color_hold = Color8(255,255,255,255)
 export var background = 1
 export var music = 0 # 0 is none
 export var gun_01 = 2
@@ -52,6 +53,10 @@ func _ready():
 		SFX.music(true, music)
 	else:
 		SFX.music(false, music)
+	if override_outline_color:
+		FX.set_outline_color_pick(outline_color_pick)
+		FX.set_outline_color_hold(outline_color_hold)
+	
 	_start()
 
 func _start(): emit_signal("start")		

@@ -8,3 +8,6 @@ func _on_Area2D_body_entered(_body):
 
 func dont_hit_player():
 	pass
+
+func set_outline_color(_color):
+	pass
