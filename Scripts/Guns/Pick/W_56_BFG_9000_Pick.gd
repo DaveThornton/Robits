@@ -9,10 +9,12 @@ func _on_WeapPick51Contradiction_S_body_shape_entered(_body_id, _body, _body_sha
 	_entered(_body_id, _body, _body_shape, _local_shape)
 
 func set_right():
-	sprite.scale.y = 1.5
+	if sprite.scale.y < 0:
+		sprite.scale.y *= -1
 
 func set_left():
-	sprite.scale.y = -1.5
+	if sprite.scale.y > 0:
+		sprite.scale.y *= -1
 
 func ammo_is_zero():
 	anim.play("Stop")

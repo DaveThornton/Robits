@@ -6,10 +6,12 @@ func _on_WeapPick40RPG_body_shape_entered(body_rid:RID, body:Node, body_shape_in
 	_entered(body_rid, body, body_shape_index, local_shape_index)
 
 func set_right():
-	sprite.scale.y = 1
+	if sprite.scale.y < 0:
+		sprite.scale.y *= -1
 
 func set_left():
-	sprite.scale.y = -1
+	if sprite.scale.y > 0:
+		sprite.scale.y *= -1
 
 func ammo_is_zero():
 	sprite.frame = 1

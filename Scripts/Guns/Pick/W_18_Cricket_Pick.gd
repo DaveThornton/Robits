@@ -16,10 +16,12 @@ func call_end_init():
 	check_ammo()
 
 func set_right():
-	sprite.scale.y = 1.5
+	if sprite.scale.y < 0:
+		sprite.scale.y *= -1
 
 func set_left():
-	sprite.scale.y = -1.5
+	if sprite.scale.y > 0:
+		sprite.scale.y *= -1
 
 func check_ammo():
 	set_color(ammo_01,2)
