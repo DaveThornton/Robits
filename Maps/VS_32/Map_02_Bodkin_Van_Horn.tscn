@@ -16,6 +16,20 @@
 
 [node name="Map_02_Bodkin_Van_Horn" type="Node2D"]
 script = ExtResource( 3 )
+gun_02 = 4
+gun_03 = 5
+gun_04 = 8
+gun_05 = 9
+gun_06 = 14
+gun_07 = 41
+gun_08 = 64
+nade_01 = 19
+nade_02 = 19
+nade_03 = 2
+nade_04 = 2
+pick_up_02 = 5
+pick_up_03 = 1
+pick_up_04 = 3
 
 [node name="TM_01_BACK_00" parent="." instance=ExtResource( 11 )]
 

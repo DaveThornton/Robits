@@ -16,7 +16,7 @@ func start_spawning_parts():
 	for cell in cells:
 		part_offset = Vector2(0,0)
 		var index = self.get_cell(cell.x, cell.y)
-		print("index :   ",index)
+		# print("index :   ",index)
 		match index:
 			MP_02_KILL_ZONE:
 				spawn_part(cell, 2, part_offset, false)

@@ -18,7 +18,6 @@ func _ready():
 	Map_Hand.map.connect("start",self ,"start")
 
 func start():
-	print_debug("started")
 	timer.wait_time = respawn_time
 	obj = Map_Hand.map.get_nade(nade_number + 1)
 	if spawn_area.get_overlapping_bodies().size() == 0:
