@@ -10,17 +10,10 @@ var mode = 0
 var speed = 42
 var occ_player_array = []
 
-func _ready():
-	pass
-# 		Map_Hand.map.connect("start",self ,"start")
-
 func start():
-	print_debug("start ",mode,"   ", right)
 	if right:
-		# move_area.set_gravity_vector(Vector2(self.position.x + 32, self.position.y - 16))
 		move_right()
 	else:
-		# move_area.set_gravity_vector(Vector2(self.position.x - 32, self.position.y  - 16))
 		move_left()
 
 func _process(delta):
@@ -29,26 +22,15 @@ func _process(delta):
 			_move_player(j,delta)
 
 func setup(_mode, _right):
-	print_debug("set_up  ",_mode,"   ",  _right)
 	mode = _mode
 	right = _right
-	call_deferred("start")
-	# start()
-
-	# call_deferred("set_mode", _mode)
-	# # set_mode(_mode)
-	# # right = _right
-	# if _right:
-	# 	call_deferred("move_right")
-	# else:
-	# 	call_deferred("move_left")
+	start()
 
 func set_mode(new_mode):
-	# if new_mode >= 0 && new_mode <= 3:
-		# print_debug("mode set to ", new_mode)
 	mode = new_mode
 
 func move_right():
+	move_area.gravity_vec.x = 1.4
 	print_debug("move_right   ", mode)
 	right = true
 	match mode:
@@ -58,6 +40,7 @@ func move_right():
 		3: anim.play("Right")
 
 func move_left():
+	move_area.gravity_vec.x = -1.4
 	print_debug("move_left   ", mode)
 	right = false
 	match mode:

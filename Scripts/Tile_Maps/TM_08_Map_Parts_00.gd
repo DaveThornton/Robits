@@ -23,7 +23,9 @@ const MP_50_THWOMP_2OF4 = 19
 const MP_50_THWOMP_3OF4 = 20
 const MP_50_THWOMP_4OF4 = 21
 const MP_31_FALLING_BLOCK= 22
-# const MP_02_KILL_ZONE = 22
+const MP_33_BELT_MOVE_RIGHT = 23
+const MP_33_BELT_MOVE_LEFT = 24
+
 
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
@@ -34,7 +36,7 @@ func start_spawning_parts():
 	for cell in cells:
 		part_offset = Vector2(0,0)
 		var index = self.get_cell(cell.x, cell.y)
-		print("index :   ",index)
+		# print("index :   ",index)
 		match index:
 			MP_51_SAW:
 				spawn_part(cell, 51, part_offset, false)
@@ -107,7 +109,35 @@ func start_spawning_parts():
 				part.setup(false, 4, 4, 1)
 			MP_31_FALLING_BLOCK:
 				spawn_part(cell, 31, part_offset, true)
-
+			MP_33_BELT_MOVE_RIGHT:
+				part_offset = Vector2(16,16)
+				var autopart = self.get_cell_autotile_coord(cell.x,cell.y)
+				var autopart_x = autopart.x
+				print("autopart = ", autopart_x)
+				# spawn_belt_part(cell,autopart_x, true)
+				var part = spawn_part(cell, 33, part_offset, true)
+				if autopart_x == 1:
+					part.setup(1, true)
+				elif autopart_x == 0:
+					part.setup(0, true)
+				elif autopart_x == 2:
+					part.setup(2, true)
+				elif autopart_x == 3:
+					part.setup(3, true)
+			MP_33_BELT_MOVE_LEFT:
+				part_offset = Vector2(16,16)
+				var autopart = self.get_cell_autotile_coord(cell.x,cell.y)
+				var autopart_x = autopart.x
+				print("autopart = ", autopart_x)
+				var part = spawn_part(cell, 33, part_offset, true)
+				if autopart_x == 1:
+					part.setup(1, false)
+				elif autopart_x == 0:
+					part.setup(0, false)
+				elif autopart_x == 2:
+					part.setup(2, false)
+				elif autopart_x == 3:
+					part.setup(3, false)
 
 func spawn_part(pos, mp_num, offset, _return):
 	self.set_cell(pos.x, pos.y, -1)
