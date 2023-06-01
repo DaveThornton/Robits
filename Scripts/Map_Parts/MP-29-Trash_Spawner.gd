@@ -23,4 +23,6 @@ func _on_Timer_timeout():
 	if rand_trash:
 		trash_num = rng.randi_range(0, 20)
 	part.init(trash_num, self.global_position, shoot_dir, trash_time)
+	timer.wait_time = rng.randf_range(.5, 1.5)
+	timer.start()
 

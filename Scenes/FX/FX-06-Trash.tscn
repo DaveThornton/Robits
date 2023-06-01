@@ -67,11 +67,9 @@ radius = 6.82898
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 7.35223, 6.52868 )
 
-[node name="FX-06-Trash" type="RigidBody2D" groups=[
-"FX",
-]]
+[node name="FX-06-Trash" type="RigidBody2D" groups=["FX"]]
 collision_layer = 131072
-collision_mask = 131100
+collision_mask = 131102
 gravity_scale = 6.0
 script = ExtResource( 1 )
 

@@ -10,6 +10,7 @@ trash_part = ExtResource( 2 )
 trash_time = 60.0
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 autostart = true
 
 [node name="Sprite" type="Sprite" parent="."]
