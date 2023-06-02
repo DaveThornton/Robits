@@ -149,6 +149,18 @@ const NADE_01_AREA = 142
 const NADE_02_AREA = 143
 const NADE_03_AREA = 144
 const NADE_04_AREA = 145
+const WEAP_01_DROP = 146
+const WEAP_02_DROP = 147
+const WEAP_03_DROP = 148
+const WEAP_04_DROP = 149
+const WEAP_05_DROP = 150
+const WEAP_06_DROP = 151
+const WEAP_07_DROP = 152
+const WEAP_08_DROP = 153
+
+
+
+
 
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
@@ -613,9 +625,38 @@ func start_spawning_parts():
 				part_offset = Vector2(16,16)
 				var new_weap_area = spawn_part(cell, 61, part_offset)
 				new_weap_area.set_spawn(3)
-
-
-
+			WEAP_01_DROP:
+				part_offset = Vector2(16,16)
+				var new_weap_drop = spawn_part(cell, 63, part_offset)
+				new_weap_drop.set_spawn(0)
+			WEAP_02_DROP:
+				part_offset = Vector2(16,16)
+				var new_weap_drop = spawn_part(cell, 63, part_offset)
+				new_weap_drop.set_spawn(1)
+			WEAP_03_DROP:
+				part_offset = Vector2(16,16)
+				var new_weap_drop = spawn_part(cell, 63, part_offset)
+				new_weap_drop.set_spawn(2)
+			WEAP_04_DROP:
+				part_offset = Vector2(16,16)
+				var new_weap_drop = spawn_part(cell, 63, part_offset)
+				new_weap_drop.set_spawn(3)
+			WEAP_05_DROP:
+				part_offset = Vector2(16,16)
+				var new_weap_drop = spawn_part(cell, 63, part_offset)
+				new_weap_drop.set_spawn(4)
+			WEAP_06_DROP:
+				part_offset = Vector2(16,16)
+				var new_weap_drop = spawn_part(cell, 63, part_offset)
+				new_weap_drop.set_spawn(5)
+			WEAP_07_DROP:
+				part_offset = Vector2(16,16)
+				var new_weap_drop = spawn_part(cell, 63, part_offset)
+				new_weap_drop.set_spawn(6)
+			WEAP_08_DROP:
+				part_offset = Vector2(16,16)
+				var new_weap_drop = spawn_part(cell, 63, part_offset)
+				new_weap_drop.set_spawn(7)
 
 
 func spawn_part(pos, mp_num, offset):
