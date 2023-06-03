@@ -1,7 +1,5 @@
 extends Node2D
 
-# export var right = false
-# export var mode = 1
 onready var anim = $AnimationPlayer
 onready var move_area = $Area2D
 
@@ -31,7 +29,6 @@ func set_mode(new_mode):
 
 func move_right():
 	move_area.gravity_vec.x = 1.4
-	print_debug("move_right   ", mode)
 	right = true
 	match mode:
 		0: anim.play("Left")
@@ -41,7 +38,6 @@ func move_right():
 
 func move_left():
 	move_area.gravity_vec.x = -1.4
-	print_debug("move_left   ", mode)
 	right = false
 	match mode:
 		0: anim.play_backwards("Left")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Map_Parts/MP-64-Nade_Spawn_Drop_00.gd" type="Script" id=1]
+
+[node name="MP-64-Nade_Spawn_Drop_00" type="Node2D"]
+script = ExtResource( 1 )
+respawn_time = 2.0
+
+[node name="Timer_Respawn" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer_Respawn" to="." method="_on_Timer_Respawn_timeout"]

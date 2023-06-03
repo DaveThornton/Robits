@@ -157,7 +157,10 @@ const WEAP_05_DROP = 150
 const WEAP_06_DROP = 151
 const WEAP_07_DROP = 152
 const WEAP_08_DROP = 153
-
+const NADE_01_DROP = 154
+const NADE_02_DROP = 155
+const NADE_03_DROP = 156
+const NADE_04_DROP = 157
 
 
 
@@ -657,6 +660,22 @@ func start_spawning_parts():
 				part_offset = Vector2(16,16)
 				var new_weap_drop = spawn_part(cell, 63, part_offset)
 				new_weap_drop.set_spawn(7)
+			NADE_01_DROP:
+				part_offset = Vector2(16,16)
+				var new_weap_drop = spawn_part(cell, 64, part_offset)
+				new_weap_drop.set_spawn(0)
+			NADE_02_DROP:
+				part_offset = Vector2(16,16)
+				var new_weap_drop = spawn_part(cell, 64, part_offset)
+				new_weap_drop.set_spawn(1)
+			NADE_03_DROP:
+				part_offset = Vector2(16,16)
+				var new_weap_drop = spawn_part(cell, 64, part_offset)
+				new_weap_drop.set_spawn(2)
+			NADE_04_DROP:
+				part_offset = Vector2(16,16)
+				var new_weap_drop = spawn_part(cell, 64, part_offset)
+				new_weap_drop.set_spawn(3)
 
 
 func spawn_part(pos, mp_num, offset):
