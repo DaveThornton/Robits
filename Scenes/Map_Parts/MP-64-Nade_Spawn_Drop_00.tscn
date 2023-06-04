@@ -4,7 +4,7 @@
 
 [node name="MP-64-Nade_Spawn_Drop_00" type="Node2D"]
 script = ExtResource( 1 )
-respawn_time = 2.0
+respawn_time = 10.0
 
 [node name="Timer_Respawn" type="Timer" parent="."]
 
