@@ -4,7 +4,7 @@ onready var timer = $Timer
 onready var spin_timer = $Timer_Spin
 onready var anim = $AnimationPlayer
 onready var label= $"FX-21-Timer_Label"
-onready var outline = $Sprite/Outline
+# onready var outline = $Sprite/Outline
 
 export var gun_num = 0
 export var damage = 100
@@ -23,9 +23,11 @@ var just_shot = false
 var hits = 0
 var hits_max = 5
 var time
+var outline
 
 func _ready():
 	time = my_time
+	outline = $Sprite/Outline
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
