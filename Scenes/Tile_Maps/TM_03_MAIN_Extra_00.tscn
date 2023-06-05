@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Tile_Sets/TS_32_03_Main_Extra.tres" type="TileSet" id=1]
+
+[node name="TM_03_MAIN_Extra_00" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 8
+collision_mask = 8
+format = 1
