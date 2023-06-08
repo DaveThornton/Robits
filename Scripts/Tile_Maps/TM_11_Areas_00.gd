@@ -3,6 +3,7 @@ extends TileMap
 const MP_02_KILL_ZONE = 0
 const MP_24_EQUIP_START_WEAP = 1
 const MP_59_BLOCK_PLAYER = 2
+const MP_44_PLAT_REVERSE = 3
 # const MP_13_SPIKE_BLOCK = 1
 # const MP_05_DOOR_DN_128 = 2
 
@@ -26,6 +27,9 @@ func start_spawning_parts():
 			MP_59_BLOCK_PLAYER:
 				part_offset = Vector2(16,16)
 				spawn_part(cell, 59, part_offset, false)
+			MP_44_PLAT_REVERSE:
+				part_offset = Vector2(16,16)
+				spawn_part(cell, 44, part_offset, false)
 
 
 

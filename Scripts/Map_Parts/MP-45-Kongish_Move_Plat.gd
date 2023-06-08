@@ -16,17 +16,16 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	if !robits_in_area.empty()&& left_right:
-		for j in range(robits_in_area.size()):
-			_move_player(j,delta)
-			_move_player_to_plat(j)	
 	if up_down:
 		if going_up: self.global_position.y -= delta * speed
 		else: self.global_position.y += delta * speed
 	if left_right:
 		if going_right: self.global_position.x += delta * speed
 		else: self.global_position.x -= delta * speed
-
+	if !robits_in_area.empty()&& left_right:
+		for j in range(robits_in_area.size()):
+			_move_player(j,delta)
+			# _move_player_to_plat(j)	
 
 func stop():
 	change_dir(false,false,false,false)

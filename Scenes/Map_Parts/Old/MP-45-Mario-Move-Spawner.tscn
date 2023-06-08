@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Map_Parts/MP-45-Mario-Move-Spawner.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Map_Parts/MP-45-Mario-Move_Plat.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-45-Mario-Move-Plat-Up.tscn" type="PackedScene" id=3]
+
+[node name="MP-45-Mario-Move-Spawner" type="Node2D"]
+script = ExtResource( 1 )
+platform = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -25,7 +25,10 @@ const MP_50_THWOMP_4OF4 = 21
 const MP_31_FALLING_BLOCK= 22
 const MP_33_BELT_MOVE_RIGHT = 23
 const MP_33_BELT_MOVE_LEFT = 24
-
+const MP_45_MOVE_PLAT_L = 25
+const MP_45_MOVE_PLAT_R = 26
+const MP_45_MOVE_PLAT_U = 27
+const MP_45_MOVE_PLAT_D = 28
 
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
@@ -138,6 +141,19 @@ func start_spawning_parts():
 					part.setup(2, false)
 				elif autopart_x == 3:
 					part.setup(3, false)
+			MP_45_MOVE_PLAT_L:
+				var part = spawn_part(cell, 45, part_offset, true)#(_up_down, _left_right, _going_up, _going_right)
+				part.change_dir(false, true, false, false)
+			MP_45_MOVE_PLAT_R:
+				var part = spawn_part(cell, 45, part_offset, true)
+				part.change_dir(false, true, true, true)
+			MP_45_MOVE_PLAT_U:
+				var part = spawn_part(cell, 45, part_offset, true)
+				part.change_dir(true, false, true, true)
+			MP_45_MOVE_PLAT_D:
+				var part = spawn_part(cell, 45, part_offset, true)
+				part.change_dir(true, false, false, true)
+
 
 func spawn_part(pos, mp_num, offset, _return):
 	self.set_cell(pos.x, pos.y, -1)
