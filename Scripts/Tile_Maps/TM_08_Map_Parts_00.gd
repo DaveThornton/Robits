@@ -29,6 +29,7 @@ const MP_45_MOVE_PLAT_L = 25
 const MP_45_MOVE_PLAT_R = 26
 const MP_45_MOVE_PLAT_U = 27
 const MP_45_MOVE_PLAT_D = 28
+const MP_55_BLASTDOOR = 29
 
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
@@ -153,6 +154,10 @@ func start_spawning_parts():
 			MP_45_MOVE_PLAT_D:
 				var part = spawn_part(cell, 45, part_offset, true)
 				part.change_dir(true, false, false, true)
+			MP_55_BLASTDOOR:
+				part_offset = Vector2(16,-32)
+				spawn_part(cell, 55, part_offset, false)
+
 
 
 func spawn_part(pos, mp_num, offset, _return):

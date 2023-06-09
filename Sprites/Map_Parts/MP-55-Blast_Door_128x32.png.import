@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MP-80-Junk.png-748922873d80debceb440778a12545dd.stex"
+path="res://.import/MP-55-Blast_Door_128x32.png-739fa165394ddff3ffb106a57792f054.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Map_Parts/MP-80-Junk.png"
-dest_files=[ "res://.import/MP-80-Junk.png-748922873d80debceb440778a12545dd.stex" ]
+source_file="res://Sprites/Map_Parts/MP-55-Blast_Door_128x32.png"
+dest_files=[ "res://.import/MP-55-Blast_Door_128x32.png-739fa165394ddff3ffb106a57792f054.stex" ]
 
 [params]
 

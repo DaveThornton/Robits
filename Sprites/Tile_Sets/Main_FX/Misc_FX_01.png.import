@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MP-80-Junk.png-748922873d80debceb440778a12545dd.stex"
+path="res://.import/Misc_FX_01.png-1ec4abc90271b2eadd60ad61365a7ecd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Map_Parts/MP-80-Junk.png"
-dest_files=[ "res://.import/MP-80-Junk.png-748922873d80debceb440778a12545dd.stex" ]
+source_file="res://Sprites/Tile_Sets/Main_FX/Misc_FX_01.png"
+dest_files=[ "res://.import/Misc_FX_01.png-1ec4abc90271b2eadd60ad61365a7ecd.stex" ]
 
 [params]
 
