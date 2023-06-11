@@ -4,6 +4,10 @@ const MP_02_KILL_ZONE = 0
 const MP_24_EQUIP_START_WEAP = 1
 const MP_59_BLOCK_PLAYER = 2
 const MP_44_PLAT_REVERSE = 3
+const MP_25_ACTIVE_AREA_1 = 4
+const MP_25_ACTIVE_AREA_2 = 5
+const MP_25_ACTIVE_AREA_3 = 6
+const MP_25_ACTIVE_AREA_4 = 7
 # const MP_13_SPIKE_BLOCK = 1
 # const MP_05_DOOR_DN_128 = 2
 
@@ -30,9 +34,18 @@ func start_spawning_parts():
 			MP_44_PLAT_REVERSE:
 				part_offset = Vector2(16,16)
 				spawn_part(cell, 44, part_offset, false)
-
-
-
+			MP_25_ACTIVE_AREA_1:
+				var p = spawn_part(cell, 25, part_offset, true)
+				p.setup(1)
+			MP_25_ACTIVE_AREA_2:
+				var p = spawn_part(cell, 25, part_offset, true)
+				p.setup(2)
+			MP_25_ACTIVE_AREA_3:
+				var p = spawn_part(cell, 25, part_offset, true)
+				p.setup(3)
+			MP_25_ACTIVE_AREA_4:
+				var p = spawn_part(cell, 25, part_offset, true)
+				p.setup(4)
 
 func spawn_part(pos, mp_num, offset, _return):
 	self.set_cell(pos.x, pos.y, -1)
