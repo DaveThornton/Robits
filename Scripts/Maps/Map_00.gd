@@ -40,6 +40,10 @@ onready var player_npc_spawn_map = $TM_10_Player_NPC_Spawn_00
 var first = true
 var next_spawn_spot = 0
 var spawn_spots = []
+var warp_point_1 = Vector2(960,540)
+var warp_point_2 = Vector2(960,540)
+var warp_point_3 = Vector2(960,540)
+var warp_point_4 = Vector2(960,540)
 
 signal start
 
@@ -122,6 +126,20 @@ func add_kid_to_parts(kid): parts.add_child(kid)
 func add_player_spawn(spawn_spot): 
 	player_spawns.add_child(spawn_spot)
 	spawn_spots.append(spawn_spot)
+
+func set_warp_point(_point_num: int, _point_pos: Vector2):
+	match _point_num:
+		1: warp_point_1 = _point_pos
+		2: warp_point_2 = _point_pos
+		3: warp_point_3 = _point_pos
+		4: warp_point_4 = _point_pos
+
+func get_warp_point(_point_num: int):
+	match _point_num:
+		1: return warp_point_1
+		2: return warp_point_2
+		3: return warp_point_3
+		4: return warp_point_4
 
 func remove_map(): reset()
 

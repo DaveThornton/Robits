@@ -81,6 +81,9 @@ func clear_map():
 	map.call_deferred("free")
 	map = null
 
+func get_map():
+	return map
+
 func load_map_cam_first(_level, _label_1, _label_2, _time, _show):
 	$Splash_Timer.wait_time = _time
 	splash(_label_1,_label_2)

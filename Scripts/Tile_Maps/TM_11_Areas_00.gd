@@ -8,6 +8,10 @@ const MP_25_ACTIVE_AREA_1 = 4
 const MP_25_ACTIVE_AREA_2 = 5
 const MP_25_ACTIVE_AREA_3 = 6
 const MP_25_ACTIVE_AREA_4 = 7
+const MP_70_SET_WARP_1 = 8
+const MP_70_SET_WARP_2 = 9
+const MP_70_SET_WARP_3 = 10
+const MP_70_SET_WARP_4 = 11
 # const MP_13_SPIKE_BLOCK = 1
 # const MP_05_DOOR_DN_128 = 2
 
@@ -46,7 +50,19 @@ func start_spawning_parts():
 			MP_25_ACTIVE_AREA_4:
 				var p = spawn_part(cell, 25, part_offset, true)
 				p.setup(4)
-
+			MP_70_SET_WARP_1:
+				var p = spawn_part(cell, 70, part_offset, true)
+				p.setup(1)
+			MP_70_SET_WARP_2:
+				var p = spawn_part(cell, 70, part_offset, true)
+				p.setup(2)
+			MP_70_SET_WARP_3:
+				var p = spawn_part(cell, 70, part_offset, true)
+				p.setup(3)
+			MP_70_SET_WARP_4:
+				var p = spawn_part(cell, 70, part_offset, true)
+				p.setup(4)
+					
 func spawn_part(pos, mp_num, offset, _return):
 	self.set_cell(pos.x, pos.y, -1)
 	var sp = Map_Hand.get_map_part(mp_num).instance()
