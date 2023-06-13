@@ -69,7 +69,6 @@ func _process(_delta):
 
 func _integrate_forces(state):
 	if warping:
-		print("tring to warp in Phy Process")
 		state.transform.origin = warp_to_pos
 		warping = false
 

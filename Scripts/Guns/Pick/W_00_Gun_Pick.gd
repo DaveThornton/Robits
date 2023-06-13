@@ -39,12 +39,10 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 
 func _integrate_forces(state):
 	if warping:
-		print("tring to warp in Phy Process")
 		state.transform.origin = warp_to_pos
 		warping = false
 
 func warp_to(_to:Vector2):
-	print("calling warp to in gun pick")
 	warp_to_pos = _to
 	warping = true
 
