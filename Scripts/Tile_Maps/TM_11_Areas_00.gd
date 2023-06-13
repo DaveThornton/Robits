@@ -16,6 +16,7 @@ const MP_71_WARP_TO_1 = 12
 const MP_71_WARP_TO_2 = 13
 const MP_71_WARP_TO_3 = 14
 const MP_71_WARP_TO_4 = 15
+const MP_58_BLOCK_BG = 16
 # const MP_13_SPIKE_BLOCK = 1
 # const MP_05_DOOR_DN_128 = 2
 
@@ -78,6 +79,8 @@ func start_spawning_parts():
 			MP_71_WARP_TO_4:
 				var p = spawn_part(cell, 71, part_offset, true)
 				p.setup(4)
+			MP_58_BLOCK_BG:
+				spawn_part(cell, 58, part_offset, false)
 				
 func spawn_part(pos, mp_num, offset, _return):
 	self.set_cell(pos.x, pos.y, -1)

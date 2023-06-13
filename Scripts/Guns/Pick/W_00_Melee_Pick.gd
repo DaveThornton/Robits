@@ -16,6 +16,8 @@ var ammo = 0
 var time = .1
 var is_right = true
 var just_shot = false
+var warping = false
+var warp_to_pos = Vector2(980,540)
 
 func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	set_dir(_is_right, _dir)
