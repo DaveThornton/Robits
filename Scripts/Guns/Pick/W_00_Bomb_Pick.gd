@@ -24,6 +24,8 @@ var hits = 0
 var hits_max = 5
 var time
 var outline
+var warping = false
+var warp_to_pos = Vector2(980,540)
 
 func _ready():
 	time = my_time
@@ -64,7 +66,17 @@ func _process(_delta):
 			go_boom()
 		if use_time_label:
 			label.set_time(time)
-		
+
+func _integrate_forces(state):
+	if warping:
+		print("tring to warp in Phy Process")
+		state.transform.origin = warp_to_pos
+		warping = false
+
+func warp_to(_to:Vector2):
+	warp_to_pos = _to
+	warping = true
+
 func _entered(_body_id, body, _body_shape, _local_shape):
 	if hits < hits_max :
 		hits += 1

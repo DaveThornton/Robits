@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/Misc/Parts/Map_Parts_List.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-55-Blast_Door_00.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Scenes/Map_Parts/MP-25-Activate_Area.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Map_Parts/MP-70-Set_Warp_Point_00.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Map_Parts/MP-71-Warp_To_Point_00.tscn" type="PackedScene" id=29]
 
 [node name="Parts" type="Node2D"]
 script = ExtResource( 1 )
@@ -57,4 +58,5 @@ mp061 = ExtResource( 18 )
 mp063 = ExtResource( 21 )
 mp064 = ExtResource( 22 )
 mp070 = ExtResource( 28 )
+mp071 = ExtResource( 29 )
 mp090 = ExtResource( 25 )

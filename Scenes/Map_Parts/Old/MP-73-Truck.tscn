@@ -3,7 +3,7 @@
 [ext_resource path="res://Sprites/Map_Parts/parts/MP-73-Truck_Tire.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Map_Parts/parts/MP-73-Truck_Glass.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Map_Parts/parts/MP-73-Truck.png" type="Texture" id=3]
-[ext_resource path="res://Scripts/Map_Parts/MP-73-Truck.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Map_Parts/Old/MP-73-Truck.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 70, 20 )

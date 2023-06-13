@@ -14,7 +14,8 @@ var dir = 3
 var just_shot = false
 var hits = 0
 var hits_max = 5
-
+var warping = false
+var warp_to_pos = Vector2(980,540)
 
 func _ready():
 	ready = true
@@ -35,6 +36,17 @@ func init(_ammo, _player, _time, _is_right, _dir, _just_shot):
 	if ready:
 		set_dir(is_right, dir)
 	call_end_init()
+
+func _integrate_forces(state):
+	if warping:
+		print("tring to warp in Phy Process")
+		state.transform.origin = warp_to_pos
+		warping = false
+
+func warp_to(_to:Vector2):
+	print("calling warp to in gun pick")
+	warp_to_pos = _to
+	warping = true
 
 func call_end_init():
 	pass
@@ -78,6 +90,7 @@ func set_dir(_is_right, _dir):
 			self.rotation_degrees = -220
 		elif _dir == 5:
 			self.rotation_degrees = -265
+
 
 func set_right():
 	pass

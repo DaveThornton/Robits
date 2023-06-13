@@ -458,6 +458,8 @@ func wow():
 		stun(0)
 		knock_dir(200,1,5,is_right)
 
+func warp_to(_to:Vector2):
+	self.global_position = _to
 
 ##---------------------------------------------------------[Set collsion layers]
 func set_collision(_player):
