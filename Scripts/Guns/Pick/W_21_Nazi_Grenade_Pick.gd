@@ -6,7 +6,7 @@ onready var gun_pos = $POS_Gun
 
 func _ready():
 	time = my_time
-	outline = $Sprite/Outline
+	outline = $POS_Gun/Outline
 
 func call_end_of_set_dir():
 	if is_right:

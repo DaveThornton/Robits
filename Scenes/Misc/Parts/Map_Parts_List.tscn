@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scripts/Misc/Parts/Map_Parts_List.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-70-Set_Warp_Point_00.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Map_Parts/MP-71-Warp_To_Point_00.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Scenes/Map_Parts/MP-58-Block_BG.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Scenes/Map_Parts/MP-39-Partical_Elevator_00.tscn" type="PackedScene" id=31]
 
 [node name="Parts" type="Node2D"]
 script = ExtResource( 1 )
@@ -47,6 +48,7 @@ mp027 = ExtResource( 5 )
 mp029 = ExtResource( 7 )
 mp031 = ExtResource( 16 )
 mp033 = ExtResource( 19 )
+mp039 = ExtResource( 31 )
 mp043 = ExtResource( 6 )
 mp044 = ExtResource( 23 )
 mp045 = ExtResource( 24 )

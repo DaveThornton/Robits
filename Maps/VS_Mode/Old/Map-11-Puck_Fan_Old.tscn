@@ -22,7 +22,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-04-Jump_Power_Up.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Map_Parts/MP-39-Partical-Elevator.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-39-Partical-Elevator.tscn" type="PackedScene" id=23]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.1

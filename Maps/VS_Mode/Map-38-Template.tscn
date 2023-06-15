@@ -20,8 +20,8 @@
 [ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_06_Battery.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-01-Ammo.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Tilesets/TS-05-Main-Honey.tres" type="TileSet" id=21]
-[ext_resource path="res://Scenes/Map_Parts/MP-39-Partical-Elevator_Arrow_Longer.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Map_Parts/MP-39-Partical-Elevator_Arrow_Mid.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-39-Partical-Elevator_Arrow_Longer.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-39-Partical-Elevator_Arrow_Mid.tscn" type="PackedScene" id=23]
 
 [node name="Map-00-Temp" type="Node2D"]
 script = ExtResource( 12 )
