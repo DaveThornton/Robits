@@ -1,0 +1,153 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/FX/FX_70_Exit_Sign_00.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Map_Parts/MP-07-Door_on_Wall.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Node2D
+
+onready var anim = $AnimationPlayer
+
+var map_to_load = 1
+var bodies = []
+var is_open = false
+
+func load_map():
+	bodies.clear()
+	FX.CAMERA.reset()
+	var map_w_info = Map_Hand.map.get_next_level_w_info (map_to_load)#0: next map number to load, 1: use spash ,  2: splash title , 3: splash body ,  4: lenght of splash in seconds
+	var map_scene_to_load = Campaign.get_map(map_w_info[0])
+	Map_Hand.load_map_cam(map_scene_to_load, map_w_info[2], map_w_info[3], map_w_info[4], map_w_info[1])
+
+func open():
+	anim.play(\"Door-Open\")
+
+func close():
+	anim.play(\"Door-Close\")
+
+func set_open(open: bool):
+	is_open = open
+
+func set_map_to_load(num: int):
+	map_to_load = num
+
+func _on_Area2D_body_entered(body:Node):
+	if body.get_groups().has(\"player\") && !bodies.has(body):
+		if is_open:
+			load_map()
+		else:
+			bodies.append(body)
+			if anim.is_playing():
+				if anim.get_current_animaion() == \"Open\":
+					pass
+				else:
+					anim.queue(\"Open\")
+			else:
+				anim.play(\"Open\")
+
+func _on_Area2D_body_exited(body:Node):
+	if bodies.find(body) >= 0:
+		bodies.remove(bodies.find(body))
+
+func _on_AnimationPlayer_animation_finished(anim_name:String):
+	if anim_name == \"Open\":
+		set_open(true)
+		if bodies.size() > 0:
+			load_map()
+
+func _on_AnimationPlayer_animation_started(anim_name:String):
+	if anim_name == \"Close\":
+		set_open(false)
+"
+
+[sub_resource type="Animation" id=4]
+resource_name = "Close"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mp-07-DoorOnWall:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 5, 4, 3, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Open"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mp-07-DoorOnWall:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mp-07-DoorOnWall:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 28, 36.5 )
+
+[node name="MP-15-Level_Change_Door_00" type="Node2D"]
+z_index = -8
+script = SubResource( 5 )
+
+[node name="Mp-07-DoorOnWall" type="Sprite" parent="."]
+position = Vector2( 32, -48 )
+texture = ExtResource( 2 )
+hframes = 7
+
+[node name="FX_70_Exit_Sign_00" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, -87 )
+frame = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Close = SubResource( 4 )
+anims/Open = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 1028
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 32, -36.5 )
+shape = SubResource( 3 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
