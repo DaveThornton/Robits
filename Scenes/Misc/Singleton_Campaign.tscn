@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Campaign.gd" type="Script" id=1]
 [ext_resource path="res://Maps/Campaign-mode/World_03/Map_C_W03_A_01_Mill.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Maps/Campaign-mode/World_04/Map_C_W04_A_01_DownTown.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Maps/Campaign-mode/World_05/Map_C_W05_A_00_.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Misc/Parts/Campaign_Map_List.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Maps/Campaign_32/Map_00_Campaign_Template.tscn" type="PackedScene" id=6]
 
 [node name="Campaign_Singleton" type="Node2D"]
 script = ExtResource( 1 )
@@ -31,4 +30,3 @@ w07_dis = "Whats a pirates favorite letter \"R\" it \"B\" the \"C\" place holder
 w08_dis = "Down Town id Dangerious around here so watch out  place holder place holder place holder"
 
 [node name="Campaign_Map_List" parent="." instance=ExtResource( 5 )]
-map = [ ExtResource( 6 ) ]

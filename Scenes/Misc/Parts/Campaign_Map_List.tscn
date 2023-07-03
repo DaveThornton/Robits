@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Misc/Parts/Campaign_Map_List.gd" type="Script" id=1]
+[ext_resource path="res://Maps/Campaign_32/Map_02_Campaign_Template.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Maps/Campaign_32/Map_00_Campaign_Template.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Maps/Campaign_32/Map_01_Campaign_Template.tscn" type="PackedScene" id=4]
 
 [node name="Campaign_Map_List" type="Node2D"]
 script = ExtResource( 1 )
+map = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ]
