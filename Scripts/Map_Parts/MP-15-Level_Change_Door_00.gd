@@ -3,6 +3,7 @@ extends Node2D
 onready var anim = $AnimationPlayer
 onready var timer = $Timer
 
+var world_to_load = 0
 var map_to_load = 1
 var bodies = []
 var is_open = false
@@ -11,8 +12,8 @@ func load_map():
 	bodies.clear()
 	FX.CAMERA.reset()
 	var map_w_info = Map_Hand.map.get_next_level_w_info (map_to_load)#0: next map number to load, 1: use spash ,  2: splash title , 3: splash body ,  4: lenght of splash in seconds
-	var map_scene_to_load = Campaign.get_map(map_w_info[0])
-	Map_Hand.load_map_cam_first(map_scene_to_load, map_w_info[2], map_w_info[3], map_w_info[4], map_w_info[1])
+	var map_scene_to_load = Campaign.get_map(map_w_info[0], map_w_info[1])
+	Map_Hand.load_map_cam_first(map_scene_to_load, map_w_info[3], map_w_info[4], map_w_info[5], map_w_info[2])
 	call_deferred("queue_free")
 
 func open():

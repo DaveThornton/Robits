@@ -62,35 +62,8 @@ func _ready():
 		print_debug("error Singleton Controller connecting Player Controller to reset from world gd")
 
 
-func get_map(_map):
-	return map_list.get_map(_map)
+func get_map(_world, _map): return map_list.get_map(_world, _map)
 
-# func get_map(_num):
-# 	if _num == 1:
-# 		return w01
-# 	elif _num == 2:
-# 		return w02
-# 	elif _num == 3:
-# 		return w03
-# 	elif _num == 4:
-# 		return w04
-# 	elif _num == 5:
-# 		return w05
-# 	elif _num == 6:
-# 		return w06
-# 	elif _num == 7:
-# 		return w07
-# 	elif _num == 8:
-# 		return w08
-# 	elif _num == 9:
-# 		return w09
-# 	elif _num == 10:
-# 		return w10
-# 	elif _num == 0:
-# 		return w00
-# 	else:
-# 		print_debug("error in campiagn singleton in valid map request in get map asked for ", _num, ". returning map 1 instead")
-# 		return w01
 
 func get_map_title(_num):
 	if _num == 1:

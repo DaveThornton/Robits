@@ -19,13 +19,8 @@
 
 [node name="Map_00_Template" type="Node2D"]
 script = ExtResource( 5 )
-next_map_00 = 0
-next_map_00_use_splash = true
 next_map_00_splash_title = "top_text its 0"
-next_map_00_splash_time_sec = 0.0
-next_map_01_splash_time_sec = 0.0
 next_map_02 = 2
-next_map_02_splash_time_sec = 0.0
 
 [node name="TM_01_BACK_00" parent="." instance=ExtResource( 2 )]
 

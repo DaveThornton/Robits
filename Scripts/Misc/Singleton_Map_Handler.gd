@@ -111,11 +111,13 @@ func call_pow():
 
 func add_pos(area):
 	if map != null:
-		map.add_pos(area)
+		map.add_spawn_pos(area)
+		# map.add_pos(area)
 
 func remove_pos(area):
 	if map != null:
-		map.remove_pos(area)
+		map.remove_spawn_pos(area)
+		# map.remove_pos(area)
 
 func splash(_top, _body):
 	splash_scn.visible = true

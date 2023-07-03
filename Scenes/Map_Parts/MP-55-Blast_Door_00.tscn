@@ -1,10 +1,39 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Map_Parts/MP-55-Blast_Door_128x32.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Map_Parts/MP-55-Blast_Door.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 12, 64 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "Already_Dead"
+length = 0.1
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Dead"
@@ -80,6 +109,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [node name="MP-55-Blast_Door_00" type="StaticBody2D" groups=["hittable"]]
 collision_layer = 520
@@ -96,6 +137,7 @@ texture = ExtResource( 1 )
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Already_Dead = SubResource( 6 )
 anims/Dead = SubResource( 2 )
 anims/Hit = SubResource( 3 )
 anims/RESET = SubResource( 5 )

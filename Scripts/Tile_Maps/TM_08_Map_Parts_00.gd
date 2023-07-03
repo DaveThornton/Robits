@@ -34,6 +34,7 @@ const MP_39_PE_064 = 30
 const MP_39_PE_128 = 31
 const MP_39_PE_256 = 32
 const MP_39_PE_512 = 33
+const MP_55_BLASTDOOR_DEAD = 34
 
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
@@ -177,6 +178,11 @@ func start_spawning_parts():
 				part_offset = Vector2(16,32)
 				var part = spawn_part(cell, 39, part_offset, true)
 				part.setup(512)
+			MP_55_BLASTDOOR_DEAD:
+				part_offset = Vector2(16,-32)
+				var part = spawn_part(cell, 55, part_offset, true)
+				part.already_dead()
+
 
 func spawn_part(pos, mp_num, offset, _return):
 	self.set_cell(pos.x, pos.y, -1)

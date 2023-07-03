@@ -16,3 +16,6 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 
 func explode():
 	FX.explode(55, -1, self.global_position, 0, 0, 0)
+
+func already_dead():
+	anim.play("Already_Dead")

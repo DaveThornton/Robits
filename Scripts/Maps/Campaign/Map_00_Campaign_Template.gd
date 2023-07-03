@@ -33,18 +33,21 @@ export(POWER_UP_NAME) var pick_up_02
 export(POWER_UP_NAME) var pick_up_03
 export(POWER_UP_NAME) var pick_up_04
 
+export var next_map_world_00 = 0
 export var next_map_00 = 1
 export var next_map_00_use_splash = false
 export var next_map_00_splash_title = "top_text"
 export var next_map_00_splash_body = "start_splash_body testing levely stuff blah blah ... blah!!!"
 export var next_map_00_splash_time_sec = 1.5
 
+export var next_map_world_01 = 0
 export var next_map_01 = 1
 export var next_map_01_use_splash = false
 export var next_map_01_splash_title = "top_text"
 export var next_map_01_splash_body = "start_splash_body testing levely stuff blah blah ... blah!!!"
 export var next_map_01_splash_time_sec = 1.5
 
+export var next_map_world_02 = 0
 export var next_map_02 = 1
 export var next_map_02_use_splash = false
 export var next_map_02_splash_title = "top_text"
@@ -134,18 +137,21 @@ func get_pick_up_num(_num: int):
 func get_next_level_w_info(_num):
 	var map_w_info = []
 	if _num < 2: 
+		map_w_info.append(next_map_world_00)
 		map_w_info.append(next_map_00)
 		map_w_info.append(next_map_00_use_splash)
 		map_w_info.append(next_map_00_splash_title)
 		map_w_info.append(next_map_00_splash_body)
 		map_w_info.append(next_map_00_splash_time_sec)
 	elif _num == 2: 
+		map_w_info.append(next_map_world_01)
 		map_w_info.append(next_map_01)
 		map_w_info.append(next_map_01_use_splash)
 		map_w_info.append(next_map_01_splash_title)
 		map_w_info.append(next_map_01_splash_body)
 		map_w_info.append(next_map_01_splash_time_sec)
 	elif _num > 2: 
+		map_w_info.append(next_map_world_02)
 		map_w_info.append(next_map_02)
 		map_w_info.append(next_map_02_use_splash)
 		map_w_info.append(next_map_02_splash_title)
