@@ -54,7 +54,7 @@ func _start(_player):
 		SFX.menu(3)
 
 func _next_screen():
-	var map_to_load = Campaign.get_map(pos)
+	var map_to_load = Campaign.get_map(pos, 0)
 	var t1 = Campaign.get_map_title(pos)
 	var t2 = Campaign.get_map_discription(pos)
 	Map_Hand.load_map_cam_first(map_to_load,t1,t2,1,true)
