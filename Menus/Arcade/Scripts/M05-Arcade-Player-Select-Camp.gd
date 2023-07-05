@@ -75,7 +75,7 @@ func _next_screen():
 		Player_Stats.p7["pawn_num"] = p7_menu.pos
 	if Player_Stats.p8["in_play"]:
 		Player_Stats.p8["pawn_num"] = p8_menu.pos
-	Map_Hand.load_map_cam_first(camp_map,"in a world","jail break",1,true)
+	Map_Hand.load_map_cam_first(camp_map,"in a world","jail break",1,false)
 	Game.set_started(true)
 	HUD.set_mode(2)
 	call_deferred("free")

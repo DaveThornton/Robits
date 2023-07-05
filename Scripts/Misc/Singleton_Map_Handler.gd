@@ -86,13 +86,15 @@ func get_map():
 
 func load_map_cam_first(_level, _label_1, _label_2, _time, _show):
 	$Splash_Timer.wait_time = _time
-	splash(_label_1,_label_2)
+	if _show:
+		splash(_label_1,_label_2)
 	_load_map_cam(_level)
 	Game.spawn_started()
 
 func load_map_cam(_level, _label_1, _label_2, _time, _show):
 	$Splash_Timer.wait_time = _time
-	splash(_label_1,_label_2)
+	if _show:
+		splash(_label_1,_label_2)
 	_load_map_cam(_level)
 
 func _load_map_cam(_level):

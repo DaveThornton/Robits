@@ -11,6 +11,7 @@ export var start_splash_body = "start_splash_body testing levely stuff blah blah
 export var splash_time_sec = 1.5
 export var camera_move = false
 export var camera_max_right = 1920
+export var start_weap_equiped = true
 export var override_outline_color = false
 export var outline_color_pick = Color8(255,255,255,255)
 export var outline_color_hold = Color8(255,255,255,255)
@@ -70,10 +71,14 @@ signal start
 
 func _ready():
 	if show_start_splash:
-		HUD.splash(start_splash_title, start_splash_body, splash_time_sec, true)
+		Map_Hand.splash_w_timer(start_splash_title, start_splash_body, splash_time_sec)
 	FX.set_back(background)
 	FX.CAMERA.max_right = camera_max_right
 	FX.camera_move(camera_move)
+	if start_weap_equiped:
+		Settings.set_campaign_start_gun(true)
+		for i in Settings.max_num_of_player: 
+			Controllers.player_equip_start_weap(i + 1)
 	if music > 0:
 		SFX.music(true, music)
 	else:
@@ -157,7 +162,7 @@ func get_next_level_w_info(_num):
 		map_w_info.append(next_map_02_splash_title)
 		map_w_info.append(next_map_02_splash_body)
 		map_w_info.append(next_map_02_splash_time_sec)
-	return map_w_info#0: next map number to load, 1: use spash ,  2: splash title , 3: splash body ,  4: lenght of splash in seconds
+	return map_w_info#0: 0: world for next map 1: next map number to load, 2: use spash ,  3: splash title , 4: splash body ,  5: lenght of splash in seconds
 
 
 func remove_spawn_pos(_pos): if spawn_spots.has(_pos): spawn_spots.erase(_pos)

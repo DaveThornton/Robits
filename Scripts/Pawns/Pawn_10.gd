@@ -31,7 +31,7 @@ export var my_armor = 2
 export var my_max_air_jump_count = 0
 export var my_max_air_jump_power = 5
 export var my_min_air_jump_power = 1.5
-export var my_max_jump_power = 7
+export var my_max_jump_power = 8
 export var my_min_jump_power = 1.5
 
 #--------------------------------------------------------------------NRG--------
