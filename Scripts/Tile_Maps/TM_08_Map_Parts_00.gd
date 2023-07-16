@@ -148,15 +148,19 @@ func start_spawning_parts():
 				elif autopart_x == 3:
 					part.setup(3, false)
 			MP_45_MOVE_PLAT_L:
+				part_offset = Vector2(48,0)
 				var part = spawn_part(cell, 45, part_offset, true)#(_up_down, _left_right, _going_up, _going_right)
 				part.change_dir(false, true, false, false)
 			MP_45_MOVE_PLAT_R:
+				part_offset = Vector2(48,0)
 				var part = spawn_part(cell, 45, part_offset, true)
 				part.change_dir(false, true, true, true)
 			MP_45_MOVE_PLAT_U:
+				part_offset = Vector2(48,0)
 				var part = spawn_part(cell, 45, part_offset, true)
 				part.change_dir(true, false, true, true)
 			MP_45_MOVE_PLAT_D:
+				part_offset = Vector2(48,0)
 				var part = spawn_part(cell, 45, part_offset, true)
 				part.change_dir(true, false, false, true)
 			MP_55_BLASTDOOR:

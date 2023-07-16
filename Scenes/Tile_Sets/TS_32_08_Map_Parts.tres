@@ -367,7 +367,7 @@
 24/shape_one_way_margin = 0.0
 24/shapes = [  ]
 24/z_index = 0
-25/name = "45_Move_L_Plat_Kongish"
+25/name = "45_L_Plat"
 25/texture = ExtResource( 9 )
 25/tex_offset = Vector2( 0, 0 )
 25/modulate = Color( 1, 1, 1, 1 )
@@ -381,7 +381,7 @@
 25/shape_one_way_margin = 0.0
 25/shapes = [  ]
 25/z_index = 0
-26/name = "45_Move_R_Plat_Kongish"
+26/name = "45_R_Plat"
 26/texture = ExtResource( 9 )
 26/tex_offset = Vector2( 0, 0 )
 26/modulate = Color( 1, 1, 1, 1 )
@@ -395,7 +395,7 @@
 26/shape_one_way_margin = 0.0
 26/shapes = [  ]
 26/z_index = 0
-27/name = "45_Move_U_Plat_Kongish"
+27/name = "45_U_Plat"
 27/texture = ExtResource( 9 )
 27/tex_offset = Vector2( 0, 0 )
 27/modulate = Color( 1, 1, 1, 1 )
@@ -409,7 +409,7 @@
 27/shape_one_way_margin = 0.0
 27/shapes = [  ]
 27/z_index = 0
-28/name = "45_Move_D_Plat_Kongish"
+28/name = "45_D_Plat"
 28/texture = ExtResource( 9 )
 28/tex_offset = Vector2( 0, 0 )
 28/modulate = Color( 1, 1, 1, 1 )

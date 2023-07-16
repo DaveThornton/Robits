@@ -18,7 +18,7 @@ script = ExtResource( 2 )
 [node name="Mp-45-KongishMovePlat" type="Sprite" parent="."]
 position = Vector2( 0, 4 )
 texture = ExtResource( 1 )
-vframes = 5
+vframes = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4 )
