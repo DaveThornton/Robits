@@ -7,6 +7,8 @@
 extents = Vector2( 17.0379, 9 )
 
 [node name="Pick_Up_Area_06_Battery_Power_Up_00" type="Area2D"]
+collision_layer = 327680
+collision_mask = 65536
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
