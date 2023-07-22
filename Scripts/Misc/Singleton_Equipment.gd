@@ -180,12 +180,12 @@ export(PackedScene) var gun_pick_84
 
 
 
-# export(PackedScene) var item_area_pick_01
+export(PackedScene) var item_area_pick_01
 export(PackedScene) var item_area_pick_02
 export(PackedScene) var item_area_pick_03
 export(PackedScene) var item_area_pick_04
 export(PackedScene) var item_area_pick_05
-# export(PackedScene) var item_area_pick_06
+export(PackedScene) var item_area_pick_06
 export(PackedScene) var item_area_pick_07
 export(PackedScene) var item_area_pick_08
 # export(PackedScene) var item_area_pick_09
@@ -777,12 +777,12 @@ func get_award_name(_award: int): return award_names[_award]
 
 func get_area_item(_item: int):
 	match _item:
-		# 1:return item_area_pick_01
+		1:return item_area_pick_01
 		2:return item_area_pick_02
 		3:return item_area_pick_03
 		4:return item_area_pick_04
 		5:return item_area_pick_05
-		# 6:return item_area_pick_06
+		6:return item_area_pick_06
 		7:return item_area_pick_07
 		8:return item_area_pick_08
 		# 9:return item_area_pick_09

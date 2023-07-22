@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=2]
+[gd_scene load_steps=137 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Equipment.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guns/Hold/W_02-AK47_Hold.tscn" type="PackedScene" id=2]
@@ -134,6 +134,8 @@
 [ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_01_Ammo.tscn" type="PackedScene" id=132]
 [ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_04_Jump_Power_Up.tscn" type="PackedScene" id=133]
 [ext_resource path="res://Scenes/Power_Ups/Pick_Up_A_03_Speed_Power_Up.tscn" type="PackedScene" id=134]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_A_01_Ammo_Power_Up_00.tscn" type="PackedScene" id=135]
+[ext_resource path="res://Scenes/Power_Ups/Pick_Up_A_06_Battery_Power_Up_00.tscn" type="PackedScene" id=136]
 
 [node name="Equipment" type="Node2D"]
 script = ExtResource( 1 )
@@ -240,10 +242,12 @@ gun_pick_72 = ExtResource( 119 )
 gun_pick_73 = ExtResource( 117 )
 gun_pick_83 = ExtResource( 120 )
 gun_pick_84 = ExtResource( 121 )
+item_area_pick_01 = ExtResource( 135 )
 item_area_pick_02 = ExtResource( 18 )
 item_area_pick_03 = ExtResource( 134 )
 item_area_pick_04 = ExtResource( 16 )
 item_area_pick_05 = ExtResource( 20 )
+item_area_pick_06 = ExtResource( 136 )
 item_area_pick_07 = ExtResource( 17 )
 item_area_pick_08 = ExtResource( 127 )
 item_area_pick_13 = ExtResource( 19 )
