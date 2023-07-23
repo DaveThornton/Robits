@@ -16,7 +16,7 @@
 [ext_resource path="res://Scenes/Tile_Maps/TM_11_Areas_00.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Tile_Maps/TM_10_Player_NPC_Spawn_00.tscn" type="PackedScene" id=17]
 
-[node name="Map_00_Template" type="Node2D"]
+[node name="Map_17_Track_of_Bludgeons" type="Node2D"]
 script = ExtResource( 5 )
 background = 4
 gun_01 = 8
