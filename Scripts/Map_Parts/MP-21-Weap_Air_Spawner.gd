@@ -81,4 +81,4 @@ func _on_Timer_timeout():
 	spawned.dont_hit_player()
 	spawned.global_position = self.global_position
 #	weap.init(-1, -1, _time, _is_right, _dir, _just_shot)
-	Map_Hand.add_kid_to_map(spawned)
+	Map_Hand.add_kid_to_pick_ups(spawned)

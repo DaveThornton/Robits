@@ -183,7 +183,7 @@ func shell(): FX.shell(gun_num, pos_shell.global_position, pos_shell.global_rota
 
 func throw():
 	var t = Equipment.get_weap_pick(gun_num).instance()
-	Map_Hand.add_kid_to_map(t)
+	Map_Hand.add_kid_to_pick_ups(t)
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
 	t.position = pos_throw.global_position
@@ -201,7 +201,7 @@ func drop():
 	call_deferred("_drop")
 func _drop():
 	var t = Equipment.get_weap_pick(gun_num).instance()
-	Map_Hand.add_kid_to_map(t)
+	Map_Hand.add_kid_to_pick_ups(t)
 	t.position = pos_throw.global_position
 	init_pick(t)
 	_drop_where(t)

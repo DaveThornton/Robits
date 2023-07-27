@@ -179,6 +179,7 @@ tracks/3/keys = {
 }
 
 [node name="MP-60-Weap_Spawn_Invis_00" type="Node2D"]
+z_index = -1
 script = ExtResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]

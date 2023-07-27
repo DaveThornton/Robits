@@ -69,7 +69,7 @@ func _on_Melee_Area_body_entered(body):
 
 func throw():
 	var t = turtle_Pickup.instance()
-	Map_Hand.add_kid_to_map(t)
+	Map_Hand.add_kid_to_pick_ups(t)
 	if shoot_pos == 6:
 		pos_throw.position.x = 30
 	t.position = pos_throw.global_position
@@ -87,7 +87,7 @@ func drop():
 	call_deferred("_drop")
 func _drop():
 	var t = turtle_Pickup.instance()
-	Map_Hand.add_kid_to_map(t)
+	Map_Hand.add_kid_to_pick_ups(t)
 	t.position = pos_throw.global_position
 	t.init(ammo, player, 1, is_right, shoot_pos, false)
 	_drop_where(t)

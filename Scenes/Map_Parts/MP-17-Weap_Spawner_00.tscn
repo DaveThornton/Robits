@@ -206,7 +206,7 @@ script = ExtResource( 3 )
 texture = ExtResource( 2 )
 hframes = 10
 vframes = 3
-frame = 17
+frame = 7
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 visible = false
@@ -224,7 +224,6 @@ one_shot = true
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 show_behind_parent = true
 position = Vector2( 0, -15 )
-emitting = false
 amount = 2
 lifetime = 0.4
 texture = ExtResource( 1 )
@@ -240,7 +239,7 @@ color = Color( 0.0392157, 0.560784, 0.0313726, 1 )
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
 position = Vector2( 22, -45 )
-emitting = false
+z_index = -1
 amount = 15
 lifetime = 2.5
 texture = ExtResource( 1 )
@@ -269,7 +268,6 @@ angular_damp = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 4 )
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false

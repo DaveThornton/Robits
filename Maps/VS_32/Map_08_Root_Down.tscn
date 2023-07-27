@@ -60,7 +60,7 @@ collision_mask = 8
 [node name="TM_07_FRONT_FX_00" parent="." instance=ExtResource( 11 )]
 
 [node name="TM_08_Map_Parts_00" parent="." instance=ExtResource( 9 )]
-tile_data = PoolIntArray( 1376271, 32, 0, 1376300, 32, 0, 2031622, 26, 0, 2031670, 25, 0 )
+tile_data = PoolIntArray( 1376271, 32, 0, 1376300, 32, 0, 2031622, 26, 0, 2031667, 25, 0 )
 
 [node name="TM_09_Item_Spawn_00" parent="." instance=ExtResource( 8 )]
 tile_data = PoolIntArray( 524316, 38, 0, 524319, 78, 0, 655372, 22, 0, 655407, 30, 0, 1048634, 132, 0, 1114140, 99, 0, 1114143, 106, 0, 1179654, 55, 0, 1310721, 131, 0, 1441809, 6, 0, 1441818, 85, 0, 1441825, 92, 0, 1441834, 14, 0, 1441845, 47, 0, 2031643, 63, 0, 2031648, 71, 0 )
@@ -78,3 +78,5 @@ tile_data = PoolIntArray( -524294, 0, 0, -524293, 0, 0, -524292, 0, 0, -524291, 
 [node name="Map_Parts" type="Node2D" parent="." groups=["map_part"]]
 
 [node name="MP-03-SideScroll_Over" parent="Map_Parts" instance=ExtResource( 7 )]
+
+[node name="Pick_Ups" type="Node2D" parent="Map_Parts"]

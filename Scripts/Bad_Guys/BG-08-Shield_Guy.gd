@@ -44,8 +44,3 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		FX.explode(7, -1, self.position,208, 0, exp_damage)
 		# call_deferred("_explode")
 		call_deferred("free")
-
-# func _explode():
-# 	var x = explode.instance()
-# 	Map_Hand.add_kid_to_map(x)
-# 	x.init(9, self.position,my_name, 0, exp_damage)

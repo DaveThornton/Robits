@@ -52,7 +52,7 @@ tile_data = PoolIntArray( 524341, 6, 0, 524342, 6, 1, 524343, 6, 1, 524344, 6, 1
 tile_data = PoolIntArray( 786482, 29, 0, 1900556, 3, 0, 1900592, 29, 0 )
 
 [node name="TM_09_Item_Spawn_00" parent="." instance=ExtResource( 10 )]
-tile_data = PoolIntArray( 1310745, 55, 0, 1310754, 63, 0, 1572884, 7, 0, 1572903, 15, 0, 1703964, 23, 0, 1703967, 31, 0, 1966104, 39, 0, 1966115, 47, 0 )
+tile_data = PoolIntArray( 852003, 106, 0, 1114137, 119, 0, 1114146, 126, 0, 1114148, 119, 0, 1310745, 55, 0, 1310754, 63, 0, 1310757, 112, 0, 1572882, 112, 0, 1572884, 7, 0, 1572903, 15, 0, 1703964, 23, 0, 1703967, 31, 0, 1703979, 106, 0, 1966104, 39, 0, 1966115, 47, 0 )
 
 [node name="TM_10_Player_NPC_Spawn_00" parent="." instance=ExtResource( 7 )]
 tile_data = PoolIntArray( 1900546, 1, 0, 1900547, 1, 0, 1900548, 1, 0, 1900549, 1, 0, 1900550, 1, 0, 1900551, 1, 0, 1900552, 1, 0, 1900553, 1, 0, 1900554, 1, 0 )
@@ -68,3 +68,6 @@ tile_data = PoolIntArray( 1900597, 0, 0 )
 [node name="Power_Ups" type="Node2D" parent="."]
 
 [node name="Map_Parts" type="Node2D" parent="." groups=["map_part"]]
+
+[node name="Pick_Ups" type="Node2D" parent="Map_Parts"]
+z_as_relative = false

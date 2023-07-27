@@ -39,7 +39,7 @@ func _on_Timer_timeout():
 	weap.dont_hit_player()
 	weap.global_position = self.global_position
 #	weap.init(-1, -1, _time, _is_right, _dir, _just_shot)
-	Map_Hand.add_kid_to_map(weap)
+	Map_Hand.add_kid_to_pick_ups(weap)
 
 #	part.init(trash_num, self.global_position, shoot_dir, trash_time)
 #	part.init(1, 1, 1, true, (self.global_position + Vector2(-7, -7)), shoot_dir)# its for the robit wreckage

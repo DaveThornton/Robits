@@ -1,29 +1,29 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Sprites/Menu/Map_Select_8x4.png" type="Texture" id=1]
 [ext_resource path="res://Menus/Arcade/Scripts/M04-Arcade-Map-Select-VS_20.gd" type="Script" id=2]
 [ext_resource path="res://Menus/Grids/menu_4x5_01.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Maps/VS_Mode/Map-10-SnoWhere_2_Hide.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Maps/VS_Mode/Map-15- Farm.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Maps/VS_Mode/Map-17-Place_Holder.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Maps/VS_Mode/Map-18-Place_Holder.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Maps/VS_Mode/Map-20-Computer.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Maps/VS_Mode/Map-03-Enchantment_Under_the_Sea.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Maps/VS_Mode/Map-02-OneDashTwo.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Maps/VS_Mode/Map-16-Scarab.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Maps/VS_Mode/Map-19-The_Knees.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Maps/VS_Mode/Map-12-Noon.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Maps/VS_Mode/Map-05-Trash.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Maps/VS_Mode/Map-11-Puck_Fan.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Maps/VS_Mode/Map-07-Pink.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Maps/VS_32/Map_07_Right_is_Crimson.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Maps/VS_32/Map_06_Reboot_Uncommon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Maps/VS_32/Map_04_Rubbers_of_Wormholes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Maps/VS_32/Map_08_Root_Down.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Maps/VS_32/Map_01_Puck_Fan.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Maps/VS_32/Map_14_Tuesday_Bouncer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Maps/VS_32/Map_10_Sixteen_Corners.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Maps/VS_32/Map_13_Brawl_is_French.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Maps/VS_32/Map_12_Ziggurat_Outpost.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Maps/VS_32/Map_18_Rupture_for_Cannon.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Maps/VS_32/Map_05_Crunk_On_Junk.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Maps/VS_32/Map_20_Harpy_is_Deceiving.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Maps/VS_32/Map_02_Bodkin_Van_Horn.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Menus/Arcade/M03-Arcade-Player-Select-VS.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Maps/VS_Mode/Map-01-Disputed.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Maps/VS_Mode/Map-04-Plaid.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Maps/VS_Mode/Map-08-The_Final_Frontier.tscn" type="PackedScene" id=20]
-[ext_resource path="res://Maps/VS_Mode/Map-13-Luftballons.tscn" type="PackedScene" id=21]
-[ext_resource path="res://Maps/VS_Mode/Map-06-Monkey-Around.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Maps/VS_Mode/Map-09-Nien.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Maps/VS_Mode/Map-14-NRG.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Maps/VS_32/Map_03_River_Something_Creek.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Maps/VS_32/Map_17_Track_of_Bludgeons.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Maps/VS_32/Map_09_CAnt_Farm.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Maps/VS_32/Map_11_Oh_Ship.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Maps/VS_32/Map_16_Turkeys_of_Shuffle.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Maps/VS_32/Map_15_Parrises_Squares.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Maps/VS_32/Map_19_Galactic_Recoil.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Menus/Arcade/Parts/menu_4x5_Map_VS.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Maps/VS_Mode/Map-22-Frank.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Maps/VS_Mode/Map-21-SirGregor.tscn" type="PackedScene" id=27]
@@ -33,43 +33,33 @@
 [ext_resource path="res://Maps/VS_Mode/Map-26-Castles&Balloons.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Maps/VS_Mode/Map-27-Template.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Maps/VS_Mode/Map-28-Template.tscn" type="PackedScene" id=33]
-[ext_resource path="res://Maps/VS_Mode/Map-32-Template.tscn" type="PackedScene" id=34]
-[ext_resource path="res://Maps/VS_Mode/Map-30-Impostor.tscn" type="PackedScene" id=35]
-[ext_resource path="res://Maps/VS_Mode/Map-33-Template.tscn" type="PackedScene" id=36]
+[ext_resource path="res://Menus/Arcade/Parts/menu_4x5_Map_VS_32_tiles.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Maps/VS_Mode/Map-29-Template.tscn" type="PackedScene" id=37]
-[ext_resource path="res://Maps/VS_Mode/Map-31-Template.tscn" type="PackedScene" id=38]
-[ext_resource path="res://Maps/VS_Mode/Map-35-Template.tscn" type="PackedScene" id=39]
-[ext_resource path="res://Maps/VS_Mode/Map-34-Template.tscn" type="PackedScene" id=40]
-[ext_resource path="res://Maps/VS_Mode/Map-36-Template.tscn" type="PackedScene" id=41]
-[ext_resource path="res://Maps/VS_Mode/Map-40-Template.tscn" type="PackedScene" id=42]
-[ext_resource path="res://Maps/VS_Mode/Map-37-Template.tscn" type="PackedScene" id=43]
-[ext_resource path="res://Maps/VS_Mode/Map-39-Template.tscn" type="PackedScene" id=44]
-[ext_resource path="res://Maps/VS_Mode/Map-38-Template.tscn" type="PackedScene" id=45]
 
 [node name="M04-Arcade-Map-Select-VS" type="Node2D"]
 position = Vector2( 0, 90 )
 script = ExtResource( 2 )
 player_select_vs = ExtResource( 17 )
-map_01 = ExtResource( 18 )
-map_02 = ExtResource( 10 )
-map_03 = ExtResource( 9 )
-map_04 = ExtResource( 19 )
+map_01 = ExtResource( 8 )
+map_02 = ExtResource( 16 )
+map_03 = ExtResource( 18 )
+map_04 = ExtResource( 6 )
 map_05 = ExtResource( 14 )
-map_06 = ExtResource( 22 )
-map_07 = ExtResource( 16 )
-map_08 = ExtResource( 20 )
-map_09 = ExtResource( 23 )
-map_10 = ExtResource( 4 )
-map_11 = ExtResource( 15 )
-map_12 = ExtResource( 13 )
-map_13 = ExtResource( 21 )
-map_14 = ExtResource( 24 )
-map_15 = ExtResource( 5 )
-map_16 = ExtResource( 11 )
-map_17 = ExtResource( 6 )
-map_18 = ExtResource( 7 )
-map_19 = ExtResource( 12 )
-map_20 = ExtResource( 8 )
+map_06 = ExtResource( 5 )
+map_07 = ExtResource( 4 )
+map_08 = ExtResource( 7 )
+map_09 = ExtResource( 20 )
+map_10 = ExtResource( 10 )
+map_11 = ExtResource( 21 )
+map_12 = ExtResource( 12 )
+map_13 = ExtResource( 11 )
+map_14 = ExtResource( 9 )
+map_15 = ExtResource( 23 )
+map_16 = ExtResource( 22 )
+map_17 = ExtResource( 19 )
+map_18 = ExtResource( 13 )
+map_19 = ExtResource( 24 )
+map_20 = ExtResource( 15 )
 map_21 = ExtResource( 27 )
 map_22 = ExtResource( 26 )
 map_23 = ExtResource( 28 )
@@ -79,24 +69,17 @@ map_26 = ExtResource( 31 )
 map_27 = ExtResource( 32 )
 map_28 = ExtResource( 33 )
 map_29 = ExtResource( 37 )
-map_30 = ExtResource( 35 )
-map_31 = ExtResource( 38 )
-map_32 = ExtResource( 34 )
-map_33 = ExtResource( 36 )
-map_34 = ExtResource( 40 )
-map_35 = ExtResource( 39 )
-map_36 = ExtResource( 41 )
-map_37 = ExtResource( 43 )
-map_38 = ExtResource( 45 )
-map_39 = ExtResource( 44 )
-map_40 = ExtResource( 42 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
 position = Vector2( 960, 509 )
 texture = ExtResource( 1 )
 
-[node name="Menu_5x4_Map" parent="." instance=ExtResource( 25 )]
+[node name="Menu_5x4_Map_Old" parent="." instance=ExtResource( 25 )]
+visible = false
+position = Vector2( 960, 500 )
+
+[node name="Menu_5x4_Map" parent="." instance=ExtResource( 34 )]
 position = Vector2( 960, 500 )
 
 [node name="Menu_5x4_01" parent="." instance=ExtResource( 3 )]

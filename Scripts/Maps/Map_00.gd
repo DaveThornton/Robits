@@ -35,6 +35,7 @@ export(POWER_UP_NAME) var pick_up_04
 
 onready var player_spawns = $Player_spawns
 onready var parts = $Map_Parts 
+onready var pick_ups = $Map_Parts/Pick_Ups
 onready var player_npc_spawn_map = $TM_10_Player_NPC_Spawn_00
 
 var first = true
@@ -122,6 +123,7 @@ func set_music(_music: int):
 	else: SFX.music(false, music)
 
 func add_kid_to_parts(kid): parts.add_child(kid)
+func add_kid_to_pick_ups(kid): pick_ups.add_child(kid)
 
 func add_player_spawn(spawn_spot): 
 	player_spawns.add_child(spawn_spot)

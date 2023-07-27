@@ -183,6 +183,7 @@ one_shot = true
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 show_behind_parent = true
 position = Vector2( 0, -15 )
+z_index = -1
 emitting = false
 amount = 5
 lifetime = 0.4

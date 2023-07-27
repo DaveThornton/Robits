@@ -36,7 +36,13 @@ func load_map( _map_to_load):
 
 func add_kid_to_map(_obj):
 	if is_instance_valid(map):
-		map.add_child(_obj) #weird error
+		map.add_kid_to_parts(_obj) #weird error
+	else:
+		clearing_house.add_child(_obj)
+
+func add_kid_to_pick_ups(_obj):
+	if is_instance_valid(map):
+		map.add_kid_to_pick_ups(_obj) #weird error
 	else:
 		clearing_house.add_child(_obj)
 

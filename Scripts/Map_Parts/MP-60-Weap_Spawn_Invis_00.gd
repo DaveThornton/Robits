@@ -27,7 +27,7 @@ func spawn():
 	if obj == null:
 		obj = Map_Hand.map.get_gun(gun_number+ 1)
 	spawned_obj = obj.instance()
-	Map_Hand.add_kid_to_map(spawned_obj)
+	Map_Hand.add_kid_to_pick_ups(spawned_obj)
 	spawned_obj.global_position = top.global_position
 	spawned_obj.dont_hit_player()
 	spawned_obj.init(-1, 0, -1, true, 3, false)

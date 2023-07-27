@@ -57,6 +57,7 @@ fps=false
 res=false
 Back=false
 script=false
+ver=false
 
 [importer_defaults]
 

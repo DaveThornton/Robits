@@ -76,3 +76,5 @@ tile_data = PoolIntArray( 524331, 0, 0, 589841, 0, 0, 589848, 0, 0, 589860, 0, 0
 [node name="Map_Parts" type="Node2D" parent="." groups=["map_part"]]
 
 [node name="MP-03-SideScroll_Over" parent="Map_Parts" instance=ExtResource( 7 )]
+
+[node name="Pick_Ups" type="Node2D" parent="Map_Parts"]

@@ -73,6 +73,9 @@ tile_data = PoolIntArray( 786454, 0, 0 )
 
 [node name="Map_Parts" type="Node2D" parent="." groups=["map_part"]]
 
+[node name="Pick_Ups" type="Node2D" parent="Map_Parts"]
+z_as_relative = false
+
 [node name="Node2D" type="Node2D" parent="."]
 z_index = 5
 

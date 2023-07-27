@@ -79,3 +79,5 @@ tile_data = PoolIntArray( -589829, 0, 0, -589828, 0, 0, -589827, 0, 0, -589826, 
 [node name="Power_Ups" type="Node2D" parent="."]
 
 [node name="Map_Parts" type="Node2D" parent="." groups=["map_part"]]
+
+[node name="Pick_Ups" type="Node2D" parent="Map_Parts"]

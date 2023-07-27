@@ -96,7 +96,7 @@ func _spawn_thing():
 	elif spawn == 0: t = Map_Hand.map.get_pick_up(map_pick_up_num + 1, false).instance()
 	else: t = Map_Hand.map.get_nade(map_nade_num + 1).instance()
 
-	Map_Hand.add_kid_to_map(t)
+	Map_Hand.add_kid_to_pick_ups(t)
 	t.global_position = spawn_pos.global_position
 	t.set_collision_layer_bit( 1, false)
 	t.set_collision_mask_bit( 1, false)
