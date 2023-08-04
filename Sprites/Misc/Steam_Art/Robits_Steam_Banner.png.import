@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Proj.png-ee41beb51a980073751add581a9efbbb.stex"
+path="res://.import/Robits_Steam_Banner.png-01e419fe67a79404a6cb683f7cdf149e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Projectiles/Proj.png"
-dest_files=[ "res://.import/Proj.png-ee41beb51a980073751add581a9efbbb.stex" ]
+source_file="res://Sprites/Misc/Steam_Art/Robits_Steam_Banner.png"
+dest_files=[ "res://.import/Robits_Steam_Banner.png-01e419fe67a79404a6cb683f7cdf149e.stex" ]
 
 [params]
 

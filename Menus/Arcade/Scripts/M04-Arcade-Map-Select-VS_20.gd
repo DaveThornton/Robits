@@ -66,6 +66,8 @@ var p8_ready = false
 
 var map_array = []
 
+var loading_next_screen = false
+
 func _ready():
 	var test2 = HUD.connect("screen_update", self, "menu_check")
 	if test2 != 0:
@@ -83,7 +85,8 @@ func _start(_player):
 	_set_ready(_player)
 	HUD.set_pri(_player, 5)
 	SFX.menu(2)
-	if _get_ready_num() == Player_Stats.get_num_in_play():
+	if _get_ready_num() == Player_Stats.get_num_in_play() && !loading_next_screen:
+		loading_next_screen = true
 		_next_screen()
 
 func _next_screen():
