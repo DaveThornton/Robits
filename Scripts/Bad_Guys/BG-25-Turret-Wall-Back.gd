@@ -1,7 +1,8 @@
 extends StaticBody2D
 
 export(PackedScene) var projectile
-export var activation_number = 0
+export var activate_self = true
+export var activation_num = 0
 export var armor = 0
 
 onready var area = $Area2D/CollisionShape2D
@@ -26,7 +27,8 @@ var hit_time = 0
 var gun_num = 10
 
 func _ready():
-	Map_Hand.map.connect("activate", self, "activate")
+	if activate_self:
+		Map_Hand.connect_activate(self, activation_num)
 
 func _process(delta):
 	if hit_time > 0:
@@ -50,17 +52,15 @@ func _process(delta):
 						if shoot_cast.get_collider().get_groups().has("player"):
 							_shoot(gun_arm)
 
-func activate(activation_num, _body):
-	if activation_number == activation_num:
-		if !activated:
-			activated = true
-			anim_door.play("Open")
-			can_shoot = true
+func activate(_body):
+	if !activated:
+		activated = true
+		anim_door.play("Open")
+		can_shoot = true
 
 func self_destruct():
 	explode()
 	call_deferred("free")
-#	hit(self, "self", "turret", health + health + armor)
 
 func _shoot(_pos):
 	can_shoot = false 
@@ -85,9 +85,6 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 
 func explode():
 	FX.explode(2, player, self.position, 225, player, ex_dmg)
-# 	var x = explode.instance()
-# 	Map_Hand.add_kid_to_map(x)
-# 	x.init(player, self.position, str("player ", x, "'s destruct system"), player, ex_dmg)
 
 func sort_distance(_a, _b):
 	if (abs(_a.global_position.x - self.global_position.x) + abs(_a.global_position.y - self.global_position.y)) < (abs(_b.global_position.x - self.global_position.x) + abs(_b.global_position.y - self.global_position.y)):

@@ -13,6 +13,10 @@ var level
 
 signal wow
 signal splash_done
+signal act_01
+signal act_02
+signal act_03
+signal act_04
 
 func spawn_pos():
 	if !Game.get_game_over():
@@ -30,9 +34,6 @@ func load_map( _map_to_load):
 	var test = get_tree().get_current_scene().connect("reset", m, "reset")
 	if test != 0:
 		print_debug("error Singleton Map Handler connecting map to reset from world gd")
-	# var test2 = map.connect("call_pow",map ,"call_pow")
-	# if test2 != 0:
-	# 	print_debug("error Singleton Map Handler connecting map to pow from world gd")
 
 func add_kid_to_map(_obj):
 	if is_instance_valid(map):
@@ -120,12 +121,10 @@ func call_pow():
 func add_pos(area):
 	if map != null:
 		map.add_spawn_pos(area)
-		# map.add_pos(area)
 
 func remove_pos(area):
 	if map != null:
 		map.remove_spawn_pos(area)
-		# map.remove_pos(area)
 
 func splash(_top, _body):
 	splash_scn.visible = true
@@ -144,3 +143,17 @@ func _on_Splash_Timer_timeout():
 	splash_timer.wait_time = default_splash_time
 
 func get_map_part(num): return parts.get_part(num)
+
+func activate(_body, _num):
+	match _num:
+		1: emit_signal("act_01", _body)
+		2: emit_signal("act_02", _body)
+		3: emit_signal("act_03", _body)
+		4: emit_signal("act_04", _body)
+
+func connect_activate(_thing, _num):
+	match _num:
+		1: self.connect("act_01", _thing, "activate")
+		2: self.connect("act_02", _thing, "activate")
+		3: self.connect("act_03", _thing, "activate")
+		4: self.connect("act_04", _thing, "activate")

@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Projectiles/Proj-50-Shot_Gun_A.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/FX/Bullet_Hit_Map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/FX/Bullet_Hit_Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/Projectiles/Proj.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Projectiles/Proj_02.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.38543
@@ -22,7 +22,6 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 1.5, 1 )
 texture = ExtResource( 4 )
 hframes = 12
 frame = 1

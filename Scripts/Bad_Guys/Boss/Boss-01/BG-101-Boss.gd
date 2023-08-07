@@ -18,32 +18,28 @@ var dead_tops = 0
 var dead_boxes = 0
 
 func _ready():
-	map = Map_Hand.map
-	exit_door.level_to_load_1 = level_to_load
-#	exit_door.off()
-	if !map:
-		print_debug("no Map")
-	var map_connected = map.connect("activate", self, "activate")
-	if !map_connected:
-		print_debug("error in BG 101 Boss not connecting to map")
-	turret_01.activation_number = activation_num
-	turret_02.activation_number = activation_num
+	# if !map:
+	# 	print_debug("no Map")
+	# match activation_num:
+		# 1:Map_Hand.connect("act_01", self, "activate")
+	Map_Hand.connect_activate(self, activation_num)
 
-func activate(_num, _player):
-	if !activated && activation_num == _num:
-		activated = true
-		for i in boxes.get_child_count():
-			boxes.get_child(i).activate()
-			boxes.get_child(i).connect("dead", self, "dead_box")
-		for j in tops.get_child_count():
-			tops.get_child(j).connect("dead", self, "dead_top")
+func activate(_body):
+	activated = true
+	# turret_01.activate(_body)
+	# turret_02.activate(_body)
+	for i in boxes.get_child_count():
+		boxes.get_child(i).activate()
+		boxes.get_child(i).connect("dead", self, "dead_box")
+	for j in tops.get_child_count():
+		tops.get_child(j).connect("dead", self, "dead_top")
 
 func dead_box():
 	dead_boxes += 1
 	if dead_boxes == boxes.get_child_count():
 		top.activate()
 		for i in turrets.get_child_count():
-			turrets.get_child(i).activate(0,0)
+			turrets.get_child(i).activate(self)
 
 func dead_top():
 	dead()
