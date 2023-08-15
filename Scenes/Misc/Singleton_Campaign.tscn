@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Campaign.gd" type="Script" id=1]
 [ext_resource path="res://Maps/Campaign-mode/World_03/Map_C_W03_A_01_Mill.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Maps/Campaign_32/00_Prison/Map_00_01_Jump_Dn_Jump_Up.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Maps/Campaign_32/00_Prison/Map_00_03_Hall.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Maps/Campaign_32/00_Prison/Map_00_04_Warden.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Maps/Campaign_32/00_Prison/Map_00_05_We_Got_Fun_And_Games.tscn" type="PackedScene" id=13]
 
 [node name="Campaign_Singleton" type="Node2D"]
 script = ExtResource( 1 )
@@ -37,5 +38,5 @@ w07_dis = "Whats a pirates favorite letter \"R\" it \"B\" the \"C\" place holder
 w08_dis = "Down Town id Dangerious around here so watch out  place holder place holder place holder"
 
 [node name="Campaign_Map_List" parent="." instance=ExtResource( 5 )]
-map = [ ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ]
-world_00 = [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 12 ) ]
+map = [ ExtResource( 7 ), ExtResource( 6 ) ]
+world_00 = [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
