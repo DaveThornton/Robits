@@ -18,10 +18,15 @@ func _ready():
 	Map_Hand.map.connect("start",self ,"start")
 
 func start():
-	timer.wait_time = respawn_time
+	# dont know why but doing it this way keeps a error from happening
+	set_timer(respawn_time)
+	# Spawns the grenade at the begining
 	obj = Map_Hand.map.get_nade(nade_number + 1)
 	if spawn_area.get_overlapping_bodies().size() == 0:
 		anim.play("Spawn")
+
+func set_timer(_time):
+	timer.wait_time = _time
 
 func spawn():
 	if obj == null:

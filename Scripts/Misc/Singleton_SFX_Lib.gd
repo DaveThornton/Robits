@@ -10,6 +10,7 @@ onready var reloads = $SFX_Weapons/SFX_Reload_Part
 onready var click_out = $SFX_Weapons/SFX_Click_Out_Part
 onready var pawn = $SFX_Pawn
 onready var powerups = $SFX_Power_Ups
+onready var proj_hit = $SFX_Weapons/SFX_Proj_Hit
 var oc_num = 0
 var swing_num = 0 
 var shell_num = 0
@@ -42,6 +43,10 @@ func menu(_num): menus.get_child(_num).play()# 0:coin   1:start   2:select   3:E
 func swing(): melee.get_child(1).play()
 
 func melee_hit(): melee.get_child(0).play()
+
+func hit_map(): proj_hit.get_node("FX_Map_Hit").play()
+
+func hit_player(): proj_hit.get_node("FX_Obj_Hit").play()
 
 func projectile(_num): projectiles.play(_num)
 	

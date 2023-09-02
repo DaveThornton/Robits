@@ -9,7 +9,7 @@ var owned = 0
 var my_name = "Explosion"
 var weap_name = "Explosion"
 var damage1 = 1
-var damage2 = 100
+var damage2 = 10
 var damage_type = "Explosion"
 var gun_num = 0
 
@@ -33,13 +33,16 @@ func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 
 	owned = _owner
 	weap_name = _weap_name
+	SFX.explosion(1)
 	SFX.play("EX_Pawn")
 	FX.add_trauma(trauma)
 	gun_num = _weap_name
+	# this adds the megaman like explosion
 	FX.mega_ex(_pos)
-	var _test = damage_area.connect("obj_entered", self, "body_entered")
-	# if !test:
-	# 	print_debug("error in ex 03 pawn didnt connect to ex area")
+
+	var test = damage_area.connect("obj_entered", self, "body_entered")
+	if !test:
+		print_debug("error in ex 03 pawn didnt connect to ex area")
 	damage_area.set_size(ex_size)
 	kick_area.set_size(ex_size)
 	damage_area.update_shape()

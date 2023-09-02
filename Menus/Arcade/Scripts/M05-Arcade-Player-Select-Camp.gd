@@ -30,6 +30,8 @@ var p6_ready = false
 var p7_ready = false
 var p8_ready = false
 
+var going_to_next_screen = false
+
 func _init():
 	HUD.menu_state()
 
@@ -55,7 +57,8 @@ func _start(_player):
 	HUD.set_pri(_player,5)
 	_set_ready(_player)
 	SFX.menu(2)
-	if _get_ready_num() == Player_Stats.get_num_in_play():
+	if _get_ready_num() == Player_Stats.get_num_in_play() && !going_to_next_screen:
+		going_to_next_screen = true
 		_next_screen()
 
 func _next_screen():

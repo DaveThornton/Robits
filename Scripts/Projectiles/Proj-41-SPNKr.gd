@@ -38,5 +38,5 @@ func set_layer(_bit):
 	cast_forward.set_collision_mask(_bit)
 
 func _explode(_pos):
-	FX.explode(40, owned, _pos, gun_num, 0, damage)
+	FX.explode(ex_num, owned, _pos, gun_num, 0, damage)
 	call_deferred("free")

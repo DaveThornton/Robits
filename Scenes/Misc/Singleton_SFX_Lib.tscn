@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=2]
+[gd_scene load_steps=111 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
@@ -88,6 +88,9 @@
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_i_Made/SFX_Puck_01.ogg" type="AudioStream" id=86]
 [ext_resource path="res://Scenes/Misc/Parts/SFX_Explosions_Part.tscn" type="PackedScene" id=87]
 [ext_resource path="res://Scenes/Misc/Parts/SFX_Reload_Part.tscn" type="PackedScene" id=88]
+[ext_resource path="res://SFX/Explosions/08 - MegamanDefeat.wav" type="AudioStream" id=89]
+[ext_resource path="res://SFX/FX/Contra SFX (28).wav" type="AudioStream" id=90]
+[ext_resource path="res://SFX/FX/Contra SFX (19).wav" type="AudioStream" id=91]
 [ext_resource path="res://Scenes/Misc/Parts/Music_Part.tscn" type="PackedScene" id=92]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_05.ogg" type="AudioStream" id=102]
 [ext_resource path="res://Scenes/Misc/Parts/SFX_Projectile_Part.tscn" type="PackedScene" id=103]
@@ -502,7 +505,14 @@ bus = "Menu"
 
 [node name="Explosions" type="Node2D" parent="."]
 
+[node name="00" type="Node2D" parent="Explosions"]
+
 [node name="01" type="Node2D" parent="Explosions"]
+
+[node name="MegaMan" type="AudioStreamPlayer" parent="Explosions/01"]
+stream = ExtResource( 89 )
+volume_db = 5.0
+bus = "SFX"
 
 [node name="02" type="Node2D" parent="Explosions"]
 
@@ -727,6 +737,16 @@ bus = "Shell"
 [node name="FX_Shell_13" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Shells"]
 stream = ExtResource( 2 )
 bus = "Shell"
+
+[node name="SFX_Proj_Hit" type="Node2D" parent="SFX_Weapons"]
+
+[node name="FX_Map_Hit" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Proj_Hit"]
+stream = ExtResource( 91 )
+bus = "SFX"
+
+[node name="FX_Obj_Hit" type="AudioStreamPlayer" parent="SFX_Weapons/SFX_Proj_Hit"]
+stream = ExtResource( 90 )
+bus = "SFX"
 
 [node name="SFX_Click_Out_Part" parent="SFX_Weapons" instance=ExtResource( 81 )]
 

@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Explosions/Ex-40-RPG.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Explosions/Parts/EX_Part_Damage_Area_08.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/Explosions/EX_41_SPNKr.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Explosions/EX_00_Reg_256.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Explosions/Parts/EX_Part_Kick_Area.tscn" type="PackedScene" id=4]
 
 [sub_resource type="AtlasTexture" id=16]
@@ -45,12 +45,20 @@ region = Rect2( 2048, 0, 256, 256 )
 atlas = ExtResource( 3 )
 region = Rect2( 2304, 0, 256, 256 )
 
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 3 )
+region = Rect2( 2560, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 3 )
+region = Rect2( 4096, 0, 256, 256 )
+
 [sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"frames": [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 32 ) ],
 "loop": false,
 "name": "default",
-"speed": 20.0
+"speed": 40.0
 } ]
 
 [node name="Ex-02-Standard" type="Node2D"]
@@ -60,6 +68,11 @@ ex_size = 120.0
 damage = 250
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 15 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+visible = false
 frames = SubResource( 15 )
 
 [node name="EX_Part_Damage_Area_08" parent="." instance=ExtResource( 2 )]
@@ -67,3 +80,4 @@ frames = SubResource( 15 )
 [node name="EX_Part_Kick_Area" parent="." instance=ExtResource( 4 )]
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="animation_finished" from="AnimatedSprite2" to="." method="_on_AnimatedSprite_animation_finished"]

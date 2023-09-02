@@ -140,7 +140,6 @@ collision_layer = 655872
 collision_mask = 655872
 
 [node name="CollisionShape2D-inner" type="CollisionShape2D" parent="Area2D2-inner"]
-visible = false
 shape = SubResource( 3 )
 disabled = true
 

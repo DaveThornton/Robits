@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/FX/FX-01-Bullet_Hit_player.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/FX/FX-01-Bullet_Hit_map.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/gen-boom/Generic-boom-02.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/gen-boom/Generic-boom-03.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/gen-boom/Generic-boom-04.png" type="Texture" id=4]
@@ -29,4 +29,5 @@ stream = ExtResource( 7 )
 volume_db = -5.0
 autoplay = true
 bus = "Quieter"
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

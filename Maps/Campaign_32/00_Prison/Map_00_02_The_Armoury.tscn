@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
+[ext_resource path="res://misc/line-text-64.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/Tile_Maps/TM_03_MAIN_Extra_00.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Tile_Maps/TM_08_Map_Parts_00.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Tile_Maps/TM_04_PLATFORMS_00.tscn" type="PackedScene" id=4]
@@ -71,3 +72,28 @@ tile_data = PoolIntArray( 1900597, 0, 0 )
 
 [node name="Pick_Ups" type="Node2D" parent="Map_Parts"]
 z_as_relative = false
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = 5
+
+[node name="Label" type="Label" parent="Node2D"]
+margin_left = 204.0
+margin_top = 141.0
+margin_right = 1749.0
+margin_bottom = 278.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Stand over a weapon and press 
+the yellow ( y ) button to pick it up. "
+align = 1
+
+[node name="Label2" type="Label" parent="Node2D"]
+margin_left = 129.0
+margin_top = 954.0
+margin_right = 1786.0
+margin_bottom = 1091.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "while holding a weapon and pressing a direction
+Tap the yellow button ( y ) to throw it"
+align = 1
