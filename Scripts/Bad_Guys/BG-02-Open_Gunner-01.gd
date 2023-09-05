@@ -211,7 +211,7 @@ func shoot(_pos_shoot):
 	var _sr = _pos_shoot.global_rotation
 	var _sss = _pos_shoot.scale
 	FX.proj_bad(4, _sr , _ss, _sss, -1, damage)
-	SFX.play("Laser_Shoot")
+	# SFX.play("Laser_Shoot")
 	shoot_timer.start()
 
 func _go_right(_s):

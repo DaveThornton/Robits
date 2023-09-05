@@ -123,7 +123,7 @@ func play():
 	anim.play("Fire")
 
 func ex_sfx():
-	SFX.play("EX_Standard")
+	SFX.explosion(2)
 
 func _on_Area2D_body_entered(body:Node):
 	if body.get_groups().has("hittable"):

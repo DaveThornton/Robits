@@ -4,6 +4,7 @@ onready var sprite = $AnimatedSprite
 
 func _ready():
 	sprite.play("default")
+	SFX.hit_map()
 
 func _on_AnimatedSprite_animation_finished():
 	queue_free()

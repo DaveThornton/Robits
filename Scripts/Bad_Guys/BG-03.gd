@@ -159,7 +159,7 @@ func _shoot():
 			var _sr = shoot_spot.global_rotation
 			var _sss = shoot_spot.scale
 			FX.proj_bad(4, _sr , _ss, _sss, -1, damage)
-			SFX.play("Laser_Shoot")
+			# SFX.play("Laser_Shoot")
 			shoot_timer.start()
 			idle = false
 			can_shoot = false

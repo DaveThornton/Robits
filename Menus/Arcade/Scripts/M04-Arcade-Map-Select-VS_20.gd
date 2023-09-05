@@ -126,40 +126,26 @@ func movement(_player, _dir):
 		print_debug("error invald player in arcade player select VS")
 
 func _vote(_player):
-	if _player == 1:
-		_add_to_map_array(p1_menu.get_pos())
-	elif _player == 2:
-		_add_to_map_array(p2_menu.get_pos())
-	elif _player == 3:
-		_add_to_map_array(p3_menu.get_pos())
-	elif _player == 4:
-		_add_to_map_array(p4_menu.get_pos())
-	elif _player == 5:
-		_add_to_map_array(p5_menu.get_pos())
-	elif _player == 6:
-		_add_to_map_array(p6_menu.get_pos())
-	elif _player == 7:
-		_add_to_map_array(p7_menu.get_pos())
-	elif _player == 8:
-		_add_to_map_array(p8_menu.get_pos())
+	match _player:
+		1: _add_to_map_array(p1_menu.get_pos())
+		2: _add_to_map_array(p2_menu.get_pos())
+		3: _add_to_map_array(p3_menu.get_pos())
+		4: _add_to_map_array(p4_menu.get_pos())
+		5: _add_to_map_array(p5_menu.get_pos())
+		6: _add_to_map_array(p6_menu.get_pos())
+		7: _add_to_map_array(p7_menu.get_pos())
+		8: _add_to_map_array(p8_menu.get_pos())
 
 func _unvote(_player):
-	if _player == 1:
-		_remove_from_map_array(p1_menu.get_pos())
-	elif _player == 2:
-		_remove_from_map_array(p2_menu.get_pos())
-	elif _player == 3:
-		_remove_from_map_array(p3_menu.get_pos())
-	elif _player == 4:
-		_remove_from_map_array(p4_menu.get_pos())
-	elif _player == 5:
-		_remove_from_map_array(p5_menu.get_pos())
-	elif _player == 6:
-		_remove_from_map_array(p6_menu.get_pos())
-	elif _player == 7:
-		_remove_from_map_array(p7_menu.get_pos())
-	elif _player == 8:
-		_remove_from_map_array(p8_menu.get_pos())
+	match _player:
+		1: _remove_from_map_array(p1_menu.get_pos())
+		2: _remove_from_map_array(p2_menu.get_pos())
+		3: _remove_from_map_array(p3_menu.get_pos())
+		4: _remove_from_map_array(p4_menu.get_pos())
+		5: _remove_from_map_array(p5_menu.get_pos())
+		6: _remove_from_map_array(p6_menu.get_pos())
+		7: _remove_from_map_array(p7_menu.get_pos())
+		8: _remove_from_map_array(p8_menu.get_pos())
 
 func _add_to_map_array(_num):
 	map_array.append(_get_map(maps_pics.return_map_from_spot(_num)))
@@ -168,148 +154,76 @@ func _remove_from_map_array(_num):
 	map_array.erase(_get_map(_num))
 
 func _get_map(_num):
-	if _num == 1:
-		return map_01
-	elif _num == 2:
-		return map_02
-	elif _num == 3:
-		return map_03
-	elif _num == 4:
-		return map_04
-	elif _num == 5:
-		return map_05
-	elif _num == 6:
-		return map_06
-	elif _num == 7:
-		return map_07
-	elif _num == 8:
-		return map_08
-	elif _num == 9:
-		return map_09
-	elif _num == 10:
-		return map_10
-	elif _num == 11:
-		return map_11
-	elif _num == 12:
-		return map_12
-	elif _num == 13:
-		return map_13
-	elif _num == 14:
-		return map_14
-	elif _num == 15:
-		return map_15
-	elif _num == 16:
-		return map_16
-	elif _num == 17:
-		return map_17
-	elif _num == 18:
-		return map_18
-	elif _num == 19:
-		return map_19
-	elif _num == 20:
-		return map_20
-	elif _num == 21:
-		return map_21
-	elif _num == 22:
-		return map_22
-	elif _num == 23:
-		return map_23
-	elif _num == 24:
-		return map_24
-	elif _num == 25:
-		return map_25
-	elif _num == 26:
-		return map_26
-	elif _num == 27:
-		return map_27
-	elif _num == 28:
-		return map_28
-	elif _num == 29:
-		return map_29
-	elif _num == 30:
-		return map_30
-	elif _num == 31:
-		return map_31
-	elif _num == 32:
-		return map_32
-	elif _num == 33:
-		return map_33
-	elif _num == 34:
-		return map_34
-	elif _num == 35:
-		return map_35
-	elif _num == 36:
-		return map_36
-	elif _num == 37:
-		return map_37
-	elif _num == 38:
-		return map_38
-	elif _num == 39:
-		return map_39
-	elif _num == 40:
-		return map_40
-	else:
-		print_debug("invalid _num on _map_get in Arcade Map Select VS")
-		return map
+	match _num:
+		1: return map_01
+		2: return map_02
+		3: return map_03
+		4: return map_04
+		5: return map_05
+		6: return map_06
+		7: return map_07
+		8: return map_08
+		9: return map_09
+		10: return map_10
+		11: return map_11
+		12: return map_12
+		13: return map_13
+		14: return map_14
+		15: return map_15
+		16: return map_16
+		17: return map_17
+		18: return map_18
+		19: return map_19
+		20: return map_20
+		21: return map_21
+		22: return map_22
+		23: return map_23
+		24: return map_24
+		25: return map_25
+		26: return map_26
+		27: return map_27
+		28: return map_28
+		29: return map_29
+		30: return map_30
+		31: return map_31
+		32: return map_32
+		33: return map_33
+		34: return map_34
+		35: return map_35
+		36: return map_36
+		37: return map_37
+		38: return map_38
+		39: return map_39
+		40: return map_40
 
 func _set_ready(_player):
-	if _player == 1:
-		p1_ready = true
-	elif _player == 2:
-		p2_ready = true
-	elif _player == 3:
-		p3_ready = true
-	elif _player == 4:
-		p4_ready = true
-	elif _player == 5:
-		p5_ready = true
-	elif _player == 6:
-		p6_ready = true
-	elif _player == 7:
-		p7_ready = true
-	elif _player == 8:
-		p8_ready = true
+	match _player:
+		1: p1_ready = true
+		2: p2_ready = true
+		3: p3_ready = true
+		4: p4_ready = true 
+		5: p5_ready = true
+		6: p6_ready = true
+		7: p7_ready = true
+		8: p8_ready = true
 	_vote(_player)
 
 func _back(_player):
 	HUD.set_pri(_player,4)
 	SFX.menu(4)
-	if _player == 1:
-		p1_ready = false
-	elif _player == 2:
-		p2_ready = false
-	elif _player == 3:
-		p3_ready = false
-	elif _player == 4:
-		p4_ready = false
-	elif _player == 5:
-		p5_ready = false
-	elif _player == 6:
-		p6_ready = false
-	elif _player == 7:
-		p7_ready = false
-	elif _player == 8:
-		p8_ready = false
+	match _player:
+		1: p1_ready = false
+		2: p2_ready = false
+		3: p3_ready = false
+		4: p4_ready = false 
+		5: p5_ready = false
+		6: p6_ready = false
+		7: p7_ready = false
+		8: p8_ready = false
 	_unvote(_player)
 
 func _get_ready_num():
-	var _ready_num = 0
-	if p1_ready:
-		_ready_num += 1
-	if p2_ready:
-		_ready_num += 1
-	if p3_ready:
-		_ready_num += 1
-	if p4_ready:
-		_ready_num += 1
-	if p5_ready:
-		_ready_num += 1
-	if p6_ready:
-		_ready_num += 1
-	if p7_ready:
-		_ready_num += 1
-	if p8_ready:
-		_ready_num += 1
+	var _ready_num = (int(p1_ready) + int(p2_ready) + int(p3_ready) + int(p4_ready) + int(p5_ready) + int(p6_ready) + int(p7_ready) + int(p8_ready))
 	return _ready_num
 
 func _set_maps():
@@ -336,37 +250,23 @@ func menu_check():
 		p8_menu.visible = true
 
 func get_ready(_player):
-	if _player == 1:
-		return p1_ready
-	elif _player == 2:
-		return p2_ready
-	elif _player == 3:
-		return p3_ready
-	elif _player == 4:
-		return p4_ready
-	elif _player == 5:
-		return p5_ready
-	elif _player == 6:
-		return p6_ready
-	elif _player == 7:
-		return p7_ready
-	elif _player == 8:
-		return p8_ready
+	match _player:
+		1:return p1_ready 
+		2:return p2_ready 
+		3:return p3_ready 
+		4:return p4_ready 
+		5:return p5_ready 
+		6:return p6_ready 
+		7:return p7_ready 
+		8:return p8_ready 
 
 func get_menu(_player):
-	if _player == 1:
-		return p1_menu
-	elif _player == 2:
-		return p2_menu
-	elif _player == 3:
-		return p3_menu
-	elif _player == 4:
-		return p4_menu
-	elif _player == 5:
-		return p5_menu
-	elif _player == 6:
-		return p6_menu
-	elif _player == 7:
-		return p7_menu
-	elif _player == 8:
-		return p8_menu
+	match _player:
+		1:return p1_menu 
+		2:return p2_menu 
+		3:return p3_menu 
+		4:return p4_menu 
+		5:return p5_menu 
+		6:return p6_menu 
+		7:return p7_menu 
+		8:return p8_menu 

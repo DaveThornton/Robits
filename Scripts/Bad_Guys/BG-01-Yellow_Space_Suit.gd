@@ -121,7 +121,7 @@ func shoot():
 			_sr = pos_shoot.global_rotation * -1
 		var _sss = pos_shoot.scale
 		FX.proj_bad(4, _sr , _ss, _sss, -1, damage)
-		SFX.play("Laser_Shoot")
+		# SFX.play("Laser_Shoot")
 		shoot_timer.start()
 	else:
 		var _body = melee_cast.get_collider()

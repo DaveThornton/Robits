@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=2]
+[gd_scene load_steps=113 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
@@ -92,6 +92,8 @@
 [ext_resource path="res://SFX/FX/Contra SFX (28).wav" type="AudioStream" id=90]
 [ext_resource path="res://SFX/FX/Contra SFX (19).wav" type="AudioStream" id=91]
 [ext_resource path="res://Scenes/Misc/Parts/Music_Part.tscn" type="PackedScene" id=92]
+[ext_resource path="res://SFX/Explosions/Contra SFX (9).wav" type="AudioStream" id=93]
+[ext_resource path="res://SFX/Explosions/09 - EnemyDamage_Megaman.wav" type="AudioStream" id=94]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_05.ogg" type="AudioStream" id=102]
 [ext_resource path="res://Scenes/Misc/Parts/SFX_Projectile_Part.tscn" type="PackedScene" id=103]
 
@@ -503,44 +505,54 @@ bus = "Menu"
 stream = ExtResource( 37 )
 bus = "Menu"
 
-[node name="Explosions" type="Node2D" parent="."]
+[node name="SFX_Explosions" type="Node2D" parent="."]
 
-[node name="00" type="Node2D" parent="Explosions"]
+[node name="00" type="Node2D" parent="SFX_Explosions"]
 
-[node name="01" type="Node2D" parent="Explosions"]
+[node name="01" type="Node2D" parent="SFX_Explosions"]
 
-[node name="MegaMan" type="AudioStreamPlayer" parent="Explosions/01"]
+[node name="MegaMan" type="AudioStreamPlayer" parent="SFX_Explosions/01"]
 stream = ExtResource( 89 )
 volume_db = 5.0
 bus = "SFX"
 
-[node name="02" type="Node2D" parent="Explosions"]
+[node name="02" type="Node2D" parent="SFX_Explosions"]
 
-[node name="03" type="Node2D" parent="Explosions"]
+[node name="Contra" type="AudioStreamPlayer" parent="SFX_Explosions/02"]
+stream = ExtResource( 93 )
+volume_db = 5.0
+bus = "SFX"
 
-[node name="04" type="Node2D" parent="Explosions"]
+[node name="03" type="Node2D" parent="SFX_Explosions"]
 
-[node name="Laser_Shoot_NO" type="AudioStreamPlayer" parent="Explosions"]
+[node name="MegaMan" type="AudioStreamPlayer" parent="SFX_Explosions/03"]
+stream = ExtResource( 94 )
+volume_db = 5.0
+bus = "SFX"
+
+[node name="04" type="Node2D" parent="SFX_Explosions"]
+
+[node name="Laser_Shoot_NO" type="AudioStreamPlayer" parent="SFX_Explosions"]
 stream = ExtResource( 3 )
 bus = "SFX"
 
-[node name="Laser_Empty" type="AudioStreamPlayer" parent="Explosions"]
+[node name="Laser_Empty" type="AudioStreamPlayer" parent="SFX_Explosions"]
 stream = ExtResource( 4 )
 bus = "SFX"
 
-[node name="RPG_Shoot" type="AudioStreamPlayer" parent="Explosions"]
+[node name="RPG_Shoot" type="AudioStreamPlayer" parent="SFX_Explosions"]
 stream = ExtResource( 5 )
 bus = "SFX"
 
-[node name="AK_Shoot" type="AudioStreamPlayer" parent="Explosions"]
+[node name="AK_Shoot" type="AudioStreamPlayer" parent="SFX_Explosions"]
 stream = ExtResource( 6 )
 bus = "SFX"
 
-[node name="Sniper_Shoot" type="AudioStreamPlayer" parent="Explosions"]
+[node name="Sniper_Shoot" type="AudioStreamPlayer" parent="SFX_Explosions"]
 stream = ExtResource( 7 )
 bus = "SFX"
 
-[node name="Gun_Click" type="AudioStreamPlayer" parent="Explosions"]
+[node name="Gun_Click" type="AudioStreamPlayer" parent="SFX_Explosions"]
 stream = ExtResource( 9 )
 bus = "SFX"
 

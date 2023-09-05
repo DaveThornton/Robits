@@ -42,7 +42,7 @@ func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 	print_debug("2 poly left ", poly_left.disabled)
 	gun_num = _weap_name
 	weap_name = _weap_name
-	SFX.play("EX_Standard")
+	# SFX.play("EX_Standard")
 	print_debug(area_out.get_overlapping_bodies())
 
 func _check_dir():

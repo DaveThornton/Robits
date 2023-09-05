@@ -34,7 +34,6 @@ func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 	owned = _owner
 	weap_name = _weap_name
 	SFX.explosion(1)
-	SFX.play("EX_Pawn")
 	FX.add_trauma(trauma)
 	gun_num = _weap_name
 	# this adds the megaman like explosion

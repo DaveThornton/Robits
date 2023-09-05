@@ -61,7 +61,7 @@ func shoot():
 	var _sr3 = shoot_spot_3.global_rotation
 	var _sss3 = shoot_spot_3.scale
 	FX.proj_bad(gun_num, _sr3 , _ss3, _sss3, -1, damage)
-	SFX.play("Laser_Shoot")
+	# SFX.play("Laser_Shoot")
 
 func hit(_by_who, _by_what, _damage_type, _damage):
 	if !dead:

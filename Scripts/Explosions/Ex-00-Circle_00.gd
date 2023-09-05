@@ -38,7 +38,8 @@ func start( _sr , _ss, _sss, _player):
 	self.position = _ss
 
 func ex_sfx():
-	SFX.play("EX_Standard")
+	pass
+	# SFX.play("EX_Standard")
 
 func body_entered(body, _per):
 	if body.get_groups().has("hittable"):

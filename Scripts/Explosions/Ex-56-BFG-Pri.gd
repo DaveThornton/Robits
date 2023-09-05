@@ -19,7 +19,8 @@ func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 	owned = _owner
 	anim.play("Explode")
 	gun_num = _weap_name
-	SFX.play("W_56_Exp")
+	SFX.explosion(3)
+	# SFX.play("W_56_Exp")
 	FX.add_trauma(trauma)
 
 func start( _sr , _ss, _sss, _player):

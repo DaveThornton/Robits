@@ -75,7 +75,7 @@ func hit(_owned, _my_name, _damage_type, _damage1):
 
 func spent(_spent:bool):
 	if _spent:
-		SFX.play("W_20_Beep_01")
+		# SFX.play("W_20_Beep_01")
 		anim.play("Hit")
 		timer_reset.start()
 		used = true

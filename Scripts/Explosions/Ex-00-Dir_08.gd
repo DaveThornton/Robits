@@ -38,7 +38,7 @@ func start( _sr , _ss, _sss, _player):
 	self.position = _ss
 
 func ex_sfx():
-	SFX.play("EX_Standard")
+	SFX.explosion(2)
 
 func body_entered(body, _per):
 	print_debug("body entered")

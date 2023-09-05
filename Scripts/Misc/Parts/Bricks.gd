@@ -12,7 +12,7 @@ func _ready():
 	pass
 
 func add_four(_owned, _pos, _color):
-	SFX.play("EX_Brick")
+	# SFX.play("EX_Brick")
 	var e = four_bricks.instance()
 	e.self_modulate = _color
 	Map_Hand.add_kid_to_map(e)

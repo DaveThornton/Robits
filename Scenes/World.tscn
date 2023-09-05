@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/M01-Arcade-Start.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Maps/VS_32/Map_19_Galactic_Recoil.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Maps/VS_32/Map_13_Brawl_is_French.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Background/Back_02_Space_Low_Tile.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=6]
@@ -14,7 +14,6 @@ pause_mode = 1
 script = ExtResource( 1 )
 arcade_start = ExtResource( 2 )
 demo_map = ExtResource( 3 )
-game_mode = 3
 
 [node name="Black_Side_Pannel" type="Sprite" parent="."]
 position = Vector2( 951, 552 )

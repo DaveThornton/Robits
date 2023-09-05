@@ -44,7 +44,7 @@ func _ready():
 #warning-ignore:unused_argument
 func _process(delta):
 	if open != open_last:
-		sfx.play()
+		#sfx.play()
 		open_last = open
 
 func _on_entered(body):

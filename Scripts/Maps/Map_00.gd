@@ -61,6 +61,7 @@ func _ready():
 	if override_outline_color:
 		FX.set_outline_color_pick(outline_color_pick)
 		FX.set_outline_color_hold(outline_color_hold)
+	# call_deferred("_start")
 	_start()
 
 func _start(): emit_signal("start")		

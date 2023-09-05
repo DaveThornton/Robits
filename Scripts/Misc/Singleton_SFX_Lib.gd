@@ -2,7 +2,7 @@ extends Node2D
 onready var obj_collisions = $SFX_Obj_Collision
 onready var melee = $SFX_Weapons/SFX_Melee
 onready var shells = $SFX_Weapons/SFX_Shells
-onready var explosions = $Explosions
+onready var explosions = $SFX_Explosions
 onready var menus = $SFX_Menus
 onready var music_part = $SFX_Music_Part
 onready var projectiles = $SFX_Weapons/SFX_Projectile_Part
@@ -17,13 +17,13 @@ var shell_num = 0
 var exp_num = 0
 var coin_num = 0
 
-func play(sfx = null):
-	if sfx:
-		if has_node(sfx):
-			get_node(sfx).play()
-		else:
-			get_node("Menu_Error_09").play()
-			print_debug("error in singleton sfx no sfx ", sfx, "so it played a stupid sound")
+# func play(sfx = null):
+# 	if sfx:
+# 		if has_node(sfx):
+# 			get_node(sfx).play()
+# 		else:
+# 			get_node("Menu_Error_09").play()
+# 			print_debug("error in singleton sfx no sfx ", sfx, "so it played a stupid sound")
 
 func stop(sfx = null):
 	if sfx:

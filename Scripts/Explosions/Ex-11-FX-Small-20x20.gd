@@ -23,7 +23,7 @@ func init(_owner, _pos, _weap_name: int, _pawn_num, _dmg):
 	anim.play("Explode")
 	self.global_position = _pos
 	damage1 = _dmg
-	SFX.play("EX_Standard")
+	SFX.explosion(2)
 	FX.add_trauma(trauma)
 	gun_num = _weap_name
 

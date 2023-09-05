@@ -23,7 +23,7 @@ func shoot():
 	var _sss = pos.scale
 	FX.proj_bad(gun_num, _sr , _ss, _sss, -1, damage)
 	anim.play("Shoot")
-	SFX.play("Laser_Shoot")
+	# SFX.play("Laser_Shoot")
 	shoot_timer.start()
 	print_debug("BG 103 barrel shoot: BANG!!!!")
 

@@ -34,7 +34,7 @@ func shoot():
 		var _sr = pos_shoot.global_rotation
 		var _sss = pos_shoot.scale
 		FX.proj_bad(gun_num, _sr , _ss, _sss, -1, damage)
-		SFX.play("Laser_Shoot")
+		# SFX.play("Laser_Shoot")
 		timer.start()
 
 func hit(_by_who, _by_what, _damage_type, _damage):

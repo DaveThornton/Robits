@@ -287,11 +287,11 @@ func pick_throw( left_input, right_input, up_input, down_input, hold_input):
 		take_ammo = false
 		is_holding = false
 		if !left_input && !right_input && !up_input && !down_input && !hold_input:
-			SFX.play("Blip_11")
+			# SFX.play("Blip_11")
 			if my_gun != null:
 				my_gun.drop()
 		else:
-			SFX.play("Blip_06")
+			# SFX.play("Blip_06")
 			if my_gun != null:
 				my_gun.throw()
 		my_gun = null
@@ -309,7 +309,7 @@ func let_go():
 			my_gun = null
 
 func pick_up():
-	SFX.play("Blip_04")
+	# SFX.play("Blip_04")
 	poss_pick_obj = wep_array.front()
 	var _time_left = poss_pick_obj.time
 	var _ammo_pick_up = poss_pick_obj.ammo
