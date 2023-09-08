@@ -123,8 +123,8 @@ tracks/1/keys = {
 }
 
 [node name="MP-55-Blast_Door_00" type="StaticBody2D" groups=["hittable"]]
-collision_layer = 520
-collision_mask = 1678
+collision_layer = 262920
+collision_mask = 263822
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

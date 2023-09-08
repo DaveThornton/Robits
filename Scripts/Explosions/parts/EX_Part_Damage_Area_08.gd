@@ -12,6 +12,10 @@ onready var shape = $CollisionPolygon2D
 
 export var size = 100
 export var buffer_distance = 5
+
+#the distance past the point of collision
+var distance_past = 8
+
 var shape_vec = Array()
 
 var dag_size = .75
@@ -61,21 +65,21 @@ func _update_shape():
 	c_ul.force_raycast_update()
 
 	if c_up.is_colliding():
-		p1 = to_local(c_up.get_collision_point())
+		p1 = to_local(c_up.get_collision_point()) + Vector2(0, -distance_past)
 	if c_ur.is_colliding():
-		p2 = to_local(c_ur.get_collision_point())	
+		p2 = to_local(c_ur.get_collision_point()) + Vector2(distance_past * dag_size, -distance_past * dag_size)
 	if c_rt.is_colliding():
-		p3 = to_local(c_rt.get_collision_point())
+		p3 = to_local(c_rt.get_collision_point()) + Vector2(distance_past, 0)
 	if c_dr.is_colliding():
-		p4 = to_local(c_dr.get_collision_point())
+		p4 = to_local(c_dr.get_collision_point()) + Vector2(distance_past * dag_size, distance_past * dag_size)
 	if c_dn.is_colliding():
-		p5 = to_local(c_dn.get_collision_point())
+		p5 = to_local(c_dn.get_collision_point()) + Vector2(0, distance_past)
 	if c_dl.is_colliding():
-		p6 = to_local(c_dl.get_collision_point())
+		p6 = to_local(c_dl.get_collision_point()) + Vector2(distance_past * dag_size, -distance_past * dag_size)
 	if c_lt.is_colliding():
-		p7 = to_local(c_lt.get_collision_point())
+		p7 = to_local(c_lt.get_collision_point()) + Vector2(0, -distance_past)
 	if c_ul.is_colliding():
-		p8 = to_local(c_ul.get_collision_point())
+		p8 = to_local(c_ul.get_collision_point()) + Vector2(-distance_past * dag_size, -distance_past * dag_size)
 
 	shape_vec.append(p1)
 	shape_vec.append(p2)
