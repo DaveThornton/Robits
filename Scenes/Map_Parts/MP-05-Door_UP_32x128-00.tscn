@@ -8,12 +8,15 @@ radius = 32.0
 height = 64.0
 
 [sub_resource type="RectangleShape2D" id=8]
+resource_local_to_scene = true
 extents = Vector2( 10, 4 )
 
 [sub_resource type="RectangleShape2D" id=9]
+resource_local_to_scene = true
 extents = Vector2( 8, 24 )
 
 [sub_resource type="RectangleShape2D" id=10]
+resource_local_to_scene = true
 extents = Vector2( 10, 4 )
 
 [sub_resource type="Animation" id=6]
