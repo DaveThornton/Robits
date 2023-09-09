@@ -70,6 +70,8 @@ func proj_bad(_num,_rot, _pos, _scale, _owner, _dmg): projectiles.call_deferred(
 
 func four_brick(_owner, _pos, _color): bricks.add_four(_owner, _pos, _color)
 
+func get_misc_fx(_num): return misc.get_part(_num)
+
 func get_brick_color(_color): return bricks.get_color(_color)
 
 func get_outline_color_hold(): return outline_color_hold

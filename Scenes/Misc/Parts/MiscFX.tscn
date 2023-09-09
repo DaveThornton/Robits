@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Misc/Parts/MiscFX.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map_Parts/Parts/MP-49-Fire_Thing_Part_Flame.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Guns/Parts/W_59_Arrow_Stuck.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/FX/FX-04-Poof.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/FX/FX-02_Mega_Explosion_Multi.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/FX/FX-07-BG-OG-Parts.tscn" type="PackedScene" id=9]
 
 [node name="MiscFX" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,3 +19,4 @@ disappear = ExtResource( 7 )
 flame = ExtResource( 2 )
 plasma_det = ExtResource( 3 )
 mega_ex = ExtResource( 8 )
+bg_03_parts = ExtResource( 9 )

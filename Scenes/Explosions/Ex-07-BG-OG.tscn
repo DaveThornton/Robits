@@ -1,134 +1,78 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Scripts/Explosions/Ex-03-Pawn.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/FX/FX-07-BG-OG-Parts.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/gen-boom/Generic-boom-02-sheet.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Explosions/Ex-07-BG-OG.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Explosions/EX_00_Reg_256.png" type="Texture" id=6]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Explode"
-length = 0.4
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Area2D-outer/CollisionShape2D-outer:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, false, true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Area2D2-inner/CollisionShape2D-inner:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.05, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 3, 3 ) ]
-}
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 256, 256 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "fade"
-length = 0.26
-step = 0.02
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12, 0.14, 0.18, 0.22 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 3, 3 ), Vector2( 2.5, 2.5 ), Vector2( 2, 2 ), Vector2( 1.75, 1.75 ), Vector2( 1.5, 1.5 ), Vector2( 1.25, 1.25 ), Vector2( 1, 1 ), Vector2( 0.75, 0.75 ), Vector2( 0.5, 0.5 ), Vector2( 0.25, 0.25 ) ]
-}
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 6 )
+region = Rect2( 256, 0, 256, 256 )
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 56.4954
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 6 )
+region = Rect2( 512, 0, 256, 256 )
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 15.7633
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 768, 0, 256, 256 )
 
-[node name="Ex-02-Standard" type="Node2D"]
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 6 )
+region = Rect2( 1024, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 6 )
+region = Rect2( 1280, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 6 )
+region = Rect2( 1536, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 6 )
+region = Rect2( 1792, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 6 )
+region = Rect2( 2304, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 6 )
+region = Rect2( 2816, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 6 )
+region = Rect2( 3328, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 6 )
+region = Rect2( 3584, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 6 )
+region = Rect2( 3840, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 6 )
+region = Rect2( 4096, 0, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "default",
+"speed": 40.0
+} ]
+
+[node name="Ex-07-BG_OG" type="Node2D"]
 z_index = -3
 script = ExtResource( 1 )
-pawn_part = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 3, 3 )
-texture = ExtResource( 3 )
-hframes = 9
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.25, 0.25 )
+frames = SubResource( 19 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Explode = SubResource( 1 )
-anims/fade = SubResource( 2 )
-
-[node name="Area2D-outer" type="Area2D" parent="."]
-collision_layer = 655872
-collision_mask = 655872
-gravity_distance_scale = 1024.0
-gravity_vec = Vector2( -1, -1 )
-gravity = -1024.0
-linear_damp = 0.0
-angular_damp = 0.0
-
-[node name="CollisionShape2D-outer" type="CollisionShape2D" parent="Area2D-outer"]
-shape = SubResource( 3 )
-
-[node name="Area2D2-inner" type="Area2D" parent="."]
-collision_layer = 131584
-collision_mask = 657920
-gravity_point = true
-gravity_distance_scale = 1024.0
-gravity_vec = Vector2( -1, -1 )
-gravity = -1024.0
-linear_damp = 0.0
-angular_damp = 0.0
-
-[node name="CollisionShape2D-inner" type="CollisionShape2D" parent="Area2D2-inner"]
-shape = SubResource( 4 )
-disabled = true
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 8.0
-autostart = true
-
-[node name="Timer2" type="Timer" parent="."]
-wait_time = 9.0
-autostart = true
-
-[connection signal="body_entered" from="Area2D-outer" to="." method="_on_Area2Douter_body_entered"]
-[connection signal="body_entered" from="Area2D2-inner" to="." method="_on_Area2D2inner_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

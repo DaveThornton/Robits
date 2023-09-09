@@ -170,7 +170,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 	if health <= 0:
 		Player_Stats.add_score(_by_who, points)
 		print_debug("Open Gunner dead BG-03")
-		FX.explode(7, -1, self.position, 203, 0, 0)
+		FX.explode(7, -1, (self.position + Vector2(0, -23)), 203, 0, 0)
 		call_deferred("free")
 
 func _on_edge():

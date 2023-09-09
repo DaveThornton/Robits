@@ -7,6 +7,7 @@ export(PackedScene) var disappear
 export(PackedScene) var flame
 export(PackedScene) var plasma_det
 export(PackedScene) var mega_ex
+export(PackedScene) var bg_03_parts
 
 func stuck_arrow():
 	return arrow
@@ -32,3 +33,7 @@ func poof(_pos):
 
 func get_plasma_det():
 	return plasma_det
+
+func get_part(_num):
+	match _num:
+		3: return bg_03_parts
