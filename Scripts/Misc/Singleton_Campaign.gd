@@ -1,6 +1,8 @@
 extends Node2D
 
-onready var map_list =  $Campaign_Map_List
+onready var map_list = $Campaign_Map_List
+onready var bad_guys = $Campaign_Bad_Guys
+
 #list of worlds start levels
 export(PackedScene) var w00
 export(PackedScene) var w01
@@ -63,7 +65,7 @@ func _ready():
 
 
 func get_map(_world, _map): return map_list.get_map(_world, _map)
-
+func get_Bad_Guy(_bg_num): return bad_guys.get_bg(_bg_num)
 
 func get_map_title(_num):
 	if _num == 1:
@@ -238,7 +240,6 @@ func get_levels_there():
 		l10 = true
 	_levels = [l0,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10]
 	return _levels
-
 
 func reset():
 	clear_players()

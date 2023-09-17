@@ -1,16 +1,31 @@
 extends Node2D
 
+export(PackedScene) var bg_00
+export(PackedScene) var bg_01
+export(PackedScene) var bg_02
+export(PackedScene) var bg_03
+export(PackedScene) var bg_04
+export(PackedScene) var bg_05
+export(PackedScene) var bg_06
+export(PackedScene) var bg_07
+export(PackedScene) var bg_08
+export(PackedScene) var bg_09
+export(PackedScene) var bg_10
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
+func get_bg(bg_num):
+	match bg_num:
+		1: return bg_01
+		2: return bg_02
+		3: return bg_03
+		4: return bg_04
+		5: return bg_05
+		6: return bg_06
+		7: return bg_07
+		8: return bg_08
+		9: return bg_09
+		10: return bg_10
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+		_: 
+			print_debug("error wrong bg called in Campaign Bad Guys number: ", bg_num)
+			return bg_00

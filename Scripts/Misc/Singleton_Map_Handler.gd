@@ -57,7 +57,7 @@ func add_bg_to_map(_obj):
 	call_deferred("_add_bg_to_map",_obj)
 func _add_bg_to_map(_obj):
 	if is_instance_valid(map):
-		map.badguys.add_child(_obj)#weird error
+		map.parts.add_child(_obj)#weird error
 	else:
 		clearing_house.add_child(_obj)
 
