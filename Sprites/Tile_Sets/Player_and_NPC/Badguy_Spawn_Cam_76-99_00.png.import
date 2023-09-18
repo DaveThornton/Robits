@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Badguy_Spawn_26-50.png-822634bbc44e01a5761c669759b248db.stex"
+path="res://.import/Badguy_Spawn_Cam_76-99_00.png-c914f7525a3dc783ef9cf2cf68bf6691.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tile_Sets/Player_and_NPC/Badguy_Spawn_26-50.png"
-dest_files=[ "res://.import/Badguy_Spawn_26-50.png-822634bbc44e01a5761c669759b248db.stex" ]
+source_file="res://Sprites/Tile_Sets/Player_and_NPC/Badguy_Spawn_Cam_76-99_00.png"
+dest_files=[ "res://.import/Badguy_Spawn_Cam_76-99_00.png-c914f7525a3dc783ef9cf2cf68bf6691.stex" ]
 
 [params]
 
