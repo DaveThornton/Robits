@@ -65,7 +65,7 @@ func _ready():
 
 
 func get_map(_world, _map): return map_list.get_map(_world, _map)
-func get_Bad_Guy(_bg_num): return bad_guys.get_bg(_bg_num)
+func get_bad_guy(_bg_num): return bad_guys.get_bg(_bg_num)
 
 func get_map_title(_num):
 	if _num == 1:
