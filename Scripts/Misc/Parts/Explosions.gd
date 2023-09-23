@@ -39,6 +39,7 @@ export(PackedScene) var ex056_1
 export(PackedScene) var ex056_2
 export(PackedScene) var ex103
 export(PackedScene) var ex104
+export(PackedScene) var ex105
 
 export(PackedScene) var projhit_013
 export(PackedScene) var projhit_014
@@ -71,6 +72,7 @@ func boom(_num, _owner, _pos, _weap_num: int, _pawn_num, _dmg):
 		56.2: x = ex056_2.instance()
 		103: x = ex103.instance()
 		104: x = ex104.instance()
+		105: x = ex105.instance()
 	if x != null:
 		Map_Hand.add_kid_to_map(x)
 		x.init(_owner, _pos, _weap_num, _pawn_num, _dmg)

@@ -5,6 +5,7 @@ export(PackedScene) var console_start
 export(PackedScene) var demo_map
 
 export var game_mode = 1 #     1 arcade       2 console       3 demo
+export var max_players_in_demo = 8
 
 onready var pawns = $Pawns
 onready var clearing_house = $Clearing_House
@@ -39,6 +40,7 @@ func init():
 		Game.start(Settings.max_num_of_player)
 	
 	elif game_mode == 3:
+		Settings.set_max_num_players(max_players_in_demo)
 		print_debug("game mode 3: demo mode selected")
 		if Settings.max_num_of_player == 1:
 			Player_Stats.p1["in_play"] = true

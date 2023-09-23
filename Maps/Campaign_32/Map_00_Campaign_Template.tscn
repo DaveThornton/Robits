@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Tile_Maps/TM_03_MAIN_00.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Tile_Maps/TM_01_BACK_00.tscn" type="PackedScene" id=2]
@@ -13,9 +13,13 @@
 [ext_resource path="res://Scenes/Tile_Maps/TM_07_FRONT_FX_00.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Tile_Maps/TM_06_FRONT_00.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Tile_Maps/TM_01_BACK_Extra_00.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Bad_Guys/Boss/BG-105-Boss_Jungle_End/BG-105-Boss_Jungle_End.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Tile_Maps/TM_12_Campaign_Map_Parts_00.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Tile_Maps/TM_11_Areas_00.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Tile_Maps/TM_10_Player_NPC_Spawn_00.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Guns/Pick/W_02_AK47_Pick.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Guns/Pick/W_06_Atom_Rifle_Pick.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Guns/Pick/W_05_Laser_Assault_Pick.tscn" type="PackedScene" id=20]
 
 [node name="Map_00_Template" type="Node2D"]
 script = ExtResource( 5 )
@@ -65,3 +69,15 @@ tile_data = PoolIntArray( 1900560, 0, 0, 1900564, 1, 0, 1900568, 2, 0 )
 [node name="MP-03-SideScroll_Over" parent="Map_Parts" instance=ExtResource( 7 )]
 
 [node name="Pick_Ups" type="Node2D" parent="Map_Parts"]
+
+[node name="Node2D" parent="Map_Parts" instance=ExtResource( 14 )]
+position = Vector2( 1004, 960 )
+
+[node name="W_02_AK47_Pick" parent="." instance=ExtResource( 18 )]
+position = Vector2( 890, 811 )
+
+[node name="W_06_Atom_Rifle_Pick" parent="." instance=ExtResource( 19 )]
+position = Vector2( 801, 701 )
+
+[node name="W_05_Laser_Assault_Pick" parent="." instance=ExtResource( 20 )]
+position = Vector2( 963, 735 )
