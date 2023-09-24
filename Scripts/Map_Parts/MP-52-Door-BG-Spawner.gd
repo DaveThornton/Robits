@@ -1,7 +1,9 @@
-extends Area2D
+extends KinematicBody2D
+
+enum ACT_NUM {none, act_1, act_2, act_3, act_4}
 
 export(PackedScene) var bg
-export var activation_num = 0
+export(ACT_NUM) var activation_num = 4
 export var right = true
 export var delayed_start = true
 export var delay = 3.0
@@ -25,22 +27,22 @@ signal stop
 
 func _ready():
 	timer.wait_time = delay
-	var map = Map_Hand.map
-	var map_connected = map.connect("activate", self, "activate")
-	if !map_connected:
-		print_debug("error in mp 52 not connecting to map")
-	shape.disabled = true
+	Map_Hand.connect_activate(self,activation_num)
+	# var map = Map_Hand.map
+	# var map_connected = map.connect("activate", self, "activate")
+	# if !map_connected:
+		# print_debug("error in mp 52 not connecting to map")
+	# shape.disabled = true
 
-func activate(_num, _player):
-	if activation_num == _num:
-		if !activated:
-			activated = true
-			call_deferred("set_shape_disabled",false)
-			# shape.disabled = false
-			if delayed_start:
-				timer.start()
-			else:
-				anim.play("Spawn")
+func activate(_player):
+	if !activated:
+		activated = true
+		call_deferred("set_shape_disabled",false)
+		# shape.disabled = false
+		if delayed_start:
+			timer.start()
+		else:
+			anim.play("Spawn")
 
 func set_shape_disabled(_disabled):
 	shape.disabled = _disabled
@@ -62,12 +64,12 @@ func spawn():
 	if can_spawn:
 		cbg = bg.instance()
 		Map_Hand.add_kid_to_map(cbg)
-		var a = connect("stop", cbg, "stop")
-		var b = connect("go", cbg, "go")
-		if !a:
-			print_debug("mp 52 door couldnt connect stop to bad guy that was spawned")
-		if !b:
-			print_debug("mp 52 door couldnt connect go to bad guy that was spawned")
+		# var a = connect("stop", cbg, "stop")
+		# var b = connect("go", cbg, "go")
+		# if !a:
+		# 	print_debug("mp 52 door couldnt connect stop to bad guy that was spawned")
+		# if !b:
+		# 	print_debug("mp 52 door couldnt connect go to bad guy that was spawned")
 		cbg.right = right
 		cbg.global_position = spawn_spot.global_position
 

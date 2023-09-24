@@ -232,31 +232,31 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		hit_last_by = _by_who
 		timers.start_last_hit_by()
 
-		_im_hit = true
-		_hit_time += 0.11
-		if _damage > nrg:
-			dmg_given_stat(_by_who,nrg)
-			dmg_taken_stat(nrg)
-		else:
-			dmg_given_stat(_by_who,_damage)
-			dmg_taken_stat(_damage)
-		if play_type == 1:
-			if !is_shield_up:
+	_im_hit = true
+	_hit_time += 0.11
+	if _damage > nrg:
+		dmg_given_stat(_by_who,nrg)
+		dmg_taken_stat(nrg)
+	else:
+		dmg_given_stat(_by_who,_damage)
+		dmg_taken_stat(_damage)
+	if play_type == 1:
+		if !is_shield_up:
+			is_shield_up = true
+			let_go()
+			emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
+			call_deferred("free")
+	elif play_type > 1:
+		if !is_shield_up || _by_who == 0:
+			nrg = nrg - (_damage - armor)
+			nrg_update()
+			shield_up()
+			timers.start_shield_hit()
+			if nrg <= 0:
 				is_shield_up = true
 				let_go()
 				emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
 				call_deferred("free")
-		elif play_type > 1:
-			if !is_shield_up || _by_who == 0:
-				nrg = nrg - (_damage - armor)
-				nrg_update()
-				shield_up()
-				timers.start_shield_hit()
-				if nrg <= 0:
-					is_shield_up = true
-					let_go()
-					emit_signal("explode_p", player, self.position, hit_last_by, _by_what)
-					call_deferred("free")
 
 ##-----------------------------------------------------------------------[Shoot]
 func shoot_j():

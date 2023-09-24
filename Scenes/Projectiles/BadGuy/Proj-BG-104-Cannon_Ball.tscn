@@ -6,9 +6,7 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Projectile" type="Area2D" groups=[
-"projectile",
-]]
+[node name="Projectile" type="Area2D" groups=["projectile"]]
 z_index = 2
 collision_layer = 128
 collision_mask = 128
@@ -21,6 +19,7 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 hframes = 12
 frame = 8

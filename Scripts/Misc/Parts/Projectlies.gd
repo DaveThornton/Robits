@@ -135,7 +135,7 @@ func make_bad(_num,_rot, _pos, _scale, _owner, _dmg):
 		103:
 			new_projectile = bg_proj103.instance()
 		104:
-			new_projectile = bg_proj103.instance()
+			new_projectile = bg_proj104.instance()
 
 	Map_Hand.add_kid_to_map(new_projectile)
 	new_projectile.start( _num, _rot , _pos, _scale, _owner, _dmg)

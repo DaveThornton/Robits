@@ -10,7 +10,7 @@ height = 15.0
 [node name="BG-03-01" type="KinematicBody2D" groups=["badguy", "hittable"]]
 z_index = -1
 collision_layer = 2048
-collision_mask = 3100
+collision_mask = 1052
 script = ExtResource( 2 )
 right = false
 idle = false

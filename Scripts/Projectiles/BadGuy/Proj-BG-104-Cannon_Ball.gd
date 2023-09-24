@@ -10,7 +10,7 @@ var my_name = "Basic Projectile"
 var damage = 29
 var damage_type = "laser"
 var started = false
-var gun_num = 0
+var gun_num = 104
 
 func start(_gun_num,_rot, _pos, _scale, _owner, _dmg):
 	gun_num = _gun_num
@@ -37,6 +37,7 @@ func _on_Projectile_body_entered(body):
 func entered(body):
 	if body.get_groups().has("hittable") && !body.get_groups().has("badguy"):
 		_hit()
+		# print("damage to player should be ", damage)
 		body.hit(owned, gun_num, damage_type, damage)
 		call_deferred("free")
 #	elif body.get_groups().has("projectile"):
