@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 enum ACT_NUM {none, act_1, act_2, act_3, act_4}
 
+export var bad_guy_num = 3
 export(PackedScene) var bg
 export(ACT_NUM) var activation_num = 4
 export var right = true
@@ -54,7 +55,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 		if health <= 0:
 			print_debug("mp 52 dead")
 			call_deferred("set_shape_disabled",true)
-			FX.explode(2, -1, self.position, str("MP-52 Distruction"), 0, 0)
+			FX.explode(10, -1, self.position + Vector2(0,-32) , -1 , 0, 0)
 			# call_deferred("_explode")
 			anim.play("Broke")
 			timer.stop()
@@ -62,6 +63,7 @@ func hit(_by_who, _by_what, _damage_type, _damage):
 
 func spawn():
 	if can_spawn:
+		# cbg = Campaign.get_bad_guy(bad_guy_num).instance()
 		cbg = bg.instance()
 		Map_Hand.add_kid_to_map(cbg)
 		# var a = connect("stop", cbg, "stop")

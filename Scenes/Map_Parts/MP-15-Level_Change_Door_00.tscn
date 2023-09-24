@@ -72,11 +72,12 @@ script = ExtResource( 3 )
 [node name="Mp-07-DoorOnWall" type="Sprite" parent="."]
 position = Vector2( 32, -48 )
 texture = ExtResource( 2 )
-hframes = 7
+hframes = 8
 
 [node name="FX_70_Exit_Sign_00" parent="." instance=ExtResource( 1 )]
 position = Vector2( 32, -87 )
 z_index = -2
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Close = SubResource( 4 )

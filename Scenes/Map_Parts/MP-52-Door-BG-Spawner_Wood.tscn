@@ -134,10 +134,7 @@ tracks/4/keys = {
 "values": [ 5, 5, 4, 3, 2, 1, 0 ]
 }
 
-[node name="MP-52-BG-3-Spawner_Wood" type="Area2D" groups=[
-"badguy",
-"hittable",
-]]
+[node name="MP-52-BG-3-Spawner_Wood" type="Area2D" groups=["badguy", "hittable"]]
 collision_layer = 2560
 collision_mask = 2147486208
 script = ExtResource( 3 )
