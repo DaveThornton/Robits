@@ -20,6 +20,7 @@
 
 [node name="Map_04_Warden" type="Node2D"]
 script = ExtResource( 16 )
+this_map_num = 4
 next_map_00 = 5
 next_map_00_splash_title = "top_text its 0"
 next_map_02 = 2

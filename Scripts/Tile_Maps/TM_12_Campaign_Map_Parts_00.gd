@@ -6,6 +6,7 @@ const MP_15_LEVEL_CHANGE_03 = 2
 const MP_15_AREA_LEVEL_CHANGE_01 = 3
 const MP_15_AREA_LEVEL_CHANGE_02 = 4
 const MP_15_AREA_LEVEL_CHANGE_03 = 5
+const MP_23_AREA_WORLD_SELECT = 6
 
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
@@ -43,6 +44,9 @@ func start_spawning_parts():
 				# part_offset = Vector2(0,32)
 				var part = spawn_part(cell, 15.1, part_offset, true)
 				part.set_map_to_load(3)
+			MP_23_AREA_WORLD_SELECT:
+				spawn_part(cell, 23, part_offset, false)
+
 
 func spawn_part(pos, mp_num, offset, _return):
 	self.set_cell(pos.x, pos.y, -1)

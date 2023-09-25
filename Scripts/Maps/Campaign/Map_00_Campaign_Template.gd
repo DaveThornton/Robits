@@ -5,6 +5,8 @@ const PLAYER_SPAWN_CELL_NUM = 0
 enum NADE_NAME {Grenade, Nazi_Grenade,Plasma_Grenade,Bomberman,TNT,Time_Bomb, Prox_Mine = 19}
 enum POWER_UP_NAME {Ammo, Shield, Speed, Jump, Nrg, Battery, Coin = 7}
 
+export var this_world_num = 0
+export var this_map_num = 0
 export var show_start_splash = false
 export var start_splash_title = "top_text"
 export var start_splash_body = "start_splash_body testing levely stuff blah blah ... blah!!!"
@@ -94,6 +96,12 @@ func _start(): emit_signal("start")
 func next_spawn_pos():
 	spawn_spots.shuffle()
 	return spawn_spots.pop_front().position
+
+func set_world_map_num(world_num, map_num):
+	this_world_num = world_num
+	this_map_num = map_num
+
+func get_world_map_num(): return Vector2(this_world_num, this_map_num)
 
 func get_gun(_num: int):
 	if _num == 1: return Equipment.get_weap_pick(gun_01)

@@ -19,6 +19,7 @@
 
 [node name="Map_02_The_Armoury" type="Node2D"]
 script = ExtResource( 16 )
+this_map_num = 2
 start_weap_equiped = false
 next_map_00 = 3
 next_map_00_splash_title = "top_text its 0"

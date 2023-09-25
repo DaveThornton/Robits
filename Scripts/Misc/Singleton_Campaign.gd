@@ -45,14 +45,14 @@ export var w10_dis = ""
 #list of worlds completed
 var w00_comp = false
 var w01_comp = false
-var w02_comp = true
-var w03_comp = true
+var w02_comp = false
+var w03_comp = false
 var w04_comp = false
 var w05_comp = false
-var w06_comp = true
-var w07_comp = true
+var w06_comp = false
+var w07_comp = false
 var w08_comp = false
-var w09_comp = true
+var w09_comp = false
 var w10_comp = false
 
 var control_order = []
@@ -279,10 +279,15 @@ func get_player_in_control():
 		print_debug("error in singleton campaign get player in control no players in array so retruning 1")
 		return 1
 
+func set_player_in_control(_player):
+	remove_player(_player)
+	control_order.insert(0,_player)
+	
 func add_player(_player):
 	if control_order.find(_player) == -1:
 		control_order.append(_player)
 	print_debug(control_order,"in singleton campaign")
+
 
 func remove_player(_player):
 	if control_order.find != -1:

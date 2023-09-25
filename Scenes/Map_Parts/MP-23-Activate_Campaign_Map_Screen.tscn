@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Map_Parts/MP-23-Activate_Campaign_Map_Screen.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/M07-Arcade-Map-Select-Campaign_9.tscn" type="PackedScene" id=2]
 
-[node name="MP-23-Activate_Campaign_Map_Screen" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[node name="MP-23-Activate_Campaign_Map_Screen" type="Area2D"]
+collision_layer = 262144
+collision_mask = 2
 script = ExtResource( 1 )
-activation_num = 4
 camp_map_screen = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 16 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_MP23Activate_Campaign_Map_Screen_body_entered"]
