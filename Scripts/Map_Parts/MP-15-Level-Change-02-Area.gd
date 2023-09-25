@@ -1,41 +1,21 @@
-extends Node2D
+extends Area2D
 
-export (PackedScene) var level_to_load_1
-export var show_splash_1 = true
-export var text_title_1 = "Level Title"
-export var text_body_1 = "Body of text discribing the next level"
-export var splash_time_1 = 3
-export var load_level_1 = true
-export var load_random = false
-export var chance_to_load_1 = 50.0
-export (PackedScene) var level_to_load_2 
-export var show_splash_2 = true
-export var text_title_2 = "Level Title  2"
-export var text_body_2 = "Body of text discribing the next level 2"
-export var splash_time_2 = 3
 
-onready var anim = $AnimationPlayer
+var world_to_load = 0
+var map_to_load = 1
 
-func _on_Area2D_body_entered(body):
-	if body.get_groups().has("player"):
-		get_tree().paused = true
-		anim.play("Nothing")
-		print_debug("pause")
 
-func _on_AnimationPlayer_animation_finished(_anim_name):
+func load_map():
 	FX.CAMERA.reset()
-	if !load_random:
-		if load_level_1:
-			_load_level(level_to_load_1, text_title_1, text_body_1, splash_time_1, show_splash_1)
-		else:
-			_load_level(level_to_load_2, text_title_2, text_body_2, splash_time_2, show_splash_2)
-	else:
-		randomize()
-		var l = rand_range(0,100)
-		if l < chance_to_load_1:
-			_load_level(level_to_load_1, text_title_1, text_body_1, splash_time_1, show_splash_1)
-		else:
-			_load_level(level_to_load_2, text_title_2, text_body_2, splash_time_2, show_splash_2)
+	var map_w_info = Map_Hand.map.get_next_level_w_info (map_to_load)#0: next map number to load, 1: use spash ,  2: splash title , 3: splash body ,  4: lenght of splash in seconds
+	var map_scene_to_load = Campaign.get_map(map_w_info[0], map_w_info[1])
+	# Map_Hand.load_map_cam_first(map_scene_to_load, map_w_info[3], map_w_info[4], map_w_info[5], map_w_info[2])#_level, _label_1, _label_2, _time, _show):
+	Map_Hand.load_map_cam(map_scene_to_load, map_w_info[3], map_w_info[4], map_w_info[5], map_w_info[2])#_level, _label_1, _label_2, _time, _show):
+	call_deferred("queue_free")
 
-func _load_level(_level_to_load,_text_title, _text_body, _splash_time, _show):
-	Map_Hand.load_map_cam(_level_to_load, _text_title, _text_body, _splash_time, _show)
+func set_map_to_load(num: int):
+	map_to_load = num
+
+func _on_MP15LevelChange02Area_body_entered(body:Node):
+	if body.get_groups().has("player"):
+		call_deferred("load_map")

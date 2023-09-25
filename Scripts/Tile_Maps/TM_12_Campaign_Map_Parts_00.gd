@@ -3,6 +3,10 @@ extends TileMap
 const MP_15_LEVEL_CHANGE_01 = 0
 const MP_15_LEVEL_CHANGE_02 = 1
 const MP_15_LEVEL_CHANGE_03 = 2
+const MP_15_AREA_LEVEL_CHANGE_01 = 3
+const MP_15_AREA_LEVEL_CHANGE_02 = 4
+const MP_15_AREA_LEVEL_CHANGE_03 = 5
+
 func _ready():
 	Map_Hand.map.connect("start",self,"start_spawning_parts")
 
@@ -25,6 +29,19 @@ func start_spawning_parts():
 			MP_15_LEVEL_CHANGE_03:
 				part_offset = Vector2(0,32)
 				var part = spawn_part(cell, 15, part_offset, true)
+				part.set_map_to_load(3)
+
+			MP_15_AREA_LEVEL_CHANGE_01:
+				# part_offset = Vector2(0,32)
+				var part = spawn_part(cell, 15.1, part_offset, true)
+				part.set_map_to_load(1)
+			MP_15_AREA_LEVEL_CHANGE_02:
+				# part_offset = Vector2(0,32)
+				var part = spawn_part(cell, 15.1, part_offset, true)
+				part.set_map_to_load(2)
+			MP_15_AREA_LEVEL_CHANGE_03:
+				# part_offset = Vector2(0,32)
+				var part = spawn_part(cell, 15.1, part_offset, true)
 				part.set_map_to_load(3)
 
 func spawn_part(pos, mp_num, offset, _return):
