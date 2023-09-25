@@ -282,7 +282,7 @@ func get_player_in_control():
 func set_player_in_control(_player):
 	remove_player(_player)
 	control_order.insert(0,_player)
-	
+
 func add_player(_player):
 	if control_order.find(_player) == -1:
 		control_order.append(_player)
@@ -290,7 +290,7 @@ func add_player(_player):
 
 
 func remove_player(_player):
-	if control_order.find != -1:
+	if control_order.find(_player) != -1:
 		control_order.remove(_player)
 	else:
 		print_debug("error trying to remove player from control ", _player , " is not in the array")
