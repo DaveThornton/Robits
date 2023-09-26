@@ -152,8 +152,12 @@ func activate(_body, _num):
 		4: emit_signal("act_04", _body)
 
 func connect_activate(_thing, _num):
+	var _c = true
 	match _num:
-		1: self.connect("act_01", _thing, "activate")
-		2: self.connect("act_02", _thing, "activate")
-		3: self.connect("act_03", _thing, "activate")
-		4: self.connect("act_04", _thing, "activate")
+		0: print_debug(_thing, "  not connected to anything bc it was told to connedt to activation 00")
+		1: _c = self.connect("act_01", _thing, "activate")
+		2: _c = self.connect("act_02", _thing, "activate")
+		3: _c = self.connect("act_03", _thing, "activate")
+		4: _c = self.connect("act_04", _thing, "activate")
+	if !_c:
+		print_debug("error in connecting ", _thing, " didnt connect in map handler activation number ", _num)
