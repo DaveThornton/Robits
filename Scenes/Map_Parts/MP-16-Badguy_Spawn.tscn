@@ -7,7 +7,7 @@
 extents = Vector2( 32, 2 )
 
 [node name="MP-16-Badguy_Spawn-01" type="Area2D" groups=["trigger"]]
-collision_layer = 2147487744
+collision_layer = 4096
 collision_mask = 4096
 script = ExtResource( 2 )
 

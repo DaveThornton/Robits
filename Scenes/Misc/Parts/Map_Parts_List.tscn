@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scripts/Misc/Parts/Map_Parts_List.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-16-Badguy_Spawn.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Map_Parts/MP-15-Level_Change-02-Area.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Scenes/Map_Parts/MP-23-Activate_Campaign_Map_Screen.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Scenes/Map_Parts/MP-72-Stop_Camera.tscn" type="PackedScene" id=36]
 
 [node name="Parts" type="Node2D"]
 script = ExtResource( 1 )
@@ -71,4 +72,5 @@ mp063 = ExtResource( 21 )
 mp064 = ExtResource( 22 )
 mp070 = ExtResource( 28 )
 mp071 = ExtResource( 29 )
+mp072 = ExtResource( 36 )
 mp090 = ExtResource( 25 )

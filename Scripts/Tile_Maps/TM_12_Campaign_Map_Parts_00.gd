@@ -13,6 +13,7 @@ const MP_25_TURRET_ACT_03 = 9
 const MP_25_TURRET_ACT_04 = 10
 const MP_25_TURRET_CAMERA = 11
 const MP_25_TURRET_START = 12
+const MP_72_STOP_CAMERA = 13
 
 
 
@@ -68,10 +69,15 @@ func start_spawning_parts():
 				var bg = spawn_bg(cell, 25, part_offset, true)
 				bg.set_activation_num(4)
 			MP_25_TURRET_CAMERA:
-				pass
+				# print_debug("spawning camera activated turret in campaign map parts")
+				var bg = spawn_bg(cell, 25, part_offset, true)
+				bg.set_camera_activation(true)
 			MP_25_TURRET_START:
 				var bg = spawn_bg(cell, 25, part_offset, true)
 				bg.call_deferred("activate",0)
+			MP_72_STOP_CAMERA:
+				spawn_part(cell, 72, part_offset, false)
+
 
 
 func spawn_part(pos, mp_num, offset, _return):
