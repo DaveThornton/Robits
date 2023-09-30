@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/M01-Arcade-Start.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Maps/Campaign_32/Map_00_Campaign_Template.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Maps/Campaign_32/00_Prison/Map_00_05_We_Got_Fun_And_Games.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Background/Back_02_Space_Low_Tile.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=6]
@@ -15,7 +15,7 @@ script = ExtResource( 1 )
 arcade_start = ExtResource( 2 )
 demo_map = ExtResource( 3 )
 game_mode = 3
-max_players_in_demo = 3
+max_players_in_demo = 1
 
 [node name="Black_Side_Pannel" type="Sprite" parent="."]
 position = Vector2( 951, 552 )

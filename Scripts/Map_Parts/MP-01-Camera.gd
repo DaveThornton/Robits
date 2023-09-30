@@ -3,11 +3,11 @@ extends Camera2D
 export var can_move = false
 export var zoom_offset : float = 0.2
 export var rect_offset = 960
+
 onready var static_sprite = $SpriteStatic
 onready var effect = $CRT/ColorRect
 onready var noise_gen = OpenSimplexNoise.new()
-# onready var edge_left = $StaticBody2D/CollisionShape2D_Left
-# onready var edge_right = $StaticBody2D/CollisionShape2D_Right
+onready var cage = $"MP-04-Screen_Player_Cage"
 
 var speed = 0
 var max_speed = 6
@@ -65,17 +65,24 @@ func _process(delta):
 		_c_static(delta)
 		trauma = max(trauma - trauma_depletion * delta,0)
 
+func get_position(): return self.global_position
+
+func stop():
+	move(false)
+	cage_on(true)
+
+func go():
+	move(true)
+	cage_on(false)
 
 func move(_move):
-	print_debug("camera move ",!_move)
 	can_move = _move
-	# edge_left.disabled = !_move
-	# edge_right.disabled = !_move
+	cage.move(global_position.x)
 
-func static_on():
-	static_sprite.visible = true
-func static_off():
-	static_sprite.visible = false
+func cage_on(_on): cage.turn_on(_on)
+
+func static_on(): static_sprite.visible = true
+func static_off(): static_sprite.visible = false
 
 func set_min_static(_amount):
 # func static_set_amount(_amount):
@@ -87,15 +94,13 @@ func set_max_static(_amount):
 	print_debug("setting max static amount to ", _amount)
 	max_c_static = _amount
 
-func get_static_status():
-	return static_sprite.visible
+func get_static_status(): return static_sprite.visible
 
 func crt_on():
 	effect.visible = true
 func crt_off():
 	effect.visible = false
-func get_crt_status():
-	return effect.visible
+func get_crt_status(): return effect.visible
 
 func add_trauma(_amount):
 	if juice_on && !stop_trauma:
@@ -125,15 +130,13 @@ func set_juice_on(_on):
 	if juice_on:
 		add_trauma(5)
 
-func get_juice_on():
-	return juice_on
+func get_juice_on(): return juice_on
 
 func set_juice_amount(_amount):
 	juice_amount = _amount
 	print_debug("juice_amount changed in camera  ", _amount)
 
-func get_juice_amount():
-	return juice_amount
+func get_juice_amount(): return juice_amount
 
 func reset():
 	position.x = 0

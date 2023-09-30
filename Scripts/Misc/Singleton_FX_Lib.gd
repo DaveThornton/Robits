@@ -102,6 +102,8 @@ func get_static_min(): return CAMERA.min_c_static
 
 func get_static_max(): return CAMERA.max_c_static
 
+func get_camera_pos(): return CAMERA.get_pos()
+
 func juice(_on):
 	pass
 

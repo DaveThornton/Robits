@@ -29,6 +29,7 @@ func _process(delta):
 		
 		trauma = max(trauma - trauma_depletion * delta,0)
 
+
 func static_on():
 	static_sprite.visible = true
 func static_off():
