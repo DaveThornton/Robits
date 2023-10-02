@@ -1,9 +1,8 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_FX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Misc/ROBITS-Logo-03.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Misc/Dead_Weight_Dave_inc.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Map_Parts/MP-01-Camera-C.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Background/Back_02_Blue_Sky_Tile.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Background/Back_07_Sun_Set_Sky.png" type="Texture" id=7]
@@ -73,10 +72,10 @@
 [ext_resource path="res://Scenes/Projectiles/Proj-11-Mega-Cannon.tscn" type="PackedScene" id=75]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 470, 549 )
+extents = Vector2( 557, 541 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 30, 550 )
+extents = Vector2( 20, 540 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -102,17 +101,10 @@ position = Vector2( 0, -1 )
 can_move = true
 
 [node name="ROBITS-Logo-03" type="Sprite" parent="MP-01-Camera"]
-visible = false
-position = Vector2( 330, 680 )
+show_behind_parent = true
+position = Vector2( 1617, 987 )
 scale = Vector2( 0.404735, 0.452179 )
 texture = ExtResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="MP-01-Camera"]
-visible = false
-position = Vector2( 240, 310 )
-scale = Vector2( 0.900035, 0.93966 )
-z_index = 200
-texture = ExtResource( 4 )
 
 [node name="Back" type="Node2D" parent="MP-01-Camera"]
 position = Vector2( -0.0100098, 0 )
@@ -168,21 +160,19 @@ z_as_relative = false
 texture = ExtResource( 7 )
 
 [node name="Area2D_Respawn" type="Area2D" parent="MP-01-Camera"]
-visible = false
 collision_layer = 64
 collision_mask = 2147483712
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MP-01-Camera/Area2D_Respawn"]
-position = Vector2( 648, 540 )
+position = Vector2( 561, 540 )
 shape = SubResource( 1 )
 
 [node name="Area2D_Trigger" type="Area2D" parent="MP-01-Camera"]
-visible = false
 collision_layer = 4096
 collision_mask = 2147487744
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MP-01-Camera/Area2D_Trigger"]
-position = Vector2( 1954, 540 )
+position = Vector2( 1940, 540 )
 shape = SubResource( 2 )
 
 [node name="Splash_Screens_Part" parent="." instance=ExtResource( 9 )]
@@ -207,7 +197,7 @@ position = Vector2( 960, 543 )
 scale = Vector2( 1.15, 1.15 )
 frames = SubResource( 3 )
 animation = "Real"
-frame = 31
+frame = 42
 speed_scale = 7.0
 playing = true
 

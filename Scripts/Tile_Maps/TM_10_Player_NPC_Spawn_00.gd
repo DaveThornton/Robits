@@ -3,7 +3,6 @@ extends TileMap
 var spawn_bg_cam_part_num = 16
 var spawn_bg_start_part_num = 16
 
-
 const PLAYER_SPAWN_CELL_NUM = 0
 const PLAYER_SPAWN_CAMP_CELL_NUM = 1
 
@@ -225,6 +224,7 @@ func start_spawning_parts():
 			PLAYER_SPAWN_CAMP_CELL_NUM:
 				part_offset = Vector2(16,30)
 				spawn_player_spawn(cell, 11.1, part_offset, false)
+
 			BG_SPAWN_CAM_00:
 				part_offset = Vector2(16,30)
 				var my_bg = spawn_part(cell, spawn_bg_cam_part_num, part_offset, true)
@@ -326,20 +326,16 @@ func start_spawning_parts():
 				my_bg.set_bad_guy(10)
 				my_bg.set_spawn_at_start(true)
 
-
 func spawn_player_spawn(pos, mp_num, offset, _return):
 	self.set_cell(pos.x, pos.y, -1)
 	var sp = Map_Hand.get_map_part(mp_num).instance()
-	add_to_player_spawns(sp)
+	if pos.x >= 60:
+		add_part_to_map(sp)
+	elif pos.x >= 0:
+		add_to_player_spawns(sp)
+	else:
+		print_debug("error in adding player spawn in TM 10 PLayer NPC SPAWN 00. pos.x = ",pos.x , " .  should be more than 0 or add ability otherwise")
 	sp.global_position = self.map_to_world(pos) + offset
-
-
-# #Spawns bad guy spawners 
-# func spawn_bg_spawn(pos, bg_sp_num, offset, _return):
-# 	self.set_cell(pos.x, pos.y, -1)
-# 	var sp = Campaign.get_Bad_guy(bg_sp_num).instance()
-# 	add_part_to_map(sp)
-# 	sp.global_position = self.map_to_world(pos) + offset
 
 func spawn_part(pos, mp_num, offset, _return):
 	self.set_cell(pos.x, pos.y, -1)

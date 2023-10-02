@@ -367,12 +367,12 @@ z_index = 1
 polygon = PoolVector2Array( 0, 0, -32, 30, 480, 30, 480, 0 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
 position = Vector2( 75, -39 )
 z_index = 1
 polygon = PoolVector2Array( 4, -248, 4, 44, 437, 45, 437, -248 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
-visible = false
 position = Vector2( 32, -317 )
 z_index = 1
 polygon = PoolVector2Array( -32, 30, 46.6309, 125.222, 140, 70, 442, 66, 447, 290, 46, 288, -32, 317, 480, 323, 480, 30 )
