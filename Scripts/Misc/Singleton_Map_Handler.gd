@@ -85,11 +85,15 @@ func load_next_map():
 		print_debug("error in map handler load next map - no next map")
 
 func clear_map():
-	map.call_deferred("free")
-	map = null
+	if map != null:
+		map.call_deferred("free")
+		map = null
 
-func get_map():
-	return map
+func get_map(): return map
+
+func get_current_world(): return map.get_world_map_num().x
+
+func get_current_level(): return map.get_world_map_num().y
 
 func load_map_cam_first(_level, _label_1, _label_2, _time, _show):
 	$Splash_Timer.wait_time = _time
@@ -109,11 +113,11 @@ func _load_map_cam(_level):
 	if map:
 		map.call_deferred("queue_free")
 	map = m
-	add_child(m)
+	add_child(map)
 
 	for p in get_tree().get_current_scene().pawns.get_children():
-		p.position = m.player_spawns.get_child(m.next_spawn_spot).position
-		m.next_spawn_spot += 1
+		p.position = map.player_spawns.get_child(m.next_spawn_spot).position
+		map.next_spawn_spot += 1
 
 func call_pow():
 	emit_signal("wow")

@@ -1,17 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_Campaign.gd" type="Script" id=1]
-[ext_resource path="res://Maps/Campaign-mode/World_03/Map_C_W03_A_01_Mill.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Maps/Campaign-mode/World_04/Map_C_W04_A_01_DownTown.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Maps/Campaign-mode/World_05/Map_C_W05_A_00_.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Misc/Parts/Campaign_Map_List.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Misc/Parts/Campaign_Bad_Guys.tscn" type="PackedScene" id=14]
 
 [node name="Campaign_Singleton" type="Node2D"]
 script = ExtResource( 1 )
-w01 = ExtResource( 2 )
-w04 = ExtResource( 4 )
-w08 = ExtResource( 3 )
+title_00 = "Prison Break"
 title_01 = "Saw Mill"
 title_02 = "Factory"
 title_03 = "Ski Resort"
@@ -21,6 +16,8 @@ title_06 = "Farm"
 title_07 = "Sea"
 title_08 = "DownTown"
 title_09 = "Forest"
+title_10 = "World 10"
+w00_dis = "world 00 discription"
 w01_dis = "Look out for a bunch of Wood and Saws"
 w02_dis = "look out for all the machinery in the way"
 w03_dis = "dont do like sonny did try to survive this map"
@@ -29,6 +26,8 @@ w05_dis = "Just no"
 w06_dis = "Check this level out you hay seed. try not to die place holder place holder place holder"
 w07_dis = "Whats a pirates favorite letter \"R\" it \"B\" the \"C\" place holder place holder place holder "
 w08_dis = "Down Town id Dangerious around here so watch out  place holder place holder place holder"
+w09_dis = "this is a discription on this world 09"
+w10_dis = "this is world 10 discription"
 
 [node name="Campaign_Map_List" parent="." instance=ExtResource( 5 )]
 

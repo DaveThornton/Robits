@@ -45,7 +45,7 @@ func _ready():
 func _start(_player):
 	if pos == 5 && spot_5_locked:
 		SFX.menu(3)
-	elif !spots[pos]:
+	elif spots[pos]:
 		_set_ready(_player)
 		HUD.set_pri(_player, 5)
 		SFX.menu(1)

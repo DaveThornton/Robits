@@ -11,11 +11,12 @@ var is_open = false
 func load_map():
 	bodies.clear()
 	FX.CAMERA.reset()
-	var map_w_info = Map_Hand.map.get_next_level_w_info (map_to_load)#0: next map number to load, 1: use spash ,  2: splash title , 3: splash body ,  4: lenght of splash in seconds
-	var map_scene_to_load = Campaign.get_map(map_w_info[0], map_w_info[1])
-	# Map_Hand.load_map_cam_first(map_scene_to_load, map_w_info[3], map_w_info[4], map_w_info[5], map_w_info[2])#_level, _label_1, _label_2, _time, _show):
-	Map_Hand.load_map_cam(map_scene_to_load, map_w_info[3], map_w_info[4], map_w_info[5], map_w_info[2])#_level, _label_1, _label_2, _time, _show):
-	call_deferred("queue_free")
+	Campaign.load_next_level(Map_Hand.map.get_next_level_w_info(map_to_load))
+	# var map_w_info = Map_Hand.map.get_next_level_w_info (map_to_load)#0: world for next map 1: next map number to load, 2: use spash ,  3: splash title , 4: splash body ,  5: lenght of splash in seconds
+	# var map_scene_to_load = Campaign.get_map(map_w_info[0], map_w_info[1])
+	# # Map_Hand.load_map_cam_first(map_scene_to_load, map_w_info[3], map_w_info[4], map_w_info[5], map_w_info[2])#_level, _label_1, _label_2, _time, _show):
+	# Map_Hand.load_map_cam(map_scene_to_load, map_w_info[3], map_w_info[4], map_w_info[5], map_w_info[2])#_level, _label_1, _label_2, _time, _show):
+	# call_deferred("queue_free")
 
 func open():
 	if anim.is_active() && anim.get_current_animation() != "Open":

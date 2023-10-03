@@ -101,6 +101,7 @@ position = Vector2( 0, -1 )
 can_move = true
 
 [node name="ROBITS-Logo-03" type="Sprite" parent="MP-01-Camera"]
+visible = false
 show_behind_parent = true
 position = Vector2( 1617, 987 )
 scale = Vector2( 0.404735, 0.452179 )
@@ -160,6 +161,7 @@ z_as_relative = false
 texture = ExtResource( 7 )
 
 [node name="Area2D_Respawn" type="Area2D" parent="MP-01-Camera"]
+visible = false
 collision_layer = 64
 collision_mask = 2147483712
 
@@ -168,6 +170,7 @@ position = Vector2( 561, 540 )
 shape = SubResource( 1 )
 
 [node name="Area2D_Trigger" type="Area2D" parent="MP-01-Camera"]
+visible = false
 collision_layer = 4096
 collision_mask = 2147487744
 
@@ -197,7 +200,7 @@ position = Vector2( 960, 543 )
 scale = Vector2( 1.15, 1.15 )
 frames = SubResource( 3 )
 animation = "Real"
-frame = 42
+frame = 30
 speed_scale = 7.0
 playing = true
 
