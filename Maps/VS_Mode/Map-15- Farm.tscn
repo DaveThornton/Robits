@@ -22,7 +22,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-11-Player_Spawner-VS.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Scenes/Map_Parts/MP-03-SideScroll_Over.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_06_Battery_AA_Small.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-17-Weap_Spawner.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/Map_Parts/Old/MP-18-Nade_Spawner.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/Map_Parts/MP-19-PowerUp_Spawner.tscn" type="PackedScene" id=29]
 

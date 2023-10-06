@@ -25,7 +25,7 @@
 [ext_resource path="res://Scenes/Map_Parts/MP-51-Saw.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Tilesets/TS-05-Main-Brick-angle.tres" type="TileSet" id=25]
 [ext_resource path="res://Scenes/Guns/Pick/W_20_Grenade_Pick.tscn" type="PackedScene" id=26]
-[ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-17-Weap_Spawner.tscn" type="PackedScene" id=27]
 
 [node name="Map-01-Disputed" type="Node2D"]
 script = ExtResource( 19 )

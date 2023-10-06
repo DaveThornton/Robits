@@ -22,7 +22,7 @@
 [ext_resource path="res://Scenes/Guns/Pick/W_18_Cricket_Pick.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-01-Ammo.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Scenes/Power_Ups/Pick_Up_R_06_Battery_AA_Small.tscn" type="PackedScene" id=22]
-[ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-17-Weap_Spawner.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Scenes/Map_Parts/Old/MP-18-Nade_Spawner.tscn" type="PackedScene" id=24]
 
 [node name="Map-01-Disputed" type="Node2D"]

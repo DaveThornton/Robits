@@ -27,7 +27,7 @@
 [ext_resource path="res://Tilesets/TS-06-Main-FX-Sand.tres" type="TileSet" id=28]
 [ext_resource path="res://Tilesets/TS-05-Main-Brick-Sand.tres" type="TileSet" id=29]
 [ext_resource path="res://Tilesets/TS-04-Back-FX-Sand.tres" type="TileSet" id=30]
-[ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-17-Weap_Spawner.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Scenes/Map_Parts/Old/MP-18-Nade_Spawner.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Map_Parts/MP-19-PowerUp_Spawner.tscn" type="PackedScene" id=33]
 

@@ -33,7 +33,7 @@
 [ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-01-Ammo.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Scenes/Map_Parts/MP-20-Hit_Box_Spawn_01.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Scenes/Power_Ups/Old/Pick-Up-08-Ridged-Coin.tscn" type="PackedScene" id=34]
-[ext_resource path="res://Scenes/Map_Parts/MP-17-Weap_Spawner.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Scenes/Map_Parts/Old/MP-17-Weap_Spawner.tscn" type="PackedScene" id=35]
 [ext_resource path="res://Scenes/Map_Parts/MP-40-Distruct-Brick_Block.tscn" type="PackedScene" id=36]
 
 [node name="Map-02-One_Dash_Two" type="Node2D"]
