@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/FX/FX-09-Log_Full.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Misc/Parts/FX_Parts.gd" type="Script" id=2]
+
+[node name="FX_Parts" type="Node2D"]
+script = ExtResource( 2 )
+fx_09_log = ExtResource( 1 )

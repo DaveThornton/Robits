@@ -148,6 +148,8 @@ func _on_Splash_Timer_timeout():
 
 func get_map_part(num): return parts.get_part(num)
 
+func get_warp_point(num): return get_map().get_warp_point(num)
+
 func activate(_body, _num):
 	match _num:
 		1: emit_signal("act_01", _body)

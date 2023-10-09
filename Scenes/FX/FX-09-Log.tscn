@@ -5,6 +5,7 @@
 [ext_resource path="res://Scripts/FX/FX-09-Log.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=2]
+radius = 8.0
 height = 26.198
 
 [sub_resource type="CapsuleShape2D" id=3]
@@ -17,6 +18,7 @@ gravity_scale = 6.0
 can_sleep = false
 applied_force = Vector2( 0, 1 )
 script = ExtResource( 3 )
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

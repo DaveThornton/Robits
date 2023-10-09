@@ -8,6 +8,7 @@ onready var projectiles = $Projectlies
 onready var shells = $Shells
 onready var bricks = $Bricks
 onready var misc = $MiscFX
+onready var fx_parts = $FX_Parts
 
 export var outline_color_pick = Color8(255,255,255,112)
 export var outline_color_hold = Color8(255,255,255,112)
@@ -70,6 +71,8 @@ func proj_bad(_num,_rot, _pos, _scale, _owner, _dmg): projectiles.call_deferred(
 
 func four_brick(_owner, _pos, _color): bricks.add_four(_owner, _pos, _color)
 
+func get_part(_num): return fx_parts.get_part(_num)
+	
 func get_misc_fx(_num): return misc.get_part(_num)
 
 func get_brick_color(_color): return bricks.get_color(_color)

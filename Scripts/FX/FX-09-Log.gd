@@ -13,3 +13,5 @@ func _ready():
 		log_sprite.visible = true
 		tree_sprite.visible = false		
 		log_sprite.frame = frame - 1
+
+func warp_to(_pos): self.global_position = _pos
