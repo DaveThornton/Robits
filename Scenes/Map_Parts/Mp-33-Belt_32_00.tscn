@@ -149,7 +149,7 @@ anims/Right = SubResource( 4 )
 collision_layer = 917504
 collision_mask = 983042
 space_override = 3
-gravity_vec = Vector2( 1.4, 0 )
+gravity_vec = Vector2( 2.4, 1 )
 linear_damp = 10.0
 angular_damp = 10.0
 

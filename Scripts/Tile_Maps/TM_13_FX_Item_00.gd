@@ -16,19 +16,19 @@ func start_spawning_parts():
 		var index = self.get_cell(cell.x, cell.y)
 		match index:
 			FX_09_LOG_FULL:
-				part_offset = Vector2(64,-17)
+				part_offset = Vector2(64,17)
 				var part = spawn_part(cell, 9, part_offset, true)
 				part.set_frame(0)
 			FX_09_LOG_HALF:
-				part_offset = Vector2(64,-17)
+				part_offset = Vector2(64,17)
 				var part = spawn_part(cell, 9, part_offset, true)
 				part.set_frame(1)
 			FX_09_LOG_QUART:
-				part_offset = Vector2(64,-17)
+				part_offset = Vector2(64,17)
 				var part = spawn_part(cell, 9, part_offset, true)
 				part.set_frame(2)
 			FX_09_LOG_BOARD:
-				part_offset = Vector2(64,-17)
+				part_offset = Vector2(64,17)
 				var part = spawn_part(cell, 9, part_offset, true)
 				part.set_frame(3)
 
