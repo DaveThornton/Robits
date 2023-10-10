@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-03-Battle_Mode.ogg-36089aca83ef65a0c1729123d7daadcf.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-03-Battle_Mode.ogg"
+dest_files=[ "res://.import/SFX-V-03-Battle_Mode.ogg-36089aca83ef65a0c1729123d7daadcf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

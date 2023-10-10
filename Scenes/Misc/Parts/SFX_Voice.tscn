@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://SFX/Voice/SFX-V-00-Robits.ogg" type="AudioStream" id=1]
+[ext_resource path="res://SFX/Voice/SFX-V-01-Campaign_Mode.ogg" type="AudioStream" id=2]
+[ext_resource path="res://SFX/Voice/SFX-V-02-VS_Mode.ogg" type="AudioStream" id=3]
+[ext_resource path="res://SFX/Voice/SFX-V-03-Battle_Mode.ogg" type="AudioStream" id=4]
+[ext_resource path="res://SFX/Voice/SFX-V-04-Choose_your_Robit.ogg" type="AudioStream" id=5]
+[ext_resource path="res://SFX/Voice/SFX-V-05-Choose_a_Level.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Scripts/Misc/Parts/SFX_Voice.gd" type="Script" id=7]
+[ext_resource path="res://SFX/Voice/SFX-V-06-Choose_Game_Mode.ogg" type="AudioStream" id=8]
+
+[node name="SFX_Voice" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="00_Robits" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="01_Campaign" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="02_VS_Mode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="03_Battle_Mode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="04_Choose_Robit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="05_Choose_Level" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="06_Choose_Game_Mode" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = 15.0
+bus = "Voice"
+
+[connection signal="finished" from="00_Robits" to="." method="voice_finished"]
+[connection signal="finished" from="01_Campaign" to="." method="voice_finished"]
+[connection signal="finished" from="02_VS_Mode" to="." method="voice_finished"]
+[connection signal="finished" from="03_Battle_Mode" to="." method="voice_finished"]
+[connection signal="finished" from="04_Choose_Robit" to="." method="voice_finished"]
+[connection signal="finished" from="05_Choose_Level" to="." method="voice_finished"]
+[connection signal="finished" from="06_Choose_Game_Mode" to="." method="voice_finished"]

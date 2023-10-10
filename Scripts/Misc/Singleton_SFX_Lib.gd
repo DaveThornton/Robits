@@ -11,6 +11,8 @@ onready var click_out = $SFX_Weapons/SFX_Click_Out_Part
 onready var pawn = $SFX_Pawn
 onready var powerups = $SFX_Power_Ups
 onready var proj_hit = $SFX_Weapons/SFX_Proj_Hit
+onready var voice_part =$SFX_Voice_Part
+
 var oc_num = 0
 var swing_num = 0 
 var shell_num = 0
@@ -114,6 +116,8 @@ func menu_back(): menus.get_node("M_04_Back").play()
 func menu_move(): menus.get_node("M_05_Move").play()
 
 func menu_click(): menus.get_node("M_06_Click_Short").play()
+
+func voice(voice_num): voice_part.play(voice_num)
 #---------------------------------------------------------------------
 func music(_play, _num):
 	if _play:

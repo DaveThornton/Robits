@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-06-Choose_Game_Mode.ogg-7aa6628796f404cebb7a3c61a0033e57.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-06-Choose_Game_Mode.ogg"
+dest_files=[ "res://.import/SFX-V-06-Choose_Game_Mode.ogg-7aa6628796f404cebb7a3c61a0033e57.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

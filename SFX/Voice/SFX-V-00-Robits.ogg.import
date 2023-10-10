@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-00-Robits.ogg-d74cfc1b437c076ee4a4820b3f1d870b.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-00-Robits.ogg"
+dest_files=[ "res://.import/SFX-V-00-Robits.ogg-d74cfc1b437c076ee4a4820b3f1d870b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

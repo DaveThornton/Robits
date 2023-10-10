@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=2]
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://Scripts/Misc/Singleton_SFX_Lib.gd" type="Script" id=1]
 [ext_resource path="res://SFX/FX/Shell-Ding-Rnd-Pitch.tres" type="AudioStream" id=2]
@@ -94,6 +94,7 @@
 [ext_resource path="res://Scenes/Misc/Parts/Music_Part.tscn" type="PackedScene" id=92]
 [ext_resource path="res://SFX/Explosions/Contra SFX (9).wav" type="AudioStream" id=93]
 [ext_resource path="res://SFX/Explosions/09 - EnemyDamage_Megaman.wav" type="AudioStream" id=94]
+[ext_resource path="res://Scenes/Misc/Parts/SFX_Voice.tscn" type="PackedScene" id=95]
 [ext_resource path="res://SFX/FX/8-Bit_SFX/SFX_-_coin_05.ogg" type="AudioStream" id=102]
 [ext_resource path="res://Scenes/Misc/Parts/SFX_Projectile_Part.tscn" type="PackedScene" id=103]
 
@@ -819,6 +820,8 @@ bus = "SFX"
 stream = SubResource( 16 )
 mix_target = 2
 bus = "SFX"
+
+[node name="SFX_Voice_Part" parent="." instance=ExtResource( 95 )]
 
 [node name="Node2D3" type="Node2D" parent="."]
 
