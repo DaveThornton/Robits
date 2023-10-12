@@ -38,7 +38,8 @@ func _ready():
 func _start(_player):
 	if menu_pos == 1:
 		SFX.music(true, camp_song)
-		SFX.menu(2)
+		# SFX.voice(1)
+		# SFX.menu(2)
 		Game.set_mode(0)
 		Settings.set_campaign_start_gun(false)
 		HUD.load_screen(campaign)
@@ -49,11 +50,13 @@ func _start(_player):
 			HUD.load_screen(settings_menu)
 			call_deferred("free")
 		else:
-			SFX.menu(3)
+			SFX.voice(6)
+			# SFX.menu(3)
 	elif menu_pos == 3:
 		if Player_Stats.get_num_in_play() > 1:
 			SFX.music(true, vs_song)
-			SFX.menu(2)
+			# SFX.voice(3)
+			# SFX.menu(2)
 			Game.set_mode(2)
 			HUD.load_screen(vs_mode)
 			call_deferred("free")
@@ -66,10 +69,13 @@ func menu_pos_changed():
 		label_text.text = des_choose
 	elif menu_pos == 1:
 		label_text.text = des_camp
+		SFX.voice(1)
 	elif menu_pos == 3 && Player_Stats.get_num_in_play() > 1:
 		label_text.text = des_vs_yes
+		SFX.voice(3)
 	elif menu_pos == 3 && Player_Stats.get_num_in_play() <= 1:
 		label_text.text = des_vs_no
+		SFX.voice(3)
 	print_debug(Player_Stats.get_num_in_play())
 
 func movement(_player, _dir):

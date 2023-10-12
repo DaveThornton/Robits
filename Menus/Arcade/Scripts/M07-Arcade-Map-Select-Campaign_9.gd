@@ -22,6 +22,7 @@ var pos = 5
 var spots
 
 func _ready():
+	SFX.voice(5)
 	player = Campaign.get_player_in_control()
 	set_spots(Campaign.get_level_comp_array())
 	var test1 = Map_Hand.connect("splash_done",self,"set_started")

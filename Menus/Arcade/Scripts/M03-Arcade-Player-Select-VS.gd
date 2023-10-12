@@ -31,6 +31,7 @@ func _init():
 	HUD.menu_state()
 
 func _ready():
+	SFX.voice(4)
 	var test2 = HUD.connect("screen_update", self, "menu_check")
 	if test2 != 0:
 		print_debug("error M03 Arcade player select connecting next_screen")

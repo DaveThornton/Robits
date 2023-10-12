@@ -14,6 +14,7 @@ func _ready():
 	list.update_scores(top10)
 
 func add_score(_player:int, _name:String):
+	SFX.voice(9)
 	var _new_score = [_name, Player_Stats.get_score(_player),Player_Stats.get_pawn_num(_player),_player]
 	top10.append(_new_score)
 	top10.sort_custom(self, "sort_scores")

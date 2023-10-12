@@ -69,6 +69,7 @@ var map_array = []
 var loading_next_screen = false
 
 func _ready():
+	SFX.voice(5)
 	var test2 = HUD.connect("screen_update", self, "menu_check")
 	if test2 != 0:
 		print_debug("error M04 Arcade map select connecting next_screen")

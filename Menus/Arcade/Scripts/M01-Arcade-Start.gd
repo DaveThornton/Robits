@@ -33,7 +33,8 @@ func movement(_player, _dir):
 	HUD.menu_state()
 
 func _next_screen():
-	SFX.menu(1)
+	SFX.voice(0)
+	# SFX.menu(1)
 	HUD.load_screen(next_screen)
 	FX.splash(false,0)
 	queue_free()
