@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-16-Tree_Town_Games.ogg-2ad6e46ec4adf847a08d2eab1e433e0c.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-16-Tree_Town_Games.ogg"
+dest_files=[ "res://.import/SFX-V-16-Tree_Town_Games.ogg-2ad6e46ec4adf847a08d2eab1e433e0c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

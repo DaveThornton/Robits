@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-19-David_Thornton.ogg-8a752d9a9958e263bc402caef9f5fb44.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-19-David_Thornton.ogg"
+dest_files=[ "res://.import/SFX-V-19-David_Thornton.ogg-8a752d9a9958e263bc402caef9f5fb44.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

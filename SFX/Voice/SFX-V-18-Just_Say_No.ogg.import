@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-18-Just_Say_No.ogg-640f786e2c4dca5520ada71a888ed2cc.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-18-Just_Say_No.ogg"
+dest_files=[ "res://.import/SFX-V-18-Just_Say_No.ogg-640f786e2c4dca5520ada71a888ed2cc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

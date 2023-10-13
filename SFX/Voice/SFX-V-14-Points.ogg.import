@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-14-Points.ogg-ff86e62571f6996613dd43ed02beaeac.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-14-Points.ogg"
+dest_files=[ "res://.import/SFX-V-14-Points.ogg-ff86e62571f6996613dd43ed02beaeac.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
