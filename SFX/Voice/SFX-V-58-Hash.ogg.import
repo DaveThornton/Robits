@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-58-Hash.ogg-4e4b9bfe8fda3090b3b6b716f962a1fb.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-58-Hash.ogg"
+dest_files=[ "res://.import/SFX-V-58-Hash.ogg-4e4b9bfe8fda3090b3b6b716f962a1fb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

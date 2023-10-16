@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-59-Percent.ogg-59139e94c5db2708dbc0dd3c6d5a3a91.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-59-Percent.ogg"
+dest_files=[ "res://.import/SFX-V-59-Percent.ogg-59139e94c5db2708dbc0dd3c6d5a3a91.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

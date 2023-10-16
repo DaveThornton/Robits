@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-41-L.ogg-ef8d53c3eff46fa558fcf6763d5d7d90.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-41-L.ogg"
+dest_files=[ "res://.import/SFX-V-41-L.ogg-ef8d53c3eff46fa558fcf6763d5d7d90.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

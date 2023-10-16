@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://SFX/Voice/SFX-V-00-Robits.ogg" type="AudioStream" id=1]
 [ext_resource path="res://SFX/Voice/SFX-V-01-Campaign_Mode.ogg" type="AudioStream" id=2]
@@ -29,6 +29,36 @@
 [ext_resource path="res://SFX/Voice/SFX-V-23-Kill.ogg" type="AudioStream" id=27]
 [ext_resource path="res://SFX/Voice/SFX-V-12-Fight.ogg" type="AudioStream" id=28]
 [ext_resource path="res://SFX/Voice/SFX-V-08-High_Score.ogg" type="AudioStream" id=29]
+[ext_resource path="res://SFX/Voice/SFX-V-42-M.ogg" type="AudioStream" id=30]
+[ext_resource path="res://SFX/Voice/SFX-V-53-X.ogg" type="AudioStream" id=31]
+[ext_resource path="res://SFX/Voice/SFX-V-54-Y.ogg" type="AudioStream" id=32]
+[ext_resource path="res://SFX/Voice/SFX-V-32-C.ogg" type="AudioStream" id=33]
+[ext_resource path="res://SFX/Voice/SFX-V-38-I.ogg" type="AudioStream" id=34]
+[ext_resource path="res://SFX/Voice/SFX-V-41-L.ogg" type="AudioStream" id=35]
+[ext_resource path="res://SFX/Voice/SFX-V-59-Percent.ogg" type="AudioStream" id=36]
+[ext_resource path="res://SFX/Voice/SFX-V-40-K.ogg" type="AudioStream" id=37]
+[ext_resource path="res://SFX/Voice/SFX-V-33-D.ogg" type="AudioStream" id=38]
+[ext_resource path="res://SFX/Voice/SFX-V-56-Star.ogg" type="AudioStream" id=39]
+[ext_resource path="res://SFX/Voice/SFX-V-50-U.ogg" type="AudioStream" id=40]
+[ext_resource path="res://SFX/Voice/SFX-V-51-V.ogg" type="AudioStream" id=41]
+[ext_resource path="res://SFX/Voice/SFX-V-49-T.ogg" type="AudioStream" id=42]
+[ext_resource path="res://SFX/Voice/SFX-V-30-A.ogg" type="AudioStream" id=43]
+[ext_resource path="res://SFX/Voice/SFX-V-52-W.ogg" type="AudioStream" id=44]
+[ext_resource path="res://SFX/Voice/SFX-V-58-Hash.ogg" type="AudioStream" id=45]
+[ext_resource path="res://SFX/Voice/SFX-V-37-H.ogg" type="AudioStream" id=46]
+[ext_resource path="res://SFX/Voice/SFX-V-48-S.ogg" type="AudioStream" id=47]
+[ext_resource path="res://SFX/Voice/SFX-V-31-B.ogg" type="AudioStream" id=48]
+[ext_resource path="res://SFX/Voice/SFX-V-34-E.ogg" type="AudioStream" id=49]
+[ext_resource path="res://SFX/Voice/SFX-V-45-P.ogg" type="AudioStream" id=50]
+[ext_resource path="res://SFX/Voice/SFX-V-43-N.ogg" type="AudioStream" id=51]
+[ext_resource path="res://SFX/Voice/SFX-V-39-J.ogg" type="AudioStream" id=52]
+[ext_resource path="res://SFX/Voice/SFX-V-35-F.ogg" type="AudioStream" id=53]
+[ext_resource path="res://SFX/Voice/SFX-V-47-R.ogg" type="AudioStream" id=54]
+[ext_resource path="res://SFX/Voice/SFX-V-44-O.ogg" type="AudioStream" id=55]
+[ext_resource path="res://SFX/Voice/SFX-V-55-Z.ogg" type="AudioStream" id=56]
+[ext_resource path="res://SFX/Voice/SFX-V-57-Bang.ogg" type="AudioStream" id=57]
+[ext_resource path="res://SFX/Voice/SFX-V-46-Q.ogg" type="AudioStream" id=58]
+[ext_resource path="res://SFX/Voice/SFX-V-36-G.ogg" type="AudioStream" id=59]
 
 [node name="SFX_Voice" type="Node2D"]
 script = ExtResource( 7 )
@@ -173,6 +203,166 @@ stream = ExtResource( 12 )
 volume_db = 15.0
 bus = "Voice"
 
+[node name="28_Invalid" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="29_Please_Recycle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="30_A" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 43 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="31_B" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 48 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="32_C" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 33 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="33_D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 38 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="34_E" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 49 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="35_F" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 53 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="36_G" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 59 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="37_H" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 46 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="38_I" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 34 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="39_J" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 52 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="40_K" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 37 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="41_L" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 35 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="42_M" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="43_N" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 51 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="44_O" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 55 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="45_P" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 50 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="46_Q" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 58 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="47_R" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 54 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="48_S" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 47 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="49_T" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 42 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="50_U" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 40 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="51_V" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 41 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="52_W" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 44 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="53_X" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="54_Y" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 32 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="55_Z" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 56 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="56_Star" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 39 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="57_Bang" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 57 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="58_Hash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 45 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="59_Percent" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 36 )
+volume_db = 15.0
+bus = "Voice"
+
 [connection signal="finished" from="00_Robits" to="." method="voice_finished"]
 [connection signal="finished" from="01_Campaign" to="." method="voice_finished"]
 [connection signal="finished" from="02_VS_Mode" to="." method="voice_finished"]
@@ -201,3 +391,35 @@ bus = "Voice"
 [connection signal="finished" from="25_Kill_All_Humans" to="." method="voice_finished"]
 [connection signal="finished" from="26_Kill_Mankind" to="." method="voice_finished"]
 [connection signal="finished" from="27_Dead" to="." method="voice_finished"]
+[connection signal="finished" from="28_Invalid" to="." method="voice_finished"]
+[connection signal="finished" from="29_Please_Recycle" to="." method="voice_finished"]
+[connection signal="finished" from="30_A" to="." method="voice_finished"]
+[connection signal="finished" from="31_B" to="." method="voice_finished"]
+[connection signal="finished" from="32_C" to="." method="voice_finished"]
+[connection signal="finished" from="33_D" to="." method="voice_finished"]
+[connection signal="finished" from="34_E" to="." method="voice_finished"]
+[connection signal="finished" from="35_F" to="." method="voice_finished"]
+[connection signal="finished" from="36_G" to="." method="voice_finished"]
+[connection signal="finished" from="37_H" to="." method="voice_finished"]
+[connection signal="finished" from="38_I" to="." method="voice_finished"]
+[connection signal="finished" from="39_J" to="." method="voice_finished"]
+[connection signal="finished" from="40_K" to="." method="voice_finished"]
+[connection signal="finished" from="41_L" to="." method="voice_finished"]
+[connection signal="finished" from="42_M" to="." method="voice_finished"]
+[connection signal="finished" from="43_N" to="." method="voice_finished"]
+[connection signal="finished" from="44_O" to="." method="voice_finished"]
+[connection signal="finished" from="45_P" to="." method="voice_finished"]
+[connection signal="finished" from="46_Q" to="." method="voice_finished"]
+[connection signal="finished" from="47_R" to="." method="voice_finished"]
+[connection signal="finished" from="48_S" to="." method="voice_finished"]
+[connection signal="finished" from="49_T" to="." method="voice_finished"]
+[connection signal="finished" from="50_U" to="." method="voice_finished"]
+[connection signal="finished" from="51_V" to="." method="voice_finished"]
+[connection signal="finished" from="52_W" to="." method="voice_finished"]
+[connection signal="finished" from="53_X" to="." method="voice_finished"]
+[connection signal="finished" from="54_Y" to="." method="voice_finished"]
+[connection signal="finished" from="55_Z" to="." method="voice_finished"]
+[connection signal="finished" from="56_Star" to="." method="voice_finished"]
+[connection signal="finished" from="57_Bang" to="." method="voice_finished"]
+[connection signal="finished" from="58_Hash" to="." method="voice_finished"]
+[connection signal="finished" from="59_Percent" to="." method="voice_finished"]

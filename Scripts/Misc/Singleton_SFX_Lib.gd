@@ -118,6 +118,8 @@ func menu_move(): menus.get_node("M_05_Move").play()
 func menu_click(): menus.get_node("M_06_Click_Short").play()
 
 func voice(voice_num): voice_part.play(voice_num)
+
+func spell(word:String): voice_part.spell(word)
 #---------------------------------------------------------------------
 func music(_play, _num):
 	if _play:

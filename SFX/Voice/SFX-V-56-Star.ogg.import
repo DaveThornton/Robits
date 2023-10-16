@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-56-Star.ogg-40225c96c2627f932379bd18b0e7730f.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-56-Star.ogg"
+dest_files=[ "res://.import/SFX-V-56-Star.ogg-40225c96c2627f932379bd18b0e7730f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

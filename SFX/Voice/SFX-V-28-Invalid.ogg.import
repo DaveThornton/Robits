@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-28-Invalid.ogg-1469c626b772ff186eadc05d14db7b50.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-28-Invalid.ogg"
+dest_files=[ "res://.import/SFX-V-28-Invalid.ogg-1469c626b772ff186eadc05d14db7b50.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

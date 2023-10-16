@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-29-Please_Recycle.ogg-82ce4a8cfa577d76ca8a9636caa71fc7.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-29-Please_Recycle.ogg"
+dest_files=[ "res://.import/SFX-V-29-Please_Recycle.ogg-82ce4a8cfa577d76ca8a9636caa71fc7.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
