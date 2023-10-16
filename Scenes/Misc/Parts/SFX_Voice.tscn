@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://SFX/Voice/SFX-V-00-Robits.ogg" type="AudioStream" id=1]
 [ext_resource path="res://SFX/Voice/SFX-V-01-Campaign_Mode.ogg" type="AudioStream" id=2]
@@ -8,6 +8,27 @@
 [ext_resource path="res://SFX/Voice/SFX-V-05-Choose_a_Level.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Scripts/Misc/Parts/SFX_Voice.gd" type="Script" id=7]
 [ext_resource path="res://SFX/Voice/SFX-V-06-Choose_Game_Mode.ogg" type="AudioStream" id=8]
+[ext_resource path="res://SFX/Voice/SFX-V-16-Tree_Town_Games.ogg" type="AudioStream" id=9]
+[ext_resource path="res://SFX/Voice/SFX-V-18-Just_Say_No.ogg" type="AudioStream" id=10]
+[ext_resource path="res://SFX/Voice/SFX-V-09-Level_Complete.ogg" type="AudioStream" id=11]
+[ext_resource path="res://SFX/Voice/SFX-V-27-Dead.ogg" type="AudioStream" id=12]
+[ext_resource path="res://SFX/Voice/SFX-V-13-And.ogg" type="AudioStream" id=13]
+[ext_resource path="res://SFX/Voice/SFX-V-07-Game_Over.ogg" type="AudioStream" id=14]
+[ext_resource path="res://SFX/Voice/SFX-V-10-Continue.ogg" type="AudioStream" id=15]
+[ext_resource path="res://SFX/Voice/SFX-V-24-Kill_Each_Other.ogg" type="AudioStream" id=16]
+[ext_resource path="res://SFX/Voice/SFX-V-11-New.ogg" type="AudioStream" id=17]
+[ext_resource path="res://SFX/Voice/SFX-V-14-Points.ogg" type="AudioStream" id=18]
+[ext_resource path="res://SFX/Voice/SFX-V-20-Alert.ogg" type="AudioStream" id=19]
+[ext_resource path="res://SFX/Voice/SFX-V-25-Kill_All_Humans.ogg" type="AudioStream" id=20]
+[ext_resource path="res://SFX/Voice/SFX-V-17-Presents.ogg" type="AudioStream" id=21]
+[ext_resource path="res://SFX/Voice/SFX-V-22-Stand_By.ogg" type="AudioStream" id=22]
+[ext_resource path="res://SFX/Voice/SFX-V-21-Warning.ogg" type="AudioStream" id=23]
+[ext_resource path="res://SFX/Voice/SFX-V-15-Destroyed.ogg" type="AudioStream" id=24]
+[ext_resource path="res://SFX/Voice/SFX-V-26-Kill_Mankind.ogg" type="AudioStream" id=25]
+[ext_resource path="res://SFX/Voice/SFX-V-19-David_Thornton.ogg" type="AudioStream" id=26]
+[ext_resource path="res://SFX/Voice/SFX-V-23-Kill.ogg" type="AudioStream" id=27]
+[ext_resource path="res://SFX/Voice/SFX-V-12-Fight.ogg" type="AudioStream" id=28]
+[ext_resource path="res://SFX/Voice/SFX-V-08-High_Score.ogg" type="AudioStream" id=29]
 
 [node name="SFX_Voice" type="Node2D"]
 script = ExtResource( 7 )
@@ -47,6 +68,111 @@ stream = ExtResource( 8 )
 volume_db = 15.0
 bus = "Voice"
 
+[node name="07_Game_Over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="08_High_Score" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="09_Level_Complete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="10_Continue" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="11_New" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="12_Fight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="13_And" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="14_Points" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="15_Destroyed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="16_Tree_Town_Games" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="17_Presents" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="18_Just_Say_No" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="19_David_Thornton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="20_Alert" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="21_Warning" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="22_Stand_By" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="23_Kill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="24_Kill_Each_Other" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="25_Kill_All_Humans" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="26_Kill_Mankind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="27_Dead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = 15.0
+bus = "Voice"
+
 [connection signal="finished" from="00_Robits" to="." method="voice_finished"]
 [connection signal="finished" from="01_Campaign" to="." method="voice_finished"]
 [connection signal="finished" from="02_VS_Mode" to="." method="voice_finished"]
@@ -54,3 +180,24 @@ bus = "Voice"
 [connection signal="finished" from="04_Choose_Robit" to="." method="voice_finished"]
 [connection signal="finished" from="05_Choose_Level" to="." method="voice_finished"]
 [connection signal="finished" from="06_Choose_Game_Mode" to="." method="voice_finished"]
+[connection signal="finished" from="07_Game_Over" to="." method="voice_finished"]
+[connection signal="finished" from="08_High_Score" to="." method="voice_finished"]
+[connection signal="finished" from="09_Level_Complete" to="." method="voice_finished"]
+[connection signal="finished" from="10_Continue" to="." method="voice_finished"]
+[connection signal="finished" from="11_New" to="." method="voice_finished"]
+[connection signal="finished" from="12_Fight" to="." method="voice_finished"]
+[connection signal="finished" from="13_And" to="." method="voice_finished"]
+[connection signal="finished" from="14_Points" to="." method="voice_finished"]
+[connection signal="finished" from="15_Destroyed" to="." method="voice_finished"]
+[connection signal="finished" from="16_Tree_Town_Games" to="." method="voice_finished"]
+[connection signal="finished" from="17_Presents" to="." method="voice_finished"]
+[connection signal="finished" from="18_Just_Say_No" to="." method="voice_finished"]
+[connection signal="finished" from="19_David_Thornton" to="." method="voice_finished"]
+[connection signal="finished" from="20_Alert" to="." method="voice_finished"]
+[connection signal="finished" from="21_Warning" to="." method="voice_finished"]
+[connection signal="finished" from="22_Stand_By" to="." method="voice_finished"]
+[connection signal="finished" from="23_Kill" to="." method="voice_finished"]
+[connection signal="finished" from="24_Kill_Each_Other" to="." method="voice_finished"]
+[connection signal="finished" from="25_Kill_All_Humans" to="." method="voice_finished"]
+[connection signal="finished" from="26_Kill_Mankind" to="." method="voice_finished"]
+[connection signal="finished" from="27_Dead" to="." method="voice_finished"]

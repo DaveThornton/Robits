@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-24-Kill_Each_Other.ogg-5ebaf4347250a9475dbfaf6ddbd9f565.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-24-Kill_Each_Other.ogg"
+dest_files=[ "res://.import/SFX-V-24-Kill_Each_Other.ogg-5ebaf4347250a9475dbfaf6ddbd9f565.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

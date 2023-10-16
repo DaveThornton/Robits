@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-26-Kill_Mankind.ogg-a6e84b12d74b70900d53304f253b9001.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-26-Kill_Mankind.ogg"
+dest_files=[ "res://.import/SFX-V-26-Kill_Mankind.ogg-a6e84b12d74b70900d53304f253b9001.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

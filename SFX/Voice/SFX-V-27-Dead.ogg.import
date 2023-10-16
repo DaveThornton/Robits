@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-27-Dead.ogg-323df87ad96194e8df1e7f8ed74aeabb.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-27-Dead.ogg"
+dest_files=[ "res://.import/SFX-V-27-Dead.ogg-323df87ad96194e8df1e7f8ed74aeabb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
