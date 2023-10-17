@@ -121,7 +121,7 @@ func voice(voice_num): voice_part.play(voice_num)
 
 func spell(word:String): voice_part.spell(word)
 
-func number(word:int): voice_part.read_number(word)
+func number(num:int): voice_part.read_number(num)
 #---------------------------------------------------------------------
 func music(_play, _num):
 	if _play:
