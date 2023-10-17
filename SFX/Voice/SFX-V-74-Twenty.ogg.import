@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-74-Twenty.ogg-40790232f37b62f39bf75428c70f737f.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-74-Twenty.ogg"
+dest_files=[ "res://.import/SFX-V-74-Twenty.ogg-40790232f37b62f39bf75428c70f737f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

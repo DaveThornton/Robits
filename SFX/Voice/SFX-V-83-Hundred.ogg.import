@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-83-Hundred.ogg-89b54cc6249b55d41d9f6202d88e4d61.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-83-Hundred.ogg"
+dest_files=[ "res://.import/SFX-V-83-Hundred.ogg-89b54cc6249b55d41d9f6202d88e4d61.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

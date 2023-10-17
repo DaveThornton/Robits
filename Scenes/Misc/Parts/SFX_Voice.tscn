@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://SFX/Voice/SFX-V-00-Robits.ogg" type="AudioStream" id=1]
 [ext_resource path="res://SFX/Voice/SFX-V-01-Campaign_Mode.ogg" type="AudioStream" id=2]
@@ -59,6 +59,33 @@
 [ext_resource path="res://SFX/Voice/SFX-V-57-Bang.ogg" type="AudioStream" id=57]
 [ext_resource path="res://SFX/Voice/SFX-V-46-Q.ogg" type="AudioStream" id=58]
 [ext_resource path="res://SFX/Voice/SFX-V-36-G.ogg" type="AudioStream" id=59]
+[ext_resource path="res://SFX/Voice/SFX-V-60-Zero.ogg" type="AudioStream" id=60]
+[ext_resource path="res://SFX/Voice/SFX-V-62-Two.ogg" type="AudioStream" id=61]
+[ext_resource path="res://SFX/Voice/SFX-V-63-Three.ogg" type="AudioStream" id=62]
+[ext_resource path="res://SFX/Voice/SFX-V-68-Eight.ogg" type="AudioStream" id=63]
+[ext_resource path="res://SFX/Voice/SFX-V-69-Nine.ogg" type="AudioStream" id=64]
+[ext_resource path="res://SFX/Voice/SFX-V-71-Eleven.ogg" type="AudioStream" id=65]
+[ext_resource path="res://SFX/Voice/SFX-V-72-Twelve.ogg" type="AudioStream" id=66]
+[ext_resource path="res://SFX/Voice/SFX-V-66-Six.ogg" type="AudioStream" id=67]
+[ext_resource path="res://SFX/Voice/SFX-V-67-Seven.ogg" type="AudioStream" id=68]
+[ext_resource path="res://SFX/Voice/SFX-V-65-Five.ogg" type="AudioStream" id=69]
+[ext_resource path="res://SFX/Voice/SFX-V-70-Ten.ogg" type="AudioStream" id=70]
+[ext_resource path="res://SFX/Voice/SFX-V-73-Thirteen.ogg" type="AudioStream" id=71]
+[ext_resource path="res://SFX/Voice/SFX-V-64-Four.ogg" type="AudioStream" id=72]
+[ext_resource path="res://SFX/Voice/SFX-V-74-Twenty.ogg" type="AudioStream" id=73]
+[ext_resource path="res://SFX/Voice/SFX-V-75-Thirty.ogg" type="AudioStream" id=74]
+[ext_resource path="res://SFX/Voice/SFX-V-76-Forty.ogg" type="AudioStream" id=75]
+[ext_resource path="res://SFX/Voice/SFX-V-77-Fifty.ogg" type="AudioStream" id=76]
+[ext_resource path="res://SFX/Voice/SFX-V-61-One.ogg" type="AudioStream" id=77]
+[ext_resource path="res://SFX/Voice/SFX-V-82-Teen.ogg" type="AudioStream" id=78]
+[ext_resource path="res://SFX/Voice/SFX-V-81-Ninety.ogg" type="AudioStream" id=79]
+[ext_resource path="res://SFX/Voice/SFX-V-79-Seventy.ogg" type="AudioStream" id=80]
+[ext_resource path="res://SFX/Voice/SFX-V-83-Hundred.ogg" type="AudioStream" id=81]
+[ext_resource path="res://SFX/Voice/SFX-V-78-Sixty.ogg" type="AudioStream" id=82]
+[ext_resource path="res://SFX/Voice/SFX-V-84-Thousand.ogg" type="AudioStream" id=83]
+[ext_resource path="res://SFX/Voice/SFX-V-80-Eighty.ogg" type="AudioStream" id=84]
+[ext_resource path="res://SFX/Voice/SFX-V-85-Million.ogg" type="AudioStream" id=85]
+[ext_resource path="res://SFX/Voice/SFX-V-86-Tip_Your_Bartender.ogg" type="AudioStream" id=86]
 
 [node name="SFX_Voice" type="Node2D"]
 script = ExtResource( 7 )
@@ -363,6 +390,141 @@ stream = ExtResource( 36 )
 volume_db = 15.0
 bus = "Voice"
 
+[node name="60_Zero" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 60 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="61_One" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 77 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="62_Two" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 61 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="63_Three" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 62 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="64_Four" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 72 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="65_Five" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 69 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="66_Six" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 67 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="67_Seven" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 68 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="68_Eight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 63 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="69_Nine" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 64 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="70_Ten" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 70 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="71_Eleven" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 65 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="72_Twelve" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 66 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="73_Thirteen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 71 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="74_Twenty" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 73 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="75_Thirty" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 74 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="76_Forty" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 75 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="77_Fifty" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 76 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="78_Sixty" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 82 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="79_Seventy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 80 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="80_Eighty" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 84 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="81_Ninety" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 79 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="82_Teen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 78 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="83_Hundred" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 81 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="84_Thousand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 83 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="85_Million" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 85 )
+volume_db = 15.0
+bus = "Voice"
+
+[node name="86_Tip_Your_Bartender" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 86 )
+volume_db = 15.0
+bus = "Voice"
+
 [connection signal="finished" from="00_Robits" to="." method="voice_finished"]
 [connection signal="finished" from="01_Campaign" to="." method="voice_finished"]
 [connection signal="finished" from="02_VS_Mode" to="." method="voice_finished"]
@@ -423,3 +585,30 @@ bus = "Voice"
 [connection signal="finished" from="57_Bang" to="." method="voice_finished"]
 [connection signal="finished" from="58_Hash" to="." method="voice_finished"]
 [connection signal="finished" from="59_Percent" to="." method="voice_finished"]
+[connection signal="finished" from="60_Zero" to="." method="voice_finished"]
+[connection signal="finished" from="61_One" to="." method="voice_finished"]
+[connection signal="finished" from="62_Two" to="." method="voice_finished"]
+[connection signal="finished" from="63_Three" to="." method="voice_finished"]
+[connection signal="finished" from="64_Four" to="." method="voice_finished"]
+[connection signal="finished" from="65_Five" to="." method="voice_finished"]
+[connection signal="finished" from="66_Six" to="." method="voice_finished"]
+[connection signal="finished" from="67_Seven" to="." method="voice_finished"]
+[connection signal="finished" from="68_Eight" to="." method="voice_finished"]
+[connection signal="finished" from="69_Nine" to="." method="voice_finished"]
+[connection signal="finished" from="70_Ten" to="." method="voice_finished"]
+[connection signal="finished" from="71_Eleven" to="." method="voice_finished"]
+[connection signal="finished" from="72_Twelve" to="." method="voice_finished"]
+[connection signal="finished" from="73_Thirteen" to="." method="voice_finished"]
+[connection signal="finished" from="74_Twenty" to="." method="voice_finished"]
+[connection signal="finished" from="75_Thirty" to="." method="voice_finished"]
+[connection signal="finished" from="76_Forty" to="." method="voice_finished"]
+[connection signal="finished" from="77_Fifty" to="." method="voice_finished"]
+[connection signal="finished" from="78_Sixty" to="." method="voice_finished"]
+[connection signal="finished" from="79_Seventy" to="." method="voice_finished"]
+[connection signal="finished" from="80_Eighty" to="." method="voice_finished"]
+[connection signal="finished" from="81_Ninety" to="." method="voice_finished"]
+[connection signal="finished" from="82_Teen" to="." method="voice_finished"]
+[connection signal="finished" from="83_Hundred" to="." method="voice_finished"]
+[connection signal="finished" from="84_Thousand" to="." method="voice_finished"]
+[connection signal="finished" from="85_Million" to="." method="voice_finished"]
+[connection signal="finished" from="86_Tip_Your_Bartender" to="." method="voice_finished"]

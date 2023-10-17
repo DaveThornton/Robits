@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-66-Six.ogg-5c12231b592f0bdf3fe91bd0e38c822b.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-66-Six.ogg"
+dest_files=[ "res://.import/SFX-V-66-Six.ogg-5c12231b592f0bdf3fe91bd0e38c822b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

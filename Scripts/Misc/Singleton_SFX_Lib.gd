@@ -120,6 +120,8 @@ func menu_click(): menus.get_node("M_06_Click_Short").play()
 func voice(voice_num): voice_part.play(voice_num)
 
 func spell(word:String): voice_part.spell(word)
+
+func number(word:int): voice_part.read_number(word)
 #---------------------------------------------------------------------
 func music(_play, _num):
 	if _play:

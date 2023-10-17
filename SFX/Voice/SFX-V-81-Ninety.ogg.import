@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-81-Ninety.ogg-8a65cb612d5935334817cce42cd59dc0.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-81-Ninety.ogg"
+dest_files=[ "res://.import/SFX-V-81-Ninety.ogg-8a65cb612d5935334817cce42cd59dc0.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-63-Three.ogg-7d143f818df2cdaf2ad7e5c003056192.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-63-Three.ogg"
+dest_files=[ "res://.import/SFX-V-63-Three.ogg-7d143f818df2cdaf2ad7e5c003056192.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

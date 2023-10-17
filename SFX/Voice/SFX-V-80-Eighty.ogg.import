@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-80-Eighty.ogg-f7caa848201feedad7e8fa081e31294b.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-80-Eighty.ogg"
+dest_files=[ "res://.import/SFX-V-80-Eighty.ogg-f7caa848201feedad7e8fa081e31294b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

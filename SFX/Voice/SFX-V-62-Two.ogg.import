@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-62-Two.ogg-86548a6622595c3bef9d66e22e05b471.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-62-Two.ogg"
+dest_files=[ "res://.import/SFX-V-62-Two.ogg-86548a6622595c3bef9d66e22e05b471.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

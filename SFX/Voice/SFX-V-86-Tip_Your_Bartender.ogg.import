@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SFX-V-86-Tip_Your_Bartender.ogg-67834fb4b4cdf35a74fc94a8136eb869.oggstr"
+
+[deps]
+
+source_file="res://SFX/Voice/SFX-V-86-Tip_Your_Bartender.ogg"
+dest_files=[ "res://.import/SFX-V-86-Tip_Your_Bartender.ogg-67834fb4b4cdf35a74fc94a8136eb869.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
