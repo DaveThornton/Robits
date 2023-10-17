@@ -2,6 +2,7 @@ extends Node2D
 
 var playing = false
 var voice_que = []
+var is_spelling = false
 
 func play(voice_num:int):
 	if playing:
@@ -15,7 +16,7 @@ func play(voice_num:int):
 			self.get_child(0).play()
 
 func add_to_que(voice_num:int):
-	if !voice_que.has(voice_num):
+	if !voice_que.has(voice_num) || is_spelling:
 		voice_que.append(voice_num)
 		
 
@@ -26,12 +27,14 @@ func voice_finished():
 
 func spell(word:String):
 	var l = word.length()
+	is_spelling = true
 	for p in l:
 		print(word.substr(p,1))
 		play(letter_number_look_up(word.substr(p,1)))
+	is_spelling = false
 
 func letter_number_look_up(letter:String):
-	letter = letter.capitalize()
+	letter = letter.to_upper()
 	match letter:
 		"A": return 30
 		"B": return 31
