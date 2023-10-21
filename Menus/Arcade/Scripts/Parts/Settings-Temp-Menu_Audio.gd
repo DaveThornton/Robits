@@ -12,15 +12,19 @@ onready var sfx_label = $VBoxContainer/HBoxContainer3/Label_Sfx
 onready var sfx_count = $VBoxContainer/HBoxContainer3/Label_Sfx_count
 onready var sfx_slider = $VBoxContainer/HBoxContainer3/HSlider_Sfx 
 
+onready var voice_num_label = $VBoxContainer/HBoxContainer4/Voice_Number_Label
+
 onready var row_01 = $VBoxContainer/HBoxContainer
 onready var row_02 = $VBoxContainer/HBoxContainer2
 onready var row_03 = $VBoxContainer/HBoxContainer3
+onready var row_04 = $VBoxContainer/HBoxContainer4
 
 export var selected_color = Color8(255,255,255,255)
 
 var menu_pos = 0
 var white = Color8(255,255,255,255)
 var parent_menu
+var voice_num = 0
 
 func _ready():
 	master_slider.value = SFX.get_master_vol()
@@ -37,7 +41,7 @@ func up():
 		menu_update()
 
 func down():
-	if menu_pos >= 3:
+	if menu_pos >= 4:
 		SFX.menu(3)
 	else:
 		menu_pos += 1
@@ -59,6 +63,8 @@ func left():
 			sfx_slider.value -= .5
 		else:
 			SFX.menu(3)
+	elif menu_pos == 4:
+		SFX.voice(voice_num)
 	else:
 		print_debug("error in settings temp menu vs wrong menu pos left")
 
@@ -78,6 +84,13 @@ func right():
 			sfx_slider.value += 1
 		else:
 			SFX.menu(3)
+	elif menu_pos == 4:
+		if voice_num < 100:
+			voice_num += 1
+			voice_num_label.text = str(voice_num)
+		else:
+			voice_num =0
+			voice_num_label.text = str(voice_num)
 	else:
 		print_debug("error in settings temp menu vs wrong menu pos right")
 
@@ -98,6 +111,8 @@ func menu_update():
 		row_02.modulate = selected_color
 	elif menu_pos == 3:
 		row_03.modulate = selected_color
+	elif menu_pos == 4:
+		row_04.modulate = selected_color
 	else:
 		print_debug("error in settings temp menu vs wrong menu pos menu update")
 
@@ -105,7 +120,7 @@ func white_out():
 	row_01.modulate = white
 	row_02.modulate = white
 	row_03.modulate = white
-
+	row_04.modulate = white
 
 func add_master_slider(_amount):
 	master_slider.value += _amount

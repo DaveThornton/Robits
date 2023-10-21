@@ -60,11 +60,9 @@ func shell():
 
 func explosion(_num): explosions.get_child(_num).get_child(exp_num).play() #1: Pawn  2: Convetional  3: Energy
 	
-func reload(_num):
-	reloads.reload(_num)
+func reload(_num): reloads.reload(_num)
 
-func empty(_num):
-	click_out.empty(_num)
+func empty(_num): click_out.empty(_num)
 #-------------------------------------------Power Ups----------------
 
 func coin(): powerups.get_node("Coin").play()

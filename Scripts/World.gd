@@ -23,6 +23,12 @@ func draw_line(value):
 	line.points = value
 
 func _ready():
+	SFX.voice(11)
+	SFX.voice(8)
+	SFX.spell("DAVE")
+	SFX.voice(8) 
+	SFX.number(6127)
+	SFX.voice(14)
 	init()
 
 func init():
