@@ -1,2 +1,2 @@
 
-Copyright (C) 2019 - 2023
+Copyright (C) 2019 - 2026
