@@ -3,11 +3,11 @@
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Menus/Arcade/M01-Arcade-Start.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Maps/Campaign_32/01_Saw_Mill/Map_01_Campaign_Saw_Mill_Start.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/Background/Back_02_Space_Low_Tile.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Backgrounds/Back_03_Space.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sprites/Misc/Black_Side_Pannel.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Misc/Black_Side_Pannel.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Backgrounds/Back_02_Space.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Backgrounds/Back_03_Space.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Background/Back_02_Space_Low_Tile.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Map_Parts/MP-02-Kill_Zone.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node"]
 pause_mode = 1
@@ -20,15 +20,15 @@ max_players_in_demo = 1
 position = Vector2( 951, 552 )
 scale = Vector2( 6, 1.2 )
 z_index = -999
-texture = ExtResource( 8 )
+texture = ExtResource( 4 )
 
-[node name="Background" parent="." instance=ExtResource( 6 )]
+[node name="Background" parent="." instance=ExtResource( 5 )]
 visible = false
 position = Vector2( -6.10352e-05, -4.57764e-05 )
 z_index = -40
 going_right = false
 
-[node name="Background2" parent="." instance=ExtResource( 7 )]
+[node name="Background2" parent="." instance=ExtResource( 6 )]
 visible = false
 z_index = -40
 
@@ -38,7 +38,7 @@ visible = false
 position = Vector2( 32, 400 )
 scale = Vector2( 1.2, 1.35 )
 z_index = -40
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 pause_mode = 1
@@ -46,7 +46,7 @@ visible = false
 position = Vector2( 1568, 400 )
 scale = Vector2( 1.2, 1.35 )
 z_index = -40
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 
 [node name="players" type="Node2D" parent="."]
 
@@ -65,7 +65,7 @@ texture_mode = -1102592574
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[node name="Kill_Zone" parent="." instance=ExtResource( 5 )]
+[node name="Kill_Zone" parent="." instance=ExtResource( 8 )]
 position = Vector2( 4459, 2791 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
